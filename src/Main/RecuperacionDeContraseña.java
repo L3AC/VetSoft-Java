@@ -26,6 +26,7 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         transparente();
+        String corridoTumbado;
     }
 
     /**
