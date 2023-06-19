@@ -35,9 +35,10 @@
               <Component id="BtnRegresar" min="-2" pref="29" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="2" attributes="0">
+                  <Component id="btnUsuario" alignment="2" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnPreguntas" alignment="2" min="-2" max="-2" attributes="0"/>
                   <Component id="LBRecup" alignment="2" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" alignment="2" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnUsuario" alignment="2" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="119" max="32767" attributes="0"/>
           </Group>
@@ -56,7 +57,9 @@
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
               <Component id="btnUsuario" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="163" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <Component id="btnPreguntas" min="-2" pref="48" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="49" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -106,6 +109,19 @@
           <Image iconType="3" name="/Imagenes/Usuario.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUsuarioActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnPreguntas">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Imagenes/button_preguntas-de-confianza.png"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPreguntasActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

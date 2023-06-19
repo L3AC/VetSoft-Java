@@ -44,6 +44,7 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
         LBRecup = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         btnUsuario = new javax.swing.JButton();
+        btnPreguntas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -70,6 +71,18 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
         jLabel1.setText("Escoga el metodo de recuperación de Contraseña");
 
         btnUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Usuario.png"))); // NOI18N
+        btnUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUsuarioActionPerformed(evt);
+            }
+        });
+
+        btnPreguntas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/button_preguntas-de-confianza.png"))); // NOI18N
+        btnPreguntas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPreguntasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -83,9 +96,10 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
                 .addComponent(BtnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(89, 89, 89)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(btnUsuario)
+                    .addComponent(btnPreguntas)
                     .addComponent(LBRecup)
-                    .addComponent(jLabel1)
-                    .addComponent(btnUsuario))
+                    .addComponent(jLabel1))
                 .addContainerGap(119, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -100,7 +114,9 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(48, 48, 48)
                 .addComponent(btnUsuario)
-                .addGap(0, 163, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(btnPreguntas, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 49, Short.MAX_VALUE))
         );
 
         pack();
@@ -115,6 +131,10 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
         btnUsuario.setOpaque(false);
         btnUsuario.setContentAreaFilled(false);
         btnUsuario.setBorderPainted(false);
+        
+        btnPreguntas.setOpaque(false);
+        btnPreguntas.setContentAreaFilled(false);
+        btnPreguntas.setBorderPainted(false);
     }
     
     private void BtnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegresarActionPerformed
@@ -128,6 +148,22 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
         
         newFrame.setVisible(true);
     }//GEN-LAST:event_BtnRegresarMouseClicked
+
+    private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioActionPerformed
+        // TODO add your handling code here:
+        
+         PorUsuario newFrame = new PorUsuario();
+        
+        newFrame.setVisible(true);
+    }//GEN-LAST:event_btnUsuarioActionPerformed
+
+    private void btnPreguntasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreguntasActionPerformed
+        // TODO add your handling code here:
+        
+         PreguntasDeConfianza newFrame = new PreguntasDeConfianza();
+        
+        newFrame.setVisible(true);
+    }//GEN-LAST:event_btnPreguntasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,6 +204,7 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnRegresar;
     private javax.swing.JLabel LBRecup;
+    private javax.swing.JButton btnPreguntas;
     private javax.swing.JButton btnUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
