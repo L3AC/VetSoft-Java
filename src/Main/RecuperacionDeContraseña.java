@@ -22,6 +22,7 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
     /**
      * Creates new form RecuperacionDeContraseña
      */
+    
     public RecuperacionDeContraseña() {
         initComponents();
         this.setLocationRelativeTo(null);
