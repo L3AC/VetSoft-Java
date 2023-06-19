@@ -4,6 +4,7 @@
  */
 package Main;
 
+import java.awt.Color;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -11,6 +12,9 @@ import java.awt.Font;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JButton;
+import java.awt.Font;
+import java.awt.GraphicsEnvironment;
+import java.util.Arrays;
 
 
 /**
@@ -28,6 +32,10 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         transparente();
         String corridoTumbados;
+        this.getContentPane().setBackground(Color.WHITE);
+        
+        jLabel1.setFont(new Font("Comfortaa", Font.PLAIN, 20));
+        LBRecup.setFont(new Font("Comfortaa", Font.PLAIN, 20));
     }
 
     /**
@@ -48,7 +56,9 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -65,10 +75,11 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
         });
 
         LBRecup.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        LBRecup.setForeground(new java.awt.Color(27, 73, 101));
         LBRecup.setText("Recuperación de Contraseña");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setText("Escoga el metodo de recuperación de Contraseña");
+        jLabel1.setText("Escoja el método de recuperación de Contraseña");
 
         btnUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Usuario.png"))); // NOI18N
         btnUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -89,34 +100,35 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(BtnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(89, 89, 89)
+                .addGap(65, 65, 65)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(btnUsuario)
-                    .addComponent(btnPreguntas)
                     .addComponent(LBRecup)
-                    .addComponent(jLabel1))
-                .addContainerGap(119, Short.MAX_VALUE))
+                    .addComponent(jLabel1)
+                    .addComponent(btnUsuario)
+                    .addComponent(btnPreguntas))
+                .addContainerGap(150, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BtnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LBRecup))
-                .addGap(50, 50, 50)
-                .addComponent(jLabel1)
-                .addGap(48, 48, 48)
-                .addComponent(btnUsuario)
-                .addGap(31, 31, 31)
-                .addComponent(btnPreguntas, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 49, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(LBRecup)
+                        .addGap(46, 46, 46)
+                        .addComponent(jLabel1)
+                        .addGap(52, 52, 52)
+                        .addComponent(btnUsuario)
+                        .addGap(31, 31, 31)
+                        .addComponent(btnPreguntas, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 43, Short.MAX_VALUE))
         );
 
         pack();
