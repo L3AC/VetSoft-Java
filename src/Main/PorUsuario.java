@@ -51,6 +51,11 @@ public class PorUsuario extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         BtnRegresar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
+        BtnRegresar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnRegresar1ActionPerformed(evt);
+            }
+        });
 
         lbMayor.setText("Recuperación de contraseña por usuario");
 
@@ -115,6 +120,14 @@ public class PorUsuario extends javax.swing.JFrame {
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void BtnRegresar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegresar1ActionPerformed
+        // TODO add your handling code here:
+        
+         RecuperacionDeContraseña newFrame = new RecuperacionDeContraseña();
+        
+        newFrame.setVisible(true);
+    }//GEN-LAST:event_BtnRegresar1ActionPerformed
 
     public void transparente(){
     
