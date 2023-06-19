@@ -4,6 +4,12 @@
  */
 package Main;
 
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.border.Border;
+import javax.swing.BorderFactory;
+import javax.swing.border.LineBorder;
+
 /**
  *
  * @author Gerson
@@ -15,6 +21,14 @@ public class PorUsuario extends javax.swing.JFrame {
      */
     public PorUsuario() {
         initComponents();
+        transparente();
+        this.getContentPane().setBackground(Color.WHITE);
+        
+        lbMayor.setFont(new Font("Comfortaa", Font.BOLD, 25));
+        lbUs.setFont(new Font("Montserrat", Font.PLAIN, 20));
+        lbCod.setFont(new Font("Montserrat", Font.PLAIN, 20));
+    
+        
     }
 
     /**
@@ -26,22 +40,93 @@ public class PorUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        BtnRegresar1 = new javax.swing.JButton();
+        lbMayor = new javax.swing.JLabel();
+        lbUs = new javax.swing.JLabel();
+        lbCod = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        btnEnviar = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        BtnRegresar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
+
+        lbMayor.setText("Recuperación de contraseña por usuario");
+
+        lbUs.setText("Ingrese su Usuario");
+
+        lbCod.setText("Ingrese su código de verificación");
+
+        jTextField1.setBackground(new java.awt.Color(190, 233, 232));
+        jTextField1.setBorder(null);
+
+        jTextField2.setBackground(new java.awt.Color(190, 233, 232));
+        jTextField2.setBorder(null);
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+
+        btnEnviar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/button_enviar (2).png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(BtnRegresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(78, 78, 78)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(lbUs)
+                    .addComponent(btnEnviar)
+                    .addComponent(lbCod)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbMayor))
+                .addContainerGap(376, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lbMayor)
+                        .addGap(39, 39, 39)
+                        .addComponent(lbUs))
+                    .addComponent(BtnRegresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addComponent(lbCod)
+                .addGap(35, 35, 35)
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(btnEnviar)
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    public void transparente(){
+    
+        BtnRegresar1.setOpaque(false);
+        BtnRegresar1.setContentAreaFilled(false);
+        BtnRegresar1.setBorderPainted(false);
+        btnEnviar.setOpaque(false);
+        btnEnviar.setContentAreaFilled(false);
+        btnEnviar.setBorderPainted(false);
+        
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -78,5 +163,12 @@ public class PorUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnRegresar1;
+    private javax.swing.JButton btnEnviar;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JLabel lbCod;
+    private javax.swing.JLabel lbMayor;
+    private javax.swing.JLabel lbUs;
     // End of variables declaration//GEN-END:variables
 }
