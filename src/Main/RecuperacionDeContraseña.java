@@ -42,6 +42,7 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
         LBRecup = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         lbUsuario = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -69,6 +70,8 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
 
         lbUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Usuario.png"))); // NOI18N
 
+        jLabel2.setText("Pedo");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -85,6 +88,10 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(lbUsuario))
                 .addContainerGap(119, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(289, 289, 289))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,7 +105,9 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(50, 50, 50)
                 .addComponent(lbUsuario)
-                .addGap(0, 167, Short.MAX_VALUE))
+                .addGap(57, 57, 57)
+                .addComponent(jLabel2)
+                .addGap(0, 94, Short.MAX_VALUE))
         );
 
         pack();
@@ -163,6 +172,7 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
     private javax.swing.JButton BtnRegresar;
     private javax.swing.JLabel LBRecup;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbUsuario;
     // End of variables declaration//GEN-END:variables
