@@ -2,20 +2,36 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Main;
 
+package Main;
+import static java.lang.Integer.parseInt;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.border.Border;
 import javax.swing.BorderFactory;
 import javax.swing.border.LineBorder;
-
+import java.sql.Connection; // Para establecer la conexión con la base de datos
+import java.sql.DriverManager; // Para manejar el controlador de la base de datos
+import java.sql.PreparedStatement; // Para ejecutar consultas preparadas
+import java.sql.ResultSet; // Para obtener los resultados de las consultas
+import java.sql.SQLException; // Para manejar las excepciones de SQL
+import java.util.Properties; // Para configurar las propiedades del correo electrónico
+import java.util.Random; // Para generar el código de verificación
+import Connection.Conx;
+import javax.mail.*; // Para enviar el correo electrónico
+import javax.mail.internet.*; // Para trabajar con objetos relacionados con el correo electrónico
+import javax.swing.JOptionPane;
 /**
  *
  * @author Gerson
  */
 public class PorUsuario extends javax.swing.JFrame {
 
+    
+    Conx con = new Conx();
+    Connection acceso;
+    String mail;
+    String codigo;
     /**
      * Creates new form PorUsuario
      */
@@ -44,9 +60,10 @@ public class PorUsuario extends javax.swing.JFrame {
         lbMayor = new javax.swing.JLabel();
         lbUs = new javax.swing.JLabel();
         lbCod = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        txtUser = new javax.swing.JTextField();
+        txtCod = new javax.swing.JTextField();
         btnEnviar = new javax.swing.JButton();
+        btnVeri = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,35 +80,50 @@ public class PorUsuario extends javax.swing.JFrame {
 
         lbCod.setText("Ingrese su código de verificación");
 
-        jTextField1.setBackground(new java.awt.Color(190, 233, 232));
-        jTextField1.setBorder(null);
+        txtUser.setBackground(new java.awt.Color(190, 233, 232));
+        txtUser.setBorder(null);
 
-        jTextField2.setBackground(new java.awt.Color(190, 233, 232));
-        jTextField2.setBorder(null);
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtCod.setBackground(new java.awt.Color(190, 233, 232));
+        txtCod.setBorder(null);
+        txtCod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txtCodActionPerformed(evt);
             }
         });
 
         btnEnviar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/button_enviar (2).png"))); // NOI18N
+        btnEnviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnviarActionPerformed(evt);
+            }
+        });
+
+        btnVeri.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/button_verificar.png"))); // NOI18N
+        btnVeri.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVeriActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BtnRegresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(78, 78, 78)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(lbUs)
-                    .addComponent(btnEnviar)
                     .addComponent(lbCod)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCod, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnVeri)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnEnviar))
                     .addComponent(lbMayor))
-                .addContainerGap(376, Short.MAX_VALUE))
+                .addContainerGap(286, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,22 +136,24 @@ public class PorUsuario extends javax.swing.JFrame {
                         .addComponent(lbUs))
                     .addComponent(BtnRegresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43)
                 .addComponent(lbCod)
                 .addGap(35, 35, 35)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtCod, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addComponent(btnEnviar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(btnEnviar)
+                    .addComponent(btnVeri))
                 .addContainerGap(53, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txtCodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txtCodActionPerformed
 
     private void BtnRegresar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegresar1ActionPerformed
         // TODO add your handling code here:
@@ -129,6 +163,31 @@ public class PorUsuario extends javax.swing.JFrame {
         newFrame.setVisible(true);
     }//GEN-LAST:event_BtnRegresar1ActionPerformed
 
+    private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
+        // TODO add your handling code here:
+        
+        
+        if (txtUser.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Campos vacios");
+        } else {
+            Encontrar();
+        }
+    }//GEN-LAST:event_btnEnviarActionPerformed
+
+    private void btnVeriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVeriActionPerformed
+        // TODO add your handling code here:
+        
+        if (txtUser.getText().isEmpty() || txtCod.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Campos vacios");
+        } else {
+            EncCod(txtUser.getText());
+        }
+        
+        RecuperacionDeContraseña newFrame = new RecuperacionDeContraseña();
+        
+        newFrame.setVisible(true);
+    }//GEN-LAST:event_btnVeriActionPerformed
+
     public void transparente(){
     
         BtnRegresar1.setOpaque(false);
@@ -137,6 +196,154 @@ public class PorUsuario extends javax.swing.JFrame {
         btnEnviar.setOpaque(false);
         btnEnviar.setContentAreaFilled(false);
         btnEnviar.setBorderPainted(false);
+        btnVeri.setOpaque(false);
+        btnVeri.setContentAreaFilled(false);
+        btnVeri.setBorderPainted(false);
+        
+    }
+    
+   public void EncCod(String user) {
+        String cadena = "select * from tbUsuarios where usuario=? COLLATE SQL_Latin1_General_CP1_CS_AS;";
+
+        PreparedStatement ps;
+        ResultSet st;
+
+        try {
+            acceso = con.Conectar();
+            ps = acceso.prepareStatement(cadena, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ps.setString(1, user);
+            st = ps.executeQuery();
+            st.last();
+            int found = st.getRow();
+            if (found == 1) {
+                String cod = st.getString("codigoVerif");
+                if (cod.equals(txtCod.getText())) {
+                    txtUser.setEnabled(true);
+                    txtCod.setEnabled(true);
+                    btnEnviar.setEnabled(true);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Codigo incorrecto");
+                    txtCod.setEnabled(false);
+                    txtUser.setEnabled(false);
+                    btnEnviar.setEnabled(false);
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuario no existente");
+
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+            //System.out.println(e.toString());
+        }
+   }
+   
+   //ENVIAR MAIL
+    public void Em(String txt, String clave) {
+        try {
+            Properties props = new Properties();
+            props.put("mail.smtp.host", "smtp.gmail.com");
+            props.put("mail.smtp.auth", "true");
+            props.put("mail.smtp.port", "465");
+            props.put("mail.smtp.socketFactory.port", "465");
+            props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+            props.put("mail.smtp.ssl.protocols", "TLSv1.2");
+
+            Session ses = Session.getDefaultInstance(props);
+
+            String cRem = "vetsoftsoporte@gmail.com";
+            String pRem = "jtsteydqiifilcpi";
+            String cRec = txt;
+            String asunto = "Recuperacion de clave";
+            String mensaje = "Codigo de verificacion " + clave;
+
+            MimeMessage msg = new MimeMessage(ses);
+            msg.setFrom(new InternetAddress(cRem));
+
+            msg.addRecipient(Message.RecipientType.TO,
+                    new InternetAddress(cRec));
+            msg.setSubject(asunto);
+            msg.setText(mensaje);
+
+            Transport t = ses.getTransport("smtp");
+
+            t.connect(cRem, pRem);//correo y contraseña
+            t.sendMessage(msg, msg.getRecipients(Message.RecipientType.TO));
+            t.close();
+
+            JOptionPane.showMessageDialog(null, "Mensaje enviado");
+        } catch (AddressException e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+            System.out.println(e.toString());
+        } catch (MessagingException e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+            System.out.println(e.toString());
+        }
+    }
+    
+    public void Encontrar(){
+    
+        String cadena = "select * from tbUsuarios where usuario=? COLLATE SQL_Latin1_General_CP1_CS_AS;";
+        
+        PreparedStatement ps;
+        ResultSet st;
+        
+        try{
+            acceso = con.Conectar();
+            ps = acceso.prepareStatement(cadena, ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+            ps.setString(1, txtUser.getText());
+            st = ps.executeQuery();
+            st.last();
+            int found = st.getRow();
+            if (found == 1) {
+            mail = st.getString("correo");
+            codigo = GenerC(8);
+            InsertC(codigo);
+            Em(mail, codigo);
+            txtCod.setEnabled(true);
+            btnEnviar.setEnabled(true);
+            } else{
+                JOptionPane.showMessageDialog(null, "Usuario no Encontrado");
+                txtCod.setEnabled(false);
+                btnEnviar.setEnabled(false);
+                
+            }
+        } catch (SQLException e){
+          JOptionPane.showMessageDialog(null, e.toString());
+        }   
+    }
+    
+    public void InsertC(String code){
+     String cadena = "update tbUsuarios set codigoVerif=? "
+                + "where usuario=? COLLATE SQL_Latin1_General_CP1_CS_AS;";
+     
+     PreparedStatement ps;
+     try{
+     acceso = con.Conectar();
+     ps = acceso.prepareStatement(cadena);
+     ps.setString(1, code);
+     ps.setString(2, txtUser.getText());
+     ps.executeUpdate();
+     JOptionPane.showMessageDialog(null, "Codigo creado");
+     }catch (SQLException e){
+     JOptionPane.showMessageDialog(null, e.toString());
+     }
+    }
+    
+    public String GenerC(int longi){
+    String num = "0123456789";
+        String lmin = "abcdefghijklmnopqrstuvwxyz";
+        String lmay = lmin.toUpperCase();
+        
+        String caract = lmay + num;
+        Random cod = new Random();
+        String result = "";
+        for (int i = 0; i < longi; i++) {
+            int posic = cod.nextInt(caract.length());
+            char caracter = caract.charAt(posic);
+            result += caracter;
+        }
+        return result;
         
     }
     
@@ -166,7 +373,6 @@ public class PorUsuario extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(PorUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -178,10 +384,12 @@ public class PorUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnRegresar1;
     private javax.swing.JButton btnEnviar;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JButton btnVeri;
     private javax.swing.JLabel lbCod;
     private javax.swing.JLabel lbMayor;
     private javax.swing.JLabel lbUs;
+    private javax.swing.JTextField txtCod;
+    private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 }
+
