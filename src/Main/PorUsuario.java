@@ -84,7 +84,7 @@ public class PorUsuario extends javax.swing.JFrame {
         txtUser.setBorder(null);
 
         txtCod.setBackground(new java.awt.Color(190, 233, 232));
-        txtCod.setBorder(null);
+        txtCod.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtCod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCodActionPerformed(evt);
@@ -123,7 +123,7 @@ public class PorUsuario extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnEnviar))
                     .addComponent(lbMayor))
-                .addContainerGap(286, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,9 +143,9 @@ public class PorUsuario extends javax.swing.JFrame {
                 .addComponent(txtCod, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(btnEnviar)
+                    .addComponent(btnEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnVeri))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         pack();

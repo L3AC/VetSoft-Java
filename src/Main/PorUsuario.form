@@ -39,7 +39,7 @@
                   </Group>
                   <Component id="lbMayor" alignment="2" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="286" max="32767" attributes="0"/>
+              <EmptySpace pref="93" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -63,10 +63,10 @@
               <Component id="txtCod" min="-2" pref="32" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="2" attributes="0">
-                  <Component id="btnEnviar" alignment="2" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnEnviar" alignment="2" min="-2" pref="44" max="-2" attributes="0"/>
                   <Component id="btnVeri" alignment="2" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="53" max="32767" attributes="0"/>
+              <EmptySpace pref="55" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -113,7 +113,9 @@
           <Color blue="e8" green="e9" red="be" type="rgb"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="null"/>
+          <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+            <EmptyBorder/>
+          </Border>
         </Property>
       </Properties>
       <Events>
