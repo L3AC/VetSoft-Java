@@ -32,7 +32,7 @@ public class PorUsuario extends javax.swing.JFrame {
     Connection acceso;
     String mail;
     String codigo;
-    String Prueba;
+    String hola;
     /**
      * Creates new form PorUsuario
      */
