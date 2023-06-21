@@ -58,9 +58,7 @@ public class RecuperacionDeContraseñaPorUsuarioConfirmacion extends javax.swing
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabel1.setText("Ingrese su Usuario");
         panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, -1));
-
-        textfield2.setText("textfield2");
-        panelRound1.add(textfield2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 240, -1));
+        panelRound1.add(textfield2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 240, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
