@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package archivos;
+package Main;
 
 /**
  *
  * @author User
  */
-public class VentanaCitas extends javax.swing.JPanel {
+public class Datos extends javax.swing.JPanel {
 
     /**
-     * Creates new form VentanaCitas
+     * Creates new form Datos
      */
-    public VentanaCitas() {
+    public Datos() {
         initComponents();
     }
 
@@ -30,11 +30,11 @@ public class VentanaCitas extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 486, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 382, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

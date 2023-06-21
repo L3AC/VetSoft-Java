@@ -32,7 +32,7 @@ public class PorUsuario extends javax.swing.JFrame {
     Connection acceso;
     String mail;
     String codigo;
-    String hola;
+    
     /**
      * Creates new form PorUsuario
      */
@@ -40,12 +40,14 @@ public class PorUsuario extends javax.swing.JFrame {
         initComponents();
         transparente();
         this.getContentPane().setBackground(Color.WHITE);
+        this.setLocationRelativeTo(this);
+        txtCod.setEnabled(false);
+        btnVeri.setEnabled(false);
+        txtNueva.setEnabled(false);
+        txtNueva2.setEnabled(false);
+        btnCambiar.setEnabled(false);
         
-        lbMayor.setFont(new Font("Comfortaa", Font.BOLD, 22));
-        lbUs.setFont(new Font("Montserrat", Font.PLAIN, 20));
-        lbCod.setFont(new Font("Montserrat", Font.PLAIN, 20));
-    
-        
+           
     }
 
     /**
@@ -59,12 +61,18 @@ public class PorUsuario extends javax.swing.JFrame {
 
         BtnRegresar1 = new javax.swing.JButton();
         lbMayor = new javax.swing.JLabel();
-        lbUs = new javax.swing.JLabel();
+        panelRound1 = new Main.PanelRound();
         lbCod = new javax.swing.JLabel();
-        txtUser = new javax.swing.JTextField();
-        txtCod = new javax.swing.JTextField();
-        btnEnviar = new javax.swing.JButton();
-        btnVeri = new javax.swing.JButton();
+        btnVeri = new Main.ButtonGradient();
+        lbUs1 = new javax.swing.JLabel();
+        lbUs2 = new javax.swing.JLabel();
+        txtUser = new Main.Textfield();
+        lbCod1 = new javax.swing.JLabel();
+        txtCod = new Main.Textfield();
+        btnEnviar = new Main.ButtonGradient();
+        txtNueva2 = new Main.Textfield();
+        btnCambiar = new Main.ButtonGradient();
+        txtNueva = new Main.Textfield();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,88 +83,108 @@ public class PorUsuario extends javax.swing.JFrame {
             }
         });
 
+        lbMayor.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         lbMayor.setText("Recuperación de contraseña por usuario");
 
-        lbUs.setText("Ingrese su Usuario");
+        panelRound1.setBackground(new java.awt.Color(190, 233, 232));
+        panelRound1.setRoundBottomLeft(50);
+        panelRound1.setRoundBottomRight(50);
+        panelRound1.setRoundTopLeft(50);
+        panelRound1.setRoundTopRight(50);
+        panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lbCod.setText("Ingrese su código de verificación");
+        lbCod.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        lbCod.setForeground(new java.awt.Color(0, 0, 0));
+        lbCod.setText("Confirmar Contraseña");
+        panelRound1.add(lbCod, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 140, -1, 30));
 
-        txtUser.setBackground(new java.awt.Color(190, 233, 232));
-        txtUser.setBorder(null);
-
-        txtCod.setBackground(new java.awt.Color(190, 233, 232));
-        txtCod.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtCod.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCodActionPerformed(evt);
-            }
-        });
-
-        btnEnviar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/button_enviar (2).png"))); // NOI18N
-        btnEnviar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEnviarActionPerformed(evt);
-            }
-        });
-
-        btnVeri.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/button_verificar.png"))); // NOI18N
+        btnVeri.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnVeri.setText("Verificar");
+        btnVeri.setColor1(new java.awt.Color(255, 255, 255));
+        btnVeri.setColor2(new java.awt.Color(204, 255, 255));
         btnVeri.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVeriActionPerformed(evt);
             }
         });
+        panelRound1.add(btnVeri, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 110, 30));
+
+        lbUs1.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        lbUs1.setForeground(new java.awt.Color(0, 0, 0));
+        lbUs1.setText("Ingrese su nueva Contraseña");
+        panelRound1.add(lbUs1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, -1, 30));
+
+        lbUs2.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        lbUs2.setForeground(new java.awt.Color(0, 0, 0));
+        lbUs2.setText("Ingrese su Usuario");
+        panelRound1.add(lbUs2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, 30));
+        panelRound1.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 160, -1));
+
+        lbCod1.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        lbCod1.setForeground(new java.awt.Color(0, 0, 0));
+        lbCod1.setText("Ingrese su código de verificación");
+        panelRound1.add(lbCod1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, 30));
+
+        txtCod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodActionPerformed(evt);
+            }
+        });
+        panelRound1.add(txtCod, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 160, -1));
+
+        btnEnviar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnEnviar.setText("Enviar Correo");
+        btnEnviar.setColor1(new java.awt.Color(255, 255, 255));
+        btnEnviar.setColor2(new java.awt.Color(204, 255, 255));
+        btnEnviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnviarActionPerformed(evt);
+            }
+        });
+        panelRound1.add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 110, 30));
+        panelRound1.add(txtNueva2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 190, 170, 40));
+
+        btnCambiar.setText("Cambiar Contraseña");
+        btnCambiar.setColor1(new java.awt.Color(255, 255, 255));
+        btnCambiar.setColor2(new java.awt.Color(204, 255, 255));
+        btnCambiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCambiarActionPerformed(evt);
+            }
+        });
+        panelRound1.add(btnCambiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 260, 170, 40));
+        panelRound1.add(txtNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 70, 180, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(BtnRegresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(lbMayor)
-                    .addComponent(lbUs)
-                    .addComponent(lbCod)
-                    .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCod, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnVeri)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnEnviar)))
-                .addGap(151, 151, 151))
+                    .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 734, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
+                        .addGap(19, 19, 19)
                         .addComponent(BtnRegresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
+                        .addGap(28, 28, 28)
                         .addComponent(lbMayor)
-                        .addGap(39, 39, 39)
-                        .addComponent(lbUs)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addComponent(lbCod)
-                .addGap(35, 35, 35)
-                .addComponent(txtCod, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(btnEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnVeri))
-                .addGap(41, 41, 41))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtCodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodActionPerformed
 
     private void BtnRegresar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegresar1ActionPerformed
         // TODO add your handling code here:
@@ -166,43 +194,73 @@ public class PorUsuario extends javax.swing.JFrame {
         newFrame.setVisible(true);
     }//GEN-LAST:event_BtnRegresar1ActionPerformed
 
-    private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-        // TODO add your handling code here:
-        
-        
-        if (txtUser.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Campos vacios");
-        } else {
-            Encontrar();
-        }
-    }//GEN-LAST:event_btnEnviarActionPerformed
-
     private void btnVeriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVeriActionPerformed
         // TODO add your handling code here:
-        
         if (txtUser.getText().isEmpty() || txtCod.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Campos vacios");
         } else {
             EncCod(txtUser.getText());
         }
         
-        RecuperacionDeContraseña newFrame = new RecuperacionDeContraseña();
+    }//GEN-LAST:event_btnVeriActionPerformed
+
+    private void txtCodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodActionPerformed
+
+    private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
+        // TODO add your handling code here:
+       if (txtUser.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Campos vacios");
+        } else {
+            Encontrar();
+        }
+    }//GEN-LAST:event_btnEnviarActionPerformed
+
+    private void btnCambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarActionPerformed
+        // TODO add your handling code here:
+        
+        if (txtUser.getText().isEmpty() || txtCod.getText().isEmpty()
+                || txtNueva.getText().isEmpty() || txtNueva2.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Campos vacios");
+        } else {
+            if (txtNueva.getText().equals(txtNueva2.getText())) {
+                act();
+            }
+            else{
+            JOptionPane.showMessageDialog(null, "Contraseña no es identica");
+            }
+        }
+        Login newFrame = new Login();
         
         newFrame.setVisible(true);
-    }//GEN-LAST:event_btnVeriActionPerformed
+    }//GEN-LAST:event_btnCambiarActionPerformed
 
     public void transparente(){
     
         BtnRegresar1.setOpaque(false);
         BtnRegresar1.setContentAreaFilled(false);
         BtnRegresar1.setBorderPainted(false);
-        btnEnviar.setOpaque(false);
-        btnEnviar.setContentAreaFilled(false);
-        btnEnviar.setBorderPainted(false);
-        btnVeri.setOpaque(false);
-        btnVeri.setContentAreaFilled(false);
-        btnVeri.setBorderPainted(false);
         
+    }
+    
+    public void act(){
+    String cadena = "update tbUsuarios set contraseña=? "
+                + "where usuario=? COLLATE SQL_Latin1_General_CP1_CS_AS;";
+    PreparedStatement ps;
+    
+    try {
+
+            acceso = con.Conectar();
+            ps = acceso.prepareStatement(cadena);
+            ps.setString(1, txtNueva.getText());
+            ps.setString(2, txtUser.getText());
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Clave actualizada");
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+        }
     }
     
    public void EncCod(String user) {
@@ -221,14 +279,15 @@ public class PorUsuario extends javax.swing.JFrame {
             if (found == 1) {
                 String cod = st.getString("codigoVerif");
                 if (cod.equals(txtCod.getText())) {
-                    txtUser.setEnabled(true);
-                    txtCod.setEnabled(true);
-                    btnEnviar.setEnabled(true);
+                    JOptionPane.showMessageDialog(null, "Codigo Correcto");
+                    txtNueva.setEnabled(true);
+                    txtNueva2.setEnabled(true);
+                    btnCambiar.setEnabled(true);
                 } else {
                     JOptionPane.showMessageDialog(null, "Codigo incorrecto");
-                    txtCod.setEnabled(false);
-                    txtUser.setEnabled(false);
-                    btnEnviar.setEnabled(false);
+                    txtNueva.setEnabled(false);
+                    txtNueva2.setEnabled(false);
+                    btnCambiar.setEnabled(false);
                 }
 
             } else {
@@ -304,11 +363,11 @@ public class PorUsuario extends javax.swing.JFrame {
             InsertC(codigo);
             Em(mail, codigo);
             txtCod.setEnabled(true);
-            btnEnviar.setEnabled(true);
+            btnVeri.setEnabled(true);
             } else{
                 JOptionPane.showMessageDialog(null, "Usuario no Encontrado");
                 txtCod.setEnabled(false);
-                btnEnviar.setEnabled(false);
+                btnVeri.setEnabled(false);
                 
             }
         } catch (SQLException e){
@@ -386,13 +445,19 @@ public class PorUsuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnRegresar1;
-    private javax.swing.JButton btnEnviar;
-    private javax.swing.JButton btnVeri;
+    private Main.ButtonGradient btnCambiar;
+    private Main.ButtonGradient btnEnviar;
+    private Main.ButtonGradient btnVeri;
     private javax.swing.JLabel lbCod;
+    private javax.swing.JLabel lbCod1;
     private javax.swing.JLabel lbMayor;
-    private javax.swing.JLabel lbUs;
-    private javax.swing.JTextField txtCod;
-    private javax.swing.JTextField txtUser;
+    private javax.swing.JLabel lbUs1;
+    private javax.swing.JLabel lbUs2;
+    private Main.PanelRound panelRound1;
+    private Main.Textfield txtCod;
+    private Main.Textfield txtNueva;
+    private Main.Textfield txtNueva2;
+    private Main.Textfield txtUser;
     // End of variables declaration//GEN-END:variables
 }
 

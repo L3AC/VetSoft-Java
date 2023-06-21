@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package archivos;
+package Main;
 
 /**
  *
  * @author User
  */
-public class VentanaProductos extends javax.swing.JPanel {
+public class VentanaMantenimiento extends javax.swing.JPanel {
 
     /**
-     * Creates new form VentanaProductos
+     * Creates new form VentanaMantenimiento
      */
-    public VentanaProductos() {
+    public VentanaMantenimiento() {
         initComponents();
     }
 
