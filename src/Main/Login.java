@@ -3,28 +3,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Main;
-import Tipografias.Fuentes;
+
 /**
  *
- * @author godna
+ * @author Gerson
  */
 public class Login extends javax.swing.JFrame {
 
     /**
      * Creates new form Login
      */
-    Fuentes tipoFuente;
-    
-    
     public Login() {
         initComponents();
-        this.setSize(800,600);
-        tipoFuente = new Fuentes();
-        
-        
-        Titulo.setFont(tipoFuente.fuente(tipoFuente.COM,0, 30));
-        VetSoft.setFont(tipoFuente.fuente(tipoFuente.COM, 1,12));
-        
     }
 
     /**
@@ -36,46 +26,98 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        panelRound1 = new Main.PanelRound();
         jLabel1 = new javax.swing.JLabel();
-        VetSoft = new javax.swing.JLabel();
-        Titulo = new javax.swing.JLabel();
-        IMG = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        panelRound2 = new Main.PanelRound();
+        textfield1 = new Main.Textfield();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        textfield2 = new Main.Textfield();
+        jLabel6 = new javax.swing.JLabel();
+        buttonGradient1 = new Main.ButtonGradient();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelRound1.setBackground(new java.awt.Color(255, 255, 255));
+        panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/splashscreen/Assets/LogoVetSoft.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, -1, -1));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LogIn IMG1X.png"))); // NOI18N
+        panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 400));
 
-        VetSoft.setText("VetSoft+");
-        jPanel1.add(VetSoft, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 80, -1, 10));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clinica .png"))); // NOI18N
+        panelRound1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 10, 70, 70));
 
-        Titulo.setForeground(new java.awt.Color(39, 115, 16));
-        Titulo.setText("Bienvenido De Vuelta");
-        jPanel1.add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, -1, -1));
+        panelRound2.setBackground(new java.awt.Color(133, 183, 212));
+        panelRound2.setRoundBottomLeft(50);
+        panelRound2.setRoundBottomRight(50);
+        panelRound2.setRoundTopLeft(50);
+        panelRound2.setRoundTopRight(50);
+        panelRound2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        IMG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LogIn IMG1X.png"))); // NOI18N
+        textfield1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textfield1ActionPerformed(evt);
+            }
+        });
+        panelRound2.add(textfield1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 360, -1));
+
+        jLabel4.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(27, 73, 101));
+        jLabel4.setText("Usuario");
+        panelRound2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(27, 73, 101));
+        jLabel5.setText("Contraseña");
+        panelRound2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, -1, -1));
+        panelRound2.add(textfield2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 370, -1));
+
+        jLabel6.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(27, 73, 101));
+        jLabel6.setText("¿Olvidaste la contraseña?");
+        panelRound2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, -1, -1));
+
+        buttonGradient1.setText("Ingresar");
+        buttonGradient1.setColor1(new java.awt.Color(255, 255, 255));
+        buttonGradient1.setColor2(new java.awt.Color(255, 255, 255));
+        buttonGradient1.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        buttonGradient1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonGradient1ActionPerformed(evt);
+            }
+        });
+        panelRound2.add(buttonGradient1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 140, -1));
+
+        panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 560, 290));
+
+        jLabel3.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(27, 73, 101));
+        jLabel3.setText("Bienvenido de vuelta");
+        panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(IMG, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, 904, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-            .addComponent(IMG, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void textfield1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfield1ActionPerformed
+
+    private void buttonGradient1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGradient1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonGradient1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -113,10 +155,16 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel IMG;
-    private javax.swing.JLabel Titulo;
-    private javax.swing.JLabel VetSoft;
+    private Main.ButtonGradient buttonGradient1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private Main.PanelRound panelRound1;
+    private Main.PanelRound panelRound2;
+    private Main.Textfield textfield1;
+    private Main.Textfield textfield2;
     // End of variables declaration//GEN-END:variables
 }
