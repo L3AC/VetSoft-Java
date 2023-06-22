@@ -63,7 +63,7 @@ public class SplashScreen extends javax.swing.JFrame {
 
         LoadingValue.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         LoadingValue.setText("0%");
-        BackGround.add(LoadingValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 470, 30, -1));
+        BackGround.add(LoadingValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 470, 40, -1));
 
         BackGroundImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/splashscreen/Assets/VetSoft ¡ (900 × 500 px).png"))); // NOI18N
         BackGround.add(BackGroundImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 500));
