@@ -48,7 +48,6 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         clientes = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -58,16 +57,13 @@ public class Dashboard extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
-        jPanel1.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("VetSoft+");
 
         mascotas.setBackground(new java.awt.Color(204, 255, 255));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Mascotas");
 
         javax.swing.GroupLayout mascotasLayout = new javax.swing.GroupLayout(mascotas);
@@ -90,7 +86,6 @@ public class Dashboard extends javax.swing.JFrame {
         citas.setBackground(new java.awt.Color(204, 255, 255));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Citas");
 
         javax.swing.GroupLayout citasLayout = new javax.swing.GroupLayout(citas);
@@ -113,7 +108,6 @@ public class Dashboard extends javax.swing.JFrame {
         productos.setBackground(new java.awt.Color(204, 255, 255));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Productos");
 
         javax.swing.GroupLayout productosLayout = new javax.swing.GroupLayout(productos);
@@ -136,7 +130,6 @@ public class Dashboard extends javax.swing.JFrame {
         reservas.setBackground(new java.awt.Color(204, 255, 255));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Reservas");
 
         javax.swing.GroupLayout reservasLayout = new javax.swing.GroupLayout(reservas);
@@ -159,7 +152,6 @@ public class Dashboard extends javax.swing.JFrame {
         mantenimiento.setBackground(new java.awt.Color(204, 255, 255));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Mantenimiento");
 
         javax.swing.GroupLayout mantenimientoLayout = new javax.swing.GroupLayout(mantenimiento);
@@ -182,7 +174,6 @@ public class Dashboard extends javax.swing.JFrame {
         micuenta.setBackground(new java.awt.Color(204, 255, 255));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Mi cuenta");
 
         javax.swing.GroupLayout micuentaLayout = new javax.swing.GroupLayout(micuenta);
@@ -205,7 +196,6 @@ public class Dashboard extends javax.swing.JFrame {
         clientes.setBackground(new java.awt.Color(204, 255, 255));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Clientes");
 
         javax.swing.GroupLayout clientesLayout = new javax.swing.GroupLayout(clientes);
@@ -225,8 +215,6 @@ public class Dashboard extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clinica (1).png"))); // NOI18N
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -239,22 +227,15 @@ public class Dashboard extends javax.swing.JFrame {
             .addComponent(micuenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(citas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(97, 97, 97)
                 .addComponent(jLabel1)
                 .addContainerGap(34, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel11)))
+                .addGap(24, 24, 24)
+                .addComponent(jLabel1)
                 .addGap(12, 12, 12)
                 .addComponent(clientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
@@ -280,7 +261,6 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(204, 255, 255));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Cerrar sesión");
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita cerrar sesion.png"))); // NOI18N
@@ -381,7 +361,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel clientes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
