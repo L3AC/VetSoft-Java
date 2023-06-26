@@ -16,7 +16,7 @@ public class VentanaAdminUsuarios extends javax.swing.JFrame {
         initComponents();
         
          tipoFuente = new Fuentes();
-         VetSoft.setFont(tipoFuente.fuente(tipoFuente.COM,1,17));
+         VetSoft.setFont(tipoFuente.fuente(tipoFuente.COM,1,14));
          Citas.setFont(tipoFuente.fuente(tipoFuente.COM,1,20));
           Cuenta.setFont(tipoFuente.fuente(tipoFuente.COM,1,20));
            Mantenimiento.setFont(tipoFuente.fuente(tipoFuente.COM,1,20));
@@ -48,17 +48,18 @@ public class VentanaAdminUsuarios extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(190, 233, 232));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(95, 171, 211));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        LogoVetSoft.setIcon(new javax.swing.ImageIcon(getClass().getResource("/splashscreen/Assets/LogoVetSoft.png"))); // NOI18N
+        LogoVetSoft.setIcon(new javax.swing.ImageIcon(getClass().getResource("/splashscreen/Assets/LogoVetSoft075x.png"))); // NOI18N
         jPanel2.add(LogoVetSoft, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        VetSoft.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        VetSoft.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         VetSoft.setText("VetSoft+");
-        jPanel2.add(VetSoft, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, -1, -1));
+        jPanel2.add(VetSoft, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 70, 20));
 
         Clientes.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         Clientes.setForeground(new java.awt.Color(27, 73, 101));
@@ -76,7 +77,7 @@ public class VentanaAdminUsuarios extends javax.swing.JFrame {
         Citas.setForeground(new java.awt.Color(27, 73, 101));
         Citas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Citas.setText("Citas");
-        jPanel2.add(Citas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
+        jPanel2.add(Citas, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
 
         Productos.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         Productos.setForeground(new java.awt.Color(27, 73, 101));
@@ -108,7 +109,7 @@ public class VentanaAdminUsuarios extends javax.swing.JFrame {
         Mantenimiento.setText("Mantenimiento");
         jPanel2.add(Mantenimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 170, 40));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 390));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 400));
 
         jPanel3.setBackground(new java.awt.Color(95, 171, 211));
 
