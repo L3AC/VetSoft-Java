@@ -4,18 +4,50 @@
  */
 package Main;
 
+import static java.lang.Integer.parseInt;
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.border.Border;
+import javax.swing.BorderFactory;
+import javax.swing.border.LineBorder;
+import java.sql.Connection; // Para establecer la conexión con la base de datos
+import java.sql.DriverManager; // Para manejar el controlador de la base de datos
+import java.sql.PreparedStatement; // Para ejecutar consultas preparadas
+import java.sql.ResultSet; // Para obtener los resultados de las consultas
+import java.sql.SQLException; // Para manejar las excepciones de SQL
+import java.util.Properties; // Para configurar las propiedades del correo electrónico
+import java.util.Random; // Para generar el código de verificación
+import Connection.Conx;
+import javax.mail.*; // Para enviar el correo electrónico
+import javax.mail.internet.*; // Para trabajar con objetos relacionados con el correo electrónico
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 /**
  *
  * @author Gerson
  */
 public class PreguntasDeConfianza extends javax.swing.JFrame {
 
+    Conx con = new Conx();
+    Connection acceso;
+    int User;
+    String Preguntas2;
+    String pasw;
+    
     /**
      * Creates new form PreguntasDeConfianza
      */
     String cambio;
     public PreguntasDeConfianza() {
         initComponents();
+        initComponents();
+        transparente();
+        Conx con = new Conx();
+        Connection acceso;
+        txtPregunta1.setEnabled(false);
+        txtPregunta2.setEnabled(false);
+        txtPregunta3.setEnabled(false);
+        btnEnviar.setEnabled(false);
     }
 
     /**
@@ -27,104 +59,28 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        panelRound2 = new Main.PanelRound();
-        jLabel2 = new javax.swing.JLabel();
-        txtUser = new Main.Textfield();
-        jLabel3 = new javax.swing.JLabel();
-        txtPregunta1 = new Main.Textfield();
-        jLabel4 = new javax.swing.JLabel();
-        txtPregunta2 = new Main.Textfield();
-        jLabel5 = new javax.swing.JLabel();
-        txtPregunta3 = new Main.Textfield();
-        btnVerificar = new Main.ButtonGradient();
-        btnEnviar = new Main.ButtonGradient();
-        btnRegresar6 = new javax.swing.JButton();
         panelRound3 = new Main.PanelRound();
-        btnRegresar7 = new javax.swing.JButton();
+        btnRegresar6 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         panelRound4 = new Main.PanelRound();
         jLabel7 = new javax.swing.JLabel();
-        txtUser1 = new Main.Textfield();
+        txtUser = new Main.Textfield();
         jLabel8 = new javax.swing.JLabel();
-        txtPregunta4 = new Main.Textfield();
+        txtPregunta1 = new Main.Textfield();
         jLabel9 = new javax.swing.JLabel();
-        txtPregunta5 = new Main.Textfield();
+        txtPregunta2 = new Main.Textfield();
         jLabel10 = new javax.swing.JLabel();
-        txtPregunta6 = new Main.Textfield();
-        btnVerificar1 = new Main.ButtonGradient();
-        btnEnviar1 = new Main.ButtonGradient();
+        txtPregunta3 = new Main.Textfield();
+        btnVerificar = new Main.ButtonGradient();
+        btnEnviar = new Main.ButtonGradient();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(27, 73, 101));
-        jLabel1.setText("Recuperacion de contraseña por preguntas de seguridad");
-
-        panelRound2.setBackground(new java.awt.Color(190, 233, 232));
-        panelRound2.setRoundBottomLeft(50);
-        panelRound2.setRoundBottomRight(50);
-        panelRound2.setRoundTopLeft(50);
-        panelRound2.setRoundTopRight(50);
-        panelRound2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Ingrese Su Usuario");
-        panelRound2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
-        panelRound2.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 150, -1));
-
-        jLabel3.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("1-¿Cúal es tu película favorita?");
-        panelRound2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
-        panelRound2.add(txtPregunta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 210, -1));
-
-        jLabel4.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("2-¿Cúal es el nombre de tu mejor amigo de la infancia?");
-        panelRound2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, -1, -1));
-        panelRound2.add(txtPregunta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 60, 200, -1));
-
-        jLabel5.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("3-¿Cúal es tu comida favorita?");
-        panelRound2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 150, -1, 30));
-
-        txtPregunta3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPregunta3ActionPerformed(evt);
-            }
-        });
-        panelRound2.add(txtPregunta3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 200, 210, -1));
-
-        btnVerificar.setText("Verificar");
-        btnVerificar.setColor1(new java.awt.Color(255, 255, 255));
-        btnVerificar.setFont(new java.awt.Font("Microsoft PhagsPa", 0, 14)); // NOI18N
-        btnVerificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVerificarActionPerformed(evt);
-            }
-        });
-        panelRound2.add(btnVerificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 100, -1));
-
-        btnEnviar.setText("Enviar");
-        btnEnviar.setColor1(new java.awt.Color(255, 255, 255));
-        btnEnviar.setFont(new java.awt.Font("Microsoft PhagsPa", 0, 14)); // NOI18N
-        btnEnviar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEnviarActionPerformed(evt);
-            }
-        });
-        panelRound2.add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 280, 110, -1));
-
-        btnRegresar6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
 
         panelRound3.setBackground(new java.awt.Color(255, 255, 255));
         panelRound3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnRegresar7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
-        panelRound3.add(btnRegresar7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 30, 30));
+        btnRegresar6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
+        panelRound3.add(btnRegresar6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 30, 30));
 
         jLabel6.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(27, 73, 101));
@@ -142,51 +98,51 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Ingrese Su Usuario");
         panelRound4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
-        panelRound4.add(txtUser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 150, -1));
+        panelRound4.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 150, -1));
 
         jLabel8.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("1-¿Cúal es tu película favorita?");
         panelRound4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
-        panelRound4.add(txtPregunta4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 210, -1));
+        panelRound4.add(txtPregunta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 210, -1));
 
         jLabel9.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("2-¿Cúal es el nombre de tu mejor amigo de la infancia?");
         panelRound4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, -1, -1));
-        panelRound4.add(txtPregunta5, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 60, 200, -1));
+        panelRound4.add(txtPregunta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 60, 200, -1));
 
         jLabel10.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("3-¿Cúal es tu comida favorita?");
         panelRound4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 150, -1, 30));
 
-        txtPregunta6.addActionListener(new java.awt.event.ActionListener() {
+        txtPregunta3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPregunta6ActionPerformed(evt);
+                txtPregunta3ActionPerformed(evt);
             }
         });
-        panelRound4.add(txtPregunta6, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 200, 210, -1));
+        panelRound4.add(txtPregunta3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 200, 210, -1));
 
-        btnVerificar1.setText("Verificar");
-        btnVerificar1.setColor1(new java.awt.Color(255, 255, 255));
-        btnVerificar1.setFont(new java.awt.Font("Microsoft PhagsPa", 0, 14)); // NOI18N
-        btnVerificar1.addActionListener(new java.awt.event.ActionListener() {
+        btnVerificar.setText("Verificar");
+        btnVerificar.setColor1(new java.awt.Color(255, 255, 255));
+        btnVerificar.setFont(new java.awt.Font("Microsoft PhagsPa", 0, 14)); // NOI18N
+        btnVerificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVerificar1ActionPerformed(evt);
+                btnVerificarActionPerformed(evt);
             }
         });
-        panelRound4.add(btnVerificar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 100, -1));
+        panelRound4.add(btnVerificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 100, -1));
 
-        btnEnviar1.setText("Enviar");
-        btnEnviar1.setColor1(new java.awt.Color(255, 255, 255));
-        btnEnviar1.setFont(new java.awt.Font("Microsoft PhagsPa", 0, 14)); // NOI18N
-        btnEnviar1.addActionListener(new java.awt.event.ActionListener() {
+        btnEnviar.setText("Enviar");
+        btnEnviar.setColor1(new java.awt.Color(255, 255, 255));
+        btnEnviar.setFont(new java.awt.Font("Microsoft PhagsPa", 0, 14)); // NOI18N
+        btnEnviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEnviar1ActionPerformed(evt);
+                btnEnviarActionPerformed(evt);
             }
         });
-        panelRound4.add(btnEnviar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 280, 110, -1));
+        panelRound4.add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 280, 110, -1));
 
         panelRound3.add(panelRound4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 890, 360));
 
@@ -194,98 +150,160 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 930, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(40, 40, 40)
-                            .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, 890, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(160, 160, 160)
-                            .addComponent(jLabel1))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addComponent(btnRegresar6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(panelRound3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(panelRound3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 959, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 440, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(80, 80, 80)
-                            .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(30, 30, 30)
-                            .addComponent(jLabel1))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(20, 20, 20)
-                            .addComponent(btnRegresar6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(panelRound3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(panelRound3, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+public void EncCod(String user) {
+        String cadena = "select * from tbUsuarios where usuario=? COLLATE SQL_Latin1_General_CP1_CS_AS;";
+        
+        PreparedStatement ps;
+        ResultSet st;
+        
+        try{
+            acceso = con.Conectar();
+            ps = acceso.prepareStatement(cadena, ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+            ps.setString(1, txtUser.getText());
+            st = ps.executeQuery();
+            st.last();
+            int found = st.getRow();
+            if (found == 1) {
+                JOptionPane.showMessageDialog(null, "Usuario Encontrado");
+            User = st.getInt("idUsuario");
+            txtUser.setEnabled(true);
+            btnVerificar.setEnabled(true);
+            txtPregunta1.setEnabled(true);
+            txtPregunta2.setEnabled(true);
+            txtPregunta3.setEnabled(true);
+                EncExist(User);
+            } else{
+                JOptionPane.showMessageDialog(null, "Usuario no Encontrado");
+                txtUser.setEnabled(false);
+                btnVerificar.setEnabled(false);
+                
+            }
+        } catch (SQLException e){
+          JOptionPane.showMessageDialog(null, e.toString());
+        }   
+    }
+    
+    public void EncExist(int user){
+    
+        String cadena = "EXEC existPreg ?;";
+        
+        PreparedStatement ps;
+        ResultSet st;
+        
+        try{
+        acceso = con.Conectar();
+            ps = acceso.prepareStatement(cadena, ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+            ps.setInt(1, User);
+            st = ps.executeQuery();
+            st.last();
+            int found = st.getRow();
+            if (found == 1){
+                JOptionPane.showMessageDialog(null, "Se encontraron respuestas");
+               User = st.getInt("idUsuario");
+               txtPregunta1.setEnabled(true);
+               txtPregunta2.setEnabled(true);
+               txtPregunta3.setEnabled(true);
+               btnVerificar.setEnabled(true);
+            }else{
+                JOptionPane.showMessageDialog(null, "No se encontraron respuestas");
+               txtPregunta1.setEnabled(false);
+               txtPregunta2.setEnabled(false);
+               txtPregunta3.setEnabled(false);
+               btnVerificar.setEnabled(false);
+                
+            }
+        }catch (SQLException e){
+          JOptionPane.showMessageDialog(null, e.toString());
+        }   
+    }
+    
+    public void VerifUS(){
+    String cadena = "EXEC selectUsB ?;";
+        
+        PreparedStatement ps;
+        ResultSet st;
+        
+        try{
+        acceso = con.Conectar();
+            ps = acceso.prepareStatement(cadena, ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+            ps.setString(1, txtUser.toString());
+            st = ps.executeQuery();
+            st.last();
+            int found = st.getRow();
+            if(found == 1){
+            User = st.getInt("idUsuario");
+            pasw = st.getString("contraseña");
+            System.out.println(pasw);
+            }else {
+            
+            }
+        }catch (SQLException e){
+          JOptionPane.showMessageDialog(null, e.toString());
+        }
+    
+}
+    
+    
+    
+    public boolean VerificarExistencia(JTextField resp, int idpreg){
+    
+    String cadena = "EXEC selectPregUs ?,?,?;";
+        
+        PreparedStatement ps;
+        ResultSet st;
+        
+        try{
+        acceso = con.Conectar();
+            ps = acceso.prepareStatement(cadena, ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+            ps.setInt(1, User);
+            ps.setInt(2,idpreg);
+            ps.setString(3, resp.toString());
+            st = ps.executeQuery();
+            st.last();
+            int found = st.getRow();
+            
+            if(found == 1){
+                return true; 
+            }else{
+                JOptionPane.showMessageDialog(null, "Respuestas Incorrectas");
+            
+            }
+        }  catch (SQLException e){
+          JOptionPane.showMessageDialog(null, e.toString());
+        
+        
+        
+    }
+        return false;
+}
+    
+    public void transparente(){
+    
+        btnRegresar6.setOpaque(false);
+        btnRegresar6.setContentAreaFilled(false);
+        btnRegresar6.setBorderPainted(false);
+        
+    }
     private void txtPregunta3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPregunta3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPregunta3ActionPerformed
 
     private void btnVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarActionPerformed
         // TODO add your handling code here:
-
-        /*if (txtUser.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Campos vacios");
-        } else {
-            EncCod(txtUser.getText());
-        }*/
     }//GEN-LAST:event_btnVerificarActionPerformed
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
         // TODO add your handling code here:
-        /*if(VerificarExistencia(txtPregunta1, 1) && VerificarExistencia(txtPregunta2, 2) && VerificarExistencia(txtPregunta3, 3)){
-            int opcion = JOptionPane.showOptionDialog(
-                null,
-                "Su contraseña actual es: " + pasw + "¿Desea cambiarla?",
-                "Recuperacion",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.QUESTION_MESSAGE,
-                null,
-                new Object[]{"Sí", "No"},
-                "Sí");
-            if (opcion == JOptionPane.YES_OPTION) {
-                System.out.println("Seleccionaste Sí");
-                int parametro = User;
-                String parametro2 = pasw;
-                RecuperacionDeContraseña newFrame = new RecuperacionDeContraseña(parametro2,parametro);
-
-                newFrame.setVisible(true);
-            } else if (opcion == JOptionPane.NO_OPTION) {
-                System.out.println("Seleccionaste No");
-
-            }
-        }*/
-
     }//GEN-LAST:event_btnEnviarActionPerformed
-
-    private void txtPregunta6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPregunta6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPregunta6ActionPerformed
-
-    private void btnVerificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnVerificar1ActionPerformed
-
-    private void btnEnviar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnEnviar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -324,31 +342,18 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Main.ButtonGradient btnEnviar;
-    private Main.ButtonGradient btnEnviar1;
     private javax.swing.JButton btnRegresar6;
-    private javax.swing.JButton btnRegresar7;
     private Main.ButtonGradient btnVerificar;
-    private Main.ButtonGradient btnVerificar1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private Main.PanelRound panelRound2;
     private Main.PanelRound panelRound3;
     private Main.PanelRound panelRound4;
     private Main.Textfield txtPregunta1;
     private Main.Textfield txtPregunta2;
     private Main.Textfield txtPregunta3;
-    private Main.Textfield txtPregunta4;
-    private Main.Textfield txtPregunta5;
-    private Main.Textfield txtPregunta6;
     private Main.Textfield txtUser;
-    private Main.Textfield txtUser1;
     // End of variables declaration//GEN-END:variables
 }
