@@ -241,16 +241,16 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
     private void btnVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarActionPerformed
         // TODO add your handling code here:
 
-        if (txtUser.getText().isEmpty()){
+        /*if (txtUser.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Campos vacios");
         } else {
             EncCod(txtUser.getText());
-        }
+        }*/
     }//GEN-LAST:event_btnVerificarActionPerformed
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
         // TODO add your handling code here:
-        if(VerificarExistencia(txtPregunta1, 1) && VerificarExistencia(txtPregunta2, 2) && VerificarExistencia(txtPregunta3, 3)){
+        /*if(VerificarExistencia(txtPregunta1, 1) && VerificarExistencia(txtPregunta2, 2) && VerificarExistencia(txtPregunta3, 3)){
             int opcion = JOptionPane.showOptionDialog(
                 null,
                 "Su contraseña actual es: " + pasw + "¿Desea cambiarla?",
@@ -271,7 +271,7 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
                 System.out.println("Seleccionaste No");
 
             }
-        }
+        }*/
 
     }//GEN-LAST:event_btnEnviarActionPerformed
 
