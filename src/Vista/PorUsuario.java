@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
-package Main;
+package Vista;
 import static java.lang.Integer.parseInt;
 import java.awt.Color;
 import java.awt.Font;
@@ -17,7 +17,7 @@ import java.sql.ResultSet; // Para obtener los resultados de las consultas
 import java.sql.SQLException; // Para manejar las excepciones de SQL
 import java.util.Properties; // Para configurar las propiedades del correo electrónico
 import java.util.Random; // Para generar el código de verificación
-import Connection.Conx;
+import Modelo.Conx;
 import javax.mail.*; // Para enviar el correo electrónico
 import javax.mail.internet.*; // Para trabajar con objetos relacionados con el correo electrónico
 import javax.swing.JOptionPane;
@@ -61,18 +61,18 @@ public class PorUsuario extends javax.swing.JFrame {
 
         BtnRegresar1 = new javax.swing.JButton();
         lbMayor = new javax.swing.JLabel();
-        panelRound1 = new Main.PanelRound();
+        panelRound1 = new Vista.PanelRound();
         lbCod = new javax.swing.JLabel();
-        btnVeri = new Main.ButtonGradient();
+        btnVeri = new Vista.ButtonGradient();
         lbUs1 = new javax.swing.JLabel();
         lbUs2 = new javax.swing.JLabel();
-        txtUser = new Main.Textfield();
+        txtUser = new Vista.Textfield();
         lbCod1 = new javax.swing.JLabel();
-        txtCod = new Main.Textfield();
-        btnEnviar = new Main.ButtonGradient();
-        txtNueva2 = new Main.Textfield();
-        btnCambiar = new Main.ButtonGradient();
-        txtNueva = new Main.Textfield();
+        txtCod = new Vista.Textfield();
+        btnEnviar = new Vista.ButtonGradient();
+        txtNueva2 = new Vista.Textfield();
+        btnCambiar = new Vista.ButtonGradient();
+        txtNueva = new Vista.Textfield();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -445,19 +445,19 @@ public class PorUsuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnRegresar1;
-    private Main.ButtonGradient btnCambiar;
-    private Main.ButtonGradient btnEnviar;
-    private Main.ButtonGradient btnVeri;
+    private Vista.ButtonGradient btnCambiar;
+    private Vista.ButtonGradient btnEnviar;
+    private Vista.ButtonGradient btnVeri;
     private javax.swing.JLabel lbCod;
     private javax.swing.JLabel lbCod1;
     private javax.swing.JLabel lbMayor;
     private javax.swing.JLabel lbUs1;
     private javax.swing.JLabel lbUs2;
-    private Main.PanelRound panelRound1;
-    private Main.Textfield txtCod;
-    private Main.Textfield txtNueva;
-    private Main.Textfield txtNueva2;
-    private Main.Textfield txtUser;
+    private Vista.PanelRound panelRound1;
+    private Vista.Textfield txtCod;
+    private Vista.Textfield txtNueva;
+    private Vista.Textfield txtNueva2;
+    private Vista.Textfield txtUser;
     // End of variables declaration//GEN-END:variables
 }
 

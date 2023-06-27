@@ -1,35 +1,32 @@
+package Vista;
 
-package Main;
+import Controlador.ctUser;
 import java.sql.*;
 import Tipografias.Fuentes;
-import java.sql.Connection; 
-import java.sql.DriverManager; 
-import java.sql.PreparedStatement; 
-import java.sql.ResultSet; 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import Connection.Conx;
+import Modelo.Conx;
+
 /**
  *
  * @author Gerson
  */
 public class Login extends javax.swing.JFrame {
 
-    
-Fuentes tipoFuente;
+    Fuentes tipoFuente;
 
     public Login() {
         initComponents();
-         Conx con = new Conx();
-        Connection acceso;
         tipoFuente = new Fuentes();
-    
-    Titulo.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 32));
-    VetSoft.setFont(tipoFuente.fuente(tipoFuente.COM, 1, 11));
-    UsuarioL.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 25));
-     PassL.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 22));
+
+        Titulo.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 32));
+        VetSoft.setFont(tipoFuente.fuente(tipoFuente.COM, 1, 11));
+        UsuarioL.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 25));
+        PassL.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 22));
     }
-    
-   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -40,16 +37,16 @@ Fuentes tipoFuente;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelRound1 = new Main.PanelRound();
+        panelRound1 = new Vista.PanelRound();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        panelRound2 = new Main.PanelRound();
-        TextUser = new Main.Textfield();
+        panelRound2 = new Vista.PanelRound();
+        TextUser = new Vista.Textfield();
         UsuarioL = new javax.swing.JLabel();
         PassL = new javax.swing.JLabel();
-        TextPass = new Main.Textfield();
+        TextPass = new Vista.Textfield();
         jLabel6 = new javax.swing.JLabel();
-        buttonGradient1 = new Main.ButtonGradient();
+        buttonGradient1 = new Vista.ButtonGradient();
         Titulo = new javax.swing.JLabel();
         VetSoft = new javax.swing.JLabel();
 
@@ -134,79 +131,58 @@ Fuentes tipoFuente;
     }//GEN-LAST:event_TextUserActionPerformed
 
     private void buttonGradient1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGradient1ActionPerformed
-       String user = TextUser.getText( );
-       String pass = TextPass.getText();
-           
-       String url = "SELECT idTipoUsuario    FROM tbUsuarios WHERE usuario = ? AND contraseña = ?";
-       
-       try {
-       Connection con  = Conx.Conectar();
-       PreparedStatement st = con.prepareStatement(url);
-       st.setString(1, user);
-       st.setString(2, pass);
-        ResultSet resultSet = st.executeQuery();
-       
-     if (resultSet.next()) {
-    int tipoUsuario = resultSet.getInt("idTipoUsuario");
-    
-    if (tipoUsuario == 1) {
-  
-        VentanaAdminUsuarios adminUsuarios = new VentanaAdminUsuarios();
-        adminUsuarios.setVisible(true);
-    } else if (tipoUsuario == 2) {
-       
-        Dashboard dashboard = new Dashboard();
-        dashboard.setVisible(true);
-        
-    } else if (tipoUsuario == 4) {
-      
-        VentanaMascotas ventanaMascotas = new VentanaMascotas();
-        ventanaMascotas.setVisible(true);
-        
-    } else if (tipoUsuario == 5) {
-       
-        VentanaCitas ventanaCitas = new VentanaCitas();
-        ventanaCitas.setVisible(true);
-    } else {
-        // Tipo de usuario desconocido
-        System.out.println("Tipo de usuario desconocido");
-    }
-} else {
-    // Las credenciales son incorrectas
-    System.out.println("Credenciales incorrectas");
-}
-     resultSet.close();
-    st.close();
-    con.close();
-} catch (SQLException e) {
-    // Manejo de la excepción SQLException
-    e.printStackTrace();
+         //MVC
+        ctUser control = new ctUser();
+        control.usuario=TextUser.getText( );
+        control.contra=TextPass.getText( );
+        int tipoUsuario = control.ValidarLogin(); //AGARRAR EL TIPO DE USUARIO
+        if (tipoUsuario == 1) {
+
+            VentanaAdminUsuarios adminUsuarios = new VentanaAdminUsuarios();
+            adminUsuarios.setVisible(true);
+        } else if (tipoUsuario == 2) {
+
+            Dashboard dashboard = new Dashboard();
+            dashboard.setVisible(true);
+
+        } else if (tipoUsuario == 4) {
+
+            VentanaMascotas ventanaMascotas = new VentanaMascotas();
+            ventanaMascotas.setVisible(true);
+
+        } else if (tipoUsuario == 5) {
+
+            VentanaCitas ventanaCitas = new VentanaCitas();
+            ventanaCitas.setVisible(true);
+        } else {
+            // Tipo de usuario desconocido
+            System.out.println("Tipo de usuario desconocido");
     }//GEN-LAST:event_buttonGradient1ActionPerformed
- }
-      
+    }
+
     public static void main(String args[]) {
-    
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Login().setVisible(true);
             }
-            
+
         });
-        
-    } 
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel PassL;
-    private Main.Textfield TextPass;
-    private Main.Textfield TextUser;
+    private Vista.Textfield TextPass;
+    private Vista.Textfield TextUser;
     private javax.swing.JLabel Titulo;
     private javax.swing.JLabel UsuarioL;
     private javax.swing.JLabel VetSoft;
-    private Main.ButtonGradient buttonGradient1;
+    private Vista.ButtonGradient buttonGradient1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
-    private Main.PanelRound panelRound1;
-    private Main.PanelRound panelRound2;
+    private Vista.PanelRound panelRound1;
+    private Vista.PanelRound panelRound2;
     // End of variables declaration//GEN-END:variables
 }

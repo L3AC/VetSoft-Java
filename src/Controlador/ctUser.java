@@ -1,0 +1,77 @@
+package Controlador;
+
+import Modelo.mdUser;
+import java.sql.SQLException;
+
+public class ctUser {
+    public int idTipoUs;
+    public String nivel;
+    public int idUs;
+    public String usuario;
+    public String contra;
+    public String correo;
+    public String telefono;
+    public String codigoVerif;
+    public String fechaRegistro;
+
+    public int getIdTipoUs() {
+        return idTipoUs;
+    }
+   public void setIdTipoUs(int idTipoUs) {
+        this.idTipoUs = idTipoUs;
+    }
+    public String getNivel() {
+        return nivel;
+    }
+    public void setNivel(String nivel) {
+        this.nivel = nivel;
+    }
+    public int getIdUs() {
+        return idUs;
+    }
+   public void setIdUs(int idUs) {
+        this.idUs = idUs;
+    }
+    public String getUsuario() {
+        return usuario;
+    }
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+    public String getContra() {
+        return contra;
+    }
+    public void setContra(String contra) {
+        this.contra = contra;
+    }
+    public String getCorreo() {
+        return correo;
+    }
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+    public String getTelefono() {
+        return telefono;
+    }
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+    public String getCodigoVerif() {
+        return codigoVerif;
+    }
+    public void setCodigoVerif(String codigoVerif) {
+        this.codigoVerif = codigoVerif;
+    }
+    public String getFechaRegistro() {
+        return fechaRegistro;
+    }
+    public void setFechaRegistro(String fechaRegistro) {
+        this.fechaRegistro = fechaRegistro;
+    }
+    
+    public int ValidarLogin(){
+      mdUser usu = new mdUser();
+        //System.err.println(usuario);
+      return usu.SelectTipoUs(usuario, contra);
+      }
+}

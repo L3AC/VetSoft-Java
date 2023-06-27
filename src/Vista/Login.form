@@ -33,7 +33,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="Main.PanelRound" name="panelRound1">
+    <Container class="Vista.PanelRound" name="panelRound1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -68,7 +68,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Container class="Main.PanelRound" name="panelRound2">
+        <Container class="Vista.PanelRound" name="panelRound2">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="d4" green="b7" red="85" type="rgb"/>
@@ -88,7 +88,7 @@
             <Property name="useNullLayout" type="boolean" value="false"/>
           </Layout>
           <SubComponents>
-            <Component class="Main.Textfield" name="TextUser">
+            <Component class="Vista.Textfield" name="TextUser">
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TextUserActionPerformed"/>
               </Events>
@@ -130,7 +130,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="Main.Textfield" name="TextPass">
+            <Component class="Vista.Textfield" name="TextPass">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="110" y="160" width="370" height="-1"/>
@@ -153,7 +153,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="Main.ButtonGradient" name="buttonGradient1">
+            <Component class="Vista.ButtonGradient" name="buttonGradient1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ingresar"/>
                 <Property name="color1" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
