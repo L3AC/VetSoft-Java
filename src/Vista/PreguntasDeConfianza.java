@@ -4,6 +4,7 @@
  */
 package Vista;
 
+import Controlador.ctRecuperacion;
 import static java.lang.Integer.parseInt;
 import java.awt.Color;
 import java.awt.Font;
@@ -18,6 +19,8 @@ import java.sql.SQLException; // Para manejar las excepciones de SQL
 import java.util.Properties; // Para configurar las propiedades del correo electrónico
 import java.util.Random; // Para generar el código de verificación
 import Modelo.Conx;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.mail.*; // Para enviar el correo electrónico
 import javax.mail.internet.*; // Para trabajar con objetos relacionados con el correo electrónico
 import javax.swing.JOptionPane;
@@ -30,7 +33,8 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
 
     Conx con = new Conx();
     Connection acceso;
-    int User;
+    int idUser;
+    String contra;
     String Preguntas2;
     String pasw;
     
@@ -48,6 +52,7 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         txtPregunta2.setEnabled(false);
         txtPregunta3.setEnabled(false);
         btnEnviar.setEnabled(false);
+        
     }
 
     /**
@@ -159,7 +164,7 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-public void EncCod(String user) {
+/**public void EncCod(String user) {
         String cadena = "select * from tbUsuarios where usuario=? COLLATE SQL_Latin1_General_CP1_CS_AS;";
         
         PreparedStatement ps;
@@ -284,7 +289,7 @@ public void EncCod(String user) {
         
     }
         return false;
-}
+}**/
     
     public void transparente(){
     
@@ -299,6 +304,24 @@ public void EncCod(String user) {
 
     private void btnVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarActionPerformed
         // TODO add your handling code here:
+        ctRecuperacion recup = new ctRecuperacion();
+        ResultSet st;
+
+        recup.Usuario = txtUser.getText();
+        st=recup.EncCod();
+        try {
+            if(st==null){
+            }
+            else{
+            idUser=st.getInt("idUsuario");
+            contra=st.getString("contraseña");
+            }   
+            //idUser = recup.EncCod();
+        } catch (SQLException ex) {
+            Logger.getLogger(PreguntasDeConfianza.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
     }//GEN-LAST:event_btnVerificarActionPerformed
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
