@@ -41,7 +41,7 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
     /**
      * Creates new form PreguntasDeConfianza
      */
-    String cambiopruebalol;
+    String pruebalol;
     public PreguntasDeConfianza() {
         initComponents();
         initComponents();
