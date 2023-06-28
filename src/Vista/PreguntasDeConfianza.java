@@ -49,8 +49,8 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         Conx con = new Conx();
         Connection acceso;
         txtPregunta1.setEnabled(false);
-        txtPregunta2.setEnabled(false);
-        txtPregunta3.setEnabled(false);
+        txtPregunta1.setEnabled(false);
+        txtPregunta1.setEnabled(false);
         btnEnviar.setEnabled(false);
         
     }
@@ -164,7 +164,7 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-public void EncCod() {
+public void EncCod(String user) {
         String cadena = "select * from tbUsuarios where usuario=? COLLATE SQL_Latin1_General_CP1_CS_AS;";
         
         PreparedStatement ps;
@@ -303,7 +303,12 @@ public void EncCod() {
 
     private void btnVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarActionPerformed
         // TODO add your handling code here:
-        
+        if (txtUser.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Campos vacios");
+        } else {
+            EncCod(Users);
+            EncExist(User);
+        }
     
 
     }//GEN-LAST:event_btnVerificarActionPerformed
