@@ -1,5 +1,7 @@
 package Vista;
 
+import Vista.CRUDS.VentanaMascotas;
+import Vista.CRUDS.VentanaCitas;
 import Controlador.ctUser;
 import java.sql.*;
 import Tipografias.Fuentes;
