@@ -4,10 +4,11 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 
 public class mdClientes {
-        Connection con = Conx.Conectar();
+    Connection con = Conx.Conectar();
     ResultSet rs;
     PreparedStatement ps;
-    public ResultSet cargarAnim() {
+    
+    public ResultSet cargarCl() {
         String query = "EXEC selectAnim;";
         try {
             ps = con.prepareStatement(query);
@@ -20,7 +21,7 @@ public class mdClientes {
             return null; //DIO ERROR
         }
     }
-        public boolean deleteAnim() {
+        public boolean deleteCl() {
         String query = "EXEC deleteAnim ?;";
         try {
             ps = con.prepareStatement(query);
@@ -35,7 +36,7 @@ public class mdClientes {
         }
     }
     
-        public boolean insertAnim(int idCl,int idR,String padec,String nombre,
+        public boolean insertCl(int idCl,int idR,String padec,String nombre,
                 String peso,String edad,String sexo ) {
         String query = "EXEC insertAnim ?,?,?,?,?,?,?;";
         try {
@@ -58,7 +59,7 @@ public class mdClientes {
             return false; //DIO ERROR
         }
     }
-                public boolean updateAnim(int idA,int idR,String padec,String nombre,
+                public boolean updateCl(int idA,int idR,String padec,String nombre,
                 String peso,String edad,String sexo ) {
         String query = "EXEC updtAnim ?,?,?,?,?,?,?;";
         try {

@@ -1,4 +1,5 @@
 package Controlador;
+import Modelo.mdClientes;
 import java.sql.*;
 public class ctCliente {
     public int idCliente;
@@ -65,5 +66,23 @@ public class ctCliente {
         this.sexo = sexo;
     }
     
-    
+    mdClientes cl = new mdClientes();
+
+    public ResultSet cargarCl() {
+        return cl.cargarCl();
+    }
+
+    public boolean insertCl() {
+        //return cl.insertCl(idCliente, id, padecimientos, nombre, peso, edad, sexo);
+        return true;
+    }
+
+    public boolean updtCl() {
+        //return cl.updateCl(idAnimal, idRaza, padecimientos, nombre, peso, edad, sexo);
+        return true;
+    }
+
+    public boolean deleteCl() {
+        return cl.deleteCl();
+    }
 }
