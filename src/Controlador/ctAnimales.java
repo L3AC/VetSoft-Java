@@ -93,7 +93,10 @@ public class ctAnimales {
     }
 
     public boolean deleteAnim() {
-        return ani.deleteAnim();
+        return ani.deleteAnim(idAnimal);
+    }
+     public ResultSet selectAnim() {
+        return ani.selectAnim(idAnimal);
     }
 
 }

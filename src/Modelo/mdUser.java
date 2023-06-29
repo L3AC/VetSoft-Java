@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 
 public class mdUser {
  Connection con = Conx.Conectar();
+ Crypt cripto = new Crypt();
  ResultSet rs;
  PreparedStatement ps;
 
@@ -20,7 +21,7 @@ public class mdUser {
    
             ps= con.prepareStatement(url);
             ps.setString(1, usuario);
-            ps.setString(2, passw);
+            ps.setString(2, passw);//ENCRIPTAR
             rs = ps.executeQuery();
             
             if (rs.next()) {

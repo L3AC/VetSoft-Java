@@ -10,7 +10,9 @@ public class mdAnimales {
     PreparedStatement ps;
 
     public ResultSet cargarAnim() {
-        String query = "EXEC selectAnim;";
+        String query = "select idAnimal,nombrePopular as 'Animal',a.nombre as 'Nombre',CONCAT(c.nombre,' ',c.apellido) as 'Dueño'\n" +
+"	from tbAnimales a,tbTipoAnimales ta,tbRazas r,tbClientes c where a.idCliente=c.idCliente and\n" +
+"	ta.idTipoAnimal=r.idTipoAnimal and a.idRaza=r.idRaza ;";
         try {
             ps = con.prepareStatement(query);
             rs = ps.executeQuery();
@@ -22,10 +24,26 @@ public class mdAnimales {
             return null; //DIO ERROR
         }
     }
-        public boolean deleteAnim() {
-        String query = "EXEC deleteAnim ?;";
+    
+    public ResultSet selectAnim(int idA) {
+        String query = "select * from tbAnimales where idAnimal=?;";
         try {
             ps = con.prepareStatement(query);
+            ps.setInt(1, idA);
+            rs = ps.executeQuery();
+            return rs;
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return null; //DIO ERROR
+        }
+    }
+        public boolean deleteAnim(int idA) {
+        String query = "delete tbAnimales where idAnimal=?;";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setInt(1, idA);
             ps.executeQuery();
              JOptionPane.showMessageDialog(null, "Registro eliminado");
             return true;
@@ -39,7 +57,7 @@ public class mdAnimales {
     
         public boolean insertAnim(int idCl,int idR,String padec,String nombre,
                 String peso,String edad,String sexo ) {
-        String query = "EXEC insertAnim ?,?,?,?,?,?,?;";
+        String query = "insert into tbAnimales values(?,?,?,?,?,?,?,GETDATE());";
         try {
             ps = con.prepareStatement(query);
             ps.setInt(1, idCl);
@@ -62,16 +80,18 @@ public class mdAnimales {
     }
                 public boolean updateAnim(int idA,int idR,String padec,String nombre,
                 String peso,String edad,String sexo ) {
-        String query = "EXEC updtAnim ?,?,?,?,?,?,?;";
+        String query = "update tbAnimales set idRaza=?,padecimientos=?,nombre=?,peso=?,edad=?,sexo=?\n" +
+"	where idAnimal=?;";
         try {
             ps = con.prepareStatement(query);
-            ps.setInt(1, idA);
-            ps.setInt(2, idR);
-            ps.setString(3, padec);
-            ps.setString(4, nombre);
-            ps.setString(5, peso);
-            ps.setString(6, edad);
-            ps.setString(7, sexo);
+            ps.setInt(1, idR);
+            ps.setString(2, padec);
+            ps.setString(3, nombre);
+            ps.setString(4, peso);
+            ps.setString(5, edad);
+            ps.setString(6, sexo);
+            ps.setInt(7, idA);
+            
             ps.executeQuery();
              JOptionPane.showMessageDialog(null, "Campos actualizados");
             return true;

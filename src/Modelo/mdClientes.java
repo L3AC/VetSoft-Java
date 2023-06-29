@@ -4,12 +4,15 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 
 public class mdClientes {
+
     Connection con = Conx.Conectar();
+
     ResultSet rs;
     PreparedStatement ps;
-    
+
     public ResultSet cargarCl() {
-        String query = "EXEC selectAnim;";
+        String query = "select idCliente,CONCAT(nombre,' ',apellido) as 'Nombre',DATEDIFF(YEAR, nacimiento, GETDATE()) as 'Edad'\n"
+                + ",sexo from tbClientes;";
         try {
             ps = con.prepareStatement(query);
             rs = ps.executeQuery();
@@ -21,12 +24,13 @@ public class mdClientes {
             return null; //DIO ERROR
         }
     }
-        public boolean deleteCl() {
-        String query = "EXEC deleteAnim ?;";
+
+    public boolean deleteCl() {
+        String query = "EXEC deleteCl ?;";
         try {
             ps = con.prepareStatement(query);
             ps.executeQuery();
-             JOptionPane.showMessageDialog(null, "Registro eliminado");
+            JOptionPane.showMessageDialog(null, "Registro eliminado");
             return true;
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
@@ -35,50 +39,48 @@ public class mdClientes {
             return false;
         }
     }
-    
-        public boolean insertCl(int idCl,int idR,String padec,String nombre,
-                String peso,String edad,String sexo ) {
-        String query = "EXEC insertAnim ?,?,?,?,?,?,?;";
+
+    public boolean insertCl(int idUs, String nombre, String apellido, String dui, String naci, String sexo) {
+        String query = "insert into tbClientes values(?,?,?,?,?,?,?);";
         try {
             ps = con.prepareStatement(query);
-            ps.setInt(1, idCl);
-            ps.setInt(2, idR);
-            ps.setString(3, padec);
-            ps.setString(4, nombre);
-            ps.setString(5, peso);
-            ps.setString(6, edad);
-            ps.setString(7, sexo);
+            ps.setInt(1, idUs);
+            ps.setString(2, nombre);
+            ps.setString(3, apellido);
+            ps.setString(4, dui);
+            ps.setString(5, naci);
+            ps.setString(6, sexo);
             ps.executeQuery();
-             JOptionPane.showMessageDialog(null, "Campos ingresados");
+            JOptionPane.showMessageDialog(null, "Campos ingresados");
             return true;
-            
+
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
             System.out.println(e.toString());
-             JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
             return false; //DIO ERROR
         }
     }
-                public boolean updateCl(int idA,int idR,String padec,String nombre,
-                String peso,String edad,String sexo ) {
-        String query = "EXEC updtAnim ?,?,?,?,?,?,?;";
+
+    public boolean updateCl(int idCl, String nombre, String apellido, String dui, String naci, String sexo) {
+        String query = "update tbClientes SET nombre=?,apellido=?,DUI=?,nacimiento=?,sexo=? \n" +
+        "where idCliente=?;";
         try {
             ps = con.prepareStatement(query);
-            ps.setInt(1, idA);
-            ps.setInt(2, idR);
-            ps.setString(3, padec);
-            ps.setString(4, nombre);
-            ps.setString(5, peso);
-            ps.setString(6, edad);
-            ps.setString(7, sexo);
+            ps.setInt(1, idCl);
+            ps.setString(2, nombre);
+            ps.setString(3, apellido);
+            ps.setString(4, dui);
+            ps.setString(5, naci);
+            ps.setString(6, sexo);
             ps.executeQuery();
-             JOptionPane.showMessageDialog(null, "Campos actualizados");
+            JOptionPane.showMessageDialog(null, "Campos actualizados");
             return true;
-            
+
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
             System.out.println(e.toString());
-             JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
             return false; //DIO ERROR
         }
     }
