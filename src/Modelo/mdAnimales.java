@@ -9,22 +9,58 @@ public class mdAnimales {
     ResultSet rs;
     PreparedStatement ps;
 
-    private ResultSet SelectAnim() {
-        String query = "select * from tbAnimales";
+    public ResultSet cargarAnim() {
+        String query = "EXEC selectAnim;";
         try {
             ps = con.prepareStatement(query);
             rs = ps.executeQuery();
-            
             return rs;
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
             System.out.println(e.toString());
-            JOptionPane.showMessageDialog(null, "Error al cargar");
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
             return null; //DIO ERROR
         }
     }
+        public boolean deleteAnim() {
+        String query = "EXEC deleteAnim ?;";
+        try {
+            ps = con.prepareStatement(query);
+            ps.executeQuery();
+             JOptionPane.showMessageDialog(null, "Registro eliminado");
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return false;
+        }
+    }
     
-        private boolean updateAnim(int idA,int idR,String padec,String nombre,
+        public boolean insertAnim(int idCl,int idR,String padec,String nombre,
+                String peso,String edad,String sexo ) {
+        String query = "EXEC insertAnim ?,?,?,?,?,?,?;";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setInt(1, idCl);
+            ps.setInt(2, idR);
+            ps.setString(3, padec);
+            ps.setString(4, nombre);
+            ps.setString(5, peso);
+            ps.setString(6, edad);
+            ps.setString(7, sexo);
+            ps.executeQuery();
+             JOptionPane.showMessageDialog(null, "Campos ingresados");
+            return true;
+            
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+             JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return false; //DIO ERROR
+        }
+    }
+                public boolean updateAnim(int idA,int idR,String padec,String nombre,
                 String peso,String edad,String sexo ) {
         String query = "EXEC updtAnim ?,?,?,?,?,?,?;";
         try {
@@ -47,4 +83,5 @@ public class mdAnimales {
             return false; //DIO ERROR
         }
     }
+        
 }
