@@ -1,7 +1,7 @@
 package AVista;
 
-import Vista.CRUDS.VentanaMascotas;
-import Vista.CRUDS.VentanaCitas;
+import AVista.CRUDS.VentanaMascotas;
+import AVista.CRUDS.VentanaCitas;
 import AControlador.ctUser;
 import java.sql.*;
 import Tipografias.Fuentes;
