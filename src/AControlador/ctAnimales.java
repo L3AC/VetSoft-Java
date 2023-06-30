@@ -1,6 +1,6 @@
-package Controlador;
+package AControlador;
 
-import Modelo.mdAnimales;
+import AModelo.mdAnimales;
 import java.sql.*;
 
 public class ctAnimales {

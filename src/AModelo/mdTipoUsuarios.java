@@ -1,4 +1,4 @@
-package Modelo;
+package AModelo;
 
 public class mdTipoUsuarios {
     

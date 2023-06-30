@@ -1,8 +1,8 @@
-package Vista;
+package AVista;
 
 import Vista.CRUDS.VentanaMascotas;
 import Vista.CRUDS.VentanaCitas;
-import Controlador.ctUser;
+import AControlador.ctUser;
 import java.sql.*;
 import Tipografias.Fuentes;
 import java.sql.Connection;
@@ -10,7 +10,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import Modelo.Conx;
+import AModelo.Conx;
 
 /**
  *
@@ -34,16 +34,16 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelRound1 = new Vista.PanelRound();
+        panelRound1 = new AVista.PanelRound();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        panelRound2 = new Vista.PanelRound();
-        TextUser = new Vista.Textfield();
+        panelRound2 = new AVista.PanelRound();
+        TextUser = new AVista.Textfield();
         UsuarioL = new javax.swing.JLabel();
         PassL = new javax.swing.JLabel();
-        TextPass = new Vista.Textfield();
+        TextPass = new AVista.Textfield();
         jLabel6 = new javax.swing.JLabel();
-        buttonGradient1 = new Vista.ButtonGradient();
+        buttonGradient1 = new AVista.ButtonGradient();
         Titulo = new javax.swing.JLabel();
         VetSoft = new javax.swing.JLabel();
 
@@ -170,16 +170,16 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel PassL;
-    private Vista.Textfield TextPass;
-    private Vista.Textfield TextUser;
+    private AVista.Textfield TextPass;
+    private AVista.Textfield TextUser;
     private javax.swing.JLabel Titulo;
     private javax.swing.JLabel UsuarioL;
     private javax.swing.JLabel VetSoft;
-    private Vista.ButtonGradient buttonGradient1;
+    private AVista.ButtonGradient buttonGradient1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
-    private Vista.PanelRound panelRound1;
-    private Vista.PanelRound panelRound2;
+    private AVista.PanelRound panelRound1;
+    private AVista.PanelRound panelRound2;
     // End of variables declaration//GEN-END:variables
 }

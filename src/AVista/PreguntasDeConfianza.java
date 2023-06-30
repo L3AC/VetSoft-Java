@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Vista;
+package AVista;
 
 import static java.lang.Integer.parseInt;
 import java.awt.Color;
@@ -17,7 +17,7 @@ import java.sql.ResultSet; // Para obtener los resultados de las consultas
 import java.sql.SQLException; // Para manejar las excepciones de SQL
 import java.util.Properties; // Para configurar las propiedades del correo electrónico
 import java.util.Random; // Para generar el código de verificación
-import Modelo.Conx;
+import AModelo.Conx;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.mail.*; // Para enviar el correo electrónico
@@ -64,20 +64,20 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelRound3 = new Vista.PanelRound();
+        panelRound3 = new AVista.PanelRound();
         btnRegresar6 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        panelRound4 = new Vista.PanelRound();
+        panelRound4 = new AVista.PanelRound();
         jLabel7 = new javax.swing.JLabel();
-        txtUser = new Vista.Textfield();
+        txtUser = new AVista.Textfield();
         jLabel8 = new javax.swing.JLabel();
-        txtPregunta1 = new Vista.Textfield();
+        txtPregunta1 = new AVista.Textfield();
         jLabel9 = new javax.swing.JLabel();
-        txtPregunta2 = new Vista.Textfield();
+        txtPregunta2 = new AVista.Textfield();
         jLabel10 = new javax.swing.JLabel();
-        txtPregunta3 = new Vista.Textfield();
-        btnVerificar = new Vista.ButtonGradient();
-        btnEnviar = new Vista.ButtonGradient();
+        txtPregunta3 = new AVista.Textfield();
+        btnVerificar = new AVista.ButtonGradient();
+        btnEnviar = new AVista.ButtonGradient();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -353,19 +353,19 @@ public void EncCod(String user) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Vista.ButtonGradient btnEnviar;
+    private AVista.ButtonGradient btnEnviar;
     private javax.swing.JButton btnRegresar6;
-    private Vista.ButtonGradient btnVerificar;
+    private AVista.ButtonGradient btnVerificar;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private Vista.PanelRound panelRound3;
-    private Vista.PanelRound panelRound4;
-    private Vista.Textfield txtPregunta1;
-    private Vista.Textfield txtPregunta2;
-    private Vista.Textfield txtPregunta3;
-    private Vista.Textfield txtUser;
+    private AVista.PanelRound panelRound3;
+    private AVista.PanelRound panelRound4;
+    private AVista.Textfield txtPregunta1;
+    private AVista.Textfield txtPregunta2;
+    private AVista.Textfield txtPregunta3;
+    private AVista.Textfield txtUser;
     // End of variables declaration//GEN-END:variables
 }

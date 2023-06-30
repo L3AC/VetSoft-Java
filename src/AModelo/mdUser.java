@@ -1,7 +1,7 @@
-package Modelo;
+package AModelo;
 
-import Vista.Dashboard;
-import Vista.VentanaAdminUsuarios;
+import AVista.Dashboard;
+import AVista.VentanaAdminUsuarios;
 import Vista.CRUDS.VentanaCitas;
 import Vista.CRUDS.VentanaMascotas;
 import java.sql.*;

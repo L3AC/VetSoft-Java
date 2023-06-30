@@ -1,4 +1,4 @@
-package Modelo;
+package AModelo;
 import java.sql.*;
 import javax.swing.JOptionPane;
 public class mdDoctores {

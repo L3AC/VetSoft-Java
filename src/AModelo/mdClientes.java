@@ -1,4 +1,4 @@
-package Modelo;
+package AModelo;
 
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -24,12 +24,27 @@ public class mdClientes {
             return null; //DIO ERROR
         }
     }
-
-    public boolean deleteCl() {
-        String query = "EXEC deleteCl ?;";
+        public ResultSet selectCl(int idD) {
+        String query = "select * from tbClientes where idCliente=?;";
         try {
             ps = con.prepareStatement(query);
-            ps.executeQuery();
+            ps.setInt(1, idD);
+            rs = ps.executeQuery();
+            return rs;
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return null; //DIO ERROR
+        }
+    }
+
+    public boolean deleteCl(int idD) {
+        String query = "DELETE tbClientes where idCliente=?;";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setInt(1, idD);
+            ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Registro eliminado");
             return true;
         } catch (SQLException e) {
@@ -50,7 +65,7 @@ public class mdClientes {
             ps.setString(4, dui);
             ps.setString(5, naci);
             ps.setString(6, sexo);
-            ps.executeQuery();
+            ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Campos ingresados");
             return true;
 
@@ -67,13 +82,13 @@ public class mdClientes {
         "where idCliente=?;";
         try {
             ps = con.prepareStatement(query);
-            ps.setInt(1, idCl);
-            ps.setString(2, nombre);
-            ps.setString(3, apellido);
-            ps.setString(4, dui);
-            ps.setString(5, naci);
-            ps.setString(6, sexo);
-            ps.executeQuery();
+            ps.setString(1, nombre);
+            ps.setString(2, apellido);
+            ps.setString(3, dui);
+            ps.setString(4, naci);
+            ps.setString(5, sexo);
+            ps.setInt(6, idCl);
+            ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Campos actualizados");
             return true;
 

@@ -1,6 +1,6 @@
-package Controlador;
+package AControlador;
 
-import Modelo.mdUser;
+import AModelo.mdUser;
 import java.sql.SQLException;
 
 public class ctUser {

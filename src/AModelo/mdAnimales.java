@@ -1,4 +1,4 @@
-package Modelo;
+package AModelo;
 
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -44,7 +44,7 @@ public class mdAnimales {
         try {
             ps = con.prepareStatement(query);
             ps.setInt(1, idA);
-            ps.executeQuery();
+            ps.executeUpdate();
              JOptionPane.showMessageDialog(null, "Registro eliminado");
             return true;
         } catch (SQLException e) {
@@ -67,7 +67,7 @@ public class mdAnimales {
             ps.setString(5, peso);
             ps.setString(6, edad);
             ps.setString(7, sexo);
-            ps.executeQuery();
+            ps.executeUpdate();
              JOptionPane.showMessageDialog(null, "Campos ingresados");
             return true;
             
@@ -92,7 +92,7 @@ public class mdAnimales {
             ps.setString(6, sexo);
             ps.setInt(7, idA);
             
-            ps.executeQuery();
+            ps.executeUpdate();
              JOptionPane.showMessageDialog(null, "Campos actualizados");
             return true;
             
