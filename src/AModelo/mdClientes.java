@@ -10,11 +10,12 @@ public class mdClientes {
     ResultSet rs;
     PreparedStatement ps;
 
-    public ResultSet cargarCl() {
+    public ResultSet cargarCl(String nombre) {
         String query = "select idCliente,CONCAT(nombre,' ',apellido) as 'Nombre',DATEDIFF(YEAR, nacimiento, GETDATE()) as 'Edad'\n"
-                + ",sexo as Sexo from tbClientes;";
+                + ",sexo as Sexo from tbClientes where CONCAT(nombre,' ',apellido) like ?;";
         try {
             ps = con.prepareStatement(query);
+            ps.setString(1, "%"+nombre+"%");
             rs = ps.executeQuery();
             return rs;
         } catch (SQLException e) {

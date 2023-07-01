@@ -1,6 +1,7 @@
 package AVista.CRUDS;
 
 import AControlador.ctCliente;
+import Design.Desg;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -11,25 +12,22 @@ public class CRUDClientes extends javax.swing.JFrame {
 
     public int nUs;
     ctCliente ct = new ctCliente();
+    Desg dsg = new Desg();
     DefaultTableModel model;
 
     public CRUDClientes(int nUs) throws SQLException {
         initComponents();
-        String[] column = {"idCliente", "Nombre", "Edad", "Sexo"};
-
-        model = new DefaultTableModel(null, column);
-        tbData.setModel(model);
-        tbData.getColumnModel().getColumn(0).setMaxWidth(0);
-        CargarTabla ();
+        loadD();
     }
 
     public CRUDClientes() throws SQLException {
         initComponents();
+        loadD();
+    }
+    final void loadD() throws SQLException{ 
         String[] column = {"idCliente", "Nombre", "Edad", "Sexo"};
-
         model = new DefaultTableModel(null, column);
-        tbData.setModel(model);
-        tbData.getColumnModel().getColumn(0).setMaxWidth(0);
+        dsg.ColumnHide(model,tbData, 0);
         CargarTabla ();
     }
 
@@ -39,6 +37,7 @@ public class CRUDClientes extends javax.swing.JFrame {
         }
 
         try {
+            ct.nombre=txtBusq.getText().toString();
             ResultSet rs = ct.cargarCl();
             while (rs.next()) {
                 Object[] oValores = {rs.getInt("idCliente"), rs.getString("Nombre")
@@ -108,6 +107,11 @@ public class CRUDClientes extends javax.swing.JFrame {
         PCont.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 430, 130, 50));
 
         txtBusq.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtBusqKeyTyped(evt);
+            }
+        });
         PCont.add(txtBusq, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 710, 40));
 
         btnEliminar.setText("Eliminar");
@@ -150,6 +154,14 @@ public class CRUDClientes extends javax.swing.JFrame {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void txtBusqKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyTyped
+        try {
+            loadD();
+        } catch (SQLException ex) {
+            Logger.getLogger(CRUDClientes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_txtBusqKeyTyped
 
     /**
      * @param args the command line arguments

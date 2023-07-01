@@ -69,7 +69,7 @@ public class ctCliente {
     mdClientes cl = new mdClientes();
 
     public ResultSet cargarCl() {
-        return cl.cargarCl();
+        return cl.cargarCl(nombre);
     }
         public ResultSet selectCl() {
         return cl.selectCl(idCliente);
