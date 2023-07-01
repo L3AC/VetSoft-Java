@@ -13,60 +13,60 @@ public class CRUDCitas extends javax.swing.JFrame {
     
     public CRUDCitas() {
         initComponents();
-        Mostrar();
+        //Mostrar();
     }
 
     
-    public void Mostrar(){
-        DefaultTableModel modelo = new DefaultTableModel();
+    //public void Mostrar(){
+        //DefaultTableModel modelo = new DefaultTableModel();
         
-        modelo.setColumnIdentifiers(new Object[]{"idCita", "fechahora","Nombre","Dueño","Doctores"});
+        //modelo.setColumnIdentifiers(new Object[]{"idCita", "fechahora","Nombre","Dueño","Doctores"});
         
-        try{
-            Statement statement = Conx.getConexion().createStatement();
-            ResultSet rs = statement.executeQuery("select * from tbUsers");
+        //try{
+            //Statement statement = Conx.getConexion().createStatement();
+            //ResultSet rs = statement.executeQuery("select * from tbUsers");
 
-            while(rs.next()){
-                modelo.addRow(new Object[]{rs.getInt("idCita"),rs.getInt("fechahora"),rs.getString("Nombre"),rs.getString("Dueño"),rs.getString("Doctores")});
-            }
-            tbData.setModel(modelo);
-        }
-        catch(SQLException ex){
-            System.out.println(ex.toString());
-        }
-    }
+           // while(rs.next()){
+                //modelo.addRow(new Object[]{rs.getInt("idCita"),rs.getInt("fechahora"),rs.getString("Nombre"),rs.getString("Dueño"),rs.getString("Doctores")});
+            //}
+            //tbData.setModel(modelo);
+       // }
+        //catch(SQLException ex){
+            //System.out.println(ex.toString());
+       // }
+   // }
     
-    public void  Eliminar(){
-        int filaSelecionada = tbData.getSelectedRow();
+    //public void  Eliminar(){
+        //int filaSelecionada = tbData.getSelectedRow();
 
-        String idSelecionado = tbData.getValueAt(filaSelecionada,0).toString();
+        //String idSelecionado = tbData.getValueAt(filaSelecionada,0).toString();
 
-        try{
-           PreparedStatement deleteCita = Conx.getConexion().prepareStatement("delete from tbCitas where idCita=?");
-           deleteCita.setString(1, idSelecionado);
-           deleteCita.executeUpdate();
-           Mostrar();
-        }catch(SQLException ex){
-            System.out.println(ex.toString());
-        }     
-    }
+        //try{
+           //PreparedStatement deleteCita = Conx.getConexion().prepareStatement("delete from tbCitas where idCita=?");
+           //deleteCita.setString(1, idSelecionado);
+           //deleteCita.executeUpdate();
+           //Mostrar();
+        //}catch(SQLException ex){
+            //System.out.println(ex.toString());
+        //}     
+    //}
     
-    public void Editar(){
+    //public void Editar(){
         
-        int filaSelecionada = tbData.getSelectedRow();
+        //int filaSelecionada = tbData.getSelectedRow();
 
-        String idSelecionado = tbData.getValueAt(filaSelecionada,0).toString();
+        //String idSelecionado = tbData.getValueAt(filaSelecionada,0).toString();
 
-        try{
-           PreparedStatement updateCita = Conx.getConexion().prepareStatement("UPDATE cita set idCita=?,fechahora=?,Nombre=?,Dueño=?,Doctores=? WHERE id=?");
-           updateCita.setString(1, idSelecionado);
-           updateCita.executeUpdate();
-           Mostrar();
-        }catch(SQLException ex){
-            System.out.println(ex.toString());
-        }
+        //try{
+           //PreparedStatement updateCita = Conx.getConexion().prepareStatement("UPDATE cita set idCita=?,fechahora=?,Nombre=?,Dueño=?,Doctores=? WHERE id=?");
+           //updateCita.setString(1, idSelecionado);
+          // updateCita.executeUpdate();
+          // Mostrar();
+       // }catch(SQLException ex){
+           // System.out.println(ex.toString());
+       // }
         
-    }
+    //}
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -143,11 +143,11 @@ public class CRUDCitas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        Editar();
+       // Editar();
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        Eliminar();
+       // Eliminar();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**
