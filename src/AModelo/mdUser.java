@@ -2,8 +2,8 @@ package AModelo;
 
 import AVista.Dashboard;
 import AVista.VentanaAdminUsuarios;
-import AVista.CRUDS.VentanaCitas;
-import AVista.CRUDS.VentanaMascotas;
+import AVista.CRUDS.CRUDCitas;
+import AVista.CRUDS.CRUDMascotas;
 import java.sql.*;
 import java.util.Date;
 import java.util.logging.Level;

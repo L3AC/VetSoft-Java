@@ -12,7 +12,7 @@ public class mdClientes {
 
     public ResultSet cargarCl() {
         String query = "select idCliente,CONCAT(nombre,' ',apellido) as 'Nombre',DATEDIFF(YEAR, nacimiento, GETDATE()) as 'Edad'\n"
-                + ",sexo from tbClientes;";
+                + ",sexo as Sexo from tbClientes;";
         try {
             ps = con.prepareStatement(query);
             rs = ps.executeQuery();

@@ -1,7 +1,7 @@
 package AVista;
 
-import AVista.CRUDS.VentanaMascotas;
-import AVista.CRUDS.VentanaCitas;
+import AVista.CRUDS.CRUDMascotas;
+import AVista.CRUDS.CRUDCitas;
 import AControlador.ctUser;
 import java.sql.*;
 import Tipografias.Fuentes;
@@ -144,12 +144,12 @@ public class Login extends javax.swing.JFrame {
 
         } else if (tipoUsuario == 4) {
 
-            VentanaMascotas ventanaMascotas = new VentanaMascotas();
+            CRUDMascotas ventanaMascotas = new CRUDMascotas();
             ventanaMascotas.setVisible(true);
 
         } else if (tipoUsuario == 5) {
 
-            VentanaCitas ventanaCitas = new VentanaCitas();
+            CRUDCitas ventanaCitas = new CRUDCitas();
             ventanaCitas.setVisible(true);
         } else {
             // Tipo de usuario desconocido
