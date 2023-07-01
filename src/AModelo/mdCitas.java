@@ -7,12 +7,16 @@ public class mdCitas {
     ResultSet rs;
     PreparedStatement ps;
 
-    public ResultSet cargarCita() {
-        String query = "select idCliente,CONCAT(nombre,' ',apellido) as 'Nombre',DATEDIFF(YEAR, nacimiento, GETDATE()) as 'Edad'\n"
-                + ",sexo from tbClientes;";
+    public ResultSet cargarCita(String cliente ) {
+        String query = "select idCita, CONVERT(varchar, fechahora, 100) as fecha,a.nombre, CONCAT(d.nombre, ' ', d.apellido) as 'Doctor',\n" +
+"CONCAT(cl.nombre, ' ', cl.apellido) as 'Dueño' from tbCitas c,tbAnimales a, tbDoctores d,tbClientes cl \n" +
+"where c.idAnimal=a.idAnimal and cl.idCliente=a.idCliente and d.idDoctor=c.idDoctor and estado='Pendiente' \n" +
+"and CONCAT(cl.nombre, ' ', cl.apellido) LIKE ?;";
         try {
             ps = con.prepareStatement(query);
+            ps.setString(1, "%"+cliente+"%");
             rs = ps.executeQuery();
+            System.err.println(query);
             return rs;
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException

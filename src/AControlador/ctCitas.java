@@ -10,6 +10,7 @@ public class ctCitas {
     public String notaDelCliente ;
     public String notaDelDoctor ;
     public String fechahora;
+    public String cliente;
 
     public int getIdCita() {
         return idCita;
@@ -78,24 +79,23 @@ public class ctCitas {
      mdCitas cl = new mdCitas();
 
     public ResultSet cargarCita() {
-        return cl.cargarCita();
+        return cl.cargarCita(cliente);
     }
         public ResultSet selectCita() {
         return cl.selectCita(idCita);
     }
 
     public boolean insertCita() {
-        return true;
-       // return cl.insertCita(idCliente,nombre, apellido, dui, nacimiento, sexo);
+        return cl.insertCita(idAnimal,idTipoServicio, idDoctor, notaDelCliente, 
+                notaDelDoctor, fechahora);
     }
 
     public boolean updtCita() {
-        return true;
-        //return cl.updateCita(idCliente,nombre, apellido, dui, nacimiento, sexo);
+        return cl.updateCita(idCita,idAnimal,idTipoServicio, idDoctor, estado,notaDelCliente, 
+                notaDelDoctor, fechahora);
     }
 
     public boolean deleteCita() {
-        return true;
-       // return cl.deleteCl(idCliente);
+       return cl.deleteCita(idCita);
     }
 }
