@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import AModelo.Conx;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -151,9 +152,15 @@ public class Login extends javax.swing.JFrame {
 
             CRUDCitas ventanaCitas = new CRUDCitas();
             ventanaCitas.setVisible(true);
-        } else {
+            
+        } else if (TextUser.getText().isEmpty() || TextPass.getText().isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Campos vacios"); 
+        }
+        
+        else {
             // Tipo de usuario desconocido
             System.out.println("Tipo de usuario desconocido");
+            
     }//GEN-LAST:event_buttonGradient1ActionPerformed
     }
 
