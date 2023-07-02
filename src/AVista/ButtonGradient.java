@@ -68,7 +68,7 @@ public class ButtonGradient extends JButton  {
         setContentAreaFilled(false);
         setForeground(Color.BLACK);
         setCursor(new Cursor(Cursor.HAND_CURSOR));
-        setBorder(new EmptyBorder(10, 20, 10, 20));
+        setBorder(new EmptyBorder(7, 5, 7, 5));
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent me) {
