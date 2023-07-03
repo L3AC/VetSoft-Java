@@ -27,7 +27,7 @@ public class mdUser {
             return rs;
 
         } catch (SQLException e) {
-            //e.printStackTrace(); // Manejo de la excepción SQLException
+            e.printStackTrace(); // Manejo de la excepción SQLException
             System.err.println(e.toString()+"sdf");
             return null; //DIO ERROR
         }
@@ -56,7 +56,7 @@ public class mdUser {
             return rst;
 
         } catch (SQLException e) {
-            //e.printStackTrace(); // Manejo de la excepción SQLException
+            e.printStackTrace(); // Manejo de la excepción SQLException
             System.err.println(e.toString()+"elpepe");
             return null; //DIO ERROR
         } 
