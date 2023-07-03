@@ -139,53 +139,51 @@ public class Login extends javax.swing.JFrame {
     private void buttonGradient1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGradient1ActionPerformed
         try {
             //MVC
-            ResultSet rs;
+            
+            //System.err.println(co);
+
+            //rs = ct.ValidarLogin(); //ResultSet
+            try {
+                ResultSet rs;
             ctUser ct = new ctUser();
             ct.usuario = TextUser.getText();
             ct.contra = cryp.encrypt(TextPass.getText(), "key");
-            String co = cryp.encrypt(TextPass.getText(), "key");
-            System.err.println(co);
-
-            rs = ct.ValidarLogin(); //ResultSet
-            try {
-                if (rs.next()) {
-                    idTipoU = rs.getInt("idTipoUsuario");
-                    idUs = rs.getInt("idUsuario");
+                if (ct.ValidarLogin().next()) {
+                    idTipoU = ct.ValidarLogin().getInt("idTipoUsuario");
+                    idUs = ct.ValidarLogin().getInt("idUsuario");
                     SelectID();
                 } else {
                     JOptionPane.showMessageDialog(null, "Error al ejecutar");
                 }
-                rs.close();
+                
 
             } catch (SQLException ex) {
-                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                System.err.println(ex.toString());
             }
 
         } catch (Exception ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            System.err.println(ex.toString());
         }
-
-
     }//GEN-LAST:event_buttonGradient1ActionPerformed
     public void SelectID() throws SQLException {
         try {
             ctUser ct = new ctUser();
             ct.idTipoUs = idTipoU;
             ct.idUs = idUs;
-            ResultSet rs = ct.SelectTipoID();
+         // ResultSet rs = ct.SelectTipoID();
 
-            if (rs.next()) {
+            if (ct.SelectTipoID().next()) {
                 if (idTipoU == 1) {
-                    idCuenta = rs.getInt("idAdministradores");
+                    idCuenta = ct.SelectTipoID().getInt("idAdministradores");
                 }
                 if (idTipoU == 2) {
-                    idCuenta = rs.getInt("idRecepcionista");
+                    idCuenta = ct.SelectTipoID().getInt("idRecepcionista");
                 }
                 if (idTipoU == 4) {
-                    idCuenta = rs.getInt("idDoctor");
+                    idCuenta = ct.SelectTipoID().getInt("idDoctor");
                 }
                 if (idTipoU == 5) {
-                    idCuenta = rs.getInt("idAsistente");
+                    idCuenta = ct.SelectTipoID().getInt("idAsistente");
                 }
 
                 Dashboard dash = new Dashboard(idTipoU, idUs, idCuenta);

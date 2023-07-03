@@ -13,53 +13,53 @@ public class mdUser {
     Crypt cripto = new Crypt();
     PreparedStatement ps;
 
-    public ResultSet SelectTipoUs(String usuario, String passw) {
+    public ResultSet SelectTipoUs(String usuario, String passw) throws SQLException {
         String url = "SELECT * FROM tbUsuarios WHERE usuario = ? COLLATE SQL_Latin1_General_CP1_CS_AS \n"
                 + " AND contraseña = ? COLLATE SQL_Latin1_General_CP1_CS_AS;";
+        
         try {
-
+            ResultSet rs = null;
             ps = con.prepareStatement(url);
             ps.setString(1, usuario);
             ps.setString(2, passw);//ENCRIPTAR
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
 
             return rs;
-            
+
         } catch (SQLException e) {
-            e.printStackTrace(); // Manejo de la excepción SQLException
-            System.out.println(e.toString());
+            //e.printStackTrace(); // Manejo de la excepción SQLException
+            System.err.println(e.toString()+"sdf");
             return null; //DIO ERROR
         }
     }
 
-    public ResultSet SelectTipoID(int idTipoU, int idUs) {
+    public ResultSet SelectTipoID(int idTipoU, int idUs) throws SQLException {
         String url = "";
         
         try {
-            
+            ResultSet rst = null;
             if (idTipoU == 1) {
-                url="SELECT * FROM tbAdministradores WHERE idUsuario = ?;";
+                url = "SELECT * FROM tbAdministradores WHERE idUsuario = ?;";
             }
             if (idTipoU == 2) {
-                url="SELECT * FROM tbRecepcionistas WHERE idUsuario = ?;";
+                url = "SELECT * FROM tbRecepcionistas WHERE idUsuario = ?;";
             }
             if (idTipoU == 4) {
-                url="SELECT * FROM tbDoctores WHERE idUsuario = ?;";
+                url = "SELECT * FROM tbDoctores WHERE idUsuario = ?;";
             }
             if (idTipoU == 5) {
-                url="SELECT * FROM tbAsistentes WHERE idUsuario = ?;";
+                url = "SELECT * FROM tbAsistentes WHERE idUsuario = ?;";
             }
             ps = con.prepareStatement(url);
             ps.setInt(1, idUs);
-            
-            ResultSet rsf = ps.executeQuery();   
-            return rsf;
-            
+            rst = ps.executeQuery();
+            return rst;
+
         } catch (SQLException e) {
-            e.printStackTrace(); // Manejo de la excepción SQLException
-            System.err.println(e.toString());
+            //e.printStackTrace(); // Manejo de la excepción SQLException
+            System.err.println(e.toString()+"elpepe");
             return null; //DIO ERROR
-        }
+        } 
     }
 
 }

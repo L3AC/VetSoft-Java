@@ -79,13 +79,13 @@ public class ctUser {
         this.idTipoC = idTipoC;
     }
 
-    public ResultSet ValidarLogin(){
+    public ResultSet ValidarLogin() throws SQLException{
         mdUser usu = new mdUser();
         //System.err.println(usuario);
         System.err.println(contra);
       return usu.SelectTipoUs(usuario, contra);
       }
-    public ResultSet SelectTipoID(){
+    public ResultSet SelectTipoID() throws SQLException{
         mdUser usu = new mdUser();
       return usu.SelectTipoID(idTipoUs, idUs);
       }
