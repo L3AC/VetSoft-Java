@@ -16,6 +16,8 @@ public class CRUDCliente extends javax.swing.JPanel {
     ctCliente ct = new ctCliente();
     Desg dsg = new Desg();
     insertTipoC subp =new insertTipoC();
+    updtTipoC subpU =new updtTipoC();
+    addMascota subpM =new addMascota();
     DefaultTableModel model;
     
     public CRUDCliente(int nUs) throws SQLException {
@@ -160,7 +162,7 @@ public class CRUDCliente extends javax.swing.JPanel {
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void btnAddMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddMActionPerformed
-
+        dsg.ShowPanel(subpM, PCont, 1320, 810);
     }//GEN-LAST:event_btnAddMActionPerformed
 
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
@@ -169,7 +171,7 @@ public class CRUDCliente extends javax.swing.JPanel {
     }//GEN-LAST:event_btnInsertActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-
+        dsg.ShowPanel(subpU, PCont, 1320, 810);
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
