@@ -1,7 +1,6 @@
 package AVista;
 
-import AVista.CRUDS.CRUDMascotas;
-import AVista.CRUDS.CRUDCitas;
+
 import AControlador.ctUser;
 import java.sql.*;
 import Tipografias.Fuentes;
@@ -145,13 +144,13 @@ public class Login extends javax.swing.JFrame {
 
         } else if (tipoUsuario == 4) {
 
-            CRUDMascotas ventanaMascotas = new CRUDMascotas();
-            ventanaMascotas.setVisible(true);
+            //CRUDMascotas ventanaMascotas = new CRUDMascotas();
+            //ventanaMascotas.setVisible(true);
 
         } else if (tipoUsuario == 5) {
 
-            CRUDCitas ventanaCitas = new CRUDCitas();
-            ventanaCitas.setVisible(true);
+            //CRUDCitas ventanaCitas = new CRUDCitas();
+            //ventanaCitas.setVisible(true);
             
         } else if (TextUser.getText().isEmpty() || TextPass.getText().isEmpty()) {
         JOptionPane.showMessageDialog(null, "Campos vacios"); 

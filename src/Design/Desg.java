@@ -1,9 +1,11 @@
 package Design;
 
+import java.awt.BorderLayout;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
@@ -39,5 +41,13 @@ public class Desg {
         Alinear.setHorizontalAlignment(SwingConstants.CENTER);//.LEFT .RIGHT .CENTER
         tb.getColumnModel().getColumn(1).setCellRenderer(Alinear);
         tb.getColumnModel().getColumn(2).setCellRenderer(Alinear);
+    }
+        public void ShowPanel(JPanel p,JPanel cont, int w,int h) {
+        p.setSize(w, h);
+        p.setLocation(0, 0);
+        cont.removeAll();
+        cont.add(p, BorderLayout.CENTER);
+        cont.revalidate();
+        cont.repaint();
     }
 }
