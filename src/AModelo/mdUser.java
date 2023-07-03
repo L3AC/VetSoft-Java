@@ -13,8 +13,9 @@ public class mdUser {
  ResultSet rs;
  PreparedStatement ps;
 
-    public int SelectTipoUs(String usuario, String passw) {
-        String url = "SELECT idTipoUsuario   FROM tbUsuarios WHERE usuario = ? AND contraseña = ?";
+    public ResultSet SelectTipoUs(String usuario, String passw) {
+        String url = "SELECT * FROM tbUsuarios WHERE usuario = ? COLLATE SQL_Latin1_General_CP1_CS_AS "
+                + " AND contraseña = ? COLLATE SQL_Latin1_General_CP1_CS_AS;";
         try {
    
             ps= con.prepareStatement(url);
@@ -22,32 +23,37 @@ public class mdUser {
             ps.setString(2, passw);//ENCRIPTAR
             rs = ps.executeQuery();
             
-            if (rs.next()) {
+            return rs;
+            /*if (rs.next()) {
                 return rs.getInt("idTipoUsuario");
             } else {
                 return 0;//NO HAY NADA
-            }
+            }*/
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
             System.out.println(e.toString());
-            return 0; //DIO ERROR
+            return null; //DIO ERROR
         }
-        finally {
-            try {
-                rs.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(mdUser.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            try {
-                ps.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(mdUser.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            try {
-                con.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(mdUser.class.getName()).log(Level.SEVERE, null, ex);
-            }
+    }
+    public ResultSet SelectTipoID(String tb, int idUs) {
+        String url = "SELECT * FROM ? WHERE idUsuario = ?;";
+        try {
+   
+            ps= con.prepareStatement(url);
+            ps.setString(1, tb);
+            ps.setInt(2, idUs);//ENCRIPTAR
+            rs = ps.executeQuery();
+            
+            return rs;
+            /*if (rs.next()) {
+                return rs.getInt("idTipoUsuario");
+            } else {
+                return 0;//NO HAY NADA
+            }*/
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            return null; //DIO ERROR
         }
     }
 

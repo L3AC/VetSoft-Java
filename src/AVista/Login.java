@@ -1,6 +1,5 @@
 package AVista;
 
-
 import AControlador.ctUser;
 import java.sql.*;
 import Tipografias.Fuentes;
@@ -10,7 +9,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import AModelo.Conx;
+import AModelo.Crypt;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,6 +22,11 @@ import javax.swing.JOptionPane;
 public class Login extends javax.swing.JFrame {
 
     Fuentes tipoFuente;
+    ctUser ct = new ctUser();
+    Crypt cryp = new Crypt();
+    private int idTipoU;
+    private int idUs;
+    private int idCuenta;
 
     public Login() {
         initComponents();
@@ -124,17 +132,100 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void TextUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextUserActionPerformed
-        
-    }//GEN-LAST:event_TextUserActionPerformed
 
+    }//GEN-LAST:event_TextUserActionPerformed
+    final void SelectID() throws SQLException {
+        if (idTipoU == 1) {
+            ct.tbNomb = "tbAdministradores";
+        }
+        if (idTipoU == 2) {
+            ct.tbNomb = "tbRecepcionistas";
+        }
+        if (idTipoU == 4) {
+            ct.tbNomb = "tbDoctores";
+        }
+        if (idTipoU == 5) {
+            ct.tbNomb = "tbAsistentes";
+        }
+        ct.idUs = idUs;
+        ResultSet rs;
+        rs = ct.SelectTipoC();
+        try {
+            if (rs.next()) {
+                if (idTipoU == 1) {
+                    idCuenta = rs.getInt("idAdministradores");
+                }
+                if (idTipoU == 2) {
+                    idCuenta = rs.getInt("idRecepcionista");
+                }
+                if (idTipoU == 4) {
+                    idCuenta = rs.getInt("idDoctor");
+                }
+                if (idTipoU == 5) {
+                    idCuenta = rs.getInt("idAsistente");
+                }
+                        
+                Dashboard dash=new Dashboard(idTipoU,idUs,idCuenta);
+                dash.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     private void buttonGradient1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGradient1ActionPerformed
-         //MVC
-        ctUser control = new ctUser();
-        control.usuario=TextUser.getText();
-        control.contra=TextPass.getText();
-        int tipoUsuario = control.ValidarLogin(); //AGARRAR EL TIPO DE USUARIO
-        
-        if (tipoUsuario == 1) {
+        try {                                                
+            //MVC
+            ResultSet rs;
+            ct.usuario = TextUser.getText();
+            ct.contra = cryp.encrypt(TextPass.getText(), "key");
+            String co=cryp.encrypt(TextPass.getText(), "key");
+            System.err.println(co);
+            
+            rs = ct.ValidarLogin(); //ResultSet
+            try {
+                if (rs.next()) {
+                    idTipoU = rs.getInt("idTipoUsuario");
+                    idUs = rs.getInt("idUsuario");
+                    SelectID();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error al ejecutar");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            /*if (tipoUsuario == 1) {
+            VentanaAdminUsuarios adminUsuarios = new VentanaAdminUsuarios();
+            adminUsuarios.setVisible(true);
+            } else if (tipoUsuario == 2) {
+            
+            Dashboard dashboard = new Dashboard();
+            dashboard.setVisible(true);
+            
+            } else if (tipoUsuario == 4) {
+            
+            //CRUDMascotas ventanaMascotas = new CRUDMascotas();
+            //ventanaMascotas.setVisible(true);
+            } else if (tipoUsuario == 5) {
+            
+            //CRUDCitas ventanaCitas = new CRUDCitas();
+            //ventanaCitas.setVisible(true);
+            } else if (TextUser.getText().isEmpty() || TextPass.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Campos vacios");
+            } else {
+            // Tipo de usuario desconocido
+            System.out.println("Tipo de usuario desconocido");
+            
+            }
+            */
+        } catch (Exception ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+        /*if (tipoUsuario == 1) {
             VentanaAdminUsuarios adminUsuarios = new VentanaAdminUsuarios();
             adminUsuarios.setVisible(true);
         } else if (tipoUsuario == 2) {
@@ -146,21 +237,18 @@ public class Login extends javax.swing.JFrame {
 
             //CRUDMascotas ventanaMascotas = new CRUDMascotas();
             //ventanaMascotas.setVisible(true);
-
         } else if (tipoUsuario == 5) {
 
             //CRUDCitas ventanaCitas = new CRUDCitas();
             //ventanaCitas.setVisible(true);
-            
         } else if (TextUser.getText().isEmpty() || TextPass.getText().isEmpty()) {
-        JOptionPane.showMessageDialog(null, "Campos vacios"); 
-        }
-        
-        else {
+            JOptionPane.showMessageDialog(null, "Campos vacios");
+        } else {
             // Tipo de usuario desconocido
             System.out.println("Tipo de usuario desconocido");
-            
+
     }//GEN-LAST:event_buttonGradient1ActionPerformed
+    */
     }
 
     public static void main(String args[]) {

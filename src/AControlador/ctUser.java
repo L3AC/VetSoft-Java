@@ -1,18 +1,21 @@
 package AControlador;
 
 import AModelo.mdUser;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ctUser {
     public int idTipoUs;
     public String nivel;
     public int idUs;
+    public int idTipoC;
     public String usuario;
     public String contra;
     public String correo;
     public String telefono;
     public String codigoVerif;
     public String fechaRegistro;
+    public String tbNomb;
 
     public int getIdTipoUs() {
         return idTipoUs;
@@ -68,10 +71,31 @@ public class ctUser {
     public void setFechaRegistro(String fechaRegistro) {
         this.fechaRegistro = fechaRegistro;
     }
+
+    public int getIdTipoC() {
+        return idTipoC;
+    }
+
+    public void setIdTipoC(int idTipoC) {
+        this.idTipoC = idTipoC;
+    }
+
+    public String getTbNomb() {
+        return tbNomb;
+    }
+
+    public void setTbNomb(String tbNomb) {
+        this.tbNomb = tbNomb;
+    }
     
-    public int ValidarLogin(){
+    public ResultSet ValidarLogin(){
       mdUser usu = new mdUser();
         //System.err.println(usuario);
       return usu.SelectTipoUs(usuario, contra);
+      }
+    public ResultSet SelectTipoC(){
+      mdUser usu = new mdUser();
+        //System.err.println(usuario);
+      return usu.SelectTipoID(tbNomb, idUs);
       }
 }

@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package AVista;
 import java.awt.Component;
 import JavaMenu.MenuSelectEvent;
@@ -11,22 +8,30 @@ import Mensajes.MensajeNoEncontroUsuarios;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import Mensajes.GlassPanePopup;
-/**
- *
- * @author User
- */
+
 public class Dashboard extends javax.swing.JFrame {
 
     private static Dashboard dash;
+    private int idTipoU;
+    private int idUs;
+    private int idTipoC;
     
     public Dashboard() {
         initComponents();
         init();
         GlassPanePopup.install(this);
     }
+    public Dashboard(int idTipoU,int idUs,int idTipoC) {
+        initComponents();
+        init();
+        GlassPanePopup.install(this);
+        this.idTipoU=idTipoU;
+        this.idUs=idUs;
+        this.idTipoC=idTipoC;
+    }
     private void init() {
         dash = this;
-        title1.initJFram(this);
+        
        menu1.addEvent(new MenuSelectEvent() {
             @Override
             public void menuSelected(int index, int indexSubMenu) {
@@ -59,13 +64,12 @@ public class Dashboard extends javax.swing.JFrame {
 
         body = new AVista.PanelRound();
         PanelMenu = new AVista.PanelRound();
-        title1 = new SwingTitle.Title();
         menu1 = new JavaMenu.Menu();
+        jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        setUndecorated(true);
 
         body.setBackground(new java.awt.Color(204, 204, 204));
         body.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -76,21 +80,20 @@ public class Dashboard extends javax.swing.JFrame {
         PanelMenu.setLayout(PanelMenuLayout);
         PanelMenuLayout.setHorizontalGroup(
             PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelMenuLayout.createSequentialGroup()
-                .addComponent(title1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(menu1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(menu1, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
         );
         PanelMenuLayout.setVerticalGroup(
             PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelMenuLayout.createSequentialGroup()
-                .addComponent(title1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(29, 29, 29)
                 .addComponent(menu1, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         body.add(PanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 530));
+
+        jPanel1.setBackground(new java.awt.Color(187, 187, 187));
+        jPanel1.setToolTipText("");
 
         jButton1.setText("jButton1");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -98,7 +101,25 @@ public class Dashboard extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        body.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 150, -1, -1));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(415, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(190, 190, 190))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(301, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(147, 147, 147))
+        );
+
+        body.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 680, 470));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -171,7 +192,7 @@ public class Dashboard extends javax.swing.JFrame {
     private AVista.PanelRound PanelMenu;
     private AVista.PanelRound body;
     private javax.swing.JButton jButton1;
+    private javax.swing.JPanel jPanel1;
     private JavaMenu.Menu menu1;
-    private SwingTitle.Title title1;
     // End of variables declaration//GEN-END:variables
 }
