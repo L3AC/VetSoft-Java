@@ -79,14 +79,14 @@ public class ctUser {
         this.idTipoC = idTipoC;
     }
 
-          mdUser usu = new mdUser();
     public ResultSet ValidarLogin(){
+        mdUser usu = new mdUser();
         //System.err.println(usuario);
         System.err.println(contra);
       return usu.SelectTipoUs(usuario, contra);
       }
-    public ResultSet SelectTipoC(){
-        //System.err.println(usuario);
+    public ResultSet SelectTipoID(){
+        mdUser usu = new mdUser();
       return usu.SelectTipoID(idTipoUs, idUs);
       }
 }

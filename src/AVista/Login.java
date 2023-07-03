@@ -22,7 +22,7 @@ import javax.swing.table.DefaultTableModel;
 public class Login extends javax.swing.JFrame {
 
     Fuentes tipoFuente;
-    ctUser ct = new ctUser();
+    
     Crypt cryp = new Crypt();
     private int idTipoU;
     private int idUs;
@@ -36,7 +36,7 @@ public class Login extends javax.swing.JFrame {
         VetSoft.setFont(tipoFuente.fuente(tipoFuente.COM, 1, 11));
         UsuarioL.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 25));
         PassL.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 22));
-        
+
     }
 
     @SuppressWarnings("unchecked")
@@ -135,12 +135,45 @@ public class Login extends javax.swing.JFrame {
     private void TextUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextUserActionPerformed
 
     }//GEN-LAST:event_TextUserActionPerformed
+
+    private void buttonGradient1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGradient1ActionPerformed
+        try {
+            //MVC
+            ResultSet rs;
+            ctUser ct = new ctUser();
+            ct.usuario = TextUser.getText();
+            ct.contra = cryp.encrypt(TextPass.getText(), "key");
+            String co = cryp.encrypt(TextPass.getText(), "key");
+            System.err.println(co);
+
+            rs = ct.ValidarLogin(); //ResultSet
+            try {
+                if (rs.next()) {
+                    idTipoU = rs.getInt("idTipoUsuario");
+                    idUs = rs.getInt("idUsuario");
+                    SelectID();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error al ejecutar");
+                }
+                rs.close();
+
+            } catch (SQLException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } catch (Exception ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+    }//GEN-LAST:event_buttonGradient1ActionPerformed
     public void SelectID() throws SQLException {
         try {
-            ct.idTipoUs=idTipoU;
-        ct.idUs = idUs;
-            ResultSet rs;
-            rs = ct.SelectTipoC();
+            ctUser ct = new ctUser();
+            ct.idTipoUs = idTipoU;
+            ct.idUs = idUs;
+            ResultSet rs = ct.SelectTipoID();
+
             if (rs.next()) {
                 if (idTipoU == 1) {
                     idCuenta = rs.getInt("idAdministradores");
@@ -154,8 +187,8 @@ public class Login extends javax.swing.JFrame {
                 if (idTipoU == 5) {
                     idCuenta = rs.getInt("idAsistente");
                 }
-                        
-                Dashboard dash=new Dashboard(idTipoU,idUs,idCuenta);
+
+                Dashboard dash = new Dashboard(idTipoU, idUs, idCuenta);
                 dash.setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(null, "No se encontro");
@@ -163,82 +196,6 @@ public class Login extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-    private void buttonGradient1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGradient1ActionPerformed
-        try {                                                
-            //MVC
-            ResultSet rs;
-            ct.usuario = TextUser.getText();
-            ct.contra = cryp.encrypt(TextPass.getText(), "key");
-            String co=cryp.encrypt(TextPass.getText(), "key");
-            System.err.println(co);
-            
-            rs = ct.ValidarLogin(); //ResultSet
-            try {
-                if (rs.next()) {
-                    idTipoU = rs.getInt("idTipoUsuario");  
-                    idUs = rs.getInt("idUsuario");
-                    SelectID();
-                } else {
-                    JOptionPane.showMessageDialog(null, "Error al ejecutar");
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-            /*if (tipoUsuario == 1) {
-            VentanaAdminUsuarios adminUsuarios = new VentanaAdminUsuarios();
-            adminUsuarios.setVisible(true);
-            } else if (tipoUsuario == 2) {
-            
-            Dashboard dashboard = new Dashboard();
-            dashboard.setVisible(true);
-            
-            } else if (tipoUsuario == 4) {
-            
-            //CRUDMascotas ventanaMascotas = new CRUDMascotas();
-            //ventanaMascotas.setVisible(true);
-            } else if (tipoUsuario == 5) {
-            
-            //CRUDCitas ventanaCitas = new CRUDCitas();
-            //ventanaCitas.setVisible(true);
-            } else if (TextUser.getText().isEmpty() || TextPass.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Campos vacios");
-            } else {
-            // Tipo de usuario desconocido
-            System.out.println("Tipo de usuario desconocido");
-            
-            }
-            */
-        } catch (Exception ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-
-        /*if (tipoUsuario == 1) {
-            VentanaAdminUsuarios adminUsuarios = new VentanaAdminUsuarios();
-            adminUsuarios.setVisible(true);
-        } else if (tipoUsuario == 2) {
-
-            Dashboard dashboard = new Dashboard();
-            dashboard.setVisible(true);
-
-        } else if (tipoUsuario == 4) {
-
-            //CRUDMascotas ventanaMascotas = new CRUDMascotas();
-            //ventanaMascotas.setVisible(true);
-        } else if (tipoUsuario == 5) {
-
-            //CRUDCitas ventanaCitas = new CRUDCitas();
-            //ventanaCitas.setVisible(true);
-        } else if (TextUser.getText().isEmpty() || TextPass.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Campos vacios");
-        } else {
-            // Tipo de usuario desconocido
-            System.out.println("Tipo de usuario desconocido");
-
-    }//GEN-LAST:event_buttonGradient1ActionPerformed
-    */
     }
 
     public static void main(String args[]) {

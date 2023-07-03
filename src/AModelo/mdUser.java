@@ -11,25 +11,20 @@ public class mdUser {
 
     Connection con = Conx.Conectar();
     Crypt cripto = new Crypt();
-    ResultSet rs;
     PreparedStatement ps;
 
     public ResultSet SelectTipoUs(String usuario, String passw) {
         String url = "SELECT * FROM tbUsuarios WHERE usuario = ? COLLATE SQL_Latin1_General_CP1_CS_AS \n"
-                + "                AND contraseña = ? COLLATE SQL_Latin1_General_CP1_CS_AS;";
+                + " AND contraseña = ? COLLATE SQL_Latin1_General_CP1_CS_AS;";
         try {
 
             ps = con.prepareStatement(url);
             ps.setString(1, usuario);
             ps.setString(2, passw);//ENCRIPTAR
-            rs = ps.executeQuery();
+            ResultSet rs = ps.executeQuery();
 
             return rs;
-            /*if (rs.next()) {
-                return rs.getInt("idTipoUsuario");
-            } else {
-                return 0;//NO HAY NADA
-            }*/
+            
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
             System.out.println(e.toString());
@@ -38,8 +33,10 @@ public class mdUser {
     }
 
     public ResultSet SelectTipoID(int idTipoU, int idUs) {
-        String url = null;
+        String url = "";
+        
         try {
+            
             if (idTipoU == 1) {
                 url="SELECT * FROM tbAdministradores WHERE idUsuario = ?;";
             }
@@ -54,17 +51,13 @@ public class mdUser {
             }
             ps = con.prepareStatement(url);
             ps.setInt(1, idUs);
-            rs = ps.executeQuery();
-
-            return rs;
-            /*if (rs.next()) {
-                return rs.getInt("idTipoUsuario");
-            } else {
-                return 0;//NO HAY NADA
-            }*/
+            
+            ResultSet rsf = ps.executeQuery();   
+            return rsf;
+            
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
-            System.out.println(e.toString());
+            System.err.println(e.toString());
             return null; //DIO ERROR
         }
     }
