@@ -36,6 +36,7 @@ public class Login extends javax.swing.JFrame {
         VetSoft.setFont(tipoFuente.fuente(tipoFuente.COM, 1, 11));
         UsuarioL.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 25));
         PassL.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 22));
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -134,23 +135,12 @@ public class Login extends javax.swing.JFrame {
     private void TextUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextUserActionPerformed
 
     }//GEN-LAST:event_TextUserActionPerformed
-    final void SelectID() throws SQLException {
-        if (idTipoU == 1) {
-            ct.tbNomb = "tbAdministradores";
-        }
-        if (idTipoU == 2) {
-            ct.tbNomb = "tbRecepcionistas";
-        }
-        if (idTipoU == 4) {
-            ct.tbNomb = "tbDoctores";
-        }
-        if (idTipoU == 5) {
-            ct.tbNomb = "tbAsistentes";
-        }
-        ct.idUs = idUs;
-        ResultSet rs;
-        rs = ct.SelectTipoC();
+    public void SelectID() throws SQLException {
         try {
+            ct.idTipoUs=idTipoU;
+        ct.idUs = idUs;
+            ResultSet rs;
+            rs = ct.SelectTipoC();
             if (rs.next()) {
                 if (idTipoU == 1) {
                     idCuenta = rs.getInt("idAdministradores");
@@ -168,7 +158,7 @@ public class Login extends javax.swing.JFrame {
                 Dashboard dash=new Dashboard(idTipoU,idUs,idCuenta);
                 dash.setVisible(true);
             } else {
-                JOptionPane.showMessageDialog(null, "Error al ejecutar");
+                JOptionPane.showMessageDialog(null, "No se encontro");
             }
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
@@ -186,7 +176,7 @@ public class Login extends javax.swing.JFrame {
             rs = ct.ValidarLogin(); //ResultSet
             try {
                 if (rs.next()) {
-                    idTipoU = rs.getInt("idTipoUsuario");
+                    idTipoU = rs.getInt("idTipoUsuario");  
                     idUs = rs.getInt("idUsuario");
                     SelectID();
                 } else {

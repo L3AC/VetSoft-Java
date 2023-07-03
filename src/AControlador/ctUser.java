@@ -15,7 +15,6 @@ public class ctUser {
     public String telefono;
     public String codigoVerif;
     public String fechaRegistro;
-    public String tbNomb;
 
     public int getIdTipoUs() {
         return idTipoUs;
@@ -80,22 +79,14 @@ public class ctUser {
         this.idTipoC = idTipoC;
     }
 
-    public String getTbNomb() {
-        return tbNomb;
-    }
-
-    public void setTbNomb(String tbNomb) {
-        this.tbNomb = tbNomb;
-    }
-    
+          mdUser usu = new mdUser();
     public ResultSet ValidarLogin(){
-      mdUser usu = new mdUser();
         //System.err.println(usuario);
+        System.err.println(contra);
       return usu.SelectTipoUs(usuario, contra);
       }
     public ResultSet SelectTipoC(){
-      mdUser usu = new mdUser();
         //System.err.println(usuario);
-      return usu.SelectTipoID(tbNomb, idUs);
+      return usu.SelectTipoID(idTipoUs, idUs);
       }
 }
