@@ -16,9 +16,9 @@ public class mdUser {
     public ResultSet SelectTipoUs(String usuario, String passw) throws SQLException {
         String url = "SELECT * FROM tbUsuarios WHERE usuario = ? COLLATE SQL_Latin1_General_CP1_CS_AS \n"
                 + " AND contraseña = ? COLLATE SQL_Latin1_General_CP1_CS_AS;";
-        
+        ResultSet rs = null;
         try {
-            ResultSet rs = null;
+            
             ps = con.prepareStatement(url);
             ps.setString(1, usuario);
             ps.setString(2, passw);//ENCRIPTAR
@@ -28,16 +28,17 @@ public class mdUser {
 
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
-            System.err.println(e.toString()+"sdf");
+            System.out.println(e.toString());
             return null; //DIO ERROR
         }
     }
 
     public ResultSet SelectTipoID(int idTipoU, int idUs) throws SQLException {
-        String url = "";
-        
+        String url = "SELECT * FROM tbAdministradores WHERE idUsuario = ?;";
+        System.out.println(idUs+" "+idTipoU);
+        ResultSet rst = null;
         try {
-            ResultSet rst = null;
+            
             if (idTipoU == 1) {
                 url = "SELECT * FROM tbAdministradores WHERE idUsuario = ?;";
             }
@@ -57,9 +58,9 @@ public class mdUser {
 
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
-            System.err.println(e.toString()+"elpepe");
+            System.out.println(e.toString());
             return null; //DIO ERROR
-        } 
+        }
     }
 
 }

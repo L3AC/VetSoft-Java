@@ -81,8 +81,6 @@ public class ctUser {
 
     public ResultSet ValidarLogin() throws SQLException{
         mdUser usu = new mdUser();
-        //System.err.println(usuario);
-        System.err.println(contra);
       return usu.SelectTipoUs(usuario, contra);
       }
     public ResultSet SelectTipoID() throws SQLException{

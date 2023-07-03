@@ -22,7 +22,7 @@ import javax.swing.table.DefaultTableModel;
 public class Login extends javax.swing.JFrame {
 
     Fuentes tipoFuente;
-    
+
     Crypt cryp = new Crypt();
     private int idTipoU;
     private int idUs;
@@ -138,32 +138,26 @@ public class Login extends javax.swing.JFrame {
 
     private void buttonGradient1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGradient1ActionPerformed
         try {
-            //MVC
-            
-            //System.err.println(co);
-
-            //rs = ct.ValidarLogin(); //ResultSet
             try {
-                ResultSet rs;
-            ctUser ct = new ctUser();
-            ct.usuario = TextUser.getText();
-            ct.contra = cryp.encrypt(TextPass.getText(), "key");
-            
-                if (ct.ValidarLogin().next()) {
-                    idTipoU = ct.ValidarLogin().getInt("idTipoUsuario");
-                    idUs = ct.ValidarLogin().getInt("idUsuario");
+                ctUser ct = new ctUser();
+                ct.usuario = TextUser.getText();
+                ct.contra = cryp.encrypt(TextPass.getText(), "key");
+                ResultSet rs=ct.ValidarLogin();
+                if (rs.next()) {
+                    idTipoU = rs.getInt("idTipoUsuario");
+                    idUs = rs.getInt("idUsuario");
+                    rs.close();
                     SelectID();
                 } else {
-                    JOptionPane.showMessageDialog(null, "Error al ejecutar");
+                    JOptionPane.showMessageDialog(null, "No hay nada");
                 }
-                
 
             } catch (SQLException ex) {
-                System.err.println(ex.toString());
+                System.out.println(ex.toString() + "prueba");
             }
 
         } catch (Exception ex) {
-            System.err.println(ex.toString());
+            System.out.println(ex.toString());
         }
     }//GEN-LAST:event_buttonGradient1ActionPerformed
     public void SelectID() throws SQLException {
@@ -171,29 +165,29 @@ public class Login extends javax.swing.JFrame {
             ctUser ct = new ctUser();
             ct.idTipoUs = idTipoU;
             ct.idUs = idUs;
-         // ResultSet rs = ct.SelectTipoID();
+            ResultSet rs = ct.SelectTipoID();
 
-            if (ct.SelectTipoID().next()) {
+            if (rs.next()) {
                 if (idTipoU == 1) {
-                    idCuenta = ct.SelectTipoID().getInt("idAdministradores");
+                    idCuenta = rs.getInt("idAdministradores");
                 }
                 if (idTipoU == 2) {
-                    idCuenta = ct.SelectTipoID().getInt("idRecepcionista");
+                    idCuenta = rs.getInt("idRecepcionista");
                 }
                 if (idTipoU == 4) {
-                    idCuenta = ct.SelectTipoID().getInt("idDoctor");
+                    idCuenta = rs.getInt("idDoctor");
                 }
                 if (idTipoU == 5) {
-                    idCuenta = ct.SelectTipoID().getInt("idAsistente");
+                    idCuenta = rs.getInt("idAsistente");
                 }
-
+                rs.close();
                 Dashboard dash = new Dashboard(idTipoU, idUs, idCuenta);
                 dash.setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(null, "No se encontro");
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.toString());
         }
     }
 
