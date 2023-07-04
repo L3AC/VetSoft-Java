@@ -180,6 +180,7 @@ public class Login extends javax.swing.JFrame {
                 if (idTipoU == 5) {
                     idCuenta = rs.getInt("idAsistente");
                 }
+                
                 rs.close();
                 Dashboard dash = new Dashboard(idTipoU, idUs, idCuenta);
                 dash.setVisible(true);

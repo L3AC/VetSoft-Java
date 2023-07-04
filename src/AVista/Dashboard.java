@@ -1,9 +1,13 @@
-
 package AVista;
+
+import AVista.CRUDS.CRUDCita;
+import AVista.CRUDS.CRUDCliente;
+import AVista.CRUDS.insertTipoC;
 import java.awt.Component;
 import JavaMenu.MenuSelectEvent;
 import AVista.VentanaAdminUsuarios;
 import AVista.Login;
+import Design.Desg;
 import Mensajes.MensajeNoEncontroUsuarios;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,35 +19,56 @@ public class Dashboard extends javax.swing.JFrame {
     private int idTipoU;
     private int idUs;
     private int idTipoC;
-    
-    
+    Desg dsg = new Desg();
+
     public Dashboard() {
         initComponents();
         init();
         GlassPanePopup.install(this);
     }
-    public Dashboard(int idTipoU,int idUs,int idTipoC) {
+
+    public Dashboard(int idTipoU, int idUs, int idTipoC) {
+        this.idTipoU = idTipoU;
+        this.idUs = idUs;
+        this.idTipoC = idTipoC;
         initComponents();
         init();
         GlassPanePopup.install(this);
-        this.idTipoU=idTipoU;
-        this.idUs=idUs;
-        this.idTipoC=idTipoC;
     }
+
     private void init() {
         dash = this;
-        
-       menu1.addEvent(new MenuSelectEvent() {
+
+        menu1.addEvent(new MenuSelectEvent() {
             @Override
             public void menuSelected(int index, int indexSubMenu) {
+                try {
+                    if (index == 0) {//CLIENTES
+                        CRUDCliente subCl = new CRUDCliente(idTipoU);
+                        dsg.ShowPanel(subCl, PCont, 1320, 810);
+                        System.out.println("clientes");
+                    }
+                    if (index == 1) {//CLIENTES
+                        CRUDCita subCl = new CRUDCita();
+                        dsg.ShowPanel(subCl, PCont, 1320, 810);
+                        System.out.println("citas");
+                    }
+                    
+                } catch (Exception e) {
+                    System.out.println(e.toString());
+                }
+
             }
         });
         menu1.setSelectedIndex(0, 0);
+
     }
-    
-    
-   
-    
+    public void showForm(Component com) {
+        body.removeAll();
+        body.add(com);
+        body.repaint();
+        body.revalidate();
+    }
     public static Dashboard getMain() {
         return dash;
     }
@@ -60,10 +85,11 @@ public class Dashboard extends javax.swing.JFrame {
         body = new AVista.PanelRound();
         PanelMenu = new AVista.PanelRound();
         menu1 = new JavaMenu.Menu();
-        PCon = new javax.swing.JPanel();
+        PCont = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setMaximumSize(new java.awt.Dimension(1320, 810));
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
         body.setBackground(new java.awt.Color(204, 204, 204));
@@ -75,16 +101,18 @@ public class Dashboard extends javax.swing.JFrame {
 
         body.add(PanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 810));
 
-        PCon.setBackground(new java.awt.Color(187, 180, 187));
-        PCon.setToolTipText("");
-        PCon.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        body.add(PCon, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 1140, 810));
+        PCont.setBackground(new java.awt.Color(187, 180, 187));
+        PCont.setToolTipText("");
+        PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        body.add(PCont, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 1320, 810));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(body, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(body, javax.swing.GroupLayout.PREFERRED_SIZE, 1569, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,8 +123,6 @@ public class Dashboard extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    
     /**
      * @param args the command line arguments
      */
@@ -131,7 +157,7 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel PCon;
+    private javax.swing.JPanel PCont;
     private AVista.PanelRound PanelMenu;
     private AVista.PanelRound body;
     private JavaMenu.Menu menu1;

@@ -21,8 +21,10 @@ public class CRUDCliente extends javax.swing.JPanel {
     DefaultTableModel model;
     
     public CRUDCliente(int nUs) throws SQLException {
+        this.nUs=nUs;
         initComponents();
         loadD();
+        System.out.println(nUs+ " tipo us");
     }
 
     public CRUDCliente() throws SQLException {
