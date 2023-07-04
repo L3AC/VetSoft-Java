@@ -45,6 +45,8 @@ public class Desg {
         public void ShowPanel(JPanel p,JPanel cont, int w,int h) {
         p.setSize(w, h);
         p.setLocation(0, 0);
+       
+        
         cont.removeAll();
         cont.add(p, BorderLayout.CENTER);
         cont.revalidate();

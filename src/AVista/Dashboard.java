@@ -12,6 +12,10 @@ import Mensajes.MensajeNoEncontroUsuarios;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import Mensajes.GlassPanePopup;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JPanel;
 
 public class Dashboard extends javax.swing.JFrame {
 
@@ -42,11 +46,16 @@ public class Dashboard extends javax.swing.JFrame {
         menu1.addEvent(new MenuSelectEvent() {
             @Override
             public void menuSelected(int index, int indexSubMenu) {
-                try {
-                    if (index == 0) {//CLIENTES
+                //try {
+                    if (index == 0) {try {
+                        //CLIENTES
                         CRUDCliente subCl = new CRUDCliente(idTipoU);
-                        dsg.ShowPanel(subCl, PCont, 1320, 810);
+                        //dsg.ShowPanel(subCl, PCont, 1320, 810);
+                        showForm(subCl);
                         System.out.println("clientes");
+                        } catch (SQLException ex) {
+                            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+                        }
                     }
                     if (index == 1) {//CLIENTES
                         CRUDCita subCl = new CRUDCita();
@@ -54,20 +63,20 @@ public class Dashboard extends javax.swing.JFrame {
                         System.out.println("citas");
                     }
                     
-                } catch (Exception e) {
-                    System.out.println(e.toString()+"prueba");
-                }
+                /*} catch (Exception e) {
+                    System.out.println(e.toString()+" prueba");
+                }*/
 
             }
         });
         menu1.setSelectedIndex(0, 0);
 
     }
-    public void showForm(Component com) {
-        body.removeAll();
-        body.add(com);
-        body.repaint();
-        body.revalidate();
+    public void showForm(JPanel com) {
+        PCont.removeAll();
+        PCont.add(com);
+        PCont.repaint();
+        PCont.revalidate();
     }
     public static Dashboard getMain() {
         return dash;
@@ -103,7 +112,18 @@ public class Dashboard extends javax.swing.JFrame {
 
         PCont.setBackground(new java.awt.Color(187, 180, 187));
         PCont.setToolTipText("");
-        PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
+        PCont.setLayout(PContLayout);
+        PContLayout.setHorizontalGroup(
+            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1320, Short.MAX_VALUE)
+        );
+        PContLayout.setVerticalGroup(
+            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 810, Short.MAX_VALUE)
+        );
+
         body.add(PCont, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 1320, 810));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
