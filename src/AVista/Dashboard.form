@@ -7,10 +7,10 @@
       <Color blue="ff" green="ff" red="ff" type="rgb"/>
     </Property>
     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[1320, 810]"/>
+      <Dimension value="[1570, 810]"/>
     </Property>
     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[1320, 810]"/>
+      <Dimension value="[1570, 810]"/>
     </Property>
   </Properties>
   <SyntheticProperties>

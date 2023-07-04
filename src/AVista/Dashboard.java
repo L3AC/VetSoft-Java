@@ -55,7 +55,7 @@ public class Dashboard extends javax.swing.JFrame {
                     }
                     
                 } catch (Exception e) {
-                    System.out.println(e.toString());
+                    System.out.println(e.toString()+"prueba");
                 }
 
             }
@@ -89,8 +89,8 @@ public class Dashboard extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        setMaximumSize(new java.awt.Dimension(1320, 810));
-        setPreferredSize(new java.awt.Dimension(1320, 810));
+        setMaximumSize(new java.awt.Dimension(1570, 810));
+        setPreferredSize(new java.awt.Dimension(1570, 810));
 
         body.setBackground(new java.awt.Color(204, 204, 204));
         body.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
