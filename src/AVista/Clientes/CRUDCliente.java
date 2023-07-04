@@ -3,8 +3,6 @@ package AVista.Clientes;
 
 import AControlador.ctCliente;
 import AVista.Animales.addMascota;
-import AVista.CRUDS.insertTipoCuenta;
-import AVista.CRUDS.updtTipoCuenta;
 import Design.Desg;
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -1,5 +1,5 @@
 
-package AVista.CRUDS;
+package AVista.Clientes;
 
 public class updtTipoCuenta extends javax.swing.JPanel {
 
