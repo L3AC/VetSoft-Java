@@ -64,13 +64,13 @@ public class CRUDCliente extends javax.swing.JPanel {
 
         PCont = new javax.swing.JPanel();
         txtBusq = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tbData = new javax.swing.JTable();
         btnAddM = new javax.swing.JButton();
         btnReservas = new javax.swing.JButton();
         btnInsert = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbData = new SwingTable.Table();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
         setVerifyInputWhenFocusTarget(false);
@@ -81,24 +81,6 @@ public class CRUDCliente extends javax.swing.JPanel {
                 txtBusqKeyTyped(evt);
             }
         });
-
-        tbData.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "idCliente", "Nombre", "Edad", "Sexo"
-            }
-        ));
-        tbData.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbDataMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(tbData);
 
         btnAddM.setText("Agregar mascota");
         btnAddM.addActionListener(new java.awt.event.ActionListener() {
@@ -130,6 +112,24 @@ public class CRUDCliente extends javax.swing.JPanel {
             }
         });
 
+        tbData.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "idCliente", "Nombre", "Edad", "Sexo"
+            }
+        ));
+        tbData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbDataMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tbData);
+
         javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
         PCont.setLayout(PContLayout);
         PContLayout.setHorizontalGroup(
@@ -153,11 +153,9 @@ public class CRUDCliente extends javax.swing.JPanel {
             .addGroup(PContLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
+                        .addGap(70, 70, 70)
                         .addComponent(btnAddM, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40)
                         .addComponent(btnReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -166,7 +164,11 @@ public class CRUDCliente extends javax.swing.JPanel {
                         .addGap(40, 40, 40)
                         .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -190,11 +192,6 @@ public class CRUDCliente extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtBusqKeyTyped
 
-    private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
-        int fila = tbData.getSelectedRow();
-        idCl = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
-    }//GEN-LAST:event_tbDataMouseClicked
-
     private void btnAddMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddMActionPerformed
         dsg.ShowPanel(subpM, PCont, 1320, 810);
     }//GEN-LAST:event_btnAddMActionPerformed
@@ -213,6 +210,11 @@ public class CRUDCliente extends javax.swing.JPanel {
         ct.deleteCl();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
+        int fila = tbData.getSelectedRow();
+        idCl = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
+    }//GEN-LAST:event_tbDataMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
@@ -222,7 +224,7 @@ public class CRUDCliente extends javax.swing.JPanel {
     private javax.swing.JButton btnInsert;
     private javax.swing.JButton btnReservas;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tbData;
+    private SwingTable.Table tbData;
     private javax.swing.JTextField txtBusq;
     // End of variables declaration//GEN-END:variables
 }

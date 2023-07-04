@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package AVista.Animales;
+package AVista.Home;
 
 /**
  *
  * @author LEAC2
  */
-public class updtAnimales extends javax.swing.JPanel {
+public class Home extends javax.swing.JPanel {
 
     /**
-     * Creates new form updtAnimales
+     * Creates new form Home
      */
-    public updtAnimales() {
+    public Home() {
         initComponents();
     }
 
@@ -27,8 +27,27 @@ public class updtAnimales extends javax.swing.JPanel {
     private void initComponents() {
 
         PCont = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
-        PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel1.setFont(new java.awt.Font("Segoe UI Emoji", 1, 36)); // NOI18N
+        jLabel1.setText("BIENVENIDO");
+
+        javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
+        PCont.setLayout(PContLayout);
+        PContLayout.setHorizontalGroup(
+            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(496, 496, 496)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(498, Short.MAX_VALUE))
+        );
+        PContLayout.setVerticalGroup(
+            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(357, 357, 357)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(322, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -45,5 +64,6 @@ public class updtAnimales extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

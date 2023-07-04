@@ -1,8 +1,10 @@
 package AVista;
 
+import AVista.Animales.CRUDAnimales;
 import AVista.Citas.CRUDCita;
 import AVista.Clientes.CRUDCliente;
 import AVista.Clientes.insertTipoCuenta;
+import AVista.Home.Home;
 import java.awt.Component;
 import JavaMenu.MenuSelectEvent;
 import AVista.VentanaAdminUsuarios;
@@ -46,27 +48,31 @@ public class Dashboard extends javax.swing.JFrame {
         menu1.addEvent(new MenuSelectEvent() {
             @Override
             public void menuSelected(int index, int indexSubMenu) {
-                //try {
-                    if (index == 0) {try {
-                        //CLIENTES
-                        CRUDCliente subCl = new CRUDCliente(idTipoU);
-                        //dsg.ShowPanel(subCl, PCont, 1320, 810);
-                        dsg.ShowPanel(subCl, PCont, 1320, 810);
-                        System.out.println("clientes");
-                        } catch (SQLException ex) {
-                            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
-                        }
+                try {
+                    if (index == 0) {//HOME
+                        Home subp = new Home();
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                        
                     }
                     if (index == 1) {//CLIENTES
-                        CRUDCita subCl = new CRUDCita();
-                        dsg.ShowPanel(subCl, PCont, 1320, 810);
-                        System.out.println("citas");
+                        CRUDCliente subp = new CRUDCliente(idTipoU);
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                        
+                    }
+                    if(index==2){//ANIMALES
+                        CRUDAnimales subp = new CRUDAnimales();
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                       
+                    }
+                    if(index==3){//CITAS
+                        CRUDCita subp = new CRUDCita();
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                       
                     }
                     
-                    
-                /*} catch (Exception e) {
+                } catch (Exception e) {
                     System.out.println(e.toString()+" prueba");
-                }*/
+                }
 
             }
         });

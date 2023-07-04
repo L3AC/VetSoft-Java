@@ -41,7 +41,7 @@ public class Menu extends JPanel{
         scroll.setViewportBorder(null);
         add(scroll);
         addTitle("Dashboard");
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.DASHBOARD, "Dashboard"));
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.DASHBOARD, "Home"));
         addTitle("Cliente y mas.");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PERSON, "Clientes"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PETS, "Mascotas"));
