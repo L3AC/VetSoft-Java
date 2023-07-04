@@ -24,7 +24,7 @@ public class CRUDCliente extends javax.swing.JPanel {
         this.nUs=nUs;
         initComponents();
         loadD();
-        System.out.println(nUs+ " tipo us");
+        
     }
 
     public CRUDCliente() throws SQLException {
@@ -37,6 +37,7 @@ public class CRUDCliente extends javax.swing.JPanel {
         model = new DefaultTableModel(null, column);
         dsg.ColumnHide(model,tbData, 0);
         CargarTabla ();
+        
     }
 
     final void CargarTabla() throws SQLException {
@@ -154,7 +155,8 @@ public class CRUDCliente extends javax.swing.JPanel {
         try {
             loadD();
         } catch (SQLException ex) {
-            Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.toString());
         }
     }//GEN-LAST:event_txtBusqKeyTyped
 
