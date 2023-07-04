@@ -1,7 +1,10 @@
 
-package AVista.CRUDS;
+package AVista.Clientes;
 
 import AControlador.ctCliente;
+import AVista.Animales.addMascota;
+import AVista.CRUDS.insertTipoCuenta;
+import AVista.CRUDS.updtTipoCuenta;
 import Design.Desg;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,8 +18,8 @@ public class CRUDCliente extends javax.swing.JPanel {
     private int idCl;
     ctCliente ct = new ctCliente();
     Desg dsg = new Desg();
-    insertTipoC subp =new insertTipoC();
-    updtTipoC subpU =new updtTipoC();
+    insertTipoCuenta subp =new insertTipoCuenta();
+    updtTipoCuenta subpU =new updtTipoCuenta();
     addMascota subpM =new addMascota();
     DefaultTableModel model;
     

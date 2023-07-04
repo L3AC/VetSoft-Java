@@ -8,12 +8,12 @@ package AVista.CRUDS;
  *
  * @author LEAC2
  */
-public class insertTipoC extends javax.swing.JPanel {
+public class insertTipoCuenta extends javax.swing.JPanel {
 
     /**
      * Creates new form insertTipoC
      */
-    public insertTipoC() {
+    public insertTipoCuenta() {
         initComponents();
     }
 

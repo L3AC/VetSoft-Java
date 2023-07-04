@@ -1,8 +1,8 @@
 package AVista;
 
 import AVista.CRUDS.CRUDCita;
-import AVista.CRUDS.CRUDCliente;
-import AVista.CRUDS.insertTipoC;
+import AVista.Clientes.CRUDCliente;
+import AVista.CRUDS.insertTipoCuenta;
 import java.awt.Component;
 import JavaMenu.MenuSelectEvent;
 import AVista.VentanaAdminUsuarios;
