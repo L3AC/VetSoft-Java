@@ -51,7 +51,7 @@ public class Dashboard extends javax.swing.JFrame {
                         //CLIENTES
                         CRUDCliente subCl = new CRUDCliente(idTipoU);
                         //dsg.ShowPanel(subCl, PCont, 1320, 810);
-                        showForm(subCl);
+                        dsg.ShowPanel(subCl, PCont, 1320, 810);
                         System.out.println("clientes");
                         } catch (SQLException ex) {
                             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
