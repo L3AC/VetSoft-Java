@@ -63,6 +63,7 @@ public class Dashboard extends javax.swing.JFrame {
                         System.out.println("citas");
                     }
                     
+                    
                 /*} catch (Exception e) {
                     System.out.println(e.toString()+" prueba");
                 }*/
