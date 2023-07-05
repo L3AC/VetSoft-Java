@@ -1,4 +1,3 @@
-
 package AVista.Clientes;
 
 import AControlador.ctCliente;
@@ -16,16 +15,13 @@ public class CRUDCliente extends javax.swing.JPanel {
     private int idCl;
     ctCliente ct = new ctCliente();
     Desg dsg = new Desg();
-    insertTipoCuenta subp =new insertTipoCuenta();
-    updtTipoCuenta subpU =new updtTipoCuenta();
-    addMascota subpM =new addMascota();
     DefaultTableModel model;
-    
+
     public CRUDCliente(int nUs) throws SQLException {
-        this.nUs=nUs;
+        this.nUs = nUs;
         initComponents();
         loadD();
-        
+
     }
 
     public CRUDCliente() throws SQLException {
@@ -33,12 +29,12 @@ public class CRUDCliente extends javax.swing.JPanel {
         loadD();
     }
 
-    final void loadD() throws SQLException{ 
+    final void loadD() throws SQLException {
         String[] column = {"idCliente", "Nombre", "Edad", "Sexo"};
         model = new DefaultTableModel(null, column);
-        dsg.ColumnHide(model,tbData, 0);
-        CargarTabla ();
-        
+        dsg.ColumnHide(model, tbData, 0);
+        CargarTabla();
+
     }
 
     final void CargarTabla() throws SQLException {
@@ -47,17 +43,18 @@ public class CRUDCliente extends javax.swing.JPanel {
         }
 
         try {
-            ct.nombre=txtBusq.getText().toString();
+            ct.nombre = txtBusq.getText().toString();
             ResultSet rs = ct.cargarCl();
             while (rs.next()) {
-                Object[] oValores = {rs.getInt("idCliente"), rs.getString("Nombre")
-                , rs.getString("Edad") , rs.getString("Sexo") };
-                        model.addRow(oValores);
+                Object[] oValores = {rs.getInt("idCliente"), rs.getString("Nombre"),
+                    rs.getString("Edad"), rs.getString("Sexo")};
+                model.addRow(oValores);
             }
         } catch (Exception e) {
 
         }
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -193,20 +190,23 @@ public class CRUDCliente extends javax.swing.JPanel {
     }//GEN-LAST:event_txtBusqKeyTyped
 
     private void btnAddMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddMActionPerformed
-        dsg.ShowPanel(subpM, PCont, 1320, 810);
+        addMascota subp = new addMascota();
+        dsg.ShowPanel(subp, PCont, 1320, 810);
     }//GEN-LAST:event_btnAddMActionPerformed
 
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
         //subp();
+        insertTipoCuenta subp = new insertTipoCuenta();
         dsg.ShowPanel(subp, PCont, 1320, 810);
     }//GEN-LAST:event_btnInsertActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        dsg.ShowPanel(subpU, PCont, 1320, 810);
+        updtTipoCuenta subp = new updtTipoCuenta();
+        dsg.ShowPanel(subp, PCont, 1320, 810);
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        ct.idCliente=idCl;
+        ct.idCliente = idCl;
         ct.deleteCl();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
