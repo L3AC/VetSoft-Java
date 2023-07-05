@@ -1,9 +1,18 @@
 
 package AVista.Animales;
 
+import AControlador.ctAnimales;
+import AControlador.ctCliente;
+import Design.Desg;
+import javax.swing.table.DefaultTableModel;
+
 public class CRUDAnimales extends javax.swing.JPanel {
 
+    public int nUs;
     private int idCl;
+    ctAnimales ct = new ctAnimales();
+    Desg dsg = new Desg();
+    DefaultTableModel model;
     public CRUDAnimales() {
         initComponents();
     }
@@ -109,7 +118,9 @@ public class CRUDAnimales extends javax.swing.JPanel {
     }//GEN-LAST:event_txtBusqKeyTyped
 
     private void btnAddMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddMActionPerformed
-        //dsg.ShowPanel(subpM, PCont, 1320, 810);
+        addMascota subp =new addMascota();
+        dsg.ShowPanel(subp, PCont, 1320, 810);
+//dsg.ShowPanel(subpM, PCont, 1320, 810);
     }//GEN-LAST:event_btnAddMActionPerformed
 
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
