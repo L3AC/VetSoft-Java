@@ -42,16 +42,17 @@ public class MenuRecep extends JPanel{
         scroll.getViewport().setOpaque(false);
         scroll.setViewportBorder(null);
         add(scroll);
-        addTitle("Dashboard");
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.DASHBOARD, "Home"));
-        addTitle("Cliente y mas.");
+        addTitle("Inicio");
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.DASHBOARD, "Bienvenido"));
+        addTitle("Gestión pacientes");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PERSON, "Clientes"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PETS, "Mascotas"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PERM_CONTACT_CALENDAR, "Citas"));
-        addTitle("Productos y mas");
+        addTitle("Productos");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.LOCAL_HOSPITAL, "Productos"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.ADD_ALARM, "Reservas"));
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PEOPLE, "Mi Cuenta"));
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PEOPLE,
+                "Mi Cuenta","Perfil","Seguridad","Preguntas"));
     }
 
     private JScrollPane createScroll() {

@@ -41,14 +41,15 @@ public class MenuDoc extends JPanel{
         scroll.getViewport().setOpaque(false);
         scroll.setViewportBorder(null);
         add(scroll);
-        addTitle("Dashboard");
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.DASHBOARD, "Home"));
-        addTitle("Cliente");
+        addTitle("Inicio");
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.DASHBOARD, "Bienvenido"));
+        addTitle("Gestión de pacientes");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PERSON, "Clientes"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PETS, "Mascotas"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PERM_CONTACT_CALENDAR, "Citas"));
         addTitle("Cuenta");
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PEOPLE, "Mi Cuenta"));
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PEOPLE,
+                "Mi Cuenta","Perfil","Seguridad","Preguntas"));
     }
 
     private JScrollPane createScroll() {
