@@ -29,7 +29,7 @@ public class Dashboard extends javax.swing.JFrame {
 
     public Dashboard() {
         initComponents();
-        init();
+        initAdmin();
         GlassPanePopup.install(this);
     }
 
@@ -38,14 +38,25 @@ public class Dashboard extends javax.swing.JFrame {
         this.idUs = idUs;
         this.idTipoC = idTipoC;
         initComponents();
-        init();
+        if(idTipoU==1){
+            menuDoc.setVisible(false);
+            
+            initAdmin();
+        }
+        if(idTipoU==2){
+            
+        }
+        if(idTipoU>=4){
+            menuAdmin.setVisible(false);
+            initDoc();
+        }
+        //initAdmin();
         GlassPanePopup.install(this);
     }
 
-    private void init() {
-        dash = this;
-
-        menu1.addEvent(new MenuSelectEvent() {
+    private void initAdmin() {
+        dash = this; 
+        menuAdmin.addEvent(new MenuSelectEvent() {
             @Override
             public void menuSelected(int index, int indexSubMenu) {
                 try {
@@ -76,7 +87,43 @@ public class Dashboard extends javax.swing.JFrame {
 
             }
         });
-        menu1.setSelectedIndex(0, 0);
+        menuAdmin.setSelectedIndex(0, 0);
+
+    }
+    private void initDoc() {
+        dash = this;
+        menuDoc.addEvent(new MenuSelectEvent() {
+            @Override
+            public void menuSelected(int index, int indexSubMenu) {
+                try {
+                    if (index == 0) {//HOME
+                        Home subp = new Home();
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                        
+                    }
+                    if (index == 1) {//CLIENTES
+                        CRUDCliente subp = new CRUDCliente(idTipoU);
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                        
+                    }
+                    if(index==2){//ANIMALES
+                        CRUDAnimales subp = new CRUDAnimales();
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                       
+                    }
+                    if(index==3){//CITAS
+                        CRUDCita subp = new CRUDCita();
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                       
+                    }
+                    
+                } catch (Exception e) {
+                    System.out.println(e.toString()+" prueba");
+                }
+
+            }
+        });
+        menuDoc.setSelectedIndex(0, 0);
 
     }
     public void showForm(JPanel com) {
@@ -100,7 +147,8 @@ public class Dashboard extends javax.swing.JFrame {
 
         body = new Design.PanelRound();
         PanelMenu = new Design.PanelRound();
-        menu1 = new JavaMenu.Menu();
+        menuAdmin = new JavaMenu.MenuAdmin();
+        menuDoc = new JavaMenu.MenuDoc();
         PCont = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -112,9 +160,9 @@ public class Dashboard extends javax.swing.JFrame {
         body.setBackground(new java.awt.Color(204, 204, 204));
         body.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        PanelMenu.setBackground(new java.awt.Color(255, 255, 255));
         PanelMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        PanelMenu.add(menu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 23, 250, 511));
+        PanelMenu.add(menuAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 250, 511));
+        PanelMenu.add(menuDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 250, 510));
 
         body.add(PanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 810));
 
@@ -188,6 +236,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel PCont;
     private Design.PanelRound PanelMenu;
     private Design.PanelRound body;
-    private JavaMenu.Menu menu1;
+    private JavaMenu.MenuAdmin menuAdmin;
+    private JavaMenu.MenuDoc menuDoc;
     // End of variables declaration//GEN-END:variables
 }

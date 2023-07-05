@@ -22,14 +22,16 @@ import net.miginfocom.swing.MigLayout;
  *
  * @author Gerson
  */
-public class Menu extends JPanel{
+public class MenuRecep extends JPanel{
     
     private int index = -1;
     private final List<MenuSelectEvent> events = new ArrayList<>();
-
-    public Menu() {
+    
+    public MenuRecep() {
         init();
+        System.err.println("ORI");
     }
+
 
     private void init() {
         setBackground(Color.WHITE);
