@@ -43,16 +43,16 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelRound1 = new AVista.PanelRound();
+        panelRound1 = new Design.PanelRound();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        panelRound2 = new AVista.PanelRound();
-        TextUser = new AVista.Textfield();
+        panelRound2 = new Design.PanelRound();
+        TextUser = new Design.Textfield();
         UsuarioL = new javax.swing.JLabel();
         PassL = new javax.swing.JLabel();
-        TextPass = new AVista.Textfield();
+        TextPass = new Design.Textfield();
         jLabel6 = new javax.swing.JLabel();
-        buttonGradient1 = new AVista.ButtonGradient();
+        buttonGradient1 = new Design.ButtonGradient();
         Titulo = new javax.swing.JLabel();
         VetSoft = new javax.swing.JLabel();
 
@@ -205,16 +205,16 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel PassL;
-    private AVista.Textfield TextPass;
-    private AVista.Textfield TextUser;
+    private Design.Textfield TextPass;
+    private Design.Textfield TextUser;
     private javax.swing.JLabel Titulo;
     private javax.swing.JLabel UsuarioL;
     private javax.swing.JLabel VetSoft;
-    private AVista.ButtonGradient buttonGradient1;
+    private Design.ButtonGradient buttonGradient1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
-    private AVista.PanelRound panelRound1;
-    private AVista.PanelRound panelRound2;
+    private Design.PanelRound panelRound1;
+    private Design.PanelRound panelRound2;
     // End of variables declaration//GEN-END:variables
 }

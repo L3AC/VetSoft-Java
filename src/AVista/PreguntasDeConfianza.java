@@ -64,20 +64,20 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelRound3 = new AVista.PanelRound();
+        panelRound3 = new Design.PanelRound();
         btnRegresar6 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        panelRound4 = new AVista.PanelRound();
+        panelRound4 = new Design.PanelRound();
         jLabel7 = new javax.swing.JLabel();
-        txtUser = new AVista.Textfield();
+        txtUser = new Design.Textfield();
         jLabel8 = new javax.swing.JLabel();
-        txtPregunta1 = new AVista.Textfield();
+        txtPregunta1 = new Design.Textfield();
         jLabel9 = new javax.swing.JLabel();
-        txtPregunta2 = new AVista.Textfield();
+        txtPregunta2 = new Design.Textfield();
         jLabel10 = new javax.swing.JLabel();
-        txtPregunta3 = new AVista.Textfield();
-        btnVerificar = new AVista.ButtonGradient();
-        btnEnviar = new AVista.ButtonGradient();
+        txtPregunta3 = new Design.Textfield();
+        btnVerificar = new Design.ButtonGradient();
+        btnEnviar = new Design.ButtonGradient();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -353,19 +353,19 @@ public void EncCod(String user) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private AVista.ButtonGradient btnEnviar;
+    private Design.ButtonGradient btnEnviar;
     private javax.swing.JButton btnRegresar6;
-    private AVista.ButtonGradient btnVerificar;
+    private Design.ButtonGradient btnVerificar;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private AVista.PanelRound panelRound3;
-    private AVista.PanelRound panelRound4;
-    private AVista.Textfield txtPregunta1;
-    private AVista.Textfield txtPregunta2;
-    private AVista.Textfield txtPregunta3;
-    private AVista.Textfield txtUser;
+    private Design.PanelRound panelRound3;
+    private Design.PanelRound panelRound4;
+    private Design.Textfield txtPregunta1;
+    private Design.Textfield txtPregunta2;
+    private Design.Textfield txtPregunta3;
+    private Design.Textfield txtUser;
     // End of variables declaration//GEN-END:variables
 }

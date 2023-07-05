@@ -48,7 +48,7 @@ public class CodigodeerrorDLI1 extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelRound1 = new AVista.PanelRound();
+        panelRound1 = new Design.PanelRound();
         jLabel1 = new javax.swing.JLabel();
         txt1 = new javax.swing.JLabel();
         boton1 = new Mensajes.Boton();
@@ -95,7 +95,7 @@ public class CodigodeerrorDLI1 extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Mensajes.Boton boton1;
     private javax.swing.JLabel jLabel1;
-    private AVista.PanelRound panelRound1;
+    private Design.PanelRound panelRound1;
     private javax.swing.JLabel txt1;
     // End of variables declaration//GEN-END:variables
 }

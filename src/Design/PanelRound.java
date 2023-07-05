@@ -1,4 +1,4 @@
-package AVista;
+package Design;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;

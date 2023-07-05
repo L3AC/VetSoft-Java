@@ -128,7 +128,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPreguntasActionPerformed"/>
       </Events>
     </Component>
-    <Component class="AVista.ButtonGradient" name="buttonGradient1">
+    <Component class="Design.ButtonGradient" name="buttonGradient1">
       <Properties>
         <Property name="text" type="java.lang.String" value="buttonGradient1"/>
         <Property name="color1" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">

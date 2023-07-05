@@ -28,7 +28,7 @@ public class CódigoErrorDRC1 extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelRound2 = new AVista.PanelRound();
+        panelRound2 = new Design.PanelRound();
         jLabel1 = new javax.swing.JLabel();
         txt = new javax.swing.JLabel();
         boton1 = new Mensajes.Boton();
@@ -105,7 +105,7 @@ public class CódigoErrorDRC1 extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Mensajes.Boton boton1;
     private javax.swing.JLabel jLabel1;
-    private AVista.PanelRound panelRound2;
+    private Design.PanelRound panelRound2;
     private javax.swing.JLabel txt;
     // End of variables declaration//GEN-END:variables
 }

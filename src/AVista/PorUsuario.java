@@ -61,18 +61,18 @@ public class PorUsuario extends javax.swing.JFrame {
 
         BtnRegresar1 = new javax.swing.JButton();
         lbMayor = new javax.swing.JLabel();
-        panelRound1 = new AVista.PanelRound();
+        panelRound1 = new Design.PanelRound();
         lbCod = new javax.swing.JLabel();
-        btnVeri = new AVista.ButtonGradient();
+        btnVeri = new Design.ButtonGradient();
         lbUs1 = new javax.swing.JLabel();
         lbUs2 = new javax.swing.JLabel();
-        txtUser = new AVista.Textfield();
+        txtUser = new Design.Textfield();
         lbCod1 = new javax.swing.JLabel();
-        txtCod = new AVista.Textfield();
-        btnEnviar = new AVista.ButtonGradient();
-        txtNueva2 = new AVista.Textfield();
-        btnCambiar = new AVista.ButtonGradient();
-        txtNueva = new AVista.Textfield();
+        txtCod = new Design.Textfield();
+        btnEnviar = new Design.ButtonGradient();
+        txtNueva2 = new Design.Textfield();
+        btnCambiar = new Design.ButtonGradient();
+        txtNueva = new Design.Textfield();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -445,19 +445,19 @@ public class PorUsuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnRegresar1;
-    private AVista.ButtonGradient btnCambiar;
-    private AVista.ButtonGradient btnEnviar;
-    private AVista.ButtonGradient btnVeri;
+    private Design.ButtonGradient btnCambiar;
+    private Design.ButtonGradient btnEnviar;
+    private Design.ButtonGradient btnVeri;
     private javax.swing.JLabel lbCod;
     private javax.swing.JLabel lbCod1;
     private javax.swing.JLabel lbMayor;
     private javax.swing.JLabel lbUs1;
     private javax.swing.JLabel lbUs2;
-    private AVista.PanelRound panelRound1;
-    private AVista.Textfield txtCod;
-    private AVista.Textfield txtNueva;
-    private AVista.Textfield txtNueva2;
-    private AVista.Textfield txtUser;
+    private Design.PanelRound panelRound1;
+    private Design.Textfield txtCod;
+    private Design.Textfield txtNueva;
+    private Design.Textfield txtNueva2;
+    private Design.Textfield txtUser;
     // End of variables declaration//GEN-END:variables
 }
 

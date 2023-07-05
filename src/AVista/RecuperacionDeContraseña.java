@@ -52,7 +52,7 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnUsuario = new javax.swing.JButton();
         btnPreguntas = new javax.swing.JButton();
-        buttonGradient1 = new AVista.ButtonGradient();
+        buttonGradient1 = new Design.ButtonGradient();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -221,7 +221,7 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
     private javax.swing.JLabel LBRecup;
     private javax.swing.JButton btnPreguntas;
     private javax.swing.JButton btnUsuario;
-    private AVista.ButtonGradient buttonGradient1;
+    private Design.ButtonGradient buttonGradient1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -33,7 +33,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="AVista.PanelRound" name="panelRound3">
+    <Container class="Design.PanelRound" name="panelRound3">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -72,7 +72,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Container class="AVista.PanelRound" name="panelRound4">
+        <Container class="Design.PanelRound" name="panelRound4">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="e8" green="e9" red="be" type="rgb"/>
@@ -108,7 +108,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="AVista.Textfield" name="txtUser">
+            <Component class="Design.Textfield" name="txtUser">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="70" y="60" width="150" height="-1"/>
@@ -131,7 +131,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="AVista.Textfield" name="txtPregunta1">
+            <Component class="Design.Textfield" name="txtPregunta1">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="50" y="250" width="210" height="-1"/>
@@ -154,7 +154,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="AVista.Textfield" name="txtPregunta2">
+            <Component class="Design.Textfield" name="txtPregunta2">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="550" y="60" width="200" height="-1"/>
@@ -177,7 +177,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="AVista.Textfield" name="txtPregunta3">
+            <Component class="Design.Textfield" name="txtPregunta3">
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPregunta3ActionPerformed"/>
               </Events>
@@ -187,7 +187,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="AVista.ButtonGradient" name="btnVerificar">
+            <Component class="Design.ButtonGradient" name="btnVerificar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Verificar"/>
                 <Property name="color1" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -206,7 +206,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="AVista.ButtonGradient" name="btnEnviar">
+            <Component class="Design.ButtonGradient" name="btnEnviar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Enviar"/>
                 <Property name="color1" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">

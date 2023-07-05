@@ -98,8 +98,8 @@ public class Dashboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        body = new AVista.PanelRound();
-        PanelMenu = new AVista.PanelRound();
+        body = new Design.PanelRound();
+        PanelMenu = new Design.PanelRound();
         menu1 = new JavaMenu.Menu();
         PCont = new javax.swing.JPanel();
 
@@ -186,8 +186,8 @@ public class Dashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
-    private AVista.PanelRound PanelMenu;
-    private AVista.PanelRound body;
+    private Design.PanelRound PanelMenu;
+    private Design.PanelRound body;
     private JavaMenu.Menu menu1;
     // End of variables declaration//GEN-END:variables
 }
