@@ -32,7 +32,7 @@ public class CRUDCliente extends javax.swing.JPanel {
     final void loadD() throws SQLException {
         String[] column = {"idCliente", "Nombre", "Edad", "Sexo"};
         model = new DefaultTableModel(null, column);
-        dsg.ColumnHide(model, tbData, 0);
+        dsg.ColumnHide(model, tbData, 0,4);
         CargarTabla();
 
     }

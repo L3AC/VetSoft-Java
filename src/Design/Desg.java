@@ -29,7 +29,7 @@ public class Desg {
         elm.setIcon(icon);
         elm.repaint();
     }
-        public void ColumnHide(DefaultTableModel md,JTable tb, int nc) {
+        public void ColumnHide(DefaultTableModel md,JTable tb, int nc,int nCol) {
         tb.setModel(md);
         tb.getColumnModel().getColumn(nc).setMaxWidth(0);
         tb.getColumnModel().getColumn(nc).setMinWidth(0);
@@ -39,8 +39,9 @@ public class Desg {
         //CENTRAR TEXTO DE LAS CELDAS
         DefaultTableCellRenderer Alinear = new DefaultTableCellRenderer();
         Alinear.setHorizontalAlignment(SwingConstants.CENTER);//.LEFT .RIGHT .CENTER
-        tb.getColumnModel().getColumn(1).setCellRenderer(Alinear);
-        tb.getColumnModel().getColumn(2).setCellRenderer(Alinear);
+        for(int i = 0;i<nCol;i++){
+            tb.getColumnModel().getColumn(i).setCellRenderer(Alinear);
+        }
     }
         public void ShowPanel(JPanel p,JPanel cont, int w,int h) {
         p.setSize(w, h);

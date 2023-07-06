@@ -32,7 +32,7 @@ public class CRUDusuarios extends javax.swing.JPanel {
     final void loadD() throws SQLException {
         String[] column = {"idUsuario", "Cargo", "Usuario", "Correo", "Teléfono"};
         model = new DefaultTableModel(null, column);
-        dsg.ColumnHide(model, tbData, 0);
+        dsg.ColumnHide(model, tbData, 0,5);
         CargarTabla();
 
     }
@@ -47,8 +47,9 @@ public class CRUDusuarios extends javax.swing.JPanel {
             ct.idTipoUs=idTipoUs;
             ResultSet rs = ct.cargarUs();
             while (rs.next()) {
-                Object[] oValores = {rs.getInt("idUsuario"), rs.getString("usuario"),
-                    rs.getString("correo"), rs.getString("telefono")};
+                Object[] oValores = {rs.getInt("idUsuario"),rs.getString("Cargo"),
+                    rs.getString("usuario"),rs.getString("correo"),
+                    rs.getString("telefono")};
                 model.addRow(oValores);
             }
         } catch (Exception e) {

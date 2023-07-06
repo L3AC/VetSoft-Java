@@ -41,7 +41,7 @@ public class CRUDAnimales extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "idAnimal", "Title 2", "Title 3", "Title 4"
             }
         ));
         tbData.addMouseListener(new java.awt.event.MouseAdapter() {

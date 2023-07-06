@@ -71,34 +71,34 @@ public class Dashboard extends javax.swing.JFrame {
                         
                     }
                     //GESTION PRINCIPAL
-                    if(index==1 && indexSubMenu==0){//USUARIOS
+                    if(index==1 && indexSubMenu==1){//USUARIOS
                         CRUDusuarios subp = new CRUDusuarios(idTipoU);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
-                    if (index == 1 && indexSubMenu==1) {//CLIENTES
+                    if (index == 1 && indexSubMenu==2) {//CLIENTES
                         CRUDCliente subp = new CRUDCliente(idTipoU);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                         
                     }
-                    if(index==1 && indexSubMenu==2){//ANIMALES
+                    if(index==1 && indexSubMenu==3){//ANIMALES
                         CRUDAnimales subp = new CRUDAnimales();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                        
                     }
-                    if(index==1 && indexSubMenu==3){//CITAS
+                    if(index==1 && indexSubMenu==4){//CITAS
                         CRUDCita subp = new CRUDCita();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     //TIENDA
-                    if(index==2 && indexSubMenu==0){
+                    if(index==2 && indexSubMenu==1){
                         
                     }
                     //MANTENIMIENTO
-                    if(index==3 && indexSubMenu==0){
+                    if(index==3 && indexSubMenu==1){
                         
                     }
                     //CUENTA
-                    if(index==4 && indexSubMenu==0){
+                    if(index==4 && indexSubMenu==1){
                         
                     }
                     
@@ -124,37 +124,37 @@ public class Dashboard extends javax.swing.JFrame {
                         
                     }
                     //GESTION PRINCIPAL
-                    if(index==1 && indexSubMenu==0){//USUARIOS
+                    if(index==1 && indexSubMenu==1){//USUARIOS
                         CRUDusuarios subp = new CRUDusuarios(idTipoU);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
-                    if (index == 1 && indexSubMenu==1) {//CLIENTES
+                    if (index == 1 && indexSubMenu==2) {//CLIENTES
                         CRUDCliente subp = new CRUDCliente(idTipoU);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                         
                     }
-                    if(index==1 && indexSubMenu==2){//ANIMALES
+                    if(index==1 && indexSubMenu==3){//ANIMALES
                         CRUDAnimales subp = new CRUDAnimales();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                        
                     }
-                    if(index==1 && indexSubMenu==3){//CITAS
+                    if(index==1 && indexSubMenu==4){//CITAS
                         CRUDCita subp = new CRUDCita();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     //TIENDA
-                    if(index==2 && indexSubMenu==0){//RESERVAS
+                    if(index==2 && indexSubMenu==1){//RESERVAS
                         
                     }
-                    if(index==2 && indexSubMenu==1){//PRODUCTOS
+                    if(index==2 && indexSubMenu==2){//PRODUCTOS
                         
                     }
                     //MANTENIMIENTO
-                    if(index==3 && indexSubMenu==0){
+                    if(index==3 && indexSubMenu==1){
                         
                     }
                     //CUENTA
-                    if(index==4 && indexSubMenu==0){
+                    if(index==4 && indexSubMenu==1){
                         
                     }
                     
@@ -180,22 +180,22 @@ public class Dashboard extends javax.swing.JFrame {
                         
                     }
                     //GESTION PRINCIPAL
-                    if (index == 1 && indexSubMenu==0) {//CLIENTES
+                    if (index == 1 && indexSubMenu==1) {//CLIENTES
                         CRUDCliente subp = new CRUDCliente(idTipoU);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                         
                     }
-                    if(index==1 && indexSubMenu==1){//ANIMALES
+                    if(index==1 && indexSubMenu==2){//ANIMALES
                         CRUDAnimales subp = new CRUDAnimales();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                        
                     }
-                    if(index==1 && indexSubMenu==2){//CITAS
+                    if(index==1 && indexSubMenu==3){//CITAS
                         CRUDCita subp = new CRUDCita();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     //CUENTA
-                    if(index==2 && indexSubMenu==0){
+                    if(index==2 && indexSubMenu==1){
                         
                     }
                 } catch (Exception e) {
