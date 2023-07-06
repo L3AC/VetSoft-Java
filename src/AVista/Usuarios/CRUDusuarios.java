@@ -198,9 +198,14 @@ public class CRUDusuarios extends javax.swing.JPanel {
     }//GEN-LAST:event_btnAddTipoCActionPerformed
 
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
-        
-        /*insertTipoCuenta subp = new insertTipoCuenta();
-        dsg.ShowPanel(subp, PCont, 1320, 810);*/
+        insertUs subp;
+        try {
+            subp = new insertUs(idTipoUs);
+             dsg.ShowPanel(subp, PCont, 1320, 810);
+        } catch (SQLException ex) {
+            Logger.getLogger(CRUDusuarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
     }//GEN-LAST:event_btnInsertActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed

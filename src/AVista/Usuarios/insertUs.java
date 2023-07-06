@@ -5,6 +5,9 @@
 package AVista.Usuarios;
 
 import AControlador.ctEsp;
+import AControlador.ctTipoUs;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JComboBox;
@@ -15,14 +18,32 @@ import javax.swing.JComboBox;
  */
 public class insertUs extends javax.swing.JPanel {
 
-    ctEsp ctE=new ctEsp();
+    private int idTipoUs;
+    private int tpUs;
+    ctTipoUs ctTP=new ctTipoUs();
     Map<Integer, String> cbMap= new HashMap<>();
     
-    public insertUs() {
+    public insertUs(int idTipoUs) throws SQLException {
+        this.idTipoUs=idTipoUs;
         initComponents();
+        loadCombo(cbCargo);
     }
-    private void loadCombo(){
-        
+    private void loadCombo(JComboBox cb) throws SQLException{
+        ResultSet rs=ctTP.selectTP();
+        while (rs.next()) {
+                int idTP=rs.getInt("idTipoUsuario");
+                String nombre=rs.getString("nivel");
+                cb.addItem(nombre);
+                cbMap.put(idTP, nombre);
+            }
+    }
+    private static int getMap(Map<Integer, String> map, String value) {
+        for (Map.Entry<Integer, String> entry : map.entrySet()) {
+            if (entry.getValue().equals(value)) {
+                return entry.getKey();
+            }
+        }
+        return -1; // Valor no encontrado
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -40,7 +61,7 @@ public class insertUs extends javax.swing.JPanel {
         txtApellidos = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         cbSexo = new javax.swing.JComboBox<>();
-        cbTipo1 = new javax.swing.JComboBox<>();
+        cbCargo = new javax.swing.JComboBox<>();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
@@ -89,8 +110,12 @@ public class insertUs extends javax.swing.JPanel {
         cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femenino", "Masculino" }));
         PCont.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 350, 270, 50));
 
-        cbTipo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cliente", "Doctor", "Asistente", "Recepcionista" }));
-        PCont.add(cbTipo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 470, 160, 40));
+        cbCargo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbCargoActionPerformed(evt);
+            }
+        });
+        PCont.add(cbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 470, 160, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -104,12 +129,18 @@ public class insertUs extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cbCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCargoActionPerformed
+        int selectedId = getMap(cbMap, cbCargo.getSelectedItem().toString());
+        System.out.println("ID seleccionado: " + selectedId);
+        tpUs=selectedId;  
+    }//GEN-LAST:event_cbCargoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
     private javax.swing.JButton btnConfirm;
+    private javax.swing.JComboBox<String> cbCargo;
     private javax.swing.JComboBox<String> cbSexo;
-    private javax.swing.JComboBox<String> cbTipo1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;

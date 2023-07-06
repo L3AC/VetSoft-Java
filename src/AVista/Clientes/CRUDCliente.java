@@ -51,7 +51,7 @@ public class CRUDCliente extends javax.swing.JPanel {
                 model.addRow(oValores);
             }
         } catch (Exception e) {
-
+            System.err.println(e.toString());
         }
     }
 

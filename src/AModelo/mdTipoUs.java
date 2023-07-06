@@ -8,17 +8,16 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
-public class mdEsp {
+public class mdTipoUs {
     Connection con = Conx.Conectar();
     Crypt cripto = new Crypt();
     PreparedStatement ps;
     ResultSet rs;
     
-    public ResultSet selectEsp() {
-        String query = "select * from tbEspecialidades";
+    public ResultSet selectTP() {
+        String query = "select * from tbTipoUsuario";
         try {
             ps = con.prepareStatement(query);
             rs = ps.executeQuery();

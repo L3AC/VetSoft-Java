@@ -5,6 +5,7 @@
 package AControlador;
 
 import AModelo.mdEsp;
+import java.sql.ResultSet;
 
 public class ctEsp {
     public int idEsp;
@@ -28,7 +29,7 @@ public class ctEsp {
     
     mdEsp md = new mdEsp();
     
-    public boolean selectEsp(){
+    public ResultSet selectEsp(){
         return md.selectEsp();
     }
 }
