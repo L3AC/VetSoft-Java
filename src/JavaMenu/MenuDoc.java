@@ -49,7 +49,8 @@ public class MenuDoc extends JPanel{
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PERM_CONTACT_CALENDAR, "Citas"));
         addTitle("Cuenta");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PEOPLE,
-                "Mi Cuenta","Perfil","Seguridad","Preguntas"));
+                "Mi Cuenta","Perfil","Seguridad",
+                "Preguntas","Cerrar Sesión"));
     }
 
     private JScrollPane createScroll() {

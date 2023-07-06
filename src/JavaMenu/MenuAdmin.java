@@ -46,11 +46,17 @@ public class MenuAdmin extends JPanel{
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PERSON, "Clientes"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PETS, "Mascotas"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PERM_CONTACT_CALENDAR, "Citas"));
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PERSON_ADD, "Usuarios"));
         addTitle("Productos");
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.LOCAL_HOSPITAL, "Productos"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.ADD_ALARM, "Reservas"));
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.LOCAL_HOSPITAL, "Productos"));
+        addTitle("Mantenimiento");
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.ADD_ALARM, 
+                "Mantenimiento","Asistentes","Especialidades"));
+        addTitle("Cuenta");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PEOPLE,
-                "Mi Cuenta","Perfil","Seguridad","Preguntas"));
+                "Mi Cuenta","Perfil","Seguridad",
+                "Preguntas","Cerrar Sesión"));
     }
     
     private JScrollPane createScroll() {

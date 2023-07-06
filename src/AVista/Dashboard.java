@@ -9,6 +9,7 @@ import java.awt.Component;
 import JavaMenu.MenuSelectEvent;
 import AVista.VentanaAdminUsuarios;
 import AVista.Login;
+import AVista.Usuarios.CRUDusuarios;
 import Design.Desg;
 import Mensajes.MensajeNoEncontroUsuarios;
 import java.awt.event.ActionEvent;
@@ -83,6 +84,13 @@ public class Dashboard extends javax.swing.JFrame {
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                        
                     }
+                    if(index==4){//USUARIOS
+                        CRUDusuarios subp = new CRUDusuarios(idTipoU);
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                    }
+                    if(index==5){
+                        
+                    }
                     
                 } catch (Exception e) {
                     System.out.println(e.toString()+" prueba");
@@ -91,6 +99,49 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
         menuAdmin.setSelectedIndex(0, 0);
+
+    }
+    private void initRecep() {
+        dash = this; 
+        menuRecep.addEvent(new MenuSelectEvent() {
+            @Override
+            public void menuSelected(int index, int indexSubMenu) {
+                try {
+                    if (index == 0) {//HOME
+                        Home subp = new Home();
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                        
+                    }
+                    if (index == 1) {//CLIENTES
+                        CRUDCliente subp = new CRUDCliente(idTipoU);
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                        
+                    }
+                    if(index==2){//ANIMALES
+                        CRUDAnimales subp = new CRUDAnimales();
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                       
+                    }
+                    if(index==3){//CITAS
+                        CRUDCita subp = new CRUDCita();
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                       
+                    }
+                    if(index==4){//USUARIOS
+                        CRUDusuarios subp = new CRUDusuarios(idTipoU);
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                    }
+                    if(index==5){
+                        
+                    }
+                    
+                } catch (Exception e) {
+                    System.out.println(e.toString()+" prueba");
+                }
+
+            }
+        });
+        menuRecep.setSelectedIndex(0, 0);
 
     }
     private void initDoc() {
@@ -129,48 +180,7 @@ public class Dashboard extends javax.swing.JFrame {
         menuDoc.setSelectedIndex(0, 0);
 
     }
-    private void initRecep() {
-        dash = this; 
-        menuRecep.addEvent(new MenuSelectEvent() {
-            @Override
-            public void menuSelected(int index, int indexSubMenu) {
-                try {
-                    if (index == 0) {//HOME
-                        Home subp = new Home();
-                        dsg.ShowPanel(subp, PCont, 1320, 810);
-                        
-                    }
-                    if (index == 1) {//CLIENTES
-                        CRUDCliente subp = new CRUDCliente(idTipoU);
-                        dsg.ShowPanel(subp, PCont, 1320, 810);
-                        
-                    }
-                    if(index==2){//ANIMALES
-                        CRUDAnimales subp = new CRUDAnimales();
-                        dsg.ShowPanel(subp, PCont, 1320, 810);
-                       
-                    }
-                    if(index==3){//CITAS
-                        CRUDCita subp = new CRUDCita();
-                        dsg.ShowPanel(subp, PCont, 1320, 810);
-                       
-                    }
-                    
-                } catch (Exception e) {
-                    System.out.println(e.toString()+" prueba");
-                }
-
-            }
-        });
-        menuRecep.setSelectedIndex(0, 0);
-
-    }
-    public void showForm(JPanel com) {
-        PCont.removeAll();
-        PCont.add(com);
-        PCont.repaint();
-        PCont.revalidate();
-    }
+    
     public static Dashboard getMain() {
         return dash;
     }
