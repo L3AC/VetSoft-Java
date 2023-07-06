@@ -6,9 +6,12 @@ package AVista.Usuarios;
 
 import AControlador.ctCliente;
 import AControlador.ctUser;
+import AVista.Clientes.insertTipoCuenta;
 import Design.Desg;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -62,14 +65,16 @@ public class CRUDusuarios extends javax.swing.JPanel {
 
         PCont = new javax.swing.JPanel();
         txtBusq = new javax.swing.JTextField();
-        btnAddUs = new javax.swing.JButton();
+        btnAddTipoC = new javax.swing.JButton();
         btnInsert = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbData = new SwingTable.Table();
 
-        PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setPreferredSize(new java.awt.Dimension(1320, 810));
+
+        PCont.setPreferredSize(new java.awt.Dimension(1320, 810));
 
         txtBusq.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -77,15 +82,13 @@ public class CRUDusuarios extends javax.swing.JPanel {
                 txtBusqKeyTyped(evt);
             }
         });
-        PCont.add(txtBusq, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 710, 40));
 
-        btnAddUs.setText("CREAR CLIENTE");
-        btnAddUs.addActionListener(new java.awt.event.ActionListener() {
+        btnAddTipoC.setText("CREAR CLIENTE");
+        btnAddTipoC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddUsActionPerformed(evt);
+                btnAddTipoCActionPerformed(evt);
             }
         });
-        PCont.add(btnAddUs, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 30, 130, 50));
 
         btnInsert.setText("CREAR USUARIO");
         btnInsert.addActionListener(new java.awt.event.ActionListener() {
@@ -93,7 +96,6 @@ public class CRUDusuarios extends javax.swing.JPanel {
                 btnInsertActionPerformed(evt);
             }
         });
-        PCont.add(btnInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 160, 130, 50));
 
         btnEditar.setText("Editar");
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -101,7 +103,6 @@ public class CRUDusuarios extends javax.swing.JPanel {
                 btnEditarActionPerformed(evt);
             }
         });
-        PCont.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 250, 130, 50));
 
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -109,7 +110,6 @@ public class CRUDusuarios extends javax.swing.JPanel {
                 btnEliminarActionPerformed(evt);
             }
         });
-        PCont.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 340, 130, 50));
 
         tbData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -129,7 +129,45 @@ public class CRUDusuarios extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tbData);
 
-        PCont.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 108, 1020, 610));
+        javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
+        PCont.setLayout(PContLayout);
+        PContLayout.setHorizontalGroup(
+            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(350, 350, 350)
+                        .addComponent(btnAddTipoC, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1020, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+        );
+        PContLayout.setVerticalGroup(
+            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAddTipoC, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(btnInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -141,6 +179,8 @@ public class CRUDusuarios extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(PCont, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        getAccessibleContext().setAccessibleDescription("");
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtBusqKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyTyped
@@ -152,10 +192,10 @@ public class CRUDusuarios extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtBusqKeyTyped
 
-    private void btnAddUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddUsActionPerformed
-        /*addMascota subp = new addMascota();
-        dsg.ShowPanel(subp, PCont, 1320, 810);*/
-    }//GEN-LAST:event_btnAddUsActionPerformed
+    private void btnAddTipoCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddTipoCActionPerformed
+        insertTipoCuenta subp = new insertTipoCuenta();
+        dsg.ShowPanel(subp, PCont, 1320, 810);
+    }//GEN-LAST:event_btnAddTipoCActionPerformed
 
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
         
@@ -169,8 +209,13 @@ public class CRUDusuarios extends javax.swing.JPanel {
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        /*ct.idCliente = idCl;
-        ct.deleteCl();*/
+        ct.idUs = idUsRow;
+        ct.deleteUs();
+        try {
+            loadD();
+        } catch (SQLException ex) {
+            Logger.getLogger(CRUDusuarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
@@ -181,7 +226,7 @@ public class CRUDusuarios extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
-    private javax.swing.JButton btnAddUs;
+    private javax.swing.JButton btnAddTipoC;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnInsert;
