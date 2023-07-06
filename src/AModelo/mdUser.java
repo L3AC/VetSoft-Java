@@ -24,7 +24,7 @@ public class mdUser {
             }
             if(nUs==2){//RECEPCIONISTA
                 query="select idUsuario,tu.nivel as 'Cargo',usuario,correo,telefono from tbUsuarios u,tbTipoUsuario tu \n"
-                + "where u.idTipoUsuario=tu.idTipoUsuario and usuario like ? and u.idTipoUsuario>=4;";
+                + "where u.idTipoUsuario=tu.idTipoUsuario and usuario like ? and u.idTipoUsuario=3;";
             }
             ps = con.prepareStatement(query);
             ps.setString(1, "%" + nombre + "%");
@@ -37,6 +37,62 @@ public class mdUser {
             return null; //DIO ERROR
         }
     }
+    public boolean insertUs(int idTipoUs, String usuario, String contra, String correo, String tel) {
+        String query = "insert into tbUsuarios values(?,?,?,?,?,?,null,GETDATE());;";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setInt(1, idTipoUs);
+            ps.setString(2, usuario);
+            ps.setString(3, contra);
+            ps.setString(4, correo);
+            ps.setString(5, tel);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Campos ingresados");
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return false; //DIO ERROR
+        }
+    }
+    public boolean updateUs(int idTipoUs, String usuario, String correo, String tel) {
+        String query = "update tbUsuarios SET idTipoUsuario=?, usuario=?,correo=?,telefono=?"
+                + " where idUsuario=?;";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setInt(1, idTipoUs);
+            ps.setString(2, usuario);
+            ps.setString(3, correo);
+            ps.setString(4, tel);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Campos actualizados");
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return false; //DIO ERROR
+        }
+    }
+    public boolean deleteUs(int idD) {
+        String query = "DELETE tbUsuarios where idUsuario=?;";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setInt(1, idD);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Registro eliminado");
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return false;
+        }
+    }
+    
 
     public ResultSet SelectTipoUs(String usuario, String passw) throws SQLException {
         String url = "SELECT * FROM tbUsuarios WHERE usuario = ? COLLATE SQL_Latin1_General_CP1_CS_AS \n"

@@ -6,10 +6,10 @@ import java.sql.SQLException;
 
 public class ctUser {
 
-    public int idTipoUs;
+    public int idTipoUs;//NIVEL DE USUARIO QUE INGRESA A LA PANTALLA
     public String nivel;
-    public int idUs;
-    public int idTipoC;
+    public int idUs;//USUARIO SELECCIONADO DE LA TABLA
+    public int idTipoCuenta;//NIVEL DE USUARIO QUE SE LE VA AGREGAR AL REGISTRO
     public String usuario;
     public String contra;
     public String correo;
@@ -89,18 +89,15 @@ public class ctUser {
         this.fechaRegistro = fechaRegistro;
     }
 
-    public int getIdTipoC() {
-        return idTipoC;
+    public int getIdTipoCuenta() {
+        return idTipoCuenta;
     }
 
-    public void setIdTipoC(int idTipoC) {
-        this.idTipoC = idTipoC;
+    public void setIdTipoCuenta(int idTipoCuenta) {
+        this.idTipoCuenta = idTipoCuenta;
     }
+
     mdUser usu = new mdUser();
-
-    public ResultSet cargarUs() {
-        return usu.cargarUs(usuario,idTipoUs);
-    }
 
     public ResultSet ValidarLogin() throws SQLException {
 
@@ -109,5 +106,20 @@ public class ctUser {
 
     public ResultSet SelectTipoID() throws SQLException {
         return usu.SelectTipoID(idTipoUs, idUs);
+    }
+
+    public ResultSet cargarUs() {
+        return usu.cargarUs(usuario, idTipoUs);
+    }
+    public boolean insertUs() {
+        return usu.insertUs(idTipoCuenta,usuario, contra, correo,telefono);
+    }
+
+    public boolean updtUs() {
+        return usu.updateUs(idTipoCuenta,usuario, correo,telefono);
+    }
+
+    public boolean deleteUs() {
+        return usu.deleteUs(idUs);
     }
 }
