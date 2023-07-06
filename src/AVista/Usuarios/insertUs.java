@@ -6,6 +6,8 @@ package AVista.Usuarios;
 
 import AControlador.ctEsp;
 import AControlador.ctTipoUs;
+import AControlador.ctUser;
+import Design.Desg;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -21,6 +23,8 @@ public class insertUs extends javax.swing.JPanel {
     private int idTipoUs;
     private int tpUs;
     ctTipoUs ctTP=new ctTipoUs();
+    ctUser ctUs=new ctUser();
+    Desg dsg = new Desg();
     Map<Integer, String> cbMap= new HashMap<>();
     
     public insertUs(int idTipoUs) throws SQLException {
@@ -37,14 +41,7 @@ public class insertUs extends javax.swing.JPanel {
                 cbMap.put(idTP, nombre);
             }
     }
-    private static int getMap(Map<Integer, String> map, String value) {
-        for (Map.Entry<Integer, String> entry : map.entrySet()) {
-            if (entry.getValue().equals(value)) {
-                return entry.getKey();
-            }
-        }
-        return -1; // Valor no encontrado
-    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -53,7 +50,7 @@ public class insertUs extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
+        txtUsuario = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         txtDui = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -62,6 +59,7 @@ public class insertUs extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         cbSexo = new javax.swing.JComboBox<>();
         cbCargo = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
@@ -76,12 +74,17 @@ public class insertUs extends javax.swing.JPanel {
         PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 50, 270, 50));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel5.setText("Usuario");
-        PCont.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, 70, 30));
+        jLabel5.setText("No disponible");
+        PCont.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 130, 30));
 
-        txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtNombre.setText("Usuario");
-        PCont.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, 270, 50));
+        txtUsuario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtUsuario.setText("Usuario");
+        txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtUsuarioKeyTyped(evt);
+            }
+        });
+        PCont.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, 270, 50));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel8.setText("Correo electrónico");
@@ -117,6 +120,10 @@ public class insertUs extends javax.swing.JPanel {
         });
         PCont.add(cbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 470, 160, 40));
 
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel9.setText("Usuario");
+        PCont.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, 70, 30));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -130,10 +137,14 @@ public class insertUs extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cbCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCargoActionPerformed
-        int selectedId = getMap(cbMap, cbCargo.getSelectedItem().toString());
+        int selectedId = dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
         System.out.println("ID seleccionado: " + selectedId);
         tpUs=selectedId;  
     }//GEN-LAST:event_cbCargoActionPerformed
+
+    private void txtUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyTyped
+        ctUs.usuario=txtUsuario.getText().toString();
+    }//GEN-LAST:event_txtUsuarioKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -147,8 +158,9 @@ public class insertUs extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField txtApellidos;
     private javax.swing.JTextField txtDui;
-    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

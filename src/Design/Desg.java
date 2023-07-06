@@ -2,6 +2,7 @@ package Design;
 
 import java.awt.BorderLayout;
 import java.awt.Image;
+import java.util.Map;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -50,6 +51,14 @@ public class Desg {
         cont.add(p, BorderLayout.CENTER);
         cont.revalidate();
         cont.repaint();
+    }
+        public int getMap(Map<Integer, String> map, String value) {
+        for (Map.Entry<Integer, String> entry : map.entrySet()) {
+            if (entry.getValue().equals(value)) {
+                return entry.getKey();
+            }
+        }
+        return -1; // Valor no encontrado
     }
         
 }

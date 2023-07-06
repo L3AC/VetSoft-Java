@@ -92,7 +92,20 @@ public class mdUser {
             return false;
         }
     }
-    
+    public ResultSet verifUs(String usuario) throws SQLException {
+        String url = "select * from tbUsuarios where usuario=? COLLATE SQL_Latin1_General_CP1_CS_AS;";
+        try {
+            ps = con.prepareStatement(url);
+            ps.setString(1, usuario);
+            rs = ps.executeQuery();
+            return rs;
+
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            return null; //DIO ERROR
+        }
+    }
 
     public ResultSet SelectTipoUs(String usuario, String passw) throws SQLException {
         String url = "SELECT * FROM tbUsuarios WHERE usuario = ? COLLATE SQL_Latin1_General_CP1_CS_AS \n"

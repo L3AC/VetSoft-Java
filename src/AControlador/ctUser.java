@@ -107,6 +107,9 @@ public class ctUser {
     public ResultSet SelectTipoID() throws SQLException {
         return usu.SelectTipoID(idTipoUs, idUs);
     }
+     public ResultSet verifUs() throws SQLException {
+        return usu.verifUs(usuario);
+    }
 
     public ResultSet cargarUs() {
         return usu.cargarUs(usuario, idTipoUs);
