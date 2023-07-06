@@ -64,31 +64,41 @@ public class Dashboard extends javax.swing.JFrame {
             @Override
             public void menuSelected(int index, int indexSubMenu) {
                 try {
+                    //INICIO
                     if (index == 0) {//HOME
                         Home subp = new Home();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                         
                     }
-                    if (index == 1) {//CLIENTES
+                    //GESTION PRINCIPAL
+                    if(index==1 && indexSubMenu==0){//USUARIOS
+                        CRUDusuarios subp = new CRUDusuarios(idTipoU);
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                    }
+                    if (index == 1 && indexSubMenu==1) {//CLIENTES
                         CRUDCliente subp = new CRUDCliente(idTipoU);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                         
                     }
-                    if(index==2){//ANIMALES
+                    if(index==1 && indexSubMenu==2){//ANIMALES
                         CRUDAnimales subp = new CRUDAnimales();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                        
                     }
-                    if(index==3){//CITAS
+                    if(index==1 && indexSubMenu==3){//CITAS
                         CRUDCita subp = new CRUDCita();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
-                       
                     }
-                    if(index==4){//USUARIOS
-                        CRUDusuarios subp = new CRUDusuarios(idTipoU);
-                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                    //TIENDA
+                    if(index==2 && indexSubMenu==0){
+                        
                     }
-                    if(index==5){
+                    //MANTENIMIENTO
+                    if(index==3 && indexSubMenu==0){
+                        
+                    }
+                    //CUENTA
+                    if(index==4 && indexSubMenu==0){
                         
                     }
                     
@@ -107,31 +117,44 @@ public class Dashboard extends javax.swing.JFrame {
             @Override
             public void menuSelected(int index, int indexSubMenu) {
                 try {
+                    //INICIO
                     if (index == 0) {//HOME
                         Home subp = new Home();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                         
                     }
-                    if (index == 1) {//CLIENTES
+                    //GESTION PRINCIPAL
+                    if(index==1 && indexSubMenu==0){//USUARIOS
+                        CRUDusuarios subp = new CRUDusuarios(idTipoU);
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                    }
+                    if (index == 1 && indexSubMenu==1) {//CLIENTES
                         CRUDCliente subp = new CRUDCliente(idTipoU);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                         
                     }
-                    if(index==2){//ANIMALES
+                    if(index==1 && indexSubMenu==2){//ANIMALES
                         CRUDAnimales subp = new CRUDAnimales();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                        
                     }
-                    if(index==3){//CITAS
+                    if(index==1 && indexSubMenu==3){//CITAS
                         CRUDCita subp = new CRUDCita();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
-                       
                     }
-                    if(index==4){//USUARIOS
-                        CRUDusuarios subp = new CRUDusuarios(idTipoU);
-                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                    //TIENDA
+                    if(index==2 && indexSubMenu==0){//RESERVAS
+                        
                     }
-                    if(index==5){
+                    if(index==2 && indexSubMenu==1){//PRODUCTOS
+                        
+                    }
+                    //MANTENIMIENTO
+                    if(index==3 && indexSubMenu==0){
+                        
+                    }
+                    //CUENTA
+                    if(index==4 && indexSubMenu==0){
                         
                     }
                     
@@ -150,27 +173,31 @@ public class Dashboard extends javax.swing.JFrame {
             @Override
             public void menuSelected(int index, int indexSubMenu) {
                 try {
+                    //INICIO
                     if (index == 0) {//HOME
                         Home subp = new Home();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                         
                     }
-                    if (index == 1) {//CLIENTES
+                    //GESTION PRINCIPAL
+                    if (index == 1 && indexSubMenu==0) {//CLIENTES
                         CRUDCliente subp = new CRUDCliente(idTipoU);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                         
                     }
-                    if(index==2){//ANIMALES
+                    if(index==1 && indexSubMenu==1){//ANIMALES
                         CRUDAnimales subp = new CRUDAnimales();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                        
                     }
-                    if(index==3){//CITAS
+                    if(index==1 && indexSubMenu==2){//CITAS
                         CRUDCita subp = new CRUDCita();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
-                       
                     }
-                    
+                    //CUENTA
+                    if(index==2 && indexSubMenu==0){
+                        
+                    }
                 } catch (Exception e) {
                     System.out.println(e.toString()+" prueba");
                 }

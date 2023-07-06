@@ -43,10 +43,10 @@ public class MenuDoc extends JPanel{
         add(scroll);
         addTitle("Inicio");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.DASHBOARD, "Bienvenido"));
-        addTitle("Gestión de pacientes");
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PERSON, "Clientes"));
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PETS, "Mascotas"));
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PERM_CONTACT_CALENDAR, "Citas"));
+        addTitle("Gestión principal");
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PERSON, 
+                "Gestión de pacientes","Clientes",
+                "Mascotas","Citas"));
         addTitle("Cuenta");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PEOPLE,
                 "Mi Cuenta","Perfil","Seguridad",

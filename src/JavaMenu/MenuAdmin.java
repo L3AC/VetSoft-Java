@@ -42,17 +42,16 @@ public class MenuAdmin extends JPanel{
         add(scroll);
         addTitle("Inicio");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.DASHBOARD, "Bienvenido"));
-        addTitle("Gestión de pacientes");
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PERSON, "Clientes"));
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PETS, "Mascotas"));
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PERM_CONTACT_CALENDAR, "Citas"));
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PERSON_ADD, "Usuarios"));
-        addTitle("Productos");
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.ADD_ALARM, "Reservas"));
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.LOCAL_HOSPITAL, "Productos"));
+        addTitle("Gestión principal");
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PERSON, 
+                "Gestión de pacientes","Usuarios","Clientes",
+                "Mascotas","Citas"));
+        addTitle("Tienda");
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.ADD_ALARM, "Gestión de productos"
+                ,"Reservas","Productos"));
         addTitle("Mantenimiento");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.ADD_ALARM, 
-                "Mantenimiento","Asistentes","Especialidades"));
+                "Mantenimiento","Asistentes","Especialidades","","",""));
         addTitle("Cuenta");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PEOPLE,
                 "Mi Cuenta","Perfil","Seguridad",
