@@ -104,22 +104,28 @@ public class ctUser {
         return usu.SelectTipoUs(usuario, contra);
     }
 
+    public ResultSet loadData() {
+        return usu.loadData(idUs);
+    }
+
     public ResultSet SelectTipoID() throws SQLException {
         return usu.SelectTipoID(idTipoUs, idUs);
     }
-     public ResultSet verifUs() throws SQLException {
+
+    public ResultSet verifUs() throws SQLException {
         return usu.verifUs(usuario);
     }
 
     public ResultSet cargarUs() {
         return usu.cargarUs(usuario, idTipoUs);
     }
+
     public boolean insertUs() {
-        return usu.insertUs(idTipoCuenta,usuario, contra, correo,telefono);
+        return usu.insertUs(idTipoCuenta, usuario, contra, correo, telefono);
     }
 
     public boolean updtUs() {
-        return usu.updateUs(idTipoCuenta,usuario, correo,telefono);
+        return usu.updateUs(idTipoCuenta, usuario, correo, telefono);
     }
 
     public boolean deleteUs() {

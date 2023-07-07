@@ -7,6 +7,7 @@ package AVista.Usuarios;
 import AControlador.ctCliente;
 import AControlador.ctUser;
 import AVista.Clientes.insertTipoCuenta;
+import AVista.Clientes.updtTipoCuenta;
 import Design.Desg;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -37,7 +38,9 @@ public class CRUDusuarios extends javax.swing.JPanel {
         model = new DefaultTableModel(null, column);
         dsg.ColumnHide(model, tbData, 0,5);
         CargarTabla();
-
+        tbData.setRowSelectionInterval(0, 0);
+        int fila = tbData.getSelectedRow();
+        idUsRow = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
     }
 
     final void CargarTabla() throws SQLException {
@@ -209,8 +212,14 @@ public class CRUDusuarios extends javax.swing.JPanel {
     }//GEN-LAST:event_btnInsertActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        /*updtTipoCuenta subp = new updtTipoCuenta();
-        dsg.ShowPanel(subp, PCont, 1320, 810);*/
+        updtUsuario subp;
+        try {
+            subp = new updtUsuario(idTipoUs,idUsRow);
+            dsg.ShowPanel(subp, PCont, 1320, 810);
+        } catch (SQLException ex) {
+            Logger.getLogger(CRUDusuarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed

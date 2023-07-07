@@ -149,7 +149,7 @@ public class Login extends javax.swing.JFrame {
                     rs.close();
                     SelectID();
                 } else {
-                    JOptionPane.showMessageDialog(null, "No hay nada");
+                    JOptionPane.showMessageDialog(null, "Credenciales incorrectas");
                 }
 
             } catch (SQLException ex) {

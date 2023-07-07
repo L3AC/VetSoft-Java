@@ -12,6 +12,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComboBox;
 
 /**
@@ -31,6 +33,8 @@ public class insertUs extends javax.swing.JPanel {
         this.idTipoUs=idTipoUs;
         initComponents();
         loadCombo(cbCargo);
+        cbCargo.setSelectedIndex(0);
+        
     }
     private void loadCombo(JComboBox cb) throws SQLException{
         ResultSet rs=ctTP.selectTP();
@@ -39,6 +43,7 @@ public class insertUs extends javax.swing.JPanel {
                 String nombre=rs.getString("nivel");
                 cb.addItem(nombre);
                 cbMap.put(idTP, nombre);
+                
             }
     }
     
@@ -52,14 +57,15 @@ public class insertUs extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        txtDui = new javax.swing.JTextField();
+        txtCorreo = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         btnConfirm = new javax.swing.JButton();
         txtApellidos = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        cbSexo = new javax.swing.JComboBox<>();
         cbCargo = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
+        txtTel = new javax.swing.JTextField();
+        btnBack = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
@@ -78,7 +84,6 @@ public class insertUs extends javax.swing.JPanel {
         PCont.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 130, 30));
 
         txtUsuario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtUsuario.setText("Usuario");
         txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtUsuarioKeyTyped(evt);
@@ -90,9 +95,8 @@ public class insertUs extends javax.swing.JPanel {
         jLabel8.setText("Correo electrónico");
         PCont.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, 150, 30));
 
-        txtDui.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtDui.setText("DUI");
-        PCont.add(txtDui, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 350, 270, 50));
+        txtCorreo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        PCont.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 350, 270, 50));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setText("Teléfono");
@@ -103,15 +107,11 @@ public class insertUs extends javax.swing.JPanel {
         PCont.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 550, 140, 70));
 
         txtApellidos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtApellidos.setText("Apellidos");
         PCont.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 210, 270, 50));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Contraseña");
         PCont.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 170, 100, 30));
-
-        cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femenino", "Masculino" }));
-        PCont.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 350, 270, 50));
 
         cbCargo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,6 +123,23 @@ public class insertUs extends javax.swing.JPanel {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setText("Usuario");
         PCont.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, 70, 30));
+
+        txtTel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtTel.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTelKeyTyped(evt);
+            }
+        });
+        PCont.add(txtTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 350, 270, 50));
+
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
+        btnBack.setBorder(null);
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        PCont.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 60, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -138,20 +155,34 @@ public class insertUs extends javax.swing.JPanel {
 
     private void cbCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCargoActionPerformed
         int selectedId = dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
-        System.out.println("ID seleccionado: " + selectedId);
         tpUs=selectedId;  
+        System.out.println("ID seleccionado: " + tpUs);
     }//GEN-LAST:event_cbCargoActionPerformed
 
     private void txtUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyTyped
         ctUs.usuario=txtUsuario.getText().toString();
     }//GEN-LAST:event_txtUsuarioKeyTyped
 
+    private void txtTelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelKeyTyped
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        try {
+            CRUDusuarios subp = new CRUDusuarios(idTipoUs);
+            dsg.ShowPanel(subp, PCont, 1320, 810);
+        } catch (SQLException ex) {
+            Logger.getLogger(updtUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnConfirm;
     private javax.swing.JComboBox<String> cbCargo;
-    private javax.swing.JComboBox<String> cbSexo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
@@ -160,7 +191,8 @@ public class insertUs extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField txtApellidos;
-    private javax.swing.JTextField txtDui;
+    private javax.swing.JTextField txtCorreo;
+    private javax.swing.JTextField txtTel;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }
