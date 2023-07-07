@@ -25,7 +25,6 @@ public class insertUs extends javax.swing.JPanel {
     private int idTipoUs;
     private int tpUs;
     ctTipoUs ctTP=new ctTipoUs();
-    ctUser ctUs=new ctUser();
     Desg dsg = new Desg();
     Map<Integer, String> cbMap= new HashMap<>();
     
@@ -33,6 +32,7 @@ public class insertUs extends javax.swing.JPanel {
         this.idTipoUs=idTipoUs;
         initComponents();
         loadCombo(cbCargo);
+        lbDisp.setVisible(false);
         cbCargo.setSelectedIndex(0);
         
     }
@@ -54,7 +54,6 @@ public class insertUs extends javax.swing.JPanel {
         PCont = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         txtCorreo = new javax.swing.JTextField();
@@ -66,63 +65,47 @@ public class insertUs extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         txtTel = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
+        lbDisp = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
-        PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel7.setText("Nivel de cargo");
-        PCont.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 470, 130, 30));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel2.setText("CREAR USUARIO");
-        PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 50, 270, 50));
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel5.setText("No disponible");
-        PCont.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 130, 30));
 
         txtUsuario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtUsuarioKeyTyped(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtUsuarioKeyReleased(evt);
             }
         });
-        PCont.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, 270, 50));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel8.setText("Correo electrónico");
-        PCont.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, 150, 30));
 
         txtCorreo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        PCont.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 350, 270, 50));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setText("Teléfono");
-        PCont.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 310, 80, 30));
 
         btnConfirm.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnConfirm.setText("Confirmar");
-        PCont.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 550, 140, 70));
 
         txtApellidos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        PCont.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 210, 270, 50));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Contraseña");
-        PCont.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 170, 100, 30));
 
         cbCargo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbCargoActionPerformed(evt);
             }
         });
-        PCont.add(cbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 470, 160, 40));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setText("Usuario");
-        PCont.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, 70, 30));
 
         txtTel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtTel.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -130,7 +113,6 @@ public class insertUs extends javax.swing.JPanel {
                 txtTelKeyTyped(evt);
             }
         });
-        PCont.add(txtTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 350, 270, 50));
 
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
         btnBack.setBorder(null);
@@ -139,7 +121,83 @@ public class insertUs extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        PCont.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 60, 50));
+
+        lbDisp.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbDisp.setText("Usuario no disponible");
+
+        javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
+        PCont.setLayout(PContLayout);
+        PContLayout.setHorizontalGroup(
+            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(410, 410, 410)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(430, 430, 430)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(290, 290, 290)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(330, 330, 330)
+                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(100, 100, 100)
+                .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(390, 390, 390)
+                .addComponent(jLabel8)
+                .addGap(260, 260, 260)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(330, 330, 330)
+                .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(100, 100, 100)
+                .addComponent(txtTel, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(520, 520, 520)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(cbCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(580, 580, 580)
+                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(369, 369, 369)
+                .addComponent(lbDisp, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        PContLayout.setVerticalGroup(
+            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(70, 70, 70)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbDisp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(70, 70, 70)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
+                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -159,10 +217,6 @@ public class insertUs extends javax.swing.JPanel {
         System.out.println("ID seleccionado: " + tpUs);
     }//GEN-LAST:event_cbCargoActionPerformed
 
-    private void txtUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyTyped
-        ctUs.usuario=txtUsuario.getText().toString();
-    }//GEN-LAST:event_txtUsuarioKeyTyped
-
     private void txtTelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelKeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTelKeyTyped
@@ -177,6 +231,23 @@ public class insertUs extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void txtUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyReleased
+        ctUser ctUs=new ctUser();
+        ctUs.usuario=txtUsuario.getText().toString();
+        try {
+            if(ctUs.verifUs().next()){
+                lbDisp.setVisible(true);
+                btnConfirm.setEnabled(false);
+            }
+            else{
+                lbDisp.setVisible(false);
+                btnConfirm.setEnabled(true);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_txtUsuarioKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
@@ -185,11 +256,11 @@ public class insertUs extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cbCargo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel lbDisp;
     private javax.swing.JTextField txtApellidos;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtTel;

@@ -68,14 +68,15 @@ public class CRUDCliente extends javax.swing.JPanel {
         btnEliminar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbData = new SwingTable.Table();
+        jLabel1 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
         setVerifyInputWhenFocusTarget(false);
 
         txtBusq.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtBusqKeyTyped(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBusqKeyReleased(evt);
             }
         });
 
@@ -127,6 +128,9 @@ public class CRUDCliente extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tbData);
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setText("Nombre de la mascota");
+
         javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
         PCont.setLayout(PContLayout);
         PContLayout.setHorizontalGroup(
@@ -134,7 +138,10 @@ public class CRUDCliente extends javax.swing.JPanel {
             .addGroup(PContLayout.createSequentialGroup()
                 .addGap(70, 70, 70)
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PContLayout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1020, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40)
@@ -149,7 +156,9 @@ public class CRUDCliente extends javax.swing.JPanel {
             PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PContLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtBusq, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PContLayout.createSequentialGroup()
                         .addGap(70, 70, 70)
@@ -163,9 +172,8 @@ public class CRUDCliente extends javax.swing.JPanel {
                         .addGap(40, 40, 40)
                         .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addGap(35, 35, 35)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -179,15 +187,6 @@ public class CRUDCliente extends javax.swing.JPanel {
             .addComponent(PCont, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtBusqKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyTyped
-        try {
-            loadD();
-        } catch (SQLException ex) {
-            //Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println(ex.toString());
-        }
-    }//GEN-LAST:event_txtBusqKeyTyped
 
     private void btnAddMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddMActionPerformed
         addMascota subp = new addMascota();
@@ -215,6 +214,15 @@ public class CRUDCliente extends javax.swing.JPanel {
         idCl = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
     }//GEN-LAST:event_tbDataMouseClicked
 
+    private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
+                try {
+            loadD();
+        } catch (SQLException ex) {
+            //Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.toString());
+        }
+    }//GEN-LAST:event_txtBusqKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
@@ -223,6 +231,7 @@ public class CRUDCliente extends javax.swing.JPanel {
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnInsert;
     private javax.swing.JButton btnReservas;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private SwingTable.Table tbData;
     private javax.swing.JTextField txtBusq;

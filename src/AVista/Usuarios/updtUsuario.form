@@ -37,44 +37,49 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
-                  <Component id="btnBack" min="-2" pref="60" max="-2" attributes="0"/>
-                  <EmptySpace min="370" pref="370" max="-2" attributes="0"/>
-                  <Component id="jLabel2" min="-2" pref="380" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="460" pref="460" max="-2" attributes="0"/>
-                  <Component id="jLabel9" min="-2" pref="70" max="-2" attributes="0"/>
-                  <EmptySpace min="260" pref="260" max="-2" attributes="0"/>
-                  <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="360" pref="360" max="-2" attributes="0"/>
-                  <Component id="txtUsuario" min="-2" pref="270" max="-2" attributes="0"/>
-                  <EmptySpace min="100" pref="100" max="-2" attributes="0"/>
-                  <Component id="txtCorreo" min="-2" pref="270" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="420" pref="420" max="-2" attributes="0"/>
-                  <Component id="lbDisp" min="-2" pref="130" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="600" pref="600" max="-2" attributes="0"/>
-                  <Component id="jLabel6" min="-2" pref="80" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="500" pref="500" max="-2" attributes="0"/>
-                  <Component id="txtTel" min="-2" pref="270" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="480" pref="480" max="-2" attributes="0"/>
-                  <Component id="jLabel7" min="-2" pref="130" max="-2" attributes="0"/>
-                  <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
-                  <Component id="cbCargo" min="-2" pref="160" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="570" pref="570" max="-2" attributes="0"/>
-                  <Component id="btnConfirm" min="-2" pref="140" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
+                          <Component id="btnBack" min="-2" pref="60" max="-2" attributes="0"/>
+                          <EmptySpace min="370" pref="370" max="-2" attributes="0"/>
+                          <Component id="jLabel2" min="-2" pref="380" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="460" pref="460" max="-2" attributes="0"/>
+                          <Component id="jLabel9" min="-2" pref="70" max="-2" attributes="0"/>
+                          <EmptySpace min="260" pref="260" max="-2" attributes="0"/>
+                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="360" max="-2" attributes="0"/>
+                          <Component id="txtUsuario" min="-2" pref="270" max="-2" attributes="0"/>
+                          <EmptySpace min="100" pref="100" max="-2" attributes="0"/>
+                          <Component id="txtCorreo" min="-2" pref="270" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="600" pref="600" max="-2" attributes="0"/>
+                          <Component id="jLabel6" min="-2" pref="80" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="500" pref="500" max="-2" attributes="0"/>
+                          <Component id="txtTel" min="-2" pref="270" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="480" pref="480" max="-2" attributes="0"/>
+                          <Component id="lbCargo" min="-2" pref="130" max="-2" attributes="0"/>
+                          <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                          <Component id="cbCargo" min="-2" pref="160" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="570" pref="570" max="-2" attributes="0"/>
+                          <Component id="btnConfirm" min="-2" pref="140" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="403" max="-2" attributes="0"/>
+                          <Component id="lbDisp" min="-2" pref="190" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="-2" pref="320" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -96,14 +101,15 @@
                       <Component id="txtUsuario" min="-2" pref="50" max="-2" attributes="0"/>
                       <Component id="txtCorreo" min="-2" pref="50" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="lbDisp" min="-2" pref="30" max="-2" attributes="0"/>
-                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Component id="jLabel6" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                   <Component id="txtTel" min="-2" pref="50" max="-2" attributes="0"/>
                   <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel7" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="lbCargo" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="cbCargo" min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
@@ -136,7 +142,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtUsuarioKeyTyped"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtUsuarioKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lbDisp">
@@ -144,7 +150,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="No disponible"/>
+            <Property name="text" type="java.lang.String" value="Usuario no disponible"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCorreo">
@@ -183,7 +189,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel7">
+        <Component class="javax.swing.JLabel" name="lbCargo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
