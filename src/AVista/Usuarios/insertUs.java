@@ -212,9 +212,8 @@ public class insertUs extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cbCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCargoActionPerformed
-        int selectedId = dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
-        tpUs=selectedId;  
-        System.out.println("ID seleccionado: " + tpUs);
+        /*tpUs = dsg.getMap(cbMap, cbCargo.getSelectedItem().toString()); 
+        System.out.println("ID seleccionado: " + tpUs);*/
     }//GEN-LAST:event_cbCargoActionPerformed
 
     private void txtTelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelKeyTyped

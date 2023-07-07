@@ -35,7 +35,7 @@ public class mdUser {
         try {
             if(nUs==1){//ADMIN
                 query="select idUsuario,tu.nivel as 'Cargo',usuario,correo,telefono from tbUsuarios u,tbTipoUsuario tu \n"
-                + "where u.idTipoUsuario=tu.idTipoUsuario and usuario like ?;";
+                + "where u.idTipoUsuario=tu.idTipoUsuario and usuario like ? and u.idTipoUsuario>1;";
             }
             if(nUs==2){//RECEPCIONISTA
                 query="select idUsuario,tu.nivel as 'Cargo',usuario,correo,telefono from tbUsuarios u,tbTipoUsuario tu \n"
@@ -72,7 +72,7 @@ public class mdUser {
             return false; //DIO ERROR
         }
     }
-    public boolean updateUs(int idTipoUs, String usuario, String correo, String tel) {
+    public boolean updateUs(int idTipoUs, String usuario, String correo, String tel,int idUs) {
         String query = "update tbUsuarios SET idTipoUsuario=?, usuario=?,correo=?,telefono=?"
                 + " where idUsuario=?;";
         try {
@@ -81,6 +81,7 @@ public class mdUser {
             ps.setString(2, usuario);
             ps.setString(3, correo);
             ps.setString(4, tel);
+            ps.setInt(5, idUs);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Campos actualizados");
             return true;

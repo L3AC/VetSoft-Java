@@ -17,7 +17,7 @@ public class mdTipoUs {
     ResultSet rs;
     
     public ResultSet selectTP() {
-        String query = "select * from tbTipoUsuario";
+        String query = "select * from tbTipoUsuario where idTipoUsuario>1";
         try {
             ps = con.prepareStatement(query);
             rs = ps.executeQuery();

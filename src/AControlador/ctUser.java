@@ -100,7 +100,6 @@ public class ctUser {
     mdUser usu = new mdUser();
 
     public ResultSet ValidarLogin() throws SQLException {
-
         return usu.SelectTipoUs(usuario, contra);
     }
 
@@ -125,7 +124,7 @@ public class ctUser {
     }
 
     public boolean updtUs() {
-        return usu.updateUs(idTipoCuenta, usuario, correo, telefono);
+        return usu.updateUs(idTipoCuenta, usuario, correo, telefono,idUs);
     }
 
     public boolean deleteUs() {
