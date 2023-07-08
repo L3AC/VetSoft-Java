@@ -12,20 +12,31 @@ import javax.swing.table.DefaultTableModel;
 
 public class CRUDDoctores extends javax.swing.JPanel {
 
-    public int idTipoUs;
+    private int idTipoUs;
     private int idDoc;
+    private int idCuenta;
     ctDoctores ctD = new ctDoctores();
     Desg dsg = new Desg();
     DefaultTableModel model;
     
-    public CRUDDoctores(int idTipoUs) {
+    public CRUDDoctores(int idTipoUs,int idCuenta) throws SQLException {
         this.idTipoUs=idTipoUs;
-        if(idTipoUs==1){
-            
+        this.idCuenta=idCuenta;
+        if(idTipoUs==1){//ADMIN
+            btnMyAsis.setVisible(false);
         }
-        /*if(idTipoUs==){
-            
-        }*/
+        if(idTipoUs==2 ||idTipoUs==5){//RECEPCIONISTA Y ASISTENTE
+            btnMyAsis.setVisible(false);
+            btnAdd.setVisible(false);
+            btnEditar.setVisible(false);
+            btnEliminar.setVisible(false);
+        }
+        if(idTipoUs==4){//DOCTOR
+            btnAdd.setVisible(false);
+            btnEditar.setVisible(false);
+            btnEliminar.setVisible(false);
+        }
+        loadD();
         initComponents();
     }
 
@@ -35,8 +46,8 @@ public class CRUDDoctores extends javax.swing.JPanel {
         dsg.ColumnHide(model, tbData, 0,5);
         CargarTabla();
         tbData.setRowSelectionInterval(0, 0);
-        //int fila = tbData.getSelectedRow();
-        //idDoc = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
+        int fila = tbData.getSelectedRow();
+        idDoc = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
     }
 
     final void CargarTabla() throws SQLException {

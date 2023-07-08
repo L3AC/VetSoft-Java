@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class CRUDusuarios extends javax.swing.JPanel {
 
-    public int idTipoUs;
+    private int idTipoUs;
     private int idUsRow;
     ctUser ct = new ctUser();
     Desg dsg = new Desg();

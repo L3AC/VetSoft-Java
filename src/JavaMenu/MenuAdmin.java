@@ -45,7 +45,7 @@ public class MenuAdmin extends JPanel{
         addTitle("Gestión principal");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PERSON, 
                 "Gestión administrativa","Usuarios","Clientes",
-                "Mascotas","Citas",""));
+                "Mascotas","Citas"));
         addTitle("Gestion de personal");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PERSON, 
                 "Personal de veterinaria","Recepcionista","Doctores",
