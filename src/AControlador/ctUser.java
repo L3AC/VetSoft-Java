@@ -106,6 +106,9 @@ public class ctUser {
     public ResultSet loadData() {
         return usu.loadData(idUs);
     }
+    public ResultSet verifPerfil() throws SQLException {
+        return usu.verifPerfil(idUs,idTipoCuenta);
+    }
 
     public ResultSet SelectTipoID() throws SQLException {
         return usu.SelectTipoID(idTipoUs, idUs);

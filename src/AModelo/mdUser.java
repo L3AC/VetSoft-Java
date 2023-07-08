@@ -15,7 +15,7 @@ public class mdUser {
     PreparedStatement ps;
     ResultSet rs;
 
-    public ResultSet loadData(int idUs) {
+    public ResultSet loadData(int idUs) {//EDITAR INFO
         String query = "select idUsuario,tu.nivel as 'Cargo',usuario,correo,telefono from tbUsuarios u,\n" +
         "tbTipoUsuario tu where u.idTipoUsuario=tu.idTipoUsuario and idUsuario=?;";
         try {
@@ -30,15 +30,15 @@ public class mdUser {
             return null; //DIO ERROR
         }
     }
-    public ResultSet cargarUs(String nombre,int nUs) {
+    public ResultSet cargarUs(String nombre,int nUs) {//TABLA
         String query = "";
         try {
             if(nUs==1){//ADMIN
-                query="select idUsuario,tu.nivel as 'Cargo',usuario,correo,telefono from tbUsuarios u,tbTipoUsuario tu \n"
+                query="select idUsuario,u.idTipoUsuario,tu.nivel as 'Cargo',usuario,correo,telefono from tbUsuarios u,tbTipoUsuario tu \n"
                 + "where u.idTipoUsuario=tu.idTipoUsuario and usuario like ? and u.idTipoUsuario>1;";
             }
             if(nUs==2){//RECEPCIONISTA
-                query="select idUsuario,tu.nivel as 'Cargo',usuario,correo,telefono from tbUsuarios u,tbTipoUsuario tu \n"
+                query="select idUsuario,u.idTipoUsuario,tu.nivel as 'Cargo',usuario,correo,telefono from tbUsuarios u,tbTipoUsuario tu \n"
                 + "where u.idTipoUsuario=tu.idTipoUsuario and usuario like ? and u.idTipoUsuario=3;";
             }
             ps = con.prepareStatement(query);
@@ -158,6 +158,32 @@ public class mdUser {
             }
             if (idTipoU == 5) {
                 url = "SELECT * FROM tbAsistentes WHERE idUsuario = ?;";
+            }
+            ps = con.prepareStatement(url);
+            ps.setInt(1, idUs);
+            rs = ps.executeQuery();
+            return rs;
+
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            return null; //DIO ERROR
+        }
+    }
+    public ResultSet verifPerfil(int idUs, int idTipoC) throws SQLException {
+        String url = "";
+        System.out.println(idUs + " " + idTipoC);
+        try {
+
+            if (idTipoC == 2) {
+                url = "select u.usuario from tbUsuarios u, tbClientes c "
+                        + "where u.idUsuario=c.idUsuario and u.idUsuario=?";
+            }
+            if (idTipoC == 3) {
+                url = "SELECT * FROM tbRecepcionistas WHERE idUsuario = ?;";
+            }
+            if (idTipoC == 4) {
+                url = "SELECT * FROM tbDoctores WHERE idUsuario = ?;";
             }
             ps = con.prepareStatement(url);
             ps.setInt(1, idUs);

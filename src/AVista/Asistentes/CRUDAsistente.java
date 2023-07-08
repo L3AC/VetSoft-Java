@@ -13,7 +13,7 @@ public class CRUDAsistente extends javax.swing.JPanel {
     /**
      * Creates new form CRUDAsistente
      */
-    public CRUDAsistente() {
+    public CRUDAsistente(int idTipoUs,int idCuenta) {
         initComponents();
     }
 

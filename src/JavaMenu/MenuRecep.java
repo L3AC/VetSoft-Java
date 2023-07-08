@@ -46,7 +46,7 @@ public class MenuRecep extends JPanel{
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.DASHBOARD, "Bienvenido"));
         addTitle("Gestión principal");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PERSON, 
-                "Gestión de pacientes","Usuarios","Clientes",
+                "Gestión administrativa","Usuarios","Clientes",
                 "Mascotas","Citas"));
         addTitle("Tienda");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.ADD_ALARM, "Gestión de productos"

@@ -26,17 +26,18 @@ public class CRUDusuarios extends javax.swing.JPanel {
     ctUser ct = new ctUser();
     Desg dsg = new Desg();
     DefaultTableModel model;
-    
+
     public CRUDusuarios(int idTipoUs) throws SQLException {
-        this.idTipoUs=idTipoUs;
+        this.idTipoUs = idTipoUs;
         initComponents();
         loadD();
     }
 
     final void loadD() throws SQLException {
-        String[] column = {"idUsuario", "Cargo", "Usuario", "Correo", "Teléfono"};
+        String[] column = {"idUsuario", "idTipoUsuario", "Cargo", "Usuario", "Correo", "Teléfono"};
         model = new DefaultTableModel(null, column);
-        dsg.ColumnHide(model, tbData, 0,5);
+        dsg.ColumnHide(model, tbData, 0, 6);
+        dsg.ColumnHide(model, tbData, 1, 6);
         CargarTabla();
         tbData.setRowSelectionInterval(0, 0);
         int fila = tbData.getSelectedRow();
@@ -50,11 +51,12 @@ public class CRUDusuarios extends javax.swing.JPanel {
 
         try {
             ct.usuario = txtBusq.getText().toString();
-            ct.idTipoUs=idTipoUs;
+            ct.idTipoUs = idTipoUs;
             ResultSet rs = ct.cargarUs();
             while (rs.next()) {
-                Object[] oValores = {rs.getInt("idUsuario"),rs.getString("Cargo"),
-                    rs.getString("usuario"),rs.getString("correo"),
+                Object[] oValores = {rs.getInt("idUsuario"), rs.getInt("idTipoUsuario"),
+                    rs.getString("Cargo"),
+                    rs.getString("usuario"), rs.getString("correo"),
                     rs.getString("telefono")};
                 model.addRow(oValores);
             }
@@ -62,6 +64,7 @@ public class CRUDusuarios extends javax.swing.JPanel {
 
         }
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -127,7 +130,7 @@ public class CRUDusuarios extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tbData);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setText("Nombre de la mascota");
+        jLabel1.setText("Nombre del usuario");
 
         btnAddCuenta.setText("CREAR CUENTA");
         btnAddCuenta.addActionListener(new java.awt.event.ActionListener() {
@@ -199,22 +202,22 @@ public class CRUDusuarios extends javax.swing.JPanel {
         insertUs subp;
         try {
             subp = new insertUs(idTipoUs);
-             dsg.ShowPanel(subp, PCont, 1320, 810);
+            dsg.ShowPanel(subp, PCont, 1320, 810);
         } catch (SQLException ex) {
             Logger.getLogger(CRUDusuarios.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
+
     }//GEN-LAST:event_btnInsertActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         updtUsuario subp;
         try {
-            subp = new updtUsuario(idTipoUs,idUsRow);
+            subp = new updtUsuario(idTipoUs, idUsRow);
             dsg.ShowPanel(subp, PCont, 1320, 810);
         } catch (SQLException ex) {
             Logger.getLogger(CRUDusuarios.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -230,10 +233,31 @@ public class CRUDusuarios extends javax.swing.JPanel {
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
         int fila = tbData.getSelectedRow();
         idUsRow = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
+        int nivelRow = Integer.parseInt(tbData.getValueAt(fila, 1).toString());
+
+        if (nivelRow == 2 || nivelRow == 3 || nivelRow == 4) {
+            btnAddCuenta.setVisible(true);
+            ct.idUs = idUsRow;
+            ct.idTipoCuenta = nivelRow;
+
+            try {
+                if (ct.verifPerfil().next()) {
+                    
+                } else {
+                    
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDusuarios.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else{
+            btnAddCuenta.setVisible(false);
+        }
+
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
-                try {
+        try {
             loadD();
         } catch (SQLException ex) {
             //Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);

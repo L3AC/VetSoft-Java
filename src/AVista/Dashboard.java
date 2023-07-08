@@ -28,7 +28,7 @@ public class Dashboard extends javax.swing.JFrame {
     private static Dashboard dash;
     private int idTipoU;
     private int idUs;
-    private int idTipoC;
+    private int idCuenta;
     Desg dsg = new Desg();
 
     public Dashboard() {
@@ -37,10 +37,10 @@ public class Dashboard extends javax.swing.JFrame {
         GlassPanePopup.install(this);
     }
 
-    public Dashboard(int idTipoU, int idUs, int idTipoC) {
+    public Dashboard(int idTipoU, int idUs, int idCuenta) {
         this.idTipoU = idTipoU;
         this.idUs = idUs;
-        this.idTipoC = idTipoC;
+        this.idCuenta = idCuenta;
         initComponents();
         if(idTipoU==1){
             menuDoc.setVisible(false);
@@ -97,11 +97,11 @@ public class Dashboard extends javax.swing.JFrame {
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     if(index==2 && indexSubMenu==2){//DOCTORES
-                        CRUDRecep subp = new CRUDRecep();
+                        CRUDDoctores subp = new CRUDDoctores();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     if(index==2 && indexSubMenu==3){//ASISTENTES
-                        CRUDRecep subp = new CRUDRecep();
+                        CRUDAsistente subp = new CRUDAsistente(idTipoU,idCuenta);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     //TIENDA
@@ -214,7 +214,7 @@ public class Dashboard extends javax.swing.JFrame {
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     if(index==1 && indexSubMenu==5){//ASISTENTES
-                        CRUDAsistente subp = new CRUDAsistente();
+                        CRUDAsistente subp = new CRUDAsistente(idTipoU,idCuenta);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     //CUENTA
