@@ -249,7 +249,6 @@ public class Dashboard extends javax.swing.JFrame {
         menuAdmin = new JavaMenu.MenuAdmin();
         menuDoc = new JavaMenu.MenuDoc();
         menuRecep = new JavaMenu.MenuRecep();
-        menuAsis = new JavaMenu.MenuAsistente();
         PCont = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -267,9 +266,6 @@ public class Dashboard extends javax.swing.JFrame {
         PanelMenu.add(menuAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 250, 770));
         PanelMenu.add(menuDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 250, 770));
         PanelMenu.add(menuRecep, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 250, 770));
-
-        menuAsis.setPreferredSize(new java.awt.Dimension(250, 770));
-        PanelMenu.add(menuAsis, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, -1, 726));
 
         body.add(PanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 810));
 
@@ -344,7 +340,6 @@ public class Dashboard extends javax.swing.JFrame {
     private Design.PanelRound PanelMenu;
     private Design.PanelRound body;
     private JavaMenu.MenuAdmin menuAdmin;
-    private JavaMenu.MenuAsistente menuAsis;
     private JavaMenu.MenuDoc menuDoc;
     private JavaMenu.MenuRecep menuRecep;
     // End of variables declaration//GEN-END:variables
