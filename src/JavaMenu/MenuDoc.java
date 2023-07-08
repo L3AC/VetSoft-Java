@@ -45,8 +45,8 @@ public class MenuDoc extends JPanel{
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.DASHBOARD, "Bienvenido"));
         addTitle("Gestión principal");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PERSON, 
-                "Gestión de pacientes","Clientes",
-                "Mascotas","Citas"));
+                "Gestión médica","Clientes",
+                "Mascotas","Citas","Asistentes"));
         addTitle("Cuenta");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PEOPLE,
                 "Mi Cuenta","Perfil","Seguridad",

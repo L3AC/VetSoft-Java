@@ -59,7 +59,6 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         jLabel4.setText("Especialidad");
         PCont.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 110, 30));
 
-        cbEsp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         PCont.add(cbEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, 160, 40));
 
         txtDui.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
