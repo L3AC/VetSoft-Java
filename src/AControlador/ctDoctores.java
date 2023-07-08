@@ -1,5 +1,9 @@
 package AControlador;
 
+import AModelo.mdDoctores;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class ctDoctores {
     public int idDoctor;
     public int idUsuario;
@@ -73,7 +77,14 @@ public class ctDoctores {
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
+    mdDoctores md =new mdDoctores();
     
+    public ResultSet cargarDoc() throws SQLException {
+        return md.cargarDoc(nombre);
+    }
+    public ResultSet loadData() throws SQLException {
+        return md.loadData(idUsuario);
+    }
     
 }
 

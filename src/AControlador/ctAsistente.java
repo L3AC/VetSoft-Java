@@ -3,11 +3,14 @@ package AControlador;
 
 import AModelo.mdAnimales;
 import AModelo.mdAsistentes;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class ctAsistente {
     public int idAsistente;
     public int idUsuario;
     public int idDoctor;
+    public String usuario;
     public String nombre ;
     public String apellido;
     public String dui;
@@ -77,7 +80,21 @@ public class ctAsistente {
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
     
     mdAsistentes md= new mdAsistentes();
-    
+        public ResultSet verifPerfil() throws SQLException {
+        return md.verifPerfil(idUsuario);
+    }
+
+    public ResultSet cargarAsis() {
+        return md.cargarAsis(usuario);
+    }
 }

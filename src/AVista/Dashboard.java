@@ -97,7 +97,7 @@ public class Dashboard extends javax.swing.JFrame {
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     if(index==2 && indexSubMenu==2){//DOCTORES
-                        CRUDDoctores subp = new CRUDDoctores();
+                        CRUDDoctores subp = new CRUDDoctores(idTipoU);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     if(index==2 && indexSubMenu==3){//ASISTENTES
@@ -210,7 +210,7 @@ public class Dashboard extends javax.swing.JFrame {
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     if(index==1 && indexSubMenu==4){//DOCTORES
-                        CRUDDoctores subp = new CRUDDoctores();
+                        CRUDDoctores subp = new CRUDDoctores(idTipoU);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     if(index==1 && indexSubMenu==5){//ASISTENTES
