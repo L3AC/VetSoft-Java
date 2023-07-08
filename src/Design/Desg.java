@@ -1,6 +1,6 @@
 package Design;
 
-import java.awt.BorderLayout;
+import java.awt.*;
 import java.awt.Image;
 import java.util.Map;
 import javax.swing.Icon;
@@ -13,6 +13,7 @@ import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import org.netbeans.lib.awtextra.AbsoluteLayout;
 
 public class Desg {
     //DefaultTableModel model;

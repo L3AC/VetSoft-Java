@@ -3,7 +3,7 @@ package AVista;
 import AVista.Animales.CRUDAnimales;
 import AVista.Citas.CRUDCita;
 import AVista.Clientes.CRUDCliente;
-import AVista.Clientes.insertTipoCuenta;
+import AVista.CUENTA.insertTipoCuenta;
 import AVista.Home.Home;
 import java.awt.Component;
 import JavaMenu.MenuSelectEvent;
