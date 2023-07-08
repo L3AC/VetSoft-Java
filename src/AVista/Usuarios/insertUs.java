@@ -7,6 +7,7 @@ package AVista.Usuarios;
 import AControlador.ctEsp;
 import AControlador.ctTipoUs;
 import AControlador.ctUser;
+import AModelo.Crypt;
 import Design.Desg;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,6 +25,7 @@ public class insertUs extends javax.swing.JPanel {
 
     private int idTipoUs;
     private int tpUs;
+    Crypt cryp = new Crypt();
     ctTipoUs ctTP=new ctTipoUs();
     Desg dsg = new Desg();
     Map<Integer, String> cbMap= new HashMap<>();
@@ -59,7 +61,7 @@ public class insertUs extends javax.swing.JPanel {
         txtCorreo = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         btnConfirm = new javax.swing.JButton();
-        txtApellidos = new javax.swing.JTextField();
+        txtContra = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         cbCargo = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
@@ -92,8 +94,13 @@ public class insertUs extends javax.swing.JPanel {
 
         btnConfirm.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnConfirm.setText("Confirmar");
+        btnConfirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmActionPerformed(evt);
+            }
+        });
 
-        txtApellidos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtContra.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Contraseña");
@@ -143,7 +150,7 @@ public class insertUs extends javax.swing.JPanel {
                 .addGap(330, 330, 330)
                 .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(100, 100, 100)
-                .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(txtContra, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(PContLayout.createSequentialGroup()
                 .addGap(390, 390, 390)
                 .addComponent(jLabel8)
@@ -180,7 +187,7 @@ public class insertUs extends javax.swing.JPanel {
                 .addGap(10, 10, 10)
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtContra, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbDisp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
@@ -247,6 +254,21 @@ public class insertUs extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtUsuarioKeyReleased
 
+    private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
+        ctUser ctUs=new ctUser();
+        ctUs.idTipoCuenta=dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
+        ctUs.usuario=txtUsuario.getText();
+        try {
+            ctUs.contra=cryp.encrypt(txtContra.getText(), "key");
+            
+        } catch (Exception ex) {
+            Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ctUs.correo=txtCorreo.getText();
+        ctUs.telefono=txtTel.getText();
+        ctUs.insertUs();
+    }//GEN-LAST:event_btnConfirmActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
@@ -260,7 +282,7 @@ public class insertUs extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lbDisp;
-    private javax.swing.JTextField txtApellidos;
+    private javax.swing.JTextField txtContra;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtTel;
     private javax.swing.JTextField txtUsuario;

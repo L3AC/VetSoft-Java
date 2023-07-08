@@ -52,11 +52,11 @@ public class mdUser {
             return null; //DIO ERROR
         }
     }
-    public boolean insertUs(int idTipoUs, String usuario, String contra, String correo, String tel) {
-        String query = "insert into tbUsuarios values(?,?,?,?,?,?,null,GETDATE());;";
+    public boolean insertUs(int idTipoC, String usuario, String contra, String correo, String tel) {
+        String query = "insert into tbUsuarios values(?,?,?,?,?,null,GETDATE());";
         try {
             ps = con.prepareStatement(query);
-            ps.setInt(1, idTipoUs);
+            ps.setInt(1, idTipoC);
             ps.setString(2, usuario);
             ps.setString(3, contra);
             ps.setString(4, correo);
