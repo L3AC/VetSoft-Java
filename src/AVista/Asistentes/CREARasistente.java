@@ -10,10 +10,9 @@ package AVista.Asistentes;
  */
 public class CREARasistente extends javax.swing.JPanel {
 
-    /**
-     * Creates new form CREARasistente
-     */
-    public CREARasistente() {
+    private int idDoc;
+    public CREARasistente(int idDoc) {
+        this.idDoc=idDoc;
         initComponents();
     }
 
@@ -102,6 +101,11 @@ public class CREARasistente extends javax.swing.JPanel {
 
         btnConfirm.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnConfirm.setText("Confirmar");
+        btnConfirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 510, 140, 70));
 
         table1.setModel(new javax.swing.table.DefaultTableModel(
@@ -149,6 +153,10 @@ public class CREARasistente extends javax.swing.JPanel {
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnConfirmActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
