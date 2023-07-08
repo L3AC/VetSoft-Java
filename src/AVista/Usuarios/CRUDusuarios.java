@@ -31,6 +31,7 @@ public class CRUDusuarios extends javax.swing.JPanel {
         this.idTipoUs = idTipoUs;
         initComponents();
         loadD();
+        verifPerfil();
     }
 
     final void loadD() throws SQLException {
@@ -231,6 +232,10 @@ public class CRUDusuarios extends javax.swing.JPanel {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
+        verifPerfil();
+
+    }//GEN-LAST:event_tbDataMouseClicked
+    final void verifPerfil(){
         int fila = tbData.getSelectedRow();
         idUsRow = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
         int nivelRow = Integer.parseInt(tbData.getValueAt(fila, 1).toString());
@@ -253,9 +258,7 @@ public class CRUDusuarios extends javax.swing.JPanel {
         else{
             btnAddCuenta.setVisible(false);
         }
-
-    }//GEN-LAST:event_tbDataMouseClicked
-
+    }
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
         try {
             loadD();
