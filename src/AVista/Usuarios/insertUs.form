@@ -49,9 +49,7 @@
                   <Component id="jLabel1" min="-2" pref="100" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
-                  <EmptySpace min="130" pref="130" max="-2" attributes="0"/>
-                  <Component id="lbDisp" min="-2" pref="190" max="-2" attributes="0"/>
-                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="330" max="-2" attributes="0"/>
                   <Component id="txtUsuario" min="-2" pref="270" max="-2" attributes="0"/>
                   <EmptySpace min="100" pref="100" max="-2" attributes="0"/>
                   <Component id="txtApellidos" min="-2" pref="270" max="-2" attributes="0"/>
@@ -78,6 +76,10 @@
                   <EmptySpace min="580" pref="580" max="-2" attributes="0"/>
                   <Component id="btnConfirm" min="-2" pref="140" max="-2" attributes="0"/>
               </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="372" max="-2" attributes="0"/>
+                  <Component id="lbDisp" min="-2" pref="190" max="-2" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -95,14 +97,12 @@
                   </Group>
                   <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                          <Component id="lbDisp" min="-2" pref="30" max="-2" attributes="0"/>
-                      </Group>
                       <Component id="txtUsuario" min="-2" pref="50" max="-2" attributes="0"/>
                       <Component id="txtApellidos" min="-2" pref="50" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="lbDisp" min="-2" pref="30" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel8" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="jLabel6" min="-2" pref="30" max="-2" attributes="0"/>
