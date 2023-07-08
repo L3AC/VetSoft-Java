@@ -1,14 +1,17 @@
 package AVista;
 
 import AVista.Animales.CRUDAnimales;
+import AVista.Asistentes.CRUDAsistente;
 import AVista.Citas.CRUDCita;
 import AVista.Clientes.CRUDCliente;
 import AVista.CUENTA.insertTipoCuenta;
+import AVista.Doctores.CRUDDoctores;
 import AVista.Home.Home;
 import java.awt.Component;
 import JavaMenu.MenuSelectEvent;
 import AVista.VentanaAdminUsuarios;
 import AVista.Login;
+import AVista.Recepcionista.CRUDRecep;
 import AVista.Usuarios.CRUDusuarios;
 import Design.Desg;
 import Mensajes.MensajeNoEncontroUsuarios;
@@ -89,16 +92,28 @@ public class Dashboard extends javax.swing.JFrame {
                         CRUDCita subp = new CRUDCita();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
-                    //TIENDA
-                    if(index==2 && indexSubMenu==1){
-                        
+                    if(index==2 && indexSubMenu==1){//RECEPCIONISTA
+                        CRUDRecep subp = new CRUDRecep();
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
-                    //MANTENIMIENTO
+                    if(index==2 && indexSubMenu==2){//DOCTORES
+                        CRUDRecep subp = new CRUDRecep();
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                    }
+                    if(index==2 && indexSubMenu==3){//ASISTENTES
+                        CRUDRecep subp = new CRUDRecep();
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                    }
+                    //TIENDA
                     if(index==3 && indexSubMenu==1){
                         
                     }
-                    //CUENTA
+                    //MANTENIMIENTO
                     if(index==4 && indexSubMenu==1){
+                        
+                    }
+                    //CUENTA
+                    if(index==5 && indexSubMenu==1){
                         
                     }
                     
@@ -194,6 +209,14 @@ public class Dashboard extends javax.swing.JFrame {
                         CRUDCita subp = new CRUDCita();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
+                    if(index==1 && indexSubMenu==4){//DOCTORES
+                        CRUDDoctores subp = new CRUDDoctores();
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                    }
+                    if(index==1 && indexSubMenu==5){//ASISTENTES
+                        CRUDAsistente subp = new CRUDAsistente();
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                    }
                     //CUENTA
                     if(index==2 && indexSubMenu==1){
                         
@@ -226,6 +249,7 @@ public class Dashboard extends javax.swing.JFrame {
         menuAdmin = new JavaMenu.MenuAdmin();
         menuDoc = new JavaMenu.MenuDoc();
         menuRecep = new JavaMenu.MenuRecep();
+        menuAsis = new JavaMenu.MenuAsistente();
         PCont = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -238,9 +262,14 @@ public class Dashboard extends javax.swing.JFrame {
         body.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         PanelMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        menuAdmin.setPreferredSize(new java.awt.Dimension(250, 770));
         PanelMenu.add(menuAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 250, 770));
         PanelMenu.add(menuDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 250, 770));
         PanelMenu.add(menuRecep, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 250, 770));
+
+        menuAsis.setPreferredSize(new java.awt.Dimension(250, 770));
+        PanelMenu.add(menuAsis, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, -1, 726));
 
         body.add(PanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 810));
 
@@ -315,6 +344,7 @@ public class Dashboard extends javax.swing.JFrame {
     private Design.PanelRound PanelMenu;
     private Design.PanelRound body;
     private JavaMenu.MenuAdmin menuAdmin;
+    private JavaMenu.MenuAsistente menuAsis;
     private JavaMenu.MenuDoc menuDoc;
     private JavaMenu.MenuRecep menuRecep;
     // End of variables declaration//GEN-END:variables

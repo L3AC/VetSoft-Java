@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package JavaMenu;
-import AVista.PorUsuario;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -17,16 +17,13 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import net.miginfocom.swing.MigLayout;
-/**
- *
- * @author Gerson
- */
-public class MenuDoc extends JPanel{
-    
+
+
+public class MenuAsistente extends JPanel{
     private int index = -1;
     private final List<MenuSelectEvent> events = new ArrayList<>();
     
-    public MenuDoc() {
+    public MenuAsistente() {
         init();
         System.err.println("ORI");
     }
@@ -46,7 +43,7 @@ public class MenuDoc extends JPanel{
         addTitle("Gestión principal");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PERSON, 
                 "Gestión médica","Clientes",
-                "Mascotas","Citas","Doctores","Asistentes"));
+                "Mascotas","Citas","Doctores"));
         addTitle("Cuenta");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PEOPLE,
                 "Mi Cuenta","Perfil","Seguridad",
