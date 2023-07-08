@@ -22,8 +22,10 @@ public class CRUDDoctores extends javax.swing.JPanel {
     public CRUDDoctores(int idTipoUs,int idCuenta) throws SQLException {
         this.idTipoUs=idTipoUs;
         this.idCuenta=idCuenta;
+        initComponents();
+        loadD();
         if(idTipoUs==1){//ADMIN
-            btnMyAsis.setVisible(false);
+            //btnMyAsis.setVisible(false);
         }
         if(idTipoUs==2 ||idTipoUs==5){//RECEPCIONISTA Y ASISTENTE
             btnMyAsis.setVisible(false);
@@ -36,14 +38,13 @@ public class CRUDDoctores extends javax.swing.JPanel {
             btnEditar.setVisible(false);
             btnEliminar.setVisible(false);
         }
-        loadD();
-        initComponents();
+        
     }
 
     final void loadD() throws SQLException {
         String[] column = {"idDoctor", "Especialidad", "Nombre"};
         model = new DefaultTableModel(null, column);
-        dsg.ColumnHide(model, tbData, 0,5);
+        dsg.ColumnHide(model, tbData, 0,3);
         CargarTabla();
         tbData.setRowSelectionInterval(0, 0);
         int fila = tbData.getSelectedRow();

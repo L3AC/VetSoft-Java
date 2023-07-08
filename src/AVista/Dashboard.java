@@ -42,17 +42,17 @@ public class Dashboard extends javax.swing.JFrame {
         this.idUs = idUs;
         this.idCuenta = idCuenta;
         initComponents();
-        if(idTipoU==1){
+        if (idTipoU == 1) {
             menuDoc.setVisible(false);
             menuRecep.setVisible(false);
             initAdmin();
         }
-        if(idTipoU==2){
+        if (idTipoU == 2) {
             menuDoc.setVisible(false);
             menuAdmin.setVisible(false);
             initRecep();
         }
-        if(idTipoU>=4){
+        if (idTipoU >= 4) {
             menuAdmin.setVisible(false);
             menuRecep.setVisible(false);
             initDoc();
@@ -62,7 +62,7 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     private void initAdmin() {
-        dash = this; 
+        dash = this;
         menuAdmin.addEvent(new MenuSelectEvent() {
             @Override
             public void menuSelected(int index, int indexSubMenu) {
@@ -71,54 +71,64 @@ public class Dashboard extends javax.swing.JFrame {
                     if (index == 0) {//HOME
                         Home subp = new Home();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
-                        
+
                     }
                     //GESTION PRINCIPAL
-                    if(index==1 && indexSubMenu==1){//USUARIOS
+                    if (index == 1 && indexSubMenu == 1) {//USUARIOS
                         CRUDusuarios subp = new CRUDusuarios(idTipoU);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
-                    if (index == 1 && indexSubMenu==2) {//CLIENTES
+                    if (index == 1 && indexSubMenu == 2) {//CLIENTES
                         CRUDCliente subp = new CRUDCliente(idTipoU);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
-                        
+
                     }
-                    if(index==1 && indexSubMenu==3){//ANIMALES
+                    if (index == 1 && indexSubMenu == 3) {//ANIMALES
                         CRUDAnimales subp = new CRUDAnimales();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
-                       
+
                     }
-                    if(index==1 && indexSubMenu==4){//CITAS
+                    if (index == 1 && indexSubMenu == 4) {//CITAS
                         CRUDCita subp = new CRUDCita();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
-                    if(index==2 && indexSubMenu==1){//RECEPCIONISTA
+                    if (index == 2 && indexSubMenu == 1) {//RECEPCIONISTA
                         CRUDRecep subp = new CRUDRecep();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
-                    if(index==2 && indexSubMenu==2){//DOCTORES
-                        CRUDDoctores subp = new CRUDDoctores(idTipoU,idCuenta);
+                    if (index == 2 && indexSubMenu == 2) {//DOCTORES
+                        CRUDDoctores subp = new CRUDDoctores(idTipoU, idCuenta);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
-                    if(index==2 && indexSubMenu==3){//ASISTENTES
-                        CRUDAsistente subp = new CRUDAsistente(idTipoU,idCuenta);
+                    if (index == 2 && indexSubMenu == 3) {//ASISTENTES
+                        CRUDAsistente subp = new CRUDAsistente(idTipoU, idCuenta);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     //TIENDA
-                    if(index==3 && indexSubMenu==1){
-                        
+                    if (index == 3 && indexSubMenu == 1) {
+
                     }
                     //MANTENIMIENTO
-                    if(index==4 && indexSubMenu==1){
-                        
+                    if (index == 4 && indexSubMenu == 1) {
+
                     }
                     //CUENTA
-                    if(index==5 && indexSubMenu==1){
-                        
+                    if (index == 5 && indexSubMenu == 1) {
+
                     }
-                    
-                } catch (Exception e) {
-                    System.out.println(e.toString()+" pruebaAd");
+
+                } catch (NullPointerException e) {
+                    StackTraceElement[] stackTrace = e.getStackTrace();
+
+                    if (stackTrace.length > 0) {
+                        // Obtener la línea de error del NullPointerException
+                        int lineNumber = stackTrace[0].getLineNumber();
+
+                        // Imprimir la línea de error
+                        System.out.println("NullPointerException en la línea: " + lineNumber);
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
             }
@@ -126,8 +136,9 @@ public class Dashboard extends javax.swing.JFrame {
         menuAdmin.setSelectedIndex(0, 0);
 
     }
+
     private void initRecep() {
-        dash = this; 
+        dash = this;
         menuRecep.addEvent(new MenuSelectEvent() {
             @Override
             public void menuSelected(int index, int indexSubMenu) {
@@ -136,45 +147,45 @@ public class Dashboard extends javax.swing.JFrame {
                     if (index == 0) {//HOME
                         Home subp = new Home();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
-                        
+
                     }
                     //GESTION PRINCIPAL
-                    if(index==1 && indexSubMenu==1){//USUARIOS
+                    if (index == 1 && indexSubMenu == 1) {//USUARIOS
                         CRUDusuarios subp = new CRUDusuarios(idTipoU);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
-                    if (index == 1 && indexSubMenu==2) {//CLIENTES
+                    if (index == 1 && indexSubMenu == 2) {//CLIENTES
                         CRUDCliente subp = new CRUDCliente(idTipoU);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
-                        
+
                     }
-                    if(index==1 && indexSubMenu==3){//ANIMALES
+                    if (index == 1 && indexSubMenu == 3) {//ANIMALES
                         CRUDAnimales subp = new CRUDAnimales();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
-                       
+
                     }
-                    if(index==1 && indexSubMenu==4){//CITAS
+                    if (index == 1 && indexSubMenu == 4) {//CITAS
                         CRUDCita subp = new CRUDCita();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     //TIENDA
-                    if(index==2 && indexSubMenu==1){//RESERVAS
-                        
+                    if (index == 2 && indexSubMenu == 1) {//RESERVAS
+
                     }
-                    if(index==2 && indexSubMenu==2){//PRODUCTOS
-                        
+                    if (index == 2 && indexSubMenu == 2) {//PRODUCTOS
+
                     }
                     //MANTENIMIENTO
-                    if(index==3 && indexSubMenu==1){
-                        
+                    if (index == 3 && indexSubMenu == 1) {
+
                     }
                     //CUENTA
-                    if(index==4 && indexSubMenu==1){
-                        
+                    if (index == 4 && indexSubMenu == 1) {
+
                     }
-                    
+
                 } catch (Exception e) {
-                    System.out.println(e.toString()+" prueba");
+                    System.out.println(e.toString() + " prueba");
                 }
 
             }
@@ -182,6 +193,7 @@ public class Dashboard extends javax.swing.JFrame {
         menuRecep.setSelectedIndex(0, 0);
 
     }
+
     private void initDoc() {
         dash = this;
         menuDoc.addEvent(new MenuSelectEvent() {
@@ -192,37 +204,37 @@ public class Dashboard extends javax.swing.JFrame {
                     if (index == 0) {//HOME
                         Home subp = new Home();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
-                        
+
                     }
                     //GESTION PRINCIPAL
-                    if (index == 1 && indexSubMenu==1) {//CLIENTES
+                    if (index == 1 && indexSubMenu == 1) {//CLIENTES
                         CRUDCliente subp = new CRUDCliente(idTipoU);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
-                        
+
                     }
-                    if(index==1 && indexSubMenu==2){//ANIMALES
+                    if (index == 1 && indexSubMenu == 2) {//ANIMALES
                         CRUDAnimales subp = new CRUDAnimales();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
-                       
+
                     }
-                    if(index==1 && indexSubMenu==3){//CITAS
+                    if (index == 1 && indexSubMenu == 3) {//CITAS
                         CRUDCita subp = new CRUDCita();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
-                    if(index==1 && indexSubMenu==4){//DOCTORES
-                        CRUDDoctores subp=new CRUDDoctores(idTipoU,idCuenta);
+                    if (index == 1 && indexSubMenu == 4) {//DOCTORES
+                        CRUDDoctores subp = new CRUDDoctores(idTipoU, idCuenta);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
-                    if(index==1 && indexSubMenu==5){//ASISTENTES
-                        CRUDAsistente subp = new CRUDAsistente(idTipoU,idCuenta);
+                    if (index == 1 && indexSubMenu == 5) {//ASISTENTES
+                        CRUDAsistente subp = new CRUDAsistente(idTipoU, idCuenta);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     //CUENTA
-                    if(index==2 && indexSubMenu==1){
-                        
+                    if (index == 2 && indexSubMenu == 1) {
+
                     }
                 } catch (Exception e) {
-                    System.out.println(e.toString()+" prueba");
+                    System.out.println(e.toString() + " prueba");
                 }
 
             }
@@ -230,7 +242,7 @@ public class Dashboard extends javax.swing.JFrame {
         menuDoc.setSelectedIndex(0, 0);
 
     }
-    
+
     public static Dashboard getMain() {
         return dash;
     }
