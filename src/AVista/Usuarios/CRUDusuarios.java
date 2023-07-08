@@ -242,9 +242,9 @@ public class CRUDusuarios extends javax.swing.JPanel {
 
             try {
                 if (ct.verifPerfil().next()) {
-                    
+                    btnAddCuenta.setVisible(false);
                 } else {
-                    
+                    btnAddCuenta.setVisible(true);
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(CRUDusuarios.class.getName()).log(Level.SEVERE, null, ex);

@@ -176,14 +176,16 @@ public class mdUser {
         try {
 
             if (idTipoC == 2) {
+                url = "select u.usuario from tbUsuarios u, tbRecepcionistas c "
+                        + "where u.idUsuario=c.idUsuario and u.idUsuario=?;";
+            }
+            if (idTipoC == 3) {
                 url = "select u.usuario from tbUsuarios u, tbClientes c "
                         + "where u.idUsuario=c.idUsuario and u.idUsuario=?";
             }
-            if (idTipoC == 3) {
-                url = "SELECT * FROM tbRecepcionistas WHERE idUsuario = ?;";
-            }
             if (idTipoC == 4) {
-                url = "SELECT * FROM tbDoctores WHERE idUsuario = ?;";
+                url = "select u.usuario from tbUsuarios u, tbDoctores c "
+                        + "where u.idUsuario=c.idUsuario and u.idUsuario=?";
             }
             ps = con.prepareStatement(url);
             ps.setInt(1, idUs);
