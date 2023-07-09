@@ -52,7 +52,7 @@ public class CódogpErrorDIFC1 extends javax.swing.JPanel {
         txt.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         txt.setForeground(new java.awt.Color(133, 133, 133));
         txt.setText("\"Información No Disponible\"");
-        panelRound1.add(txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
+        panelRound1.add(txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, -1, -1));
 
         boton1.setBackground(new java.awt.Color(48, 170, 63));
         boton1.setBorder(null);
@@ -71,7 +71,7 @@ public class CódogpErrorDIFC1 extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+            .addComponent(panelRound1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

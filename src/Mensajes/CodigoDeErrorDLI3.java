@@ -46,7 +46,7 @@ public class CodigoDeErrorDLI3 extends javax.swing.JPanel {
         txt.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         txt.setForeground(new java.awt.Color(133, 133, 133));
         txt.setText("“Demasiados intentos fallidos, vuelva a intentarlo más tarde”");
-        panelRound1.add(txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
+        panelRound1.add(txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -60,7 +60,7 @@ public class CodigoDeErrorDLI3 extends javax.swing.JPanel {
         boton1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         boton1.setMaximumSize(new java.awt.Dimension(29, 34));
         boton1.setMinimumSize(new java.awt.Dimension(29, 34));
-        panelRound1.add(boton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 77, 30));
+        panelRound1.add(boton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 77, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

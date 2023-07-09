@@ -4,6 +4,8 @@
  */
 package Mensajes;
 
+import java.awt.Color;
+
 /**
  *
  * @author ESTUDIANTE
@@ -31,6 +33,9 @@ public class CódigoErrorDAC1 extends javax.swing.JPanel {
         txt = new javax.swing.JLabel();
         boton1 = new Mensajes.Boton();
 
+        setBackground(new Color(255,255,255,0));
+        setForeground(new Color(255,255,255,0));
+
         panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setForeground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomLeft(50);
@@ -47,7 +52,7 @@ public class CódigoErrorDAC1 extends javax.swing.JPanel {
         txt.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         txt.setForeground(new java.awt.Color(133, 133, 133));
         txt.setText("“Datos Incompletos”");
-        panelRound1.add(txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 60, 170, -1));
+        panelRound1.add(txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 170, -1));
 
         boton1.setBackground(new java.awt.Color(48, 170, 63));
         boton1.setBorder(null);

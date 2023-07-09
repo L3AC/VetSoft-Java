@@ -52,7 +52,7 @@ public class CódigoErrorDIFC2 extends javax.swing.JPanel {
         txt.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         txt.setForeground(new java.awt.Color(133, 133, 133));
         txt.setText("“Cliente No Encontrado”");
-        panelRound1.add(txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, -1, -1));
+        panelRound1.add(txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, -1, -1));
 
         boton1.setBackground(new java.awt.Color(48, 170, 63));
         boton1.setBorder(null);

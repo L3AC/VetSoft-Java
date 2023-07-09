@@ -71,7 +71,7 @@ public class CódigoErrorDRC4 extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+            .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
