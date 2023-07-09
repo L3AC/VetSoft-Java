@@ -6,11 +6,14 @@ package AVista.CUENTA;
 
 import AControlador.ctEsp;
 import AControlador.ctUser;
+import AVista.Usuarios.insertUs;
 import Design.Desg;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComboBox;
 
 public class insertTipoCuenta extends javax.swing.JPanel {
@@ -68,7 +71,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        txtDui = new javax.swing.JTextField();
+        txtDir = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         btnConfirm = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -78,6 +81,8 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         cbEsp = new javax.swing.JComboBox<>();
         dpNaci = new com.toedter.calendar.JDateChooser();
         btnBack = new javax.swing.JButton();
+        txtDui1 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
@@ -96,31 +101,33 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         PCont.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 100, 30));
 
         txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtNombre.setText("nombre");
         PCont.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, 270, 50));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel8.setText("Número de DUI");
-        PCont.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 150, 30));
+        jLabel8.setText("Dirección");
+        PCont.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 440, 150, 30));
 
-        txtDui.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtDui.setText("DUI");
-        PCont.add(txtDui, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, 220, 50));
+        txtDir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        PCont.add(txtDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 480, 220, 50));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setText("Sexo");
-        PCont.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 450, 100, 30));
+        PCont.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 440, 100, 30));
 
         btnConfirm.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnConfirm.setText("Confirmar");
-        PCont.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 460, 140, 70));
+        btnConfirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmActionPerformed(evt);
+            }
+        });
+        PCont.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 600, 140, 70));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setText("Nacimiento");
         PCont.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 310, 150, 30));
 
         txtApellidos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtApellidos.setText("apellidos");
         PCont.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 220, 270, 50));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -128,10 +135,10 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         PCont.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 180, 100, 30));
 
         cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femenino", "Masculino" }));
-        PCont.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 490, 200, 40));
+        PCont.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 480, 200, 40));
 
         PCont.add(cbEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, 160, 40));
-        PCont.add(dpNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 370, 250, 40));
+        PCont.add(dpNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 350, 250, 40));
 
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
         btnBack.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -145,6 +152,13 @@ public class insertTipoCuenta extends javax.swing.JPanel {
             }
         });
         PCont.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 70, 60));
+
+        txtDui1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        PCont.add(txtDui1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 340, 220, 50));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel9.setText("Número de DUI");
+        PCont.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, 150, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -163,8 +177,24 @@ public class insertTipoCuenta extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackMouseClicked
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
+        /*if(nivelRow==)
+        ctUser ctUs=new ctUser();
+        ctUs.idTipoCuenta=dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
+        ctUs.usuario=txtUsuario.getText();
+        try {
+            ctUs.contra=cryp.encrypt(txtContra.getText(), "key");
+            
+        } catch (Exception ex) {
+            Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ctUs.correo=txtCorreo.getText();
+        ctUs.telefono=txtTel.getText();
+        ctUs.insertUs();*/
+    }//GEN-LAST:event_btnConfirmActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -180,9 +210,11 @@ public class insertTipoCuenta extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lbEsp;
     private javax.swing.JTextField txtApellidos;
-    private javax.swing.JTextField txtDui;
+    private javax.swing.JTextField txtDir;
+    private javax.swing.JTextField txtDui1;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
