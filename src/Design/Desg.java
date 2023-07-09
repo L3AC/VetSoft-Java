@@ -13,6 +13,7 @@ import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.View;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 
 public class Desg {
@@ -31,7 +32,8 @@ public class Desg {
         elm.setIcon(icon);
         elm.repaint();
     }
-        public void ColumnHide(DefaultTableModel md,JTable tb, int nc,int nCol) {
+
+    public void ColumnHide(DefaultTableModel md, JTable tb, int nc, int nCol) {
         tb.setModel(md);
         tb.getColumnModel().getColumn(nc).setMaxWidth(0);
         tb.getColumnModel().getColumn(nc).setMinWidth(0);
@@ -41,11 +43,12 @@ public class Desg {
         //CENTRAR TEXTO DE LAS CELDAS
         DefaultTableCellRenderer Alinear = new DefaultTableCellRenderer();
         Alinear.setHorizontalAlignment(SwingConstants.CENTER);//.LEFT .RIGHT .CENTER
-        for(int i = 0;i<nCol;i++){
+        for (int i = 0; i < nCol; i++) {
             tb.getColumnModel().getColumn(i).setCellRenderer(Alinear);
         }
     }
-        public void ShowPanel(JPanel p,JPanel cont, int w,int h) {
+
+    public void ShowPanel(JPanel p, JPanel cont, int w, int h) {
         p.setSize(w, h);
         p.setLocation(0, 0);
         cont.removeAll();
@@ -53,7 +56,8 @@ public class Desg {
         cont.revalidate();
         cont.repaint();
     }
-        public int getMap(Map<Integer, String> map, String value) {
+
+    public int getMap(Map<Integer, String> map, String value) {
         for (Map.Entry<Integer, String> entry : map.entrySet()) {
             if (entry.getValue().equals(value)) {
                 return entry.getKey();
@@ -61,5 +65,10 @@ public class Desg {
         }
         return -1; // Valor no encontrado
     }
-        
+    public final void visib(java.util.List<Component> components,boolean tf) {
+        for (Component component : components) {
+            component.setVisible(tf);
+        }
+    }
+
 }

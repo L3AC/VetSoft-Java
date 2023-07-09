@@ -6,9 +6,15 @@ package AVista.Asistentes;
 
 import AControlador.ctAsistente;
 import AControlador.ctDoctores;
+import AVista.Usuarios.CRUDusuarios;
 import Design.Desg;
+import java.awt.Component;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -24,21 +30,25 @@ public class CREARasistente extends javax.swing.JPanel {
     ctAsistente ctAs = new ctAsistente();
     Desg dsg = new Desg();
     DefaultTableModel model;
-    
+
     public CREARasistente(int idDoc) throws SQLException {
-        this.idDoc=idDoc;
+        this.idDoc = idDoc;
         initComponents();
         loadD();
+        lbVerif.setVisible(false);
+        verifPerfil();
     }
 
     final void loadD() throws SQLException {
-        String[] column = {"idUsuario", "Usuario", "Correo","Telefono"};
+        String[] column = {"idUsuario", "Usuario", "Correo", "Telefono"};
         model = new DefaultTableModel(null, column);
-        dsg.ColumnHide(model, tbData, 0,4);
+        dsg.ColumnHide(model, tbData, 0, 4);
         CargarTabla();
-        tbData.setRowSelectionInterval(0, 0);
-        int fila = tbData.getSelectedRow();
-        idAsis = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
+        if (tbData.getRowCount() > 0) {
+            tbData.setRowSelectionInterval(0, 0);
+            int fila = tbData.getSelectedRow();
+            idAsis = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
+        }
     }
 
     final void CargarTabla() throws SQLException {
@@ -46,7 +56,7 @@ public class CREARasistente extends javax.swing.JPanel {
             model.removeRow(0);
         }
         try {
-            ctAs.usuario= txtBusq.getText().toString();
+            ctAs.usuario = txtBusq.getText().toString();
             ResultSet rs = ctAs.cargarAsis();
             while (rs.next()) {
                 Object[] oValores = {rs.getInt("idUsuario"),
@@ -58,6 +68,7 @@ public class CREARasistente extends javax.swing.JPanel {
 
         }
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -67,22 +78,25 @@ public class CREARasistente extends javax.swing.JPanel {
         txtNombre = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lbApell = new javax.swing.JLabel();
         txtApellidos = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        lbNaci = new javax.swing.JLabel();
         dpNaci = new com.toedter.calendar.JDateChooser();
         txtDui = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        lbDui = new javax.swing.JLabel();
+        lbSexo = new javax.swing.JLabel();
         cbSexo = new javax.swing.JComboBox<>();
         btnConfirm = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbData = new SwingTable.Table();
         txtBusq = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        lbVerif = new javax.swing.JLabel();
+        lbNom = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
         btnBack.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -95,32 +109,44 @@ public class CREARasistente extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
+        jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 70, 60));
 
         txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 250, 270, 50));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setText("Usuario");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, 100, 30));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel2.setText("CREAR PERFIL");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 40, 230, 50));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setText("Apellidos");
+        lbApell.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbApell.setText("Apellidos");
+        jPanel1.add(lbApell, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 210, 100, 30));
 
         txtApellidos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jPanel1.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 250, 270, 50));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setText("Nacimiento");
+        lbNaci.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbNaci.setText("Nacimiento");
+        jPanel1.add(lbNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 340, 110, 30));
+        jPanel1.add(dpNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 380, 260, 50));
 
         txtDui.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jPanel1.add(txtDui, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 380, 220, 50));
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel8.setText("Número de DUI");
+        lbDui.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbDui.setText("Número de DUI");
+        jPanel1.add(lbDui, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 340, 150, 30));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel6.setText("Sexo");
+        lbSexo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbSexo.setText("Sexo");
+        jPanel1.add(lbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 480, 100, 30));
 
         cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femenino", "Masculino" }));
+        jPanel1.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 520, 200, 40));
 
         btnConfirm.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnConfirm.setText("Confirmar");
@@ -129,6 +155,7 @@ public class CREARasistente extends javax.swing.JPanel {
                 btnConfirmActionPerformed(evt);
             }
         });
+        jPanel1.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 510, 140, 70));
 
         tbData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -141,102 +168,38 @@ public class CREARasistente extends javax.swing.JPanel {
                 "idUsuario", "Cargo", "usuario", "correo", "telefono"
             }
         ));
+        tbData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbDataMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbData);
 
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 520, 430));
+
         txtBusq.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jPanel1.add(txtBusq, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 300, 40));
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel7.setText("Ya hay un perfil creado con este usuario");
+        lbVerif.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbVerif.setText("Ya hay un perfil creado con este usuario");
+        jPanel1.add(lbVerif, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 130, 350, 30));
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel9.setText("Nombres");
+        lbNom.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbNom.setText("Nombres");
+        jPanel1.add(lbNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 210, 100, 30));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(440, 440, 440)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(820, 820, 820)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(110, 110, 110)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDui, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(60, 60, 60)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(dpNaci, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(10, 10, 10)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(txtDui, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(cbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(dpNaci, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(80, 80, 80)
-                        .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -262,22 +225,57 @@ public class CREARasistente extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnConfirmActionPerformed
 
+    private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
+        try {
+            verifPerfil();
+        } catch (SQLException ex) {
+            Logger.getLogger(CREARasistente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_tbDataMouseClicked
+    final void verifPerfil() throws SQLException {
+        int fila = tbData.getSelectedRow();
+        idAsis = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
+
+        ctAs.idUsuario = idAsis;
+        List<Component> lista = new ArrayList<>();
+        lista.add(lbNom);
+        lista.add(lbApell);
+        lista.add(lbDui);
+        lista.add(lbNaci);
+        lista.add(lbSexo);
+        lista.add(txtNombre);
+        lista.add(txtApellidos);
+        lista.add(txtDui);
+        lista.add(cbSexo);
+        lista.add(dpNaci);
+        lista.add(btnConfirm);
+
+        if (ctAs.verifPerfil().next()) {
+            lbVerif.setVisible(true);
+            dsg.visib(lista, false);
+        } else {
+            lbVerif.setVisible(false);
+            dsg.visib(lista, true);
+        }
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnConfirm;
     private javax.swing.JComboBox<String> cbSexo;
     private com.toedter.calendar.JDateChooser dpNaci;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbApell;
+    private javax.swing.JLabel lbDui;
+    private javax.swing.JLabel lbNaci;
+    private javax.swing.JLabel lbNom;
+    private javax.swing.JLabel lbSexo;
+    private javax.swing.JLabel lbVerif;
     private SwingTable.Table tbData;
     private javax.swing.JTextField txtApellidos;
     private javax.swing.JTextField txtBusq;

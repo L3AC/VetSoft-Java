@@ -48,9 +48,12 @@ public class CRUDDoctores extends javax.swing.JPanel {
         model = new DefaultTableModel(null, column);
         dsg.ColumnHide(model, tbData, 0,3);
         CargarTabla();
-        tbData.setRowSelectionInterval(0, 0);
-        int fila = tbData.getSelectedRow();
-        idDoc = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
+        if (tbData.getRowCount() > 0) {
+            tbData.setRowSelectionInterval(0, 0);
+            int fila = tbData.getSelectedRow();
+            idDoc = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
+        }
+        
     }
 
     final void CargarTabla() throws SQLException {

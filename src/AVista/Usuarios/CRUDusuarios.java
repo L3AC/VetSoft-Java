@@ -40,9 +40,12 @@ public class CRUDusuarios extends javax.swing.JPanel {
         dsg.ColumnHide(model, tbData, 0, 6);
         dsg.ColumnHide(model, tbData, 1, 6);
         CargarTabla();
-        tbData.setRowSelectionInterval(0, 0);
+        if(tbData.getRowCount() > 0){
+            tbData.setRowSelectionInterval(0, 0);
         int fila = tbData.getSelectedRow();
         idUsRow = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
+        }
+        
     }
 
     final void CargarTabla() throws SQLException {
