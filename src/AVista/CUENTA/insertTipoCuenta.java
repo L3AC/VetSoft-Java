@@ -7,6 +7,11 @@ package AVista.CUENTA;
 import AControlador.ctEsp;
 import AControlador.ctUser;
 import Design.Desg;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JComboBox;
 
 public class insertTipoCuenta extends javax.swing.JPanel {
 
@@ -15,16 +20,24 @@ public class insertTipoCuenta extends javax.swing.JPanel {
     private int nivelRow;
     ctEsp ct = new ctEsp();
     Desg dsg = new Desg();
+    Map<Integer, String> cbMap= new HashMap<>();
     
-    public insertTipoCuenta(int idTipoUs,int idUs,int nivelRow) {
+    public insertTipoCuenta(int idTipoUs,int idUs,int nivelRow) throws SQLException {
         this.idTipoUs=idTipoUs;
         this.idUs=idUs;
         this.nivelRow=nivelRow;
         initComponents();
+        
+        dpNaci.getJCalendar().setEnabled(false);
+       
         if(idTipoUs==1){
             if(nivelRow!=4){
                 lbEsp.setVisible(false);
                 cbEsp.setVisible(false);
+            }
+            else{
+                loadCombo(cbEsp);
+                cbEsp.setSelectedIndex(0);
             }
           
         }
@@ -33,9 +46,18 @@ public class insertTipoCuenta extends javax.swing.JPanel {
             cbEsp.setVisible(false);
         }
         
-        dpNaci.getJCalendar().setEnabled(false);
     }
-
+    private void loadCombo(JComboBox cb) throws SQLException{
+        ctEsp ct=new ctEsp();
+        ResultSet rs=ct.selectEsp();
+        while (rs.next()) {
+                int idTP=rs.getInt("idEspecialidad");
+                String nombre=rs.getString("especialidad");
+                cb.addItem(nombre);
+                cbMap.put(idTP, nombre);
+                
+            }
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
