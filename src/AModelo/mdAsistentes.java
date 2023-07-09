@@ -10,7 +10,8 @@ public class mdAsistentes {
     PreparedStatement ps;
     
     public ResultSet cargarAsis(String nombre) {//TABLA
-        String query = "select * from tbUsuarios where idTipoUsuario=5 and usuario like ?;";
+        String query = "select idUsuario,usuario,correo,telefono from tbUsuarios u,tbTipoUsuario tu \n"
+                + "where u.idTipoUsuario=tu.idTipoUsuario and usuario like ? and u.idTipoUsuario=5;";
         try {
             
             ps = con.prepareStatement(query);

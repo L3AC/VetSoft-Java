@@ -1,4 +1,3 @@
-
 package AControlador;
 
 import AModelo.mdAnimales;
@@ -7,11 +6,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ctAsistente {
+
     public int idAsistente;
     public int idUsuario;
     public int idDoctor;
     public String usuario;
-    public String nombre ;
+    public String nombre;
     public String apellido;
     public String dui;
     public String nacimiento;
@@ -88,9 +88,10 @@ public class ctAsistente {
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
-    
-    mdAsistentes md= new mdAsistentes();
-        public ResultSet verifPerfil() throws SQLException {
+
+    mdAsistentes md = new mdAsistentes();
+
+    public ResultSet verifPerfil() throws SQLException {
         return md.verifPerfil(idUsuario);
     }
 

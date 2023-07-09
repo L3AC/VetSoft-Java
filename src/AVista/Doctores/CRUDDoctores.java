@@ -8,6 +8,8 @@ import AVista.Usuarios.updtUsuario;
 import Design.Desg;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 public class CRUDDoctores extends javax.swing.JPanel {
@@ -25,7 +27,7 @@ public class CRUDDoctores extends javax.swing.JPanel {
         initComponents();
         loadD();
         if(idTipoUs==1){//ADMIN
-            //btnMyAsis.setVisible(false);
+            btnMyAsis.setVisible(false);
         }
         if(idTipoUs==2 ||idTipoUs==5){//RECEPCIONISTA Y ASISTENTE
             btnMyAsis.setVisible(false);
@@ -245,8 +247,14 @@ public class CRUDDoctores extends javax.swing.JPanel {
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         int fila = tbData.getSelectedRow();
         idDoc=Integer.parseInt(tbData.getValueAt(fila, 0).toString());
-        CREARasistente subp = new CREARasistente(idDoc);
-        dsg.ShowPanel(subp, PCont, 1320, 810);        
+        CREARasistente subp;
+        try {
+            subp = new CREARasistente(idDoc);
+            dsg.ShowPanel(subp, PCont, 1320, 810); 
+        } catch (SQLException ex) {
+            Logger.getLogger(CRUDDoctores.class.getName()).log(Level.SEVERE, null, ex);
+        }
+               
     }//GEN-LAST:event_btnAddActionPerformed
 
 
