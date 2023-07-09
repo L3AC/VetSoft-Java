@@ -52,7 +52,6 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnUsuario = new javax.swing.JButton();
         btnPreguntas = new javax.swing.JButton();
-        buttonGradient1 = new Design.ButtonGradient();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -91,27 +90,19 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
             }
         });
 
-        buttonGradient1.setText("buttonGradient1");
-        buttonGradient1.setColor1(new java.awt.Color(153, 102, 255));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BtnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(BtnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(65, 65, 65)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(LBRecup)
-                            .addComponent(jLabel1)
-                            .addComponent(btnPreguntas)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
-                        .addComponent(btnUsuario)))
+                    .addComponent(LBRecup)
+                    .addComponent(jLabel1)
+                    .addComponent(btnPreguntas)
+                    .addComponent(btnUsuario))
                 .addContainerGap(150, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -121,15 +112,12 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BtnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(LBRecup)
-                                .addGap(46, 46, 46)
-                                .addComponent(jLabel1)
-                                .addGap(52, 52, 52)
-                                .addComponent(btnUsuario))
-                            .addComponent(buttonGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(31, 31, 31)
+                        .addComponent(LBRecup)
+                        .addGap(46, 46, 46)
+                        .addComponent(jLabel1)
+                        .addGap(53, 53, 53)
+                        .addComponent(btnUsuario)
+                        .addGap(30, 30, 30)
                         .addComponent(btnPreguntas, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 43, Short.MAX_VALUE))
         );
@@ -221,7 +209,6 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
     private javax.swing.JLabel LBRecup;
     private javax.swing.JButton btnPreguntas;
     private javax.swing.JButton btnUsuario;
-    private Design.ButtonGradient buttonGradient1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
