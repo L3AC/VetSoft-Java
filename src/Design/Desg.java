@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -39,7 +40,7 @@ public class Desg {
         tb.getColumnModel().getColumn(nc).setMinWidth(0);
         tb.getTableHeader().getColumnModel().getColumn(nc).setMaxWidth(0);
         tb.getTableHeader().getColumnModel().getColumn(nc).setMinWidth(0);
-
+        tb.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         //CENTRAR TEXTO DE LAS CELDAS
         DefaultTableCellRenderer Alinear = new DefaultTableCellRenderer();
         Alinear.setHorizontalAlignment(SwingConstants.CENTER);//.LEFT .RIGHT .CENTER

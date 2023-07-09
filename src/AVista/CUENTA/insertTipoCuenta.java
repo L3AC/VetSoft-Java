@@ -23,44 +23,53 @@ public class insertTipoCuenta extends javax.swing.JPanel {
     private int nivelRow;
     ctEsp ct = new ctEsp();
     Desg dsg = new Desg();
-    Map<Integer, String> cbMap= new HashMap<>();
-    
-    public insertTipoCuenta(int idTipoUs,int idUs,int nivelRow) throws SQLException {
-        this.idTipoUs=idTipoUs;
-        this.idUs=idUs;
-        this.nivelRow=nivelRow;
+    Map<Integer, String> cbMap = new HashMap<>();
+
+    public insertTipoCuenta(int idTipoUs, int idUs, int nivelRow) throws SQLException {
+        this.idTipoUs = idTipoUs;
+        this.idUs = idUs;
+        this.nivelRow = nivelRow;
         initComponents();
-        
+
         dpNaci.getJCalendar().setEnabled(false);
-       
-        if(idTipoUs==1){
-            if(nivelRow!=4){
+
+        if (idTipoUs == 1) {
+            if (nivelRow != 4) {
                 lbEsp.setVisible(false);
                 cbEsp.setVisible(false);
-            }
-            else{
+    
+            } else {
                 loadCombo(cbEsp);
                 cbEsp.setSelectedIndex(0);
             }
-          
+            if(nivelRow!=3){
+                lbDir.setVisible(false);
+                txtDir.setVisible(false);  
+            }
+            else{
+                
+            }
+
         }
-        if(idTipoUs==2){
+        if (idTipoUs == 2) {
             lbEsp.setVisible(false);
             cbEsp.setVisible(false);
         }
-        
+
     }
-    private void loadCombo(JComboBox cb) throws SQLException{
-        ctEsp ct=new ctEsp();
-        ResultSet rs=ct.selectEsp();
+
+    private void loadCombo(JComboBox cb) throws SQLException {
+        ctEsp ct = new ctEsp();
+        ResultSet rs = ct.selectEsp();
         while (rs.next()) {
-                int idTP=rs.getInt("idEspecialidad");
-                String nombre=rs.getString("especialidad");
-                cb.addItem(nombre);
-                cbMap.put(idTP, nombre);
-                
-            }
+            int idTP = rs.getInt("idEspecialidad");
+            String nombre = rs.getString("especialidad");
+            cb.addItem(nombre);
+            cbMap.put(idTP, nombre);
+
+        }
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -70,7 +79,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         lbEsp = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
+        lbDir = new javax.swing.JLabel();
         txtDir = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         btnConfirm = new javax.swing.JButton();
@@ -103,9 +112,9 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         PCont.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, 270, 50));
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel8.setText("Dirección");
-        PCont.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 440, 150, 30));
+        lbDir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbDir.setText("Dirección");
+        PCont.add(lbDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 440, 150, 30));
 
         txtDir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         PCont.add(txtDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 480, 220, 50));
@@ -125,7 +134,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setText("Nacimiento");
-        PCont.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 310, 150, 30));
+        PCont.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 300, 150, 30));
 
         txtApellidos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         PCont.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 220, 270, 50));
@@ -138,7 +147,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         PCont.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 480, 200, 40));
 
         PCont.add(cbEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, 160, 40));
-        PCont.add(dpNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 350, 250, 40));
+        PCont.add(dpNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 340, 250, 50));
 
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
         btnBack.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -177,7 +186,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackMouseClicked
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        
+
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
@@ -209,8 +218,8 @@ public class insertTipoCuenta extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel lbDir;
     private javax.swing.JLabel lbEsp;
     private javax.swing.JTextField txtApellidos;
     private javax.swing.JTextField txtDir;
