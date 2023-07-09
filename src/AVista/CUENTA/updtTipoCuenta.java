@@ -1,8 +1,14 @@
 
 package AVista.CUENTA;
 
+import AControlador.ctEsp;
+import Design.Desg;
+
 public class updtTipoCuenta extends javax.swing.JPanel {
 
+    /*private int idTipoUs;
+    ctEsp ct = new ctEsp();
+    Desg dsg = new Desg();*/
     public updtTipoCuenta() {
         initComponents();
     }

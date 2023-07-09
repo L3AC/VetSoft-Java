@@ -11,14 +11,22 @@ import Design.Desg;
 public class insertTipoCuenta extends javax.swing.JPanel {
 
     private int idTipoUs;
+    private int idUs;
+    private int nivelRow;
     ctEsp ct = new ctEsp();
     Desg dsg = new Desg();
     
-    public insertTipoCuenta(int idTipoUs) {
+    public insertTipoCuenta(int idTipoUs,int idUs,int nivelRow) {
         this.idTipoUs=idTipoUs;
+        this.idUs=idUs;
+        this.nivelRow=nivelRow;
         initComponents();
         if(idTipoUs==1){
-            
+            if(nivelRow!=4){
+                lbEsp.setVisible(false);
+                cbEsp.setVisible(false);
+            }
+          
         }
         if(idTipoUs==2){
             lbEsp.setVisible(false);

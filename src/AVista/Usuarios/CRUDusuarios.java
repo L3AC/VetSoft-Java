@@ -23,6 +23,7 @@ public class CRUDusuarios extends javax.swing.JPanel {
 
     private int idTipoUs;
     private int idUsRow;
+    private int nivelRow;
     ctUser ct = new ctUser();
     Desg dsg = new Desg();
     DefaultTableModel model;
@@ -241,7 +242,7 @@ public class CRUDusuarios extends javax.swing.JPanel {
     final void verifPerfil(){
         int fila = tbData.getSelectedRow();
         idUsRow = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
-        int nivelRow = Integer.parseInt(tbData.getValueAt(fila, 1).toString());
+        nivelRow = Integer.parseInt(tbData.getValueAt(fila, 1).toString());
 
         if (nivelRow == 2 || nivelRow == 3 || nivelRow == 4) {
             btnAddCuenta.setVisible(true);
@@ -272,7 +273,7 @@ public class CRUDusuarios extends javax.swing.JPanel {
     }//GEN-LAST:event_txtBusqKeyReleased
 
     private void btnAddCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCuentaActionPerformed
-        insertTipoCuenta subp = new insertTipoCuenta(idTipoUs);
+        insertTipoCuenta subp = new insertTipoCuenta(idTipoUs,idUsRow,nivelRow);
         dsg.ShowPanel(subp, PCont, 1320, 810);
     }//GEN-LAST:event_btnAddCuentaActionPerformed
 
