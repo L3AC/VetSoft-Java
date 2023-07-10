@@ -84,7 +84,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
 
         btnConfirm.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnConfirm.setText("Confirmar");
-        PCont.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 460, 140, 70));
+        PCont.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 470, 140, 70));
         PCont.add(dpNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 370, 250, 40));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N

@@ -9,6 +9,7 @@ public class ctCliente {
     public String dui;
     public String nacimiento;
     public String sexo;
+    public String direccion;
 
     public int getIdCliente() {
         return idCliente;
@@ -75,8 +76,17 @@ public class ctCliente {
         return cl.selectCl(idCliente);
     }
 
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+        
+
     public boolean insertCl() {
-        return cl.insertCl(idCliente,nombre, apellido, dui, nacimiento, sexo);
+        return cl.insertCl(idCliente,nombre, apellido, dui, nacimiento, sexo,direccion);
     }
 
     public boolean updtCl() {

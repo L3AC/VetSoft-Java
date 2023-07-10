@@ -56,8 +56,10 @@ public class mdClientes {
         }
     }
 
-    public boolean insertCl(int idUs, String nombre, String apellido, String dui, String naci, String sexo) {
-        String query = "insert into tbClientes values(?,?,?,?,?,?,?);";
+    public boolean insertCl(int idUs, String nombre, String apellido,
+            String dui, String naci, String sexo,String direccion) {
+        String query = "insert into tbClientes(idUsuario,nombre,apellido,DUI,nacimiento,sexo,direccion)"
+                + " values(?,?,?,?,?,?,?,GETDATE());";
         try {
             ps = con.prepareStatement(query);
             ps.setInt(1, idUs);
@@ -66,6 +68,7 @@ public class mdClientes {
             ps.setString(4, dui);
             ps.setString(5, naci);
             ps.setString(6, sexo);
+            ps.setString(7, direccion);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Campos ingresados");
             return true;

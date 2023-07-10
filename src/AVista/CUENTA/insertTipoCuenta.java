@@ -117,7 +117,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         PCont.add(lbDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 440, 150, 30));
 
         txtDir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        PCont.add(txtDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 480, 220, 50));
+        PCont.add(txtDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 480, 360, 50));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setText("Sexo");
