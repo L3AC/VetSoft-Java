@@ -5,11 +5,13 @@
 package AVista.CUENTA;
 
 import AControlador.ctEsp;
+import AControlador.ctRecep;
 import AControlador.ctUser;
 import AVista.Usuarios.insertUs;
 import Design.Desg;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
@@ -30,7 +32,6 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         this.idUs = idUs;
         this.nivelRow = nivelRow;
         initComponents();
-
         dpNaci.getJCalendar().setEnabled(false);
 
         if (idTipoUs == 1) {
@@ -90,7 +91,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         cbEsp = new javax.swing.JComboBox<>();
         dpNaci = new com.toedter.calendar.JDateChooser();
         btnBack = new javax.swing.JButton();
-        txtDui1 = new javax.swing.JTextField();
+        txtDui = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
@@ -162,8 +163,8 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         });
         PCont.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 70, 60));
 
-        txtDui1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        PCont.add(txtDui1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 340, 220, 50));
+        txtDui.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        PCont.add(txtDui, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 340, 220, 50));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setText("Número de DUI");
@@ -190,8 +191,26 @@ public class insertTipoCuenta extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
-        /*if(nivelRow==)
-        ctUser ctUs=new ctUser();
+        SimpleDateFormat dt =new SimpleDateFormat("yyyy-MM-dd");
+        if(nivelRow==2){
+            ctRecep ct=new ctRecep();
+            ct.idUsuario=idUs;
+            ct.nombre=txtNombre.getText();
+            ct.apellido=txtApellidos.getText();
+            ct.dui=txtDui.getText();
+            ct.nacimiento=dt.format(dpNaci.getCalendar().getTime());
+            System.out.println(dt.format(dpNaci.getCalendar().getTime()));
+            ct.sexo=cbSexo.getSelectedItem().toString();
+            ct.insertRe();
+            
+        }
+        if(nivelRow==3){
+            
+        }
+        if(nivelRow==4){
+            
+        }
+        /*ctUser ctUs=new ctUser();
         ctUs.idTipoCuenta=dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
         ctUs.usuario=txtUsuario.getText();
         try {
@@ -223,7 +242,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
     private javax.swing.JLabel lbEsp;
     private javax.swing.JTextField txtApellidos;
     private javax.swing.JTextField txtDir;
-    private javax.swing.JTextField txtDui1;
+    private javax.swing.JTextField txtDui;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
