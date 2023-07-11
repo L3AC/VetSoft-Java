@@ -142,7 +142,7 @@ public class Login extends javax.swing.JFrame {
                 ctUser ct = new ctUser();
                 ct.usuario = TextUser.getText();
                 ct.contra = cryp.encrypt(TextPass.getText(), "key");
-                System.err.println(cryp.encrypt(TextPass.getText(), "key"));
+                System.err.println(cryp.encrypt(TextPass.getText(), "khj"));
                 ResultSet rs=ct.ValidarLogin();
                 if (rs.next()) {
                     idTipoU = rs.getInt("idTipoUsuario");

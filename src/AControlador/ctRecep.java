@@ -1,12 +1,12 @@
-
 package AControlador;
 
 import AModelo.mdRecep;
 
 public class ctRecep {
+
     public int idRecep;
     public int idUsuario;
-    public String nombre ;
+    public String nombre;
     public String apellido;
     public String dui;
     public String nacimiento;
@@ -68,10 +68,14 @@ public class ctRecep {
         this.sexo = sexo;
     }
 
-    mdRecep md=new mdRecep();
-    
-    public boolean insertRe(){
+    mdRecep md = new mdRecep();
+
+    public boolean insertRe() {
         return md.insertRe(idUsuario, nombre, apellido, dui, dui, sexo);
+    }
+
+    public boolean updtRecep() {
+        return md.updateRecep(idRecep, nombre, apellido, dui, nacimiento, sexo);
     }
 
 }

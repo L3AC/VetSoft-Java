@@ -86,7 +86,10 @@ public class ctDoctores {
         return md.loadData(idUsuario);
     }
     public boolean insertDoc(){
-        return md.insertDoc(idUsuario, idEsp, nombre, apellido, dui,nacimiento, sexo);
+        return md.insertDoc(idDoctor, idEsp, nombre, apellido, dui,nacimiento, sexo);
+    }
+    public boolean updateDoc(){
+        return md.updateDoc(idDoctor, idEsp, nombre, apellido, dui,nacimiento, sexo);
     }
     
 }

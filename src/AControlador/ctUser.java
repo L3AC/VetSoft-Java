@@ -123,11 +123,11 @@ public class ctUser {
     }
 
     public boolean insertUs() {
-        return usu.insertUs(idTipoCuenta, usuario, contra, correo, telefono,idTipoUs);
+        return usu.insertUs(idTipoCuenta, usuario, contra, correo, telefono);
     }
 
     public boolean updtUs() {
-        return usu.updateUs(idTipoCuenta, usuario, correo, telefono,idUs,idTipoUs);
+        return usu.updateUs(idTipoCuenta, usuario, correo, telefono,idUs);
     }
 
     public boolean deleteUs() {

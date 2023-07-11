@@ -263,6 +263,9 @@ public class insertUs extends javax.swing.JPanel {
         if(idTipoUs==1){
            ctUs.idTipoCuenta=dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
         }
+        if(idTipoUs==2){
+            ctUs.idTipoCuenta=3;
+        }
         ctUs.usuario=txtUsuario.getText();
         try {
             ctUs.contra=cryp.encrypt(txtContra.getText(), "key");

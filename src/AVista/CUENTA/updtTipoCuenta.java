@@ -191,7 +191,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
             ct.nacimiento=dt.format(dpNaci.getCalendar().getTime());
             System.out.println(dt.format(dpNaci.getCalendar().getTime()));
             ct.sexo=cbSexo.getSelectedItem().toString();
-            ct.insertRe();
+            ct.updtRecep();
         }
         if(nivelRow==3){
             ctCliente ct=new ctCliente();
@@ -202,7 +202,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
             ct.nacimiento=dt.format(dpNaci.getCalendar().getTime());
             ct.sexo=cbSexo.getSelectedItem().toString();
             ct.direccion=txtDir.getText();
-            ct.insertCl();
+            ct.updtCl();
         }
         if(nivelRow==4){
             ctDoctores ct=new ctDoctores();
@@ -213,7 +213,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
             ct.dui=txtDui.getText();
             ct.nacimiento=dt.format(dpNaci.getCalendar().getTime());
             ct.sexo=cbSexo.getSelectedItem().toString();
-            ct.insertDoc();
+            ct.updateDoc();
         }
     }//GEN-LAST:event_btnConfirmActionPerformed
 

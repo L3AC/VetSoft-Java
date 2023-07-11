@@ -256,6 +256,9 @@ public class updtUsuario extends javax.swing.JPanel {
         if(idTipoUs==1){
             ctUs.idTipoCuenta=dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
         }
+        if(idTipoUs==2){
+            ctUs.idTipoCuenta=3;
+        }
         ctUs.usuario=txtUsuario.getText();
         ctUs.correo=txtCorreo.getText();
         ctUs.telefono=txtTel.getText();
