@@ -1,6 +1,8 @@
 package AControlador;
 
 import AModelo.mdRecep;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class ctRecep {
 
@@ -78,4 +80,11 @@ public class ctRecep {
         return md.updateRecep(idRecep, nombre, apellido, dui, nacimiento, sexo);
     }
 
+    public ResultSet cargarRecep() throws SQLException {
+            return md.cargarRecep(nombre);
+    }
+
+    public ResultSet selectRecep() throws SQLException {
+        return md.selectRecep(idRecep);
+    }
 }
