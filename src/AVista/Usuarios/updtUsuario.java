@@ -253,7 +253,9 @@ public class updtUsuario extends javax.swing.JPanel {
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         ctUser ctUs=new ctUser();
-        ctUs.idTipoCuenta=dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
+        if(idTipoUs==1){
+            ctUs.idTipoCuenta=dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
+        }
         ctUs.usuario=txtUsuario.getText();
         ctUs.correo=txtCorreo.getText();
         ctUs.telefono=txtTel.getText();

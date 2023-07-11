@@ -52,11 +52,17 @@ public class mdUser {
             return null; //DIO ERROR
         }
     }
-    public boolean insertUs(int idTipoC, String usuario, String contra, String correo, String tel) {
+    public boolean insertUs(int idTipoC, String usuario, String contra, 
+            String correo, String tel,int nvUs) {
         String query = "insert into tbUsuarios values(?,?,?,?,?,null,GETDATE());";
         try {
+            if(nvUs==1){
+                ps.setInt(1, idTipoC);
+            }
+            if(nvUs==2){
+                ps.setInt(1, 3);
+            }
             ps = con.prepareStatement(query);
-            ps.setInt(1, idTipoC);
             ps.setString(2, usuario);
             ps.setString(3, contra);
             ps.setString(4, correo);
@@ -72,12 +78,19 @@ public class mdUser {
             return false; //DIO ERROR
         }
     }
-    public boolean updateUs(int idTipoUs, String usuario, String correo, String tel,int idUs) {
-        String query = "update tbUsuarios SET idTipoUsuario=?, usuario=?,correo=?,telefono=?"
+    public boolean updateUs(int idTipoUs, String usuario, String correo, 
+            String tel,int idUs,int nvUs) {
+        String query = "update tbUsuarios SET idTipoUsuario=?,usuario=?,correo=?,telefono=?"
                 + " where idUsuario=?;";
         try {
+            if(nvUs==1){
+                ps.setInt(1, idTipoUs);
+            }
+            if(nvUs==2){
+                ps.setInt(1, 3);
+            }
             ps = con.prepareStatement(query);
-            ps.setInt(1, idTipoUs);
+            
             ps.setString(2, usuario);
             ps.setString(3, correo);
             ps.setString(4, tel);

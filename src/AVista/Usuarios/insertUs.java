@@ -36,6 +36,10 @@ public class insertUs extends javax.swing.JPanel {
         loadCombo(cbCargo);
         lbDisp.setVisible(false);
         cbCargo.setSelectedIndex(0);
+        if(idTipoUs==2){
+            lbCargo.setVisible(false);
+            cbCargo.setVisible(false);
+        }
         
     }
     private void loadCombo(JComboBox cb) throws SQLException{
@@ -54,7 +58,7 @@ public class insertUs extends javax.swing.JPanel {
     private void initComponents() {
 
         PCont = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
+        lbCargo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -71,8 +75,8 @@ public class insertUs extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel7.setText("Nivel de cargo");
+        lbCargo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbCargo.setText("Nivel de cargo");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel2.setText("CREAR USUARIO");
@@ -163,7 +167,7 @@ public class insertUs extends javax.swing.JPanel {
                 .addComponent(txtTel, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(PContLayout.createSequentialGroup()
                 .addGap(520, 520, 520)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(cbCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(PContLayout.createSequentialGroup()
@@ -200,7 +204,7 @@ public class insertUs extends javax.swing.JPanel {
                     .addComponent(txtTel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(70, 70, 70)
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -256,7 +260,9 @@ public class insertUs extends javax.swing.JPanel {
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         ctUser ctUs=new ctUser();
-        ctUs.idTipoCuenta=dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
+        if(idTipoUs==1){
+           ctUs.idTipoCuenta=dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
+        }
         ctUs.usuario=txtUsuario.getText();
         try {
             ctUs.contra=cryp.encrypt(txtContra.getText(), "key");
@@ -278,9 +284,9 @@ public class insertUs extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel lbCargo;
     private javax.swing.JLabel lbDisp;
     private javax.swing.JTextField txtContra;
     private javax.swing.JTextField txtCorreo;
