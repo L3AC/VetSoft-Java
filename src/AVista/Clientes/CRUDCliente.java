@@ -188,8 +188,14 @@ public class CRUDCliente extends javax.swing.JPanel {
     }//GEN-LAST:event_btnAddMActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        updtTipoCuenta subp = new updtTipoCuenta();
-        dsg.ShowPanel(subp, PCont, 1320, 810);
+        updtTipoCuenta subp;
+        try {
+            subp = new updtTipoCuenta(nUs,idCl,3);
+            dsg.ShowPanel(subp, PCont, 1320, 810);
+        } catch (SQLException ex) {
+            Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed

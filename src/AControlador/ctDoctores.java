@@ -85,6 +85,9 @@ public class ctDoctores {
     public ResultSet loadData() throws SQLException {
         return md.loadData(idUsuario);
     }
+    public boolean insertDoc(){
+        return md.insertDoc(idUsuario, idEsp, nombre, apellido, dui,nacimiento, sexo);
+    }
     
 }
 

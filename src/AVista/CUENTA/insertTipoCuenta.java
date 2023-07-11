@@ -4,6 +4,9 @@
  */
 package AVista.CUENTA;
 
+import AControlador.ctAsistente;
+import AControlador.ctCliente;
+import AControlador.ctDoctores;
 import AControlador.ctEsp;
 import AControlador.ctRecep;
 import AControlador.ctUser;
@@ -32,7 +35,6 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         this.idUs = idUs;
         this.nivelRow = nivelRow;
         initComponents();
-        dpNaci.getJCalendar().setEnabled(false);
 
         if (idTipoUs == 1) {
             if (nivelRow != 4) {
@@ -104,7 +106,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
 
         lbEsp.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbEsp.setText("Especialidad");
-        PCont.add(lbEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 110, 30));
+        PCont.add(lbEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, 110, 30));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setText("Nombres");
@@ -147,7 +149,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femenino", "Masculino" }));
         PCont.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 480, 200, 40));
 
-        PCont.add(cbEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, 160, 40));
+        PCont.add(cbEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, 200, 40));
         PCont.add(dpNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 340, 250, 50));
 
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
@@ -202,26 +204,29 @@ public class insertTipoCuenta extends javax.swing.JPanel {
             System.out.println(dt.format(dpNaci.getCalendar().getTime()));
             ct.sexo=cbSexo.getSelectedItem().toString();
             ct.insertRe();
-            
         }
         if(nivelRow==3){
-            
+            ctCliente ct=new ctCliente();
+            ct.idUsuario=idUs;
+            ct.nombre=txtNombre.getText();
+            ct.apellido=txtApellidos.getText();
+            ct.dui=txtDui.getText();
+            ct.nacimiento=dt.format(dpNaci.getCalendar().getTime());
+            ct.sexo=cbSexo.getSelectedItem().toString();
+            ct.direccion=txtDir.getText();
+            ct.insertCl();
         }
         if(nivelRow==4){
-            
+            ctDoctores ct=new ctDoctores();
+            ct.idUsuario=idUs;
+            ct.idEsp=dsg.getMap(cbMap, cbEsp.getSelectedItem().toString());
+            ct.nombre=txtNombre.getText();
+            ct.apellido=txtApellidos.getText();
+            ct.dui=txtDui.getText();
+            ct.nacimiento=dt.format(dpNaci.getCalendar().getTime());
+            ct.sexo=cbSexo.getSelectedItem().toString();
+            ct.insertDoc();
         }
-        /*ctUser ctUs=new ctUser();
-        ctUs.idTipoCuenta=dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
-        ctUs.usuario=txtUsuario.getText();
-        try {
-            ctUs.contra=cryp.encrypt(txtContra.getText(), "key");
-            
-        } catch (Exception ex) {
-            Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        ctUs.correo=txtCorreo.getText();
-        ctUs.telefono=txtTel.getText();
-        ctUs.insertUs();*/
     }//GEN-LAST:event_btnConfirmActionPerformed
 
 

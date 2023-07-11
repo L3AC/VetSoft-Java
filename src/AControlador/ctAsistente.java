@@ -98,4 +98,8 @@ public class ctAsistente {
     public ResultSet cargarAsis() {
         return md.cargarAsis(usuario);
     }
+    public boolean insertAsis(){
+        return md.insertAsis(idUsuario,idDoctor, nombre, apellido,
+                dui,nacimiento, sexo);
+    }
 }

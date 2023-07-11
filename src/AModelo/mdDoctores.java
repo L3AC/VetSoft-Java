@@ -37,4 +37,27 @@ public class mdDoctores {
             return null; //DIO ERROR
         }
     }
+    public boolean insertDoc(int idUs,int idEsp, String nombre, String apellido,
+            String dui, String naci, String sexo) {
+        String query = "insert into tbDoctores values(?,?,?,?,?,?,?,GETDATE());";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setInt(1, idUs);
+            ps.setInt(2, idEsp);
+            ps.setString(3, nombre);
+            ps.setString(4, apellido);
+            ps.setString(5, dui);
+            ps.setString(6, naci);
+            ps.setString(7, sexo);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Campos ingresados");
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return false; //DIO ERROR
+        }
+    }
 }
