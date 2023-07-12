@@ -12,7 +12,8 @@ public class mdAsistentes {
     public ResultSet cargarAsis(String nombre) {//TABLA
         String query = "select idAsistente,CONCAT(d.nombre,' ',d.apellido) as 'Doctor a cargo',"
         +"CONCAT(a.nombre,' ',a.apellido) as 'Nombre',DATEDIFF(YEAR, a.nacimiento, GETDATE()) as 'Edad',"
-        +"a.sexo as Sexo from tbAsistentes a,tbDoctores d where CONCAT(a.nombre,' ',a.apellido) like ?;";
+        +"a.sexo as Sexo from tbAsistentes a,tbDoctores d where a.idDoctor=d.idDoctor and "
+        +" CONCAT(a.nombre,' ',a.apellido) like ?;";
         try {
 
             ps = con.prepareStatement(query);
