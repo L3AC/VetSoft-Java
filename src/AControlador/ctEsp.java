@@ -32,4 +32,15 @@ public class ctEsp {
     public ResultSet selectEsp(){
         return md.selectEsp();
     }
+     public boolean insertEsp() {
+        return md.insertEsp(idEsp, esp);
+    }
+
+    public boolean updtEsp() {
+        return md.updateEsp(idEsp, esp);
+    }
+
+    public boolean deleteEsp() {
+        return md.deleteEsp(idEsp);
+    }
 }

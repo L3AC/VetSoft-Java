@@ -11,6 +11,7 @@ import java.awt.Component;
 import JavaMenu.MenuSelectEvent;
 import AVista.VentanaAdminUsuarios;
 import AVista.Login;
+import AVista.Mantenimiento.CRUDEsp;
 import AVista.Recepcionista.CRUDRecep;
 import AVista.Usuarios.CRUDusuarios;
 import Design.Desg;
@@ -110,6 +111,8 @@ public class Dashboard extends javax.swing.JFrame {
                     }
                     //MANTENIMIENTO
                     if (index == 4 && indexSubMenu == 1) {
+                        CRUDEsp subp = new CRUDEsp ();
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
 
                     }
                     //CUENTA
@@ -229,6 +232,7 @@ public class Dashboard extends javax.swing.JFrame {
                         CRUDAsistente subp = new CRUDAsistente(idTipoU, idCuenta);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
+                 
                     //CUENTA
                     if (index == 2 && indexSubMenu == 1) {
 
