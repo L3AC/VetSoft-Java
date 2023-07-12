@@ -24,8 +24,9 @@ public class CRUDRecep extends javax.swing.JPanel {
     private int idCuenta;
     Desg dsg = new Desg();
     DefaultTableModel model;
-    public CRUDRecep() {
+    public CRUDRecep() throws SQLException {
         initComponents();
+        loadD();
     }
 
     final void loadD() throws SQLException {
@@ -152,7 +153,7 @@ public class CRUDRecep extends javax.swing.JPanel {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         ctRecep ct = new ctRecep();
         ct.idRecep = idCuenta;
-        //ct.deleteRecep();
+        ct.deleteRecep();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased

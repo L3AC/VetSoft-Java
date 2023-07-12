@@ -80,8 +80,12 @@ public class ctRecep {
         return md.updateRecep(idRecep, nombre, apellido, dui, nacimiento, sexo);
     }
 
+    public boolean deleteRecep() {
+        return md.deleteRecep(idRecep);
+    }
+
     public ResultSet cargarRecep() throws SQLException {
-            return md.cargarRecep(nombre);
+        return md.cargarRecep(nombre);
     }
 
     public ResultSet selectRecep() throws SQLException {
