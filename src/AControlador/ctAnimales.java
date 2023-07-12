@@ -81,7 +81,7 @@ public class ctAnimales {
     mdAnimales ani = new mdAnimales();
 
     public ResultSet cargarAnim() {
-        return ani.cargarAnim();
+        return ani.cargarAnim(nombre);
     }
 
     public boolean insertAnim() {

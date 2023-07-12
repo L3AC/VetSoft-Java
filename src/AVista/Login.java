@@ -142,7 +142,7 @@ public class Login extends javax.swing.JFrame {
                 ctUser ct = new ctUser();
                 ct.usuario = TextUser.getText();
                 ct.contra = cryp.encrypt(TextPass.getText(), "key");
-                System.err.println(cryp.encrypt(TextPass.getText(), "khj"));
+                System.err.println(cryp.encrypt(TextPass.getText(), "key"));
                 ResultSet rs=ct.ValidarLogin();
                 if (rs.next()) {
                     idTipoU = rs.getInt("idTipoUsuario");
@@ -186,7 +186,7 @@ public class Login extends javax.swing.JFrame {
                 Dashboard dash = new Dashboard(idTipoU, idUs, idCuenta);
                 dash.setVisible(true);
             } else {
-                JOptionPane.showMessageDialog(null, "No se encontro");
+                JOptionPane.showMessageDialog(null, "No se encontro JHD");
             }
         } catch (SQLException ex) {
             System.out.println(ex.toString());

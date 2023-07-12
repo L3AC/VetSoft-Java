@@ -61,8 +61,8 @@ public class CRUDusuarios extends javax.swing.JPanel {
             while (rs.next()) {
                 Object[] oValores = {rs.getInt("idUsuario"), rs.getInt("idTipoUsuario"),
                     rs.getString("Cargo"),
-                    rs.getString("usuario"), rs.getString("correo"),
-                    rs.getString("telefono")};
+                    rs.getString("Usuario"), rs.getString("Correo"),
+                    rs.getString("Telefono")};
                 model.addRow(oValores);
             }
         } catch (Exception e) {

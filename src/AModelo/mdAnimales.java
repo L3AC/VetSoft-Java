@@ -9,12 +9,13 @@ public class mdAnimales {
     ResultSet rs;
     PreparedStatement ps;
 
-    public ResultSet cargarAnim() {
+    public ResultSet cargarAnim(String nombre) {
         String query = "select idAnimal,nombrePopular as 'Animal',a.nombre as 'Nombre',CONCAT(c.nombre,' ',c.apellido) as 'Dueño'\n" +
 "	from tbAnimales a,tbTipoAnimales ta,tbRazas r,tbClientes c where a.idCliente=c.idCliente and\n" +
-"	ta.idTipoAnimal=r.idTipoAnimal and a.idRaza=r.idRaza ;";
+"	ta.idTipoAnimal=r.idTipoAnimal and a.idRaza=r.idRaza and CONCAT(c.nombre,' ',c.apellido) like ?;";
         try {
             ps = con.prepareStatement(query);
+            ps.setString(1, "%" + nombre + "%");
             rs = ps.executeQuery();
             return rs;
         } catch (SQLException e) {

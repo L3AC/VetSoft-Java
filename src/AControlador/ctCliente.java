@@ -86,7 +86,7 @@ public class ctCliente {
         
 
     public boolean insertCl() {
-        return cl.insertCl(idCliente,nombre, apellido, dui, nacimiento, sexo,direccion);
+        return cl.insertCl(idUsuario,nombre, apellido, dui, nacimiento, sexo,direccion);
     }
 
     public boolean updtCl() {

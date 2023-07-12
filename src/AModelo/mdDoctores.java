@@ -23,7 +23,8 @@ public class mdDoctores {
     }
     public ResultSet cargarDoc(String nombre) {//TABLA
         String query = "select idDoctor,especialidad,CONCAT(d.nombre,' ',d.apellido) as 'Nombre' from  " +
-        " tbDoctores d, tbEspecialidades e where d.idEspecialidad=e.idEspecialidad and 'Nombre' like ? ;";
+        " tbDoctores d, tbEspecialidades e where d.idEspecialidad=e.idEspecialidad "
+                + "and CONCAT(d.nombre,' ',d.apellido) like ? ;";
         try {
             
             ps = con.prepareStatement(query);

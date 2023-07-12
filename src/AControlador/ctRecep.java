@@ -73,7 +73,7 @@ public class ctRecep {
     mdRecep md = new mdRecep();
 
     public boolean insertRe() {
-        return md.insertRe(idUsuario, nombre, apellido, dui, dui, sexo);
+        return md.insertRe(idUsuario, nombre, apellido, dui, nacimiento, sexo);
     }
 
     public boolean updtRecep() {

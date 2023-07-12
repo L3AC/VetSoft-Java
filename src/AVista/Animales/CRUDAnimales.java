@@ -3,18 +3,51 @@ package AVista.Animales;
 
 import AControlador.ctAnimales;
 import AControlador.ctCliente;
+import AControlador.ctRecep;
 import Design.Desg;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 
 public class CRUDAnimales extends javax.swing.JPanel {
 
     public int nUs;
-    private int idCl;
+    private int idCuenta;
     ctAnimales ct = new ctAnimales();
     Desg dsg = new Desg();
     DefaultTableModel model;
-    public CRUDAnimales() {
-        initComponents();
+    public CRUDAnimales() throws SQLException {
+        loadD();
+    }
+
+    final void loadD() throws SQLException {
+        String[] column = {"idAnimal", "Animal", "Nombre", "Dueño"};
+        model = new DefaultTableModel(null, column);
+        dsg.ColumnHide(model, tbData, 0,4);
+        CargarTabla();
+        if (tbData.getRowCount() > 0) {
+            tbData.setRowSelectionInterval(0, 0);
+            int fila = tbData.getSelectedRow();
+            idCuenta = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
+        }
+    }
+
+    final void CargarTabla() throws SQLException {
+        while (model.getRowCount() > 0) {
+            model.removeRow(0);
+        }
+        ctRecep ct = new ctRecep();
+        try {
+            ct.nombre = txtBusq.getText().toString();
+            ResultSet rs = ct.cargarRecep();
+            while (rs.next()) {
+                Object[] oValores = {rs.getInt("idAnimal"), rs.getString("Animal"),
+                rs.getString("Nombre"),rs.getString("Dueño")};
+                model.addRow(oValores);
+            }
+        } catch (Exception e) {
+            System.err.println(e.toString());
+        }
     }
     
     @SuppressWarnings("unchecked")
@@ -120,7 +153,6 @@ public class CRUDAnimales extends javax.swing.JPanel {
     private void btnAddMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddMActionPerformed
         addMascota subp =new addMascota();
         dsg.ShowPanel(subp, PCont, 1320, 810);
-//dsg.ShowPanel(subpM, PCont, 1320, 810);
     }//GEN-LAST:event_btnAddMActionPerformed
 
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
@@ -139,7 +171,7 @@ public class CRUDAnimales extends javax.swing.JPanel {
 
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
         int fila = tbData.getSelectedRow();
-        idCl = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
+        idCuenta = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
     }//GEN-LAST:event_tbDataMouseClicked
 
 
