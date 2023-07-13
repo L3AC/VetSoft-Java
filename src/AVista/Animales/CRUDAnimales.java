@@ -66,6 +66,8 @@ public class CRUDAnimales extends javax.swing.JPanel {
         btnReservas2 = new javax.swing.JButton();
         btnReservas3 = new javax.swing.JButton();
 
+        setPreferredSize(new java.awt.Dimension(1320, 810));
+
         PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tbData.setModel(new javax.swing.table.DefaultTableModel(

@@ -4,6 +4,8 @@ package AVista.Doctores;
 import AControlador.ctDoctores;
 import AControlador.ctUser;
 import AVista.Asistentes.CREARasistente;
+import AVista.CUENTA.updtTipoCuenta;
+import AVista.Clientes.CRUDCliente;
 import AVista.Usuarios.updtUsuario;
 import Design.Desg;
 import java.sql.ResultSet;
@@ -217,14 +219,13 @@ public class CRUDDoctores extends javax.swing.JPanel {
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        /*updtUsuario subp;
+        updtTipoCuenta subp;
         try {
-            subp = new updtUsuario(idTipoUs,idUsRow);
+            subp = new updtTipoCuenta(idTipoUs,idDoc,4);
             dsg.ShowPanel(subp, PCont, 1320, 810);
         } catch (SQLException ex) {
-            Logger.getLogger(CRUDusuarios.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-
+            Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnMyAsisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMyAsisActionPerformed

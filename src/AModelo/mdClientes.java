@@ -58,7 +58,7 @@ public class mdClientes {
 
     public boolean insertCl(int idUs, String nombre, String apellido,
             String dui, String naci, String sexo,String direccion) {
-        String query = "insert into tbClientes(idUsuario,nombre,apellido,DUI,nacimiento,sexo,direccion)"
+        String query = "insert into tbClientes"
                 + " values(?,?,?,?,?,?,?,GETDATE());";
         try {
             ps = con.prepareStatement(query);

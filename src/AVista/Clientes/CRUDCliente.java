@@ -23,7 +23,6 @@ public class CRUDCliente extends javax.swing.JPanel {
         this.nUs = nUs;
         initComponents();
         loadD();
-
     }
 
     public CRUDCliente() throws SQLException {
