@@ -42,6 +42,18 @@ public class CRUDEsp extends javax.swing.JPanel {
         while (model.getRowCount() > 0) {
             model.removeRow(0);
         }
+         try {
+             ctEsp ct = new ctEsp();
+            ct.esp = txtBusq.getText().toString();
+            ResultSet rs = ct.selectEsp();
+            while (rs.next()) {
+                Object[] oValores = {rs.getInt("idEspecialidad"), rs.getString("Especialidad")};
+                 
+                model.addRow(oValores);
+            }
+        } catch (Exception e) {
+
+        }
 
      
     }
