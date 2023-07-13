@@ -12,6 +12,7 @@ import Design.Desg;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
@@ -23,7 +24,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
     private int idTipoUs;
     private int idCuenta;
     private int nivelRow;
-    ctEsp ct = new ctEsp();
+
     Desg dsg = new Desg();
     Map<Integer, String> cbMap = new HashMap<>();
 
@@ -33,23 +34,32 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         this.idCuenta = idCuenta;
         this.nivelRow = nivelRow;
         initComponents();
+        if (idTipoUs == 1) {//ADMIN
 
-        if (idTipoUs == 1) {
-            if (nivelRow != 4) {
+            if (nivelRow != 4) {//IDDOCTOR
                 lbEsp.setVisible(false);
                 cbEsp.setVisible(false);
 
             } else {
                 loadCombo(cbEsp);
                 cbEsp.setSelectedIndex(0);
+                loadDoc();
             }
-            if (nivelRow != 3) {
+            
+            if (nivelRow != 3) {//IDCLIENTE
                 lbDir.setVisible(false);
                 txtDir.setVisible(false);
             } else {
-
+                loadCl();
             }
 
+        }
+        if (nivelRow == 2) {//IDRECEP
+            lbEsp.setVisible(false);
+            cbEsp.setVisible(false);
+            lbDir.setVisible(false);
+            txtDir.setVisible(false);
+            loadRecep();
         }
         if (idTipoUs == 2) {
             lbEsp.setVisible(false);
@@ -134,35 +144,6 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         PContLayout.setHorizontalGroup(
             PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PContLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(390, 390, 390)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(360, 360, 360)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(270, 270, 270)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(90, 90, 90)
-                .addComponent(lbEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(160, 160, 160)
-                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(100, 100, 100)
-                .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(cbEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(100, 100, 100)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(220, 220, 220)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(360, 360, 360)
-                .addComponent(txtDui, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(150, 150, 150)
-                .addComponent(dpNaci, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(PContLayout.createSequentialGroup()
                 .addGap(360, 360, 360)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(270, 270, 270)
@@ -175,6 +156,42 @@ public class updtTipoCuenta extends javax.swing.JPanel {
             .addGroup(PContLayout.createSequentialGroup()
                 .addGap(590, 590, 590)
                 .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(lbEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(cbEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(278, 278, 278)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(108, 108, 108)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(270, 270, 270)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(108, 108, 108)
+                        .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PContLayout.createSequentialGroup()
+                                .addComponent(txtDui, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(150, 150, 150)
+                                .addComponent(dpNaci, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(PContLayout.createSequentialGroup()
+                                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(100, 100, 100)
+                                .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(PContLayout.createSequentialGroup()
+                                .addGap(46, 46, 46)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(180, 180, 180)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))))
         );
         PContLayout.setVerticalGroup(
             PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,19 +207,18 @@ public class updtTipoCuenta extends javax.swing.JPanel {
                 .addGap(10, 10, 10)
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
+                        .addGap(30, 30, 30)
                         .addComponent(lbEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addGap(28, 28, 28)
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cbEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(10, 10, 10)
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(2, 2, 2)
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtDui, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(dpNaci, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -234,19 +250,74 @@ public class updtTipoCuenta extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
     private void loadCombo(JComboBox cb) throws SQLException {
         ctEsp ct = new ctEsp();
-        ResultSet rs = ct.selectEsp();
+        ResultSet rs = ct.loadEsp();
         while (rs.next()) {
             int idTP = rs.getInt("idEspecialidad");
-            String nombre = rs.getString("especialidad");
+            String nombre = rs.getString("Especialidad");
             cb.addItem(nombre);
             cbMap.put(idTP, nombre);
 
         }
     }
+
+    final void loadDoc() throws SQLException {
+        try {
+            ctDoctores ct = new ctDoctores();
+            ct.idDoctor = idCuenta;
+
+            ResultSet rs = ct.loadData();
+            while (rs.next()) {
+                txtNombre.setText(rs.getString("nombre"));
+                txtApellidos.setText(rs.getString("apellido"));
+                txtDui.setText(rs.getString("dui"));
+                dpNaci.setDate(rs.getDate("nacimiento"));
+                cbEsp.setSelectedItem(rs.getString("Especialidad"));
+                cbSexo.setSelectedItem(rs.getString("sexo"));
+            }
+        } catch (Exception e) {
+            System.err.println(e.toString());
+        }
+    }
+
+    final void loadCl() throws SQLException {
+        try {
+            ctCliente ct = new ctCliente();
+            ct.idCliente = idCuenta;
+            ResultSet rs = ct.selectCl();
+            while (rs.next()) {
+                txtNombre.setText(rs.getString("nombre"));
+                txtApellidos.setText(rs.getString("apellido"));
+                txtDui.setText(rs.getString("dui"));
+                dpNaci.setDate(rs.getDate("nacimiento"));
+                txtDir.setText(rs.getString("direccion"));
+                cbSexo.setSelectedItem(rs.getString("sexo"));
+            }
+        } catch (Exception e) {
+            System.err.println(e.toString());
+        }
+    }
+
+    final void loadRecep() throws SQLException {
+        try {
+            ctRecep ct = new ctRecep();
+            ct.idRecep = idCuenta;
+
+            ResultSet rs = ct.selectRecep();
+            while (rs.next()) {
+                txtNombre.setText(rs.getString("nombre"));
+                txtApellidos.setText(rs.getString("apellido"));
+                txtDui.setText(rs.getString("dui"));
+                dpNaci.setDate(rs.getDate("nacimiento"));
+                cbSexo.setSelectedItem(rs.getString("sexo"));
+            }
+        } catch (Exception e) {
+            System.err.println(e.toString());
+        }
+    }
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         try {
             if (nivelRow == 2) {
-                CRUDRecep  subp = new CRUDRecep();
+                CRUDRecep subp = new CRUDRecep();
                 dsg.ShowPanel(subp, PCont, 1320, 810);
             }
             if (nivelRow == 3) {
@@ -254,7 +325,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
                 dsg.ShowPanel(subp, PCont, 1320, 810);
             }
             if (nivelRow == 4) {
-                CRUDDoctores subp = new CRUDDoctores(idTipoUs,idCuenta);
+                CRUDDoctores subp = new CRUDDoctores(idTipoUs, idCuenta);
                 dsg.ShowPanel(subp, PCont, 1320, 810);
             }
         } catch (SQLException ex) {

@@ -17,6 +17,18 @@ public class mdEsp {
     PreparedStatement ps;
     ResultSet rs;
     
+    public ResultSet loadEsp() {
+        String query = "select * from tbEspecialidades;";
+        try {
+            ps = con.prepareStatement(query);
+            rs = ps.executeQuery();
+            return rs;
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+            return null;
+        }
+    }
     
     public ResultSet selectEsp() {
         String query = "select * from tbEspecialidades where idEspecialidad=?;";

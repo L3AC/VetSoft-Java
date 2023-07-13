@@ -43,4 +43,7 @@ public class ctEsp {
     public boolean deleteEsp() {
         return md.deleteEsp(idEsp);
     }
+    public ResultSet loadEsp(){
+        return md.loadEsp();
+    }
 }

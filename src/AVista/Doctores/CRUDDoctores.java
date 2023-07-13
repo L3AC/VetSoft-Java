@@ -214,8 +214,8 @@ public class CRUDDoctores extends javax.swing.JPanel {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
-        /*int fila = tbData.getSelectedRow();
-        idUsRow = Integer.parseInt(tbData.getValueAt(fila, 0).toString());*/
+        int fila = tbData.getSelectedRow();
+        idCuenta = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed

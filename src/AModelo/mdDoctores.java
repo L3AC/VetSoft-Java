@@ -6,12 +6,12 @@ public class mdDoctores {
     ResultSet rs;
     PreparedStatement ps;
 
-    public ResultSet loadData(int idUs) {//EDITAR
-        String query = "select idUsuario,tu.nivel as 'Cargo',usuario,correo,telefono from tbUsuarios u,\n" +
-        "tbTipoUsuario tu where u.idTipoUsuario=tu.idTipoUsuario and idUsuario=?;";
+    public ResultSet loadData(int idC) {//EDITAR
+        String query = "select * from tbDoctores d, tbEspecialidades e"
+                + " where idDoctor=? AND d.idEspecialidad=e.idEspecialidad;";
         try {
             ps = con.prepareStatement(query);
-            ps.setInt(1, idUs);
+            ps.setInt(1, idC);
             rs = ps.executeQuery();
             return rs;
         } catch (SQLException e) {

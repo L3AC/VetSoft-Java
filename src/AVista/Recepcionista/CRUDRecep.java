@@ -167,8 +167,9 @@ public class CRUDRecep extends javax.swing.JPanel {
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        updtTipoCuenta subp;
+        
         try {
+            updtTipoCuenta subp;
             subp = new updtTipoCuenta(nUs,idCuenta,2);
             dsg.ShowPanel(subp, PCont, 1320, 810);
         } catch (SQLException ex) {
