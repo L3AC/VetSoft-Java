@@ -10,10 +10,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import AModelo.Conx;
 import AModelo.Crypt;
-import Validation.Valid;
+import Validation.Valida;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -25,7 +26,7 @@ public class Login extends javax.swing.JFrame {
     Fuentes tipoFuente;
 
     Crypt cryp = new Crypt();
-    Valid val = new Valid();
+    
     private int idTipoU;
     private int idUs;
     private int idCuenta;
@@ -39,8 +40,9 @@ public class Login extends javax.swing.JFrame {
         UsuarioL.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 25));
         PassL.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 22));
         
-        val.valT(TextUser, 15, "^[a-zA-Z0-9]+$");
-        val.valT(TextPass, 20, "^[a-zA-Z0-9]+$");
+
+        TextUser.setDocument(new Valida(15, "[a-zA-Z0-9]*"));
+        TextPass.setDocument(new Valida(20, "[a-zA-Z0-9]*"));
     }
 
     @SuppressWarnings("unchecked")
