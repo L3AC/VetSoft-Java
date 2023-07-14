@@ -91,6 +91,9 @@ public class ctDoctores {
     public boolean updateDoc(){
         return md.updateDoc(idDoctor, idEsp, nombre, apellido, dui,nacimiento, sexo);
     }
+    public boolean deleteDoc(){
+        return md.deleteDoc(idDoctor);
+    }
     
 }
 

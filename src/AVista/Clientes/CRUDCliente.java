@@ -3,12 +3,15 @@ package AVista.Clientes;
 import AVista.CUENTA.updtTipoCuenta;
 import AVista.CUENTA.insertTipoCuenta;
 import AControlador.ctCliente;
+import AControlador.ctDoctores;
 import AVista.Animales.addMascota;
 import Design.Desg;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
 public class CRUDCliente extends javax.swing.JPanel {
@@ -33,7 +36,7 @@ public class CRUDCliente extends javax.swing.JPanel {
     final void loadD() throws SQLException {
         String[] column = {"idCliente", "Nombre", "Edad", "Sexo"};
         model = new DefaultTableModel(null, column);
-        dsg.ColumnHide(model, tbData, 0,4);
+        dsg.ColumnHide(model, tbData, 0, 4);
         CargarTabla();
         if (tbData.getRowCount() > 0) {
             tbData.setRowSelectionInterval(0, 0);
@@ -189,17 +192,33 @@ public class CRUDCliente extends javax.swing.JPanel {
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         updtTipoCuenta subp;
         try {
-            subp = new updtTipoCuenta(nUs,idCl,3);
+            subp = new updtTipoCuenta(nUs, idCl, 3);
             dsg.ShowPanel(subp, PCont, 1320, 810);
         } catch (SQLException ex) {
             Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        ct.idCliente = idCl;
-        ct.deleteCl();
+        UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
+        int opcion = JOptionPane.showOptionDialog(
+                null,
+                "¿Desea eliminar el registro?",
+                "Advertencia",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.WARNING_MESSAGE,
+                null,
+                new Object[]{"Sí", "No"},
+                "No");
+
+        if (opcion == JOptionPane.YES_OPTION) {
+            ct.idCliente = idCl;
+            ct.deleteCl();
+        } else if (opcion == JOptionPane.NO_OPTION) {
+
+        }
+
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
@@ -208,7 +227,7 @@ public class CRUDCliente extends javax.swing.JPanel {
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
-                try {
+        try {
             loadD();
         } catch (SQLException ex) {
             //Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);

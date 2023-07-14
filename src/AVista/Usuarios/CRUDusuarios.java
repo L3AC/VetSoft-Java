@@ -5,6 +5,7 @@
 package AVista.Usuarios;
 
 import AControlador.ctCliente;
+import AControlador.ctRecep;
 import AControlador.ctUser;
 import AVista.CUENTA.insertTipoCuenta;
 import AVista.CUENTA.updtTipoCuenta;
@@ -13,6 +14,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -41,12 +44,12 @@ public class CRUDusuarios extends javax.swing.JPanel {
         dsg.ColumnHide(model, tbData, 0, 6);
         dsg.ColumnHide(model, tbData, 1, 6);
         CargarTabla();
-        if(tbData.getRowCount() > 0){
+        if (tbData.getRowCount() > 0) {
             tbData.setRowSelectionInterval(0, 0);
-        int fila = tbData.getSelectedRow();
-        idUsRow = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
+            int fila = tbData.getSelectedRow();
+            idUsRow = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
         }
-        
+
     }
 
     final void CargarTabla() throws SQLException {
@@ -226,20 +229,32 @@ public class CRUDusuarios extends javax.swing.JPanel {
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        ct.idUs = idUsRow;
-        ct.deleteUs();
-        try {
-            loadD();
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDusuarios.class.getName()).log(Level.SEVERE, null, ex);
+        UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
+        int opcion = JOptionPane.showOptionDialog(
+                null,
+                "¿Desea eliminar el registro?",
+                "Advertencia",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.WARNING_MESSAGE,
+                null,
+                new Object[]{"Sí", "No"},
+                "No");
+
+        if (opcion == JOptionPane.YES_OPTION) {
+            ctUser ct = new ctUser();
+            ct.idUs = idUsRow;
+            ct.deleteUs();
+        } else if (opcion == JOptionPane.NO_OPTION) {
+
         }
+
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
         verifPerfil();
 
     }//GEN-LAST:event_tbDataMouseClicked
-    final void verifPerfil(){
+    final void verifPerfil() {
         int fila = tbData.getSelectedRow();
         idUsRow = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
         nivelRow = Integer.parseInt(tbData.getValueAt(fila, 1).toString());
@@ -258,8 +273,7 @@ public class CRUDusuarios extends javax.swing.JPanel {
             } catch (SQLException ex) {
                 Logger.getLogger(CRUDusuarios.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
-        else{
+        } else {
             btnAddCuenta.setVisible(false);
         }
     }
@@ -275,12 +289,12 @@ public class CRUDusuarios extends javax.swing.JPanel {
     private void btnAddCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCuentaActionPerformed
         insertTipoCuenta subp;
         try {
-            subp = new insertTipoCuenta(idTipoUs,idUsRow,nivelRow);
+            subp = new insertTipoCuenta(idTipoUs, idUsRow, nivelRow);
             dsg.ShowPanel(subp, PCont, 1320, 810);
         } catch (SQLException ex) {
             Logger.getLogger(CRUDusuarios.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_btnAddCuentaActionPerformed
 
 

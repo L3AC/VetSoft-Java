@@ -5,6 +5,7 @@
 package AVista.Recepcionista;
 
 import AControlador.ctCliente;
+import AControlador.ctDoctores;
 import AControlador.ctRecep;
 import AVista.CUENTA.updtTipoCuenta;
 import Design.Desg;
@@ -12,6 +13,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -24,6 +27,7 @@ public class CRUDRecep extends javax.swing.JPanel {
     private int idCuenta;
     Desg dsg = new Desg();
     DefaultTableModel model;
+
     public CRUDRecep() throws SQLException {
         initComponents();
         loadD();
@@ -32,7 +36,7 @@ public class CRUDRecep extends javax.swing.JPanel {
     final void loadD() throws SQLException {
         String[] column = {"idRecepcionista", "Nombre", "Edad", "Sexo"};
         model = new DefaultTableModel(null, column);
-        dsg.ColumnHide(model, tbData, 0,4);
+        dsg.ColumnHide(model, tbData, 0, 4);
         CargarTabla();
         if (tbData.getRowCount() > 0) {
             tbData.setRowSelectionInterval(0, 0);
@@ -51,13 +55,14 @@ public class CRUDRecep extends javax.swing.JPanel {
             ResultSet rs = ct.cargarRecep();
             while (rs.next()) {
                 Object[] oValores = {rs.getInt("idRecepcionista"), rs.getString("Nombre"),
-                rs.getString("Edad"),rs.getString("Sexo")};
+                    rs.getString("Edad"), rs.getString("Sexo")};
                 model.addRow(oValores);
             }
         } catch (Exception e) {
             System.err.println(e.toString());
         }
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -167,10 +172,10 @@ public class CRUDRecep extends javax.swing.JPanel {
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        
+
         try {
             updtTipoCuenta subp;
-            subp = new updtTipoCuenta(nUs,idCuenta,2);
+            subp = new updtTipoCuenta(nUs, idCuenta, 2);
             dsg.ShowPanel(subp, PCont, 1320, 810);
         } catch (SQLException ex) {
             Logger.getLogger(CRUDRecep.class.getName()).log(Level.SEVERE, null, ex);
@@ -179,9 +184,24 @@ public class CRUDRecep extends javax.swing.JPanel {
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        ctRecep ct = new ctRecep();
-        ct.idRecep = idCuenta;
-        ct.deleteRecep();
+        UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
+        int opcion = JOptionPane.showOptionDialog(
+                null,
+                "¿Desea eliminar el registro?",
+                "Advertencia",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.WARNING_MESSAGE,
+                null,
+                new Object[]{"Sí", "No"},
+                "No");
+
+        if (opcion == JOptionPane.YES_OPTION) {
+            ctRecep ct = new ctRecep();
+            ct.idRecep = idCuenta;
+            ct.deleteRecep();
+        } else if (opcion == JOptionPane.NO_OPTION) {
+
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased

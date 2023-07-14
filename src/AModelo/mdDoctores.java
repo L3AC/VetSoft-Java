@@ -85,4 +85,19 @@ public class mdDoctores {
             return false; //DIO ERROR
         }
     }
+    public boolean deleteDoc(int idD) {
+        String query = "DELETE tbDoctores where idDoc=?;";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setInt(1, idD);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Registro eliminado");
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return false;
+        }
+    }
 }
