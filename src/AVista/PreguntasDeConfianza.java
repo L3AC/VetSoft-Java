@@ -99,35 +99,42 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         panelRound4.setRoundTopRight(50);
         panelRound4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel7.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("Ingrese Su Usuario");
+        jLabel7.setText("Ingrese su usuario");
         panelRound4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
-        panelRound4.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 150, -1));
 
-        jLabel8.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        txtUser.setAnimationColor(new java.awt.Color(0, 255, 204));
+        panelRound4.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 210, -1));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("1-¿Cúal es tu película favorita?");
         panelRound4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
+
+        txtPregunta1.setAnimationColor(new java.awt.Color(0, 255, 204));
         panelRound4.add(txtPregunta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 210, -1));
 
-        jLabel9.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("2-¿Cúal es el nombre de tu mejor amigo de la infancia?");
         panelRound4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, -1, -1));
-        panelRound4.add(txtPregunta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 60, 200, -1));
 
-        jLabel10.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        txtPregunta2.setAnimationColor(new java.awt.Color(0, 255, 204));
+        panelRound4.add(txtPregunta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 60, 210, -1));
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("3-¿Cúal es tu comida favorita?");
-        panelRound4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 150, -1, 30));
+        panelRound4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 160, -1, 30));
 
+        txtPregunta3.setAnimationColor(new java.awt.Color(0, 255, 204));
         txtPregunta3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPregunta3ActionPerformed(evt);
             }
         });
-        panelRound4.add(txtPregunta3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 200, 210, -1));
+        panelRound4.add(txtPregunta3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 220, 210, -1));
 
         btnVerificar.setText("Verificar");
         btnVerificar.setColor1(new java.awt.Color(255, 255, 255));

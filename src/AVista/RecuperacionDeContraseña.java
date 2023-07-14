@@ -47,11 +47,12 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        desg1 = new Design.Desg();
         BtnRegresar = new javax.swing.JButton();
         LBRecup = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        btnUsuario = new javax.swing.JButton();
-        btnPreguntas = new javax.swing.JButton();
+        btnUsuario = new Design.ButtonGradient();
+        btnPreguntas = new Design.ButtonGradient();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -76,34 +77,26 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Escoja el método de recuperación de Contraseña");
 
-        btnUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Usuario.png"))); // NOI18N
-        btnUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUsuarioActionPerformed(evt);
-            }
-        });
+        btnUsuario.setText("Por usuario");
+        btnUsuario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        btnPreguntas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/button_preguntas-de-confianza.png"))); // NOI18N
-        btnPreguntas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPreguntasActionPerformed(evt);
-            }
-        });
+        btnPreguntas.setText("Preguntas de confianza");
+        btnPreguntas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(123, Short.MAX_VALUE)
                 .addComponent(BtnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(65, 65, 65)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(LBRecup)
                     .addComponent(jLabel1)
-                    .addComponent(btnPreguntas)
-                    .addComponent(btnUsuario))
-                .addContainerGap(150, Short.MAX_VALUE))
+                    .addComponent(btnUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPreguntas, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(266, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,15 +104,14 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BtnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(LBRecup)
-                        .addGap(46, 46, 46)
-                        .addComponent(jLabel1)
-                        .addGap(53, 53, 53)
-                        .addComponent(btnUsuario)
-                        .addGap(30, 30, 30)
-                        .addComponent(btnPreguntas, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 43, Short.MAX_VALUE))
+                    .addComponent(LBRecup))
+                .addGap(76, 76, 76)
+                .addComponent(jLabel1)
+                .addGap(71, 71, 71)
+                .addComponent(btnUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(btnPreguntas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(103, Short.MAX_VALUE))
         );
 
         pack();
@@ -151,22 +143,6 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
         
         newFrame.setVisible(true);
     }//GEN-LAST:event_BtnRegresarMouseClicked
-
-    private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioActionPerformed
-        // TODO add your handling code here:
-        
-         PorUsuario newFrame = new PorUsuario();
-        
-        newFrame.setVisible(true);
-    }//GEN-LAST:event_btnUsuarioActionPerformed
-
-    private void btnPreguntasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreguntasActionPerformed
-        // TODO add your handling code here:
-        
-         PreguntasDeConfianza newFrame = new PreguntasDeConfianza();
-        
-        newFrame.setVisible(true);
-    }//GEN-LAST:event_btnPreguntasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -207,8 +183,9 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnRegresar;
     private javax.swing.JLabel LBRecup;
-    private javax.swing.JButton btnPreguntas;
-    private javax.swing.JButton btnUsuario;
+    private Design.ButtonGradient btnPreguntas;
+    private Design.ButtonGradient btnUsuario;
+    private Design.Desg desg1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
