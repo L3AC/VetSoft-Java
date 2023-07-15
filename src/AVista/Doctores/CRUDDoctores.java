@@ -2,7 +2,6 @@ package AVista.Doctores;
 
 import AControlador.ctDoctores;
 import AControlador.ctUser;
-import AVista.Asistentes.AsistenteDoc;
 import AVista.Asistentes.CREARasistente;
 import AVista.CUENTA.updtTipoCuenta;
 import AVista.Clientes.CRUDCliente;
@@ -25,16 +24,14 @@ public class CRUDDoctores extends javax.swing.JPanel {
     Desg dsg = new Desg();
     DefaultTableModel model;
 
-    public CRUDDoctores(int idTipoUs, int idCuenta) throws SQLException {
+    public CRUDDoctores(int idTipoUs) throws SQLException {
         this.idTipoUs = idTipoUs;
-        this.idCuenta = idCuenta;
         initComponents();
         loadD();
         if (idTipoUs == 1) {//ADMIN
-            btnMyAsis.setVisible(false);
+           
         }
         if (idTipoUs == 2 || idTipoUs == 5) {//RECEPCIONISTA Y ASISTENTE
-            btnMyAsis.setVisible(false);
             btnAdd.setVisible(false);
             btnEditar.setVisible(false);
             btnEliminar.setVisible(false);
@@ -87,7 +84,6 @@ public class CRUDDoctores extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbData = new SwingTable.Table();
         btnEditar = new javax.swing.JButton();
-        btnMyAsis = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtBusq = new javax.swing.JTextField();
         btnAdd = new javax.swing.JButton();
@@ -126,13 +122,6 @@ public class CRUDDoctores extends javax.swing.JPanel {
             }
         });
 
-        btnMyAsis.setText("Mis asistentes");
-        btnMyAsis.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMyAsisActionPerformed(evt);
-            }
-        });
-
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Nombre del doctor");
 
@@ -158,19 +147,18 @@ public class CRUDDoctores extends javax.swing.JPanel {
                 .addGap(70, 70, 70)
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PContLayout.createSequentialGroup()
+                        .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(296, Short.MAX_VALUE))
+                    .addGroup(PContLayout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1020, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40)
                         .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
-                        .addComponent(btnMyAsis, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(46, 46, 46))))
+                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(60, Short.MAX_VALUE))))
         );
         PContLayout.setVerticalGroup(
             PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,11 +168,9 @@ public class CRUDDoctores extends javax.swing.JPanel {
                         .addGap(49, 49, 49)
                         .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(btnMyAsis, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(31, 31, 31)
+                        .addGap(56, 56, 56)
+                        .addComponent(jLabel1)))
+                .addGap(38, 38, 38)
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PContLayout.createSequentialGroup()
@@ -221,9 +207,14 @@ public class CRUDDoctores extends javax.swing.JPanel {
                 "No");
 
         if (opcion == JOptionPane.YES_OPTION) {
-            ctDoctores ct = new ctDoctores();
-            ct.idDoctor = idDoc;
-            ct.deleteDoc();
+            try {
+                ctDoctores ct = new ctDoctores();
+                ct.idDoctor = idDoc;
+                ct.deleteDoc();
+                loadD();
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDDoctores.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } else if (opcion == JOptionPane.NO_OPTION) {
 
         }
@@ -243,11 +234,6 @@ public class CRUDDoctores extends javax.swing.JPanel {
             Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnEditarActionPerformed
-
-    private void btnMyAsisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMyAsisActionPerformed
-        AsistenteDoc subp = new AsistenteDoc(idTipoUs,idDoc);
-        dsg.ShowPanel(subp, PCont, 1320, 810);  
-    }//GEN-LAST:event_btnMyAsisActionPerformed
 
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
         try {
@@ -277,7 +263,6 @@ public class CRUDDoctores extends javax.swing.JPanel {
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnMyAsis;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private SwingTable.Table tbData;

@@ -325,7 +325,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
                 dsg.ShowPanel(subp, PCont, 1320, 810);
             }
             if (nivelRow == 4) {
-                CRUDDoctores subp = new CRUDDoctores(idTipoUs, idCuenta);
+                CRUDDoctores subp = new CRUDDoctores(idTipoUs);
                 dsg.ShowPanel(subp, PCont, 1320, 810);
             }
         } catch (SQLException ex) {
@@ -342,7 +342,6 @@ public class updtTipoCuenta extends javax.swing.JPanel {
             ct.apellido = txtApellidos.getText();
             ct.dui = txtDui.getText();
             ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
-            System.out.println(dt.format(dpNaci.getCalendar().getTime()));
             ct.sexo = cbSexo.getSelectedItem().toString();
             ct.updtRecep();
         }
