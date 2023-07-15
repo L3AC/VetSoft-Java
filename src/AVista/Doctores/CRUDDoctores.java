@@ -20,7 +20,7 @@ public class CRUDDoctores extends javax.swing.JPanel {
     private int idTipoUs;
     private int idDoc;
     private int idCuenta;
-    ctDoctores ctD = new ctDoctores();
+    
     Desg dsg = new Desg();
     DefaultTableModel model;
 
@@ -63,6 +63,7 @@ public class CRUDDoctores extends javax.swing.JPanel {
             model.removeRow(0);
         }
         try {
+            ctDoctores ctD = new ctDoctores();
             ctD.nombre = txtBusq.getText().toString();
             ResultSet rs = ctD.cargarDoc();
             while (rs.next()) {
@@ -132,7 +133,7 @@ public class CRUDDoctores extends javax.swing.JPanel {
             }
         });
 
-        btnAdd.setText("Agregar asistente");
+        btnAdd.setText("Crear asistente");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
@@ -149,16 +150,15 @@ public class CRUDDoctores extends javax.swing.JPanel {
                     .addGroup(PContLayout.createSequentialGroup()
                         .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(44, 44, 44)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(296, Short.MAX_VALUE))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PContLayout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1020, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40)
                         .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(60, Short.MAX_VALUE))))
+                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         PContLayout.setVerticalGroup(
             PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -43,6 +43,7 @@ public class Login extends javax.swing.JFrame {
 
         TextUser.setDocument(new Valida(15, "[a-zA-Z0-9]*"));
         TextPass.setDocument(new Valida(20, "[a-zA-Z0-9]*"));
+        setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -160,7 +161,7 @@ public class Login extends javax.swing.JFrame {
                 }
 
             } catch (SQLException ex) {
-                System.out.println(ex.toString() + "prueba");
+                System.out.println(ex.toString() + " ERROR");
             }
 
         } catch (Exception ex) {
@@ -191,8 +192,9 @@ public class Login extends javax.swing.JFrame {
                 rs.close();
                 Dashboard dash = new Dashboard(idTipoU, idUs, idCuenta);
                 dash.setVisible(true);
+                this.dispose();
             } else {
-                JOptionPane.showMessageDialog(null, "No se encontro JHD");
+                JOptionPane.showMessageDialog(null, "No se encontro");
             }
         } catch (SQLException ex) {
             System.out.println(ex.toString());

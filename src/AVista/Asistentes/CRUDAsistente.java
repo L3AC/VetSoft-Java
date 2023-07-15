@@ -21,12 +21,13 @@ import javax.swing.table.DefaultTableModel;
  */
 public class CRUDAsistente extends javax.swing.JPanel {
 
-    public int nUs;
-    private int idCuenta;
+    public int idTipoUs;
+    private int idAsis;
     Desg dsg = new Desg();
     DefaultTableModel model;
 
-    public CRUDAsistente(int idTipoUs, int idCuenta) throws SQLException {
+    public CRUDAsistente(int idTipoUs) throws SQLException {
+        this.idTipoUs=idTipoUs;
         initComponents();
         loadD();
     }
@@ -34,12 +35,11 @@ public class CRUDAsistente extends javax.swing.JPanel {
     final void loadD() throws SQLException {
         String[] column = {"idAsistente","Doctor a cargo","Nombre", "Edad", "Sexo"};
         model = new DefaultTableModel(null, column);
-        dsg.ColumnHide(model, tbData, 0, 4);
+        dsg.ColumnHide(model, tbData, 0, 5);
         CargarTabla();
         if (tbData.getRowCount() > 0) {
             tbData.setRowSelectionInterval(0, 0);
-            int fila = tbData.getSelectedRow();
-            idCuenta = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
+            idAsis = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
         }
     }
 
@@ -47,8 +47,8 @@ public class CRUDAsistente extends javax.swing.JPanel {
         while (model.getRowCount() > 0) {
             model.removeRow(0);
         }
-        ctAsistente ct = new ctAsistente();
         try {
+            ctAsistente ct = new ctAsistente();
             ct.nombre = txtBusq.getText().toString();
             ResultSet rs = ct.cargarAsis();
             while (rs.next()) {
@@ -76,15 +76,12 @@ public class CRUDAsistente extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
-        PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
             }
         });
-        PCont.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 280, 130, 50));
 
         btnEditar.setText("Editar");
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -92,7 +89,6 @@ public class CRUDAsistente extends javax.swing.JPanel {
                 btnEditarActionPerformed(evt);
             }
         });
-        PCont.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 190, 130, 50));
 
         tbData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -112,19 +108,50 @@ public class CRUDAsistente extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tbData);
 
-        PCont.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 125, 1020, 610));
-
         txtBusq.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtBusqKeyReleased(evt);
             }
         });
-        PCont.add(txtBusq, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 710, 40));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Nombre del asistente");
-        PCont.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(825, 50, 230, 40));
+
+        javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
+        PCont.setLayout(PContLayout);
+        PContLayout.setHorizontalGroup(
+            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1020, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+        );
+        PContLayout.setVerticalGroup(
+            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -141,7 +168,7 @@ public class CRUDAsistente extends javax.swing.JPanel {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         try {
             ctAsistente ct = new ctAsistente();
-            ct.idAsistente = idCuenta;
+            ct.idAsistente =  Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
             ct.deleteAsis();
             loadD();
         } catch (SQLException ex) {
@@ -151,13 +178,17 @@ public class CRUDAsistente extends javax.swing.JPanel {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         UPDTAsistente subp;
-        subp = new UPDTAsistente(nUs, idCuenta);
-        dsg.ShowPanel(subp, PCont, 1320, 810);
+        try {
+            subp = new UPDTAsistente(idTipoUs, Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
+            dsg.ShowPanel(subp, PCont, 1320, 810);
+        } catch (SQLException ex) {
+            Logger.getLogger(CRUDAsistente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
-        int fila = tbData.getSelectedRow();
-        idCuenta = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
+        idAsis =  Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased

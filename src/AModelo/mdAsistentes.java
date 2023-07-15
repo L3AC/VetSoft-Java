@@ -13,7 +13,7 @@ public class mdAsistentes {
         String query = "select idAsistente,CONCAT(d.nombre,' ',d.apellido) as 'Doctor a cargo',"
         +"CONCAT(a.nombre,' ',a.apellido) as 'Nombre',DATEDIFF(YEAR, a.nacimiento, GETDATE()) as 'Edad',"
         +"a.sexo as Sexo from tbAsistentes a,tbDoctores d where a.idDoctor=d.idDoctor and "
-        +" CONCAT(a.nombre,' ',a.apellido) like ?;";
+        +" CONCAT(d.nombre,' ',d.apellido) like ?;";
         try {
 
             ps = con.prepareStatement(query);
@@ -44,12 +44,29 @@ public class mdAsistentes {
             return null; //DIO ERROR
         }
     }
+    public ResultSet usAsis(String nombre) {//TABLA
+        String query = "select * from tbUsuarios where idTipoUsuario=5 and usuario like ?;";
+        try {
 
-    public ResultSet selectRecep(int idD) {
-        String query = "select * from tbAsistentes where idAsistente=?;";
+            ps = con.prepareStatement(query);
+            ps.setString(1, "%" + nombre + "%");
+            rs = ps.executeQuery();
+            return rs;
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return null; //DIO ERROR
+        }
+    }
+
+    public ResultSet selectAsis(int idD) {
+        String query = "select a.Nombre, a.Apellido,a.DUI,a.Nacimiento,a.Sexo,CONCAT(d.nombre,' ',d.Apellido) as 'doc'\n" +
+        "from tbAsistentes a, tbDoctores d where a.idDoctor=d.idDoctor and idAsistente=?;";
         try {
             ps = con.prepareStatement(query);
             ps.setInt(1, idD);
+            System.out.println(ps.toString());
             rs = ps.executeQuery();
             return rs;
         } catch (SQLException e) {
@@ -90,12 +107,13 @@ public class mdAsistentes {
                 + "where idAsistente=?;";
         try {
             ps = con.prepareStatement(query);
-            ps.setString(1, nombre);
-            ps.setString(2, apellido);
-            ps.setString(3, dui);
-            ps.setString(4, naci);
-            ps.setString(5, sexo);
-            ps.setInt(6, idC);
+             ps.setInt(1, idDoc);
+            ps.setString(2, nombre);
+            ps.setString(3, apellido);
+            ps.setString(4, dui);
+            ps.setString(5, naci);
+            ps.setString(6, sexo);
+            ps.setInt(7, idC);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Campos actualizados");
             return true;

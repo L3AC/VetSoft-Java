@@ -102,7 +102,7 @@ public class Dashboard extends javax.swing.JFrame {
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     if (index == 2 && indexSubMenu == 3) {//ASISTENTES
-                        CRUDAsistente subp = new CRUDAsistente(idTipoU, idCuenta);
+                        CRUDAsistente subp = new CRUDAsistente(idTipoU);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     //TIENDA
@@ -229,7 +229,7 @@ public class Dashboard extends javax.swing.JFrame {
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     if (index == 1 && indexSubMenu == 5) {//ASISTENTES
-                        CRUDAsistente subp = new CRUDAsistente(idTipoU, idCuenta);
+                        CRUDAsistente subp = new CRUDAsistente(idTipoU);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                  

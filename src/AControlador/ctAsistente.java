@@ -95,8 +95,16 @@ public class ctAsistente {
         return md.verifPerfil(idUsuario);
     }
 
+    public ResultSet usAsis() throws SQLException {
+        return md.usAsis(usuario);
+    }
+
+    public ResultSet selectAsis() throws SQLException {
+        return md.selectAsis(idAsistente);
+    }
+
     public ResultSet cargarAsis() {
-        return md.cargarAsis(usuario);
+        return md.cargarAsis(nombre);
     }
 
     public boolean insertAsis() {
@@ -105,7 +113,7 @@ public class ctAsistente {
     }
 
     public boolean updtAsis() {
-        return md.updtAsis(idAsistente,idDoctor, nombre, apellido, dui, nacimiento, sexo);
+        return md.updtAsis(idAsistente, idDoctor, nombre, apellido, dui, nacimiento, sexo);
     }
 
     public boolean deleteAsis() {
