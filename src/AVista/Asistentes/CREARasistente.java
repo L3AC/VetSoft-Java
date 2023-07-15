@@ -6,11 +6,13 @@ package AVista.Asistentes;
 
 import AControlador.ctAsistente;
 import AControlador.ctDoctores;
+import AVista.Doctores.CRUDDoctores;
 import AVista.Usuarios.CRUDusuarios;
 import Design.Desg;
 import java.awt.Component;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -24,7 +26,7 @@ import javax.swing.table.DefaultTableModel;
 public class CREARasistente extends javax.swing.JPanel {
 
     private int idDoc;
-    private int idAsis;
+    private int idUsAsis;
     private int idTipoUs;
     private int idCuenta;
     ctAsistente ctAs = new ctAsistente();
@@ -46,8 +48,7 @@ public class CREARasistente extends javax.swing.JPanel {
         CargarTabla();
         if (tbData.getRowCount() > 0) {
             tbData.setRowSelectionInterval(0, 0);
-            int fila = tbData.getSelectedRow();
-            idAsis = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
+            idUsAsis = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
         }
     }
 
@@ -73,7 +74,7 @@ public class CREARasistente extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        PCont = new javax.swing.JPanel();
         btnBack = new javax.swing.JButton();
         txtNombre = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -96,57 +97,52 @@ public class CREARasistente extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
-        btnBack.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnBackMouseClicked(evt);
-            }
-        });
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 70, 60));
+        PCont.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 70, 60));
 
         txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 250, 270, 50));
+        PCont.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 250, 270, 50));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setText("Usuario");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, 100, 30));
+        PCont.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, 100, 30));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel2.setText("CREAR PERFIL");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 40, 230, 50));
+        PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 40, 230, 50));
 
         lbApell.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbApell.setText("Apellidos");
-        jPanel1.add(lbApell, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 210, 100, 30));
+        PCont.add(lbApell, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 210, 100, 30));
 
         txtApellidos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jPanel1.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 250, 270, 50));
+        PCont.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 250, 270, 50));
 
         lbNaci.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbNaci.setText("Nacimiento");
-        jPanel1.add(lbNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 340, 110, 30));
-        jPanel1.add(dpNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 380, 260, 50));
+        PCont.add(lbNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 340, 110, 30));
+        PCont.add(dpNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 380, 260, 50));
 
         txtDui.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jPanel1.add(txtDui, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 380, 220, 50));
+        PCont.add(txtDui, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 380, 220, 50));
 
         lbDui.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbDui.setText("Número de DUI");
-        jPanel1.add(lbDui, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 340, 150, 30));
+        PCont.add(lbDui, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 340, 150, 30));
 
         lbSexo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbSexo.setText("Sexo");
-        jPanel1.add(lbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 480, 100, 30));
+        PCont.add(lbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 480, 100, 30));
 
         cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femenino", "Masculino" }));
-        jPanel1.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 520, 200, 40));
+        PCont.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 520, 200, 40));
 
         btnConfirm.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnConfirm.setText("Confirmar");
@@ -155,7 +151,7 @@ public class CREARasistente extends javax.swing.JPanel {
                 btnConfirmActionPerformed(evt);
             }
         });
-        jPanel1.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 510, 140, 70));
+        PCont.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 510, 140, 70));
 
         tbData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -175,18 +171,18 @@ public class CREARasistente extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tbData);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 520, 430));
+        PCont.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 520, 430));
 
         txtBusq.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jPanel1.add(txtBusq, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 300, 40));
+        PCont.add(txtBusq, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 300, 40));
 
         lbVerif.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbVerif.setText("Ya hay un perfil creado con este usuario");
-        jPanel1.add(lbVerif, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 130, 350, 30));
+        PCont.add(lbVerif, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 130, 350, 30));
 
         lbNom.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbNom.setText("Nombres");
-        jPanel1.add(lbNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 210, 100, 30));
+        PCont.add(lbNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 210, 100, 30));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -199,30 +195,40 @@ public class CREARasistente extends javax.swing.JPanel {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 0, -1, -1));
+        PCont.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PCont, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PCont, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBackMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBackMouseClicked
-
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
+        try {
+            CRUDDoctores subp=new CRUDDoctores(idTipoUs);
+            dsg.ShowPanel(subp, PCont, 1320, 810);
+        } catch (SQLException ex) {
+            Logger.getLogger(CREARasistente.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
-        
+       SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+        ctAsistente ct=new ctAsistente();
+       ct.idDoctor=idDoc;
+       ct.idUsuario=Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+       ct.nombre=txtNombre.getText();
+       ct.apellido=txtApellidos.getText();
+       ct.dui=txtDui.getText();
+       ct.nacimiento=dt.format(dpNaci.getCalendar().getTime());
+       ct.sexo=cbSexo.getSelectedItem().toString();
+       ct.insertAsis();
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
@@ -233,10 +239,9 @@ public class CREARasistente extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_tbDataMouseClicked
     final void verifPerfil() throws SQLException {
-        int fila = tbData.getSelectedRow();
-        idAsis = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
+        idUsAsis = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
 
-        ctAs.idUsuario = idAsis;
+        ctAs.idUsuario = idUsAsis;
         List<Component> lista = new ArrayList<>();
         lista.add(lbNom);
         lista.add(lbApell);
@@ -248,7 +253,7 @@ public class CREARasistente extends javax.swing.JPanel {
         lista.add(txtDui);
         lista.add(cbSexo);
         lista.add(dpNaci);
-        lista.add(btnConfirm);
+        lista.add(btnConfirm);//AGREGAR A UNA LISTA PARA SER DESABILITADOS
 
         if (ctAs.verifPerfil().next()) {
             lbVerif.setVisible(true);
@@ -261,13 +266,13 @@ public class CREARasistente extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel PCont;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnConfirm;
     private javax.swing.JComboBox<String> cbSexo;
     private com.toedter.calendar.JDateChooser dpNaci;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbApell;

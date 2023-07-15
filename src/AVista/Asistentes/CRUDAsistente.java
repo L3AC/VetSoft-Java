@@ -12,6 +12,7 @@ import Design.Desg;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -138,9 +139,14 @@ public class CRUDAsistente extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        ctAsistente ct = new ctAsistente();
-        ct.idAsistente = idCuenta;
-        ct.deleteAsis();
+        try {
+            ctAsistente ct = new ctAsistente();
+            ct.idAsistente = idCuenta;
+            ct.deleteAsis();
+            loadD();
+        } catch (SQLException ex) {
+            Logger.getLogger(CRUDAsistente.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed

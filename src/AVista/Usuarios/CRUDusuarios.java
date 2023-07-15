@@ -241,9 +241,14 @@ public class CRUDusuarios extends javax.swing.JPanel {
                 "No");
 
         if (opcion == JOptionPane.YES_OPTION) {
-            ctUser ct = new ctUser();
-            ct.idUs = idUsRow;
-            ct.deleteUs();
+            try {
+                ctUser ct = new ctUser();
+                ct.idUs = idUsRow;
+                ct.deleteUs();
+                loadD();
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDusuarios.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } else if (opcion == JOptionPane.NO_OPTION) {
 
         }

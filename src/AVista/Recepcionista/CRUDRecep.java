@@ -196,9 +196,14 @@ public class CRUDRecep extends javax.swing.JPanel {
                 "No");
 
         if (opcion == JOptionPane.YES_OPTION) {
-            ctRecep ct = new ctRecep();
-            ct.idRecep = idCuenta;
-            ct.deleteRecep();
+            try {
+                ctRecep ct = new ctRecep();
+                ct.idRecep = idCuenta;
+                ct.deleteRecep();
+                loadD();
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDRecep.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } else if (opcion == JOptionPane.NO_OPTION) {
 
         }
