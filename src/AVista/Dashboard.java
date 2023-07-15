@@ -93,6 +93,7 @@ public class Dashboard extends javax.swing.JFrame {
                         CRUDCita subp = new CRUDCita();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
+                    //PERSONAL 
                     if (index == 2 && indexSubMenu == 1) {//RECEPCIONISTA
                         CRUDRecep subp = new CRUDRecep();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
@@ -171,15 +172,24 @@ public class Dashboard extends javax.swing.JFrame {
                         CRUDCita subp = new CRUDCita();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
+                    //PERSONAL 
+                    if (index == 2 && indexSubMenu == 1) {//RECEPCIONISTA
+                        CRUDRecep subp = new CRUDRecep();
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                    }
+                    if (index == 2 && indexSubMenu == 2) {//DOCTORES
+                        CRUDDoctores subp = new CRUDDoctores(idTipoU);
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                    }
+                    if (index == 2 && indexSubMenu == 3) {//ASISTENTES
+                        CRUDAsistente subp = new CRUDAsistente(idTipoU);
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                    }
                     //TIENDA
-                    if (index == 2 && indexSubMenu == 1) {//RESERVAS
+                    if (index == 3 && indexSubMenu == 1) {//RESERVAS
 
                     }
-                    if (index == 2 && indexSubMenu == 2) {//PRODUCTOS
-
-                    }
-                    //MANTENIMIENTO
-                    if (index == 3 && indexSubMenu == 1) {
+                    if (index == 4 && indexSubMenu == 2) {//PRODUCTOS
 
                     }
                     //CUENTA

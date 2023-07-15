@@ -27,8 +27,96 @@ public class addMascota extends javax.swing.JPanel {
     private void initComponents() {
 
         PCont = new javax.swing.JPanel();
+        lbEsp = new javax.swing.JLabel();
+        cbEsp = new javax.swing.JComboBox<>();
+        btnBack = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        cbEsp1 = new javax.swing.JComboBox<>();
+        lbEsp1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        dpNaci = new com.toedter.calendar.JDateChooser();
+        jLabel3 = new javax.swing.JLabel();
+        txtApellidos = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        txtDir = new javax.swing.JTextField();
+        lbDir = new javax.swing.JLabel();
+        btnConfirm = new javax.swing.JButton();
+        cbSexo = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
 
         PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lbEsp.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbEsp.setText("Raza");
+        PCont.add(lbEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 160, 40, -1));
+
+        PCont.add(cbEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 210, 240, 40));
+
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        PCont.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 70, 60));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel2.setText("REGISTRAR MASCOTA");
+        PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, 360, -1));
+
+        PCont.add(cbEsp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 210, 240, 40));
+
+        lbEsp1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbEsp1.setText("Tipo de animal");
+        PCont.add(lbEsp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 160, 130, -1));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel5.setText("Nombre");
+        PCont.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, 100, 30));
+
+        txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        PCont.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 270, 50));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel9.setText("Nacimiento (Aproximado)");
+        PCont.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 430, 250, 30));
+        PCont.add(dpNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 470, 270, 50));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setText("Padecimientos");
+        PCont.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 430, 150, 30));
+
+        txtApellidos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        PCont.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 350, 270, 50));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setText("Peso");
+        PCont.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 310, 100, 30));
+
+        txtDir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        PCont.add(txtDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 470, 360, 50));
+
+        lbDir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbDir.setText("Dirección");
+        PCont.add(lbDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 570, 150, 30));
+
+        btnConfirm.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnConfirm.setText("Confirmar");
+        btnConfirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmActionPerformed(evt);
+            }
+        });
+        PCont.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 730, 140, 70));
+
+        cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femenino", "Masculino" }));
+        PCont.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 480, 200, 40));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel6.setText("Sexo");
+        PCont.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 440, 100, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -42,8 +130,73 @@ public class addMascota extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        /*try {
+            CRUDusuarios subp=new CRUDusuarios(idTipoUs);
+            dsg.ShowPanel(subp, PCont, 1320, 810);
+        } catch (SQLException ex) {
+            Logger.getLogger(insertTipoCuenta.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
+
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
+        /*SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+        if (nivelRow == 2) {
+            ctRecep ct = new ctRecep();
+            ct.idUsuario = idUs;
+            ct.nombre = txtNombre.getText();
+            ct.apellido = txtApellidos.getText();
+            ct.dui = txtDui.getText();
+            ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
+            System.out.println(dt.format(dpNaci.getCalendar().getTime()));
+            ct.sexo = cbSexo.getSelectedItem().toString();
+            ct.insertRe();
+        }
+        if (nivelRow == 3) {
+            ctCliente ct = new ctCliente();
+            ct.idUsuario = idUs;
+            ct.nombre = txtNombre.getText();
+            ct.apellido = txtApellidos.getText();
+            ct.dui = txtDui.getText();
+            ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
+            ct.sexo = cbSexo.getSelectedItem().toString();
+            ct.direccion = txtDir.getText();
+            ct.insertCl();
+        }
+        if (nivelRow == 4) {
+            ctDoctores ct = new ctDoctores();
+            ct.idUsuario = idUs;
+            ct.idEsp = dsg.getMap(cbMap, cbEsp.getSelectedItem().toString());
+            ct.nombre = txtNombre.getText();
+            ct.apellido = txtApellidos.getText();
+            ct.dui = txtDui.getText();
+            ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
+            ct.sexo = cbSexo.getSelectedItem().toString();
+            ct.insertDoc();
+        }*/
+    }//GEN-LAST:event_btnConfirmActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnConfirm;
+    private javax.swing.JComboBox<String> cbEsp;
+    private javax.swing.JComboBox<String> cbEsp1;
+    private javax.swing.JComboBox<String> cbSexo;
+    private com.toedter.calendar.JDateChooser dpNaci;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel lbDir;
+    private javax.swing.JLabel lbEsp;
+    private javax.swing.JLabel lbEsp1;
+    private javax.swing.JTextField txtApellidos;
+    private javax.swing.JTextField txtDir;
+    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

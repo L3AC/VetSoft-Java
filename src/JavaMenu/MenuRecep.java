@@ -18,20 +18,20 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import net.miginfocom.swing.MigLayout;
+
 /**
  *
  * @author Gerson
  */
-public class MenuRecep extends JPanel{
-    
+public class MenuRecep extends JPanel {
+
     private int index = -1;
     private final List<MenuSelectEvent> events = new ArrayList<>();
-    
+
     public MenuRecep() {
         init();
         System.err.println("ORI");
     }
-
 
     private void init() {
         setBackground(Color.WHITE);
@@ -45,16 +45,20 @@ public class MenuRecep extends JPanel{
         addTitle("Inicio");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.DASHBOARD, "Bienvenido"));
         addTitle("Gestión principal");
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PERSON, 
-                "Gestión administrativa","Usuarios","Clientes",
-                "Mascotas","Citas"));
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PERSON,
+                "Gestión de la veterinaria", "Usuarios", "Clientes",
+                "Mascotas", "Citas"));
+        addTitle("Gestion de personal");
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PERSON,
+                "Personal de veterinaria", "Doctores",
+                "Asistentes"));
         addTitle("Tienda");
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.ADD_ALARM, "Gestión de productos"
-                ,"Reservas","Productos"));
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.ADD_ALARM, "Gestión de productos",
+                 "Reservas", "Productos"));
         addTitle("Cuenta");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PEOPLE,
-                "Mi Cuenta","Perfil","Seguridad",
-                "Preguntas","Cerrar Sesión"));
+                "Mi Cuenta", "Perfil", "Seguridad",
+                "Preguntas", "Cerrar Sesión"));
     }
 
     private JScrollPane createScroll() {
@@ -140,5 +144,5 @@ public class MenuRecep extends JPanel{
 
     private MigLayout menuLayout;
     private JPanel panelMenu;
-    
+
 }

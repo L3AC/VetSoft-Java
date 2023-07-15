@@ -28,6 +28,8 @@ public class updtAnimales extends javax.swing.JPanel {
 
         PCont = new javax.swing.JPanel();
 
+        setPreferredSize(new java.awt.Dimension(1320, 810));
+
         PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

@@ -10,9 +10,9 @@ import javax.swing.table.DefaultTableModel;
 
 public class CRUDAnimales extends javax.swing.JPanel {
 
-    public int nUs;
-    private int idCuenta;
-    ctAnimales ct = new ctAnimales();
+    public int idTipoUs;
+    private int idAnimal;
+    
     Desg dsg = new Desg();
     DefaultTableModel model;
 
@@ -22,6 +22,7 @@ public class CRUDAnimales extends javax.swing.JPanel {
     }
 
     final void loadD() throws SQLException {
+        
         String[] column = {"idAnimal", "Animal", "Nombre", "Dueño"};
         model = new DefaultTableModel(null, column);
         dsg.ColumnHide(model, tbData, 0, 4);
@@ -29,7 +30,7 @@ public class CRUDAnimales extends javax.swing.JPanel {
         if (tbData.getRowCount() > 0) {
             tbData.setRowSelectionInterval(0, 0);
             int fila = tbData.getSelectedRow();
-            idCuenta = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
+            idAnimal = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
         }
     }
 
@@ -95,9 +96,6 @@ public class CRUDAnimales extends javax.swing.JPanel {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtBusqKeyReleased(evt);
             }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtBusqKeyTyped(evt);
-            }
         });
         PCont.add(txtBusq, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 710, 40));
 
@@ -142,10 +140,6 @@ public class CRUDAnimales extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtBusqKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyTyped
-
-    }//GEN-LAST:event_txtBusqKeyTyped
-
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         //dsg.ShowPanel(subpU, PCont, 1320, 810);
     }//GEN-LAST:event_btnEditarActionPerformed
@@ -157,7 +151,7 @@ public class CRUDAnimales extends javax.swing.JPanel {
 
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
         int fila = tbData.getSelectedRow();
-        idCuenta = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
+        idAnimal = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
