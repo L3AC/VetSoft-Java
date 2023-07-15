@@ -13,6 +13,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -27,13 +29,13 @@ public class CRUDAsistente extends javax.swing.JPanel {
     DefaultTableModel model;
 
     public CRUDAsistente(int idTipoUs) throws SQLException {
-        this.idTipoUs=idTipoUs;
+        this.idTipoUs = idTipoUs;
         initComponents();
         loadD();
     }
 
     final void loadD() throws SQLException {
-        String[] column = {"idAsistente","Doctor a cargo","Nombre", "Edad", "Sexo"};
+        String[] column = {"idAsistente", "Doctor a cargo", "Nombre", "Edad", "Sexo"};
         model = new DefaultTableModel(null, column);
         dsg.ColumnHide(model, tbData, 0, 5);
         CargarTabla();
@@ -52,9 +54,9 @@ public class CRUDAsistente extends javax.swing.JPanel {
             ct.nombre = txtBusq.getText().toString();
             ResultSet rs = ct.cargarAsis();
             while (rs.next()) {
-                Object[] oValores = {rs.getInt("idAsistente"),rs.getString("Doctor a cargo"),
-                rs.getString("Nombre"),rs.getString("Edad"), 
-                rs.getString("Sexo")};
+                Object[] oValores = {rs.getInt("idAsistente"), rs.getString("Doctor a cargo"),
+                    rs.getString("Nombre"), rs.getString("Edad"),
+                    rs.getString("Sexo")};
                 model.addRow(oValores);
             }
         } catch (Exception e) {
@@ -166,13 +168,28 @@ public class CRUDAsistente extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        try {
-            ctAsistente ct = new ctAsistente();
-            ct.idAsistente =  Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-            ct.deleteAsis();
-            loadD();
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDAsistente.class.getName()).log(Level.SEVERE, null, ex);
+        UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
+        int opcion = JOptionPane.showOptionDialog(
+                null,
+                "¿Desea eliminar el registro?",
+                "Advertencia",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.WARNING_MESSAGE,
+                null,
+                new Object[]{"Sí", "No"},
+                "No");
+
+        if (opcion == JOptionPane.YES_OPTION) {
+            try {
+                ctAsistente ct = new ctAsistente();
+                ct.idAsistente = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                ct.deleteAsis();
+                loadD();
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDAsistente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (opcion == JOptionPane.NO_OPTION) {
+
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
@@ -184,11 +201,11 @@ public class CRUDAsistente extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(CRUDAsistente.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
-        idAsis =  Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+        idAsis = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased

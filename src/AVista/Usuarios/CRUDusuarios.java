@@ -260,9 +260,8 @@ public class CRUDusuarios extends javax.swing.JPanel {
 
     }//GEN-LAST:event_tbDataMouseClicked
     final void verifPerfil() {
-        int fila = tbData.getSelectedRow();
-        idUsRow = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
-        nivelRow = Integer.parseInt(tbData.getValueAt(fila, 1).toString());
+        idUsRow = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+        nivelRow = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 1).toString());
 
         if (nivelRow == 2 || nivelRow == 3 || nivelRow == 4) {
             btnAddCuenta.setVisible(true);
@@ -294,7 +293,9 @@ public class CRUDusuarios extends javax.swing.JPanel {
     private void btnAddCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCuentaActionPerformed
         insertTipoCuenta subp;
         try {
-            subp = new insertTipoCuenta(idTipoUs, idUsRow, nivelRow);
+            subp = new insertTipoCuenta(idTipoUs, idUsRow,
+     Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 1).toString()));
+            
             dsg.ShowPanel(subp, PCont, 1320, 810);
         } catch (SQLException ex) {
             Logger.getLogger(CRUDusuarios.class.getName()).log(Level.SEVERE, null, ex);
