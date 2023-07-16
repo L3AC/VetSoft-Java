@@ -116,42 +116,42 @@ public class updtUsuario extends javax.swing.JPanel {
                 cbCargoActionPerformed(evt);
             }
         });
-        panelRound1.add(cbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, 160, 40));
+        panelRound1.add(cbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 300, 160, 40));
 
         lbCargo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbCargo.setForeground(new java.awt.Color(0, 0, 0));
         lbCargo.setText("Nivel de cargo");
-        panelRound1.add(lbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, 130, 30));
+        panelRound1.add(lbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, 130, 40));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Correo electrónico");
-        panelRound1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 30, -1, 30));
+        panelRound1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(575, 30, 150, 30));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Teléfono");
-        panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 80, 30));
+        panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 170, 100, 30));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Usuario");
-        panelRound1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 70, 30));
+        panelRound1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 70, 30));
 
         txtUsuario.setAnimationColor(new java.awt.Color(153, 204, 255));
-        panelRound1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 213, -1));
+        panelRound1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 70, 230, -1));
 
         lbDisp.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbDisp.setForeground(new java.awt.Color(0, 0, 0));
         lbDisp.setText("Usuario no disponible");
-        panelRound1.add(lbDisp, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 190, 30));
+        panelRound1.add(lbDisp, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 190, 30));
 
         txtCorreo.setAnimationColor(new java.awt.Color(153, 204, 255));
         txtCorreo.setAutoscrolls(false);
-        panelRound1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, 245, -1));
+        panelRound1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, 245, -1));
 
         txtTel.setAnimationColor(new java.awt.Color(153, 204, 255));
-        panelRound1.add(txtTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 215, -1));
+        panelRound1.add(txtTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 215, -1));
 
         javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
         PCont.setLayout(PContLayout);
@@ -162,7 +162,7 @@ public class updtUsuario extends javax.swing.JPanel {
                     .addGroup(PContLayout.createSequentialGroup()
                         .addGap(55, 55, 55)
                         .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(334, 334, 334)
+                        .addGap(389, 389, 389)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PContLayout.createSequentialGroup()
                         .addGap(257, 257, 257)
@@ -183,7 +183,7 @@ public class updtUsuario extends javax.swing.JPanel {
                 .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(54, 54, 54)
                 .addComponent(buttonGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

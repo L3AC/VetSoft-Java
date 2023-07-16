@@ -13,19 +13,23 @@ import java.sql.SQLException;
  */
 public class ctRegistro {
     
+    public int idTipoUs;//NIVEL DE USUARIO QUE INGRESA A LA PANTALLA
     public String nivel;
+    public int idUs;//USUARIO SELECCIONADO DE LA TABLA
+    public int idTipoCuenta;//NIVEL DE USUARIO QUE SE LE VA AGREGAR AL REGISTRO
     public String usuario;
     public String contra;
     public String correo;
     public String telefono;
-    public int idTipoCuenta;
+    public String codigoVerif;
+    public String fechaRegistro;
 
-    public int getIdTipoCuenta() {
-        return idTipoCuenta;
+    public int getIdTipoUs() {
+        return idTipoUs;
     }
 
-    public void setIdTipoCuenta(int idTipoCuenta) {
-        this.idTipoCuenta = idTipoCuenta;
+    public void setIdTipoUs(int idTipoUs) {
+        this.idTipoUs = idTipoUs;
     }
 
     public String getNivel() {
@@ -34,6 +38,14 @@ public class ctRegistro {
 
     public void setNivel(String nivel) {
         this.nivel = nivel;
+    }
+
+    public int getIdUs() {
+        return idUs;
+    }
+
+    public void setIdUs(int idUs) {
+        this.idUs = idUs;
     }
 
     public String getUsuario() {
@@ -67,11 +79,66 @@ public class ctRegistro {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-    
+
+    public String getCodigoVerif() {
+        return codigoVerif;
+    }
+
+    public void setCodigoVerif(String codigoVerif) {
+        this.codigoVerif = codigoVerif;
+    }
+
+    public String getFechaRegistro() {
+        return fechaRegistro;
+    }
+
+    public void setFechaRegistro(String fechaRegistro) {
+        this.fechaRegistro = fechaRegistro;
+    }
+
+    public int getIdTipoCuenta() {
+        return idTipoCuenta;
+    }
+
+    public void setIdTipoCuenta(int idTipoCuenta) {
+        this.idTipoCuenta = idTipoCuenta;
+    }
+
     mdUser usu = new mdUser();
-    
+
+    public ResultSet ValidarLogin() throws SQLException {
+        return usu.SelectTipoUs(usuario, contra);
+    }
+
+    public ResultSet loadData() {
+        return usu.loadData(idUs);
+    }
+    public ResultSet verifPerfil() throws SQLException {
+        return usu.verifPerfil(idUs,idTipoCuenta);
+    }
+
+    public ResultSet SelectTipoID() throws SQLException {
+        return usu.SelectTipoID(idTipoUs, idUs);
+    }
+
+    public ResultSet verifUs() throws SQLException {
+        return usu.verifUs(usuario);
+    }
+
+    public ResultSet cargarUs() {
+        return usu.cargarUs(usuario, idTipoUs);
+    }
+
     public boolean insertUs() {
         return usu.insertUs(idTipoCuenta, usuario, contra, correo, telefono);
+    }
+
+    public boolean updtUs() {
+        return usu.updateUs(idTipoCuenta, usuario, correo, telefono,idUs);
+    }
+
+    public boolean deleteUs() {
+        return usu.deleteUs(idUs);
     }
     
 }

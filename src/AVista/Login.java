@@ -55,13 +55,13 @@ public class Login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         panelRound2 = new Design.PanelRound();
-        TextUser = new Design.Textfield();
         UsuarioL = new javax.swing.JLabel();
         PassL = new javax.swing.JLabel();
-        TextPass = new Design.Textfield();
         jLabel6 = new javax.swing.JLabel();
         buttonGradient1 = new Design.ButtonGradient();
         jLabel7 = new javax.swing.JLabel();
+        TextUser = new Design.TextFieldSV();
+        TextPass = new Design.PasswordField();
         Titulo = new javax.swing.JLabel();
         VetSoft = new javax.swing.JLabel();
 
@@ -83,13 +83,6 @@ public class Login extends javax.swing.JFrame {
         panelRound2.setRoundTopRight(50);
         panelRound2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        TextUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextUserActionPerformed(evt);
-            }
-        });
-        panelRound2.add(TextUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 360, 40));
-
         UsuarioL.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         UsuarioL.setForeground(new java.awt.Color(27, 73, 101));
         UsuarioL.setText("Usuario");
@@ -99,7 +92,6 @@ public class Login extends javax.swing.JFrame {
         PassL.setForeground(new java.awt.Color(27, 73, 101));
         PassL.setText("Contraseña");
         panelRound2.add(PassL, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, -1, -1));
-        panelRound2.add(TextPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 370, 40));
 
         jLabel6.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(27, 73, 101));
@@ -127,6 +119,12 @@ public class Login extends javax.swing.JFrame {
         jLabel7.setText("¿Olvidaste la contraseña?");
         panelRound2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, -1, -1));
 
+        TextUser.setShadowColor(new java.awt.Color(153, 0, 153));
+        panelRound2.add(TextUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 370, 50));
+
+        TextPass.setShadowColor(new java.awt.Color(153, 0, 153));
+        panelRound2.add(TextPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 370, 50));
+
         panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 560, 290));
 
         Titulo.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
@@ -150,10 +148,6 @@ public class Login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void TextUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextUserActionPerformed
-
-    }//GEN-LAST:event_TextUserActionPerformed
 
     private void buttonGradient1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGradient1ActionPerformed
         try {
@@ -238,8 +232,8 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel PassL;
-    private Design.Textfield TextPass;
-    private Design.Textfield TextUser;
+    private Design.PasswordField TextPass;
+    private Design.TextFieldSV TextUser;
     private javax.swing.JLabel Titulo;
     private javax.swing.JLabel UsuarioL;
     private javax.swing.JLabel VetSoft;
