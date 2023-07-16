@@ -4,9 +4,16 @@
  */
 package AVista.Animales;
 
+import AControlador.ctEsp;
+import AControlador.ctRaza;
 import Design.Desg;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JComboBox;
 
 public class addMascota extends javax.swing.JPanel {
 
@@ -14,11 +21,13 @@ public class addMascota extends javax.swing.JPanel {
     private int idCl;
     Desg dsg = new Desg();
     Map<Integer, String> cbMap = new HashMap<>();
+    Map<Integer, String> cbMapRa = new HashMap<>();
 
-    public addMascota(int idTipoUs, int idCl) {
-        this.idTipoUs=idTipoUs;
-        this.idCl=idCl;
+    public addMascota(int idTipoUs, int idCl) throws SQLException {
+        this.idTipoUs = idTipoUs;
+        this.idCl = idCl;
         initComponents();
+        loadComboTP(cbTipoA);
     }
 
     @SuppressWarnings("unchecked")
@@ -27,10 +36,10 @@ public class addMascota extends javax.swing.JPanel {
 
         PCont = new javax.swing.JPanel();
         lbEsp = new javax.swing.JLabel();
-        cbEsp = new javax.swing.JComboBox<>();
+        cbRaza = new javax.swing.JComboBox<>();
         btnBack = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        cbEsp1 = new javax.swing.JComboBox<>();
+        cbTipoA = new javax.swing.JComboBox<>();
         lbEsp1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
@@ -50,7 +59,7 @@ public class addMascota extends javax.swing.JPanel {
         lbEsp.setText("Raza");
         PCont.add(lbEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 160, 40, -1));
 
-        PCont.add(cbEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 210, 240, 40));
+        PCont.add(cbRaza, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 210, 240, 40));
 
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -64,12 +73,12 @@ public class addMascota extends javax.swing.JPanel {
         jLabel2.setText("REGISTRAR MASCOTA");
         PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, 360, -1));
 
-        cbEsp1.addActionListener(new java.awt.event.ActionListener() {
+        cbTipoA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbEsp1ActionPerformed(evt);
+                cbTipoAActionPerformed(evt);
             }
         });
-        PCont.add(cbEsp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 210, 240, 40));
+        PCont.add(cbTipoA, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 210, 240, 40));
 
         lbEsp1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbEsp1.setText("Tipo de animal");
@@ -128,14 +137,37 @@ public class addMascota extends javax.swing.JPanel {
             .addComponent(PCont, javax.swing.GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+    private void loadComboTP(JComboBox cb) throws SQLException {
+        ctRaza ct = new ctRaza();
+        ResultSet rs = ct.loadTPanimal();
+        while (rs.next()) {
+            int idTP = rs.getInt("idTipoAnimal");
+            String nombre = rs.getString("nombrePopular");
+            cb.addItem(nombre);
+            cbMap.put(idTP, nombre);
 
+        }
+    }
+    private void loadComboRaza(JComboBox cb) throws SQLException {
+        ctRaza ct = new ctRaza();
+        cbMapRa.clear();
+        ct.idTipoAnimal=dsg.getMap(cbMap, cbTipoA.getSelectedItem().toString());
+        System.out.println(dsg.getMap(cbMap, cbTipoA.getSelectedItem().toString()));
+        ResultSet rs = ct.loadRaza();
+        while (rs.next()) {
+            int idTP = rs.getInt("idRaza");
+            String nombre = rs.getString("nombreRaza");
+            cb.addItem(nombre);
+            cbMapRa.put(idTP, nombre);
+        }
+    }
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        /*try {
-            CRUDusuarios subp=new CRUDusuarios(idTipoUs);
+        try {
+            CRUDAnimales subp=new CRUDAnimales(idTipoUs);
             dsg.ShowPanel(subp, PCont, 1320, 810);
         } catch (SQLException ex) {
-            Logger.getLogger(insertTipoCuenta.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+            Logger.getLogger(addMascota.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }//GEN-LAST:event_btnBackActionPerformed
 
@@ -176,18 +208,22 @@ public class addMascota extends javax.swing.JPanel {
         }*/
     }//GEN-LAST:event_btnConfirmActionPerformed
 
-    private void cbEsp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEsp1ActionPerformed
-
-    }//GEN-LAST:event_cbEsp1ActionPerformed
+    private void cbTipoAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTipoAActionPerformed
+        try {
+            loadComboRaza(cbRaza);
+        } catch (SQLException ex) {
+            Logger.getLogger(addMascota.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_cbTipoAActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnConfirm;
-    private javax.swing.JComboBox<String> cbEsp;
-    private javax.swing.JComboBox<String> cbEsp1;
+    private javax.swing.JComboBox<String> cbRaza;
     private javax.swing.JComboBox<String> cbSexo;
+    private javax.swing.JComboBox<String> cbTipoA;
     private com.toedter.calendar.JDateChooser dpNaci;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

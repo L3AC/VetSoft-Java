@@ -182,10 +182,15 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonGradient1ActionPerformed
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-        // TODO add your handling code here:
-        
-        Registro newFrame = new Registro();
-        newFrame.setVisible(true);
+        try {
+            // TODO add your handling code here:
+            
+            Registro newFrame = new Registro();
+            newFrame.setVisible(true);
+            this.dispose();
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jLabel6MouseClicked
     public void SelectID() throws SQLException {
         try {

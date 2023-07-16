@@ -16,7 +16,8 @@ public class CRUDAnimales extends javax.swing.JPanel {
     Desg dsg = new Desg();
     DefaultTableModel model;
 
-    public CRUDAnimales() throws SQLException {
+    public CRUDAnimales(int idTipoUs) throws SQLException {
+        this.idTipoUs=idTipoUs;
         initComponents();
         loadD();
     }

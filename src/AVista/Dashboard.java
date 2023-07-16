@@ -85,7 +85,7 @@ public class Dashboard extends javax.swing.JFrame {
 
                     }
                     if (index == 1 && indexSubMenu == 3) {//ANIMALES
-                        CRUDAnimales subp = new CRUDAnimales();
+                        CRUDAnimales subp = new CRUDAnimales(idTipoU);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
 
                     }
@@ -164,7 +164,7 @@ public class Dashboard extends javax.swing.JFrame {
 
                     }
                     if (index == 1 && indexSubMenu == 3) {//ANIMALES
-                        CRUDAnimales subp = new CRUDAnimales();
+                        CRUDAnimales subp = new CRUDAnimales(idTipoU);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
 
                     }
@@ -226,7 +226,7 @@ public class Dashboard extends javax.swing.JFrame {
 
                     }
                     if (index == 1 && indexSubMenu == 2) {//ANIMALES
-                        CRUDAnimales subp = new CRUDAnimales();
+                        CRUDAnimales subp = new CRUDAnimales(idTipoU);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
 
                     }
