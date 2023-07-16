@@ -16,10 +16,25 @@ public class mdTipoUs {
     PreparedStatement ps;
     ResultSet rs;
     
+    
     public ResultSet selectTP() {
         String query = "select * from tbTipoUsuario where idTipoUsuario>1";
         try {
             ps = con.prepareStatement(query);
+            rs = ps.executeQuery();
+            return rs;
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+            return null;
+        }
+    }
+    
+    public ResultSet selectUser(){
+     String url = "select * from tbTipoUsuario where idTipoUsuario!=1 and idTipoUsuario!=3;";
+      
+    try {
+            ps = con.prepareStatement(url);
             rs = ps.executeQuery();
             return rs;
 

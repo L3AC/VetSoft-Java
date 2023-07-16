@@ -5,6 +5,7 @@
 package AControlador;
 
 import AModelo.mdTipoUs;
+import AModelo.mdUser;
 import java.sql.ResultSet;
 
 /**
@@ -12,6 +13,8 @@ import java.sql.ResultSet;
  * @author LEAC2
  */
 public class ctTipoUs {
+
+    public static String usuario;
     private int idTipoUs;
     private String cargo;
 
@@ -35,5 +38,10 @@ public class ctTipoUs {
     
     public ResultSet selectTP(){
         return md.selectTP();
+    }
+    
+    
+    public ResultSet selectUser(){
+    return md.selectUser();
     }
 }

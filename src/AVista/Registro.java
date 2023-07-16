@@ -4,8 +4,8 @@
  */
 package AVista;
 
-import AControlador.ctRegistro;
 import AControlador.ctTipoUs;
+import AControlador.ctUser;
 import AModelo.Crypt;
 import AVista.Usuarios.insertUs;
 import Design.Desg;
@@ -39,7 +39,7 @@ public class Registro extends javax.swing.JFrame {
     
     
     private void loadCombo(JComboBox cb) throws SQLException{
-        ResultSet rs=ctTP.selectTP();
+        ResultSet rs=ctTP.selectUser();
         while (rs.next()) {
                 int idTP=rs.getInt("idTipoUsuario");
                 String nombre=rs.getString("nivel");
@@ -63,7 +63,7 @@ public class Registro extends javax.swing.JFrame {
         txtTeléfono = new Design.TextFieldSV();
         txtUsuario = new Design.TextFieldSV();
         txtCorreo = new Design.TextFieldSV();
-        passwordField1 = new Design.PasswordField();
+        txtContra = new Design.PasswordField();
         cbCargo = new Design.Combobox();
         Titulo = new javax.swing.JLabel();
 
@@ -136,8 +136,8 @@ public class Registro extends javax.swing.JFrame {
         });
         panelRound2.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 210, -1));
 
-        passwordField1.setShadowColor(new java.awt.Color(153, 0, 153));
-        panelRound2.add(passwordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 180, -1));
+        txtContra.setShadowColor(new java.awt.Color(153, 0, 153));
+        panelRound2.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 180, -1));
 
         cbCargo.setLabeText("Nivel de Usuario");
         cbCargo.addActionListener(new java.awt.event.ActionListener() {
@@ -170,17 +170,15 @@ public class Registro extends javax.swing.JFrame {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
-        ctRegistro ctUs=new ctRegistro();
-        if(idTipoUs==1){
-            ctUs.idTipoCuenta=dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
-        }
-        if(idTipoUs==2){
+        ctUser ctUs=new ctUser();
+           ctUs.idTipoCuenta=dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
+        
             ctUs.idTipoCuenta=3;
-        }
+        
         ctUs.usuario=txtUsuario.getText();
         try {
-            /* ctUs.contra=cryp.encrypt(txtContraseña.getText(), "key");*/
-
+            ctUs.contra=cryp.encrypt(txtContra.getText(), "key");
+            
         } catch (Exception ex) {
             Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -195,8 +193,7 @@ public class Registro extends javax.swing.JFrame {
 
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
         // TODO add your handling code here:
-        
-        ctRegistro ctUs=new ctRegistro();
+         ctUser ctUs=new ctUser();
         ctUs.usuario=txtUsuario.getText().toString();
         try {
             if(ctUs.verifUs().next()){
@@ -269,7 +266,7 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JLabel lbDisp;
     private Design.PanelRound panelRound1;
     private Design.PanelRound panelRound2;
-    private Design.PasswordField passwordField1;
+    private Design.PasswordField txtContra;
     private Design.TextFieldSV txtCorreo;
     private Design.TextFieldSV txtTeléfono;
     private Design.TextFieldSV txtUsuario;
