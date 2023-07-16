@@ -101,6 +101,12 @@ public class insertUs extends javax.swing.JPanel {
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Usuario");
         panelRound1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 70, 30));
+
+        txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtUsuarioKeyReleased(evt);
+            }
+        });
         panelRound1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 239, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -127,7 +133,7 @@ public class insertUs extends javax.swing.JPanel {
         panelRound1.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 100, 245, -1));
 
         cbCargo.setBackground(new java.awt.Color(255, 255, 255));
-        cbCargo.setForeground(new java.awt.Color(255, 255, 255));
+        cbCargo.setForeground(new java.awt.Color(51, 51, 51));
         cbCargo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbCargoActionPerformed(evt);
@@ -212,8 +218,41 @@ public class insertUs extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
-        // TODO add your handling code here:
+        ctUser ctUs=new ctUser();
+        if(idTipoUs==1){
+           ctUs.idTipoCuenta=dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
+        }
+        if(idTipoUs==2){
+            ctUs.idTipoCuenta=3;
+        }
+        ctUs.usuario=txtUsuario.getText();
+        try {
+            ctUs.contra=cryp.encrypt(txtContra.getText(), "key");
+            
+        } catch (Exception ex) {
+            Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ctUs.correo=txtCorreo.getText();
+        ctUs.telefono=txtTel.getText();
+        ctUs.insertUs();
     }//GEN-LAST:event_btnConfirmActionPerformed
+
+    private void txtUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyReleased
+        ctUser ctUs=new ctUser();
+        ctUs.usuario=txtUsuario.getText().toString();
+        try {
+            if(ctUs.verifUs().next()){
+                lbDisp.setVisible(true);
+                btnConfirm.setEnabled(false);
+            }
+            else{
+                lbDisp.setVisible(false);
+                btnConfirm.setEnabled(true);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_txtUsuarioKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
