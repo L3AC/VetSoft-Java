@@ -27,13 +27,33 @@ public class updtAnimales extends javax.swing.JPanel {
     Desg dsg = new Desg();
     Map<Integer, String> cbMap = new HashMap<>();
     Map<Integer, String> cbMapRa = new HashMap<>();
-    
-    
+
     public updtAnimales(int idAnim) throws SQLException {
-        this.idAnim=idAnim;
+        this.idAnim = idAnim;
         initComponents();
         loadComboTP(cbTipoA);
         loadComboRaza(cbRaza);
+        loadData();
+    }
+
+    final void loadData() throws SQLException {
+        try {
+            ctAnimales ct = new ctAnimales();
+            ct.idAnimal = idAnim;
+
+            ResultSet rs = ct.selectAnim();
+            while (rs.next()) {
+                txtNombre.setText(rs.getString("nombre"));
+                txtPeso.setText(rs.getString("peso"));
+                txtPad.setText(rs.getString("padecimientos"));
+                dpNaci.setDate(rs.getDate("edad"));
+                cbTipoA.setSelectedItem(rs.getString("nombrePopular"));
+                cbRaza.setSelectedItem(rs.getString("nombreRaza"));
+                cbSexo.setSelectedItem(rs.getString("sexo"));
+            }
+        } catch (Exception e) {
+            System.err.println(e.toString());
+        }
     }
 
     private void loadComboTP(JComboBox cb) throws SQLException {
@@ -61,6 +81,7 @@ public class updtAnimales extends javax.swing.JPanel {
             cbMapRa.put(idTP, nombre);
         }
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -191,13 +212,13 @@ public class updtAnimales extends javax.swing.JPanel {
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
         ctAnimales ct = new ctAnimales();
-        ct.idRaza=dsg.getMap(cbMapRa, cbRaza.getSelectedItem().toString());
-        ct.idAnimal=idAnim;
-        ct.nombre=txtNombre.getText();
-        ct.peso=txtPeso.getText();
-        ct.edad=dt.format(dpNaci.getCalendar().getTime());
-        ct.padecimientos=txtPad.getText();
-        ct.sexo=cbSexo.getSelectedItem().toString();
+        ct.idRaza = dsg.getMap(cbMapRa, cbRaza.getSelectedItem().toString());
+        ct.idAnimal = idAnim;
+        ct.nombre = txtNombre.getText();
+        ct.peso = txtPeso.getText();
+        ct.edad = dt.format(dpNaci.getCalendar().getTime());
+        ct.padecimientos = txtPad.getText();
+        ct.sexo = cbSexo.getSelectedItem().toString();
         ct.insertAnim();
     }//GEN-LAST:event_btnConfirmActionPerformed
 
