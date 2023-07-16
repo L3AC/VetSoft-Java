@@ -66,15 +66,16 @@ public class PorUsuario extends javax.swing.JFrame {
         btnVeri = new Design.ButtonGradient();
         lbUs1 = new javax.swing.JLabel();
         lbUs2 = new javax.swing.JLabel();
-        txtUser = new Design.Textfield();
         lbCod1 = new javax.swing.JLabel();
-        txtCod = new Design.Textfield();
         btnEnviar = new Design.ButtonGradient();
-        txtNueva2 = new Design.Textfield();
         btnCambiar = new Design.ButtonGradient();
-        txtNueva = new Design.Textfield();
+        txtUser = new Design.TextFieldSV();
+        txtCod = new Design.TextFieldSV();
+        txtNueva = new Design.PasswordField();
+        txtNueva2 = new Design.PasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
 
         BtnRegresar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
         BtnRegresar1.addActionListener(new java.awt.event.ActionListener() {
@@ -119,22 +120,10 @@ public class PorUsuario extends javax.swing.JFrame {
         lbUs2.setText("Ingrese su Usuario");
         panelRound1.add(lbUs2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, 30));
 
-        txtUser.setAnimationColor(new java.awt.Color(153, 204, 255));
-        txtUser.setAutoscrolls(false);
-        panelRound1.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 160, -1));
-
         lbCod1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbCod1.setForeground(new java.awt.Color(0, 0, 0));
         lbCod1.setText("Ingrese su código de verificación");
         panelRound1.add(lbCod1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, 30));
-
-        txtCod.setAnimationColor(new java.awt.Color(153, 204, 255));
-        txtCod.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCodActionPerformed(evt);
-            }
-        });
-        panelRound1.add(txtCod, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 160, -1));
 
         btnEnviar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         btnEnviar.setText("Enviar Correo");
@@ -147,9 +136,6 @@ public class PorUsuario extends javax.swing.JFrame {
         });
         panelRound1.add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 110, 30));
 
-        txtNueva2.setAnimationColor(new java.awt.Color(153, 204, 255));
-        panelRound1.add(txtNueva2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 190, 170, 40));
-
         btnCambiar.setText("Cambiar Contraseña");
         btnCambiar.setColor1(new java.awt.Color(255, 255, 255));
         btnCambiar.setColor2(new java.awt.Color(204, 255, 255));
@@ -159,9 +145,20 @@ public class PorUsuario extends javax.swing.JFrame {
             }
         });
         panelRound1.add(btnCambiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 170, 30));
+        panelRound1.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 180, -1));
 
-        txtNueva.setAnimationColor(new java.awt.Color(153, 204, 255));
-        panelRound1.add(txtNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 70, 180, 40));
+        txtCod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodActionPerformed(evt);
+            }
+        });
+        panelRound1.add(txtCod, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 180, -1));
+
+        txtNueva.setText("passwordField1");
+        panelRound1.add(txtNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, 180, -1));
+
+        txtNueva2.setText("passwordField1");
+        panelRound1.add(txtNueva2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 200, 180, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -172,7 +169,7 @@ public class PorUsuario extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(BtnRegresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(137, 137, 137)
                         .addComponent(lbMayor))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(38, 38, 38)
@@ -182,14 +179,11 @@ public class PorUsuario extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(BtnRegresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(lbMayor)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(BtnRegresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbMayor))
+                .addGap(19, 19, 19)
                 .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(27, Short.MAX_VALUE))
         );
@@ -214,10 +208,6 @@ public class PorUsuario extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnVeriActionPerformed
-
-    private void txtCodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodActionPerformed
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
         // TODO add your handling code here:
@@ -246,6 +236,10 @@ public class PorUsuario extends javax.swing.JFrame {
         
         newFrame.setVisible(true);
     }//GEN-LAST:event_btnCambiarActionPerformed
+
+    private void txtCodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodActionPerformed
 
     public void transparente(){
     
@@ -465,10 +459,10 @@ public class PorUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel lbUs1;
     private javax.swing.JLabel lbUs2;
     private Design.PanelRound panelRound1;
-    private Design.Textfield txtCod;
-    private Design.Textfield txtNueva;
-    private Design.Textfield txtNueva2;
-    private Design.Textfield txtUser;
+    private Design.TextFieldSV txtCod;
+    private Design.PasswordField txtNueva;
+    private Design.PasswordField txtNueva2;
+    private Design.TextFieldSV txtUser;
     // End of variables declaration//GEN-END:variables
 }
 

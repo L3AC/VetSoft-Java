@@ -69,15 +69,15 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         panelRound4 = new Design.PanelRound();
         jLabel7 = new javax.swing.JLabel();
-        txtUser = new Design.Textfield();
         jLabel8 = new javax.swing.JLabel();
-        txtPregunta1 = new Design.Textfield();
         jLabel9 = new javax.swing.JLabel();
-        txtPregunta2 = new Design.Textfield();
         jLabel10 = new javax.swing.JLabel();
-        txtPregunta3 = new Design.Textfield();
         btnVerificar = new Design.ButtonGradient();
         btnEnviar = new Design.ButtonGradient();
+        txtUser = new Design.TextFieldSV();
+        txtPregunta1 = new Design.TextFieldSV();
+        txtPregunta2 = new Design.TextFieldSV();
+        txtPregunta3 = new Design.TextFieldSV();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -92,7 +92,7 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         jLabel6.setText("Recuperacion de contraseña por preguntas de seguridad");
         panelRound3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, -1, -1));
 
-        panelRound4.setBackground(new java.awt.Color(190, 233, 232));
+        panelRound4.setBackground(new java.awt.Color(202, 233, 255));
         panelRound4.setRoundBottomLeft(50);
         panelRound4.setRoundBottomRight(50);
         panelRound4.setRoundTopLeft(50);
@@ -104,37 +104,20 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         jLabel7.setText("Ingrese su usuario");
         panelRound4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
 
-        txtUser.setAnimationColor(new java.awt.Color(0, 255, 204));
-        panelRound4.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 210, -1));
-
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("1-¿Cúal es tu película favorita?");
         panelRound4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
-
-        txtPregunta1.setAnimationColor(new java.awt.Color(0, 255, 204));
-        panelRound4.add(txtPregunta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 210, -1));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("2-¿Cúal es el nombre de tu mejor amigo de la infancia?");
         panelRound4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, -1, -1));
 
-        txtPregunta2.setAnimationColor(new java.awt.Color(0, 255, 204));
-        panelRound4.add(txtPregunta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 60, 210, -1));
-
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("3-¿Cúal es tu comida favorita?");
         panelRound4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 160, -1, 30));
-
-        txtPregunta3.setAnimationColor(new java.awt.Color(0, 255, 204));
-        txtPregunta3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPregunta3ActionPerformed(evt);
-            }
-        });
-        panelRound4.add(txtPregunta3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 220, 210, -1));
 
         btnVerificar.setText("Verificar");
         btnVerificar.setColor1(new java.awt.Color(255, 255, 255));
@@ -144,7 +127,7 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
                 btnVerificarActionPerformed(evt);
             }
         });
-        panelRound4.add(btnVerificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 100, -1));
+        panelRound4.add(btnVerificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 100, -1));
 
         btnEnviar.setText("Enviar");
         btnEnviar.setColor1(new java.awt.Color(255, 255, 255));
@@ -155,6 +138,16 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
             }
         });
         panelRound4.add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 280, 110, -1));
+
+        txtUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUserActionPerformed(evt);
+            }
+        });
+        panelRound4.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 210, -1));
+        panelRound4.add(txtPregunta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 210, -1));
+        panelRound4.add(txtPregunta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 70, 210, -1));
+        panelRound4.add(txtPregunta3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 220, 200, -1));
 
         panelRound3.add(panelRound4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 890, 360));
 
@@ -304,10 +297,6 @@ public void EncCod(String user) {
         btnRegresar6.setBorderPainted(false);
         
     }
-    private void txtPregunta3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPregunta3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPregunta3ActionPerformed
-
     private void btnVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarActionPerformed
         // TODO add your handling code here:
         if (txtUser.getText().isEmpty()){
@@ -323,6 +312,10 @@ public void EncCod(String user) {
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEnviarActionPerformed
+
+    private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUserActionPerformed
 
     /**
      * @param args the command line arguments
@@ -370,9 +363,9 @@ public void EncCod(String user) {
     private javax.swing.JLabel jLabel9;
     private Design.PanelRound panelRound3;
     private Design.PanelRound panelRound4;
-    private Design.Textfield txtPregunta1;
-    private Design.Textfield txtPregunta2;
-    private Design.Textfield txtPregunta3;
-    private Design.Textfield txtUser;
+    private Design.TextFieldSV txtPregunta1;
+    private Design.TextFieldSV txtPregunta2;
+    private Design.TextFieldSV txtPregunta3;
+    private Design.TextFieldSV txtUser;
     // End of variables declaration//GEN-END:variables
 }

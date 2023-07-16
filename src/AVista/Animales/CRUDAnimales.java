@@ -58,19 +58,52 @@ public class CRUDAnimales extends javax.swing.JPanel {
     private void initComponents() {
 
         PCont = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        btnReservas1 = new Design.ButtonGradient();
+        btnReservas2 = new Design.ButtonGradient();
+        btnReservas3 = new Design.ButtonGradient();
+        btnEditar = new Design.ButtonGradient();
+        btnEliminar = new Design.ButtonGradient();
+        txtBusq = new Design.TextFieldSV();
+        panelRound1 = new Design.PanelRound();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbData = new SwingTable.Table();
-        txtBusq = new javax.swing.JTextField();
-        btnEditar = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
-        btnReservas1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        btnReservas2 = new javax.swing.JButton();
-        btnReservas3 = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
         PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setText("Nombre de la mascota");
+        PCont.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 60, 200, -1));
+
+        btnReservas1.setText("Emergencia");
+        PCont.add(btnReservas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 60, 140, 30));
+
+        btnReservas2.setText("Agendar Cita");
+        PCont.add(btnReservas2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 160, 140, -1));
+
+        btnReservas3.setText("Expendiente");
+        PCont.add(btnReservas3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 240, 140, -1));
+
+        btnEditar.setText("Editar");
+        PCont.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 320, 140, -1));
+
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+        PCont.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 410, 140, -1));
+        PCont.add(txtBusq, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 720, -1));
+
+        panelRound1.setBackground(new java.awt.Color(202, 233, 255));
+        panelRound1.setRoundBottomLeft(50);
+        panelRound1.setRoundBottomRight(50);
+        panelRound1.setRoundTopLeft(50);
+        panelRound1.setRoundTopRight(50);
+        panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tbData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -90,46 +123,9 @@ public class CRUDAnimales extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tbData);
 
-        PCont.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 1020, 610));
+        panelRound1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 1020, 460));
 
-        txtBusq.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtBusqKeyReleased(evt);
-            }
-        });
-        PCont.add(txtBusq, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 710, 40));
-
-        btnEditar.setText("Editar");
-        btnEditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarActionPerformed(evt);
-            }
-        });
-        PCont.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 330, 140, 50));
-
-        btnEliminar.setText("Eliminar");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
-            }
-        });
-        PCont.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 410, 140, 50));
-
-        btnReservas1.setBackground(new java.awt.Color(255, 255, 255));
-        btnReservas1.setForeground(new java.awt.Color(51, 204, 255));
-        btnReservas1.setText("Emergencia");
-        PCont.add(btnReservas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 60, 130, 50));
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setText("Nombre de la mascota");
-        PCont.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 60, 200, -1));
-
-        btnReservas2.setText("Agendar Cita");
-        PCont.add(btnReservas2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 160, 140, 50));
-
-        btnReservas3.setText("Expediente");
-        PCont.add(btnReservas3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 240, 140, 50));
+        PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 1080, 520));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -143,40 +139,28 @@ public class CRUDAnimales extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        //dsg.ShowPanel(subpU, PCont, 1320, 810);
-    }//GEN-LAST:event_btnEditarActionPerformed
+    private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
+        int fila = tbData.getSelectedRow();
+        idAnimal = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
+    }//GEN-LAST:event_tbDataMouseClicked
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         /*ct.idCliente=idCl;
         ct.deleteCl();*/
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
-        int fila = tbData.getSelectedRow();
-        idAnimal = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
-    }//GEN-LAST:event_tbDataMouseClicked
-
-    private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
-        try {
-            loadD();
-        } catch (SQLException ex) {
-            //Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println(ex.toString());
-        }
-    }//GEN-LAST:event_txtBusqKeyReleased
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
-    private javax.swing.JButton btnEditar;
-    private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnReservas1;
-    private javax.swing.JButton btnReservas2;
-    private javax.swing.JButton btnReservas3;
+    private Design.ButtonGradient btnEditar;
+    private Design.ButtonGradient btnEliminar;
+    private Design.ButtonGradient btnReservas1;
+    private Design.ButtonGradient btnReservas2;
+    private Design.ButtonGradient btnReservas3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private Design.PanelRound panelRound1;
     private SwingTable.Table tbData;
-    private javax.swing.JTextField txtBusq;
+    private Design.TextFieldSV txtBusq;
     // End of variables declaration//GEN-END:variables
 }
