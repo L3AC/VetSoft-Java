@@ -28,6 +28,7 @@ public class addMascota extends javax.swing.JPanel {
         this.idCl = idCl;
         initComponents();
         loadComboTP(cbTipoA);
+        loadComboRaza(cbRaza);
     }
 
     @SuppressWarnings("unchecked")
@@ -145,12 +146,13 @@ public class addMascota extends javax.swing.JPanel {
             String nombre = rs.getString("nombrePopular");
             cb.addItem(nombre);
             cbMap.put(idTP, nombre);
-
         }
+        cb.setSelectedIndex(0);
     }
     private void loadComboRaza(JComboBox cb) throws SQLException {
         ctRaza ct = new ctRaza();
         cbMapRa.clear();
+        cb.removeAllItems();
         ct.idTipoAnimal=dsg.getMap(cbMap, cbTipoA.getSelectedItem().toString());
         System.out.println(dsg.getMap(cbMap, cbTipoA.getSelectedItem().toString()));
         ResultSet rs = ct.loadRaza();
