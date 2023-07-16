@@ -6,6 +6,8 @@ import AControlador.ctRecep;
 import Design.Desg;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
@@ -89,6 +91,11 @@ public class CRUDAnimales extends javax.swing.JPanel {
         PCont.add(btnReservas3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 240, 140, -1));
 
         btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
         PCont.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 320, 140, -1));
 
         btnEliminar.setText("Eliminar");
@@ -170,8 +177,6 @@ public class CRUDAnimales extends javax.swing.JPanel {
         } else if (opcion == JOptionPane.NO_OPTION) {
 
         }
-        /*ct.idCliente=idCl;
-        ct.deleteCl();*/
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
@@ -182,6 +187,16 @@ public class CRUDAnimales extends javax.swing.JPanel {
             System.out.println(ex.toString());
         }
     }//GEN-LAST:event_txtBusqKeyReleased
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        
+        try {
+            updtAnimales subp = new updtAnimales(Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
+            dsg.ShowPanel(subp, PCont, 1320, 810);
+        } catch (SQLException ex) {
+            Logger.getLogger(CRUDAnimales.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnEditarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
