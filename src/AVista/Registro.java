@@ -78,7 +78,7 @@ public class Registro extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         lbCargo = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        cbCargo = new javax.swing.JComboBox<>();
+        cbCargo = new javax.swing.JComboBox<String>();
         btnRegistrar = new Design.ButtonGradient();
         lbDisp = new javax.swing.JLabel();
 
@@ -96,15 +96,22 @@ public class Registro extends javax.swing.JFrame {
         panelRound2.setRoundTopLeft(50);
         panelRound2.setRoundTopRight(50);
         panelRound2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtCorreo.setAnimationColor(new java.awt.Color(153, 204, 255));
         panelRound2.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 160, -1));
 
+        txtUsuario.setAnimationColor(new java.awt.Color(153, 204, 255));
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsuarioActionPerformed(evt);
             }
         });
         panelRound2.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 160, -1));
-        panelRound2.add(txtTeléfono, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 160, -1));
+
+        txtTeléfono.setAnimationColor(new java.awt.Color(153, 204, 255));
+        panelRound2.add(txtTeléfono, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, 160, -1));
+
+        txtContraseña.setAnimationColor(new java.awt.Color(153, 204, 255));
         panelRound2.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 160, -1));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -130,7 +137,7 @@ public class Registro extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Teléfono");
-        panelRound2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 120, -1, -1));
+        panelRound2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, -1, -1));
 
         cbCargo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,8 +147,8 @@ public class Registro extends javax.swing.JFrame {
         panelRound2.add(cbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 120, 110, -1));
 
         btnRegistrar.setText("Registrar");
-        btnRegistrar.setColor1(new java.awt.Color(102, 153, 255));
-        btnRegistrar.setColor2(new java.awt.Color(102, 153, 255));
+        btnRegistrar.setColor1(new java.awt.Color(255, 255, 255));
+        btnRegistrar.setColor2(new java.awt.Color(204, 255, 255));
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarActionPerformed(evt);
@@ -160,11 +167,11 @@ public class Registro extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
+            .addComponent(panelRound1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 651, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelRound1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
         );
 
         pack();

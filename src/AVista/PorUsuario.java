@@ -86,14 +86,14 @@ public class PorUsuario extends javax.swing.JFrame {
         lbMayor.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         lbMayor.setText("Recuperación de contraseña por usuario");
 
-        panelRound1.setBackground(new java.awt.Color(190, 233, 232));
+        panelRound1.setBackground(new java.awt.Color(202, 233, 255));
         panelRound1.setRoundBottomLeft(50);
         panelRound1.setRoundBottomRight(50);
         panelRound1.setRoundTopLeft(50);
         panelRound1.setRoundTopRight(50);
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lbCod.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        lbCod.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbCod.setForeground(new java.awt.Color(0, 0, 0));
         lbCod.setText("Confirmar Contraseña");
         panelRound1.add(lbCod, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 140, -1, 30));
@@ -109,22 +109,26 @@ public class PorUsuario extends javax.swing.JFrame {
         });
         panelRound1.add(btnVeri, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 110, 30));
 
-        lbUs1.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        lbUs1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbUs1.setForeground(new java.awt.Color(0, 0, 0));
         lbUs1.setText("Ingrese su nueva Contraseña");
         panelRound1.add(lbUs1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, -1, 30));
 
-        lbUs2.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        lbUs2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbUs2.setForeground(new java.awt.Color(0, 0, 0));
         lbUs2.setText("Ingrese su Usuario");
         panelRound1.add(lbUs2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, 30));
+
+        txtUser.setAnimationColor(new java.awt.Color(153, 204, 255));
+        txtUser.setAutoscrolls(false);
         panelRound1.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 160, -1));
 
-        lbCod1.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        lbCod1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbCod1.setForeground(new java.awt.Color(0, 0, 0));
         lbCod1.setText("Ingrese su código de verificación");
         panelRound1.add(lbCod1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, 30));
 
+        txtCod.setAnimationColor(new java.awt.Color(153, 204, 255));
         txtCod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCodActionPerformed(evt);
@@ -142,6 +146,8 @@ public class PorUsuario extends javax.swing.JFrame {
             }
         });
         panelRound1.add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 110, 30));
+
+        txtNueva2.setAnimationColor(new java.awt.Color(153, 204, 255));
         panelRound1.add(txtNueva2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 190, 170, 40));
 
         btnCambiar.setText("Cambiar Contraseña");
@@ -152,7 +158,9 @@ public class PorUsuario extends javax.swing.JFrame {
                 btnCambiarActionPerformed(evt);
             }
         });
-        panelRound1.add(btnCambiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 260, 170, 40));
+        panelRound1.add(btnCambiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 170, 30));
+
+        txtNueva.setAnimationColor(new java.awt.Color(153, 204, 255));
         panelRound1.add(txtNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 70, 180, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -160,13 +168,16 @@ public class PorUsuario extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(BtnRegresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(lbMayor)
-                    .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 734, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(BtnRegresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbMayor))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 734, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,10 +188,10 @@ public class PorUsuario extends javax.swing.JFrame {
                         .addComponent(BtnRegresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(28, 28, 28)
-                        .addComponent(lbMayor)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(21, Short.MAX_VALUE))
+                        .addComponent(lbMayor)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
