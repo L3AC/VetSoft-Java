@@ -184,9 +184,13 @@ public class CRUDCliente extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddMActionPerformed
-       /* addMascota subp = new addMascota(nUs,
-        Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
-        dsg.ShowPanel(subp, PCont, 1320, 810);*/
+        try {
+            addMascota subp = new addMascota(nUs,
+                    Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
+            dsg.ShowPanel(subp, PCont, 1320, 810);
+        } catch (SQLException ex) {
+            Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnAddMActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed

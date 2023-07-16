@@ -6,6 +6,8 @@ import AControlador.ctRecep;
 import Design.Desg;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
 public class CRUDAnimales extends javax.swing.JPanel {
@@ -96,6 +98,12 @@ public class CRUDAnimales extends javax.swing.JPanel {
             }
         });
         PCont.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 410, 140, -1));
+
+        txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBusqKeyReleased(evt);
+            }
+        });
         PCont.add(txtBusq, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 720, -1));
 
         panelRound1.setBackground(new java.awt.Color(202, 233, 255));
@@ -140,14 +148,40 @@ public class CRUDAnimales extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
-        int fila = tbData.getSelectedRow();
-        idAnimal = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
+        idAnimal = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
+        int opcion = JOptionPane.showOptionDialog(
+                null,
+                "¿Desea eliminar el registro?",
+                "Advertencia",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.WARNING_MESSAGE,
+                null,
+                new Object[]{"Sí", "No"},
+                "No");
+
+        if (opcion == JOptionPane.YES_OPTION) {
+            ctAnimales ct=new ctAnimales();
+            ct.idAnimal = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+            ct.deleteAnim();
+        } else if (opcion == JOptionPane.NO_OPTION) {
+
+        }
         /*ct.idCliente=idCl;
         ct.deleteCl();*/
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
+        try {
+            loadD();
+        } catch (SQLException ex) {
+            //Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.toString());
+        }
+    }//GEN-LAST:event_txtBusqKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
