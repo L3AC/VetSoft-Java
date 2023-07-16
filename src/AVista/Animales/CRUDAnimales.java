@@ -205,6 +205,11 @@ public class CRUDAnimales extends javax.swing.JPanel {
             ctAnimales ct=new ctAnimales();
             ct.idAnimal = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
             ct.deleteAnim();
+            try {
+                loadD();
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDAnimales.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } else if (opcion == JOptionPane.NO_OPTION) {
 
         }

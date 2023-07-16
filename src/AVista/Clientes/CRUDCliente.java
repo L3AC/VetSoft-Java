@@ -219,6 +219,11 @@ public class CRUDCliente extends javax.swing.JPanel {
         if (opcion == JOptionPane.YES_OPTION) {
             ct.idCliente = idCl;
             ct.deleteCl();
+            try {
+                loadD();
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } else if (opcion == JOptionPane.NO_OPTION) {
 
         }
