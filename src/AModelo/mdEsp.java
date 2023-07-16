@@ -30,10 +30,11 @@ public class mdEsp {
         }
     }
     
-    public ResultSet selectEsp() {
-        String query = "select * from tbEspecialidades where idEspecialidad=?;";
+    public ResultSet selectEsp(String Esp) {
+        String query = "select * from tbEspecialidades where especialidad like ?;";
         try {
             ps = con.prepareStatement(query);
+             ps.setString(1,    "%"+Esp+"%");
             rs = ps.executeQuery();
             return rs;
 

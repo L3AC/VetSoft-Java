@@ -47,7 +47,8 @@ public class CRUDEsp extends javax.swing.JPanel {
             ct.esp = txtBusq.getText().toString();
             ResultSet rs = ct.selectEsp();
             while (rs.next()) {
-                Object[] oValores = {rs.getInt("idEspecialidad"), rs.getString("Especialidad")};
+                Object[] oValores = {rs.getInt("idEspecialidad"), rs.getString(
+                        "Especialidad")};
                  
                 model.addRow(oValores);
             }

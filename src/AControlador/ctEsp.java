@@ -30,7 +30,7 @@ public class ctEsp {
     mdEsp md = new mdEsp();
     
     public ResultSet selectEsp(){
-        return md.selectEsp();
+        return md.selectEsp(esp);
     }
      public boolean insertEsp() {
         return md.insertEsp(idEsp, esp);
