@@ -130,7 +130,7 @@ public class Login extends javax.swing.JFrame {
         Titulo.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
         Titulo.setForeground(new java.awt.Color(27, 73, 101));
         Titulo.setText("Bienvenido de vuelta");
-        panelRound1.add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, -1, -1));
+        panelRound1.add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, -1, -1));
 
         VetSoft.setText("VetSoft+");
         panelRound1.add(VetSoft, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 80, 60, -1));
