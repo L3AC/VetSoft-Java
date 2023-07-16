@@ -57,15 +57,14 @@ public class Registro extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        lbCargo = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        cbCargo = new javax.swing.JComboBox<>();
         btnRegistrar = new Design.ButtonGradient();
         lbDisp = new javax.swing.JLabel();
         txtTeléfono = new Design.TextFieldSV();
         txtUsuario = new Design.TextFieldSV();
         txtCorreo = new Design.TextFieldSV();
         passwordField1 = new Design.PasswordField();
+        cbCargo = new Design.Combobox();
         Titulo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -86,34 +85,22 @@ public class Registro extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Usuario");
-        panelRound2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 70, -1));
+        panelRound2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 70, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Correo electrónico");
-        panelRound2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 150, -1));
+        panelRound2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 150, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Contraseña");
-        panelRound2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, -1, -1));
-
-        lbCargo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lbCargo.setForeground(new java.awt.Color(0, 0, 0));
-        lbCargo.setText("Nivel de Usuario");
-        panelRound2.add(lbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 90, 130, -1));
+        panelRound2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Teléfono");
-        panelRound2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 70, -1));
-
-        cbCargo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbCargoActionPerformed(evt);
-            }
-        });
-        panelRound2.add(cbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 120, 110, -1));
+        panelRound2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, 70, -1));
 
         btnRegistrar.setText("Registrar");
         btnRegistrar.setColor1(new java.awt.Color(255, 255, 255));
@@ -128,10 +115,10 @@ public class Registro extends javax.swing.JFrame {
         lbDisp.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbDisp.setForeground(new java.awt.Color(0, 0, 0));
         lbDisp.setText("Usuario no disponible");
-        panelRound2.add(lbDisp, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 80, 140, -1));
+        panelRound2.add(lbDisp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 140, -1));
 
         txtTeléfono.setShadowColor(new java.awt.Color(153, 0, 153));
-        panelRound2.add(txtTeléfono, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 180, -1));
+        panelRound2.add(txtTeléfono, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, 180, -1));
 
         txtUsuario.setShadowColor(new java.awt.Color(153, 0, 153));
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -139,7 +126,7 @@ public class Registro extends javax.swing.JFrame {
                 txtUsuarioActionPerformed(evt);
             }
         });
-        panelRound2.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 210, -1));
+        panelRound2.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 210, -1));
 
         txtCorreo.setShadowColor(new java.awt.Color(153, 0, 153));
         txtCorreo.addActionListener(new java.awt.event.ActionListener() {
@@ -147,10 +134,18 @@ public class Registro extends javax.swing.JFrame {
                 txtCorreoActionPerformed(evt);
             }
         });
-        panelRound2.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 210, -1));
+        panelRound2.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 210, -1));
 
         passwordField1.setShadowColor(new java.awt.Color(153, 0, 153));
-        panelRound2.add(passwordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, 180, -1));
+        panelRound2.add(passwordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 180, -1));
+
+        cbCargo.setLabeText("Nivel de Usuario");
+        cbCargo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbCargoActionPerformed(evt);
+            }
+        });
+        panelRound2.add(cbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 102, 160, 40));
 
         panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 680, 270));
 
@@ -194,11 +189,6 @@ public class Registro extends javax.swing.JFrame {
         ctUs.insertUs();
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
-    private void cbCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCargoActionPerformed
-        tpUs = dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
-        System.out.println("ID seleccionado: " + tpUs);
-    }//GEN-LAST:event_cbCargoActionPerformed
-
     private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCorreoActionPerformed
@@ -221,6 +211,13 @@ public class Registro extends javax.swing.JFrame {
             Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_txtUsuarioActionPerformed
+
+    private void cbCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCargoActionPerformed
+        // TODO add your handling code here:
+        
+        tpUs = dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
+        System.out.println("ID seleccionado: " + tpUs);
+    }//GEN-LAST:event_cbCargoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -264,12 +261,11 @@ public class Registro extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Titulo;
     private Design.ButtonGradient btnRegistrar;
-    private javax.swing.JComboBox<String> cbCargo;
+    private Design.Combobox cbCargo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel lbCargo;
     private javax.swing.JLabel lbDisp;
     private Design.PanelRound panelRound1;
     private Design.PanelRound panelRound2;
