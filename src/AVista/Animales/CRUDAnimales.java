@@ -115,8 +115,10 @@ public class CRUDAnimales extends javax.swing.JPanel {
         });
         PCont.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 410, 140, 50));
 
+        btnReservas1.setBackground(new java.awt.Color(255, 255, 255));
+        btnReservas1.setForeground(new java.awt.Color(51, 204, 255));
         btnReservas1.setText("Emergencia");
-        PCont.add(btnReservas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 30, 130, 50));
+        PCont.add(btnReservas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 60, 130, 50));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Nombre de la mascota");
