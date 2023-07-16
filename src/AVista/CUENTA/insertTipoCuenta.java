@@ -135,6 +135,12 @@ public class insertTipoCuenta extends javax.swing.JPanel {
 
         cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femenino", "Masculino" }));
 
+        cbEsp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbEspActionPerformed(evt);
+            }
+        });
+
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -290,6 +296,10 @@ public class insertTipoCuenta extends javax.swing.JPanel {
             ct.insertDoc();
         }
     }//GEN-LAST:event_btnConfirmActionPerformed
+
+    private void cbEspActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEspActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbEspActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

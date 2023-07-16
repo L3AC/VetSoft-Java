@@ -40,8 +40,7 @@ public class CRUDCliente extends javax.swing.JPanel {
         CargarTabla();
         if (tbData.getRowCount() > 0) {
             tbData.setRowSelectionInterval(0, 0);
-            int fila = tbData.getSelectedRow();
-            idCl = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
+            idCl = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
         }
     }
 
@@ -185,7 +184,8 @@ public class CRUDCliente extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddMActionPerformed
-        addMascota subp = new addMascota();
+        addMascota subp = new addMascota(nUs,
+        Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
         dsg.ShowPanel(subp, PCont, 1320, 810);
     }//GEN-LAST:event_btnAddMActionPerformed
 
