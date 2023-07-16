@@ -32,30 +32,28 @@ public class Registro extends javax.swing.JFrame {
     /**
      * Creates new form Registro
      */
-    public Registro() {
+   /* public Registro(int idTipoUs) throws SQLException{
+    this.idTipoUs=idTipoUs;
     initComponents();
-    }
-    
-    public Registro(int idTipoUs) throws SQLException {
-        this.idTipoUs=idTipoUs;
-        initComponents();
-        loadCombo(cbCargo);
+     loadCombo(cbCargo);
         lbDisp.setVisible(false);
         cbCargo.setSelectedIndex(0);
         if(idTipoUs==2){
             lbCargo.setVisible(false);
             cbCargo.setVisible(false);
         }
-        
     }
+
+
+    
+    
     private void loadCombo(JComboBox cb) throws SQLException{
         ResultSet rs=ctTP.selectTP();
         while (rs.next()) {
                 int idTP=rs.getInt("idTipoUsuario");
                 String nombre=rs.getString("nivel");
                 cb.addItem(nombre);
-                cbMap.put(idTP, nombre);
-                
+                cbMap.put(idTP, nombre);      
             }
     }
     /**
@@ -78,7 +76,7 @@ public class Registro extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         lbCargo = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        cbCargo = new javax.swing.JComboBox<String>();
+        cbCargo = new javax.swing.JComboBox<>();
         btnRegistrar = new Design.ButtonGradient();
         lbDisp = new javax.swing.JLabel();
 
@@ -179,16 +177,30 @@ public class Registro extends javax.swing.JFrame {
 
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
         // TODO add your handling code here:
+        ctUser ctUs=new ctUser();
+        ctUs.usuario=txtUsuario.getText().toString();
+        try {
+            if(ctUs.verifUs().next()){
+                lbDisp.setVisible(true);
+                btnRegistrar.setEnabled(false);
+            }
+            else{
+                lbDisp.setVisible(false);
+                btnRegistrar.setEnabled(true);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
     private void cbCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCargoActionPerformed
-        /*tpUs = dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
-        System.out.println("ID seleccionado: " + tpUs);*/
+        tpUs = dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
+        System.out.println("ID seleccionado: " + tpUs);
     }//GEN-LAST:event_cbCargoActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
-        ctUser ctUs=new ctUser();
+         ctUser ctUs=new ctUser();
         if(idTipoUs==1){
            ctUs.idTipoCuenta=dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
         }
@@ -205,7 +217,6 @@ public class Registro extends javax.swing.JFrame {
         ctUs.correo=txtCorreo.getText();
         ctUs.telefono=txtTeléfono.getText();
         ctUs.insertUs();
-        
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     /**
