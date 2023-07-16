@@ -4,11 +4,13 @@
  */
 package AVista.Animales;
 
+import AControlador.ctAnimales;
 import AControlador.ctEsp;
 import AControlador.ctRaza;
 import Design.Desg;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
@@ -47,9 +49,9 @@ public class addMascota extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         dpNaci = new com.toedter.calendar.JDateChooser();
         jLabel3 = new javax.swing.JLabel();
-        txtApellidos = new javax.swing.JTextField();
+        txtPeso = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        txtDir = new javax.swing.JTextField();
+        txtPad = new javax.swing.JTextField();
         btnConfirm = new javax.swing.JButton();
         cbSexo = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
@@ -101,15 +103,15 @@ public class addMascota extends javax.swing.JPanel {
         jLabel3.setText("Padecimientos");
         PCont.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 430, 150, 30));
 
-        txtApellidos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        PCont.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 350, 270, 50));
+        txtPeso.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        PCont.add(txtPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 350, 270, 50));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Peso");
         PCont.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 310, 100, 30));
 
-        txtDir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        PCont.add(txtDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 470, 360, 50));
+        txtPad.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        PCont.add(txtPad, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 470, 360, 50));
 
         btnConfirm.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnConfirm.setText("Confirmar");
@@ -149,12 +151,12 @@ public class addMascota extends javax.swing.JPanel {
         }
         cb.setSelectedIndex(0);
     }
+
     private void loadComboRaza(JComboBox cb) throws SQLException {
         ctRaza ct = new ctRaza();
         cbMapRa.clear();
         cb.removeAllItems();
-        ct.idTipoAnimal=dsg.getMap(cbMap, cbTipoA.getSelectedItem().toString());
-        System.out.println(dsg.getMap(cbMap, cbTipoA.getSelectedItem().toString()));
+        ct.idTipoAnimal = dsg.getMap(cbMap, cbTipoA.getSelectedItem().toString());
         ResultSet rs = ct.loadRaza();
         while (rs.next()) {
             int idTP = rs.getInt("idRaza");
@@ -165,7 +167,7 @@ public class addMascota extends javax.swing.JPanel {
     }
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         try {
-            CRUDAnimales subp=new CRUDAnimales(idTipoUs);
+            CRUDAnimales subp = new CRUDAnimales(idTipoUs);
             dsg.ShowPanel(subp, PCont, 1320, 810);
         } catch (SQLException ex) {
             Logger.getLogger(addMascota.class.getName()).log(Level.SEVERE, null, ex);
@@ -174,40 +176,16 @@ public class addMascota extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
-        /*SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
-        if (nivelRow == 2) {
-            ctRecep ct = new ctRecep();
-            ct.idUsuario = idUs;
-            ct.nombre = txtNombre.getText();
-            ct.apellido = txtApellidos.getText();
-            ct.dui = txtDui.getText();
-            ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
-            System.out.println(dt.format(dpNaci.getCalendar().getTime()));
-            ct.sexo = cbSexo.getSelectedItem().toString();
-            ct.insertRe();
-        }
-        if (nivelRow == 3) {
-            ctCliente ct = new ctCliente();
-            ct.idUsuario = idUs;
-            ct.nombre = txtNombre.getText();
-            ct.apellido = txtApellidos.getText();
-            ct.dui = txtDui.getText();
-            ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
-            ct.sexo = cbSexo.getSelectedItem().toString();
-            ct.direccion = txtDir.getText();
-            ct.insertCl();
-        }
-        if (nivelRow == 4) {
-            ctDoctores ct = new ctDoctores();
-            ct.idUsuario = idUs;
-            ct.idEsp = dsg.getMap(cbMap, cbEsp.getSelectedItem().toString());
-            ct.nombre = txtNombre.getText();
-            ct.apellido = txtApellidos.getText();
-            ct.dui = txtDui.getText();
-            ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
-            ct.sexo = cbSexo.getSelectedItem().toString();
-            ct.insertDoc();
-        }*/
+        SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+        ctAnimales ct = new ctAnimales();
+        ct.idRaza=dsg.getMap(cbMapRa, cbRaza.getSelectedItem().toString());
+        ct.idCliente=idCl;
+        ct.nombre=txtNombre.getText();
+        ct.peso=txtPeso.getText();
+        ct.edad=dt.format(dpNaci.getCalendar().getTime());
+        ct.padecimientos=txtPad.getText();
+        ct.sexo=cbSexo.getSelectedItem().toString();
+        ct.insertAnim();
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     private void cbTipoAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTipoAActionPerformed
@@ -235,8 +213,8 @@ public class addMascota extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lbEsp;
     private javax.swing.JLabel lbEsp1;
-    private javax.swing.JTextField txtApellidos;
-    private javax.swing.JTextField txtDir;
     private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtPad;
+    private javax.swing.JTextField txtPeso;
     // End of variables declaration//GEN-END:variables
 }
