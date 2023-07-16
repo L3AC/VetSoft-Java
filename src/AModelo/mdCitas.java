@@ -2,6 +2,7 @@
 package AModelo;
 import java.sql.*;
 import javax.swing.JOptionPane;
+
 public class mdCitas {
     Connection con = Conx.Conectar();
     ResultSet rs;
