@@ -67,60 +67,26 @@ public class updtUsuario extends javax.swing.JPanel {
 
         PCont = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        txtUsuario = new javax.swing.JTextField();
-        lbDisp = new javax.swing.JLabel();
-        txtCorreo = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
+        buttonGradient1 = new Design.ButtonGradient();
+        panelRound1 = new Design.PanelRound();
         cbCargo = new javax.swing.JComboBox<>();
         lbCargo = new javax.swing.JLabel();
-        btnConfirm = new javax.swing.JButton();
-        btnBack = new javax.swing.JButton();
-        txtTel = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        txtUsuario = new Design.Textfield();
+        lbDisp = new javax.swing.JLabel();
+        txtCorreo = new Design.Textfield();
+        txtTel = new Design.Textfield();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
+        PCont.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(27, 73, 101));
         jLabel2.setText("ACTUALIZAR USUARIO");
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel9.setText("Usuario");
-
-        txtUsuario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtUsuarioKeyReleased(evt);
-            }
-        });
-
-        lbDisp.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lbDisp.setText("Usuario no disponible");
-
-        txtCorreo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel8.setText("Correo electrónico");
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel6.setText("Teléfono");
-
-        cbCargo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbCargoActionPerformed(evt);
-            }
-        });
-
-        lbCargo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lbCargo.setText("Nivel de cargo");
-
-        btnConfirm.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnConfirm.setText("Confirmar");
-        btnConfirm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConfirmActionPerformed(evt);
-            }
-        });
 
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
         btnBack.setBorder(null);
@@ -130,77 +96,94 @@ public class updtUsuario extends javax.swing.JPanel {
             }
         });
 
-        txtTel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtTel.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtTelKeyTyped(evt);
+        buttonGradient1.setText("Confirmar");
+        buttonGradient1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonGradient1ActionPerformed(evt);
             }
         });
+
+        panelRound1.setBackground(new java.awt.Color(202, 233, 255));
+        panelRound1.setRoundBottomLeft(50);
+        panelRound1.setRoundBottomRight(50);
+        panelRound1.setRoundTopLeft(50);
+        panelRound1.setRoundTopRight(50);
+        panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        cbCargo.setBackground(new java.awt.Color(255, 255, 255));
+        cbCargo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbCargoActionPerformed(evt);
+            }
+        });
+        panelRound1.add(cbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, 160, 40));
+
+        lbCargo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbCargo.setForeground(new java.awt.Color(0, 0, 0));
+        lbCargo.setText("Nivel de cargo");
+        panelRound1.add(lbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, 130, 30));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel8.setText("Correo electrónico");
+        panelRound1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 30, -1, 30));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("Teléfono");
+        panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 80, 30));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setText("Usuario");
+        panelRound1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 70, 30));
+
+        txtUsuario.setAnimationColor(new java.awt.Color(153, 204, 255));
+        panelRound1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 213, -1));
+
+        lbDisp.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbDisp.setForeground(new java.awt.Color(0, 0, 0));
+        lbDisp.setText("Usuario no disponible");
+        panelRound1.add(lbDisp, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 190, 30));
+
+        txtCorreo.setAnimationColor(new java.awt.Color(153, 204, 255));
+        txtCorreo.setAutoscrolls(false);
+        panelRound1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, 245, -1));
+
+        txtTel.setAnimationColor(new java.awt.Color(153, 204, 255));
+        panelRound1.add(txtTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 215, -1));
 
         javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
         PCont.setLayout(PContLayout);
         PContLayout.setHorizontalGroup(
             PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PContLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(370, 370, 370)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(460, 460, 460)
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(260, 260, 260)
-                .addComponent(jLabel8))
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(360, 360, 360)
-                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(100, 100, 100)
-                .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(600, 600, 600)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(500, 500, 500)
-                .addComponent(txtTel, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(480, 480, 480)
-                .addComponent(lbCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(cbCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(570, 570, 570)
-                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(399, 399, 399)
-                .addComponent(lbDisp, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(334, 334, 334)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(257, 257, 257)
+                        .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 825, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(532, 532, 532)
+                        .addComponent(buttonGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(238, Short.MAX_VALUE))
         );
         PContLayout.setVerticalGroup(
             PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PContLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addGap(31, 31, 31)
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(70, 70, 70)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbDisp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(txtTel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(75, 75, 75)
+                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
+                .addComponent(buttonGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(75, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -220,10 +203,6 @@ public class updtUsuario extends javax.swing.JPanel {
         System.out.println("ID seleccionado: " + tpUs);*/
     }//GEN-LAST:event_cbCargoActionPerformed
 
-    private void txtTelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelKeyTyped
-
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         try {
             CRUDusuarios subp = new CRUDusuarios(idTipoUs);
@@ -234,24 +213,8 @@ public class updtUsuario extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void txtUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyReleased
-        ctUser ctUs=new ctUser();
-        ctUs.usuario=txtUsuario.getText().toString();
-        try {
-            if(ctUs.verifUs().next()){
-                lbDisp.setVisible(true);
-                btnConfirm.setEnabled(false);
-            }
-            else{
-                lbDisp.setVisible(false);
-                btnConfirm.setEnabled(true);
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_txtUsuarioKeyReleased
+    private void buttonGradient1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGradient1ActionPerformed
 
-    private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         ctUser ctUs=new ctUser();
         if(idTipoUs==1){
             ctUs.idTipoCuenta=dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
@@ -264,14 +227,13 @@ public class updtUsuario extends javax.swing.JPanel {
         ctUs.telefono=txtTel.getText();
         ctUs.idUs=idUs;
         ctUs.updtUs();
-        
-    }//GEN-LAST:event_btnConfirmActionPerformed
+    }//GEN-LAST:event_buttonGradient1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnConfirm;
+    private Design.ButtonGradient buttonGradient1;
     private javax.swing.JComboBox<String> cbCargo;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
@@ -279,8 +241,9 @@ public class updtUsuario extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lbCargo;
     private javax.swing.JLabel lbDisp;
-    private javax.swing.JTextField txtCorreo;
-    private javax.swing.JTextField txtTel;
-    private javax.swing.JTextField txtUsuario;
+    private Design.PanelRound panelRound1;
+    private Design.Textfield txtCorreo;
+    private Design.Textfield txtTel;
+    private Design.Textfield txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

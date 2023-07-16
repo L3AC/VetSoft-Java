@@ -69,28 +69,14 @@ public class CRUDAsistente extends javax.swing.JPanel {
     private void initComponents() {
 
         PCont = new javax.swing.JPanel();
-        btnEliminar = new javax.swing.JButton();
-        btnEditar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbData = new SwingTable.Table();
         txtBusq = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        btnEditar = new Design.ButtonGradient();
+        btnEliminar = new Design.ButtonGradient();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
-
-        btnEliminar.setText("Eliminar");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
-            }
-        });
-
-        btnEditar.setText("Editar");
-        btnEditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarActionPerformed(evt);
-            }
-        });
 
         tbData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -120,6 +106,20 @@ public class CRUDAsistente extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Nombre del asistente");
 
+        btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
         PCont.setLayout(PContLayout);
         PContLayout.setHorizontalGroup(
@@ -135,8 +135,9 @@ public class CRUDAsistente extends javax.swing.JPanel {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1020, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40)
                         .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE))))
+                .addGap(41, 41, 41))
         );
         PContLayout.setVerticalGroup(
             PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,10 +150,12 @@ public class CRUDAsistente extends javax.swing.JPanel {
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(51, 51, 51)
+                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(420, 420, 420)))
+                .addGap(75, 75, 75))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -166,6 +169,29 @@ public class CRUDAsistente extends javax.swing.JPanel {
             .addComponent(PCont, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
+        idAsis = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+    }//GEN-LAST:event_tbDataMouseClicked
+
+    private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
+        try {
+            loadD();
+        } catch (SQLException ex) {
+            //Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.toString());
+        }
+    }//GEN-LAST:event_txtBusqKeyReleased
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        UPDTAsistente subp;
+        try {
+            subp = new UPDTAsistente(idTipoUs, Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
+            dsg.ShowPanel(subp, PCont, 1320, 810);
+        } catch (SQLException ex) {
+            Logger.getLogger(CRUDAsistente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
@@ -193,35 +219,11 @@ public class CRUDAsistente extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        UPDTAsistente subp;
-        try {
-            subp = new UPDTAsistente(idTipoUs, Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
-            dsg.ShowPanel(subp, PCont, 1320, 810);
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDAsistente.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }//GEN-LAST:event_btnEditarActionPerformed
-
-    private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
-        idAsis = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-    }//GEN-LAST:event_tbDataMouseClicked
-
-    private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
-        try {
-            loadD();
-        } catch (SQLException ex) {
-            //Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println(ex.toString());
-        }
-    }//GEN-LAST:event_txtBusqKeyReleased
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
-    private javax.swing.JButton btnEditar;
-    private javax.swing.JButton btnEliminar;
+    private Design.ButtonGradient btnEditar;
+    private Design.ButtonGradient btnEliminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private SwingTable.Table tbData;

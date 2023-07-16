@@ -142,6 +142,11 @@
               </Constraints>
             </Component>
             <Component class="Design.Textfield" name="txtUsuario">
+              <Properties>
+                <Property name="animationColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="cc" red="99" type="rgb"/>
+                </Property>
+              </Properties>
               <Events>
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtUsuarioKeyReleased"/>
               </Events>
@@ -168,6 +173,11 @@
               </Constraints>
             </Component>
             <Component class="Design.Textfield" name="txtCorreo">
+              <Properties>
+                <Property name="animationColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="cc" red="99" type="rgb"/>
+                </Property>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="40" y="230" width="242" height="-1"/>
@@ -191,6 +201,11 @@
               </Constraints>
             </Component>
             <Component class="Design.Textfield" name="txtTel">
+              <Properties>
+                <Property name="animationColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="cc" red="99" type="rgb"/>
+                </Property>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="580" y="230" width="244" height="-1"/>
@@ -230,6 +245,11 @@
               </Constraints>
             </Component>
             <Component class="Design.Textfield" name="txtContra">
+              <Properties>
+                <Property name="animationColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="cc" red="99" type="rgb"/>
+                </Property>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="580" y="100" width="245" height="-1"/>

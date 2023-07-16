@@ -102,6 +102,7 @@ public class insertUs extends javax.swing.JPanel {
         jLabel9.setText("Usuario");
         panelRound1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 70, 30));
 
+        txtUsuario.setAnimationColor(new java.awt.Color(153, 204, 255));
         txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtUsuarioKeyReleased(evt);
@@ -113,12 +114,16 @@ public class insertUs extends javax.swing.JPanel {
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Correo electrónico");
         panelRound1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, -1, 30));
+
+        txtCorreo.setAnimationColor(new java.awt.Color(153, 204, 255));
         panelRound1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 242, -1));
 
         lbCargo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbCargo.setForeground(new java.awt.Color(0, 0, 0));
         lbCargo.setText("Nivel de cargo");
         panelRound1.add(lbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, 130, 30));
+
+        txtTel.setAnimationColor(new java.awt.Color(153, 204, 255));
         panelRound1.add(txtTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 230, 244, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -130,6 +135,8 @@ public class insertUs extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Contraseña");
         panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 30, 100, 30));
+
+        txtContra.setAnimationColor(new java.awt.Color(153, 204, 255));
         panelRound1.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 100, 245, -1));
 
         cbCargo.setBackground(new java.awt.Color(255, 255, 255));
