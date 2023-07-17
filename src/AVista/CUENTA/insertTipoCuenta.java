@@ -109,6 +109,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         lbEsp.setForeground(new java.awt.Color(0, 0, 0));
         lbEsp.setText("Especialidad");
 
+        cbEsp.setBackground(new java.awt.Color(255, 255, 255));
         cbEsp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbEspActionPerformed(evt);
@@ -173,6 +174,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         jLabel6.setText("Sexo");
         panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 100, 30));
 
+        cbSexo.setBackground(new java.awt.Color(255, 255, 255));
         cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femenino", "Masculino" }));
         panelRound1.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 200, 40));
 

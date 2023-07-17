@@ -67,24 +67,38 @@ public class CRUDCliente extends javax.swing.JPanel {
     private void initComponents() {
 
         PCont = new javax.swing.JPanel();
-        txtBusq = new javax.swing.JTextField();
-        btnAddM = new javax.swing.JButton();
-        btnReservas = new javax.swing.JButton();
-        btnEditar = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbData = new SwingTable.Table();
         jLabel1 = new javax.swing.JLabel();
+        txtBusq = new Design.TextFieldSV();
+        btnAddM = new Design.ButtonGradient();
+        btnReservas = new Design.ButtonGradient();
+        btnEditar = new Design.ButtonGradient();
+        btnEliminar = new Design.ButtonGradient();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
         setVerifyInputWhenFocusTarget(false);
 
-        txtBusq.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtBusqKeyReleased(evt);
+        tbData.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "idCliente", "Nombre", "Edad", "Sexo"
+            }
+        ));
+        tbData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbDataMouseClicked(evt);
             }
         });
+        jScrollPane1.setViewportView(tbData);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setText("Nombre del cliente");
 
         btnAddM.setText("Agregar mascota");
         btnAddM.addActionListener(new java.awt.event.ActionListener() {
@@ -109,27 +123,6 @@ public class CRUDCliente extends javax.swing.JPanel {
             }
         });
 
-        tbData.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "idCliente", "Nombre", "Edad", "Sexo"
-            }
-        ));
-        tbData.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbDataMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(tbData);
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setText("Nombre del cliente");
-
         javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
         PCont.setLayout(PContLayout);
         PContLayout.setHorizontalGroup(
@@ -137,38 +130,42 @@ public class CRUDCliente extends javax.swing.JPanel {
             .addGroup(PContLayout.createSequentialGroup()
                 .addGap(70, 70, 70)
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1020, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PContLayout.createSequentialGroup()
-                        .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1020, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAddM, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 718, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(40, 40, 40)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnAddM, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                    .addComponent(btnReservas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         PContLayout.setVerticalGroup(
             PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PContLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(btnAddM, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50)
+                        .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(PContLayout.createSequentialGroup()
+                                .addGap(5, 5, 5)
+                                .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(144, 144, 144)
+                        .addComponent(btnAddM, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40)
-                        .addComponent(btnReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(btnReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45)
+                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(58, 58, 58)
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(75, 75, 75))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -182,6 +179,11 @@ public class CRUDCliente extends javax.swing.JPanel {
             .addComponent(PCont, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
+        int fila = tbData.getSelectedRow();
+        idCl = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
+    }//GEN-LAST:event_tbDataMouseClicked
 
     private void btnAddMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddMActionPerformed
         try {
@@ -201,7 +203,6 @@ public class CRUDCliente extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -227,33 +228,18 @@ public class CRUDCliente extends javax.swing.JPanel {
         } else if (opcion == JOptionPane.NO_OPTION) {
 
         }
-
     }//GEN-LAST:event_btnEliminarActionPerformed
-
-    private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
-        int fila = tbData.getSelectedRow();
-        idCl = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
-    }//GEN-LAST:event_tbDataMouseClicked
-
-    private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
-        try {
-            loadD();
-        } catch (SQLException ex) {
-            //Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println(ex.toString());
-        }
-    }//GEN-LAST:event_txtBusqKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
-    private javax.swing.JButton btnAddM;
-    private javax.swing.JButton btnEditar;
-    private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnReservas;
+    private Design.ButtonGradient btnAddM;
+    private Design.ButtonGradient btnEditar;
+    private Design.ButtonGradient btnEliminar;
+    private Design.ButtonGradient btnReservas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private SwingTable.Table tbData;
-    private javax.swing.JTextField txtBusq;
+    private Design.TextFieldSV txtBusq;
     // End of variables declaration//GEN-END:variables
 }

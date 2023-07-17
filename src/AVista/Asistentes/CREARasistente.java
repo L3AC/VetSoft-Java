@@ -125,6 +125,7 @@ public class CREARasistente extends javax.swing.JPanel {
         lbSexo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbSexo.setText("Sexo");
 
+        cbSexo.setBackground(new java.awt.Color(255, 255, 255));
         cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femenino", "Masculino" }));
 
         lbVerif.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N

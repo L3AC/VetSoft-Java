@@ -109,6 +109,8 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         lbEsp.setForeground(new java.awt.Color(0, 0, 0));
         lbEsp.setText("Especialidad");
 
+        cbEsp.setBackground(new java.awt.Color(255, 255, 255));
+
         btnConfirm.setText("Confirmar");
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,6 +154,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         jLabel6.setText("Sexo");
         panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 100, 30));
 
+        cbSexo.setBackground(new java.awt.Color(255, 255, 255));
         cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femenino", "Masculino" }));
         panelRound1.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 200, 40));
         panelRound1.add(txtDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, 290, 51));
