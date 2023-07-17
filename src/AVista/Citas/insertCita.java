@@ -32,21 +32,20 @@ public class insertCita extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         panelRound1 = new Design.PanelRound();
         lbEsp1 = new javax.swing.JLabel();
-        cbEsp = new javax.swing.JComboBox<String>();
-        cbServicio = new javax.swing.JComboBox<String>();
+        cbEsp = new javax.swing.JComboBox<>();
+        cbServicio = new javax.swing.JComboBox<>();
         lbEsp = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         dpNaci = new com.toedter.calendar.JDateChooser();
         jLabel9 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        cbSexo = new javax.swing.JComboBox<String>();
+        cbSexo = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        txtNombre = new Design.TextFieldSV();
-        txtPeso = new Design.TextFieldSV();
-        txtPad = new Design.TextFieldSV();
+        txtNotaCl = new Design.TextFieldSV();
+        txtNotaD = new Design.TextFieldSV();
         lbEsp2 = new javax.swing.JLabel();
-        cbDoc = new javax.swing.JComboBox<String>();
+        cbDoc = new javax.swing.JComboBox<>();
         btnConfirm = new Design.ButtonGradient();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
@@ -99,36 +98,36 @@ public class insertCita extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Peso");
-        panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 150, 100, 30));
+        jLabel1.setText("Nota del cliente");
+        panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 140, 30));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Nombre");
-        panelRound1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 100, 30));
-        panelRound1.add(dpNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 270, 50));
+        jLabel5.setText("Disponible");
+        panelRound1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 190, 180, 30));
+        panelRound1.add(dpNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 270, 50));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Fecha:");
-        panelRound1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 80, 30));
+        panelRound1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 80, 30));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Hora:");
-        panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 270, 100, 30));
+        panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, 100, 30));
 
         cbSexo.setBackground(new java.awt.Color(255, 255, 255));
-        cbSexo.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "Hembra", "Macho" }));
-        panelRound1.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 310, 210, 50));
+        cbSexo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00" }));
+        panelRound1.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 180, 120, 50));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Padecimientos");
-        panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 400, 150, 30));
-        panelRound1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 280, 50));
-        panelRound1.add(txtPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 190, 270, 50));
-        panelRound1.add(txtPad, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 440, 710, 50));
+        jLabel3.setText("Nota del doctor");
+        panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 150, 30));
+        panelRound1.add(txtNotaCl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 920, 50));
+        panelRound1.add(txtNotaD, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, 920, 50));
 
         lbEsp2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbEsp2.setForeground(new java.awt.Color(0, 0, 0));
@@ -139,7 +138,7 @@ public class insertCita extends javax.swing.JPanel {
         cbDoc.setForeground(new java.awt.Color(0, 0, 0));
         panelRound1.add(cbDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 70, 240, 40));
 
-        PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 1010, 520));
+        PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 1010, 530));
 
         btnConfirm.setText("Confirmar");
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
@@ -211,8 +210,7 @@ public class insertCita extends javax.swing.JPanel {
     private javax.swing.JLabel lbEsp1;
     private javax.swing.JLabel lbEsp2;
     private Design.PanelRound panelRound1;
-    private Design.TextFieldSV txtNombre;
-    private Design.TextFieldSV txtPad;
-    private Design.TextFieldSV txtPeso;
+    private Design.TextFieldSV txtNotaCl;
+    private Design.TextFieldSV txtNotaD;
     // End of variables declaration//GEN-END:variables
 }
