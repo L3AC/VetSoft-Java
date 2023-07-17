@@ -1,15 +1,21 @@
 package AVista.Mantenimiento;
 
 import AControlador.ctEsp;
+import AVista.Usuarios.CRUDusuarios;
 import Design.Desg;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
 
 public class CRUDEsp extends javax.swing.JPanel {
 
     private int idEsp;
+    private int idEsRow;
     ctEsp ct = new ctEsp();
     Desg dsg = new Desg();
     DefaultTableModel model;
@@ -121,6 +127,11 @@ public class CRUDEsp extends javax.swing.JPanel {
 
         btnEliminar.setText("Eliminar");
         btnEliminar.setToolTipText("");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
         add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 310, 110, 40));
 
         btnAct.setText("Actualizar");
@@ -157,11 +168,12 @@ public class CRUDEsp extends javax.swing.JPanel {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
        
-                   
-        
-        
+          ctEsp ctEs=new ctEsp();
       
-        
+        ctEs.esp=txtEsp.getText();
+         ctEs.idEsp=idEsp;
+        ctEs.insertEsp();
+
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
@@ -171,6 +183,33 @@ public class CRUDEsp extends javax.swing.JPanel {
         ctEs.idEsp=idEsp;
         ctEs.updtEsp();
     }//GEN-LAST:event_btnActActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+         UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
+        int opcion = JOptionPane.showOptionDialog(
+                null,
+                "¿Desea eliminar el registro?",
+                "Advertencia",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.WARNING_MESSAGE,
+                null,
+                new Object[]{"Sí", "No"},
+                "No");
+
+        if (opcion == JOptionPane.YES_OPTION) {
+            try {
+                ctEsp ct = new ctEsp();
+                ct.idEsp = idEsRow;
+                ct.deleteEsp();
+                loadD();
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDEsp.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (opcion == JOptionPane.NO_OPTION) {
+
+        
+    }                                           
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

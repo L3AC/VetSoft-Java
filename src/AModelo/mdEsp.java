@@ -45,7 +45,7 @@ public class mdEsp {
     }
     
       public boolean deleteEsp(int idE) {
-        String query = "DELETE tbEspecialidades where idEspecialidades=?;";
+        String query = "DELETE tbEspecialidades where idEspecialidad=?;";
         try {
             ps = con.prepareStatement(query);
             ps.setInt(1, idE);
@@ -60,12 +60,10 @@ public class mdEsp {
         }
     }
       public boolean insertEsp(int idEsp, String Especialidad) {
-        String query = "insert into tbEspecialidades(idEspecialidad, Especialidad)"
-                + " values(?,?);";
+        String query = "insert into tbEspecialidades values(?);";
         try {
             ps = con.prepareStatement(query);
-            ps.setInt(1, idEsp);
-            ps.setString(2, Especialidad);
+            ps.setString(1, Especialidad);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Campos ingresados");
             return true;
