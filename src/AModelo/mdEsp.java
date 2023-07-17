@@ -44,11 +44,11 @@ public class mdEsp {
         }
     }
     
-      public boolean deleteEsp(int idE) {
+      public boolean deleteEsp(int idEsp) {
         String query = "DELETE tbEspecialidades where idEspecialidad=?;";
         try {
             ps = con.prepareStatement(query);
-            ps.setInt(1, idE);
+            ps.setInt(1, idEsp);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Registro eliminado");
             return true;

@@ -153,8 +153,8 @@ public class CRUDEsp extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
-        int fila = tbData.getSelectedRow();
-        idEsp = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
+        
+        idEsp = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
@@ -199,7 +199,7 @@ public class CRUDEsp extends javax.swing.JPanel {
         if (opcion == JOptionPane.YES_OPTION) {
             try {
                 ctEsp ct = new ctEsp();
-                ct.idEsp = idEsRow;
+                ct.idEsp = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
                 ct.deleteEsp();
                 loadD();
             } catch (SQLException ex) {
