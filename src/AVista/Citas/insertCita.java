@@ -15,6 +15,7 @@ public class insertCita extends javax.swing.JPanel {
      */
     public insertCita() {
         initComponents();
+        
     }
 
     /**
