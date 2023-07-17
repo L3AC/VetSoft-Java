@@ -31,6 +31,7 @@ public class Registro extends javax.swing.JFrame {
 
     public Registro() throws SQLException{
     initComponents();
+    lbDisp.setVisible(false);
      loadCombo(cbCargo);
      setLocationRelativeTo(null);
     }
@@ -126,6 +127,11 @@ public class Registro extends javax.swing.JFrame {
                 txtUsuarioActionPerformed(evt);
             }
         });
+        txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtUsuarioKeyPressed(evt);
+            }
+        });
         panelRound2.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 210, -1));
 
         txtCorreo.setShadowColor(new java.awt.Color(153, 0, 153));
@@ -193,7 +199,19 @@ public class Registro extends javax.swing.JFrame {
 
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
         // TODO add your handling code here:
-         ctUser ctUs=new ctUser();
+         
+    }//GEN-LAST:event_txtUsuarioActionPerformed
+
+    private void cbCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCargoActionPerformed
+        // TODO add your handling code here:
+        
+        tpUs = dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
+        System.out.println("ID seleccionado: " + tpUs);
+    }//GEN-LAST:event_cbCargoActionPerformed
+
+    private void txtUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyPressed
+        // TODO add your handling code here:
+        ctUser ctUs=new ctUser();
         ctUs.usuario=txtUsuario.getText().toString();
         try {
             if(ctUs.verifUs().next()){
@@ -207,14 +225,7 @@ public class Registro extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_txtUsuarioActionPerformed
-
-    private void cbCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCargoActionPerformed
-        // TODO add your handling code here:
-        
-        tpUs = dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
-        System.out.println("ID seleccionado: " + tpUs);
-    }//GEN-LAST:event_cbCargoActionPerformed
+    }//GEN-LAST:event_txtUsuarioKeyPressed
 
     /**
      * @param args the command line arguments
