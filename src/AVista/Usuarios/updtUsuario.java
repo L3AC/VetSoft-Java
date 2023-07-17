@@ -75,10 +75,10 @@ public class updtUsuario extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        txtUsuario = new Design.Textfield();
         lbDisp = new javax.swing.JLabel();
-        txtCorreo = new Design.Textfield();
-        txtTel = new Design.Textfield();
+        txtUsuario = new Design.TextFieldSV();
+        txtTel = new Design.TextFieldSV();
+        txtCorreo = new Design.TextFieldSV();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
@@ -88,6 +88,7 @@ public class updtUsuario extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(27, 73, 101));
         jLabel2.setText("ACTUALIZAR USUARIO");
 
+        btnBack.setBackground(new java.awt.Color(255, 255, 255));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
         btnBack.setBorder(null);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -116,12 +117,12 @@ public class updtUsuario extends javax.swing.JPanel {
                 cbCargoActionPerformed(evt);
             }
         });
-        panelRound1.add(cbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 300, 160, 40));
+        panelRound1.add(cbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 330, 160, 40));
 
         lbCargo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbCargo.setForeground(new java.awt.Color(0, 0, 0));
         lbCargo.setText("Nivel de cargo");
-        panelRound1.add(lbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, 130, 40));
+        panelRound1.add(lbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, 130, 40));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
@@ -136,22 +137,15 @@ public class updtUsuario extends javax.swing.JPanel {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Usuario");
-        panelRound1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 70, 30));
-
-        txtUsuario.setAnimationColor(new java.awt.Color(153, 204, 255));
-        panelRound1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 70, 230, -1));
+        panelRound1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 70, 30));
 
         lbDisp.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbDisp.setForeground(new java.awt.Color(0, 0, 0));
         lbDisp.setText("Usuario no disponible");
         panelRound1.add(lbDisp, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 190, 30));
-
-        txtCorreo.setAnimationColor(new java.awt.Color(153, 204, 255));
-        txtCorreo.setAutoscrolls(false);
-        panelRound1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, 245, -1));
-
-        txtTel.setAnimationColor(new java.awt.Color(153, 204, 255));
-        panelRound1.add(txtTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 215, -1));
+        panelRound1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 230, 50));
+        panelRound1.add(txtTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 230, 50));
+        panelRound1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 70, 230, 50));
 
         javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
         PCont.setLayout(PContLayout);
@@ -242,8 +236,8 @@ public class updtUsuario extends javax.swing.JPanel {
     private javax.swing.JLabel lbCargo;
     private javax.swing.JLabel lbDisp;
     private Design.PanelRound panelRound1;
-    private Design.Textfield txtCorreo;
-    private Design.Textfield txtTel;
-    private Design.Textfield txtUsuario;
+    private Design.TextFieldSV txtCorreo;
+    private Design.TextFieldSV txtTel;
+    private Design.TextFieldSV txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

@@ -62,16 +62,16 @@ public class insertUs extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         panelRound1 = new Design.PanelRound();
         jLabel9 = new javax.swing.JLabel();
-        txtUsuario = new Design.Textfield();
         jLabel8 = new javax.swing.JLabel();
-        txtCorreo = new Design.Textfield();
         lbCargo = new javax.swing.JLabel();
-        txtTel = new Design.Textfield();
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        txtContra = new Design.Textfield();
         cbCargo = new javax.swing.JComboBox<>();
         lbDisp = new javax.swing.JLabel();
+        txtUsuario = new Design.TextFieldSV();
+        txtCorreo = new Design.TextFieldSV();
+        txtTel = new Design.TextFieldSV();
+        txtContra = new Design.PasswordField();
         btnConfirm = new Design.ButtonGradient();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
@@ -82,6 +82,7 @@ public class insertUs extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(27, 73, 101));
         jLabel2.setText("CREAR USUARIO");
 
+        btnBack.setBackground(new java.awt.Color(255, 255, 255));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
         btnBack.setBorder(null);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -100,54 +101,27 @@ public class insertUs extends javax.swing.JPanel {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Usuario");
-        panelRound1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 70, 30));
-
-        txtUsuario.setAnimationColor(new java.awt.Color(153, 204, 255));
-        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsuarioActionPerformed(evt);
-            }
-        });
-        txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtUsuarioKeyReleased(evt);
-            }
-        });
-        panelRound1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 239, -1));
+        panelRound1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 70, 30));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Correo electrónico");
-        panelRound1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, -1, 30));
-
-        txtCorreo.setAnimationColor(new java.awt.Color(153, 204, 255));
-        txtCorreo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCorreoActionPerformed(evt);
-            }
-        });
-        panelRound1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 242, -1));
+        panelRound1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, -1, 30));
 
         lbCargo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbCargo.setForeground(new java.awt.Color(0, 0, 0));
         lbCargo.setText("Nivel de cargo");
         panelRound1.add(lbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, 130, 30));
 
-        txtTel.setAnimationColor(new java.awt.Color(153, 204, 255));
-        panelRound1.add(txtTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 230, 244, -1));
-
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Teléfono");
-        panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 190, 80, 30));
+        panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 190, 80, 30));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Contraseña");
-        panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 30, 100, 30));
-
-        txtContra.setAnimationColor(new java.awt.Color(153, 204, 255));
-        panelRound1.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 100, 245, -1));
+        panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 40, 100, 30));
 
         cbCargo.setBackground(new java.awt.Color(255, 255, 255));
         cbCargo.setForeground(new java.awt.Color(51, 51, 51));
@@ -162,6 +136,18 @@ public class insertUs extends javax.swing.JPanel {
         lbDisp.setForeground(new java.awt.Color(0, 0, 0));
         lbDisp.setText("Usuario no disponible");
         panelRound1.add(lbDisp, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 190, 30));
+
+        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsuarioActionPerformed(evt);
+            }
+        });
+        panelRound1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 240, 50));
+        panelRound1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 240, 50));
+        panelRound1.add(txtTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 230, 290, 50));
+
+        txtContra.setText("passwordField1");
+        panelRound1.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 90, 300, 50));
 
         btnConfirm.setText("Confirmar");
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
@@ -254,30 +240,9 @@ public class insertUs extends javax.swing.JPanel {
         ctUs.insertUs();
     }//GEN-LAST:event_btnConfirmActionPerformed
 
-    private void txtUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyReleased
-        ctUser ctUs=new ctUser();
-        ctUs.usuario=txtUsuario.getText().toString();
-        try {
-            if(ctUs.verifUs().next()){
-                lbDisp.setVisible(true);
-                btnConfirm.setEnabled(false);
-            }
-            else{
-                lbDisp.setVisible(false);
-                btnConfirm.setEnabled(true);
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_txtUsuarioKeyReleased
-
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsuarioActionPerformed
-
-    private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCorreoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -293,9 +258,9 @@ public class insertUs extends javax.swing.JPanel {
     private javax.swing.JLabel lbCargo;
     private javax.swing.JLabel lbDisp;
     private Design.PanelRound panelRound1;
-    private Design.Textfield txtContra;
-    private Design.Textfield txtCorreo;
-    private Design.Textfield txtTel;
-    private Design.Textfield txtUsuario;
+    private Design.PasswordField txtContra;
+    private Design.TextFieldSV txtCorreo;
+    private Design.TextFieldSV txtTel;
+    private Design.TextFieldSV txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

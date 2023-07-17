@@ -93,6 +93,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnBack">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Imagenes/Flechita.png"/>
             </Property>
@@ -144,7 +147,7 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="370" y="300" width="160" height="40"/>
+                  <AbsoluteConstraints x="370" y="330" width="160" height="40"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -160,7 +163,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="230" y="300" width="130" height="40"/>
+                  <AbsoluteConstraints x="230" y="330" width="130" height="40"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -208,19 +211,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="120" y="30" width="70" height="30"/>
-                </Constraint>
-              </Constraints>
-            </Component>
-            <Component class="Design.Textfield" name="txtUsuario">
-              <Properties>
-                <Property name="animationColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="cc" red="99" type="rgb"/>
-                </Property>
-              </Properties>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="43" y="70" width="230" height="-1"/>
+                  <AbsoluteConstraints x="60" y="40" width="70" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -240,28 +231,24 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="Design.Textfield" name="txtCorreo">
-              <Properties>
-                <Property name="animationColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="cc" red="99" type="rgb"/>
-                </Property>
-                <Property name="autoscrolls" type="boolean" value="false"/>
-              </Properties>
+            <Component class="Design.TextFieldSV" name="txtUsuario">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="530" y="70" width="245" height="-1"/>
+                  <AbsoluteConstraints x="50" y="70" width="230" height="50"/>
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="Design.Textfield" name="txtTel">
-              <Properties>
-                <Property name="animationColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="cc" red="99" type="rgb"/>
-                </Property>
-              </Properties>
+            <Component class="Design.TextFieldSV" name="txtTel">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="310" y="210" width="215" height="-1"/>
+                  <AbsoluteConstraints x="310" y="220" width="230" height="50"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="Design.TextFieldSV" name="txtCorreo">
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="550" y="70" width="230" height="50"/>
                 </Constraint>
               </Constraints>
             </Component>
