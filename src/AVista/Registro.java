@@ -315,10 +315,12 @@ if(EmailValidator.getInstance().isValid(txtCorreo.getText())){
     //if(verificar_Email(jTextField1.getText())){    
         
         lbFalso.setVisible(false);
+        btnRegistrar.setEnabled(true);
     
     }else{
     
         lbFalso.setVisible(true);
+        btnRegistrar.setEnabled(false);
     
     }    
     }//GEN-LAST:event_txtCorreoKeyReleased
