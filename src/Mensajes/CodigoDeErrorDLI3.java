@@ -5,6 +5,7 @@
 package Mensajes;
 
 import java.awt.Color;
+import java.awt.event.ActionListener;
 
 /**
  *
@@ -17,6 +18,9 @@ public class CodigoDeErrorDLI3 extends javax.swing.JPanel {
      */
     public CodigoDeErrorDLI3() {
         initComponents();
+        setOpaque(false);
+        txt.setBackground(new Color(0, 0, 0, 0));
+        txt.setOpaque(false);
     }
 
     /**
@@ -31,7 +35,7 @@ public class CodigoDeErrorDLI3 extends javax.swing.JPanel {
         panelRound1 = new Design.PanelRound();
         txt = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        boton1 = new Mensajes.Boton();
+        cmdok = new Mensajes.Boton();
 
         setBackground(new Color(255,255,255,0));
         setForeground(new Color(255,255,255,0));
@@ -53,14 +57,14 @@ public class CodigoDeErrorDLI3 extends javax.swing.JPanel {
         jLabel1.setText("Código de error \"LI-3\"");
         panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
-        boton1.setBackground(new java.awt.Color(48, 170, 63));
-        boton1.setBorder(null);
-        boton1.setForeground(new java.awt.Color(255, 255, 255));
-        boton1.setText("Ok");
-        boton1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        boton1.setMaximumSize(new java.awt.Dimension(29, 34));
-        boton1.setMinimumSize(new java.awt.Dimension(29, 34));
-        panelRound1.add(boton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 77, 30));
+        cmdok.setBackground(new java.awt.Color(48, 170, 63));
+        cmdok.setBorder(null);
+        cmdok.setForeground(new java.awt.Color(255, 255, 255));
+        cmdok.setText("Ok");
+        cmdok.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        cmdok.setMaximumSize(new java.awt.Dimension(29, 34));
+        cmdok.setMinimumSize(new java.awt.Dimension(29, 34));
+        panelRound1.add(cmdok, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 77, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -74,9 +78,16 @@ public class CodigoDeErrorDLI3 extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cmdCancelActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        GlassPanePopup.closePopupLast();
+    }                                         
+
+    public void eventOK(ActionListener event) {
+        cmdok.addActionListener(event);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Mensajes.Boton boton1;
+    private Mensajes.Boton cmdok;
     private javax.swing.JLabel jLabel1;
     private Design.PanelRound panelRound1;
     private javax.swing.JLabel txt;

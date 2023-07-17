@@ -9,13 +9,22 @@ import AControlador.ctUser;
 import AModelo.Crypt;
 import AVista.Usuarios.insertUs;
 import Design.Desg;
+import Mensajes.CodigoDeErrorDLI3;
+import Mensajes.GlassPanePopup;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+import org.apache.commons.validator.EmailValidator;
 /**
  *
  * @author Gerson
@@ -32,8 +41,10 @@ public class Registro extends javax.swing.JFrame {
     public Registro() throws SQLException{
     initComponents();
     lbDisp.setVisible(false);
+    lbFalso.setVisible(false);
      loadCombo(cbCargo);
      setLocationRelativeTo(null);
+     GlassPanePopup.install(this);
     }
 
 
@@ -60,12 +71,13 @@ public class Registro extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         btnRegistrar = new Design.ButtonGradient();
-        lbDisp = new javax.swing.JLabel();
+        lbFalso = new javax.swing.JLabel();
         txtTeléfono = new Design.TextFieldSV();
         txtUsuario = new Design.TextFieldSV();
         txtCorreo = new Design.TextFieldSV();
         txtContra = new Design.PasswordField();
         cbCargo = new Design.Combobox();
+        lbDisp = new javax.swing.JLabel();
         Titulo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -113,12 +125,17 @@ public class Registro extends javax.swing.JFrame {
         });
         panelRound2.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 220, 100, 30));
 
-        lbDisp.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lbDisp.setForeground(new java.awt.Color(0, 0, 0));
-        lbDisp.setText("Usuario no disponible");
-        panelRound2.add(lbDisp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 140, -1));
+        lbFalso.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbFalso.setForeground(new java.awt.Color(0, 0, 0));
+        lbFalso.setText("Correo electrónico falso");
+        panelRound2.add(lbFalso, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 150, -1));
 
         txtTeléfono.setShadowColor(new java.awt.Color(153, 0, 153));
+        txtTeléfono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTeléfonoKeyTyped(evt);
+            }
+        });
         panelRound2.add(txtTeléfono, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, 180, -1));
 
         txtUsuario.setShadowColor(new java.awt.Color(153, 0, 153));
@@ -131,6 +148,12 @@ public class Registro extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtUsuarioKeyPressed(evt);
             }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtUsuarioKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtUsuarioKeyTyped(evt);
+            }
         });
         panelRound2.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 210, -1));
 
@@ -140,9 +163,22 @@ public class Registro extends javax.swing.JFrame {
                 txtCorreoActionPerformed(evt);
             }
         });
+        txtCorreo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCorreoKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCorreoKeyTyped(evt);
+            }
+        });
         panelRound2.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 210, -1));
 
         txtContra.setShadowColor(new java.awt.Color(153, 0, 153));
+        txtContra.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtContraKeyTyped(evt);
+            }
+        });
         panelRound2.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 180, -1));
 
         cbCargo.setLabeText("Nivel de Usuario");
@@ -152,6 +188,11 @@ public class Registro extends javax.swing.JFrame {
             }
         });
         panelRound2.add(cbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 102, 160, 40));
+
+        lbDisp.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbDisp.setForeground(new java.awt.Color(0, 0, 0));
+        lbDisp.setText("Usuario no disponible");
+        panelRound2.add(lbDisp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 140, -1));
 
         panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 680, 270));
 
@@ -176,6 +217,21 @@ public class Registro extends javax.swing.JFrame {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
+          
+         if(EmailValidator.getInstance().isValid(txtCorreo.getText())){   
+        
+    }else{
+    
+            CodigoDeErrorDLI3 obj = new CodigoDeErrorDLI3();
+        obj.eventOK(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                GlassPanePopup.closePopupLast();
+            }
+        });
+        GlassPanePopup.showPopup(obj);
+         }
+        
         ctUser ctUs=new ctUser();
            ctUs.idTipoCuenta=dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
         
@@ -211,7 +267,66 @@ public class Registro extends javax.swing.JFrame {
 
     private void txtUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyPressed
         // TODO add your handling code here:
-        ctUser ctUs=new ctUser();
+    }//GEN-LAST:event_txtUsuarioKeyPressed
+
+    private void txtUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyTyped
+        // TODO add your handling code here:
+        
+        if(txtUsuario.getText().length() >=30){
+        evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtUsuarioKeyTyped
+
+    private void txtContraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyTyped
+        // TODO add your handling code here:
+        
+        if(txtContra.getText().length() >=30){
+        evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtContraKeyTyped
+
+    private void txtCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoKeyTyped
+        // TODO add your handling code here:
+        
+        if(txtCorreo.getText().length() >=50){
+        evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtCorreoKeyTyped
+
+    private void txtTeléfonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTeléfonoKeyTyped
+        // TODO add your handling code here:
+        
+        Character c = evt.getKeyChar();
+        
+        if(txtTeléfono.getText().length() >=10 || !Character.isDigit(c)){
+        evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+        
+        
+    }//GEN-LAST:event_txtTeléfonoKeyTyped
+
+    private void txtCorreoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoKeyReleased
+        // TODO add your handling code here:
+if(EmailValidator.getInstance().isValid(txtCorreo.getText())){
+    //if(verificar_Email(jTextField1.getText())){    
+        
+        lbFalso.setVisible(false);
+    
+    }else{
+    
+        lbFalso.setVisible(true);
+    
+    }    
+    }//GEN-LAST:event_txtCorreoKeyReleased
+
+    private void txtUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyReleased
+        // TODO add your handling code here:
+        
+         ctUser ctUs=new ctUser();
         ctUs.usuario=txtUsuario.getText().toString();
         try {
             if(ctUs.verifUs().next()){
@@ -225,8 +340,9 @@ public class Registro extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_txtUsuarioKeyPressed
+    }//GEN-LAST:event_txtUsuarioKeyReleased
 
+    
     /**
      * @param args the command line arguments
      */
@@ -275,6 +391,7 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lbDisp;
+    private javax.swing.JLabel lbFalso;
     private Design.PanelRound panelRound1;
     private Design.PanelRound panelRound2;
     private Design.PasswordField txtContra;

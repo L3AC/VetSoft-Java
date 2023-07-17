@@ -18,6 +18,7 @@ import java.sql.SQLException; // Para manejar las excepciones de SQL
 import java.util.Properties; // Para configurar las propiedades del correo electrónico
 import java.util.Random; // Para generar el código de verificación
 import AModelo.Conx;
+import java.awt.Toolkit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.mail.*; // Para enviar el correo electrónico
@@ -144,9 +145,32 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
                 txtUserActionPerformed(evt);
             }
         });
+        txtUser.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtUserKeyTyped(evt);
+            }
+        });
         panelRound4.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 210, -1));
+
+        txtPregunta1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPregunta1KeyTyped(evt);
+            }
+        });
         panelRound4.add(txtPregunta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 210, -1));
+
+        txtPregunta2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPregunta2KeyTyped(evt);
+            }
+        });
         panelRound4.add(txtPregunta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 70, 210, -1));
+
+        txtPregunta3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPregunta3KeyTyped(evt);
+            }
+        });
         panelRound4.add(txtPregunta3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 220, 200, -1));
 
         panelRound3.add(panelRound4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 890, 360));
@@ -316,6 +340,41 @@ public void EncCod(String user) {
     private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUserActionPerformed
+
+    private void txtUserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyTyped
+        // TODO add your handling code here:
+        if(txtUser.getText().length() >=30){
+        evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtUserKeyTyped
+
+    private void txtPregunta1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPregunta1KeyTyped
+        // TODO add your handling code here:
+        
+        if(txtPregunta1.getText().length() >=30){
+        evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtPregunta1KeyTyped
+
+    private void txtPregunta2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPregunta2KeyTyped
+        // TODO add your handling code here:
+        
+        if(txtPregunta2.getText().length() >=30){
+        evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtPregunta2KeyTyped
+
+    private void txtPregunta3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPregunta3KeyTyped
+        // TODO add your handling code here:
+        
+        if(txtPregunta3.getText().length() >=30){
+        evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtPregunta3KeyTyped
 
     /**
      * @param args the command line arguments

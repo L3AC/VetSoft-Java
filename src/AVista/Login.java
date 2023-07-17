@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import AVista.Registro;
+import java.awt.Toolkit;
 
 /**
  *
@@ -120,9 +121,27 @@ public class Login extends javax.swing.JFrame {
         panelRound2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, -1, -1));
 
         TextUser.setShadowColor(new java.awt.Color(153, 0, 153));
+        TextUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextUserActionPerformed(evt);
+            }
+        });
+        TextUser.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TextUserKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TextUserKeyTyped(evt);
+            }
+        });
         panelRound2.add(TextUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 370, 50));
 
         TextPass.setShadowColor(new java.awt.Color(153, 0, 153));
+        TextPass.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TextPassKeyTyped(evt);
+            }
+        });
         panelRound2.add(TextPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 370, 50));
 
         panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 560, 290));
@@ -186,6 +205,40 @@ public class Login extends javax.swing.JFrame {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void TextUserKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextUserKeyPressed
+        // TODO add your handling code here:
+        
+        int limit = 30; // Establece el límite de dígitos permitidos
+    
+    if (TextUser.getText().length() >= limit) {
+        // Si se alcanza o se excede el límite de dígitos, consume el evento
+        evt.consume();
+    }
+    
+    }//GEN-LAST:event_TextUserKeyPressed
+
+    private void TextUserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextUserKeyTyped
+        // TODO add your handling code here:
+        
+        if(TextUser.getText().length() >=30){
+        evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_TextUserKeyTyped
+
+    private void TextPassKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextPassKeyTyped
+        // TODO add your handling code here:
+        
+        if(TextPass.getText().length() >=30){
+        evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_TextPassKeyTyped
+
+    private void TextUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextUserActionPerformed
     public void SelectID() throws SQLException {
         try {
             ctUser ct = new ctUser();

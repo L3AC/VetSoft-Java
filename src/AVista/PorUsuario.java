@@ -18,6 +18,7 @@ import java.sql.SQLException; // Para manejar las excepciones de SQL
 import java.util.Properties; // Para configurar las propiedades del correo electrónico
 import java.util.Random; // Para generar el código de verificación
 import AModelo.Conx;
+import java.awt.Toolkit;
 import javax.mail.*; // Para enviar el correo electrónico
 import javax.mail.internet.*; // Para trabajar con objetos relacionados con el correo electrónico
 import javax.swing.JOptionPane;
@@ -145,6 +146,12 @@ public class PorUsuario extends javax.swing.JFrame {
             }
         });
         panelRound1.add(btnCambiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 170, 30));
+
+        txtUser.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtUserKeyTyped(evt);
+            }
+        });
         panelRound1.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 180, -1));
 
         txtCod.addActionListener(new java.awt.event.ActionListener() {
@@ -154,10 +161,18 @@ public class PorUsuario extends javax.swing.JFrame {
         });
         panelRound1.add(txtCod, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 180, -1));
 
-        txtNueva.setText("passwordField1");
+        txtNueva.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNuevaKeyTyped(evt);
+            }
+        });
         panelRound1.add(txtNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, 180, -1));
 
-        txtNueva2.setText("passwordField1");
+        txtNueva2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNueva2KeyTyped(evt);
+            }
+        });
         panelRound1.add(txtNueva2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 200, 180, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -240,6 +255,31 @@ public class PorUsuario extends javax.swing.JFrame {
     private void txtCodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCodActionPerformed
+
+    private void txtUserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyTyped
+        // TODO add your handling code here:
+        
+        if(txtUser.getText().length() >=30){
+        evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtUserKeyTyped
+
+    private void txtNuevaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNuevaKeyTyped
+        // TODO add your handling code here:
+        if(txtNueva.getText().length() >=30){
+        evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtNuevaKeyTyped
+
+    private void txtNueva2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNueva2KeyTyped
+        // TODO add your handling code here:
+        if(txtNueva2.getText().length() >=30){
+        evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtNueva2KeyTyped
 
     public void transparente(){
     
