@@ -21,6 +21,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import javax.swing.JTextField;
 
 public class insertTipoCuenta extends javax.swing.JPanel {
 
@@ -36,6 +37,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         this.idUs = idUs;
         this.nivelRow = nivelRow;
         initComponents();
+        ((JTextField)dpNaci.getDateEditor().getUiComponent()).setEditable(false);
 
         if (idTipoUs == 1) {
             if (nivelRow != 4) {

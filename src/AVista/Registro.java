@@ -25,41 +25,39 @@ import java.util.regex.Pattern;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import org.apache.commons.validator.EmailValidator;
+
 /**
  *
  * @author Gerson
  */
 public class Registro extends javax.swing.JFrame {
-    
+
     private int idTipoUs;
     private int tpUs;
     Crypt cryp = new Crypt();
-    ctTipoUs ctTP=new ctTipoUs();
+    ctTipoUs ctTP = new ctTipoUs();
     Desg dsg = new Desg();
-    Map<Integer, String> cbMap= new HashMap<>();
+    Map<Integer, String> cbMap = new HashMap<>();
 
-    public Registro() throws SQLException{
-    initComponents();
-    lbDisp.setVisible(false);
-    lbFalso.setVisible(false);
-     loadCombo(cbCargo);
-     setLocationRelativeTo(null);
-     GlassPanePopup.install(this);
+    public Registro() throws SQLException {
+        initComponents();
+        lbDisp.setVisible(false);
+        lbFalso.setVisible(false);
+        loadCombo(cbCargo);
+        setLocationRelativeTo(null);
+        GlassPanePopup.install(this);
     }
 
-
-    
-    
-    private void loadCombo(JComboBox cb) throws SQLException{
-        ResultSet rs=ctTP.selectUser();
+    private void loadCombo(JComboBox cb) throws SQLException {
+        ResultSet rs = ctTP.selectUser();
         while (rs.next()) {
-                int idTP=rs.getInt("idTipoUsuario");
-                String nombre=rs.getString("nivel");
-                cb.addItem(nombre);
-                cbMap.put(idTP, nombre);      
-            }
+            int idTP = rs.getInt("idTipoUsuario");
+            String nombre = rs.getString("nivel");
+            cb.addItem(nombre);
+            cbMap.put(idTP, nombre);
+        }
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -217,35 +215,33 @@ public class Registro extends javax.swing.JFrame {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
-          
-         if(EmailValidator.getInstance().isValid(txtCorreo.getText())){   
-        
-    }else{
-    
+
+        if (EmailValidator.getInstance().isValid(txtCorreo.getText())) {
+
+        } else {
+
             CodigoDeErrorDLI3 obj = new CodigoDeErrorDLI3();
-        obj.eventOK(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                GlassPanePopup.closePopupLast();
-            }
-        });
-        GlassPanePopup.showPopup(obj);
-         }
-        
-        ctUser ctUs=new ctUser();
-           ctUs.idTipoCuenta=dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
-        
-            ctUs.idTipoCuenta=3;
-        
-        ctUs.usuario=txtUsuario.getText();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+        }
+
+        ctUser ctUs = new ctUser();
+        ctUs.idTipoCuenta = dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
+
+        ctUs.usuario = txtUsuario.getText();
         try {
-            ctUs.contra=cryp.encrypt(txtContra.getText(), "key");
-            
+            ctUs.contra = cryp.encrypt(txtContra.getText(), "key");
+
         } catch (Exception ex) {
             Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
         }
-        ctUs.correo=txtCorreo.getText();
-        ctUs.telefono=txtTeléfono.getText();
+        ctUs.correo = txtCorreo.getText();
+        ctUs.telefono = txtTeléfono.getText();
         ctUs.insertUs();
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
@@ -255,12 +251,12 @@ public class Registro extends javax.swing.JFrame {
 
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
         // TODO add your handling code here:
-         
+
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
     private void cbCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCargoActionPerformed
         // TODO add your handling code here:
-        
+
         tpUs = dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
         System.out.println("ID seleccionado: " + tpUs);
     }//GEN-LAST:event_cbCargoActionPerformed
@@ -271,71 +267,70 @@ public class Registro extends javax.swing.JFrame {
 
     private void txtUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyTyped
         // TODO add your handling code here:
-        
-        if(txtUsuario.getText().length() >=30){
-        evt.consume();
+
+        if (txtUsuario.getText().length() >= 30) {
+            evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
     }//GEN-LAST:event_txtUsuarioKeyTyped
 
     private void txtContraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyTyped
         // TODO add your handling code here:
-        
-        if(txtContra.getText().length() >=30){
-        evt.consume();
+
+        if (txtContra.getText().length() >= 30) {
+            evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
     }//GEN-LAST:event_txtContraKeyTyped
 
     private void txtCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoKeyTyped
         // TODO add your handling code here:
-        
-        if(txtCorreo.getText().length() >=50){
-        evt.consume();
+
+        if (txtCorreo.getText().length() >= 50) {
+            evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
     }//GEN-LAST:event_txtCorreoKeyTyped
 
     private void txtTeléfonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTeléfonoKeyTyped
         // TODO add your handling code here:
-        
+
         Character c = evt.getKeyChar();
-        
-        if(txtTeléfono.getText().length() >=10 || !Character.isDigit(c)){
-        evt.consume();
+
+        if (txtTeléfono.getText().length() >= 10 || !Character.isDigit(c)) {
+            evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
-        
-        
+
+
     }//GEN-LAST:event_txtTeléfonoKeyTyped
 
     private void txtCorreoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoKeyReleased
         // TODO add your handling code here:
-if(EmailValidator.getInstance().isValid(txtCorreo.getText())){
-    //if(verificar_Email(jTextField1.getText())){    
-        
-        lbFalso.setVisible(false);
-        btnRegistrar.setEnabled(true);
-    
-    }else{
-    
-        lbFalso.setVisible(true);
-        btnRegistrar.setEnabled(false);
-    
-    }    
+        if (EmailValidator.getInstance().isValid(txtCorreo.getText())) {
+            //if(verificar_Email(jTextField1.getText())){    
+
+            lbFalso.setVisible(false);
+            btnRegistrar.setEnabled(true);
+
+        } else {
+
+            lbFalso.setVisible(true);
+            btnRegistrar.setEnabled(false);
+
+        }
     }//GEN-LAST:event_txtCorreoKeyReleased
 
     private void txtUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyReleased
         // TODO add your handling code here:
-        
-         ctUser ctUs=new ctUser();
-        ctUs.usuario=txtUsuario.getText().toString();
+
+        ctUser ctUs = new ctUser();
+        ctUs.usuario = txtUsuario.getText().toString();
         try {
-            if(ctUs.verifUs().next()){
+            if (ctUs.verifUs().next()) {
                 lbDisp.setVisible(true);
                 btnRegistrar.setEnabled(false);
-            }
-            else{
+            } else {
                 lbDisp.setVisible(false);
                 btnRegistrar.setEnabled(true);
             }
@@ -344,7 +339,6 @@ if(EmailValidator.getInstance().isValid(txtCorreo.getText())){
         }
     }//GEN-LAST:event_txtUsuarioKeyReleased
 
-    
     /**
      * @param args the command line arguments
      */

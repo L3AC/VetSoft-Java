@@ -32,21 +32,21 @@ public class insertCita extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         panelRound1 = new Design.PanelRound();
         lbEsp1 = new javax.swing.JLabel();
-        cbEsp = new javax.swing.JComboBox<>();
-        cbServicio = new javax.swing.JComboBox<>();
+        cbEsp = new javax.swing.JComboBox<String>();
+        cbServicio = new javax.swing.JComboBox<String>();
         lbEsp = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         dpNaci = new com.toedter.calendar.JDateChooser();
         jLabel9 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        cbSexo = new javax.swing.JComboBox<>();
+        cbSexo = new javax.swing.JComboBox<String>();
         jLabel3 = new javax.swing.JLabel();
         txtNombre = new Design.TextFieldSV();
         txtPeso = new Design.TextFieldSV();
         txtPad = new Design.TextFieldSV();
         lbEsp2 = new javax.swing.JLabel();
-        cbDoc = new javax.swing.JComboBox<>();
+        cbDoc = new javax.swing.JComboBox<String>();
         btnConfirm = new Design.ButtonGradient();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
@@ -110,16 +110,16 @@ public class insertCita extends javax.swing.JPanel {
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel9.setText("Nacimiento (Aproximado)");
-        panelRound1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 250, 30));
+        jLabel9.setText("Fecha:");
+        panelRound1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 80, 30));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("Sexo");
+        jLabel6.setText("Hora:");
         panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 270, 100, 30));
 
         cbSexo.setBackground(new java.awt.Color(255, 255, 255));
-        cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hembra", "Macho" }));
+        cbSexo.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "Hembra", "Macho" }));
         panelRound1.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 310, 210, 50));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
