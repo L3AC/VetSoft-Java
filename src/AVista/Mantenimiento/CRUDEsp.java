@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 
+
 public class CRUDEsp extends javax.swing.JPanel {
 
     private int idEsp;
@@ -31,12 +32,15 @@ public class CRUDEsp extends javax.swing.JPanel {
         model = new DefaultTableModel(null, column);
         dsg.ColumnHide(model, tbData, 0,2);
         CargarTabla();
-        if (tbData.getRowCount() > 0) {
-            tbData.setRowSelectionInterval(0, 0);
-            int fila = tbData.getSelectedRow();
-            idEsp = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
-        }
+        
+
+    if (tbData.getRowCount() > 0) {
+        tbData.setRowSelectionInterval(0, 0);
+        int fila = tbData.getSelectedRow();
+        idEsp = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
     }
+}
+    
 
     final void CargarTabla() throws SQLException {
         while (model.getRowCount() > 0) {
@@ -53,7 +57,7 @@ public class CRUDEsp extends javax.swing.JPanel {
                 model.addRow(oValores);
             }
         } catch (Exception e) {
-
+                                                                                                                                                                
         }
 
      
@@ -62,37 +66,37 @@ public class CRUDEsp extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnEliminar = new javax.swing.JButton();
-        btnReservas = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbData = new SwingTable.Table();
         txtBusq = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        txtEsp = new Design.TextFieldSV();
+        btnEliminar = new Design.ButtonGradient();
+        btnAct = new Design.ButtonGradient();
+        btnAgregar = new Design.ButtonGradient();
 
-        btnEliminar.setText("Eliminar");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
-            }
-        });
-
-        btnReservas.setText("Reservas");
-        btnReservas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReservasActionPerformed(evt);
-            }
-        });
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tbData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null},
+                {null},
+                {null},
+                {null}
             },
             new String [] {
-                "idCliente", "Nombre", "Edad", "Sexo"
+                "Especialidades"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tbData.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         tbData.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tbDataMouseClicked(evt);
@@ -100,56 +104,42 @@ public class CRUDEsp extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tbData);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 137, 780, 610));
+
         txtBusq.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtBusqKeyReleased(evt);
             }
         });
+        add(txtBusq, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 62, 710, 40));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(1125, Short.MAX_VALUE)
-                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1020, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(40, 40, 40)
-                            .addComponent(btnReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(352, 352, 352)
-                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(408, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(35, 35, 35)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(125, 125, 125)
-                            .addComponent(btnReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setText("Nombre de la Especialidad");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 160, -1, -1));
+        add(txtEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 200, 310, -1));
+
+        btnEliminar.setText("Eliminar");
+        btnEliminar.setToolTipText("");
+        add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 310, 110, 40));
+
+        btnAct.setText("Actualizar");
+        btnAct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActActionPerformed(evt);
+            }
+        });
+        add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 370, 110, 40));
+
+        btnAgregar.setText("Agregar");
+        btnAgregar.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
+        add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 430, 110, 40));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        ct.idEsp= idEsp;
-        ct.deleteEsp();
-    }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
         int fila = tbData.getSelectedRow();
@@ -165,16 +155,32 @@ public class CRUDEsp extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtBusqKeyReleased
 
-    private void btnReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnReservasActionPerformed
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+       
+                   
+        
+        
+      
+        
+    }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
+         ctEsp ctEs=new ctEsp();
+       
+        ctEs.esp=txtEsp.getText();
+        ctEs.idEsp=idEsp;
+        ctEs.updtEsp();
+    }//GEN-LAST:event_btnActActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnReservas;
+    private Design.ButtonGradient btnAct;
+    private Design.ButtonGradient btnAgregar;
+    private Design.ButtonGradient btnEliminar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private SwingTable.Table tbData;
     private javax.swing.JTextField txtBusq;
+    private Design.TextFieldSV txtEsp;
     // End of variables declaration//GEN-END:variables
 }
