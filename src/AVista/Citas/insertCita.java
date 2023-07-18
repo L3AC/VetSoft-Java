@@ -4,6 +4,7 @@
  */
 package AVista.Citas;
 
+import AControlador.ctDoctores;
 import AControlador.ctEsp;
 import AControlador.ctTipoServ;
 import Design.Desg;
@@ -11,6 +12,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComboBox;
 
 /**
@@ -26,10 +29,14 @@ public class insertCita extends javax.swing.JPanel {
     Map<Integer, String> cbAre = new HashMap<>();
     Map<Integer, String> cbDoct = new HashMap<>();
 
-    public insertCita(int idTipoUs, int idAnim) {
+    public insertCita(int idTipoUs, int idAnim) throws SQLException {
         this.idTipoUs=idTipoUs;
         this.idAnim=idAnim;
         initComponents();
+        loadComboServ(cbServicio);
+        loadComboEsp(cbEsp);
+        loadComboDoc(cbDoc);
+        precio();
     }
 
     private void loadComboServ(JComboBox cb) throws SQLException {
@@ -46,31 +53,39 @@ public class insertCita extends javax.swing.JPanel {
 
     private void loadComboEsp(JComboBox cb) throws SQLException {
         ctEsp ct = new ctEsp();
+        cbAre.clear();
+        cb.removeAllItems();
         ResultSet rs = ct.loadEsp();
         while (rs.next()) {
             int idTP = rs.getInt("idEspecialidad");
             String nombre = rs.getString("Especialidad");
             cb.addItem(nombre);
             cbAre.put(idTP, nombre);
-
         }
+        cb.setSelectedIndex(0);
     }
 
     private void loadComboDoc(JComboBox cb) throws SQLException {
-        /*ctRaza ct = new ctRaza();
-        cbMapRa.clear();
+        ctDoctores ct = new ctDoctores();
+        ct.idEsp=dsg.getMap(cbAre, cbEsp.getSelectedItem().toString());
+        cbDoct.clear();
         cb.removeAllItems();
-        ct.idTipoAnimal = dsg.getMap(cbMap, cbTipoA.getSelectedItem().toString());
-        ResultSet rs = ct.loadRaza();
+        ResultSet rs = ct.comboDoc();
         while (rs.next()) {
-            int idTP = rs.getInt("idRaza");
-            String nombre = rs.getString("nombreRaza");
+            int idTP = rs.getInt("idDoctor");
+            String nombre = rs.getString("nombre");
             cb.addItem(nombre);
-            cbMapRa.put(idTP, nombre);
-        }*/
-    }
-    private void precio(){
+            cbDoct.put(idTP, nombre);
+        }
         
+    }
+    private void precio() throws SQLException{
+        ctTipoServ ct = new ctTipoServ();
+        ct.idTipoServ=dsg.getMap(cbServ, cbServicio.getSelectedItem().toString());
+        ResultSet rs = ct.selectServ();
+        while (rs.next()) {
+            lbCosto.setText("Costo: $"+String.valueOf(rs.getDouble("costo")));
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -115,8 +130,8 @@ public class insertCita extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(27, 73, 101));
-        jLabel2.setText("REGISTRAR MASCOTA");
-        PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, 360, -1));
+        jLabel2.setText("AGENDAR CITA");
+        PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, 250, -1));
 
         panelRound1.setBackground(new java.awt.Color(202, 233, 255));
         panelRound1.setRoundBottomLeft(50);
@@ -241,11 +256,11 @@ public class insertCita extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void cbServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbServicioActionPerformed
-        /*try {
-            loadComboRaza(cbEsp);
+        try {
+            precio();
         } catch (SQLException ex) {
-            Logger.getLogger(updtAnimales.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+            Logger.getLogger(insertCita.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_cbServicioActionPerformed
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
@@ -262,7 +277,11 @@ public class insertCita extends javax.swing.JPanel {
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     private void cbEspActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEspActionPerformed
-        // TODO add your handling code here:
+        try {
+            loadComboDoc(cbDoc);
+        } catch (SQLException ex) {
+            Logger.getLogger(insertCita.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_cbEspActionPerformed
 
     private void cbSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSexoActionPerformed
@@ -270,7 +289,11 @@ public class insertCita extends javax.swing.JPanel {
     }//GEN-LAST:event_cbSexoActionPerformed
 
     private void cbDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbDocActionPerformed
-        // TODO add your handling code here:
+        /*try {
+            //loadComboDoc(cbEsp);
+        } catch (SQLException ex) {
+            Logger.getLogger(insertCita.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
     }//GEN-LAST:event_cbDocActionPerformed
 
 

@@ -101,6 +101,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Agendar Cita"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReservas2ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="Design.ButtonGradient" name="btnReservas3">
           <Properties>

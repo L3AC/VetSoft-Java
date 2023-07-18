@@ -38,6 +38,22 @@ public class mdDoctores {
             return null; //DIO ERROR
         }
     }
+    public ResultSet comboDoc(int id) {//TABLA
+        String query = "select idDoctor, CONCAT(nombre,' ',Apellido) "
+                + "as nombre from tbDoctores where idEspecialidad=?;";
+        try {
+            
+            ps = con.prepareStatement(query);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            return rs;
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return null; //DIO ERROR
+        }
+    }
     public boolean insertDoc(int idUs,int idEsp, String nombre, String apellido,
             String dui, String naci, String sexo) {
         String query = "insert into tbDoctores values(?,?,?,?,?,?,?,GETDATE());";

@@ -3,6 +3,7 @@ package AVista.Animales;
 import AControlador.ctAnimales;
 import AControlador.ctCliente;
 import AControlador.ctRecep;
+import AVista.Citas.insertCita;
 import Design.Desg;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -81,6 +82,11 @@ public class CRUDAnimales extends javax.swing.JPanel {
         btnReservas1.setText("Emergencia");
 
         btnReservas2.setText("Agendar Cita");
+        btnReservas2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReservas2ActionPerformed(evt);
+            }
+        });
 
         btnReservas3.setText("Expendiente");
 
@@ -233,6 +239,15 @@ public class CRUDAnimales extends javax.swing.JPanel {
             Logger.getLogger(CRUDAnimales.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void btnReservas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservas2ActionPerformed
+        try {
+            insertCita subp = new insertCita(idTipoUs,Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
+            dsg.ShowPanel(subp, PCont, 1320, 810);
+        } catch (SQLException ex) {
+            Logger.getLogger(CRUDAnimales.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnReservas2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
