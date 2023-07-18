@@ -89,7 +89,7 @@ public class Dashboard extends javax.swing.JFrame {
 
                     }
                     if (index == 1 && indexSubMenu == 4) {//CITAS
-                        CRUDCita subp = new CRUDCita();
+                        CRUDCita subp = new CRUDCita(idTipoU,idCuenta);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     //PERSONAL 
@@ -168,7 +168,7 @@ public class Dashboard extends javax.swing.JFrame {
 
                     }
                     if (index == 1 && indexSubMenu == 4) {//CITAS
-                        CRUDCita subp = new CRUDCita();
+                        CRUDCita subp = new CRUDCita(idTipoU,idCuenta);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     //PERSONAL 
@@ -230,7 +230,7 @@ public class Dashboard extends javax.swing.JFrame {
 
                     }
                     if (index == 1 && indexSubMenu == 3) {//CITAS
-                        CRUDCita subp = new CRUDCita();
+                        CRUDCita subp = new CRUDCita(idTipoU,idCuenta);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     if (index == 1 && indexSubMenu == 4) {//DOCTORES
