@@ -140,6 +140,7 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         });
         panelRound4.add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 280, 110, -1));
 
+        txtUser.setShadowColor(new java.awt.Color(153, 0, 153));
         txtUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUserActionPerformed(evt);
@@ -150,8 +151,9 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
                 txtUserKeyTyped(evt);
             }
         });
-        panelRound4.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 210, -1));
+        panelRound4.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 210, -1));
 
+        txtPregunta1.setShadowColor(new java.awt.Color(153, 0, 153));
         txtPregunta1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtPregunta1KeyTyped(evt);
@@ -159,6 +161,7 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         });
         panelRound4.add(txtPregunta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 210, -1));
 
+        txtPregunta2.setShadowColor(new java.awt.Color(153, 0, 153));
         txtPregunta2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtPregunta2KeyTyped(evt);
@@ -166,6 +169,7 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         });
         panelRound4.add(txtPregunta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 70, 210, -1));
 
+        txtPregunta3.setShadowColor(new java.awt.Color(153, 0, 153));
         txtPregunta3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtPregunta3KeyTyped(evt);

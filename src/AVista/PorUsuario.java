@@ -18,7 +18,10 @@ import java.sql.SQLException; // Para manejar las excepciones de SQL
 import java.util.Properties; // Para configurar las propiedades del correo electrónico
 import java.util.Random; // Para generar el código de verificación
 import AModelo.Conx;
+import AModelo.Crypt;
 import java.awt.Toolkit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.mail.*; // Para enviar el correo electrónico
 import javax.mail.internet.*; // Para trabajar con objetos relacionados con el correo electrónico
 import javax.swing.JOptionPane;
@@ -33,6 +36,7 @@ public class PorUsuario extends javax.swing.JFrame {
     Connection acceso;
     String mail;
     String codigo;
+    Crypt cryp = new Crypt();
     
     /**
      * Creates new form PorUsuario
@@ -241,7 +245,11 @@ public class PorUsuario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Campos vacios");
         } else {
             if (txtNueva.getText().equals(txtNueva2.getText())) {
-                act();
+                try {
+                    act();
+                } catch (Exception ex) {
+                    Logger.getLogger(PorUsuario.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
             else{
             JOptionPane.showMessageDialog(null, "Contraseña no es identica");
@@ -289,7 +297,7 @@ public class PorUsuario extends javax.swing.JFrame {
         
     }
     
-    public void act(){
+    public void act() throws Exception{
     String cadena = "update tbUsuarios set contraseña=? "
                 + "where usuario=? COLLATE SQL_Latin1_General_CP1_CS_AS;";
     PreparedStatement ps;
@@ -298,7 +306,7 @@ public class PorUsuario extends javax.swing.JFrame {
 
             acceso = con.Conectar();
             ps = acceso.prepareStatement(cadena);
-            ps.setString(1, txtNueva.getText());
+            ps.setString(1,cryp.encrypt( txtNueva.getText(), "key"));
             ps.setString(2, txtUser.getText());
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Clave actualizada");
@@ -410,7 +418,7 @@ public class PorUsuario extends javax.swing.JFrame {
             txtCod.setEnabled(true);
             btnVeri.setEnabled(true);
             } else{
-                JOptionPane.showMessageDialog(null, "Usuario no Encontrado");
+                JOptionPane.showMessageDialog(null, "Usuario no Encontrado ojo");
                 txtCod.setEnabled(false);
                 btnVeri.setEnabled(false);
                 
