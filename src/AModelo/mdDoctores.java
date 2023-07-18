@@ -80,7 +80,7 @@ public class mdDoctores {
     public boolean updateDoc(int idC,int idEsp, String nombre, String apellido, String dui,
             String naci, String sexo) {
         String query = "update tbDoctores SET nombre=?,apellido=?,DUI=?,nacimiento=?,sexo=?, idEsp=? \n" +
-        "where idCliente=?;";
+        "where idDoctor=?;";
         try {
             ps = con.prepareStatement(query);
             ps.setString(1, nombre);

@@ -90,6 +90,9 @@
           </Properties>
         </Component>
         <Component class="Design.TextFieldSV" name="txtBusq">
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtBusqKeyReleased"/>
+          </Events>
         </Component>
         <Component class="Design.ButtonGradient" name="btnEditar">
           <Properties>

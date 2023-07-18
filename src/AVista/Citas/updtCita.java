@@ -38,6 +38,7 @@ public class updtCita extends javax.swing.JPanel {
         txtNotaD = new Design.TextFieldSV();
         lbEsp2 = new javax.swing.JLabel();
         cbDoc = new javax.swing.JComboBox<>();
+        lbCosto = new javax.swing.JLabel();
         btnConfirm = new Design.ButtonGradient();
 
         PCont.setBackground(new java.awt.Color(255, 255, 255));
@@ -96,18 +97,18 @@ public class updtCita extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Disponible");
-        panelRound1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 190, 180, 30));
-        panelRound1.add(dpNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 270, 50));
+        panelRound1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 190, 180, 30));
+        panelRound1.add(dpNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 270, 50));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Fecha:");
-        panelRound1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 80, 30));
+        panelRound1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, 80, 30));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Hora:");
-        panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, 100, 30));
+        panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 140, 100, 30));
 
         cbSexo.setBackground(new java.awt.Color(255, 255, 255));
         cbSexo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -117,7 +118,7 @@ public class updtCita extends javax.swing.JPanel {
                 cbSexoActionPerformed(evt);
             }
         });
-        panelRound1.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 180, 120, 50));
+        panelRound1.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 180, 120, 50));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
@@ -139,6 +140,11 @@ public class updtCita extends javax.swing.JPanel {
             }
         });
         panelRound1.add(cbDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 70, 240, 40));
+
+        lbCosto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbCosto.setForeground(new java.awt.Color(0, 0, 0));
+        lbCosto.setText("Costo");
+        panelRound1.add(lbCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 180, 30));
 
         btnConfirm.setText("Confirmar");
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
@@ -294,6 +300,7 @@ public class updtCita extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel lbCosto;
     private javax.swing.JLabel lbEsp;
     private javax.swing.JLabel lbEsp1;
     private javax.swing.JLabel lbEsp2;

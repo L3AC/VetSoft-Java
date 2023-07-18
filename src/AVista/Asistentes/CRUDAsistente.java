@@ -96,6 +96,12 @@ public class CRUDAsistente extends javax.swing.JPanel {
             }
         });
 
+        txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBusqKeyReleased(evt);
+            }
+        });
+
         panelRound1.setBackground(new java.awt.Color(202, 233, 255));
         panelRound1.setRoundBottomLeft(50);
         panelRound1.setRoundBottomRight(50);
@@ -149,7 +155,7 @@ public class CRUDAsistente extends javax.swing.JPanel {
             .addGroup(PContLayout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PContLayout.createSequentialGroup()
@@ -160,7 +166,7 @@ public class CRUDAsistente extends javax.swing.JPanel {
                     .addGroup(PContLayout.createSequentialGroup()
                         .addGap(77, 77, 77)
                         .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addContainerGap(181, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -214,6 +220,14 @@ public class CRUDAsistente extends javax.swing.JPanel {
 
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
+        try {
+            loadD();
+        } catch (SQLException ex) {
+            Logger.getLogger(CRUDAsistente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_txtBusqKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
