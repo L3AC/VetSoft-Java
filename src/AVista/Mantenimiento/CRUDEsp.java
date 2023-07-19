@@ -168,20 +168,33 @@ public class CRUDEsp extends javax.swing.JPanel {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
        
-          ctEsp ctEs=new ctEsp();
-      
-        ctEs.esp=txtEsp.getText();
-         ctEs.idEsp=idEsp;
-        ctEs.insertEsp();
+   try {
+            ctEsp ctEs=new ctEsp();
+            
+            ctEs.esp=txtEsp.getText();
+            ctEs.idEsp=idEsp;
+            ctEs.insertEsp();
+            loadD();
+        } catch (SQLException ex) {
+            Logger.getLogger(CRUDEsp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
 
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
-         ctEsp ctEs=new ctEsp();
-       
-        ctEs.esp=txtEsp.getText();
-        ctEs.idEsp=idEsp;
-        ctEs.updtEsp();
+        try {
+            ctEsp ctEs=new ctEsp();
+            
+            ctEs.esp=txtEsp.getText();
+            ctEs.idEsp=idEsp;
+            ctEs.updtEsp();
+            loadD();
+        } catch (SQLException ex) {
+            Logger.getLogger(CRUDEsp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+          
     }//GEN-LAST:event_btnActActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
