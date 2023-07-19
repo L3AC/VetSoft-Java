@@ -4,27 +4,18 @@
  */
 package AVista;
 
-import static java.lang.Integer.parseInt;
-import java.awt.Color;
-import java.awt.Font;
-import javax.swing.border.Border;
-import javax.swing.BorderFactory;
-import javax.swing.border.LineBorder;
-import java.sql.Connection; // Para establecer la conexión con la base de datos
-import java.sql.DriverManager; // Para manejar el controlador de la base de datos
-import java.sql.PreparedStatement; // Para ejecutar consultas preparadas
-import java.sql.ResultSet; // Para obtener los resultados de las consultas
-import java.sql.SQLException; // Para manejar las excepciones de SQL
-import java.util.Properties; // Para configurar las propiedades del correo electrónico
-import java.util.Random; // Para generar el código de verificación
+
 import AModelo.Conx;
+import AModelo.Crypt;
 import java.awt.Toolkit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.mail.*; // Para enviar el correo electrónico
-import javax.mail.internet.*; // Para trabajar con objetos relacionados con el correo electrónico
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
+
+
 /**
  *
  * @author Gerson
@@ -33,27 +24,19 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
 
     Conx con = new Conx();
     Connection acceso;
-    int User;
-    String Users;
-    String contra;
-    String Preguntas2;
-    String pasw;
+    Crypt cryp = new Crypt();
+    int idUs;
     
-    /**
-     * Creates new form PreguntasDeConfianza
-     */
-    String pruebalol;
+
+
     public PreguntasDeConfianza() {
         initComponents();
-        initComponents();
-        transparente();
-        Conx con = new Conx();
-        Connection acceso;
+        this.setLocationRelativeTo(this);
         txtPregunta1.setEnabled(false);
-        txtPregunta1.setEnabled(false);
-        txtPregunta1.setEnabled(false);
+        txtPregunta2.setEnabled(false);
+        txtPregunta3.setEnabled(false);
         btnEnviar.setEnabled(false);
-        
+
     }
 
     /**
@@ -192,149 +175,83 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-public void EncCod(String user) {
-        String cadena = "select * from tbUsuarios where usuario=? COLLATE SQL_Latin1_General_CP1_CS_AS;";
+
+    public void VerExist(){
+    
+        String Cadena = "select * from tbPreguntasUsuarios where idUsuario=?;";
         
         PreparedStatement ps;
         ResultSet st;
         
         try{
-            acceso = con.Conectar();
-            ps = acceso.prepareStatement(cadena, ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
-            ps.setString(1, txtUser.getText());
-            st = ps.executeQuery();
-            st.last();
-            int found = st.getRow();
-            if (found == 1) {
-                JOptionPane.showMessageDialog(null, "Usuario Encontrado");
-            Users = st.getString("usuario");
-            txtUser.setEnabled(true);
-            btnVerificar.setEnabled(true);
-            txtPregunta1.setEnabled(true);
-            txtPregunta2.setEnabled(true);
-            txtPregunta3.setEnabled(true);
-            } else{
-                JOptionPane.showMessageDialog(null, "Usuario no Encontrado");
-                txtUser.setEnabled(false);
-                btnVerificar.setEnabled(false);
-                
-            }
-        } catch (SQLException e){
-          JOptionPane.showMessageDialog(null, e.toString());
-        }   
+    acceso = con.Conectar();
+    ps = acceso.prepareStatement(Cadena, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+    
+    ps.setInt(1, idUs);
+    st = ps.executeQuery();    
+    int found = st.getRow();
+    if (found == 1){
+    int pregun = st.getInt("idPreguntaUsuario");
+   txtPregunta1.setEnabled(true);
+    txtPregunta2.setEnabled(true);
+    txtPregunta3.setEnabled(true);
+    btnEnviar.setEnabled(true);
+    JOptionPane.showMessageDialog(null, "Preguntas Encontradas");
+    } else{
+     JOptionPane.showMessageDialog(null, "Preguntas no Encontradas");
+                txtPregunta1.setEnabled(false);
+                txtPregunta2.setEnabled(false);
+                txtPregunta3.setEnabled(false);
+                btnEnviar.setEnabled(false);
     }
     
-    public void EncExist(int user){
-    
-        String cadena = "EXEC existPreg ?;";
-        
-        PreparedStatement ps;
-        ResultSet st;
-        
-        try{
-        acceso = con.Conectar();
-            ps = acceso.prepareStatement(cadena, ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
-            ps.setInt(1, User);
-            st = ps.executeQuery();
-            st.last();
-            int found = st.getRow();
-            if (found == 1){
-                JOptionPane.showMessageDialog(null, "Se encontraron respuestas");
-               User = st.getInt("idUsuario");
-               txtPregunta1.setEnabled(true);
-               txtPregunta2.setEnabled(true);
-               txtPregunta3.setEnabled(true);
-               btnVerificar.setEnabled(true);
-            }else{
-                JOptionPane.showMessageDialog(null, "No se encontraron respuestas");
-               txtPregunta1.setEnabled(false);
-               txtPregunta2.setEnabled(false);
-               txtPregunta3.setEnabled(false);
-               btnVerificar.setEnabled(false);
-                
-            }
-        }catch (SQLException e){
-          JOptionPane.showMessageDialog(null, e.toString());
-        }   
-    }
-    
-    public void VerifUS(){
-    String cadena = "EXEC selectUsB ?;";
-        
-        PreparedStatement ps;
-        ResultSet st;
-        
-        try{
-        acceso = con.Conectar();
-            ps = acceso.prepareStatement(cadena, ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
-            ps.setString(1, txtUser.toString());
-            st = ps.executeQuery();
-            st.last();
-            int found = st.getRow();
-            if(found == 1){
-            User = st.getInt("idUsuario");
-            pasw = st.getString("contraseña");
-            System.out.println(pasw);
-            }else {
-            
-            }
-        }catch (SQLException e){
+    } catch (SQLException e){
           JOptionPane.showMessageDialog(null, e.toString());
         }
     
-}
+    }
     
+    public void Encod(){
+    String cadena = "select * from tbUsuarios where Usuario=? COLLATE SQL_Latin1_General_CP1_CS_AS;";
+
+    PreparedStatement ps;
+    ResultSet st;
     
+    try{
+    acceso = con.Conectar();
+    ps = acceso.prepareStatement(cadena, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+    ps.setString(1, txtUser.getText());
+    st = ps.executeQuery();
+    st.last();
+    int found = st.getRow();
+    if (found == 1){
+    String id = st.getString("Usuario");
+    txtPregunta1.setEnabled(true);
+    txtPregunta2.setEnabled(true);
+    txtPregunta3.setEnabled(true);
+    btnEnviar.setEnabled(true);
+    JOptionPane.showMessageDialog(null, "Usuario Encontrado");
+    } else{
+     JOptionPane.showMessageDialog(null, "Usuario no Encontrado");
+                txtPregunta1.setEnabled(false);
+                txtPregunta2.setEnabled(false);
+                txtPregunta3.setEnabled(false);
+                btnEnviar.setEnabled(false);
+    }
     
-    public boolean VerificarExistencia(JTextField resp, int idpreg){
-    
-    String cadena = "EXEC selectPregUs ?,?,?;";
-        
-        PreparedStatement ps;
-        ResultSet st;
-        
-        try{
-        acceso = con.Conectar();
-            ps = acceso.prepareStatement(cadena, ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
-            ps.setInt(1, User);
-            ps.setInt(2,idpreg);
-            ps.setString(3, resp.toString());
-            st = ps.executeQuery();
-            st.last();
-            int found = st.getRow();
-            
-            if(found == 1){
-                return true; 
-            }else{
-                JOptionPane.showMessageDialog(null, "Respuestas Incorrectas");
-            
-            }
-        }  catch (SQLException e){
+    } catch (SQLException e){
           JOptionPane.showMessageDialog(null, e.toString());
-        
-        
-        
-    }
-        return false;
-}
+        }
     
-    public void transparente(){
-    
-        btnRegresar6.setOpaque(false);
-        btnRegresar6.setContentAreaFilled(false);
-        btnRegresar6.setBorderPainted(false);
-        
     }
+   
     private void btnVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarActionPerformed
-        // TODO add your handling code here:
-        if (txtUser.getText().isEmpty()){
+             if (txtUser.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Campos vacios");
         } else {
-            EncCod(Users);
-            EncExist(User);
+                 Encod();
+                 VerExist();
         }
-    
-
     }//GEN-LAST:event_btnVerificarActionPerformed
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
@@ -347,35 +264,35 @@ public void EncCod(String user) {
 
     private void txtUserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyTyped
         // TODO add your handling code here:
-        if(txtUser.getText().length() >=30){
-        evt.consume();
+        if (txtUser.getText().length() >= 30) {
+            evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
     }//GEN-LAST:event_txtUserKeyTyped
 
     private void txtPregunta1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPregunta1KeyTyped
         // TODO add your handling code here:
-        
-        if(txtPregunta1.getText().length() >=30){
-        evt.consume();
+
+        if (txtPregunta1.getText().length() >= 30) {
+            evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
     }//GEN-LAST:event_txtPregunta1KeyTyped
 
     private void txtPregunta2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPregunta2KeyTyped
         // TODO add your handling code here:
-        
-        if(txtPregunta2.getText().length() >=30){
-        evt.consume();
+
+        if (txtPregunta2.getText().length() >= 30) {
+            evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
     }//GEN-LAST:event_txtPregunta2KeyTyped
 
     private void txtPregunta3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPregunta3KeyTyped
         // TODO add your handling code here:
-        
-        if(txtPregunta3.getText().length() >=30){
-        evt.consume();
+
+        if (txtPregunta3.getText().length() >= 30) {
+            evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
     }//GEN-LAST:event_txtPregunta3KeyTyped

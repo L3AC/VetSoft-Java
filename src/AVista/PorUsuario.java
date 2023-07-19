@@ -418,7 +418,7 @@ public class PorUsuario extends javax.swing.JFrame {
             txtCod.setEnabled(true);
             btnVeri.setEnabled(true);
             } else{
-                JOptionPane.showMessageDialog(null, "Usuario no Encontrado ojo");
+                JOptionPane.showMessageDialog(null, "Usuario no Encontrado");
                 txtCod.setEnabled(false);
                 btnVeri.setEnabled(false);
                 
