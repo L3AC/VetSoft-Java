@@ -84,8 +84,13 @@ public class ctCitas {
     public ResultSet citaOther() {
         return cl.citaOther(cliente);
     }
+
     public ResultSet citaDoc() {
-        return cl.citaDoc(idDoctor,cliente);
+        return cl.citaDoc(idDoctor, cliente);
+    }
+
+    public ResultSet verifDispo() {
+        return cl.verifDisp(idDoctor, fechahora);
     }
 
     public ResultSet selectCita() {

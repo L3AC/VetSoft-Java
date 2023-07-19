@@ -127,4 +127,19 @@ public class mdCitas {
             return false; //DIO ERROR
         }
     }
+    public ResultSet verifDisp(int idD,String fecha) {
+        String query = "select * from tbCitas c where idDoctor=? and fechahora=? and estado='Pendiente';";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setInt(1, idD);
+            ps.setString(2, fecha);
+            rs = ps.executeQuery();
+            return rs;
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return null; //DIO ERROR
+        }
+    }
 }

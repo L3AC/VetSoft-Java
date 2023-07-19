@@ -20,6 +20,7 @@ public class CRUDCita extends javax.swing.JPanel {
         this.idDoc = idDoc;
         initComponents();
         loadD();
+
     }
 
     @SuppressWarnings("unchecked")
@@ -109,11 +110,11 @@ public class CRUDCita extends javax.swing.JPanel {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-final void loadD() throws SQLException {
+    final void loadD() throws SQLException {
         String[] column = {"idCita", "idAnimal", "Estado", "Fecha", "Mascota", "Dueño", "Doctor"};
         model = new DefaultTableModel(null, column);
-        dsg.ColumnHide(model, tbData, 0, 6);
-        dsg.ColumnHide(model, tbData, 1, 6);
+        dsg.ColumnHide(model, tbData, 0, 7);
+        dsg.ColumnHide(model, tbData, 1, 7);
         if (idTipoUs == 4) {
             docTabla();
         } else {

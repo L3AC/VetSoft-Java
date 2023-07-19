@@ -4,12 +4,20 @@
  */
 package AVista.Citas;
 
+import AControlador.ctCitas;
 import AControlador.ctDoctores;
 import AControlador.ctEsp;
 import AControlador.ctTipoServ;
+import AVista.Animales.CRUDAnimales;
+import AVista.Animales.updtAnimales;
 import Design.Desg;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
@@ -28,15 +36,18 @@ public class insertCita extends javax.swing.JPanel {
     Map<Integer, String> cbServ = new HashMap<>();
     Map<Integer, String> cbAre = new HashMap<>();
     Map<Integer, String> cbDoct = new HashMap<>();
+    SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
 
     public insertCita(int idTipoUs, int idAnim) throws SQLException {
-        this.idTipoUs=idTipoUs;
-        this.idAnim=idAnim;
+        this.idTipoUs = idTipoUs;
+        this.idAnim = idAnim;
         initComponents();
         loadComboServ(cbServicio);
         loadComboEsp(cbEsp);
         loadComboDoc(cbDoc);
         precio();
+        Calendar currentDate = Calendar.getInstance();
+        dpFecha.setDate(currentDate.getTime());
     }
 
     private void loadComboServ(JComboBox cb) throws SQLException {
@@ -67,7 +78,7 @@ public class insertCita extends javax.swing.JPanel {
 
     private void loadComboDoc(JComboBox cb) throws SQLException {
         ctDoctores ct = new ctDoctores();
-        ct.idEsp=dsg.getMap(cbAre, cbEsp.getSelectedItem().toString());
+        ct.idEsp = dsg.getMap(cbAre, cbEsp.getSelectedItem().toString());
         cbDoct.clear();
         cb.removeAllItems();
         ResultSet rs = ct.comboDoc();
@@ -77,15 +88,36 @@ public class insertCita extends javax.swing.JPanel {
             cb.addItem(nombre);
             cbDoct.put(idTP, nombre);
         }
-        
+
     }
-    private void precio() throws SQLException{
+
+    private void precio() throws SQLException {
         ctTipoServ ct = new ctTipoServ();
-        ct.idTipoServ=dsg.getMap(cbServ, cbServicio.getSelectedItem().toString());
+        ct.idTipoServ = dsg.getMap(cbServ, cbServicio.getSelectedItem().toString());
         ResultSet rs = ct.selectServ();
         while (rs.next()) {
-            lbCosto.setText("Costo: $"+String.valueOf(rs.getDouble("costo")));
+            lbCosto.setText("Costo: $" + String.valueOf(rs.getDouble("costo")));
         }
+    }
+
+    private void dispo() throws SQLException {
+        ctCitas ct = new ctCitas();
+        if (cbDoct.isEmpty()) {
+
+        } else {
+            ct.idDoctor = dsg.getMap(cbDoct, cbDoc.getSelectedItem().toString());
+            ct.fechahora = dt.format(dpFecha.getCalendar().getTime()) + " " + cbHora.getSelectedItem().toString();
+            System.err.println(dt.format(dpFecha.getCalendar().getTime()) + " " + cbHora.getSelectedItem().toString());
+            ResultSet rs = ct.verifDispo();
+            if (rs.next()) {
+                lbDispo.setText("No disponible");
+                btnConfirm.setEnabled(false);
+            } else {
+                lbDispo.setText("Disponible");
+                btnConfirm.setEnabled(true);
+            }
+        }
+
     }
 
     @SuppressWarnings("unchecked")
@@ -102,16 +134,16 @@ public class insertCita extends javax.swing.JPanel {
         lbEsp = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         lbCosto = new javax.swing.JLabel();
-        dpNaci = new com.toedter.calendar.JDateChooser();
+        dpFecha = new com.toedter.calendar.JDateChooser();
         jLabel9 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        cbSexo = new javax.swing.JComboBox<>();
+        cbHora = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         txtNotaCl = new Design.TextFieldSV();
         txtNotaD = new Design.TextFieldSV();
         lbEsp2 = new javax.swing.JLabel();
         cbDoc = new javax.swing.JComboBox<>();
-        jLabel7 = new javax.swing.JLabel();
+        lbDispo = new javax.swing.JLabel();
         btnConfirm = new Design.ButtonGradient();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
@@ -176,7 +208,7 @@ public class insertCita extends javax.swing.JPanel {
         lbCosto.setForeground(new java.awt.Color(0, 0, 0));
         lbCosto.setText("Costo");
         panelRound1.add(lbCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 180, 30));
-        panelRound1.add(dpNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 270, 50));
+        panelRound1.add(dpFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 270, 50));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
@@ -188,15 +220,15 @@ public class insertCita extends javax.swing.JPanel {
         jLabel6.setText("Hora:");
         panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 140, 100, 30));
 
-        cbSexo.setBackground(new java.awt.Color(255, 255, 255));
-        cbSexo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00" }));
-        cbSexo.addActionListener(new java.awt.event.ActionListener() {
+        cbHora.setBackground(new java.awt.Color(255, 255, 255));
+        cbHora.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        cbHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00" }));
+        cbHora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbSexoActionPerformed(evt);
+                cbHoraActionPerformed(evt);
             }
         });
-        panelRound1.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 180, 120, 50));
+        panelRound1.add(cbHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 180, 120, 50));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
@@ -219,10 +251,10 @@ public class insertCita extends javax.swing.JPanel {
         });
         panelRound1.add(cbDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 70, 240, 40));
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("Disponible");
-        panelRound1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 190, 180, 30));
+        lbDispo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbDispo.setForeground(new java.awt.Color(0, 0, 0));
+        lbDispo.setText("Disponible");
+        panelRound1.add(lbDispo, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 190, 180, 30));
 
         PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 1010, 530));
 
@@ -247,12 +279,12 @@ public class insertCita extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        /*try {
+        try {
             CRUDAnimales subp = new CRUDAnimales(idTipoUs);
             dsg.ShowPanel(subp, PCont, 1320, 810);
         } catch (SQLException ex) {
-            Logger.getLogger(updtAnimales.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+            Logger.getLogger(CRUDAnimales.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void cbServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbServicioActionPerformed
@@ -264,36 +296,41 @@ public class insertCita extends javax.swing.JPanel {
     }//GEN-LAST:event_cbServicioActionPerformed
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
-        /*SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
-        ctAnimales ct = new ctAnimales();
-        ct.idRaza = dsg.getMap(cbMapRa, cbEsp.getSelectedItem().toString());
+        ctCitas ct = new ctCitas();
+
         ct.idAnimal = idAnim;
-        ct.nombre = txtNombre.getText();
-        ct.peso = txtPeso.getText();
-        ct.edad = dt.format(dpNaci.getCalendar().getTime());
-        ct.padecimientos = txtPad.getText();
-        ct.sexo = cbSexo.getSelectedItem().toString();
-        ct.updtAnim();*/
+        ct.idTipoServicio = dsg.getMap(cbServ, cbServicio.getSelectedItem().toString());
+        ct.idDoctor = dsg.getMap(cbDoct, cbDoc.getSelectedItem().toString());
+        ct.notaDelCliente = txtNotaCl.getText();
+        ct.notaDelDoctor = txtNotaD.getText();
+        ct.fechahora = dt.format(dpFecha.getCalendar().getTime()) + " " + cbHora.getSelectedItem().toString();
+        System.err.println(dt.format(dpFecha.getCalendar().getTime()) + " " + cbHora.getSelectedItem().toString());
+        ct.insertCita();
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     private void cbEspActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEspActionPerformed
         try {
             loadComboDoc(cbDoc);
+            dispo();
         } catch (SQLException ex) {
             Logger.getLogger(insertCita.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_cbEspActionPerformed
 
-    private void cbSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSexoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbSexoActionPerformed
-
-    private void cbDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbDocActionPerformed
-        /*try {
-            //loadComboDoc(cbEsp);
+    private void cbHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbHoraActionPerformed
+        try {
+            dispo();
         } catch (SQLException ex) {
             Logger.getLogger(insertCita.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        }
+    }//GEN-LAST:event_cbHoraActionPerformed
+
+    private void cbDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbDocActionPerformed
+        try {
+            dispo();
+        } catch (SQLException ex) {
+            Logger.getLogger(insertCita.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_cbDocActionPerformed
 
 
@@ -303,16 +340,16 @@ public class insertCita extends javax.swing.JPanel {
     private Design.ButtonGradient btnConfirm;
     private javax.swing.JComboBox<String> cbDoc;
     private javax.swing.JComboBox<String> cbEsp;
+    private javax.swing.JComboBox<String> cbHora;
     private javax.swing.JComboBox<String> cbServicio;
-    private javax.swing.JComboBox<String> cbSexo;
-    private com.toedter.calendar.JDateChooser dpNaci;
+    private com.toedter.calendar.JDateChooser dpFecha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lbCosto;
+    private javax.swing.JLabel lbDispo;
     private javax.swing.JLabel lbEsp;
     private javax.swing.JLabel lbEsp1;
     private javax.swing.JLabel lbEsp2;

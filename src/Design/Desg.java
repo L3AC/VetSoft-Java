@@ -47,6 +47,7 @@ public class Desg {
         for (int i = 0; i < nCol; i++) {
             tb.getColumnModel().getColumn(i).setCellRenderer(Alinear);
         }
+
     }
 
     public void ShowPanel(JPanel p, JPanel cont, int w, int h) {

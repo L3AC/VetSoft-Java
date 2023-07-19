@@ -141,12 +141,12 @@ public class AsistenteDoc extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
 
-        try {
+       /* try {
             CRUDDoctores subp = new CRUDDoctores(idTipoUs, idDoc);
             dsg.ShowPanel(subp, PCont, 1320, 810);
         } catch (SQLException ex) {
             Logger.getLogger(AsistenteDoc.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
 
     }//GEN-LAST:event_btnBackActionPerformed
 
