@@ -142,4 +142,18 @@ public class mdCitas {
             return null; //DIO ERROR
         }
     }
+        public ResultSet verifEstate(int idD) {
+        String query = "select * from tbCitas c where idCita=? and estado='Pendiente';";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setInt(1, idD);
+            rs = ps.executeQuery();
+            return rs;
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return null; //DIO ERROR
+        }
+    }
 }

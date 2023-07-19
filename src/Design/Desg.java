@@ -72,5 +72,10 @@ public class Desg {
             component.setVisible(tf);
         }
     }
+    public final void enable(java.util.List<Component> components,boolean tf) {
+        for (Component component : components) {
+            component.setEnabled(tf);
+        }
+    }
 
 }

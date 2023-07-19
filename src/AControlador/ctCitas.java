@@ -92,6 +92,9 @@ public class ctCitas {
     public ResultSet verifDispo() {
         return cl.verifDisp(idDoctor, fechahora);
     }
+        public ResultSet verifEstate() {
+        return cl.verifEstate(idCita);
+    }
 
     public ResultSet selectCita() {
         return cl.selectCita(idCita);

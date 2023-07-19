@@ -48,6 +48,7 @@ public class insertCita extends javax.swing.JPanel {
         precio();
         Calendar currentDate = Calendar.getInstance();
         dpFecha.setDate(currentDate.getTime());
+        lbDispo.setVisible(false);
     }
 
     private void loadComboServ(JComboBox cb) throws SQLException {

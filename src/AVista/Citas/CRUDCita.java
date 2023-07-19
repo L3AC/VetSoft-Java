@@ -2,22 +2,26 @@ package AVista.Citas;
 
 import AControlador.ctCitas;
 import AControlador.ctDoctores;
+import AVista.Animales.CRUDAnimales;
+import AVista.Animales.updtAnimales;
 import Design.Desg;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 public class CRUDCita extends javax.swing.JPanel {
 
     private int idTipoUs;
     private int idCita;
-    private int idDoc;
+    private int idCuenta;
     Desg dsg = new Desg();
     DefaultTableModel model;
 
-    public CRUDCita(int idTipoUS, int idDoc) throws SQLException {
+    public CRUDCita(int idTipoUS, int idCuenta) throws SQLException {
         this.idTipoUs = idTipoUS;
-        this.idDoc = idDoc;
+        this.idCuenta = idCuenta;
         initComponents();
         loadD();
 
@@ -27,7 +31,7 @@ public class CRUDCita extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        PCont = new javax.swing.JPanel();
         txtBusq = new Design.TextFieldSV();
         panelRound1 = new Design.PanelRound();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -37,17 +41,15 @@ public class CRUDCita extends javax.swing.JPanel {
         btnEditar = new Design.ButtonGradient();
         btnEliminar = new Design.ButtonGradient();
         jLabel1 = new javax.swing.JLabel();
+        btnAceptar = new Design.ButtonGradient();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
-
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtBusqKeyReleased(evt);
             }
         });
-        jPanel1.add(txtBusq, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 700, 50));
 
         panelRound1.setBackground(new java.awt.Color(202, 233, 255));
         panelRound1.setRoundBottomLeft(50);
@@ -67,25 +69,25 @@ public class CRUDCita extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tbData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbDataMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tbData);
 
         panelRound1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 1000, -1));
 
-        jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 1080, 490));
-
         btnAddM.setText("Receta");
-        jPanel1.add(btnAddM, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 160, 120, 40));
 
         btnReservas.setText("Factura");
-        jPanel1.add(btnReservas, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 250, 120, 40));
 
-        btnEditar.setText("Editar");
+        btnEditar.setText("+ Info");
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 350, 120, 40));
 
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -93,21 +95,71 @@ public class CRUDCita extends javax.swing.JPanel {
                 btnEliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 440, 120, 40));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Nombre del dueño");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 70, -1, -1));
+
+        btnAceptar.setText("Aceptar cita");
+
+        javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
+        PCont.setLayout(PContLayout);
+        PContLayout.setHorizontalGroup(
+            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 1080, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(58, 58, 58)
+                        .addComponent(jLabel1)))
+                .addGap(40, 40, 40)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAddM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnReservas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        PContLayout.setVerticalGroup(
+            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(40, 40, 40)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50)
+                        .addComponent(btnAddM, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50)
+                        .addComponent(btnReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PCont, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PCont, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
     final void loadD() throws SQLException {
@@ -134,7 +186,7 @@ public class CRUDCita extends javax.swing.JPanel {
         }
         try {
             ctCitas ctD = new ctCitas();
-            ctD.idDoctor = idDoc;
+            ctD.idDoctor = idCuenta;
             ctD.cliente = txtBusq.getText().toString();
             ResultSet rs = ctD.citaDoc();
             while (rs.next()) {
@@ -168,26 +220,59 @@ public class CRUDCita extends javax.swing.JPanel {
 
         }
     }
+
+    private void estate() throws SQLException {
+        ctCitas ct = new ctCitas();
+        ct.idCita = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+        ResultSet rs = ct.verifEstate();
+        if (rs.next()) {
+            btnAceptar.setVisible(true);
+        }
+        else{
+            btnAceptar.setVisible(false);
+        }
+    }
+
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        //Editar();
+        try {
+            updtCita subp = new updtCita(idTipoUs,
+                    Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()),
+                    idCuenta);
+            dsg.ShowPanel(subp, PCont, 1320, 810);
+        } catch (SQLException ex) {
+            Logger.getLogger(CRUDAnimales.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        //Eliminar();
+
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
-        // TODO add your handling code here:
+        try {
+            loadD();
+        } catch (SQLException ex) {
+            Logger.getLogger(CRUDCita.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_txtBusqKeyReleased
+
+    private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
+        try {
+            estate();
+        } catch (SQLException ex) {
+            Logger.getLogger(CRUDCita.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_tbDataMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel PCont;
+    private Design.ButtonGradient btnAceptar;
     private Design.ButtonGradient btnAddM;
     private Design.ButtonGradient btnEditar;
     private Design.ButtonGradient btnEliminar;
     private Design.ButtonGradient btnReservas;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private Design.PanelRound panelRound1;
     private SwingTable.Table tbData;
