@@ -44,7 +44,8 @@ public class updtCita extends javax.swing.JPanel {
         precio();
         Calendar currentDate = Calendar.getInstance();
         dpFecha.setDate(currentDate.getTime());
-        lbDispo.setVisible(false);
+        btnConfirm.setVisible(false);
+        enab(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -255,7 +256,26 @@ public class updtCita extends javax.swing.JPanel {
 
     }
 
-    
+    final void loadData() throws SQLException {
+        try {
+            ctCitas ct = new ctCitas();
+            ct.idCita = idCita;
+
+            ResultSet rs = ct.selectCita();
+            while (rs.next()) {
+                cbServicio.setSelectedItem(rs.getString("Serv"));
+                cbEsp.setSelectedItem(rs.getString("Especialidad"));
+                cbDoc.setSelectedItem(rs.getString("Doctor"));
+                /*cb.setText(rs.getString("nombre"));
+                txtApellidos.setText(rs.getString("apellido"));
+                txtDui.setText(rs.getString("dui"));
+                dpNaci.setDate(rs.getDate("nacimiento"));
+                cbSexo.setSelectedItem(rs.getString("sexo"));*/
+            }
+        } catch (Exception e) {
+            System.err.println(e.toString());
+        }
+    }
 
     private void precio() throws SQLException {
         ctTipoServ ct = new ctTipoServ();
@@ -273,14 +293,13 @@ public class updtCita extends javax.swing.JPanel {
         } else {
             ct.idDoctor = dsg.getMap(cbDoct, cbDoc.getSelectedItem().toString());
             ct.fechahora = dt.format(dpFecha.getCalendar().getTime()) + " " + cbHora.getSelectedItem().toString();
-            System.err.println(dt.format(dpFecha.getCalendar().getTime()) + " " + cbHora.getSelectedItem().toString());
             ResultSet rs = ct.verifDispo();
             if (rs.next()) {
                 lbDispo.setText("No disponible");
-                btnEditar.setEnabled(false);
+                btnConfirm.setEnabled(false);
             } else {
                 lbDispo.setText("Disponible");
-                btnEditar.setEnabled(true);
+                btnConfirm.setEnabled(true);
             }
         }
 
@@ -299,11 +318,11 @@ public class updtCita extends javax.swing.JPanel {
         if (btnConfirm.isVisible()) {
             btnEditar.setText("Editar");
             enab(false);
-            btnConfirm.setVisible(true);
+            btnConfirm.setVisible(false);
         } else {
             btnEditar.setText("Cancelar");
             enab(true);
-            btnConfirm.setVisible(false);
+            btnConfirm.setVisible(true);
         }
     }//GEN-LAST:event_btnEditarActionPerformed
     final void enab(boolean tf) {
@@ -352,7 +371,7 @@ public class updtCita extends javax.swing.JPanel {
     }//GEN-LAST:event_cbHoraActionPerformed
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
-                ctCitas ct = new ctCitas();
+        ctCitas ct = new ctCitas();
 
         ct.idCita = idCita;
         ct.idTipoServicio = dsg.getMap(cbServ, cbServicio.getSelectedItem().toString());
@@ -361,7 +380,7 @@ public class updtCita extends javax.swing.JPanel {
         ct.notaDelDoctor = txtNotaD.getText();
         ct.fechahora = dt.format(dpFecha.getCalendar().getTime()) + " " + cbHora.getSelectedItem().toString();
         System.err.println(dt.format(dpFecha.getCalendar().getTime()) + " " + cbHora.getSelectedItem().toString());
-        ct.insertCita();
+        ct.updtCita();
     }//GEN-LAST:event_btnConfirmActionPerformed
 
 

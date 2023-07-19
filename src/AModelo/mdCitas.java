@@ -51,7 +51,11 @@ public class mdCitas {
     }
 
     public ResultSet selectCita(int idC) {
-        String query = "select * from tbCitas where idCita=?;";
+        String query = "SET LANGUAGE spanish\n"
+                + "select a.Nombre as 'Animal',tp.Nombre as 'Serv',e.Especialidad,CONCAT(d.Nombre,' ',d.Apellido) as 'Doctor',\n"
+                + "notaDelCliente,notaDelDoctor,CONVERT(varchar, fechahora, 100) as 'fecha' from tbAnimales a,tbCitas c,tbTipoServicio tp,tbDoctores d,tbEspecialidades e\n"
+                + "where c.idDoctor=d.idDoctor and c.idTipoServicio=tp.idTipoServicio and a.idAnimal=c.idAnimal and e.idEspecialidad=d.idEspecialidad\n"
+                + "and idCita=?;";
         try {
             ps = con.prepareStatement(query);
             ps.setInt(1, idC);
@@ -127,7 +131,8 @@ public class mdCitas {
             return false; //DIO ERROR
         }
     }
-    public ResultSet verifDisp(int idD,String fecha) {
+
+    public ResultSet verifDisp(int idD, String fecha) {
         String query = "select * from tbCitas c where idDoctor=? and fechahora=? and estado='Pendiente';";
         try {
             ps = con.prepareStatement(query);
@@ -142,7 +147,8 @@ public class mdCitas {
             return null; //DIO ERROR
         }
     }
-        public ResultSet verifEstate(int idD) {
+
+    public ResultSet verifEstate(int idD) {
         String query = "select * from tbCitas c where idCita=? and estado='Pendiente';";
         try {
             ps = con.prepareStatement(query);
