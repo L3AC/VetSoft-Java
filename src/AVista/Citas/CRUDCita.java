@@ -1,5 +1,6 @@
 package AVista.Citas;
 
+import AControlador.ctCitas;
 import AControlador.ctDoctores;
 import Design.Desg;
 import java.sql.ResultSet;
@@ -15,10 +16,10 @@ public class CRUDCita extends javax.swing.JPanel {
     DefaultTableModel model;
 
     public CRUDCita(int idTipoUS, int idDoc) throws SQLException {
-        this.idTipoUs=idTipoUS;
-        this.idDoc=idDoc;
-        loadD();
+        this.idTipoUs = idTipoUS;
+        this.idDoc = idDoc;
         initComponents();
+        loadD();
     }
 
     @SuppressWarnings("unchecked")
@@ -109,10 +110,15 @@ public class CRUDCita extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 final void loadD() throws SQLException {
-        String[] column = {"idCita", "idAnimal", "Fecha","Mascota","Dueño","Doctor"};
+        String[] column = {"idCita", "idAnimal", "Estado", "Fecha", "Mascota", "Dueño", "Doctor"};
         model = new DefaultTableModel(null, column);
         dsg.ColumnHide(model, tbData, 0, 6);
-        CargarTabla();
+        dsg.ColumnHide(model, tbData, 1, 6);
+        if (idTipoUs == 4) {
+            docTabla();
+        } else {
+            otherTabla();
+        }
         if (tbData.getRowCount() > 0) {
             tbData.setRowSelectionInterval(0, 0);
             int fila = tbData.getSelectedRow();
@@ -121,17 +127,40 @@ final void loadD() throws SQLException {
 
     }
 
-    final void CargarTabla() throws SQLException {
+    final void docTabla() throws SQLException {
         while (model.getRowCount() > 0) {
             model.removeRow(0);
         }
         try {
-            ctDoctores ctD = new ctDoctores();
-            ctD.nombre = txtBusq.getText().toString();
-            ResultSet rs = ctD.cargarDoc();
+            ctCitas ctD = new ctCitas();
+            ctD.idDoctor = idDoc;
+            ctD.cliente = txtBusq.getText().toString();
+            ResultSet rs = ctD.citaDoc();
             while (rs.next()) {
-                Object[] oValores = {rs.getInt("idDoctor"), rs.getString("especialidad"),
-                    rs.getString("Nombre")};
+                Object[] oValores = {rs.getInt("idCita"), rs.getInt("idAnimal"),
+                    rs.getString("Estado"), rs.getString("Fecha"),
+                    rs.getString("Mascota"), rs.getString("Dueño"),
+                    rs.getString("Doctor")};
+                model.addRow(oValores);
+            }
+        } catch (Exception e) {
+
+        }
+    }
+
+    final void otherTabla() throws SQLException {
+        while (model.getRowCount() > 0) {
+            model.removeRow(0);
+        }
+        try {
+            ctCitas ctD = new ctCitas();
+            ctD.cliente = txtBusq.getText().toString();
+            ResultSet rs = ctD.citaOther();
+            while (rs.next()) {
+                Object[] oValores = {rs.getInt("idCita"), rs.getInt("idAnimal"),
+                    rs.getString("Estado"), rs.getString("Fecha"),
+                    rs.getString("Mascota"), rs.getString("Dueño"),
+                    rs.getString("Doctor")};
                 model.addRow(oValores);
             }
         } catch (Exception e) {

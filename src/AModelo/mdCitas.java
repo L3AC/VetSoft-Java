@@ -9,17 +9,38 @@ public class mdCitas {
     ResultSet rs;
     PreparedStatement ps;
 
-    public ResultSet cargarCita(String cliente) {
+    public ResultSet citaOther(String cliente) {
         String query = "SET LANGUAGE Spanish\n"
-                + "select idCita, c.idAnimal,CONVERT(varchar, fechahora, 100) as 'Fecha',a.Nombre as 'Mascota',CONCAT(cl.Nombre,' ',cl.Apellido) as 'Dueño',CONCAT(d.Nombre,' ',d.Apellido) as 'Doctor'\n"
+                + "select idCita, c.idAnimal,Estado,CONVERT(varchar, fechahora, 100) as 'Fecha',a.Nombre as 'Mascota',CONCAT(cl.Nombre,' ',cl.Apellido) as 'Dueño',CONCAT(d.Nombre,' ',d.Apellido) as 'Doctor'\n"
                 + "from tbCitas c, tbAnimales a,tbDoctores d,tbClientes cl where c.idAnimal=a.idAnimal and c.idDoctor=d.idDoctor and cl.idCliente=a.idCliente and Estado='Aceptada' and 'Dueño' like ?\n"
-                + "or cl.idCliente=a.idCliente and c.idAnimal=a.idAnimal and c.idDoctor=d.idDoctor and Estado='Pendiente' and 'Dueño' like ?;;";
+                + "or cl.idCliente=a.idCliente and c.idAnimal=a.idAnimal and c.idDoctor=d.idDoctor and Estado='Pendiente' and 'Dueño' like ?;";
         try {
             ps = con.prepareStatement(query);
             ps.setString(1, "%" + cliente + "%");
             ps.setString(2, "%" + cliente + "%");
             rs = ps.executeQuery();
-            System.err.println(query);
+            return rs;
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return null; //DIO ERROR
+        }
+    }
+
+    public ResultSet citaDoc(int idDoc, String cliente) {
+        String query = "SET LANGUAGE Spanish\n"
+                + "select idCita, c.idAnimal,Estado,CONVERT(varchar, fechahora, 100) as 'Fecha',a.Nombre as 'Mascota',CONCAT(cl.Nombre,' ',cl.Apellido) as 'Dueño',CONCAT(d.Nombre,' ',d.Apellido) as 'Doctor'\n"
+                + "from tbCitas c, tbAnimales a,tbDoctores d,tbClientes cl where c.idAnimal=a.idAnimal and c.idDoctor=d.idDoctor and cl.idCliente=a.idCliente and \n"
+                + "Estado='Aceptada' and 'Dueño' like ? and c.idDoctor=? or cl.idCliente=a.idCliente and c.idAnimal=a.idAnimal and c.idDoctor=d.idDoctor and \n"
+                + "Estado='Pendiente' and 'Dueño' like ? and c.idDoctor=?;";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setString(1, "%" + cliente + "%");
+            ps.setInt(2, idDoc);
+            ps.setString(3, "%" + cliente + "%");
+            ps.setInt(4, idDoc);
+            rs = ps.executeQuery();
             return rs;
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException

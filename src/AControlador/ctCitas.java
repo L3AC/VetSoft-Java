@@ -81,8 +81,11 @@ public class ctCitas {
 
     mdCitas cl = new mdCitas();
 
-    public ResultSet cargarCita() {
-        return cl.cargarCita(cliente);
+    public ResultSet citaOther() {
+        return cl.citaOther(cliente);
+    }
+    public ResultSet citaDoc() {
+        return cl.citaDoc(idDoctor,cliente);
     }
 
     public ResultSet selectCita() {
