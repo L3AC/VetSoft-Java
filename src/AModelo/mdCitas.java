@@ -85,8 +85,9 @@ public class mdCitas {
         }
     }
 
-    public boolean insertCita(int idAni, int idTS, int idD, String notaCl, String notaDoc, String fechahora) {
-        String query = "insert into tbCitas values(?,?,?,'Pendiente',?,?,?,GETDATE())";
+    public boolean insertCita(int idAni, int idTS, int idD, String notaCl,
+            String notaDoc, String fecha,String hora) {
+        String query = "insert into tbCitas values(?,?,?,'Pendiente',?,?,?,?,GETDATE())";
         try {
             ps = con.prepareStatement(query);
             ps.setInt(1, idAni);
@@ -94,7 +95,8 @@ public class mdCitas {
             ps.setInt(3, idD);
             ps.setString(4, notaCl);
             ps.setString(5, notaDoc);
-            ps.setString(6, fechahora);
+            ps.setString(6, fecha);
+            ps.setString(7, hora);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Campos ingresados");
             return true;
@@ -107,9 +109,10 @@ public class mdCitas {
         }
     }
 
-    public boolean updateCita(int idCita, int idAni, int idTS, int idD, String estado, String nCl, String nDoc, String fechahora) {
+    public boolean updateCita(int idCita, int idAni, int idTS, int idD, String estado, String nCl, 
+            String nDoc, String fecha,String hora) {
         String query = "update tbCitas set idAnimal=?,idTipoServicio=?,idDoctor=?,estado=?,"
-                + "notaDelCliente=?,notaDelDoctor=?,fechahora=? where idCita=?;";
+                + "notaDelCliente=?,notaDelDoctor=?,fecha=?,hora=? where idCita=?;";
         try {
             ps = con.prepareStatement(query);
             ps.setInt(1, idAni);
@@ -118,8 +121,9 @@ public class mdCitas {
             ps.setString(4, estado);
             ps.setString(5, nCl);
             ps.setString(6, nDoc);
-            ps.setString(7, fechahora);
-            ps.setInt(8, idCita);
+            ps.setString(7, fecha);
+            ps.setString(8, hora);
+            ps.setInt(9, idCita);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Campos actualizados");
             return true;
@@ -132,12 +136,13 @@ public class mdCitas {
         }
     }
 
-    public ResultSet verifDisp(int idD, String fecha) {
-        String query = "select * from tbCitas c where idDoctor=? and fechahora=? and estado='Pendiente';";
+    public ResultSet verifDisp(int idD, String fecha,String hora) {
+        String query = "select * from tbCitas c where idDoctor=? and fecha=? and hora=? and estado='Pendiente';";
         try {
             ps = con.prepareStatement(query);
             ps.setInt(1, idD);
             ps.setString(2, fecha);
+             ps.setString(3, hora);
             rs = ps.executeQuery();
             return rs;
         } catch (SQLException e) {

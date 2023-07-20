@@ -292,7 +292,8 @@ public class updtCita extends javax.swing.JPanel {
 
         } else {
             ct.idDoctor = dsg.getMap(cbDoct, cbDoc.getSelectedItem().toString());
-            ct.fechahora = dt.format(dpFecha.getCalendar().getTime()) + " " + cbHora.getSelectedItem().toString();
+                    ct.fecha = dt.format(dpFecha.getCalendar().getTime());
+        ct.hora = cbHora.getSelectedItem().toString();
             ResultSet rs = ct.verifDispo();
             if (rs.next()) {
                 lbDispo.setText("No disponible");
@@ -378,7 +379,8 @@ public class updtCita extends javax.swing.JPanel {
         ct.idDoctor = dsg.getMap(cbDoct, cbDoc.getSelectedItem().toString());
         ct.notaDelCliente = txtNotaCl.getText();
         ct.notaDelDoctor = txtNotaD.getText();
-        ct.fechahora = dt.format(dpFecha.getCalendar().getTime()) + " " + cbHora.getSelectedItem().toString();
+        ct.fecha = dt.format(dpFecha.getCalendar().getTime());
+        ct.hora = cbHora.getSelectedItem().toString();
         System.err.println(dt.format(dpFecha.getCalendar().getTime()) + " " + cbHora.getSelectedItem().toString());
         ct.updtCita();
     }//GEN-LAST:event_btnConfirmActionPerformed

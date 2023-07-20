@@ -12,7 +12,8 @@ public class ctCitas {
     public String estado;
     public String notaDelCliente;
     public String notaDelDoctor;
-    public String fechahora;
+    public String fecha;
+    public String hora;
     public String cliente;
 
     public int getIdCita() {
@@ -71,12 +72,28 @@ public class ctCitas {
         this.notaDelDoctor = notaDelDoctor;
     }
 
-    public String getFechahora() {
-        return fechahora;
+    public String getFecha() {
+        return fecha;
     }
 
-    public void setFechahora(String fechahora) {
-        this.fechahora = fechahora;
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
+
+    public String getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
     }
 
     mdCitas cl = new mdCitas();
@@ -90,7 +107,7 @@ public class ctCitas {
     }
 
     public ResultSet verifDispo() {
-        return cl.verifDisp(idDoctor, fechahora);
+        return cl.verifDisp(idDoctor, fecha,hora);
     }
         public ResultSet verifEstate() {
         return cl.verifEstate(idCita);
@@ -102,12 +119,12 @@ public class ctCitas {
 
     public boolean insertCita() {
         return cl.insertCita(idAnimal, idTipoServicio, idDoctor, notaDelCliente,
-                notaDelDoctor, fechahora);
+                notaDelDoctor, fecha,hora);
     }
 
     public boolean updtCita() {
         return cl.updateCita(idCita, idAnimal, idTipoServicio, idDoctor, estado, notaDelCliente,
-                notaDelDoctor, fechahora);
+                notaDelDoctor, fecha,hora);
     }
 
     public boolean deleteCita() {
