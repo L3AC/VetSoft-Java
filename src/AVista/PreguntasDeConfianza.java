@@ -205,7 +205,7 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
     ps.setInt(1, idUs);
     st = ps.executeQuery();    
     int found = st.getRow();
-    if (found == 1){
+    if (found >= 1){
     int pregun = st.getInt("idPreguntaUsuario");
    txtPregunta1.setEnabled(true);
     txtPregunta2.setEnabled(true);
@@ -213,7 +213,8 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
     btnEnviar.setEnabled(true);
     JOptionPane.showMessageDialog(null, "Preguntas Encontradas");
     } else{
-     JOptionPane.showMessageDialog(null, "Preguntas no Encontradas");
+        JOptionPane.showMessageDialog(null, "Preguntas no Encontradas");
+        System.out.println(found);
                 txtPregunta1.setEnabled(false);
                 txtPregunta2.setEnabled(false);
                 txtPregunta3.setEnabled(false);
