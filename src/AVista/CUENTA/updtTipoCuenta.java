@@ -18,6 +18,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import Validation.Valida;
 
 public class updtTipoCuenta extends javax.swing.JPanel {
 
@@ -65,6 +66,11 @@ public class updtTipoCuenta extends javax.swing.JPanel {
             lbEsp.setVisible(false);
             cbEsp.setVisible(false);
         }
+        
+        txtNombre.setDocument(new Valida(50, "[a-zA-Z]*"));
+        txtDui.setDocument(new Valida(10, "[0-9]*"));
+        txtApellidos.setDocument(new Valida(50, "[a-zA-Z]*"));
+        txtDir.setDocument(new Valida(300, "[a-zA-Z0-9]*"));
     }
 
     @SuppressWarnings("unchecked")

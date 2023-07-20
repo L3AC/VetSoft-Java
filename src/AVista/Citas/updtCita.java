@@ -21,6 +21,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import Validation.Valida;
 
 public class updtCita extends javax.swing.JPanel {
 
@@ -46,6 +47,10 @@ public class updtCita extends javax.swing.JPanel {
         dpFecha.setDate(currentDate.getTime());
         btnConfirm.setVisible(false);
         enab(false);
+        
+        txtNotaCl.setDocument(new Valida(200, "[a-zA-Z0-9]*"));
+        txtNotaD.setDocument(new Valida(200, "[a-zA-Z0-9]*"));
+        
     }
 
     @SuppressWarnings("unchecked")

@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
-
+import Validation.Valida;
 /**
  *
  * @author LEAC2
@@ -32,6 +32,9 @@ public class CRUDAsistente extends javax.swing.JPanel {
         this.idTipoUs = idTipoUs;
         initComponents();
         loadD();
+        
+        txtBusq.setDocument(new Valida(100, "[a-zA-Z]*"));
+        
     }
 
     final void loadD() throws SQLException {

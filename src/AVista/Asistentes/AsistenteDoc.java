@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import Validation.Valida;
 
 /**
  *
@@ -29,6 +30,9 @@ public class AsistenteDoc extends javax.swing.JPanel {
         this.idDoc = idDoc;
         this.idTipoUs = idTipoUs;
         initComponents();
+        
+        txtBusq.setDocument(new Valida(100, "[a-zA-Z]*"));
+        
     }
 
     final void loadD() throws SQLException {

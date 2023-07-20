@@ -12,6 +12,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
+import Validation.Valida;
 
 public class CRUDAnimales extends javax.swing.JPanel {
 
@@ -25,6 +26,9 @@ public class CRUDAnimales extends javax.swing.JPanel {
         this.idTipoUs=idTipoUs;
         initComponents();
         loadD();
+        
+        txtBusq.setDocument(new Valida(50, "[a-zA-Z]*"));
+        
     }
 
     final void loadD() throws SQLException {

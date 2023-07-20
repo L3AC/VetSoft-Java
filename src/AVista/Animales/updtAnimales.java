@@ -15,6 +15,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import Validation.Valida;
 
 /**
  *
@@ -28,12 +29,19 @@ public class updtAnimales extends javax.swing.JPanel {
     Map<Integer, String> cbMap = new HashMap<>();
     Map<Integer, String> cbMapRa = new HashMap<>();
 
+    
+    
     public updtAnimales(int idAnim) throws SQLException {
         this.idAnim = idAnim;
         initComponents();
         loadComboTP(cbTipoA);
         loadComboRaza(cbRaza);
         loadData();
+        
+        txtNombre.setDocument(new Valida(25, "[a-zA-Z]*"));
+        txtPeso.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
+        txtPad.setDocument(new Valida(300, "[a-zA-Z0-9]*"));
+
     }
 
     final void loadData() throws SQLException {

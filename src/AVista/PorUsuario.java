@@ -25,6 +25,8 @@ import java.util.logging.Logger;
 import javax.mail.*; // Para enviar el correo electrónico
 import javax.mail.internet.*; // Para trabajar con objetos relacionados con el correo electrónico
 import javax.swing.JOptionPane;
+import Validation.Valida;
+
 /**
  *
  * @author Gerson
@@ -52,7 +54,11 @@ public class PorUsuario extends javax.swing.JFrame {
         txtNueva2.setEnabled(false);
         btnCambiar.setEnabled(false);
         
-           
+        txtUser.setDocument(new Valida(30, "[a-zA-Z]*"));
+        txtCod.setDocument(new Valida(10, "[a-zA-Z0-9]*"));
+        txtNueva.setDocument(new Valida(100, "[a-zA-Z0-9]*"));
+        txtNueva2.setDocument(new Valida(100, "[a-zA-Z0-9]*"));
+        
     }
 
     /**

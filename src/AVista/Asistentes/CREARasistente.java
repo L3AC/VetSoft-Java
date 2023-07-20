@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import Validation.Valida;
 
 /**
  *
@@ -40,6 +41,11 @@ public class CREARasistente extends javax.swing.JPanel {
         loadD();
         lbVerif.setVisible(false);
         verifPerfil();
+        
+        txtBusq.setDocument(new Valida(100, "[a-zA-Z]*"));
+        txtNombre.setDocument(new Valida(50, "[a-zA-Z]*"));
+        txtDui.setDocument(new Valida(10, "[0-9]*"));
+        txtApellidos.setDocument(new Valida(50, "[a-zA-Z]*"));
     }
 
     final void loadD() throws SQLException {

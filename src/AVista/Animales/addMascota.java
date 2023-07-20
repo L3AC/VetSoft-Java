@@ -16,6 +16,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import Validation.Valida;
 
 public class addMascota extends javax.swing.JPanel {
 
@@ -24,6 +25,8 @@ public class addMascota extends javax.swing.JPanel {
     Desg dsg = new Desg();
     Map<Integer, String> cbMap = new HashMap<>();
     Map<Integer, String> cbMapRa = new HashMap<>();
+    
+    
 
     public addMascota(int idTipoUs, int idCl) throws SQLException {
         this.idTipoUs = idTipoUs;
@@ -31,7 +34,13 @@ public class addMascota extends javax.swing.JPanel {
         initComponents();
         loadComboTP(cbTipoA);
         loadComboRaza(cbRaza);
+               
+        txtNombre.setDocument(new Valida(25, "[a-zA-Z]*"));
+        txtPeso.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
+        txtPad.setDocument(new Valida(300, "[a-zA-Z0-9]*"));
     }
+    
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

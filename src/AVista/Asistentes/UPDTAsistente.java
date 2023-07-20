@@ -13,6 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import Validation.Valida;
 
 public class UPDTAsistente extends javax.swing.JPanel {
 
@@ -28,6 +29,12 @@ public class UPDTAsistente extends javax.swing.JPanel {
         initComponents();
         loadD();
         loadAsis();
+        
+        txtBusq.setDocument(new Valida(100, "[a-zA-Z]*"));
+        txtNombre.setDocument(new Valida(50, "[a-zA-Z]*"));
+        txtDui.setDocument(new Valida(10, "[0-9]*"));
+        txtApellidos.setDocument(new Valida(50, "[a-zA-Z]*"));
+        
     }
 
     @SuppressWarnings("unchecked")

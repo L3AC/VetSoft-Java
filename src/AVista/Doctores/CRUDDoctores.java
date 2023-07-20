@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
+import Validation.Valida;
 
 public class CRUDDoctores extends javax.swing.JPanel {
 
@@ -42,6 +43,8 @@ public class CRUDDoctores extends javax.swing.JPanel {
             btnEliminar.setVisible(false);
         }
 
+        txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9]*"));
+        
     }
     
 

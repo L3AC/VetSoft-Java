@@ -23,6 +23,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import Validation.Valida;
 
 /**
  *
@@ -49,6 +50,10 @@ public class insertCita extends javax.swing.JPanel {
         Calendar currentDate = Calendar.getInstance();
         dpFecha.setDate(currentDate.getTime());
         lbDispo.setVisible(false);
+        
+        txtNotaCl.setDocument(new Valida(200, "[a-zA-Z0-9]*"));
+        txtNotaD.setDocument(new Valida(200, "[a-zA-Z0-9]*"));
+        
     }
 
     private void loadComboServ(JComboBox cb) throws SQLException {

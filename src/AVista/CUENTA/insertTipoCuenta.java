@@ -22,6 +22,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
+import Validation.Valida;
 
 public class insertTipoCuenta extends javax.swing.JPanel {
 
@@ -31,7 +32,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
     ctEsp ct = new ctEsp();
     Desg dsg = new Desg();
     Map<Integer, String> cbMap = new HashMap<>();
-
+    
     public insertTipoCuenta(int idTipoUs, int idUs, int nivelRow) throws SQLException {
         this.idTipoUs = idTipoUs;
         this.idUs = idUs;
@@ -60,6 +61,12 @@ public class insertTipoCuenta extends javax.swing.JPanel {
             lbEsp.setVisible(false);
             cbEsp.setVisible(false);
         }
+        
+        
+        txtNombre.setDocument(new Valida(50, "[a-zA-Z]*"));
+        txtDui.setDocument(new Valida(10, "[0-9]*"));
+        txtApellidos.setDocument(new Valida(50, "[a-zA-Z]*"));
+        txtDir.setDocument(new Valida(300, "[a-zA-Z0-9]*"));
 
     }
 

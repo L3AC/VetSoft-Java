@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
+import Validation.Valida;
 
 /**
  *
@@ -36,6 +37,8 @@ public class CRUDusuarios extends javax.swing.JPanel {
         initComponents();
         loadD();
         verifPerfil();
+        
+        txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9]*"));
     }
 
     final void loadD() throws SQLException {

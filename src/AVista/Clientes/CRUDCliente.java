@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
+import Validation.Valida;
 
 public class CRUDCliente extends javax.swing.JPanel {
 
@@ -26,11 +27,14 @@ public class CRUDCliente extends javax.swing.JPanel {
         this.nUs = nUs;
         initComponents();
         loadD();
+        
+        txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9]*"));
     }
 
     public CRUDCliente() throws SQLException {
         initComponents();
         loadD();
+        txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9]*"));
     }
 
     final void loadD() throws SQLException {

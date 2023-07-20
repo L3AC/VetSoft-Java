@@ -16,6 +16,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import Validation.Valida;
 
 /**
  *
@@ -39,6 +40,11 @@ public class insertUs extends javax.swing.JPanel {
         if(idTipoUs==2){
             lbCargo.setVisible(false);
             cbCargo.setVisible(false);
+            
+        txtUsuario.setDocument(new Valida(30, "[a-zA-Z]*"));
+        txtCorreo.setDocument(new Valida(50, "[a-zA-Z0-9]*"));
+        txtContra.setDocument(new Valida(100, "[a-zA-Z0-9]*"));
+        txtTel.setDocument(new Valida(10, "[0-9]*"));    
         }
         
     }

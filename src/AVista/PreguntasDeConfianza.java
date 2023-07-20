@@ -14,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import Validation.Valida;
 
 
 /**
@@ -25,10 +26,8 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
     Conx con = new Conx();
     Connection acceso;
     Crypt cryp = new Crypt();
-    int idUs;
+    int idUs;       
     
-
-
     public PreguntasDeConfianza() {
         initComponents();
         this.setLocationRelativeTo(this);
@@ -36,7 +35,12 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         txtPregunta2.setEnabled(false);
         txtPregunta3.setEnabled(false);
         btnEnviar.setEnabled(false);
-
+        
+        txtUser.setDocument(new Valida(30, "[a-zA-Z]*"));
+        txtPregunta1.setDocument(new Valida(30, "[a-zA-Z]*"));
+        txtPregunta2.setDocument(new Valida(30, "[a-zA-Z]*"));
+        txtPregunta3.setDocument(new Valida(30, "[a-zA-Z]*"));
+        
     }
 
     /**

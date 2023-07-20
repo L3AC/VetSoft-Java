@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import Validation.Valida;
 
 public class updtUsuario extends javax.swing.JPanel {
 
@@ -35,6 +36,11 @@ public class updtUsuario extends javax.swing.JPanel {
         }
         loadCombo(cbCargo);
         CargarDatos();
+        
+        txtUsuario.setDocument(new Valida(30, "[a-zA-Z]*"));
+        txtCorreo.setDocument(new Valida(50, "[a-zA-Z0-9]*"));
+        txtTel.setDocument(new Valida(100, "[0-9]*"));
+        
     }
 
     final void CargarDatos() throws SQLException {
