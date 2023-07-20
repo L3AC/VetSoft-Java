@@ -263,6 +263,7 @@ public class updtCita extends javax.swing.JPanel {
 
             ResultSet rs = ct.selectCita();
             while (rs.next()) {
+                
                 cbServicio.setSelectedItem(rs.getString("Serv"));
                 cbEsp.setSelectedItem(rs.getString("Especialidad"));
                 cbDoc.setSelectedItem(rs.getString("Doctor"));
