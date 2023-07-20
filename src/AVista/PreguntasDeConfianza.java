@@ -26,6 +26,7 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
     Connection acceso;
     Crypt cryp = new Crypt();
     int idUs;
+    int found;
     
 
 
@@ -204,8 +205,12 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
     
     ps.setInt(1, idUs);
     st = ps.executeQuery();    
-    int found = st.getRow();
-    if (found >= 1){
+    /*int found = st.getRow();*/
+    while (st.next()) {
+    found++;
+}
+        System.out.println(found);
+    if (found == 3){
     int pregun = st.getInt("idPreguntaUsuario");
    txtPregunta1.setEnabled(true);
     txtPregunta2.setEnabled(true);
@@ -241,7 +246,7 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
     st.last();
     int found = st.getRow();
     if (found == 1){
-    String id = st.getString("Usuario");
+    idUs= st.getInt("idUsuario");
     txtPregunta1.setEnabled(true);
     txtPregunta2.setEnabled(true);
     txtPregunta3.setEnabled(true);
