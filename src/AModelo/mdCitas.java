@@ -53,7 +53,7 @@ public class mdCitas {
     public ResultSet selectCita(int idC) {
         String query = "SET LANGUAGE spanish\n"
                 + "select a.Nombre as 'Animal',tp.Nombre as 'Serv',e.Especialidad,CONCAT(d.Nombre,' ',d.Apellido) as 'Doctor',\n"
-                + "notaDelCliente,notaDelDoctor,CONCAT(CONVERT(varchar, fecha, 100),' ',CONVERT(varchar, hora, 100)) as 'Fecha' from tbAnimales a,tbCitas c,tbTipoServicio tp,tbDoctores d,tbEspecialidades e\n"
+                + "notaDelCliente,notaDelDoctor,c.fecha as 'Fecha',CONVERT(VARCHAR,hora, 108) as 'hora' from tbAnimales a,tbCitas c,tbTipoServicio tp,tbDoctores d,tbEspecialidades e\n"
                 + "where c.idDoctor=d.idDoctor and c.idTipoServicio=tp.idTipoServicio and a.idAnimal=c.idAnimal and e.idEspecialidad=d.idEspecialidad\n"
                 + "and idCita=?;";
         try {

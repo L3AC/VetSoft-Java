@@ -47,13 +47,17 @@ public class insertCita extends javax.swing.JPanel {
         loadComboEsp(cbEsp);
         loadComboDoc(cbDoc);
         precio();
-        Calendar currentDate = Calendar.getInstance();
-        dpFecha.setDate(currentDate.getTime());
         lbDispo.setVisible(false);
         
         txtNotaCl.setDocument(new Valida(200, "[a-zA-Z0-9]*"));
         txtNotaD.setDocument(new Valida(200, "[a-zA-Z0-9]*"));
+        dpFecha.setMinSelectableDate(Calendar.getInstance().getTime());
         
+        Calendar today = Calendar.getInstance();
+        today.add(Calendar.DAY_OF_MONTH, 1);
+        
+        dpFecha.setDate(today.getTime());
+        dpFecha.setMinSelectableDate(today.getTime());
     }
 
     private void loadComboServ(JComboBox cb) throws SQLException {
@@ -229,7 +233,7 @@ public class insertCita extends javax.swing.JPanel {
 
         cbHora.setBackground(new java.awt.Color(255, 255, 255));
         cbHora.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        cbHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00" }));
+        cbHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "7:00", "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00" }));
         cbHora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbHoraActionPerformed(evt);

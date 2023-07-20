@@ -43,14 +43,19 @@ public class updtCita extends javax.swing.JPanel {
         loadComboEsp(cbEsp);
         loadComboDoc(cbDoc);
         precio();
-        Calendar currentDate = Calendar.getInstance();
-        dpFecha.setDate(currentDate.getTime());
+
         btnConfirm.setVisible(false);
         enab(false);
         
         txtNotaCl.setDocument(new Valida(200, "[a-zA-Z0-9]*"));
         txtNotaD.setDocument(new Valida(200, "[a-zA-Z0-9]*"));
         
+                Calendar today = Calendar.getInstance();
+        today.add(Calendar.DAY_OF_MONTH, 1);
+        
+        dpFecha.setDate(today.getTime());
+        dpFecha.setMinSelectableDate(today.getTime());
+        loadData();
     }
 
     @SuppressWarnings("unchecked")
@@ -61,7 +66,6 @@ public class updtCita extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         lbTitulo = new javax.swing.JLabel();
         panelRound1 = new Design.PanelRound();
-        lbEsp1 = new javax.swing.JLabel();
         lbEsp = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         lbDispo = new javax.swing.JLabel();
@@ -77,8 +81,10 @@ public class updtCita extends javax.swing.JPanel {
         cbEsp = new javax.swing.JComboBox<>();
         cbDoc = new javax.swing.JComboBox<>();
         cbHora = new javax.swing.JComboBox<>();
+        lbEsp3 = new javax.swing.JLabel();
         btnEditar = new Design.ButtonGradient();
         btnConfirm = new Design.ButtonGradient();
+        lbMasc = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
@@ -97,7 +103,7 @@ public class updtCita extends javax.swing.JPanel {
         lbTitulo.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         lbTitulo.setForeground(new java.awt.Color(27, 73, 101));
         lbTitulo.setText("INFORMACIÓN CITA");
-        PCont.add(lbTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 50, 360, -1));
+        PCont.add(lbTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 360, -1));
 
         panelRound1.setBackground(new java.awt.Color(202, 233, 255));
         panelRound1.setRoundBottomLeft(50);
@@ -105,11 +111,6 @@ public class updtCita extends javax.swing.JPanel {
         panelRound1.setRoundTopLeft(50);
         panelRound1.setRoundTopRight(50);
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lbEsp1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lbEsp1.setForeground(new java.awt.Color(0, 0, 0));
-        lbEsp1.setText("Servicio");
-        panelRound1.add(lbEsp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 80, -1));
 
         lbEsp.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbEsp.setForeground(new java.awt.Color(0, 0, 0));
@@ -182,13 +183,18 @@ public class updtCita extends javax.swing.JPanel {
 
         cbHora.setBackground(new java.awt.Color(255, 255, 255));
         cbHora.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        cbHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00" }));
+        cbHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "7:00:00", "8:00:00", "9:00:00", "10:00:00", "11:00:00", "12:00:00", "13:00:00", "14:00:00", "15:00:00", "16:00:00", "17:00:00", "18:00:00", "19:00:00", "20:00:00", "21:00:00" }));
         cbHora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbHoraActionPerformed(evt);
             }
         });
         panelRound1.add(cbHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 180, 120, 50));
+
+        lbEsp3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbEsp3.setForeground(new java.awt.Color(0, 0, 0));
+        lbEsp3.setText("Servicio");
+        panelRound1.add(lbEsp3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 80, -1));
 
         PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 150, 1010, 530));
 
@@ -207,6 +213,11 @@ public class updtCita extends javax.swing.JPanel {
             }
         });
         PCont.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 700, 150, 60));
+
+        lbMasc.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbMasc.setForeground(new java.awt.Color(0, 0, 0));
+        lbMasc.setText("Mascota:");
+        PCont.add(lbMasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 60, 440, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -268,15 +279,16 @@ public class updtCita extends javax.swing.JPanel {
 
             ResultSet rs = ct.selectCita();
             while (rs.next()) {
-                
+                lbMasc.setText(rs.getString("Animal"));
                 cbServicio.setSelectedItem(rs.getString("Serv"));
                 cbEsp.setSelectedItem(rs.getString("Especialidad"));
                 cbDoc.setSelectedItem(rs.getString("Doctor"));
-                /*cb.setText(rs.getString("nombre"));
-                txtApellidos.setText(rs.getString("apellido"));
-                txtDui.setText(rs.getString("dui"));
-                dpNaci.setDate(rs.getDate("nacimiento"));
-                cbSexo.setSelectedItem(rs.getString("sexo"));*/
+                dpFecha.setDate(rs.getDate("Fecha"));
+                cbHora.setSelectedItem(rs.getString("Hora"));
+                System.out.println(rs.getString("Hora")+" "+cbHora.getSelectedItem().toString());
+                txtNotaCl.setText(rs.getString("notaDelCliente"));
+                txtNotaD.setText(rs.getString("notaDelDoctor"));
+                
             }
         } catch (Exception e) {
             System.err.println(e.toString());
@@ -409,8 +421,9 @@ public class updtCita extends javax.swing.JPanel {
     private javax.swing.JLabel lbCosto;
     private javax.swing.JLabel lbDispo;
     private javax.swing.JLabel lbEsp;
-    private javax.swing.JLabel lbEsp1;
     private javax.swing.JLabel lbEsp2;
+    private javax.swing.JLabel lbEsp3;
+    private javax.swing.JLabel lbMasc;
     private javax.swing.JLabel lbTitulo;
     private Design.PanelRound panelRound1;
     private Design.TextFieldSV txtNotaCl;
