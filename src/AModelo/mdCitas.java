@@ -109,21 +109,19 @@ public class mdCitas {
         }
     }
 
-    public boolean updateCita(int idCita, int idAni, int idTS, int idD, String estado, String nCl, 
+    public boolean updateCita(int idCita, int idTS, int idD, String nCl, 
             String nDoc, String fecha,String hora) {
-        String query = "update tbCitas set idAnimal=?,idTipoServicio=?,idDoctor=?,estado=?,"
+        String query = "update tbCitas set idTipoServicio=?,idDoctor=?,"
                 + "notaDelCliente=?,notaDelDoctor=?,fecha=?,hora=? where idCita=?;";
         try {
             ps = con.prepareStatement(query);
-            ps.setInt(1, idAni);
-            ps.setInt(2, idTS);
-            ps.setInt(3, idD);
-            ps.setString(4, estado);
-            ps.setString(5, nCl);
-            ps.setString(6, nDoc);
-            ps.setString(7, fecha);
-            ps.setString(8, hora);
-            ps.setInt(9, idCita);
+            ps.setInt(1, idTS);
+            ps.setInt(2, idD);
+            ps.setString(3, nCl);
+            ps.setString(4, nDoc);
+            ps.setString(5, fecha);
+            ps.setString(6, hora);
+            ps.setInt(7, idCita);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Campos actualizados");
             return true;

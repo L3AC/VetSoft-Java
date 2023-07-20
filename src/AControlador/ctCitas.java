@@ -123,7 +123,7 @@ public class ctCitas {
     }
 
     public boolean updtCita() {
-        return cl.updateCita(idCita, idAnimal, idTipoServicio, idDoctor, estado, notaDelCliente,
+        return cl.updateCita(idCita, idTipoServicio, idDoctor, notaDelCliente,
                 notaDelDoctor, fecha,hora);
     }
 
