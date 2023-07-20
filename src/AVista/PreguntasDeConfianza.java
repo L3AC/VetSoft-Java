@@ -137,6 +137,11 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         panelRound4.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 210, -1));
 
         txtPregunta1.setShadowColor(new java.awt.Color(153, 0, 153));
+        txtPregunta1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPregunta1ActionPerformed(evt);
+            }
+        });
         txtPregunta1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtPregunta1KeyTyped(evt);
@@ -145,6 +150,11 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         panelRound4.add(txtPregunta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 210, -1));
 
         txtPregunta2.setShadowColor(new java.awt.Color(153, 0, 153));
+        txtPregunta2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPregunta2ActionPerformed(evt);
+            }
+        });
         txtPregunta2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtPregunta2KeyTyped(evt);
@@ -153,6 +163,11 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         panelRound4.add(txtPregunta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 70, 210, -1));
 
         txtPregunta3.setShadowColor(new java.awt.Color(153, 0, 153));
+        txtPregunta3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPregunta3ActionPerformed(evt);
+            }
+        });
         txtPregunta3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtPregunta3KeyTyped(evt);
@@ -259,7 +274,7 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEnviarActionPerformed
 
     private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtUserActionPerformed
 
     private void txtUserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyTyped
@@ -296,6 +311,18 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
             Toolkit.getDefaultToolkit().beep();
         }
     }//GEN-LAST:event_txtPregunta3KeyTyped
+
+    private void txtPregunta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPregunta1ActionPerformed
+        
+    }//GEN-LAST:event_txtPregunta1ActionPerformed
+
+    private void txtPregunta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPregunta2ActionPerformed
+        
+    }//GEN-LAST:event_txtPregunta2ActionPerformed
+
+    private void txtPregunta3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPregunta3ActionPerformed
+       
+    }//GEN-LAST:event_txtPregunta3ActionPerformed
 
     /**
      * @param args the command line arguments

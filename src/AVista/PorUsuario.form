@@ -225,6 +225,7 @@
         </Component>
         <Component class="Design.TextFieldSV" name="txtUser">
           <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtUserActionPerformed"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtUserKeyTyped"/>
           </Events>
           <Constraints>
@@ -245,6 +246,7 @@
         </Component>
         <Component class="Design.PasswordField" name="txtNueva">
           <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNuevaActionPerformed"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtNuevaKeyTyped"/>
           </Events>
           <Constraints>
@@ -255,6 +257,7 @@
         </Component>
         <Component class="Design.PasswordField" name="txtNueva2">
           <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNueva2ActionPerformed"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtNueva2KeyTyped"/>
           </Events>
           <Constraints>

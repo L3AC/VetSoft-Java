@@ -151,6 +151,11 @@ public class PorUsuario extends javax.swing.JFrame {
         });
         panelRound1.add(btnCambiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 170, 30));
 
+        txtUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUserActionPerformed(evt);
+            }
+        });
         txtUser.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtUserKeyTyped(evt);
@@ -165,6 +170,11 @@ public class PorUsuario extends javax.swing.JFrame {
         });
         panelRound1.add(txtCod, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 180, -1));
 
+        txtNueva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNuevaActionPerformed(evt);
+            }
+        });
         txtNueva.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNuevaKeyTyped(evt);
@@ -172,6 +182,11 @@ public class PorUsuario extends javax.swing.JFrame {
         });
         panelRound1.add(txtNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, 180, -1));
 
+        txtNueva2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNueva2ActionPerformed(evt);
+            }
+        });
         txtNueva2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNueva2KeyTyped(evt);
@@ -261,7 +276,7 @@ public class PorUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCambiarActionPerformed
 
     private void txtCodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtCodActionPerformed
 
     private void txtUserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyTyped
@@ -288,6 +303,18 @@ public class PorUsuario extends javax.swing.JFrame {
             Toolkit.getDefaultToolkit().beep();
         }
     }//GEN-LAST:event_txtNueva2KeyTyped
+
+    private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
+        
+    }//GEN-LAST:event_txtUserActionPerformed
+
+    private void txtNuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNuevaActionPerformed
+        
+    }//GEN-LAST:event_txtNuevaActionPerformed
+
+    private void txtNueva2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNueva2ActionPerformed
+        
+    }//GEN-LAST:event_txtNueva2ActionPerformed
 
     public void transparente(){
     

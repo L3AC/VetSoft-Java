@@ -104,6 +104,11 @@ public class CRUDAnimales extends javax.swing.JPanel {
             }
         });
 
+        txtBusq.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBusqActionPerformed(evt);
+            }
+        });
         txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtBusqKeyReleased(evt);
@@ -252,6 +257,10 @@ public class CRUDAnimales extends javax.swing.JPanel {
             Logger.getLogger(CRUDAnimales.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnReservas2ActionPerformed
+
+    private void txtBusqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBusqActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBusqActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

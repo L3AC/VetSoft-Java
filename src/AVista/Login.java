@@ -137,6 +137,11 @@ public class Login extends javax.swing.JFrame {
         panelRound2.add(TextUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 370, 50));
 
         TextPass.setShadowColor(new java.awt.Color(153, 0, 153));
+        TextPass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextPassActionPerformed(evt);
+            }
+        });
         TextPass.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TextPassKeyTyped(evt);
@@ -237,8 +242,13 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_TextPassKeyTyped
 
     private void TextUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextUserActionPerformed
-        // TODO add your handling code here:
+        //
     }//GEN-LAST:event_TextUserActionPerformed
+
+    private void TextPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextPassActionPerformed
+
+        //
+    }//GEN-LAST:event_TextPassActionPerformed
     public void SelectID() throws SQLException {
         try {
             ctUser ct = new ctUser();

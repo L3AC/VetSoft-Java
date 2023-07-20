@@ -129,6 +129,11 @@ public class Registro extends javax.swing.JFrame {
         panelRound2.add(lbFalso, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 150, -1));
 
         txtTeléfono.setShadowColor(new java.awt.Color(153, 0, 153));
+        txtTeléfono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTeléfonoActionPerformed(evt);
+            }
+        });
         txtTeléfono.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtTeléfonoKeyTyped(evt);
@@ -172,6 +177,11 @@ public class Registro extends javax.swing.JFrame {
         panelRound2.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 210, -1));
 
         txtContra.setShadowColor(new java.awt.Color(153, 0, 153));
+        txtContra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtContraActionPerformed(evt);
+            }
+        });
         txtContra.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtContraKeyTyped(evt);
@@ -338,6 +348,14 @@ public class Registro extends javax.swing.JFrame {
             Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_txtUsuarioKeyReleased
+
+    private void txtTeléfonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTeléfonoActionPerformed
+        
+    }//GEN-LAST:event_txtTeléfonoActionPerformed
+
+    private void txtContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContraActionPerformed
 
     /**
      * @param args the command line arguments

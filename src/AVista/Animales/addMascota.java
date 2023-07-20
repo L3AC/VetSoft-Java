@@ -239,6 +239,9 @@ public class addMascota extends javax.swing.JPanel {
         ct.padecimientos=txtPad.getText();
         ct.sexo=cbSexo.getSelectedItem().toString();
         ct.insertAnim();
+        
+        
+        
     }//GEN-LAST:event_btnConfirmActionPerformed
 
 
