@@ -5,18 +5,20 @@
 package AVista;
 
 
+import AControlador.ctAnimales;
 import AModelo.Conx;
 import AModelo.Crypt;
+import AVista.Animales.CRUDAnimales;
 import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import javax.swing.JOptionPane;
 import Validation.Valida;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.UIManager;
 
 
 /**
@@ -28,7 +30,8 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
     Conx con = new Conx();
     Connection acceso;
     Crypt cryp = new Crypt();
-    int idUs;       
+    int idUs;
+    String Contra;
     
     public PreguntasDeConfianza() {
         initComponents();
@@ -212,6 +215,7 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         ps.setString(3, resp.toString());
         ps.setInt(2, idPreg);
         ps.setInt(1, idUs);
+        
         System.out.print(idUs);
         System.out.print(resp);
         st = ps.executeQuery();
@@ -268,7 +272,7 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
     
     }
     
-    public void Encod(){
+    public void Encod() throws Exception{
     String cadena = "select * from tbUsuarios where Usuario=? COLLATE SQL_Latin1_General_CP1_CS_AS;";
 
     PreparedStatement ps;
@@ -283,6 +287,9 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
     int found = st.getRow();
     if (found == 1){
     idUs= st.getInt("idUsuario");
+    Contra=cryp.decrypt(st.getString("contraseña"), "key") ;
+    System.err.println(Contra);
+    
     txtPregunta1.setEnabled(true);
     txtPregunta2.setEnabled(true);
     txtPregunta3.setEnabled(true);
@@ -306,8 +313,12 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
              if (txtUser.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Campos vacios");
         } else {
-                 Encod();
-                 VerExist();
+                 try {
+                     Encod();
+                     VerExist();
+                 } catch (Exception ex) {
+                     Logger.getLogger(PreguntasDeConfianza.class.getName()).log(Level.SEVERE, null, ex);
+                 }
         }
     }//GEN-LAST:event_btnVerificarActionPerformed
 
@@ -317,7 +328,24 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
             if(VeriResp(txtPregunta1.getText().toString(), 1)&&
                     VeriResp(txtPregunta2.getText().toString(), 2)
                     &&VeriResp(txtPregunta3.getText().toString(), 3)){
-                JOptionPane.showMessageDialog(null, "Respuestas correctas");
+                UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
+        int opcion = JOptionPane.showOptionDialog(
+                null,
+                "Su contraseña es "+Contra+" , ¿Desea cambiarla?",
+                "Recuperación",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.WARNING_MESSAGE,
+                null,
+                new Object[]{"Sí", "No"},
+                "No");
+
+        if (opcion == JOptionPane.YES_OPTION) {
+            NuevaContra newFrame = new NuevaContra(idUs);
+            newFrame.setVisible(true);
+            this.dispose();
+        } else if (opcion == JOptionPane.NO_OPTION) {
+
+        }
             }
             else{
                 
