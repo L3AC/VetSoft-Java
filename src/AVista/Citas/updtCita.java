@@ -284,7 +284,8 @@ public class updtCita extends javax.swing.JPanel {
                 cbEsp.setSelectedItem(rs.getString("Especialidad"));
                 cbDoc.setSelectedItem(rs.getString("Doctor"));
                 dpFecha.setDate(rs.getDate("Fecha"));
-                cbHora.setSelectedItem(rs.getString("Hora"));
+                String hora=rs.getString("hora")+"";
+                cbHora.setSelectedItem(hora);
                 System.out.println(rs.getString("Hora")+" "+cbHora.getSelectedItem().toString());
                 txtNotaCl.setText(rs.getString("notaDelCliente"));
                 txtNotaD.setText(rs.getString("notaDelDoctor"));
