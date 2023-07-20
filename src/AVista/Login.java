@@ -43,7 +43,7 @@ public class Login extends javax.swing.JFrame {
         PassL.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 22));
         
 
-        TextUser.setDocument(new Valida(30, "[a-zA-Z]*"));
+        TextUser.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
         TextPass.setDocument(new Valida(100, "[a-zA-Z0-9]*"));
         setLocationRelativeTo(null);
     }

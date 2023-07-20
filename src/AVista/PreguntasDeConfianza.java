@@ -15,6 +15,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import Validation.Valida;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -195,6 +197,41 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public boolean VeriResp(String resp, int idPreg) throws SQLException{
+    
+        String cadenita = "select pu.respuesta,pu.idUsuario,pu.idPregunta from tbPreguntasUsuarios pu,tbPreguntas p,"
+                + " tbUsuarios u where pu.idUsuario=u.idUsuario and pu.idPregunta=p.idPregunta and pu.idUsuario=? and pu.idPregunta=? and respuesta=? ;";
+    
+        PreparedStatement ps;
+        ResultSet st;
+        
+        try{
+        acceso = con.Conectar();
+        ps = acceso.prepareStatement(cadenita, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+        
+        ps.setString(3, resp.toString());
+        ps.setInt(2, idPreg);
+        ps.setInt(1, idUs);
+        System.out.print(idUs);
+        System.out.print(resp);
+        st = ps.executeQuery();
+        st.last();
+        int found = st.getRow();
+        if (found ==1){
+        return true;
+        
+        }else {
+                JOptionPane.showMessageDialog(null, "Respuestas incorrectas");
+
+        return false;
+        }
+        
+        }catch (SQLException e){
+          JOptionPane.showMessageDialog(null, e.toString());
+        return false;
+        }
+    }
+    
     public void VerExist(){
     
         String Cadena = "select * from tbPreguntasUsuarios where idUsuario=?;";
@@ -275,7 +312,20 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVerificarActionPerformed
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            if(VeriResp(txtPregunta1.getText().toString(), 1)&&
+                    VeriResp(txtPregunta2.getText().toString(), 2)
+                    &&VeriResp(txtPregunta3.getText().toString(), 3)){
+                JOptionPane.showMessageDialog(null, "Respuestas correctas");
+            }
+            else{
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PreguntasDeConfianza.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_btnEnviarActionPerformed
 
     private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
