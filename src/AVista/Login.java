@@ -60,7 +60,7 @@ public class Login extends javax.swing.JFrame {
         PassL = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         buttonGradient1 = new Design.ButtonGradient();
-        jLabel7 = new javax.swing.JLabel();
+        txtOlvidasteContra = new javax.swing.JLabel();
         TextUser = new Design.TextFieldSV();
         TextPass = new Design.PasswordField();
         Titulo = new javax.swing.JLabel();
@@ -115,10 +115,15 @@ public class Login extends javax.swing.JFrame {
         });
         panelRound2.add(buttonGradient1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, 140, -1));
 
-        jLabel7.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(27, 73, 101));
-        jLabel7.setText("¿Olvidaste la contraseña?");
-        panelRound2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, -1, -1));
+        txtOlvidasteContra.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        txtOlvidasteContra.setForeground(new java.awt.Color(27, 73, 101));
+        txtOlvidasteContra.setText("¿Olvidaste la contraseña?");
+        txtOlvidasteContra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtOlvidasteContraMouseClicked(evt);
+            }
+        });
+        panelRound2.add(txtOlvidasteContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, -1, -1));
 
         TextUser.setShadowColor(new java.awt.Color(153, 0, 153));
         TextUser.addActionListener(new java.awt.event.ActionListener() {
@@ -249,6 +254,14 @@ public class Login extends javax.swing.JFrame {
 
         //
     }//GEN-LAST:event_TextPassActionPerformed
+
+    private void txtOlvidasteContraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtOlvidasteContraMouseClicked
+        // TODO add your handling code here:
+        
+        RecuperacionDeContraseña newFrame = new RecuperacionDeContraseña();
+        newFrame.setVisible(true);
+        
+    }//GEN-LAST:event_txtOlvidasteContraMouseClicked
     public void SelectID() throws SQLException {
         try {
             ctUser ct = new ctUser();
@@ -304,8 +317,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private Design.PanelRound panelRound1;
     private Design.PanelRound panelRound2;
+    private javax.swing.JLabel txtOlvidasteContra;
     // End of variables declaration//GEN-END:variables
 }
