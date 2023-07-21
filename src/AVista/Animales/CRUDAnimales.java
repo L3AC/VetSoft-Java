@@ -68,8 +68,8 @@ public class CRUDAnimales extends javax.swing.JPanel {
 
         PCont = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnReservas1 = new Design.ButtonGradient();
-        btnReservas2 = new Design.ButtonGradient();
+        btnEmergen = new Design.ButtonGradient();
+        btnAgendar = new Design.ButtonGradient();
         btnReservas3 = new Design.ButtonGradient();
         btnEditar = new Design.ButtonGradient();
         btnEliminar = new Design.ButtonGradient();
@@ -77,6 +77,7 @@ public class CRUDAnimales extends javax.swing.JPanel {
         panelRound1 = new Design.PanelRound();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbData = new SwingTable.Table();
+        btnVac = new Design.ButtonGradient();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
@@ -86,19 +87,19 @@ public class CRUDAnimales extends javax.swing.JPanel {
         jLabel1.setText("Nombre del dueño");
         PCont.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(808, 58, 200, -1));
 
-        btnReservas1.setText("Emergencia");
-        PCont.add(btnReservas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 60, 140, 40));
+        btnEmergen.setText("Emergencia");
+        PCont.add(btnEmergen, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 60, 140, 40));
 
-        btnReservas2.setText("Agendar Cita");
-        btnReservas2.addActionListener(new java.awt.event.ActionListener() {
+        btnAgendar.setText("Agendar Cita");
+        btnAgendar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReservas2ActionPerformed(evt);
+                btnAgendarActionPerformed(evt);
             }
         });
-        PCont.add(btnReservas2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 160, 140, 40));
+        PCont.add(btnAgendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 160, 140, 40));
 
-        btnReservas3.setText("Expendiente");
-        PCont.add(btnReservas3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 420, 140, 40));
+        btnReservas3.setText("btnExam");
+        PCont.add(btnReservas3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 510, 140, 40));
 
         btnEditar.setText("Editar");
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -156,6 +157,9 @@ public class CRUDAnimales extends javax.swing.JPanel {
         panelRound1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 1020, 460));
 
         PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 1080, 520));
+
+        btnVac.setText("Vacunaciones");
+        PCont.add(btnVac, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 420, 140, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -218,14 +222,14 @@ public class CRUDAnimales extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnEditarActionPerformed
 
-    private void btnReservas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservas2ActionPerformed
+    private void btnAgendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgendarActionPerformed
         try {
             insertCita subp = new insertCita(idTipoUs,Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
             dsg.ShowPanel(subp, PCont, 1320, 810);
         } catch (SQLException ex) {
             Logger.getLogger(CRUDAnimales.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_btnReservas2ActionPerformed
+    }//GEN-LAST:event_btnAgendarActionPerformed
 
     private void txtBusqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBusqActionPerformed
         // TODO add your handling code here:
@@ -234,11 +238,12 @@ public class CRUDAnimales extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
+    private Design.ButtonGradient btnAgendar;
     private Design.ButtonGradient btnEditar;
     private Design.ButtonGradient btnEliminar;
-    private Design.ButtonGradient btnReservas1;
-    private Design.ButtonGradient btnReservas2;
+    private Design.ButtonGradient btnEmergen;
     private Design.ButtonGradient btnReservas3;
+    private Design.ButtonGradient btnVac;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private Design.PanelRound panelRound1;
