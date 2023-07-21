@@ -84,6 +84,21 @@ public class mdCitas {
             return false;
         }
     }
+    public boolean aceptCita(int idC) {
+        String query = "update tbCitas set Estado='Aceptada' where idCita=?;";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setInt(1, idC);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Registro eliminado");
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return false;
+        }
+    }
 
     public boolean insertCita(int idAni, int idTS, int idD, String notaCl,
             String notaDoc, String fecha,String hora) {

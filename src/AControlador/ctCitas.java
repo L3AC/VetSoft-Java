@@ -130,4 +130,7 @@ public class ctCitas {
     public boolean deleteCita() {
         return cl.deleteCita(idCita);
     }
+        public boolean aceptCita() {
+        return cl.aceptCita(idCita);
+    }
 }

@@ -77,7 +77,7 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Escoja el método de recuperación de Contraseña");
 
-        btnUsuario.setText("Por usuario");
+        btnUsuario.setText("Por email");
         btnUsuario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         btnPreguntas.setText("Preguntas de confianza");
