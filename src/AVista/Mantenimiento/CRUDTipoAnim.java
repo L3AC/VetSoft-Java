@@ -165,7 +165,7 @@ public class CRUDTipoAnim extends javax.swing.JPanel {
                 btnActActionPerformed(evt);
             }
         });
-        PCont.add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 450, 110, 40));
+        PCont.add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 450, 110, 40));
 
         btnAgregar.setText("Agregar");
         btnAgregar.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
@@ -245,7 +245,7 @@ public class CRUDTipoAnim extends javax.swing.JPanel {
                 ct.idTipoAnim = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
                 ct.nPopular = txtNP.getText();
                 ct.nCient = txtNC.getText();
-                ct.insertTPA();
+                ct.updtTPA();
                 loadD();
             } else {
 
@@ -262,10 +262,9 @@ public class CRUDTipoAnim extends javax.swing.JPanel {
         try {
             if (dsg.areFieldsNotEmpty(lista)) {//VERIFICAR QUE NO ESTE VACIO
                 ctTipoAnim ct = new ctTipoAnim();
-                ct.idTipoAnim = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
                 ct.nPopular = txtNP.getText();
                 ct.nCient = txtNC.getText();
-                ct.updtTPA();
+                ct.insertTPA();
                 loadD();
             } else {
 

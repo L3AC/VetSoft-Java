@@ -53,8 +53,6 @@ public class CRUDtpserv extends javax.swing.JPanel {
         CargarTabla();
         if (tbData.getRowCount() > 0) {
             tbData.setRowSelectionInterval(0, 0);
-            /*int fila = tbData.getSelectedRow();
-            idTipoS = Integer.parseInt(tbData.getValueAt(fila, 0).toString());*/
         }
     }
 

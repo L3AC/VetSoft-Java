@@ -8,6 +8,7 @@ import AModelo.mdTipoAnim;
 import java.sql.ResultSet;
 
 public class ctTipoAnim {
+
     public int idTipoAnim;
     public String nCient;
     public String nPopular;
@@ -35,19 +36,19 @@ public class ctTipoAnim {
     public void setnPopular(String nPopular) {
         this.nPopular = nPopular;
     }
-    
-    mdTipoAnim md=new mdTipoAnim();
-    
+
+    mdTipoAnim md = new mdTipoAnim();
+
     public ResultSet tableTPA() {
         return md.tableTPA(nPopular);
     }
 
     public boolean insertTPA() {
-        return md.insertTPA( nPopular, nCient);
+        return md.insertTPA(nPopular, nCient);
     }
 
     public boolean updtTPA() {
-            return md.updtTPA(idTipoAnim, nPopular, nCient);
+        return md.updtTPA(idTipoAnim, nPopular, nCient);
     }
 
     public boolean deleteTPA() {

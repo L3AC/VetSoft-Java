@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
  * @author LEAC2
  */
 public class mdTipoAnim {
+
     Connection con = Conx.Conectar();
     Crypt cripto = new Crypt();
     PreparedStatement ps;
@@ -52,7 +53,7 @@ public class mdTipoAnim {
         }
     }
 
-    public boolean insertTPA( String n1, String n2) {
+    public boolean insertTPA(String n1, String n2) {
         String query = "insert into tbTipoAnimales values(?,?);";
         try {
 
