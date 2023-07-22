@@ -255,8 +255,8 @@ public class CRUDtpserv extends javax.swing.JPanel {
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnLimpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpActionPerformed
-
-
+        txtServ.setText(null);
+        txtCosto.setText(null);
     }//GEN-LAST:event_btnLimpActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed

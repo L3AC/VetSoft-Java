@@ -22,10 +22,6 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author LEAC2
- */
 public class CRUDTipoAnim extends javax.swing.JPanel {
 
     private int idTipoUs;
@@ -63,13 +59,11 @@ public class CRUDTipoAnim extends javax.swing.JPanel {
             while (rs.next()) {
                 Object[] oValores = {rs.getInt("idTipoAnimal"), rs.getInt("nombrePopular"),
                     rs.getString("nombreCientifico")};
-
                 model.addRow(oValores);
             }
         } catch (Exception e) {
 
         }
-
     }
 
     @SuppressWarnings("unchecked")
@@ -198,7 +192,7 @@ public class CRUDTipoAnim extends javax.swing.JPanel {
         txtNP.setText(tbData.getValueAt(tbData.getSelectedRow(), 2).toString());
     }
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
-        //setData();
+        setData();
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
@@ -211,7 +205,8 @@ public class CRUDTipoAnim extends javax.swing.JPanel {
     }//GEN-LAST:event_txtBusqKeyReleased
 
     private void btnLimpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpActionPerformed
-
+        txtNC.setText(null);
+        txtNP.setText(null);
     }//GEN-LAST:event_btnLimpActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -228,9 +223,9 @@ public class CRUDTipoAnim extends javax.swing.JPanel {
 
         if (opcion == JOptionPane.YES_OPTION) {
             try {
-                ctTipoServ ct = new ctTipoServ();
-                ct.idTipoServ = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-                ct.deleteServ();
+                ctTipoAnim ct = new ctTipoAnim();
+                ct.idTipoAnim = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                ct.deleteTPA(); 
                 loadD();
             } catch (SQLException ex) {
                 Logger.getLogger(CRUDTipoAnim.class.getName()).log(Level.SEVERE, null, ex);
