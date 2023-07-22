@@ -95,7 +95,6 @@ public class CRUDtpserv extends javax.swing.JPanel {
         cbNivelS.setSelectedItem(tbData.getValueAt(tbData.getSelectedRow(), 2).toString());
         txtServ.setText(tbData.getValueAt(tbData.getSelectedRow(), 3).toString());
         txtCosto.setText(tbData.getValueAt(tbData.getSelectedRow(), 4).toString());
-
     }
 
     @SuppressWarnings("unchecked")

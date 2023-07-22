@@ -5,6 +5,7 @@
 package AVista.Mantenimiento;
 
 import AControlador.ctEsp;
+import AControlador.ctTipoAnim;
 import AControlador.ctTipoServ;
 import Design.Desg;
 import Design.TextFieldSV;
@@ -31,24 +32,23 @@ public class CRUDTipoAnim extends javax.swing.JPanel {
     ctEsp ct = new ctEsp();
     Desg dsg = new Desg();
     DefaultTableModel model;
-    
+
     public CRUDTipoAnim(int idTipoUs) {
-        this.idTipoUs=idTipoUs;
+        this.idTipoUs = idTipoUs;
         initComponents();
         txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9 ]*"));
-        txtServ.setDocument(new Valida(50, "[a-zA-Z0-9 ]*"));
-        txtCosto.setDocument(new Valida(50, "[0-9]*"));
+        txtNC.setDocument(new Valida(50, "[a-zA-Z0-9 ]*"));
+        txtNP.setDocument(new Valida(50, "[0-9]*"));
     }
-final void loadD() throws SQLException {
-        String[] column = {"idTipoServicio", "idNIvelServicio", "Prioridad", "Nombre", "Costo"};
+
+    final void loadD() throws SQLException {
+        String[] column = {"idTipoAnimal", "nombrePopular", "nombreCientifico"};
         model = new DefaultTableModel(null, column);
         dsg.ColumnHide(model, tbData, 0, 2);
         dsg.ColumnHide(model, tbData, 1, 2);
         CargarTabla();
         if (tbData.getRowCount() > 0) {
             tbData.setRowSelectionInterval(0, 0);
-            /*int fila = tbData.getSelectedRow();
-            idTipoS = Integer.parseInt(tbData.getValueAt(fila, 0).toString());*/
         }
     }
 
@@ -57,13 +57,12 @@ final void loadD() throws SQLException {
             model.removeRow(0);
         }
         try {
-            ctTipoServ ct = new ctTipoServ();
+            ctTipoAnim ct = new ctTipoAnim();
             //ct.Nombre = txtBusq.getText().toString();
-            ResultSet rs = ct.tableServ();
+            ResultSet rs = ct.tableTPA();
             while (rs.next()) {
-                Object[] oValores = {rs.getInt("idTipoServicio"), rs.getInt("idNivelServicio"),
-                     rs.getString("Prioridad"), rs.getString("Nombre"),
-                    rs.getFloat("Costo")};
+                Object[] oValores = {rs.getInt("idTipoAnimal"), rs.getInt("nombrePopular"),
+                    rs.getString("nombreCientifico")};
 
                 model.addRow(oValores);
             }
@@ -72,7 +71,7 @@ final void loadD() throws SQLException {
         }
 
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -80,12 +79,10 @@ final void loadD() throws SQLException {
         PCont = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbData = new SwingTable.Table();
-        cbNivelS = new Design.Combobox();
-        jLabel3 = new javax.swing.JLabel();
-        txtServ = new Design.TextFieldSV();
+        txtNC = new Design.TextFieldSV();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtCosto = new Design.TextFieldSV();
+        txtNP = new Design.TextFieldSV();
         jLabel1 = new javax.swing.JLabel();
         txtBusq = new Design.TextFieldSV();
         btnLimp = new Design.ButtonGradient();
@@ -125,34 +122,22 @@ final void loadD() throws SQLException {
 
         PCont.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 137, 780, 610));
 
-        cbNivelS.setLabeText("");
-        cbNivelS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbNivelSActionPerformed(evt);
-            }
-        });
-        PCont.add(cbNivelS, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 190, 270, 40));
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel3.setText("Prioridad de atención");
-        PCont.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 150, -1, -1));
-
-        txtServ.setShadowColor(new java.awt.Color(153, 0, 153));
-        PCont.add(txtServ, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 310, 310, -1));
+        txtNC.setShadowColor(new java.awt.Color(153, 0, 153));
+        PCont.add(txtNC, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 300, 310, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel4.setText("Nombre del servicio");
-        PCont.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 270, -1, -1));
+        jLabel4.setText("Nombre científico del animal");
+        PCont.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 260, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel2.setText("Costo del servicio");
-        PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 390, -1, -1));
+        jLabel2.setText("Nombre popular del animal");
+        PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 150, -1, -1));
 
-        txtCosto.setShadowColor(new java.awt.Color(153, 0, 153));
-        PCont.add(txtCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 430, 310, -1));
+        txtNP.setShadowColor(new java.awt.Color(153, 0, 153));
+        PCont.add(txtNP, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 190, 310, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setText("Servicio");
+        jLabel1.setText("Animal");
         PCont.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 60, -1, -1));
 
         txtBusq.setShadowColor(new java.awt.Color(153, 0, 153));
@@ -178,7 +163,7 @@ final void loadD() throws SQLException {
                 btnEliminarActionPerformed(evt);
             }
         });
-        PCont.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 560, 110, 40));
+        PCont.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 450, 110, 40));
 
         btnAct.setText("Actualizar");
         btnAct.addActionListener(new java.awt.event.ActionListener() {
@@ -186,7 +171,7 @@ final void loadD() throws SQLException {
                 btnActActionPerformed(evt);
             }
         });
-        PCont.add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 560, 110, 40));
+        PCont.add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 450, 110, 40));
 
         btnAgregar.setText("Agregar");
         btnAgregar.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
@@ -195,7 +180,7 @@ final void loadD() throws SQLException {
                 btnAgregarActionPerformed(evt);
             }
         });
-        PCont.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 560, 110, 40));
+        PCont.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 450, 110, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -208,14 +193,13 @@ final void loadD() throws SQLException {
             .addComponent(PCont, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    final void setData() {
+        txtNC.setText(tbData.getValueAt(tbData.getSelectedRow(), 1).toString());
+        txtNP.setText(tbData.getValueAt(tbData.getSelectedRow(), 2).toString());
+    }
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
         //setData();
     }//GEN-LAST:event_tbDataMouseClicked
-
-    private void cbNivelSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNivelSActionPerformed
-
-    }//GEN-LAST:event_cbNivelSActionPerformed
 
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
         try {
@@ -233,14 +217,14 @@ final void loadD() throws SQLException {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
         int opcion = JOptionPane.showOptionDialog(
-            null,
-            "¿Desea eliminar el registro?",
-            "Advertencia",
-            JOptionPane.YES_NO_OPTION,
-            JOptionPane.WARNING_MESSAGE,
-            null,
-            new Object[]{"Sí", "No"},
-            "No");
+                null,
+                "¿Desea eliminar el registro?",
+                "Advertencia",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.WARNING_MESSAGE,
+                null,
+                new Object[]{"Sí", "No"},
+                "No");
 
         if (opcion == JOptionPane.YES_OPTION) {
             try {
@@ -249,7 +233,7 @@ final void loadD() throws SQLException {
                 ct.deleteServ();
                 loadD();
             } catch (SQLException ex) {
-                Logger.getLogger(CRUDtpserv.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(CRUDTipoAnim.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else if (opcion == JOptionPane.NO_OPTION) {
 
@@ -259,41 +243,40 @@ final void loadD() throws SQLException {
     private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
         try {
             List<TextFieldSV> lista = new ArrayList<>();
-            lista.add(txtCosto);
-            lista.add(txtServ);
+            lista.add(txtNP);
+            lista.add(txtNC);
             if (dsg.areFieldsNotEmpty(lista)) {
-                ctTipoServ ct = new ctTipoServ();
-                ct.idTipoServ = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-                //ct.idNivelServ = dsg.getMap(cbMapNPS, cbNivelS.getSelectedItem().toString());;
-                ct.Nombre = txtBusq.getText();
-                ct.Costo = Float.parseFloat(txtCosto.getText());
-                ct.updtServ();
+                ctTipoAnim ct = new ctTipoAnim();
+                ct.idTipoAnim = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                ct.nPopular = txtNP.getText();
+                ct.nCient = txtNC.getText();
+                ct.insertTPA();
                 loadD();
             } else {
 
             }
         } catch (SQLException ex) {
-            Logger.getLogger(CRUDtpserv.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CRUDTipoAnim.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnActActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         List<TextFieldSV> lista = new ArrayList<>();
-        lista.add(txtCosto);
-        lista.add(txtServ);
+        lista.add(txtNP);
+        lista.add(txtNC);
         try {
             if (dsg.areFieldsNotEmpty(lista)) {//VERIFICAR QUE NO ESTE VACIO
-                ctTipoServ ct = new ctTipoServ();
-                //ct.idNivelServ = dsg.getMap(cbMapNPS, cbNivelS.getSelectedItem().toString());;
-                ct.Nombre = txtBusq.getText();
-                ct.Costo = Float.parseFloat(txtCosto.getText());
-                ct.insertServ();
+                ctTipoAnim ct = new ctTipoAnim();
+                ct.idTipoAnim = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                ct.nPopular = txtNP.getText();
+                ct.nCient = txtNC.getText();
+                ct.updtTPA();
                 loadD();
             } else {
 
             }
         } catch (SQLException ex) {
-            Logger.getLogger(CRUDtpserv.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CRUDTipoAnim.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
@@ -304,15 +287,13 @@ final void loadD() throws SQLException {
     private Design.ButtonGradient btnAgregar;
     private Design.ButtonGradient btnEliminar;
     private Design.ButtonGradient btnLimp;
-    private Design.Combobox cbNivelS;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private SwingTable.Table tbData;
     private Design.TextFieldSV txtBusq;
-    private Design.TextFieldSV txtCosto;
-    private Design.TextFieldSV txtServ;
+    private Design.TextFieldSV txtNC;
+    private Design.TextFieldSV txtNP;
     // End of variables declaration//GEN-END:variables
 }
