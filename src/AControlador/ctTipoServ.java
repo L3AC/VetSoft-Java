@@ -12,7 +12,7 @@ public class ctTipoServ {
     public int idTipoServ;
     public int idNivelServ;
     public String Nombre;
-    public Double Costo;
+    public float Costo;
 
     public int getIdTipoServ() {
         return idTipoServ;
@@ -38,11 +38,11 @@ public class ctTipoServ {
         this.Nombre = Nombre;
     }
 
-    public Double getCosto() {
+    public float getCosto() {
         return Costo;
     }
 
-    public void setCosto(Double Costo) {
+    public void setCosto(float Costo) {
         this.Costo = Costo;
     }
     
@@ -53,5 +53,17 @@ public class ctTipoServ {
     }
     public ResultSet selectServ(){
         return md.selectServ(idTipoServ);
+    }
+    public ResultSet tableServ(){
+        return md.tableServ(Nombre);
+    }
+    public boolean insertServ(){
+        return md.insertServ(idNivelServ,Nombre,Costo);
+    }
+    public boolean updtServ(){
+        return md.updtServ(idTipoServ,idNivelServ,Nombre,Costo);
+    }
+    public boolean deleteServ(){
+        return md.deleteServ(idTipoServ);
     }
 }

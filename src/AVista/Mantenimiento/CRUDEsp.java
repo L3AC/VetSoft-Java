@@ -1,6 +1,7 @@
 package AVista.Mantenimiento;
 
 import AControlador.ctEsp;
+import AControlador.ctTipoServ;
 import AVista.Usuarios.CRUDusuarios;
 import Design.Desg;
 import java.sql.ResultSet;
@@ -12,66 +13,60 @@ import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 import Validation.Valida;
 
-
 public class CRUDEsp extends javax.swing.JPanel {
 
     private int idEsp;
     private int idEsRow;
-    ctEsp ct = new ctEsp();
     Desg dsg = new Desg();
     DefaultTableModel model;
     public int nUs;
-    
+
     public CRUDEsp(int nUs) throws SQLException {
         this.nUs = nUs;
         initComponents();
         loadD();
-        
-        txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9]*"));
+
+        txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9 ]*"));
     }
 
-  
     public CRUDEsp() throws SQLException {
         initComponents();
         loadD();
-        txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9]*"));
+        txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9 ]*"));
     }
 
     final void loadD() throws SQLException {
         String[] column = {"idEspecialidad", "Especialidad"};
         model = new DefaultTableModel(null, column);
-        dsg.ColumnHide(model, tbData, 0,2);
+        dsg.ColumnHide(model, tbData, 0, 2);
         CargarTabla();
-        
-
-    if (tbData.getRowCount() > 0) {
-        tbData.setRowSelectionInterval(0, 0);
-        int fila = tbData.getSelectedRow();
-        idEsp = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
+        if (tbData.getRowCount() > 0) {
+            tbData.setRowSelectionInterval(0, 0);
+            int fila = tbData.getSelectedRow();
+            idEsp = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
+        }
     }
-}
-    
 
     final void CargarTabla() throws SQLException {
         while (model.getRowCount() > 0) {
             model.removeRow(0);
         }
-         try {
-             ctEsp ct = new ctEsp();
+        try {
+            ctEsp ct = new ctEsp();
             ct.esp = txtBusq.getText().toString();
             ResultSet rs = ct.selectEsp();
             while (rs.next()) {
                 Object[] oValores = {rs.getInt("idEspecialidad"), rs.getString(
-                        "Especialidad")};
-                 
+                    "Especialidad")};
+
                 model.addRow(oValores);
             }
         } catch (Exception e) {
-                                                                                                                                                                
+
         }
 
-     
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -84,6 +79,7 @@ public class CRUDEsp extends javax.swing.JPanel {
         btnEliminar = new Design.ButtonGradient();
         btnAct = new Design.ButtonGradient();
         btnAgregar = new Design.ButtonGradient();
+        jLabel2 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -122,11 +118,11 @@ public class CRUDEsp extends javax.swing.JPanel {
                 txtBusqKeyReleased(evt);
             }
         });
-        add(txtBusq, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 62, 710, 40));
+        add(txtBusq, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 62, 420, 40));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setText("Nombre de la Especialidad");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 160, -1, -1));
+        jLabel1.setText("Especialidad");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 60, -1, -1));
         add(txtEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 200, 310, -1));
 
         btnEliminar.setText("Eliminar");
@@ -136,7 +132,7 @@ public class CRUDEsp extends javax.swing.JPanel {
                 btnEliminarActionPerformed(evt);
             }
         });
-        add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 310, 110, 40));
+        add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 450, 110, 40));
 
         btnAct.setText("Actualizar");
         btnAct.addActionListener(new java.awt.event.ActionListener() {
@@ -144,7 +140,7 @@ public class CRUDEsp extends javax.swing.JPanel {
                 btnActActionPerformed(evt);
             }
         });
-        add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 370, 110, 40));
+        add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 380, 110, 40));
 
         btnAgregar.setText("Agregar");
         btnAgregar.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
@@ -153,11 +149,15 @@ public class CRUDEsp extends javax.swing.JPanel {
                 btnAgregarActionPerformed(evt);
             }
         });
-        add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 430, 110, 40));
+        add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 310, 110, 40));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel2.setText("Nombre de la Especialidad");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 160, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
-        
+
         idEsp = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
     }//GEN-LAST:event_tbDataMouseClicked
 
@@ -171,12 +171,12 @@ public class CRUDEsp extends javax.swing.JPanel {
     }//GEN-LAST:event_txtBusqKeyReleased
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-       
-   try {
-            ctEsp ctEs=new ctEsp();
-            
-            ctEs.esp=txtEsp.getText();
-            ctEs.idEsp=idEsp;
+
+        try {
+            ctEsp ctEs = new ctEsp();
+
+            ctEs.esp = txtEsp.getText();
+            ctEs.idEsp = idEsp;
             ctEs.insertEsp();
             loadD();
         } catch (SQLException ex) {
@@ -188,21 +188,21 @@ public class CRUDEsp extends javax.swing.JPanel {
 
     private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
         try {
-            ctEsp ctEs=new ctEsp();
-            
-            ctEs.esp=txtEsp.getText();
-            ctEs.idEsp=idEsp;
+            ctEsp ctEs = new ctEsp();
+
+            ctEs.esp = txtEsp.getText();
+            ctEs.idEsp = idEsp;
             ctEs.updtEsp();
             loadD();
         } catch (SQLException ex) {
             Logger.getLogger(CRUDEsp.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-          
+
     }//GEN-LAST:event_btnActActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-         UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
+        UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
         int opcion = JOptionPane.showOptionDialog(
                 null,
                 "¿Desea eliminar el registro?",
@@ -224,8 +224,7 @@ public class CRUDEsp extends javax.swing.JPanel {
             }
         } else if (opcion == JOptionPane.NO_OPTION) {
 
-        
-    }                                           
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
 
@@ -234,6 +233,7 @@ public class CRUDEsp extends javax.swing.JPanel {
     private Design.ButtonGradient btnAgregar;
     private Design.ButtonGradient btnEliminar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private SwingTable.Table tbData;
     private javax.swing.JTextField txtBusq;

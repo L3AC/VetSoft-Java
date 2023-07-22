@@ -49,8 +49,8 @@ public class insertCita extends javax.swing.JPanel {
         precio();
         lbDispo.setVisible(false);
         
-        txtNotaCl.setDocument(new Valida(200, "[a-zA-Z0-9]*"));
-        txtNotaD.setDocument(new Valida(200, "[a-zA-Z0-9]*"));
+        txtNotaCl.setDocument(new Valida(200, "[a-zA-Z0-9 ]*"));
+        txtNotaD.setDocument(new Valida(200, "[a-zA-Z0-9 ]*"));
         dpFecha.setMinSelectableDate(Calendar.getInstance().getTime());
         
         Calendar today = Calendar.getInstance();
