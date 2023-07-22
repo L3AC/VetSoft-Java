@@ -56,7 +56,7 @@ public class ctRaza {
         return md.loadTPanimal();
     }
     public ResultSet loadRaza() {
-        return md.loadRaza(idTipoAnimal);
+        return md.loadRaza(idRaza);
     }
 
     /*public boolean insertAnim() {
@@ -69,9 +69,9 @@ public class ctRaza {
 
     public boolean deleteAnim() {
         return ani.deleteAnim(idAnimal);
-    }
-
-    public ResultSet selectAnim() {
-        return ani.selectAnim(idAnimal);
     }*/
+
+    public ResultSet selectRaza() {
+        return md.selectRaza(nombreRaza);
+    }
 }

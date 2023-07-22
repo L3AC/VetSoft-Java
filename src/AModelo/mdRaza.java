@@ -29,11 +29,27 @@ public class mdRaza {
         }
     }
 
-    public ResultSet loadRaza(int id) {
-        String query = "select * from tbRazas where idTipoAnimal=?;";
+    public ResultSet loadRaza(int idRaza, String nombrePopular, String nombreRaza) {
+        String query = "select r.idRaza,ta.nombrePopular,r.nombreRaza from tbRazas r,tbTipoAnimales ta where r.idTipoAnimal=ta.idTipoAnimal";
         try {
             ps = con.prepareStatement(query);
-            ps.setInt(1, id);
+            ps.setInt(1, idRaza);
+            ps.setString(2, nombrePopular);
+             ps.setString(3, nombreRaza);
+            rs = ps.executeQuery();
+            return rs;
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+            return null;
+        }
+    }
+    
+    public ResultSet selectRaza(String nombreRaza) {
+        String query = "select * from tbRazas where nombreRaza like ?;";
+        try {
+            ps = con.prepareStatement(query);
+             ps.setString(1,    "%"+nombreRaza+"%");
             rs = ps.executeQuery();
             return rs;
 

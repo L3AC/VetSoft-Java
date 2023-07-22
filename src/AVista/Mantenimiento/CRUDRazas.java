@@ -4,17 +4,58 @@
  */
 package AVista.Mantenimiento;
 
+import AControlador.ctRaza;
+import Design.Desg;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author godna
  */
 public class CRUDRazas extends javax.swing.JPanel {
-
-    /**
-     * Creates new form CRUDRazas
-     */
-    public CRUDRazas() {
+    
+         private int idRaza;
+        Desg dsg = new Desg();
+        DefaultTableModel model;
+        
+        
+    public CRUDRazas() throws SQLException {
         initComponents();
+        loadD();
+    }
+
+     final void loadD() throws SQLException {
+        String[] column = {"idRaza", "Raza"};
+        model = new DefaultTableModel(null, column);
+        dsg.ColumnHide(model, tbRaza, 0, 2);
+        CargarTabla();
+        if (tbRaza.getRowCount() > 0) {
+            tbRaza.setRowSelectionInterval(0, 0);
+            int fila = tbRaza.getSelectedRow();
+            idRaza = Integer.parseInt(tbRaza.getValueAt(fila, 0).toString());
+        }
+    }
+     
+       final void CargarTabla() throws SQLException {
+        while (model.getRowCount() > 0) {
+            model.removeRow(0);
+        }
+        try {
+            ctRaza ct = new ctRaza();
+            ct.nombreRaza= txtBusq.getText().toString();
+            ResultSet rs = ct.selectRaza();
+            while (rs.next()) {
+                Object[] oValores = {rs.getInt("idRaza"), rs.getString(
+                    "Raza")};
+
+                model.addRow(oValores);
+            }
+        } catch (Exception e) {
+
+        }
+
     }
 
     /**
@@ -27,7 +68,7 @@ public class CRUDRazas extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        table1 = new SwingTable.Table();
+        tbRaza = new SwingTable.Table();
         txtBusq = new javax.swing.JTextField();
         textFieldSV1 = new Design.TextFieldSV();
         jLabel1 = new javax.swing.JLabel();
@@ -35,20 +76,20 @@ public class CRUDRazas extends javax.swing.JPanel {
         buttonGradient2 = new Design.ButtonGradient();
         buttonGradient3 = new Design.ButtonGradient();
 
-        table1.setModel(new javax.swing.table.DefaultTableModel(
+        tbRaza.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "idRaza", "Raza"
+                "idRaza", "Raza", "NombrePopular"
             }
         ));
-        jScrollPane1.setViewportView(table1);
-        if (table1.getColumnModel().getColumnCount() > 0) {
-            table1.getColumnModel().getColumn(1).setResizable(false);
+        jScrollPane1.setViewportView(tbRaza);
+        if (tbRaza.getColumnModel().getColumnCount() > 0) {
+            tbRaza.getColumnModel().getColumn(1).setResizable(false);
         }
 
         txtBusq.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -134,7 +175,7 @@ public class CRUDRazas extends javax.swing.JPanel {
     private Design.ButtonGradient buttonGradient3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private SwingTable.Table table1;
+    private SwingTable.Table tbRaza;
     private Design.TextFieldSV textFieldSV1;
     private javax.swing.JTextField txtBusq;
     // End of variables declaration//GEN-END:variables
