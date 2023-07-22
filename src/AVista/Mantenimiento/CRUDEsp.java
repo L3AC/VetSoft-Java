@@ -159,6 +159,7 @@ public class CRUDEsp extends javax.swing.JPanel {
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
 
         idEsp = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+        txtEsp.setText(tbData.getValueAt(tbData.getSelectedRow(), 1).toString());
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased

@@ -39,7 +39,7 @@ public class mdTipoServ {
 
     public ResultSet tableServ(String nombre) {//TABLA
         String query = "select idTipoServicio,ts.idNivelServicio,ns.Prioridad,Nombre,costo from tbTipoServicio ts, tbNivelServicio ns\n"
-                + "where ns.idNivelServicio=ts.idNivelServicio;";
+                + "where ns.idNivelServicio=ts.idNivelServicio and Nombre like ?;";
         try {
 
             ps = con.prepareStatement(query);
@@ -138,6 +138,20 @@ public class mdTipoServ {
             System.out.println(e.toString());
             JOptionPane.showMessageDialog(null, "Error al ejecutar");
             return false;
+        }
+    }
+    public ResultSet comboPrior() {//TABLA
+        String query = "select * from tbNivelServicio";
+        try {
+
+            ps = con.prepareStatement(query);
+            rs = ps.executeQuery();
+            return rs;
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return null; //DIO ERROR
         }
     }
 }

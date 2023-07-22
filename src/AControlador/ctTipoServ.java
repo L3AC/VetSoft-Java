@@ -7,10 +7,11 @@ package AControlador;
 import AModelo.mdTipoServ;
 import java.sql.ResultSet;
 
-
 public class ctTipoServ {
+
     public int idTipoServ;
     public int idNivelServ;
+    public String prioridad;
     public String Nombre;
     public float Costo;
 
@@ -45,25 +46,35 @@ public class ctTipoServ {
     public void setCosto(float Costo) {
         this.Costo = Costo;
     }
-    
-    mdTipoServ md=new mdTipoServ();
-    
-    public ResultSet comboServ(){
+
+    mdTipoServ md = new mdTipoServ();
+
+    public ResultSet comboServ() {
         return md.comboServ();
     }
-    public ResultSet selectServ(){
+
+    public ResultSet selectServ() {
         return md.selectServ(idTipoServ);
     }
-    public ResultSet tableServ(){
+
+    public ResultSet tableServ() {
         return md.tableServ(Nombre);
     }
-    public boolean insertServ(){
-        return md.insertServ(idNivelServ,Nombre,Costo);
+
+    public ResultSet comboPrior() {
+        return md.comboPrior();
     }
-    public boolean updtServ(){
-        return md.updtServ(idTipoServ,idNivelServ,Nombre,Costo);
+
+    public boolean insertServ() {
+        return md.insertServ(idNivelServ, Nombre, Costo);
     }
-    public boolean deleteServ(){
+
+    public boolean updtServ() {
+        return md.updtServ(idTipoServ, idNivelServ, Nombre, Costo);
+    }
+
+    public boolean deleteServ() {
         return md.deleteServ(idTipoServ);
     }
+
 }

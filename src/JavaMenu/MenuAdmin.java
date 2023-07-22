@@ -55,8 +55,8 @@ public class MenuAdmin extends JPanel{
                 ,"Reservas","Productos"));
         addTitle("Mantenimiento");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.ADD_ALARM, 
-                "Mantenimiento","Especialidades","Razas","Tipo Animales"
-                ,"Tipo Vacunas","Niveles Servicio","Tipo Servicio","Tipo Productos","Preguntas"));
+                "Mantenimiento","Especialidades","Razas","Tipo Animales","Tipo Servicio"
+                ,"Tipo Vacunas","Niveles Servicio","Tipo Productos","Preguntas"));
         addTitle("Cuenta");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PEOPLE,
                 "Mi Cuenta","Perfil","Seguridad",
