@@ -14,10 +14,10 @@ import java.sql.SQLException;
  */
 public class Conx {
     public static Connection Conectar(){
-        String cadena = "jdbc:sqlserver://localhost:1433;"
+        String cadena = "jdbc:sqlserver://localhost:51150;"
             + "databaseName=VetSoft;"
-            + "user=userSQL;"
-            + "password=pasf2;"
+            + "user=alvita;"
+            + "password=ferelmejor;"
             + "encrypt=false;"
             + "loginTimeout=10;";
         
