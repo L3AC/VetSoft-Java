@@ -55,9 +55,9 @@ public class ctRaza {
     public ResultSet loadTPanimal() {
         return md.loadTPanimal();
     }
-    public ResultSet loadRaza() {
+   /* public ResultSet loadRaza() {
         return md.loadRaza(idRaza);
-    }
+    }*/
 
     /*public boolean insertAnim() {
         return ani.insertAnim(idCliente, idRaza, padecimientos, nombre, peso, edad, sexo);

@@ -49,7 +49,6 @@ public class updtCita extends javax.swing.JPanel {
         
         txtNotaCl.setDocument(new Valida(200, "[a-zA-Z0-9 ]*"));
         txtNotaD.setDocument(new Valida(200, "[a-zA-Z0-9 ]*"));
-        
         Calendar today = Calendar.getInstance();
         today.add(Calendar.DAY_OF_MONTH, 1);
         

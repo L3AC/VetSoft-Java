@@ -11,6 +11,7 @@ import AVista.Usuarios.insertUs;
 import Design.Desg;
 import Mensajes.CodigoDeErrorDLI3;
 import Mensajes.GlassPanePopup;
+import Validation.Valida;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -46,6 +47,9 @@ public class Registro extends javax.swing.JFrame {
         loadCombo(cbCargo);
         setLocationRelativeTo(null);
         GlassPanePopup.install(this);
+        txtUsuario.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
+        txtTeléfono.setDocument(new Valida(10, "[0-9]*"));
+        txtContra.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
     }
 
     private void loadCombo(JComboBox cb) throws SQLException {
@@ -277,40 +281,18 @@ public class Registro extends javax.swing.JFrame {
 
     private void txtUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyTyped
         // TODO add your handling code here:
-
-        if (txtUsuario.getText().length() >= 30) {
-            evt.consume();
-            Toolkit.getDefaultToolkit().beep();
-        }
     }//GEN-LAST:event_txtUsuarioKeyTyped
 
     private void txtContraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyTyped
         // TODO add your handling code here:
-
-        if (txtContra.getText().length() >= 30) {
-            evt.consume();
-            Toolkit.getDefaultToolkit().beep();
-        }
     }//GEN-LAST:event_txtContraKeyTyped
 
     private void txtCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoKeyTyped
         // TODO add your handling code here:
-
-        if (txtCorreo.getText().length() >= 50) {
-            evt.consume();
-            Toolkit.getDefaultToolkit().beep();
-        }
     }//GEN-LAST:event_txtCorreoKeyTyped
 
     private void txtTeléfonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTeléfonoKeyTyped
         // TODO add your handling code here:
-
-        Character c = evt.getKeyChar();
-
-        if (txtTeléfono.getText().length() >= 10 || !Character.isDigit(c)) {
-            evt.consume();
-            Toolkit.getDefaultToolkit().beep();
-        }
 
 
     }//GEN-LAST:event_txtTeléfonoKeyTyped

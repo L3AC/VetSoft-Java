@@ -213,13 +213,13 @@ public class addMascota extends javax.swing.JPanel {
         cbMapRa.clear();
         cb.removeAllItems();
         ct.idTipoAnimal = dsg.getMap(cbMap, cbTipoA.getSelectedItem().toString());
-        ResultSet rs = ct.loadRaza();
+        /*ResultSet rs = ct.loadRaza();
         while (rs.next()) {
             int idTP = rs.getInt("idRaza");
             String nombre = rs.getString("nombreRaza");
             cb.addItem(nombre);
             cbMapRa.put(idTP, nombre);
-        }
+        }*/
     }
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         try {

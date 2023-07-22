@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import Validation.Valida;
+import java.util.Calendar;
 
 /**
  *
@@ -41,7 +42,7 @@ public class updtAnimales extends javax.swing.JPanel {
         txtNombre.setDocument(new Valida(25, "[a-zA-Z]*"));
         txtPeso.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
         txtPad.setDocument(new Valida(300, "[a-zA-Z0-9]*"));
-
+        dpNaci.setMaxSelectableDate(Calendar.getInstance().getTime());
     }
 
     final void loadData() throws SQLException {
@@ -81,13 +82,13 @@ public class updtAnimales extends javax.swing.JPanel {
         cbMapRa.clear();
         cb.removeAllItems();
         ct.idTipoAnimal = dsg.getMap(cbMap, cbTipoA.getSelectedItem().toString());
-        ResultSet rs = ct.loadRaza();
+        /*ResultSet rs = ct.loadRaza();
         while (rs.next()) {
             int idTP = rs.getInt("idRaza");
             String nombre = rs.getString("nombreRaza");
             cb.addItem(nombre);
             cbMapRa.put(idTP, nombre);
-        }
+        }*/
     }
 
     @SuppressWarnings("unchecked")

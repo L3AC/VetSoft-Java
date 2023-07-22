@@ -37,6 +37,8 @@ public class NuevaContra extends javax.swing.JFrame {
 
     public NuevaContra() {
         initComponents();
+        txtNueva.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
+        txtNueva2.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
     }
 
     /**
@@ -52,9 +54,9 @@ public class NuevaContra extends javax.swing.JFrame {
         panelRound1 = new Design.PanelRound();
         lbUs1 = new javax.swing.JLabel();
         lbCod = new javax.swing.JLabel();
-        txtNueva = new Design.TextFieldSV();
-        txtNueva2 = new Design.TextFieldSV();
         buttonGradient1 = new Design.ButtonGradient();
+        txtNueva = new Design.PasswordField();
+        txtNueva2 = new Design.PasswordField();
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -79,14 +81,6 @@ public class NuevaContra extends javax.swing.JFrame {
         lbCod.setForeground(new java.awt.Color(0, 0, 0));
         lbCod.setText("Confirmar Contraseña");
         panelRound1.add(lbCod, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 180, 30));
-        panelRound1.add(txtNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 70, 230, -1));
-
-        txtNueva2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNueva2ActionPerformed(evt);
-            }
-        });
-        panelRound1.add(txtNueva2, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 160, 230, -1));
 
         buttonGradient1.setText("Cambiar Contraseña");
         buttonGradient1.setColor1(new java.awt.Color(255, 255, 255));
@@ -96,6 +90,8 @@ public class NuevaContra extends javax.swing.JFrame {
             }
         });
         panelRound1.add(buttonGradient1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 210, 40));
+        panelRound1.add(txtNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 250, -1));
+        panelRound1.add(txtNueva2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 250, -1));
 
         panelRound2.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 580, 270));
 
@@ -137,10 +133,6 @@ public void act() throws Exception{
         }
     }
     
-    private void txtNueva2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNueva2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNueva2ActionPerformed
-
     private void buttonGradient1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGradient1ActionPerformed
                if (txtNueva.getText().equals(txtNueva2.getText())) {
                 try {
@@ -197,7 +189,7 @@ public void act() throws Exception{
     private javax.swing.JLabel lbUs1;
     private Design.PanelRound panelRound1;
     private Design.PanelRound panelRound2;
-    private Design.TextFieldSV txtNueva;
-    private Design.TextFieldSV txtNueva2;
+    private Design.PasswordField txtNueva;
+    private Design.PasswordField txtNueva2;
     // End of variables declaration//GEN-END:variables
 }

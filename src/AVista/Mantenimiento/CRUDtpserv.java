@@ -10,6 +10,7 @@ import AControlador.ctRaza;
 import AControlador.ctTipoServ;
 import Design.Desg;
 import Design.TextFieldSV;
+import Validation.Valida;
 import java.awt.TextField;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -39,6 +40,9 @@ public class CRUDtpserv extends javax.swing.JPanel {
         loadD();
         loadCombo(cbNivelS);
         setData();
+        txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9 ]*"));
+        txtServ.setDocument(new Valida(50, "[a-zA-Z0-9 ]*"));
+        txtCosto.setDocument(new Valida(50, "[0-9]*"));
     }
 
     final void loadD() throws SQLException {

@@ -8,6 +8,7 @@ import AControlador.ctEsp;
 import AControlador.ctTipoServ;
 import Design.Desg;
 import Design.TextFieldSV;
+import Validation.Valida;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -34,6 +35,9 @@ public class CRUDTipoAnim extends javax.swing.JPanel {
     public CRUDTipoAnim(int idTipoUs) {
         this.idTipoUs=idTipoUs;
         initComponents();
+        txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9 ]*"));
+        txtServ.setDocument(new Valida(50, "[a-zA-Z0-9 ]*"));
+        txtCosto.setDocument(new Valida(50, "[0-9]*"));
     }
 final void loadD() throws SQLException {
         String[] column = {"idTipoServicio", "idNIvelServicio", "Prioridad", "Nombre", "Costo"};
@@ -132,6 +136,8 @@ final void loadD() throws SQLException {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setText("Prioridad de atención");
         PCont.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 150, -1, -1));
+
+        txtServ.setShadowColor(new java.awt.Color(153, 0, 153));
         PCont.add(txtServ, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 310, 310, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -141,12 +147,15 @@ final void loadD() throws SQLException {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setText("Costo del servicio");
         PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 390, -1, -1));
+
+        txtCosto.setShadowColor(new java.awt.Color(153, 0, 153));
         PCont.add(txtCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 430, 310, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("Servicio");
         PCont.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 60, -1, -1));
 
+        txtBusq.setShadowColor(new java.awt.Color(153, 0, 153));
         txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtBusqKeyReleased(evt);
@@ -160,7 +169,7 @@ final void loadD() throws SQLException {
                 btnLimpActionPerformed(evt);
             }
         });
-        PCont.add(btnLimp, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 40, 110, 40));
+        PCont.add(btnLimp, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 40, 110, 40));
 
         btnEliminar.setText("Eliminar");
         btnEliminar.setToolTipText("");

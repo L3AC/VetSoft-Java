@@ -6,6 +6,7 @@ package AVista.Mantenimiento;
 
 import AControlador.ctRaza;
 import Design.Desg;
+import Validation.Valida;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
@@ -24,6 +25,7 @@ public class CRUDRazas extends javax.swing.JPanel {
     public CRUDRazas() throws SQLException {
         initComponents();
         loadD();
+        txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9 ]*"));
     }
 
      final void loadD() throws SQLException {

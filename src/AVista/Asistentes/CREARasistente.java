@@ -42,7 +42,7 @@ public class CREARasistente extends javax.swing.JPanel {
         lbVerif.setVisible(false);
         verifPerfil();
         
-        txtBusq.setDocument(new Valida(100, "[a-zA-Z]*"));
+        txtBusq.setDocument(new Valida(30, "[a-zA-Z]*"));
         txtNombre.setDocument(new Valida(50, "[a-zA-Z]*"));
         txtDui.setDocument(new Valida(10, "[0-9]*"));
         txtApellidos.setDocument(new Valida(50, "[a-zA-Z]*"));

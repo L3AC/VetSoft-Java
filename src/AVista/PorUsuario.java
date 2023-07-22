@@ -55,9 +55,9 @@ public class PorUsuario extends javax.swing.JFrame {
         btnCambiar.setEnabled(false);
         
         txtUser.setDocument(new Valida(30, "[a-zA-Z]*"));
-        txtCod.setDocument(new Valida(10, "[a-zA-Z0-9]*"));
-        txtNueva.setDocument(new Valida(100, "[a-zA-Z0-9]*"));
-        txtNueva2.setDocument(new Valida(100, "[a-zA-Z0-9]*"));
+        txtCod.setDocument(new Valida(10, "[0-9]*"));
+        txtNueva.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
+        txtNueva2.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
         
     }
 

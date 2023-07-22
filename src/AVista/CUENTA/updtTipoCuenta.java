@@ -19,6 +19,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import Validation.Valida;
+import java.util.Calendar;
 
 public class updtTipoCuenta extends javax.swing.JPanel {
 
@@ -71,6 +72,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         txtDui.setDocument(new Valida(10, "[0-9]*"));
         txtApellidos.setDocument(new Valida(50, "[a-zA-Z]*"));
         txtDir.setDocument(new Valida(300, "[a-zA-Z0-9]*"));
+        dpNaci.setMaxSelectableDate(Calendar.getInstance().getTime());
     }
 
     @SuppressWarnings("unchecked")

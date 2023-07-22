@@ -29,7 +29,7 @@ public class CRUDCita extends javax.swing.JPanel {
         initComponents();
         loadD();
 
-        txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9]*"));
+        txtBusq.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
         
     }
 

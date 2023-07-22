@@ -31,7 +31,7 @@ public class AsistenteDoc extends javax.swing.JPanel {
         this.idTipoUs = idTipoUs;
         initComponents();
         
-        txtBusq.setDocument(new Valida(100, "[a-zA-Z]*"));
+        txtBusq.setDocument(new Valida(30, "[a-zA-Z]*"));
         
     }
 

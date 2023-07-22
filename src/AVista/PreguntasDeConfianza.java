@@ -41,10 +41,10 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         txtPregunta3.setEnabled(false);
         btnEnviar.setEnabled(false);
         
-        txtUser.setDocument(new Valida(30, "[a-zA-Z]*"));
-        txtPregunta1.setDocument(new Valida(30, "[a-zA-Z]*"));
-        txtPregunta2.setDocument(new Valida(30, "[a-zA-Z]*"));
-        txtPregunta3.setDocument(new Valida(30, "[a-zA-Z]*"));
+        txtUser.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
+        txtPregunta1.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
+        txtPregunta2.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
+        txtPregunta3.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
         
     }
 
@@ -362,37 +362,25 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
 
     private void txtUserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyTyped
         // TODO add your handling code here:
-        if (txtUser.getText().length() >= 30) {
-            evt.consume();
-            Toolkit.getDefaultToolkit().beep();
-        }
+       
     }//GEN-LAST:event_txtUserKeyTyped
 
     private void txtPregunta1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPregunta1KeyTyped
         // TODO add your handling code here:
 
-        if (txtPregunta1.getText().length() >= 30) {
-            evt.consume();
-            Toolkit.getDefaultToolkit().beep();
-        }
+        
     }//GEN-LAST:event_txtPregunta1KeyTyped
 
     private void txtPregunta2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPregunta2KeyTyped
         // TODO add your handling code here:
 
-        if (txtPregunta2.getText().length() >= 30) {
-            evt.consume();
-            Toolkit.getDefaultToolkit().beep();
-        }
+        
     }//GEN-LAST:event_txtPregunta2KeyTyped
 
     private void txtPregunta3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPregunta3KeyTyped
         // TODO add your handling code here:
 
-        if (txtPregunta3.getText().length() >= 30) {
-            evt.consume();
-            Toolkit.getDefaultToolkit().beep();
-        }
+        
     }//GEN-LAST:event_txtPregunta3KeyTyped
 
     private void txtPregunta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPregunta1ActionPerformed
