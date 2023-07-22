@@ -67,15 +67,27 @@ public class Desg {
         }
         return -1; // Valor no encontrado
     }
-    public final void visib(java.util.List<Component> components,boolean tf) {
+
+    public final void visib(java.util.List<Component> components, boolean tf) {
         for (Component component : components) {
             component.setVisible(tf);
         }
     }
-    public final void enable(java.util.List<Component> components,boolean tf) {
+
+    public final void enable(java.util.List<Component> components, boolean tf) {
         for (Component component : components) {
             component.setEnabled(tf);
         }
+    }
+
+    public boolean areFieldsNotEmpty(java.util.List<TextFieldSV> editTextList) {
+        for (TextFieldSV editText : editTextList) {
+            String text = editText.getText().toString().trim();
+            if (text.isEmpty()) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }

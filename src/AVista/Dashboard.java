@@ -11,6 +11,8 @@ import java.awt.Component;
 import JavaMenu.MenuSelectEvent;
 import AVista.Login;
 import AVista.Mantenimiento.CRUDEsp;
+import AVista.Mantenimiento.CRUDRazas;
+import AVista.Mantenimiento.CRUDTipoAnim;
 import AVista.Mantenimiento.CRUDtpserv;
 import AVista.Recepcionista.CRUDRecep;
 import AVista.Usuarios.CRUDusuarios;
@@ -116,10 +118,15 @@ public class Dashboard extends javax.swing.JFrame {
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     if (index == 4 && indexSubMenu == 2) {
-                        CRUDEsp subp = new CRUDEsp ();
+                        CRUDRazas subp = new CRUDRazas ();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
 
                     }
+                    if (index == 4 && indexSubMenu == 3) {
+                        CRUDTipoAnim subp = new CRUDTipoAnim (idTipoU);
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+
+                    }   
                     if (index == 4 && indexSubMenu == 4) {
                         CRUDtpserv subp = new CRUDtpserv (idTipoU);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
