@@ -157,7 +157,7 @@ public class CRUDtpserv extends javax.swing.JPanel {
         });
         PCont.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 560, 110, 40));
 
-        cbNivelS.setLabeText("Nivel de Usuario");
+        cbNivelS.setLabeText("");
         cbNivelS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbNivelSActionPerformed(evt);
