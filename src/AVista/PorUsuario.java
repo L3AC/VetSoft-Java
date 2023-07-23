@@ -52,7 +52,9 @@ public class PorUsuario extends javax.swing.JFrame {
     /**
      * Creates new form PorUsuario
      */
+    
     public PorUsuario() {
+        GlassPanePopup.install(this);
         initComponents();
         transparente();
         this.getContentPane().setBackground(Color.WHITE);
@@ -64,7 +66,7 @@ public class PorUsuario extends javax.swing.JFrame {
         btnCambiar.setEnabled(false);
         
         txtUser.setDocument(new Valida(30, "[a-zA-Z]*"));
-        txtCod.setDocument(new Valida(10, "[0-9]*"));
+        txtCod.setDocument(new Valida(20, "[a-zA-Z0-9]*"));
         txtNueva.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
         txtNueva2.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
         
@@ -310,12 +312,10 @@ public class PorUsuario extends javax.swing.JFrame {
                 GlassPanePopup.closePopupLast();
             }
         });
-        GlassPanePopup.showPopup(obj);
-            }
+        GlassPanePopup.showPopup(obj);   
         }
-        Login newFrame = new Login();
-        
-        newFrame.setVisible(true);
+         
+        }
     }//GEN-LAST:event_btnCambiarActionPerformed
 
     private void txtCodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodActionPerformed
@@ -370,15 +370,11 @@ public class PorUsuario extends javax.swing.JFrame {
             ps.setString(1,cryp.encrypt( txtNueva.getText(), "key"));
             ps.setString(2, txtUser.getText());
             ps.executeUpdate();
-            CódigoErrorDSI4 obj = new CódigoErrorDSI4();
-        obj.eventOK(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                GlassPanePopup.closePopupLast();
-            }
-        });
-        GlassPanePopup.showPopup(obj);
+        Login newFrame = new Login();
 
+        newFrame.setVisible(true);
+        dispose();
+        
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.toString());
         }

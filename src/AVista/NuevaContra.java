@@ -42,6 +42,7 @@ public class NuevaContra extends javax.swing.JFrame {
     }
 
     public NuevaContra() {
+        GlassPanePopup.install(this);
         initComponents();
         txtNueva.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
         txtNueva2.setDocument(new Valida(30, "[a-zA-Z0-9]*"));

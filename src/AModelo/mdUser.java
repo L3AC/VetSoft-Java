@@ -1,10 +1,13 @@
 package AModelo;
 
 import AVista.Dashboard;
+import AVista.Login;
+import AVista.RecuperacionDeContraseña;
 import Mensajes.CódigoErrorDRC4;
 import Mensajes.CódigoErrorDSI1;
 import Mensajes.CódigoErrorDSI2;
 import Mensajes.CódigoErrorDSI3;
+import Mensajes.CódigoErrorDSI5;
 import Mensajes.GlassPanePopup;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,13 +17,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
+
+
 public class mdUser {
 
     Connection con = Conx.Conectar();
     Crypt cripto = new Crypt();
     PreparedStatement ps;
     ResultSet rs;
-
     public ResultSet loadData(int idUs) {//EDITAR INFO
         String query = "select idUsuario,tu.nivel as 'Cargo',usuario,correo,telefono from tbUsuarios u,\n" +
         "tbTipoUsuario tu where u.idTipoUsuario=tu.idTipoUsuario and idUsuario=?;";
@@ -32,7 +36,6 @@ public class mdUser {
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
             System.out.println(e.toString());
-            JOptionPane.showMessageDialog(null, "Error al ejecutar");
             return null; //DIO ERROR
         }
     }
@@ -54,7 +57,6 @@ public class mdUser {
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
             System.out.println(e.toString());
-            JOptionPane.showMessageDialog(null, "Error al ejecutar");
             return null; //DIO ERROR
         }
     }
@@ -84,7 +86,6 @@ public class mdUser {
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
             System.out.println(e.toString());
-            JOptionPane.showMessageDialog(null, "Error al ejecutar");
             return false; //DIO ERROR
         }
     }
@@ -114,7 +115,6 @@ public class mdUser {
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
             System.out.println(e.toString());
-            JOptionPane.showMessageDialog(null, "Error al ejecutar");
             return false; //DIO ERROR
         }
     }
@@ -136,7 +136,6 @@ public class mdUser {
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
             System.out.println(e.toString());
-            JOptionPane.showMessageDialog(null, "Error al ejecutar");
             return false;
         }
     }

@@ -59,7 +59,7 @@ public class CódigoErrorDRC4 extends javax.swing.JPanel {
         txt.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         txt.setForeground(new java.awt.Color(133, 133, 133));
         txt.setText("“La contraseña no es igual”");
-        panelRound1.add(txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, -1));
+        panelRound1.add(txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 220, -1));
 
         cmdOk.setBackground(new java.awt.Color(48, 170, 63));
         cmdOk.setBorder(null);
@@ -73,7 +73,7 @@ public class CódigoErrorDRC4 extends javax.swing.JPanel {
                 cmdOkActionPerformed(evt);
             }
         });
-        panelRound1.add(cmdOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 70, 30));
+        panelRound1.add(cmdOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 70, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

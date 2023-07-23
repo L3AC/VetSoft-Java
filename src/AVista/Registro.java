@@ -10,6 +10,8 @@ import AModelo.Crypt;
 import AVista.Usuarios.insertUs;
 import Design.Desg;
 import Mensajes.CodigoDeErrorDLI3;
+import Mensajes.CódigoErrorDSI2;
+import Mensajes.CódigoErrorDSI5;
 import Mensajes.GlassPanePopup;
 import Validation.Valida;
 import java.awt.Toolkit;
@@ -42,6 +44,7 @@ public class Registro extends javax.swing.JFrame {
     Map<Integer, String> cbMap = new HashMap<>();
 
     public Registro() throws SQLException {
+        GlassPanePopup.install(this);
         initComponents();
         lbDisp.setVisible(false);
         lbFalso.setVisible(false);
@@ -249,18 +252,19 @@ public class Registro extends javax.swing.JFrame {
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
 
-        if (EmailValidator.getInstance().isValid(txtCorreo.getText())) {
-
+        if (txtUsuario.getText().isEmpty() || txtContra.getText().isEmpty()|| txtTeléfono.getText().isEmpty() || txtCorreo.getText().isEmpty()) {
+            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
+        obj.eventOK(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                GlassPanePopup.closePopupLast();
+            }
+        });
+        GlassPanePopup.showPopup(obj);
         } else {
-
-            CodigoDeErrorDLI3 obj = new CodigoDeErrorDLI3();
-            obj.eventOK(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent ae) {
-                    GlassPanePopup.closePopupLast();
-                }
-            });
-            GlassPanePopup.showPopup(obj);
+            Login newFrame = new Login();
+        newFrame.setVisible(true);
+        dispose();
         }
 
         ctUser ctUs = new ctUser();

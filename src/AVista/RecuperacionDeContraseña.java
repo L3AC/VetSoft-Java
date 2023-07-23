@@ -4,6 +4,7 @@
  */
 package AVista;
 
+import Mensajes.GlassPanePopup;
 import java.awt.Color;
 import java.awt.Image;
 import javax.swing.Icon;
@@ -26,6 +27,7 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
      * Creates new form RecuperacionDeContraseña
      */
     public RecuperacionDeContraseña() {
+        GlassPanePopup.install(this);
         initComponents();
         this.setLocationRelativeTo(null);
         transparente();
@@ -127,6 +129,7 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
         PorUsuario newFrame = new PorUsuario();
 
         newFrame.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnUsuarioActionPerformed
 
     private void btnPreguntasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreguntasActionPerformed

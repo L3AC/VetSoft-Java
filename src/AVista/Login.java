@@ -275,6 +275,7 @@ public class Login extends javax.swing.JFrame {
 
         RecuperacionDeContraseña newFrame = new RecuperacionDeContraseña();
         newFrame.setVisible(true);
+        dispose();
 
     }//GEN-LAST:event_txtOlvidasteContraMouseClicked
     public void SelectID() throws SQLException {
