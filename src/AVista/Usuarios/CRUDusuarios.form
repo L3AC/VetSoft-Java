@@ -118,6 +118,9 @@
               <Color blue="33" green="0" red="0" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtBusqKeyReleased"/>
+          </Events>
         </Component>
         <Component class="Design.ButtonGradient" name="btnAddCuenta">
           <Properties>

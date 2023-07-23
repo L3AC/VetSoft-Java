@@ -82,7 +82,6 @@ public class insertTipoCuenta extends javax.swing.JPanel {
             String nombre = rs.getString("Especialidad");
             cb.addItem(nombre);
             cbMap.put(idTP, nombre);
-
         }
     }
 

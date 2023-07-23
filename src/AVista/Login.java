@@ -215,25 +215,25 @@ public class Login extends javax.swing.JFrame {
                         SelectID();
                     } else {
                         CodigodeerrorDLI1 obj = new CodigodeerrorDLI1();
-        obj.eventOK(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                GlassPanePopup.closePopupLast();
-            }
-        });
-        GlassPanePopup.showPopup(obj);
+                        obj.eventOK(new ActionListener() {
+                            @Override
+                            public void actionPerformed(ActionEvent ae) {
+                                GlassPanePopup.closePopupLast();
+                            }
+                        });
+                        GlassPanePopup.showPopup(obj);
                     }
 
                 } else {
-                    
-        CodigoErrorLI4 obj = new CodigoErrorLI4();
-        obj.eventOK(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                GlassPanePopup.closePopupLast();
-            }
-        });
-        GlassPanePopup.showPopup(obj);
+
+                    CodigoErrorLI4 obj = new CodigoErrorLI4();
+                    obj.eventOK(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent ae) {
+                            GlassPanePopup.closePopupLast();
+                        }
+                    });
+                    GlassPanePopup.showPopup(obj);
                 }
             } catch (SQLException ex) {
                 System.out.println(ex.toString() + " ERROR");
@@ -314,13 +314,13 @@ public class Login extends javax.swing.JFrame {
                 this.dispose();
             } else {
                 CodigoErrorDRC2 obj = new CodigoErrorDRC2();
-        obj.eventOK(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                GlassPanePopup.closePopupLast();
-            }
-        });
-        GlassPanePopup.showPopup(obj);
+                obj.eventOK(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        GlassPanePopup.closePopupLast();
+                    }
+                });
+                GlassPanePopup.showPopup(obj);
             }
         } catch (SQLException ex) {
             System.out.println(ex.toString());
