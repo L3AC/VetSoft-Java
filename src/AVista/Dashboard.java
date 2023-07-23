@@ -196,15 +196,11 @@ public class Dashboard extends javax.swing.JFrame {
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     //PERSONAL 
-                    if (index == 2 && indexSubMenu == 1) {//RECEPCIONISTA
-                        CRUDRecep subp = new CRUDRecep();
-                        dsg.ShowPanel(subp, PCont, 1320, 810);
-                    }
-                    if (index == 2 && indexSubMenu == 2) {//DOCTORES
+                    if (index == 2 && indexSubMenu == 1) {//DOCTORES
                         CRUDDoctores subp = new CRUDDoctores(idTipoU);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
-                    if (index == 2 && indexSubMenu == 3) {//ASISTENTES
+                    if (index == 2 && indexSubMenu == 2) {//ASISTENTES
                         CRUDAsistente subp = new CRUDAsistente(idTipoU);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
