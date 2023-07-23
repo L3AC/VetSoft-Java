@@ -210,12 +210,10 @@ public class CRUDTipoProd extends javax.swing.JPanel {
             lista.add(txtProd);
            // lista.add(txtServ);
             if (dsg.areFieldsNotEmpty(lista)) {
-                ctTipoServ ct = new ctTipoServ();
-                ct.idTipoServ = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-             //   ct.idNivelServ = dsg.getMap(cbMapNPS, cbNivelS.getSelectedItem().toString());;
-                ct.Nombre = txtBusq.getText();
-                ct.Costo = Float.parseFloat(txtProd.getText());
-                ct.updtServ();
+                ctProd ct = new ctProd();
+                ct.idTipoProd = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                ct.tipoProd = txtProd.getText();
+                ct.updtTProd();
                 loadD();
             } else {
 
