@@ -39,7 +39,7 @@ public class updtUsuario extends javax.swing.JPanel {
         
         txtUsuario.setDocument(new Valida(30, "[a-zA-Z]*"));
         txtCorreo.setDocument(new Valida(50, "[a-zA-Z0-9]*"));
-        txtTel.setDocument(new Valida(100, "[0-9]*"));
+        txtTel.setDocument(new Valida(10, "[0-9]*"));
         
     }
 
