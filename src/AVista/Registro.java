@@ -23,6 +23,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import org.apache.commons.validator.EmailValidator;
@@ -50,6 +51,10 @@ public class Registro extends javax.swing.JFrame {
         txtUsuario.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
         txtTeléfono.setDocument(new Valida(10, "[0-9]*"));
         txtContra.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
+        String iconPath = "src/Imagenes/logoC.png";
+        ImageIcon icon = new ImageIcon(iconPath);
+        setIconImage(icon.getImage());
+        setTitle("VetSoft");
     }
 
     private void loadCombo(JComboBox cb) throws SQLException {
@@ -332,7 +337,7 @@ public class Registro extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUsuarioKeyReleased
 
     private void txtTeléfonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTeléfonoActionPerformed
-        
+
     }//GEN-LAST:event_txtTeléfonoActionPerformed
 
     private void txtContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraActionPerformed

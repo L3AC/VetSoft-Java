@@ -24,6 +24,7 @@ import Mensajes.GlassPanePopup;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 public class Dashboard extends javax.swing.JFrame {
@@ -45,6 +46,7 @@ public class Dashboard extends javax.swing.JFrame {
         this.idUs = idUs;
         this.idCuenta = idCuenta;
         initComponents();
+        setTitle("VetSoft");
         if (idTipoU == 1) {
             menuDoc.setVisible(false);
             menuRecep.setVisible(false);
@@ -62,6 +64,9 @@ public class Dashboard extends javax.swing.JFrame {
         }
         //initAdmin();
         GlassPanePopup.install(this);
+        String iconPath = "src/Imagenes/logoC.png";
+        ImageIcon icon = new ImageIcon(iconPath);
+        setIconImage(icon.getImage());
     }
 
     private void initAdmin() {
@@ -92,7 +97,7 @@ public class Dashboard extends javax.swing.JFrame {
 
                     }
                     if (index == 1 && indexSubMenu == 4) {//CITAS
-                        CRUDCita subp = new CRUDCita(idTipoU,idCuenta);
+                        CRUDCita subp = new CRUDCita(idTipoU, idCuenta);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     //PERSONAL 
@@ -114,21 +119,21 @@ public class Dashboard extends javax.swing.JFrame {
                     }
                     //MANTENIMIENTO
                     if (index == 4 && indexSubMenu == 1) {
-                        CRUDEsp subp = new CRUDEsp ();
+                        CRUDEsp subp = new CRUDEsp();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     if (index == 4 && indexSubMenu == 2) {
-                        CRUDRazas subp = new CRUDRazas ();
+                        CRUDRazas subp = new CRUDRazas();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
 
                     }
                     if (index == 4 && indexSubMenu == 3) {
-                        CRUDTipoAnim subp = new CRUDTipoAnim (idTipoU);
+                        CRUDTipoAnim subp = new CRUDTipoAnim(idTipoU);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
 
-                    }   
+                    }
                     if (index == 4 && indexSubMenu == 4) {
-                        CRUDtpserv subp = new CRUDtpserv (idTipoU);
+                        CRUDtpserv subp = new CRUDtpserv(idTipoU);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
 
                     }
@@ -185,7 +190,7 @@ public class Dashboard extends javax.swing.JFrame {
 
                     }
                     if (index == 1 && indexSubMenu == 4) {//CITAS
-                        CRUDCita subp = new CRUDCita(idTipoU,idCuenta);
+                        CRUDCita subp = new CRUDCita(idTipoU, idCuenta);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     //PERSONAL 
@@ -247,7 +252,7 @@ public class Dashboard extends javax.swing.JFrame {
 
                     }
                     if (index == 1 && indexSubMenu == 3) {//CITAS
-                        CRUDCita subp = new CRUDCita(idTipoU,idCuenta);
+                        CRUDCita subp = new CRUDCita(idTipoU, idCuenta);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     if (index == 1 && indexSubMenu == 4) {//DOCTORES
@@ -258,7 +263,7 @@ public class Dashboard extends javax.swing.JFrame {
                         CRUDAsistente subp = new CRUDAsistente(idTipoU);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
-                 
+
                     //CUENTA
                     if (index == 2 && indexSubMenu == 1) {
 
@@ -299,7 +304,7 @@ public class Dashboard extends javax.swing.JFrame {
         body.setBackground(new java.awt.Color(204, 204, 204));
         body.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        PanelMenu.setBackground(new java.awt.Color(255, 255, 255));
+        PanelMenu.setBackground(new java.awt.Color(95, 171, 211));
         PanelMenu.setForeground(new java.awt.Color(255, 255, 255));
         PanelMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

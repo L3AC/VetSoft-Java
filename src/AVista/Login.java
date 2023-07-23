@@ -17,7 +17,15 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import AVista.Registro;
+import Design.Desg;
+import Design.PasswordField;
+import Design.TextFieldSV;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -26,26 +34,29 @@ import java.awt.Toolkit;
 public class Login extends javax.swing.JFrame {
 
     Fuentes tipoFuente;
-
+    Desg dsg = new Desg();
     Crypt cryp = new Crypt();
-    
+
     private int idTipoU;
     private int idUs;
     private int idCuenta;
 
     public Login() {
         initComponents();
+        setTitle("VetSoft");
         tipoFuente = new Fuentes();
 
         Titulo.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 32));
         VetSoft.setFont(tipoFuente.fuente(tipoFuente.COM, 1, 11));
         UsuarioL.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 25));
         PassL.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 22));
-        
 
-        TextUser.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
-        TextPass.setDocument(new Valida(100, "[a-zA-Z0-9]*"));
+        txtUser.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
+        txtPass.setDocument(new Valida(100, "[a-zA-Z0-9]*"));
         setLocationRelativeTo(null);
+        String iconPath = "src/Imagenes/logoC.png";
+        ImageIcon icon = new ImageIcon(iconPath);
+        setIconImage(icon.getImage());
     }
 
     @SuppressWarnings("unchecked")
@@ -59,14 +70,15 @@ public class Login extends javax.swing.JFrame {
         UsuarioL = new javax.swing.JLabel();
         PassL = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        buttonGradient1 = new Design.ButtonGradient();
+        btnIngresar = new Design.ButtonGradient();
         txtOlvidasteContra = new javax.swing.JLabel();
-        TextUser = new Design.TextFieldSV();
-        TextPass = new Design.PasswordField();
+        txtUser = new Design.TextFieldSV();
+        txtPass = new Design.PasswordField();
         Titulo = new javax.swing.JLabel();
         VetSoft = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImages(null);
 
         panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -96,24 +108,24 @@ public class Login extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(27, 73, 101));
-        jLabel6.setText("\"Registro\"");
+        jLabel6.setText("Registro");
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel6MouseClicked(evt);
             }
         });
-        panelRound2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
+        panelRound2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
 
-        buttonGradient1.setText("Ingresar");
-        buttonGradient1.setColor1(new java.awt.Color(255, 255, 255));
-        buttonGradient1.setColor2(new java.awt.Color(255, 255, 255));
-        buttonGradient1.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        buttonGradient1.addActionListener(new java.awt.event.ActionListener() {
+        btnIngresar.setText("Ingresar");
+        btnIngresar.setColor1(new java.awt.Color(255, 255, 255));
+        btnIngresar.setColor2(new java.awt.Color(255, 255, 255));
+        btnIngresar.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        btnIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonGradient1ActionPerformed(evt);
+                btnIngresarActionPerformed(evt);
             }
         });
-        panelRound2.add(buttonGradient1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, 140, -1));
+        panelRound2.add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, 140, -1));
 
         txtOlvidasteContra.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         txtOlvidasteContra.setForeground(new java.awt.Color(27, 73, 101));
@@ -125,34 +137,34 @@ public class Login extends javax.swing.JFrame {
         });
         panelRound2.add(txtOlvidasteContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, -1, -1));
 
-        TextUser.setShadowColor(new java.awt.Color(153, 0, 153));
-        TextUser.addActionListener(new java.awt.event.ActionListener() {
+        txtUser.setShadowColor(new java.awt.Color(153, 0, 153));
+        txtUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextUserActionPerformed(evt);
+                txtUserActionPerformed(evt);
             }
         });
-        TextUser.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtUser.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                TextUserKeyPressed(evt);
+                txtUserKeyPressed(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                TextUserKeyTyped(evt);
+                txtUserKeyTyped(evt);
             }
         });
-        panelRound2.add(TextUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 370, 50));
+        panelRound2.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 370, 50));
 
-        TextPass.setShadowColor(new java.awt.Color(153, 0, 153));
-        TextPass.addActionListener(new java.awt.event.ActionListener() {
+        txtPass.setShadowColor(new java.awt.Color(153, 0, 153));
+        txtPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextPassActionPerformed(evt);
+                txtPassActionPerformed(evt);
             }
         });
-        TextPass.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtPass.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                TextPassKeyTyped(evt);
+                txtPassKeyTyped(evt);
             }
         });
-        panelRound2.add(TextPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 370, 50));
+        panelRound2.add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 370, 50));
 
         panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 560, 290));
 
@@ -178,23 +190,30 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonGradient1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGradient1ActionPerformed
+    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         try {
+            List<TextFieldSV> lista = new ArrayList<>();
+            List<PasswordField> lista1 = new ArrayList<>();
+            lista.add(txtUser);
+            lista1.add(txtPass);
             try {
-                ctUser ct = new ctUser();
-                ct.usuario = TextUser.getText();
-                ct.contra = cryp.encrypt(TextPass.getText(), "key");
-                System.err.println(cryp.encrypt(TextPass.getText(), "key"));
-                ResultSet rs=ct.ValidarLogin();
-                if (rs.next()) {
-                    idTipoU = rs.getInt("idTipoUsuario");
-                    idUs = rs.getInt("idUsuario");
-                    rs.close();
-                    SelectID();
-                } else {
-                    JOptionPane.showMessageDialog(null, "Credenciales incorrectas");
-                }
+                if (dsg.areFieldsNotEmpty(lista) || dsg.NotEmpty(lista1)) {
+                    ctUser ct = new ctUser();
+                    ct.usuario = txtUser.getText();
+                    ct.contra = cryp.encrypt(txtPass.getText(), "key");
+                    ResultSet rs = ct.ValidarLogin();
+                    if (rs.next()) {
+                        idTipoU = rs.getInt("idTipoUsuario");
+                        idUs = rs.getInt("idUsuario");
+                        rs.close();
+                        SelectID();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Credenciales incorrectas");
+                    }
 
+                } else {
+
+                }
             } catch (SQLException ex) {
                 System.out.println(ex.toString() + " ERROR");
             }
@@ -202,12 +221,10 @@ public class Login extends javax.swing.JFrame {
         } catch (Exception ex) {
             System.out.println(ex.toString());
         }
-    }//GEN-LAST:event_buttonGradient1ActionPerformed
+    }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         try {
-            // TODO add your handling code here:
-            
             Registro newFrame = new Registro();
             newFrame.setVisible(true);
             this.dispose();
@@ -216,51 +233,51 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jLabel6MouseClicked
 
-    private void TextUserKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextUserKeyPressed
+    private void txtUserKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyPressed
         // TODO add your handling code here:
-        
+
         int limit = 30; // Establece el límite de dígitos permitidos
-    
-    if (TextUser.getText().length() >= limit) {
-        // Si se alcanza o se excede el límite de dígitos, consume el evento
-        evt.consume();
-    }
-    
-    }//GEN-LAST:event_TextUserKeyPressed
 
-    private void TextUserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextUserKeyTyped
+        if (txtUser.getText().length() >= limit) {
+            // Si se alcanza o se excede el límite de dígitos, consume el evento
+            evt.consume();
+        }
+
+    }//GEN-LAST:event_txtUserKeyPressed
+
+    private void txtUserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyTyped
         // TODO add your handling code here:
-        
-        if(TextUser.getText().length() >=30){
-        evt.consume();
+
+        if (txtUser.getText().length() >= 30) {
+            evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
-    }//GEN-LAST:event_TextUserKeyTyped
+    }//GEN-LAST:event_txtUserKeyTyped
 
-    private void TextPassKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextPassKeyTyped
+    private void txtPassKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassKeyTyped
         // TODO add your handling code here:
-        
-        if(TextPass.getText().length() >=30){
-        evt.consume();
+
+        if (txtPass.getText().length() >= 30) {
+            evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
-    }//GEN-LAST:event_TextPassKeyTyped
+    }//GEN-LAST:event_txtPassKeyTyped
 
-    private void TextUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextUserActionPerformed
+    private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
         //
-    }//GEN-LAST:event_TextUserActionPerformed
+    }//GEN-LAST:event_txtUserActionPerformed
 
-    private void TextPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextPassActionPerformed
+    private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassActionPerformed
 
         //
-    }//GEN-LAST:event_TextPassActionPerformed
+    }//GEN-LAST:event_txtPassActionPerformed
 
     private void txtOlvidasteContraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtOlvidasteContraMouseClicked
         // TODO add your handling code here:
-        
+
         RecuperacionDeContraseña newFrame = new RecuperacionDeContraseña();
         newFrame.setVisible(true);
-        
+
     }//GEN-LAST:event_txtOlvidasteContraMouseClicked
     public void SelectID() throws SQLException {
         try {
@@ -282,7 +299,7 @@ public class Login extends javax.swing.JFrame {
                 if (idTipoU == 5) {
                     idCuenta = rs.getInt("idAsistente");
                 }
-                
+
                 rs.close();
                 Dashboard dash = new Dashboard(idTipoU, idUs, idCuenta);
                 dash.setVisible(true);
@@ -308,17 +325,17 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel PassL;
-    private Design.PasswordField TextPass;
-    private Design.TextFieldSV TextUser;
     private javax.swing.JLabel Titulo;
     private javax.swing.JLabel UsuarioL;
     private javax.swing.JLabel VetSoft;
-    private Design.ButtonGradient buttonGradient1;
+    private Design.ButtonGradient btnIngresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
     private Design.PanelRound panelRound1;
     private Design.PanelRound panelRound2;
     private javax.swing.JLabel txtOlvidasteContra;
+    private Design.PasswordField txtPass;
+    private Design.TextFieldSV txtUser;
     // End of variables declaration//GEN-END:variables
 }

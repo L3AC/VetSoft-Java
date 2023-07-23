@@ -89,5 +89,14 @@ public class Desg {
         }
         return true;
     }
+    public boolean NotEmpty(java.util.List<PasswordField> editTextList) {
+        for (PasswordField editText : editTextList) {
+            String text = editText.getText().toString().trim();
+            if (text.isEmpty()) {
+                return false;
+            }
+        }
+        return true;
+    }
 
 }
