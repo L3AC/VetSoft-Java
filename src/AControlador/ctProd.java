@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 
 public class ctProd {
     public int idTipoProd;
+    public String tipoProd;
     public String producto;
 
     public int getIdTipoProd() {
@@ -26,6 +27,15 @@ public class ctProd {
     public void setProducto(String producto) {
         this.producto = producto;
     }
+
+    public String getTipoProd() {
+        return tipoProd;
+    }
+
+    public void setTipoProd(String tipoProd) {
+        this.tipoProd = tipoProd;
+    }
+    
     
     mdProd md=new mdProd();
     
@@ -38,22 +48,23 @@ public class ctProd {
     }*/
 
     public ResultSet tableTProd() {
-        return md.tableTProd(producto);
+        return md.tableTProd(tipoProd);
     }
 
     /*public ResultSet comboPrior() {
         return md.comboPrior();
     }*/
+    
 
-   /* public boolean insertServ() {
-        return md.insertServ(idNivelServ, Nombre, Costo);
+    public boolean insertTProd() {
+        return md.insertTProd(tipoProd);
     }
 
-    public boolean updtServ() {
-        return md.updtServ(idTipoServ, idNivelServ, Nombre, Costo);
+    public boolean updtTProd() {
+        return md.updtTProd(idTipoProd, tipoProd);
     }
 
-    public boolean deleteServ() {
-        return md.deleteServ(idTipoServ);
-    } */
+    public boolean deleteTProd() {
+        return md.deleteTProd(idTipoProd);
+    } 
 }

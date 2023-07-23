@@ -24,13 +24,15 @@ import javax.swing.table.DefaultTableModel;
  */
 public class CRUDTipoProd extends javax.swing.JPanel {
 
-    private int idTipoProd;
+    private int idTipoUs;
     private int idEsRow;
     Desg dsg = new Desg();
     DefaultTableModel model;
 
-    public CRUDTipoProd() {
+    public CRUDTipoProd(int idTipoUs) throws SQLException {
+        this.idTipoUs=idTipoUs;
         initComponents();
+        loadD();
     }
 
     final void loadD() throws SQLException {
@@ -49,7 +51,7 @@ public class CRUDTipoProd extends javax.swing.JPanel {
         }
         try {
             ctProd ct = new ctProd();
-            ct.producto = txtBusq.getText().toString();
+            ct.tipoProd = txtBusq.getText().toString();
             ResultSet rs = ct.tableTProd();
             while (rs.next()) {
                 Object[] oValores = {rs.getInt("idTipoProducto"), rs.getString("tipo")};
@@ -185,33 +187,32 @@ public class CRUDTipoProd extends javax.swing.JPanel {
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        /*List<TextFieldSV> lista = new ArrayList<>();
+        List<TextFieldSV> lista = new ArrayList<>();
         lista.add(txtProd);
         try {
             if (dsg.areFieldsNotEmpty(lista)) {//VERIFICAR QUE NO ESTE VACIO
                 ctProd ct = new ctProd();
                
-                ct.Nombre = txtBusq.getText();
-                ct.Costo = Float.parseFloat(txtProd.getText());
-                ct.insertServ();
+                ct.tipoProd = txtProd.getText();
+                ct.insertTProd();
                 loadD();
             } else {
 
             }
         } catch (SQLException ex) {
-            Logger.getLogger(CRUDtpserv.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+            Logger.getLogger(CRUDTipoProd.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
-        /*try {
+        try {
             List<TextFieldSV> lista = new ArrayList<>();
             lista.add(txtProd);
-            lista.add(txtServ);
+           // lista.add(txtServ);
             if (dsg.areFieldsNotEmpty(lista)) {
                 ctTipoServ ct = new ctTipoServ();
                 ct.idTipoServ = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-                ct.idNivelServ = dsg.getMap(cbMapNPS, cbNivelS.getSelectedItem().toString());;
+             //   ct.idNivelServ = dsg.getMap(cbMapNPS, cbNivelS.getSelectedItem().toString());;
                 ct.Nombre = txtBusq.getText();
                 ct.Costo = Float.parseFloat(txtProd.getText());
                 ct.updtServ();
@@ -220,8 +221,8 @@ public class CRUDTipoProd extends javax.swing.JPanel {
 
             }
         } catch (SQLException ex) {
-            Logger.getLogger(CRUDtpserv.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+            Logger.getLogger(CRUDTipoProd.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnActActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -238,12 +239,12 @@ public class CRUDTipoProd extends javax.swing.JPanel {
 
         if (opcion == JOptionPane.YES_OPTION) {
             try {
-                ctTipoServ ct = new ctTipoServ();
-                ct.idTipoServ = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-                ct.deleteServ();
+                ctProd ct = new ctProd();
+                ct.idTipoProd = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                ct.deleteTProd();
                 loadD();
             } catch (SQLException ex) {
-                Logger.getLogger(CRUDtpserv.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(CRUDTipoProd.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else if (opcion == JOptionPane.NO_OPTION) {
 
@@ -251,7 +252,6 @@ public class CRUDTipoProd extends javax.swing.JPanel {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnLimpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpActionPerformed
-        //txtServ.setText(null);
         txtProd.setText(null);
     }//GEN-LAST:event_btnLimpActionPerformed
 
