@@ -126,6 +126,16 @@ public class CRUDEsp extends javax.swing.JPanel {
 
         txtBusq.setBackground(new java.awt.Color(202, 233, 255));
         txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtBusq.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBusqActionPerformed(evt);
+            }
+        });
+        txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBusqKeyReleased(evt);
+            }
+        });
         add(txtBusq, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 400, -1));
 
         panelRound1.setBackground(new java.awt.Color(202, 233, 255));
@@ -230,6 +240,20 @@ public class CRUDEsp extends javax.swing.JPanel {
 
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void txtBusqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBusqActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBusqActionPerformed
+
+    private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
+          try {
+            loadD();
+        } catch (SQLException ex) {
+            //Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.toString());
+        }
+           
+    }//GEN-LAST:event_txtBusqKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
