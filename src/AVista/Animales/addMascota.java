@@ -69,6 +69,7 @@ public class addMascota extends javax.swing.JPanel {
         btnConfirm = new Design.ButtonGradient();
 
         PCont.setBackground(new java.awt.Color(255, 255, 255));
+        PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnBack.setBackground(new java.awt.Color(255, 255, 255));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
@@ -78,10 +79,12 @@ public class addMascota extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
+        PCont.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 70, 60));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(27, 73, 101));
         jLabel2.setText("REGISTRAR MASCOTA");
+        PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, 360, -1));
 
         panelRound1.setBackground(new java.awt.Color(202, 233, 255));
         panelRound1.setRoundBottomLeft(50);
@@ -98,21 +101,21 @@ public class addMascota extends javax.swing.JPanel {
                 cbSexoActionPerformed(evt);
             }
         });
-        panelRound1.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 220, 40));
+        panelRound1.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 270, 220, 40));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Sexo");
-        panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 100, 30));
+        panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 230, 50, 30));
 
         cbRaza.setBackground(new java.awt.Color(255, 255, 255));
         cbRaza.setForeground(new java.awt.Color(0, 0, 0));
-        panelRound1.add(cbRaza, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, 240, 40));
+        panelRound1.add(cbRaza, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, 240, 40));
 
         lbEsp.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbEsp.setForeground(new java.awt.Color(0, 0, 0));
         lbEsp.setText("Raza");
-        panelRound1.add(lbEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 40, -1));
+        panelRound1.add(lbEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, 40, -1));
 
         cbTipoA.setBackground(new java.awt.Color(255, 255, 255));
         cbTipoA.setForeground(new java.awt.Color(0, 0, 0));
@@ -121,47 +124,49 @@ public class addMascota extends javax.swing.JPanel {
                 cbTipoAActionPerformed(evt);
             }
         });
-        panelRound1.add(cbTipoA, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 240, 40));
+        panelRound1.add(cbTipoA, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 240, 40));
 
         lbEsp1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbEsp1.setForeground(new java.awt.Color(0, 0, 0));
         lbEsp1.setText("Tipo de animal");
-        panelRound1.add(lbEsp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 130, -1));
+        panelRound1.add(lbEsp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 130, -1));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Nacimiento (Aproximado)");
-        panelRound1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 250, 30));
+        panelRound1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 250, 30));
 
         dpNaci.setBackground(new java.awt.Color(255, 255, 255));
-        panelRound1.add(dpNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 220, 40));
+        panelRound1.add(dpNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 220, 40));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Nombre");
-        panelRound1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 100, 30));
+        panelRound1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 100, 30));
 
         txtNombre.setForeground(new java.awt.Color(0, 0, 0));
         txtNombre.setShadowColor(new java.awt.Color(0, 0, 51));
-        panelRound1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 250, 50));
+        panelRound1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 250, 50));
 
         txtPeso.setForeground(new java.awt.Color(0, 0, 0));
         txtPeso.setShadowColor(new java.awt.Color(0, 0, 51));
-        panelRound1.add(txtPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 190, 50));
+        panelRound1.add(txtPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 190, 50));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Peso");
-        panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, 100, 30));
+        panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 100, 30));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Padecimientos");
-        panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, 150, 30));
+        panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 350, 120, 30));
 
         txtPad.setForeground(new java.awt.Color(0, 0, 0));
         txtPad.setShadowColor(new java.awt.Color(0, 0, 51));
-        panelRound1.add(txtPad, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 260, 50));
+        panelRound1.add(txtPad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 710, 50));
+
+        PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 770, 480));
 
         btnConfirm.setText("Confirmar");
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
@@ -169,40 +174,7 @@ public class addMascota extends javax.swing.JPanel {
                 btnConfirmActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
-        PCont.setLayout(PContLayout);
-        PContLayout.setHorizontalGroup(
-            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(88, 88, 88)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(251, 251, 251)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(258, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PContLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PContLayout.createSequentialGroup()
-                        .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 607, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(157, 157, 157))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PContLayout.createSequentialGroup()
-                        .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(385, 385, 385))))
-        );
-        PContLayout.setVerticalGroup(
-            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
-        );
+        PCont.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 620, 150, 41));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

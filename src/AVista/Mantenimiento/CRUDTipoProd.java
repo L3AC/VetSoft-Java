@@ -218,7 +218,7 @@ public class CRUDTipoProd extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
     final void setData() {      
-        txtProd.setText(tbData.getValueAt(tbData.getSelectedRow(), 1).toString());
+        //txtProd.setText(tbData.getValueAt(tbData.getSelectedRow(), 1).toString());
     }
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
         try {

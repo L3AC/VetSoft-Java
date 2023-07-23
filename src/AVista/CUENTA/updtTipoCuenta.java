@@ -36,6 +36,11 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         this.idCuenta = idCuenta;
         this.nivelRow = nivelRow;
         initComponents();
+        
+        txtNombre.setDocument(new Valida(50, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
+        txtDui.setDocument(new Valida(10, "[0-9]*"));
+        txtApellidos.setDocument(new Valida(50, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
+        txtDir.setDocument(new Valida(300, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ,.]*"));
         if (idTipoUs == 1) {//ADMIN
 
             if (nivelRow != 4) {//IDDOCTOR
@@ -68,11 +73,9 @@ public class updtTipoCuenta extends javax.swing.JPanel {
             cbEsp.setVisible(false);
         }
         
-        txtNombre.setDocument(new Valida(50, "[a-zA-Z]*"));
-        txtDui.setDocument(new Valida(10, "[0-9]*"));
-        txtApellidos.setDocument(new Valida(50, "[a-zA-Z]*"));
-        txtDir.setDocument(new Valida(300, "[a-zA-Z0-9]*"));
-        dpNaci.setMaxSelectableDate(Calendar.getInstance().getTime());
+        Calendar fechaActual = Calendar.getInstance();
+        fechaActual.add(Calendar.YEAR, -18);
+        dpNaci.setMaxSelectableDate(fechaActual.getTime());
     }
 
     @SuppressWarnings("unchecked")
@@ -100,7 +103,10 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         lbDir = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
 
+        setPreferredSize(new java.awt.Dimension(1320, 810));
+
         PCont.setBackground(new java.awt.Color(255, 255, 255));
+        PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnBack.setBackground(new java.awt.Color(255, 255, 255));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
@@ -110,16 +116,20 @@ public class updtTipoCuenta extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
+        PCont.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 70, 60));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(27, 73, 101));
         jLabel2.setText("ACTUALIZAR PERFIL");
+        PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 60, 330, 50));
 
         lbEsp.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbEsp.setForeground(new java.awt.Color(0, 0, 0));
         lbEsp.setText("Especialidad");
+        PCont.add(lbEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 110, 30));
 
         cbEsp.setBackground(new java.awt.Color(255, 255, 255));
+        PCont.add(cbEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 200, 40));
 
         btnConfirm.setText("Confirmar");
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
@@ -127,6 +137,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
                 btnConfirmActionPerformed(evt);
             }
         });
+        PCont.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 560, 182, 50));
 
         panelRound1.setBackground(new java.awt.Color(202, 233, 255));
         panelRound1.setRoundBottomLeft(50);
@@ -136,52 +147,54 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtApellidos.setShadowColor(new java.awt.Color(0, 0, 51));
-        panelRound1.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, 290, 49));
+        panelRound1.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 290, 49));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Apellidos");
-        panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, 100, 30));
+        panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 100, 30));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Nacimiento");
-        panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, 150, 30));
-        panelRound1.add(dpNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 220, 250, 50));
+        panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 150, 30));
+        panelRound1.add(dpNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 250, 50));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Nombres");
-        panelRound1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 100, 30));
+        panelRound1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 100, 30));
 
         txtNombre.setShadowColor(new java.awt.Color(0, 0, 51));
-        panelRound1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 293, 51));
+        panelRound1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 293, 51));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Número de DUI");
-        panelRound1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 150, -1));
+        panelRound1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 150, -1));
 
         txtDui.setShadowColor(new java.awt.Color(0, 0, 51));
-        panelRound1.add(txtDui, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 234, 51));
+        panelRound1.add(txtDui, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 234, 51));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Sexo");
-        panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 100, 30));
+        panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 100, 30));
 
         cbSexo.setBackground(new java.awt.Color(255, 255, 255));
         cbSexo.setForeground(new java.awt.Color(0, 0, 0));
         cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femenino", "Masculino" }));
-        panelRound1.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 200, 40));
+        panelRound1.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 200, 40));
 
         txtDir.setShadowColor(new java.awt.Color(0, 0, 51));
-        panelRound1.add(txtDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, 290, 51));
+        panelRound1.add(txtDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 290, 51));
 
         lbDir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbDir.setForeground(new java.awt.Color(0, 0, 0));
         lbDir.setText("Dirección");
-        panelRound1.add(lbDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, 150, 30));
+        panelRound1.add(lbDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, 150, 30));
+
+        PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, 715, 400));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -196,58 +209,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
             .addGap(0, 82, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
-        PCont.setLayout(PContLayout);
-        PContLayout.setHorizontalGroup(
-            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(399, 399, 399)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addComponent(cbEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lbEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 715, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(148, 148, 148))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PContLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(396, 396, 396))
-        );
-        PContLayout.setVerticalGroup(
-            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addComponent(lbEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PContLayout.createSequentialGroup()
-                                .addGap(38, 38, 38)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(cbEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(175, 175, 175))
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25))))
-        );
+        PCont.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

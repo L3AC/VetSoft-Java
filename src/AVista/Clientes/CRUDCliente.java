@@ -28,13 +28,11 @@ public class CRUDCliente extends javax.swing.JPanel {
         initComponents();
         loadD();
         
-        txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9]*"));
     }
 
     public CRUDCliente() throws SQLException {
         initComponents();
         loadD();
-        txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9]*"));
     }
 
     final void loadD() throws SQLException {

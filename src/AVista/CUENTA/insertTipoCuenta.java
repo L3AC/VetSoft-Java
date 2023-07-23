@@ -64,11 +64,13 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         }
         
         
-        txtNombre.setDocument(new Valida(50, "[a-zA-Z]*"));
+        txtNombre.setDocument(new Valida(50, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         txtDui.setDocument(new Valida(10, "[0-9]*"));
-        txtApellidos.setDocument(new Valida(50, "[a-zA-Z]*"));
-        txtDir.setDocument(new Valida(300, "[a-zA-Z0-9]*"));
-        dpNaci.setMaxSelectableDate(Calendar.getInstance().getTime());
+        txtApellidos.setDocument(new Valida(50, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
+        txtDir.setDocument(new Valida(300, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ,.]*"));
+        Calendar fechaActual = Calendar.getInstance();
+        fechaActual.add(Calendar.YEAR, -18);
+        dpNaci.setMaxSelectableDate(fechaActual.getTime());
 
     }
 
