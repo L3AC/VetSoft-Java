@@ -61,7 +61,7 @@ public class CodigoErrorDIFC2 extends javax.swing.JPanel {
         boton1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         boton1.setMaximumSize(new java.awt.Dimension(29, 34));
         boton1.setMinimumSize(new java.awt.Dimension(29, 34));
-        panelRound1.add(boton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 70, 30));
+        panelRound1.add(boton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, 70, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
