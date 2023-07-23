@@ -113,7 +113,8 @@ public class insertCita extends javax.swing.JPanel {
     private void dispo() throws SQLException {
         ctCitas ct = new ctCitas();
         if (cbDoct.isEmpty()) {
-
+            
+            
         } else {
             ct.idDoctor = dsg.getMap(cbDoct, cbDoc.getSelectedItem().toString());
             ct.fecha = dt.format(dpFecha.getCalendar().getTime());
@@ -164,6 +165,7 @@ public class insertCita extends javax.swing.JPanel {
 
         btnBack.setBackground(new java.awt.Color(255, 255, 255));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
+        btnBack.setBorder(null);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);

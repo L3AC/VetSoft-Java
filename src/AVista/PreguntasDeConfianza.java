@@ -4,7 +4,6 @@
  */
 package AVista;
 
-
 import AControlador.ctAnimales;
 import AModelo.Conx;
 import AModelo.Crypt;
@@ -18,8 +17,8 @@ import javax.swing.JOptionPane;
 import Validation.Valida;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.UIManager;
-
 
 /**
  *
@@ -32,7 +31,7 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
     Crypt cryp = new Crypt();
     int idUs;
     String Contra;
-    
+
     public PreguntasDeConfianza() {
         initComponents();
         this.setLocationRelativeTo(this);
@@ -40,12 +39,17 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         txtPregunta2.setEnabled(false);
         txtPregunta3.setEnabled(false);
         btnEnviar.setEnabled(false);
-        
+
         txtUser.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
-        txtPregunta1.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
-        txtPregunta2.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
-        txtPregunta3.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
-        
+        txtPregunta1.setDocument(new Valida(30, "[a-zA-Z0-9 ]*"));
+        txtPregunta2.setDocument(new Valida(30, "[a-zA-Z0-9 ]*"));
+        txtPregunta3.setDocument(new Valida(30, "[a-zA-Z0-9 ]*"));
+        setLocationRelativeTo(null);
+        String iconPath = "src/Imagenes/logoC.png";
+        ImageIcon icon = new ImageIcon(iconPath);
+        setIconImage(icon.getImage());
+        setTitle("VetSoft");
+
     }
 
     /**
@@ -58,7 +62,6 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
     private void initComponents() {
 
         panelRound3 = new Design.PanelRound();
-        btnRegresar6 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         panelRound4 = new Design.PanelRound();
         jLabel7 = new javax.swing.JLabel();
@@ -71,19 +74,17 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         txtPregunta1 = new Design.TextFieldSV();
         txtPregunta2 = new Design.TextFieldSV();
         txtPregunta3 = new Design.TextFieldSV();
+        btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panelRound3.setBackground(new java.awt.Color(255, 255, 255));
         panelRound3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnRegresar6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
-        panelRound3.add(btnRegresar6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 30, 30));
-
         jLabel6.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(27, 73, 101));
-        jLabel6.setText("Recuperacion de contraseña por preguntas de seguridad");
-        panelRound3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, -1, -1));
+        jLabel6.setText("Preguntas de seguridad");
+        panelRound3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, -1, -1));
 
         panelRound4.setBackground(new java.awt.Color(202, 233, 255));
         panelRound4.setRoundBottomLeft(50);
@@ -186,6 +187,16 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
 
         panelRound3.add(panelRound4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 890, 360));
 
+        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
+        btnBack.setBorder(null);
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        panelRound3.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 60, 40));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -200,204 +211,203 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public boolean VeriResp(String resp, int idPreg) throws SQLException{
-    
+    public boolean VeriResp(String resp, int idPreg) throws SQLException {
+
         String cadenita = "select pu.respuesta,pu.idUsuario,pu.idPregunta from tbPreguntasUsuarios pu,tbPreguntas p,"
                 + " tbUsuarios u where pu.idUsuario=u.idUsuario and pu.idPregunta=p.idPregunta and pu.idUsuario=? and pu.idPregunta=? and respuesta=? ;";
-    
+
         PreparedStatement ps;
         ResultSet st;
-        
-        try{
-        acceso = con.Conectar();
-        ps = acceso.prepareStatement(cadenita, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-        
-        ps.setString(3, resp.toString());
-        ps.setInt(2, idPreg);
-        ps.setInt(1, idUs);
-        
-        System.out.print(idUs);
-        System.out.print(resp);
-        st = ps.executeQuery();
-        st.last();
-        int found = st.getRow();
-        if (found ==1){
-        return true;
-        
-        }else {
+
+        try {
+            acceso = con.Conectar();
+            ps = acceso.prepareStatement(cadenita, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+
+            ps.setString(3, resp.toString());
+            ps.setInt(2, idPreg);
+            ps.setInt(1, idUs);
+
+            System.out.print(idUs);
+            System.out.print(resp);
+            st = ps.executeQuery();
+            st.last();
+            int found = st.getRow();
+            if (found == 1) {
+                return true;
+
+            } else {
                 JOptionPane.showMessageDialog(null, "Respuestas incorrectas");
 
-        return false;
-        }
-        
-        }catch (SQLException e){
-          JOptionPane.showMessageDialog(null, e.toString());
-        return false;
+                return false;
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+            return false;
         }
     }
-    
-    public void VerExist(){
-    
+
+    public void VerExist() {
+
         String Cadena = "select * from tbPreguntasUsuarios where idUsuario=?;";
-        
+
         PreparedStatement ps;
         ResultSet st;
-        
-        try{
-    acceso = con.Conectar();
-    ps = acceso.prepareStatement(Cadena, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-    
-    ps.setInt(1, idUs);
-    st = ps.executeQuery();    
-    st.last();
-    int found = st.getRow();
-    if (found >= 1){
-    int pregun = st.getInt("idPreguntaUsuario");
-   txtPregunta1.setEnabled(true);
-    txtPregunta2.setEnabled(true);
-    txtPregunta3.setEnabled(true);
-    btnEnviar.setEnabled(true);
-    JOptionPane.showMessageDialog(null, "Preguntas Encontradas");
-    } else{
-        JOptionPane.showMessageDialog(null, "Preguntas no Encontradas");
-                txtPregunta1.setEnabled(false);
-                txtPregunta2.setEnabled(false);
-                txtPregunta3.setEnabled(false);
-                btnEnviar.setEnabled(false);
-    }
-    
-    } catch (SQLException e){
-          JOptionPane.showMessageDialog(null, e.toString());
-        }
-    
-    }
-    
-    public void Encod() throws Exception{
-    String cadena = "select * from tbUsuarios where Usuario=? COLLATE SQL_Latin1_General_CP1_CS_AS;";
 
-    PreparedStatement ps;
-    ResultSet st;
-    
-    try{
-    acceso = con.Conectar();
-    ps = acceso.prepareStatement(cadena, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-    ps.setString(1, txtUser.getText());
-    st = ps.executeQuery();
-    st.last();
-    int found = st.getRow();
-    if (found == 1){
-    idUs= st.getInt("idUsuario");
-    Contra=cryp.decrypt(st.getString("contraseña"), "key") ;
-    System.err.println(Contra);
-    
-    txtPregunta1.setEnabled(true);
-    txtPregunta2.setEnabled(true);
-    txtPregunta3.setEnabled(true);
-    btnEnviar.setEnabled(true);
-    JOptionPane.showMessageDialog(null, "Usuario Encontrado");
-    } else{
-     JOptionPane.showMessageDialog(null, "Usuario no Encontrado");
+        try {
+            acceso = con.Conectar();
+            ps = acceso.prepareStatement(Cadena, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+
+            ps.setInt(1, idUs);
+            st = ps.executeQuery();
+            st.last();
+            int found = st.getRow();
+            if (found >= 1) {
+                int pregun = st.getInt("idPreguntaUsuario");
+                txtPregunta1.setEnabled(true);
+                txtPregunta2.setEnabled(true);
+                txtPregunta3.setEnabled(true);
+                btnEnviar.setEnabled(true);
+                JOptionPane.showMessageDialog(null, "Preguntas Encontradas");
+            } else {
+                JOptionPane.showMessageDialog(null, "Preguntas no Encontradas");
                 txtPregunta1.setEnabled(false);
                 txtPregunta2.setEnabled(false);
                 txtPregunta3.setEnabled(false);
                 btnEnviar.setEnabled(false);
-    }
-    
-    } catch (SQLException e){
-          JOptionPane.showMessageDialog(null, e.toString());
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.toString());
         }
-    
+
     }
-   
+
+    public void Encod() throws Exception {
+        String cadena = "select * from tbUsuarios where Usuario=? COLLATE SQL_Latin1_General_CP1_CS_AS;";
+
+        PreparedStatement ps;
+        ResultSet st;
+
+        try {
+            acceso = con.Conectar();
+            ps = acceso.prepareStatement(cadena, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ps.setString(1, txtUser.getText());
+            st = ps.executeQuery();
+            st.last();
+            int found = st.getRow();
+            if (found == 1) {
+                idUs = st.getInt("idUsuario");
+                Contra = cryp.decrypt(st.getString("contraseña"), "key");
+                System.err.println(Contra);
+
+                txtPregunta1.setEnabled(true);
+                txtPregunta2.setEnabled(true);
+                txtPregunta3.setEnabled(true);
+                btnEnviar.setEnabled(true);
+                JOptionPane.showMessageDialog(null, "Usuario Encontrado");
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuario no Encontrado");
+                txtPregunta1.setEnabled(false);
+                txtPregunta2.setEnabled(false);
+                txtPregunta3.setEnabled(false);
+                btnEnviar.setEnabled(false);
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+        }
+
+    }
+
     private void btnVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarActionPerformed
-             if (txtUser.getText().isEmpty()) {
+        if (txtUser.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Campos vacios");
         } else {
-                 try {
-                     Encod();
-                     VerExist();
-                 } catch (Exception ex) {
-                     Logger.getLogger(PreguntasDeConfianza.class.getName()).log(Level.SEVERE, null, ex);
-                 }
+            try {
+                Encod();
+                VerExist();
+            } catch (Exception ex) {
+                Logger.getLogger(PreguntasDeConfianza.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_btnVerificarActionPerformed
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
         try {
             // TODO add your handling code here:
-            if(VeriResp(txtPregunta1.getText().toString(), 1)&&
-                    VeriResp(txtPregunta2.getText().toString(), 2)
-                    &&VeriResp(txtPregunta3.getText().toString(), 3)){
+            if (VeriResp(txtPregunta1.getText().toString(), 1)
+                    && VeriResp(txtPregunta2.getText().toString(), 2)
+                    && VeriResp(txtPregunta3.getText().toString(), 3)) {
                 UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
-        int opcion = JOptionPane.showOptionDialog(
-                null,
-                "Su contraseña es "+Contra+" , ¿Desea cambiarla?",
-                "Recuperación",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.WARNING_MESSAGE,
-                null,
-                new Object[]{"Sí", "No"},
-                "No");
+                int opcion = JOptionPane.showOptionDialog(
+                        null,
+                        "Su contraseña es " + Contra + " , ¿Desea cambiarla?",
+                        "Recuperación",
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.WARNING_MESSAGE,
+                        null,
+                        new Object[]{"Sí", "No"},
+                        "No");
 
-        if (opcion == JOptionPane.YES_OPTION) {
-            NuevaContra newFrame = new NuevaContra(idUs);
-            newFrame.setVisible(true);
-            this.dispose();
-        } else if (opcion == JOptionPane.NO_OPTION) {
+                if (opcion == JOptionPane.YES_OPTION) {
+                    NuevaContra newFrame = new NuevaContra(idUs);
+                    newFrame.setVisible(true);
+                    this.dispose();
+                } else if (opcion == JOptionPane.NO_OPTION) {
 
-        }
-            }
-            else{
-                
+                }
+            } else {
+
             }
         } catch (SQLException ex) {
             Logger.getLogger(PreguntasDeConfianza.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_btnEnviarActionPerformed
 
     private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
-        
+
     }//GEN-LAST:event_txtUserActionPerformed
 
     private void txtUserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyTyped
         // TODO add your handling code here:
-       
+
     }//GEN-LAST:event_txtUserKeyTyped
 
     private void txtPregunta1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPregunta1KeyTyped
         // TODO add your handling code here:
 
-        
+
     }//GEN-LAST:event_txtPregunta1KeyTyped
 
     private void txtPregunta2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPregunta2KeyTyped
-        // TODO add your handling code here:
 
-        
     }//GEN-LAST:event_txtPregunta2KeyTyped
 
     private void txtPregunta3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPregunta3KeyTyped
-        // TODO add your handling code here:
 
-        
     }//GEN-LAST:event_txtPregunta3KeyTyped
 
     private void txtPregunta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPregunta1ActionPerformed
-        
+
     }//GEN-LAST:event_txtPregunta1ActionPerformed
 
     private void txtPregunta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPregunta2ActionPerformed
-        
+
     }//GEN-LAST:event_txtPregunta2ActionPerformed
 
     private void txtPregunta3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPregunta3ActionPerformed
-       
+
     }//GEN-LAST:event_txtPregunta3ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        RecuperacionDeContraseña newFrame = new RecuperacionDeContraseña();
+        newFrame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnBackActionPerformed
+
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -431,8 +441,8 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private Design.ButtonGradient btnEnviar;
-    private javax.swing.JButton btnRegresar6;
     private Design.ButtonGradient btnVerificar;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel6;

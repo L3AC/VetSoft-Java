@@ -46,11 +46,12 @@ public class Registro extends javax.swing.JFrame {
         lbDisp.setVisible(false);
         lbFalso.setVisible(false);
         loadCombo(cbCargo);
-        setLocationRelativeTo(null);
+
         GlassPanePopup.install(this);
         txtUsuario.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
         txtTeléfono.setDocument(new Valida(10, "[0-9]*"));
         txtContra.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
+        setLocationRelativeTo(null);
         String iconPath = "src/Imagenes/logoC.png";
         ImageIcon icon = new ImageIcon(iconPath);
         setIconImage(icon.getImage());
@@ -86,6 +87,7 @@ public class Registro extends javax.swing.JFrame {
         cbCargo = new Design.Combobox();
         lbDisp = new javax.swing.JLabel();
         Titulo = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -211,12 +213,22 @@ public class Registro extends javax.swing.JFrame {
         lbDisp.setText("Usuario no disponible");
         panelRound2.add(lbDisp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 140, -1));
 
-        panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 680, 270));
+        panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 680, 270));
 
         Titulo.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
         Titulo.setForeground(new java.awt.Color(27, 73, 101));
         Titulo.setText("Registro");
-        panelRound1.add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, -1, -1));
+        panelRound1.add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
+
+        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
+        btnBack.setBorder(null);
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        panelRound1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 60, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -226,7 +238,9 @@ public class Registro extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -344,6 +358,10 @@ public class Registro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtContraActionPerformed
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBackActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -385,6 +403,7 @@ public class Registro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Titulo;
+    private javax.swing.JButton btnBack;
     private Design.ButtonGradient btnRegistrar;
     private Design.Combobox cbCargo;
     private javax.swing.JLabel jLabel1;
