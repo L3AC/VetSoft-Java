@@ -38,7 +38,7 @@ public class mdTipoAnim {
     }
 
     public ResultSet tableTPA(String nombre) {//TABLA
-        String query = "select * from tbTipoAnimales and nombrePopular like ?;";
+        String query = "select * from tbTipoAnimales where nombrePopular like ?;";
         try {
 
             ps = con.prepareStatement(query);
@@ -58,8 +58,8 @@ public class mdTipoAnim {
         try {
 
             ps = con.prepareStatement(query);
-            ps.setString(2, n1);
-            ps.setString(3, n2);
+            ps.setString(1, n1);
+            ps.setString(2, n2);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Campos ingresados");
             return true;

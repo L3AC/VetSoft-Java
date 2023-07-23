@@ -33,10 +33,11 @@ public class CRUDTipoProd extends javax.swing.JPanel {
         this.idTipoUs=idTipoUs;
         initComponents();
         loadD();
+        setData();
     }
 
     final void loadD() throws SQLException {
-        String[] column = {"idTipoProducto", "tipo"};
+        String[] column = {"idTipoProducto", "Tipo de producto"};
         model = new DefaultTableModel(null, column);
         dsg.ColumnHide(model, tbData, 0, 2);
         CargarTabla();
@@ -172,7 +173,9 @@ public class CRUDTipoProd extends javax.swing.JPanel {
             .addComponent(PCont, javax.swing.GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    final void setData() {      
+        txtProd.setText(tbData.getValueAt(tbData.getSelectedRow(), 1).toString());
+    }
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
         try {
             loadD();
@@ -183,7 +186,7 @@ public class CRUDTipoProd extends javax.swing.JPanel {
     }//GEN-LAST:event_txtBusqKeyReleased
 
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
-        txtProd.setText(tbData.getValueAt(tbData.getSelectedRow(), 1).toString());
+        setData();
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed

@@ -29,19 +29,19 @@ public class CRUDTipoAnim extends javax.swing.JPanel {
     Desg dsg = new Desg();
     DefaultTableModel model;
 
-    public CRUDTipoAnim(int idTipoUs) {
+    public CRUDTipoAnim(int idTipoUs) throws SQLException {
         this.idTipoUs = idTipoUs;
         initComponents();
-        txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9 ]*"));
-        txtNC.setDocument(new Valida(50, "[a-zA-Z0-9 ]*"));
-        txtNP.setDocument(new Valida(50, "[0-9]*"));
+        loadD();
+        txtNC.setDocument(new Valida(50, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
+        txtNP.setDocument(new Valida(50, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
+        setData();
     }
 
     final void loadD() throws SQLException {
-        String[] column = {"idTipoAnimal", "nombrePopular", "nombreCientifico"};
+        String[] column = {"idTipoAnimal", "Nombre común", "Nombre Cientifico"};
         model = new DefaultTableModel(null, column);
-        dsg.ColumnHide(model, tbData, 0, 2);
-        dsg.ColumnHide(model, tbData, 1, 2);
+        dsg.ColumnHide(model, tbData, 0, 3);
         CargarTabla();
         if (tbData.getRowCount() > 0) {
             tbData.setRowSelectionInterval(0, 0);
@@ -54,15 +54,15 @@ public class CRUDTipoAnim extends javax.swing.JPanel {
         }
         try {
             ctTipoAnim ct = new ctTipoAnim();
-            //ct.Nombre = txtBusq.getText().toString();
+            ct.nPopular = txtBusq.getText().toString();
             ResultSet rs = ct.tableTPA();
             while (rs.next()) {
-                Object[] oValores = {rs.getInt("idTipoAnimal"), rs.getInt("nombrePopular"),
+                Object[] oValores = {rs.getInt("idTipoAnimal"), rs.getString("nombrePopular"),
                     rs.getString("nombreCientifico")};
                 model.addRow(oValores);
             }
         } catch (Exception e) {
-
+            System.out.println(e.toString());
         }
     }
 
@@ -187,9 +187,9 @@ public class CRUDTipoAnim extends javax.swing.JPanel {
             .addComponent(PCont, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-    final void setData() {
-        txtNC.setText(tbData.getValueAt(tbData.getSelectedRow(), 1).toString());
-        txtNP.setText(tbData.getValueAt(tbData.getSelectedRow(), 2).toString());
+    final void setData() {      
+        txtNP.setText(tbData.getValueAt(tbData.getSelectedRow(), 1).toString());
+        txtNC.setText(tbData.getValueAt(tbData.getSelectedRow(), 2).toString());
     }
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
         setData();

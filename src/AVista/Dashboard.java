@@ -13,6 +13,7 @@ import AVista.Login;
 import AVista.Mantenimiento.CRUDEsp;
 import AVista.Mantenimiento.CRUDRazas;
 import AVista.Mantenimiento.CRUDTipoAnim;
+import AVista.Mantenimiento.CRUDTipoProd;
 import AVista.Mantenimiento.CRUDtpserv;
 import AVista.Recepcionista.CRUDRecep;
 import AVista.Usuarios.CRUDusuarios;
@@ -125,17 +126,18 @@ public class Dashboard extends javax.swing.JFrame {
                     if (index == 4 && indexSubMenu == 2) {
                         CRUDRazas subp = new CRUDRazas();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
-
                     }
                     if (index == 4 && indexSubMenu == 3) {
                         CRUDTipoAnim subp = new CRUDTipoAnim(idTipoU);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
-
                     }
                     if (index == 4 && indexSubMenu == 4) {
                         CRUDtpserv subp = new CRUDtpserv(idTipoU);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
-
+                    }
+                    if (index == 4 && indexSubMenu == 5) {
+                        CRUDTipoProd subp = new CRUDTipoProd(idTipoU);
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     //CUENTA
                     if (index == 5 && indexSubMenu == 1) {
