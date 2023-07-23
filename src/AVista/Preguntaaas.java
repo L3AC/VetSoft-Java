@@ -32,9 +32,9 @@ public class Preguntaaas extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
-        txtTeléfono1 = new Design.TextFieldSV();
-        txtTeléfono2 = new Design.TextFieldSV();
-        txtTeléfono3 = new Design.TextFieldSV();
+        txtResp1 = new Design.TextFieldSV();
+        txtResp2 = new Design.TextFieldSV();
+        txtResp3 = new Design.TextFieldSV();
 
         setBackground(new java.awt.Color(202, 233, 255));
         setPreferredSize(new java.awt.Dimension(1320, 810));
@@ -84,44 +84,44 @@ public class Preguntaaas extends javax.swing.JPanel {
         });
         PCont.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 80, 60));
 
-        txtTeléfono1.setShadowColor(new java.awt.Color(153, 0, 153));
-        txtTeléfono1.addActionListener(new java.awt.event.ActionListener() {
+        txtResp1.setShadowColor(new java.awt.Color(153, 0, 153));
+        txtResp1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTeléfono1ActionPerformed(evt);
+                txtResp1ActionPerformed(evt);
             }
         });
-        txtTeléfono1.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtResp1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtTeléfono1KeyTyped(evt);
+                txtResp1KeyTyped(evt);
             }
         });
-        PCont.add(txtTeléfono1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 210, 430, -1));
+        PCont.add(txtResp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 210, 430, -1));
 
-        txtTeléfono2.setShadowColor(new java.awt.Color(153, 0, 153));
-        txtTeléfono2.addActionListener(new java.awt.event.ActionListener() {
+        txtResp2.setShadowColor(new java.awt.Color(153, 0, 153));
+        txtResp2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTeléfono2ActionPerformed(evt);
+                txtResp2ActionPerformed(evt);
             }
         });
-        txtTeléfono2.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtResp2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtTeléfono2KeyTyped(evt);
+                txtResp2KeyTyped(evt);
             }
         });
-        PCont.add(txtTeléfono2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 350, 430, -1));
+        PCont.add(txtResp2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 350, 430, -1));
 
-        txtTeléfono3.setShadowColor(new java.awt.Color(153, 0, 153));
-        txtTeléfono3.addActionListener(new java.awt.event.ActionListener() {
+        txtResp3.setShadowColor(new java.awt.Color(153, 0, 153));
+        txtResp3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTeléfono3ActionPerformed(evt);
+                txtResp3ActionPerformed(evt);
             }
         });
-        txtTeléfono3.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtResp3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtTeléfono3KeyTyped(evt);
+                txtResp3KeyTyped(evt);
             }
         });
-        PCont.add(txtTeléfono3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 480, 430, -1));
+        PCont.add(txtResp3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 480, 430, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -147,29 +147,29 @@ public class Preguntaaas extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void txtTeléfono1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTeléfono1ActionPerformed
+    private void txtResp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtResp1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTeléfono1ActionPerformed
+    }//GEN-LAST:event_txtResp1ActionPerformed
 
-    private void txtTeléfono1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTeléfono1KeyTyped
+    private void txtResp1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtResp1KeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTeléfono1KeyTyped
+    }//GEN-LAST:event_txtResp1KeyTyped
 
-    private void txtTeléfono2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTeléfono2ActionPerformed
+    private void txtResp2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtResp2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTeléfono2ActionPerformed
+    }//GEN-LAST:event_txtResp2ActionPerformed
 
-    private void txtTeléfono2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTeléfono2KeyTyped
+    private void txtResp2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtResp2KeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTeléfono2KeyTyped
+    }//GEN-LAST:event_txtResp2KeyTyped
 
-    private void txtTeléfono3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTeléfono3ActionPerformed
+    private void txtResp3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtResp3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTeléfono3ActionPerformed
+    }//GEN-LAST:event_txtResp3ActionPerformed
 
-    private void txtTeléfono3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTeléfono3KeyTyped
+    private void txtResp3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtResp3KeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTeléfono3KeyTyped
+    }//GEN-LAST:event_txtResp3KeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -181,8 +181,8 @@ public class Preguntaaas extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private Design.TextFieldSV txtTeléfono1;
-    private Design.TextFieldSV txtTeléfono2;
-    private Design.TextFieldSV txtTeléfono3;
+    private Design.TextFieldSV txtResp1;
+    private Design.TextFieldSV txtResp2;
+    private Design.TextFieldSV txtResp3;
     // End of variables declaration//GEN-END:variables
 }
