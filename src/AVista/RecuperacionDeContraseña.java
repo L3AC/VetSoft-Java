@@ -49,23 +49,27 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
     private void initComponents() {
 
         desg1 = new Design.Desg();
-        LBRecup = new javax.swing.JLabel();
+        panelRound2 = new Design.PanelRound();
         panelRound1 = new Design.PanelRound();
         jLabel1 = new javax.swing.JLabel();
         btnUsuario = new Design.ButtonGradient();
         btnPreguntas = new Design.ButtonGradient();
-        btnBack = new javax.swing.JButton();
+        LBRecup = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setPreferredSize(new java.awt.Dimension(706, 385));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        LBRecup.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        LBRecup.setForeground(new java.awt.Color(27, 73, 101));
-        LBRecup.setText("Recuperación de Contraseña");
-        getContentPane().add(LBRecup, new org.netbeans.lib.awtextra.AbsoluteConstraints(208, 40, 321, -1));
+        panelRound2.setBackground(new java.awt.Color(255, 255, 255));
+        panelRound2.setForeground(new java.awt.Color(255, 255, 255));
+        panelRound2.setRoundBottomLeft(50);
+        panelRound2.setRoundBottomRight(50);
+        panelRound2.setRoundTopLeft(50);
+        panelRound2.setRoundTopRight(50);
+        panelRound2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelRound1.setBackground(new java.awt.Color(202, 233, 255));
         panelRound1.setRoundBottomLeft(50);
@@ -99,17 +103,22 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
         });
         panelRound1.add(btnPreguntas, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 170, 336, -1));
 
-        getContentPane().add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 118, 530, 231));
+        panelRound2.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 530, 231));
 
-        btnBack.setBackground(new java.awt.Color(255, 255, 255));
-        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
-        btnBack.setBorder(null);
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
+        LBRecup.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        LBRecup.setForeground(new java.awt.Color(27, 73, 101));
+        LBRecup.setText("Recuperación de Contraseña");
+        panelRound2.add(LBRecup, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 321, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
             }
         });
-        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 60, 40));
+        panelRound2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 30, 30));
+
+        getContentPane().add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 310));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -138,13 +147,16 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
         PreguntasDeConfianza newFrame = new PreguntasDeConfianza();
 
         newFrame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnPreguntasActionPerformed
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        // TODO add your handling code here:
         Login newFrame = new Login();
+
         newFrame.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_btnBackActionPerformed
+    }//GEN-LAST:event_jLabel2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -184,11 +196,12 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LBRecup;
-    private javax.swing.JButton btnBack;
     private Design.ButtonGradient btnPreguntas;
     private Design.ButtonGradient btnUsuario;
     private Design.Desg desg1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private Design.PanelRound panelRound1;
+    private Design.PanelRound panelRound2;
     // End of variables declaration//GEN-END:variables
 }

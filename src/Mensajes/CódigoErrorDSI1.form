@@ -124,7 +124,7 @@
             <Component class="Mensajes.Boton" name="cmdOk">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="3f" green="aa" red="30" type="rgb"/>
+                  <Color blue="d3" green="ab" red="5f" type="rgb"/>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>

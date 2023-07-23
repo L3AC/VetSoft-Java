@@ -52,9 +52,9 @@ public class CódogpErrorDIFC1 extends javax.swing.JPanel {
         txt.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         txt.setForeground(new java.awt.Color(133, 133, 133));
         txt.setText("\"Información No Disponible\"");
-        panelRound1.add(txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, -1));
+        panelRound1.add(txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
 
-        boton1.setBackground(new java.awt.Color(48, 170, 63));
+        boton1.setBackground(new java.awt.Color(95, 171, 211));
         boton1.setBorder(null);
         boton1.setForeground(new java.awt.Color(255, 255, 255));
         boton1.setText("Ok");
@@ -66,17 +66,17 @@ public class CódogpErrorDIFC1 extends javax.swing.JPanel {
                 boton1ActionPerformed(evt);
             }
         });
-        panelRound1.add(boton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 70, 30));
+        panelRound1.add(boton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 70, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelRound1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+            .addComponent(panelRound1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

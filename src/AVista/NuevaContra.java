@@ -38,6 +38,7 @@ public class NuevaContra extends javax.swing.JFrame {
     public NuevaContra(int idus) {
         this.idus = idus;
         initComponents();
+        GlassPanePopup.install(this);
         
     }
 
@@ -133,6 +134,11 @@ public void act() throws Exception{
             ps.setString(1,cryp.encrypt( txtNueva.getText(), "key"));
             ps.setInt(2, idus);
             ps.executeUpdate();
+         
+        Login newFrame = new Login();
+        newFrame.setVisible(true);
+        this.dispose();
+        
         CódigoErrorDSI4 obj = new CódigoErrorDSI4();
         obj.eventOK(new ActionListener() {
             @Override
@@ -141,7 +147,7 @@ public void act() throws Exception{
             }
         });
         GlassPanePopup.showPopup(obj);
-
+        
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.toString());
         }

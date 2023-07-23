@@ -21,6 +21,7 @@ import Design.Desg;
 import Design.PasswordField;
 import Design.TextFieldSV;
 import Mensajes.CodigoErrorDRC2;
+import Mensajes.CodigoErrorLI4;
 import Mensajes.CodigodeerrorDLI1;
 import Mensajes.GlassPanePopup;
 import java.awt.Toolkit;
@@ -224,7 +225,15 @@ public class Login extends javax.swing.JFrame {
                     }
 
                 } else {
-
+                    
+        CodigoErrorLI4 obj = new CodigoErrorLI4();
+        obj.eventOK(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                GlassPanePopup.closePopupLast();
+            }
+        });
+        GlassPanePopup.showPopup(obj);
                 }
             } catch (SQLException ex) {
                 System.out.println(ex.toString() + " ERROR");

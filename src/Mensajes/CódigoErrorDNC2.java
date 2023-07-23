@@ -46,6 +46,7 @@ public class CódigoErrorDNC2 extends javax.swing.JPanel {
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Código de error \"DNC-2\"");
         panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
@@ -54,7 +55,7 @@ public class CódigoErrorDNC2 extends javax.swing.JPanel {
         txt.setText("“Cliente ya existente”");
         panelRound1.add(txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, -1, -1));
 
-        boton1.setBackground(new java.awt.Color(48, 170, 63));
+        boton1.setBackground(new java.awt.Color(95, 171, 211));
         boton1.setBorder(null);
         boton1.setForeground(new java.awt.Color(255, 255, 255));
         boton1.setText("Ok");

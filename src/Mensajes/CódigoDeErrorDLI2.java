@@ -64,7 +64,7 @@ protected void paintComponent(Graphics grphcs) {
         panelRound2.setRoundTopLeft(50);
         panelRound2.setRoundTopRight(50);
 
-        boton1.setBackground(new java.awt.Color(48, 170, 63));
+        boton1.setBackground(new java.awt.Color(95, 171, 211));
         boton1.setBorder(null);
         boton1.setForeground(new java.awt.Color(255, 255, 255));
         boton1.setText("Ok");

@@ -21,7 +21,9 @@ import AModelo.Conx;
 import AModelo.Crypt;
 import Mensajes.CodigoErrorDRC2;
 import Mensajes.CodigoErrorDRC3;
+import Mensajes.CódigoDSI10;
 import Mensajes.CódigoErrorDRC4;
+import Mensajes.CódigoErrorDSI11;
 import Mensajes.CódigoErrorDSI4;
 import Mensajes.CódigoErrorDSI5;
 import Mensajes.CódigoErrorDSI6;
@@ -248,6 +250,7 @@ public class PorUsuario extends javax.swing.JFrame {
          RecuperacionDeContraseña newFrame = new RecuperacionDeContraseña();
         
         newFrame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BtnRegresar1ActionPerformed
 
     private void btnVeriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVeriActionPerformed
@@ -471,7 +474,14 @@ public class PorUsuario extends javax.swing.JFrame {
             t.sendMessage(msg, msg.getRecipients(Message.RecipientType.TO));
             t.close();
 
-            JOptionPane.showMessageDialog(null, "Mensaje enviado");
+            CódigoErrorDSI11 obj = new CódigoErrorDSI11();
+        obj.eventOK(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                GlassPanePopup.closePopupLast();
+            }
+        });
+        GlassPanePopup.showPopup(obj);
         } catch (AddressException e) {
             JOptionPane.showMessageDialog(null, e.toString());
             System.out.println(e.toString());
@@ -531,7 +541,14 @@ public class PorUsuario extends javax.swing.JFrame {
      ps.setString(1, code);
      ps.setString(2, txtUser.getText());
      ps.executeUpdate();
-     JOptionPane.showMessageDialog(null, "Codigo creado");
+     CódigoDSI10 obj = new CódigoDSI10();
+        obj.eventOK(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                GlassPanePopup.closePopupLast();
+            }
+        });
+        GlassPanePopup.showPopup(obj);
      }catch (SQLException e){
      JOptionPane.showMessageDialog(null, e.toString());
      }

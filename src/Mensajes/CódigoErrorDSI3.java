@@ -87,7 +87,7 @@ public class CódigoErrorDSI3 extends javax.swing.JPanel {
         txt.setText("“Registro Eliminado”");
         panelRound1.add(txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 60, 180, -1));
 
-        cmdOk.setBackground(new java.awt.Color(48, 170, 63));
+        cmdOk.setBackground(new java.awt.Color(95, 171, 211));
         cmdOk.setBorder(null);
         cmdOk.setForeground(new java.awt.Color(255, 255, 255));
         cmdOk.setText("Ok");

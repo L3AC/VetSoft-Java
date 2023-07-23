@@ -43,6 +43,7 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
     String Contra;
 
     public PreguntasDeConfianza() {
+        GlassPanePopup.install(this);
         initComponents();
         this.setLocationRelativeTo(this);
         txtPregunta1.setEnabled(false);
@@ -84,7 +85,7 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         txtPregunta1 = new Design.TextFieldSV();
         txtPregunta2 = new Design.TextFieldSV();
         txtPregunta3 = new Design.TextFieldSV();
-        btnBack = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -197,15 +198,13 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
 
         panelRound3.add(panelRound4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 890, 360));
 
-        btnBack.setBackground(new java.awt.Color(255, 255, 255));
-        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
-        btnBack.setBorder(null);
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
             }
         });
-        panelRound3.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 60, 40));
+        panelRound3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -285,6 +284,9 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
                 txtPregunta2.setEnabled(true);
                 txtPregunta3.setEnabled(true);
                 btnEnviar.setEnabled(true);
+                btnVerificar.setEnabled(false);
+                txtUser.setEnabled(false);
+                
                 CódigoErrorDSI7 obj = new CódigoErrorDSI7();
         obj.eventOK(new ActionListener() {
             @Override
@@ -405,7 +407,7 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
                 if (opcion == JOptionPane.YES_OPTION) {
                     NuevaContra newFrame = new NuevaContra(idUs);
                     newFrame.setVisible(true);
-                    this.dispose();
+                    dispose();
                 } else if (opcion == JOptionPane.NO_OPTION) {
 
                 }
@@ -453,11 +455,12 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
 
     }//GEN-LAST:event_txtPregunta3ActionPerformed
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        RecuperacionDeContraseña newFrame = new RecuperacionDeContraseña();
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        // TODO add your handling code here:
+         RecuperacionDeContraseña newFrame = new RecuperacionDeContraseña();
         newFrame.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnBackActionPerformed
+        dispose();
+    }//GEN-LAST:event_jLabel1MouseClicked
 
 
     public static void main(String args[]) {
@@ -493,9 +496,9 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
     private Design.ButtonGradient btnEnviar;
     private Design.ButtonGradient btnVerificar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

@@ -86,7 +86,7 @@ public class CódigoErrorDSI5 extends javax.swing.JPanel {
         txt.setText("“Campos Vacíos”");
         panelRound1.add(txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 60, 170, -1));
 
-        cmdOk.setBackground(new java.awt.Color(48, 170, 63));
+        cmdOk.setBackground(new java.awt.Color(95, 171, 211));
         cmdOk.setBorder(null);
         cmdOk.setForeground(new java.awt.Color(255, 255, 255));
         cmdOk.setText("Ok");

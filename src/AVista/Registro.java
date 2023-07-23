@@ -26,8 +26,10 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import org.apache.commons.validator.EmailValidator;
 
 /**
@@ -60,6 +62,7 @@ public class Registro extends javax.swing.JFrame {
         setIconImage(icon.getImage());
         setTitle("VetSoft");
     }
+    
 
     private void loadCombo(JComboBox cb) throws SQLException {
         ResultSet rs = ctTP.selectUser();
@@ -90,7 +93,7 @@ public class Registro extends javax.swing.JFrame {
         cbCargo = new Design.Combobox();
         lbDisp = new javax.swing.JLabel();
         Titulo = new javax.swing.JLabel();
-        btnBack = new javax.swing.JButton();
+        btnVolver = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -216,34 +219,30 @@ public class Registro extends javax.swing.JFrame {
         lbDisp.setText("Usuario no disponible");
         panelRound2.add(lbDisp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 140, -1));
 
-        panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 680, 270));
+        panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 680, 270));
 
         Titulo.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
         Titulo.setForeground(new java.awt.Color(27, 73, 101));
         Titulo.setText("Registro");
         panelRound1.add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
 
-        btnBack.setBackground(new java.awt.Color(255, 255, 255));
-        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
-        btnBack.setBorder(null);
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
+        btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
+        btnVolver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnVolverMouseClicked(evt);
             }
         });
-        panelRound1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 60, 40));
+        panelRound1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 702, Short.MAX_VALUE)
+            .addComponent(panelRound1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 702, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -293,7 +292,6 @@ public class Registro extends javax.swing.JFrame {
 
     private void cbCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCargoActionPerformed
         // TODO add your handling code here:
-
         tpUs = dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
         System.out.println("ID seleccionado: " + tpUs);
     }//GEN-LAST:event_cbCargoActionPerformed
@@ -360,11 +358,16 @@ public class Registro extends javax.swing.JFrame {
 
     private void txtContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraActionPerformed
         // TODO add your handling code here:
+        
+   
     }//GEN-LAST:event_txtContraActionPerformed
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+    private void btnVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnBackActionPerformed
+         Login newFrame = new Login();
+        newFrame.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnVolverMouseClicked
 
     /**
      * @param args the command line arguments
@@ -407,8 +410,8 @@ public class Registro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Titulo;
-    private javax.swing.JButton btnBack;
     private Design.ButtonGradient btnRegistrar;
+    private javax.swing.JLabel btnVolver;
     private Design.Combobox cbCargo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel7;
