@@ -87,7 +87,7 @@ public class CódigoErrorDSI9 extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Código de error \"DSI-9\"");
+        jLabel1.setText("Código \"DSI-9\"");
         panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         txt.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
