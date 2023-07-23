@@ -20,11 +20,15 @@ import AVista.Registro;
 import Design.Desg;
 import Design.PasswordField;
 import Design.TextFieldSV;
+import Mensajes.CodigoErrorDRC2;
+import Mensajes.CodigodeerrorDLI1;
+import Mensajes.GlassPanePopup;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import javax.mail.Message;
 import javax.swing.ImageIcon;
 
 /**
@@ -43,6 +47,7 @@ public class Login extends javax.swing.JFrame {
 
     public Login() {
         initComponents();
+        GlassPanePopup.install(this);
         setTitle("VetSoft");
         tipoFuente = new Fuentes();
 
@@ -52,7 +57,7 @@ public class Login extends javax.swing.JFrame {
         PassL.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 22));
 
         txtUser.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
-        txtPass.setDocument(new Valida(100, "[a-zA-Z0-9]*"));
+        txtPass.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
         setLocationRelativeTo(null);
         String iconPath = "src/Imagenes/logoC.png";
         ImageIcon icon = new ImageIcon(iconPath);
@@ -208,7 +213,14 @@ public class Login extends javax.swing.JFrame {
                         rs.close();
                         SelectID();
                     } else {
-                        JOptionPane.showMessageDialog(null, "Credenciales incorrectas");
+                        CodigodeerrorDLI1 obj = new CodigodeerrorDLI1();
+        obj.eventOK(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                GlassPanePopup.closePopupLast();
+            }
+        });
+        GlassPanePopup.showPopup(obj);
                     }
 
                 } else {
@@ -236,31 +248,17 @@ public class Login extends javax.swing.JFrame {
     private void txtUserKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyPressed
         // TODO add your handling code here:
 
-        int limit = 30; // Establece el límite de dígitos permitidos
-
-        if (txtUser.getText().length() >= limit) {
-            // Si se alcanza o se excede el límite de dígitos, consume el evento
-            evt.consume();
-        }
 
     }//GEN-LAST:event_txtUserKeyPressed
 
     private void txtUserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyTyped
         // TODO add your handling code here:
 
-        if (txtUser.getText().length() >= 30) {
-            evt.consume();
-            Toolkit.getDefaultToolkit().beep();
-        }
     }//GEN-LAST:event_txtUserKeyTyped
 
     private void txtPassKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassKeyTyped
         // TODO add your handling code here:
 
-        if (txtPass.getText().length() >= 30) {
-            evt.consume();
-            Toolkit.getDefaultToolkit().beep();
-        }
     }//GEN-LAST:event_txtPassKeyTyped
 
     private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
@@ -305,7 +303,14 @@ public class Login extends javax.swing.JFrame {
                 dash.setVisible(true);
                 this.dispose();
             } else {
-                JOptionPane.showMessageDialog(null, "No se encontro");
+                CodigoErrorDRC2 obj = new CodigoErrorDRC2();
+        obj.eventOK(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                GlassPanePopup.closePopupLast();
+            }
+        });
+        GlassPanePopup.showPopup(obj);
             }
         } catch (SQLException ex) {
             System.out.println(ex.toString());

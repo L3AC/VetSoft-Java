@@ -5,6 +5,11 @@
 package Mensajes;
 
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+import java.awt.event.ActionListener;
+import java.awt.geom.RoundRectangle2D;
 
 /**
  *
@@ -17,6 +22,25 @@ public class CodigoErrorLI4 extends javax.swing.JPanel {
      */
     public CodigoErrorLI4() {
         initComponents();
+        txt.setBackground(new Color(0, 0, 0, 0));
+        txt.setOpaque(false);
+    }
+    
+       protected void paintComponent(Graphics grphcs) {
+        Graphics2D g2 = (Graphics2D) grphcs.create();
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2.setColor(getBackground());
+        g2.fill(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 15, 15));
+        g2.dispose();
+        super.paintComponent(grphcs);
+    }
+    
+     public void EventErrorLI1(ActionListener event){
+    cmdOk.addActionListener(event);
+    }
+    
+    public void eventOK(ActionListener event) {
+        cmdOk.addActionListener(event);
     }
 
     /**
@@ -29,7 +53,7 @@ public class CodigoErrorLI4 extends javax.swing.JPanel {
     private void initComponents() {
 
         panelRound1 = new Design.PanelRound();
-        boton1 = new Mensajes.Boton();
+        cmdOk = new Mensajes.Boton();
         txt = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -43,14 +67,14 @@ public class CodigoErrorLI4 extends javax.swing.JPanel {
         panelRound1.setRoundTopRight(50);
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        boton1.setBackground(new java.awt.Color(48, 170, 63));
-        boton1.setBorder(null);
-        boton1.setForeground(new java.awt.Color(255, 255, 255));
-        boton1.setText("Ok");
-        boton1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        boton1.setMaximumSize(new java.awt.Dimension(29, 34));
-        boton1.setMinimumSize(new java.awt.Dimension(29, 34));
-        panelRound1.add(boton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 70, 30));
+        cmdOk.setBackground(new java.awt.Color(48, 170, 63));
+        cmdOk.setBorder(null);
+        cmdOk.setForeground(new java.awt.Color(255, 255, 255));
+        cmdOk.setText("Ok");
+        cmdOk.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        cmdOk.setMaximumSize(new java.awt.Dimension(29, 34));
+        cmdOk.setMinimumSize(new java.awt.Dimension(29, 34));
+        panelRound1.add(cmdOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 70, 30));
 
         txt.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         txt.setForeground(new java.awt.Color(133, 133, 133));
@@ -76,7 +100,7 @@ public class CodigoErrorLI4 extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Mensajes.Boton boton1;
+    private Mensajes.Boton cmdOk;
     private javax.swing.JLabel jLabel1;
     private Design.PanelRound panelRound1;
     private javax.swing.JLabel txt;

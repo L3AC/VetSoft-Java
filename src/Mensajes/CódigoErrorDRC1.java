@@ -5,6 +5,11 @@
 package Mensajes;
 
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+import java.awt.event.ActionListener;
+import java.awt.geom.RoundRectangle2D;
 
 /**
  *
@@ -17,8 +22,26 @@ public class CódigoErrorDRC1 extends javax.swing.JPanel {
      */
     public CódigoErrorDRC1() {
         initComponents();
+        txt.setBackground(new Color(0, 0, 0, 0));
+        txt.setOpaque(false);
     }
 
+    protected void paintComponent(Graphics grphcs) {
+        Graphics2D g2 = (Graphics2D) grphcs.create();
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2.setColor(getBackground());
+        g2.fill(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 15, 15));
+        g2.dispose();
+        super.paintComponent(grphcs);
+    }
+    
+     public void EventErrorLI1(ActionListener event){
+    cmdOk.addActionListener(event);
+    }
+    
+    public void eventOK(ActionListener event) {
+        cmdOk.addActionListener(event);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,7 +54,7 @@ public class CódigoErrorDRC1 extends javax.swing.JPanel {
         panelRound2 = new Design.PanelRound();
         jLabel1 = new javax.swing.JLabel();
         txt = new javax.swing.JLabel();
-        boton1 = new Mensajes.Boton();
+        cmdOk = new Mensajes.Boton();
 
         setBackground(new Color(255,255,255,0));
         setForeground(new Color(255,255,255,0));
@@ -51,13 +74,13 @@ public class CódigoErrorDRC1 extends javax.swing.JPanel {
         txt.setForeground(new java.awt.Color(133, 133, 133));
         txt.setText("“Respuesta Incorrecta”");
 
-        boton1.setBackground(new java.awt.Color(48, 170, 63));
-        boton1.setBorder(null);
-        boton1.setForeground(new java.awt.Color(255, 255, 255));
-        boton1.setText("Ok");
-        boton1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        boton1.setMaximumSize(new java.awt.Dimension(29, 34));
-        boton1.setMinimumSize(new java.awt.Dimension(29, 34));
+        cmdOk.setBackground(new java.awt.Color(48, 170, 63));
+        cmdOk.setBorder(null);
+        cmdOk.setForeground(new java.awt.Color(255, 255, 255));
+        cmdOk.setText("Ok");
+        cmdOk.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        cmdOk.setMaximumSize(new java.awt.Dimension(29, 34));
+        cmdOk.setMinimumSize(new java.awt.Dimension(29, 34));
 
         javax.swing.GroupLayout panelRound2Layout = new javax.swing.GroupLayout(panelRound2);
         panelRound2.setLayout(panelRound2Layout);
@@ -65,7 +88,7 @@ public class CódigoErrorDRC1 extends javax.swing.JPanel {
             panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(boton1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmdOk, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35))
             .addGroup(panelRound2Layout.createSequentialGroup()
                 .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -85,7 +108,7 @@ public class CódigoErrorDRC1 extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(txt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addComponent(boton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmdOk, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -103,7 +126,7 @@ public class CódigoErrorDRC1 extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Mensajes.Boton boton1;
+    private Mensajes.Boton cmdOk;
     private javax.swing.JLabel jLabel1;
     private Design.PanelRound panelRound2;
     private javax.swing.JLabel txt;

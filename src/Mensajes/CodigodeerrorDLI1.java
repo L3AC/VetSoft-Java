@@ -36,7 +36,11 @@ public class CodigodeerrorDLI1 extends javax.swing.JPanel {
     }
     
     public void EventErrorLI1(ActionListener event){
-    boton1.addActionListener(event);
+    cmdok.addActionListener(event);
+    }
+    
+    public void eventOK(ActionListener event) {
+        cmdok.addActionListener(event);
     }
 
     /**
@@ -51,7 +55,7 @@ public class CodigodeerrorDLI1 extends javax.swing.JPanel {
         panelRound1 = new Design.PanelRound();
         jLabel1 = new javax.swing.JLabel();
         txt1 = new javax.swing.JLabel();
-        boton1 = new Mensajes.Boton();
+        cmdok = new Mensajes.Boton();
 
         setBackground(new Color(255,255,255,0));
         setForeground(new Color(255,255,255,0));
@@ -73,11 +77,11 @@ public class CodigodeerrorDLI1 extends javax.swing.JPanel {
         txt1.setText("“Datos Incorrectos”");
         panelRound1.add(txt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 160, -1));
 
-        boton1.setBackground(new java.awt.Color(48, 170, 63));
-        boton1.setForeground(new java.awt.Color(255, 255, 255));
-        boton1.setText("Ok");
-        boton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        panelRound1.add(boton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 90, -1));
+        cmdok.setBackground(new java.awt.Color(95, 171, 211));
+        cmdok.setForeground(new java.awt.Color(255, 255, 255));
+        cmdok.setText("Ok");
+        cmdok.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        panelRound1.add(cmdok, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 90, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -93,7 +97,7 @@ public class CodigodeerrorDLI1 extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Mensajes.Boton boton1;
+    private Mensajes.Boton cmdok;
     private javax.swing.JLabel jLabel1;
     private Design.PanelRound panelRound1;
     private javax.swing.JLabel txt1;

@@ -49,7 +49,7 @@
         <Property name="useNullLayout" type="boolean" value="false"/>
       </Layout>
       <SubComponents>
-        <Component class="Mensajes.Boton" name="boton1">
+        <Component class="Mensajes.Boton" name="cmdOk">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="3f" green="aa" red="30" type="rgb"/>

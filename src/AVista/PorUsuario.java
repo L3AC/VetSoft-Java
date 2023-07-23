@@ -19,6 +19,10 @@ import java.util.Properties; // Para configurar las propiedades del correo elect
 import java.util.Random; // Para generar el código de verificación
 import AModelo.Conx;
 import AModelo.Crypt;
+import Mensajes.CodigoErrorDRC2;
+import Mensajes.CodigoErrorDRC3;
+import Mensajes.CódigoErrorDRC4;
+import Mensajes.GlassPanePopup;
 import java.awt.Toolkit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,6 +30,8 @@ import javax.mail.*; // Para enviar el correo electrónico
 import javax.mail.internet.*; // Para trabajar con objetos relacionados con el correo electrónico
 import javax.swing.JOptionPane;
 import Validation.Valida;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
@@ -273,7 +279,14 @@ public class PorUsuario extends javax.swing.JFrame {
                 }
             }
             else{
-            JOptionPane.showMessageDialog(null, "Contraseña no es identica");
+            CódigoErrorDRC4 obj = new CódigoErrorDRC4();
+        obj.eventOK(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                GlassPanePopup.closePopupLast();
+            }
+        });
+        GlassPanePopup.showPopup(obj);
             }
         }
         Login newFrame = new Login();
@@ -288,26 +301,17 @@ public class PorUsuario extends javax.swing.JFrame {
     private void txtUserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyTyped
         // TODO add your handling code here:
         
-        if(txtUser.getText().length() >=30){
-        evt.consume();
-            Toolkit.getDefaultToolkit().beep();
-        }
+        
     }//GEN-LAST:event_txtUserKeyTyped
 
     private void txtNuevaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNuevaKeyTyped
         // TODO add your handling code here:
-        if(txtNueva.getText().length() >=30){
-        evt.consume();
-            Toolkit.getDefaultToolkit().beep();
-        }
+        
     }//GEN-LAST:event_txtNuevaKeyTyped
 
     private void txtNueva2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNueva2KeyTyped
         // TODO add your handling code here:
-        if(txtNueva2.getText().length() >=30){
-        evt.consume();
-            Toolkit.getDefaultToolkit().beep();
-        }
+       
     }//GEN-LAST:event_txtNueva2KeyTyped
 
     private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
@@ -370,14 +374,28 @@ public class PorUsuario extends javax.swing.JFrame {
                     txtNueva2.setEnabled(true);
                     btnCambiar.setEnabled(true);
                 } else {
-                    JOptionPane.showMessageDialog(null, "Codigo incorrecto");
+                    CodigoErrorDRC3 obj = new CodigoErrorDRC3();
+        obj.eventOK(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                GlassPanePopup.closePopupLast();
+            }
+        });
+        GlassPanePopup.showPopup(obj);
                     txtNueva.setEnabled(false);
                     txtNueva2.setEnabled(false);
                     btnCambiar.setEnabled(false);
                 }
 
             } else {
-                JOptionPane.showMessageDialog(null, "Usuario no existente");
+                CodigoErrorDRC2 obj = new CodigoErrorDRC2();
+        obj.eventOK(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                GlassPanePopup.closePopupLast();
+            }
+        });
+        GlassPanePopup.showPopup(obj);
 
             }
         } catch (SQLException e) {
@@ -403,7 +421,7 @@ public class PorUsuario extends javax.swing.JFrame {
             String pRem = "jtsteydqiifilcpi";
             String cRec = txt;
             String asunto = "Recuperacion de clave";
-            String mensaje = "Codigo de verificacion " + clave;
+            String mensaje = "Codigo de verificacion: " + clave;
 
             MimeMessage msg = new MimeMessage(ses);
             msg.setFrom(new InternetAddress(cRem));
@@ -451,7 +469,14 @@ public class PorUsuario extends javax.swing.JFrame {
             txtCod.setEnabled(true);
             btnVeri.setEnabled(true);
             } else{
-                JOptionPane.showMessageDialog(null, "Usuario no Encontrado");
+                CodigoErrorDRC2 obj = new CodigoErrorDRC2();
+        obj.eventOK(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                GlassPanePopup.closePopupLast();
+            }
+        });
+        GlassPanePopup.showPopup(obj);
                 txtCod.setEnabled(false);
                 btnVeri.setEnabled(false);
                 

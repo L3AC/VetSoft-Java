@@ -6,6 +6,9 @@ package AVista;
 
 import AModelo.Conx;
 import AModelo.Crypt;
+import Mensajes.CodigodeerrorDLI1;
+import Mensajes.CódigoErrorDRC4;
+import Mensajes.GlassPanePopup;
 import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,6 +16,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import Validation.Valida;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -142,7 +147,14 @@ public void act() throws Exception{
                 }
             }
             else{
-            JOptionPane.showMessageDialog(null, "Contraseña no es identica");
+                   CódigoErrorDRC4 obj = new CódigoErrorDRC4();
+        obj.eventOK(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                GlassPanePopup.closePopupLast();
+            }
+        });
+        GlassPanePopup.showPopup(obj);
             }        // TODO add your handling code here:
             
     }//GEN-LAST:event_buttonGradient1ActionPerformed
