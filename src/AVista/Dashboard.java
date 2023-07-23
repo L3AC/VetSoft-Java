@@ -6,7 +6,6 @@ import AVista.Citas.CRUDCita;
 import AVista.Clientes.CRUDCliente;
 import AVista.CUENTA.insertTipoCuenta;
 import AVista.Doctores.CRUDDoctores;
-import AVista.Home.Home;
 import java.awt.Component;
 import JavaMenu.MenuSelectEvent;
 import AVista.Login;

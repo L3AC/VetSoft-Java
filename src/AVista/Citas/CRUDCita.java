@@ -29,7 +29,15 @@ public class CRUDCita extends javax.swing.JPanel {
         initComponents();
         loadD();
 
-        txtBusq.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
+        if(idTipoUS==4||idTipoUS==1){//DOCTOR Y ADMIN
+            
+        }
+        else{
+            btnRec.setVisible(false);
+        }
+        if(idTipoUS==5){//ASISTENTE
+            btnAceptar.setVisible(false);
+        }
         
     }
 
@@ -42,8 +50,8 @@ public class CRUDCita extends javax.swing.JPanel {
         panelRound1 = new Design.PanelRound();
         jScrollPane2 = new javax.swing.JScrollPane();
         tbData = new SwingTable.Table();
-        btnAddM = new Design.ButtonGradient();
-        btnReservas = new Design.ButtonGradient();
+        btnRec = new Design.ButtonGradient();
+        btnFact = new Design.ButtonGradient();
         btnEditar = new Design.ButtonGradient();
         btnEliminar = new Design.ButtonGradient();
         btnAceptar = new Design.ButtonGradient();
@@ -89,9 +97,9 @@ public class CRUDCita extends javax.swing.JPanel {
 
         panelRound1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 1000, -1));
 
-        btnAddM.setText("Receta");
+        btnRec.setText("Receta");
 
-        btnReservas.setText("Factura");
+        btnFact.setText("Factura");
 
         btnEditar.setText("+ Info");
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -136,8 +144,8 @@ public class CRUDCita extends javax.swing.JPanel {
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAddM, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnRec, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnFact, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         PContLayout.setVerticalGroup(
             PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,9 +164,9 @@ public class CRUDCita extends javax.swing.JPanel {
                         .addGap(40, 40, 40)
                         .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40)
-                        .addComponent(btnAddM, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnRec, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40)
-                        .addComponent(btnReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(btnFact, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -326,10 +334,10 @@ public class CRUDCita extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
     private Design.ButtonGradient btnAceptar;
-    private Design.ButtonGradient btnAddM;
     private Design.ButtonGradient btnEditar;
     private Design.ButtonGradient btnEliminar;
-    private Design.ButtonGradient btnReservas;
+    private Design.ButtonGradient btnFact;
+    private Design.ButtonGradient btnRec;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
     private Design.PanelRound panelRound1;

@@ -56,8 +56,8 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="btnEditar" min="-2" pref="120" max="-2" attributes="0"/>
                       <Component id="btnEliminar" min="-2" pref="120" max="-2" attributes="0"/>
-                      <Component id="btnAddM" min="-2" pref="120" max="-2" attributes="0"/>
-                      <Component id="btnReservas" min="-2" pref="120" max="-2" attributes="0"/>
+                      <Component id="btnRec" min="-2" pref="120" max="-2" attributes="0"/>
+                      <Component id="btnFact" min="-2" pref="120" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -80,9 +80,9 @@
                           <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
                           <Component id="btnEliminar" min="-2" pref="40" max="-2" attributes="0"/>
                           <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
-                          <Component id="btnAddM" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="btnRec" min="-2" pref="40" max="-2" attributes="0"/>
                           <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
-                          <Component id="btnReservas" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="btnFact" min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -152,12 +152,12 @@
             </Container>
           </SubComponents>
         </Container>
-        <Component class="Design.ButtonGradient" name="btnAddM">
+        <Component class="Design.ButtonGradient" name="btnRec">
           <Properties>
             <Property name="text" type="java.lang.String" value="Receta"/>
           </Properties>
         </Component>
-        <Component class="Design.ButtonGradient" name="btnReservas">
+        <Component class="Design.ButtonGradient" name="btnFact">
           <Properties>
             <Property name="text" type="java.lang.String" value="Factura"/>
           </Properties>
