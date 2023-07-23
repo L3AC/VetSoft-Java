@@ -22,6 +22,9 @@ import AModelo.Crypt;
 import Mensajes.CodigoErrorDRC2;
 import Mensajes.CodigoErrorDRC3;
 import Mensajes.CódigoErrorDRC4;
+import Mensajes.CódigoErrorDSI4;
+import Mensajes.CódigoErrorDSI5;
+import Mensajes.CódigoErrorDSI6;
 import Mensajes.GlassPanePopup;
 import java.awt.Toolkit;
 import java.util.logging.Level;
@@ -248,7 +251,14 @@ public class PorUsuario extends javax.swing.JFrame {
     private void btnVeriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVeriActionPerformed
         // TODO add your handling code here:
         if (txtUser.getText().isEmpty() || txtCod.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Campos vacios");
+            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
+        obj.eventOK(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                GlassPanePopup.closePopupLast();
+            }
+        });
+        GlassPanePopup.showPopup(obj);
         } else {
             EncCod(txtUser.getText());
         }
@@ -258,7 +268,14 @@ public class PorUsuario extends javax.swing.JFrame {
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
         // TODO add your handling code here:
        if (txtUser.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Campos vacios");
+            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
+        obj.eventOK(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                GlassPanePopup.closePopupLast();
+            }
+        });
+        GlassPanePopup.showPopup(obj);
         } else {
             Encontrar();
         }
@@ -269,7 +286,14 @@ public class PorUsuario extends javax.swing.JFrame {
         
         if (txtUser.getText().isEmpty() || txtCod.getText().isEmpty()
                 || txtNueva.getText().isEmpty() || txtNueva2.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Campos vacios");
+            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
+        obj.eventOK(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                GlassPanePopup.closePopupLast();
+            }
+        });
+        GlassPanePopup.showPopup(obj);
         } else {
             if (txtNueva.getText().equals(txtNueva2.getText())) {
                 try {
@@ -346,7 +370,14 @@ public class PorUsuario extends javax.swing.JFrame {
             ps.setString(1,cryp.encrypt( txtNueva.getText(), "key"));
             ps.setString(2, txtUser.getText());
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Clave actualizada");
+            CódigoErrorDSI4 obj = new CódigoErrorDSI4();
+        obj.eventOK(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                GlassPanePopup.closePopupLast();
+            }
+        });
+        GlassPanePopup.showPopup(obj);
 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.toString());
@@ -369,7 +400,14 @@ public class PorUsuario extends javax.swing.JFrame {
             if (found == 1) {
                 String cod = st.getString("codigoVerif");
                 if (cod.equals(txtCod.getText())) {
-                    JOptionPane.showMessageDialog(null, "Codigo Correcto");
+                    CódigoErrorDSI6 obj = new CódigoErrorDSI6();
+                    obj.eventOK(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                GlassPanePopup.closePopupLast();
+            }
+        });
+        GlassPanePopup.showPopup(obj);
                     txtNueva.setEnabled(true);
                     txtNueva2.setEnabled(true);
                     btnCambiar.setEnabled(true);

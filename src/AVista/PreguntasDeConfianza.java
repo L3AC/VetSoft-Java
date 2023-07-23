@@ -8,6 +8,14 @@ import AControlador.ctAnimales;
 import AModelo.Conx;
 import AModelo.Crypt;
 import AVista.Animales.CRUDAnimales;
+import Mensajes.CodigoErrorDRC2;
+import Mensajes.CódigoErrorDRC1;
+import Mensajes.CódigoErrorDRC4;
+import Mensajes.CódigoErrorDSI5;
+import Mensajes.CódigoErrorDSI7;
+import Mensajes.CódigoErrorDSI8;
+import Mensajes.CódigoErrorDSI9;
+import Mensajes.GlassPanePopup;
 import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,6 +23,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import Validation.Valida;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -236,7 +246,14 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
                 return true;
 
             } else {
-                JOptionPane.showMessageDialog(null, "Respuestas incorrectas");
+                CódigoErrorDRC1 obj = new CódigoErrorDRC1();
+        obj.eventOK(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                GlassPanePopup.closePopupLast();
+            }
+        });
+        GlassPanePopup.showPopup(obj);
 
                 return false;
             }
@@ -268,9 +285,23 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
                 txtPregunta2.setEnabled(true);
                 txtPregunta3.setEnabled(true);
                 btnEnviar.setEnabled(true);
-                JOptionPane.showMessageDialog(null, "Preguntas Encontradas");
+                CódigoErrorDSI7 obj = new CódigoErrorDSI7();
+        obj.eventOK(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                GlassPanePopup.closePopupLast();
+            }
+        });
+        GlassPanePopup.showPopup(obj);
             } else {
-                JOptionPane.showMessageDialog(null, "Preguntas no Encontradas");
+                CódigoErrorDSI8 obj = new CódigoErrorDSI8();
+        obj.eventOK(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                GlassPanePopup.closePopupLast();
+            }
+        });
+        GlassPanePopup.showPopup(obj);
                 txtPregunta1.setEnabled(false);
                 txtPregunta2.setEnabled(false);
                 txtPregunta3.setEnabled(false);
@@ -305,9 +336,23 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
                 txtPregunta2.setEnabled(true);
                 txtPregunta3.setEnabled(true);
                 btnEnviar.setEnabled(true);
-                JOptionPane.showMessageDialog(null, "Usuario Encontrado");
+                CódigoErrorDSI9 obj = new CódigoErrorDSI9();
+        obj.eventOK(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                GlassPanePopup.closePopupLast();
+            }
+        });
+        GlassPanePopup.showPopup(obj);
             } else {
-                JOptionPane.showMessageDialog(null, "Usuario no Encontrado");
+                CodigoErrorDRC2 obj = new CodigoErrorDRC2();
+        obj.eventOK(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                GlassPanePopup.closePopupLast();
+            }
+        });
+        GlassPanePopup.showPopup(obj);
                 txtPregunta1.setEnabled(false);
                 txtPregunta2.setEnabled(false);
                 txtPregunta3.setEnabled(false);
@@ -322,7 +367,14 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
 
     private void btnVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarActionPerformed
         if (txtUser.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Campos vacios");
+            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
+        obj.eventOK(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                GlassPanePopup.closePopupLast();
+            }
+        });
+        GlassPanePopup.showPopup(obj);
         } else {
             try {
                 Encod();

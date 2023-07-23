@@ -8,6 +8,7 @@ import AModelo.Conx;
 import AModelo.Crypt;
 import Mensajes.CodigodeerrorDLI1;
 import Mensajes.CódigoErrorDRC4;
+import Mensajes.CódigoErrorDSI4;
 import Mensajes.GlassPanePopup;
 import java.awt.Toolkit;
 import java.sql.Connection;
@@ -131,7 +132,14 @@ public void act() throws Exception{
             ps.setString(1,cryp.encrypt( txtNueva.getText(), "key"));
             ps.setInt(2, idus);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Clave actualizada");
+        CódigoErrorDSI4 obj = new CódigoErrorDSI4();
+        obj.eventOK(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                GlassPanePopup.closePopupLast();
+            }
+        });
+        GlassPanePopup.showPopup(obj);
 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.toString());
