@@ -55,9 +55,9 @@ public class ctRaza {
     public ResultSet loadTPanimal() {
         return md.loadTPanimal();
     }
-   /* public ResultSet loadRaza() {
-        return md.loadRaza(idRaza);
-    }*/
+    public ResultSet comboRaza() {
+        return md.comboRaza(idTipoAnimal);
+    }
 
     /*public boolean insertAnim() {
         return ani.insertAnim(idCliente, idRaza, padecimientos, nombre, peso, edad, sexo);

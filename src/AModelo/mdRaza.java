@@ -29,6 +29,19 @@ public class mdRaza {
         }
     }
 
+        public ResultSet comboRaza(int idTP) {
+        String query = "select idRaza,nombreRaza from tbRazas r, tbTipoAnimales ta where r.idTipoAnimal=ta.idTipoAnimal and r.idTipoAnimal=?;";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setInt(1, idTP);
+            rs = ps.executeQuery();
+            return rs;
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+            return null;
+        }
+    }
     public ResultSet loadRaza(int idRaza, String nombrePopular, String nombreRaza) {
         String query = "select r.idRaza,ta.nombrePopular,r.nombreRaza from tbRazas r,tbTipoAnimales ta where r.idTipoAnimal=ta.idTipoAnimal";
         try {

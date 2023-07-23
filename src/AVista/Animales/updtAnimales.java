@@ -82,13 +82,13 @@ public class updtAnimales extends javax.swing.JPanel {
         cbMapRa.clear();
         cb.removeAllItems();
         ct.idTipoAnimal = dsg.getMap(cbMap, cbTipoA.getSelectedItem().toString());
-        /*ResultSet rs = ct.loadRaza();
+        ResultSet rs = ct.comboRaza();
         while (rs.next()) {
             int idTP = rs.getInt("idRaza");
             String nombre = rs.getString("nombreRaza");
             cb.addItem(nombre);
             cbMapRa.put(idTP, nombre);
-        }*/
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -131,7 +131,7 @@ public class updtAnimales extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(27, 73, 101));
-        jLabel2.setText("REGISTRAR MASCOTA");
+        jLabel2.setText("ACTUALIZAR MASCOTA");
 
         panelRound1.setBackground(new java.awt.Color(202, 233, 255));
         panelRound1.setRoundBottomLeft(50);
@@ -212,8 +212,8 @@ public class updtAnimales extends javax.swing.JPanel {
                     .addGroup(PContLayout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(329, 329, 329)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(365, 365, 365)
+                        .addComponent(jLabel2))
                     .addGroup(PContLayout.createSequentialGroup()
                         .addGap(150, 150, 150)
                         .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 1010, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -225,12 +225,10 @@ public class updtAnimales extends javax.swing.JPanel {
         PContLayout.setVerticalGroup(
             PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PContLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(22, 22, 22)
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel2)
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
