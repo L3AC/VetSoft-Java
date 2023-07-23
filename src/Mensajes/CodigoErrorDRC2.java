@@ -70,7 +70,7 @@ public class CodigoErrorDRC2 extends javax.swing.JPanel {
         txt.setText("“Usuario No Encontrado”");
         panelRound1.add(txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, -1, -1));
 
-        cmdOk.setBackground(new java.awt.Color(48, 170, 63));
+        cmdOk.setBackground(new java.awt.Color(95, 171, 211));
         cmdOk.setBorder(null);
         cmdOk.setForeground(new java.awt.Color(255, 255, 255));
         cmdOk.setText("Ok");

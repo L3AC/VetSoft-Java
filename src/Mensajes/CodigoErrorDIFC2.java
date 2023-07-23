@@ -54,7 +54,7 @@ public class CodigoErrorDIFC2 extends javax.swing.JPanel {
         txt.setText("“Cliente No Encontrado”");
         panelRound1.add(txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 200, -1));
 
-        boton1.setBackground(new java.awt.Color(48, 170, 63));
+        boton1.setBackground(new java.awt.Color(95, 171, 211));
         boton1.setBorder(null);
         boton1.setForeground(new java.awt.Color(255, 255, 255));
         boton1.setText("Ok");

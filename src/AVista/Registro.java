@@ -261,12 +261,7 @@ public class Registro extends javax.swing.JFrame {
         });
         GlassPanePopup.showPopup(obj);
         } else {
-            Login newFrame = new Login();
-        newFrame.setVisible(true);
-        dispose();
-        }
-
-        ctUser ctUs = new ctUser();
+            ctUser ctUs = new ctUser();
         ctUs.idTipoCuenta = dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
 
         ctUs.usuario = txtUsuario.getText();
@@ -279,6 +274,10 @@ public class Registro extends javax.swing.JFrame {
         ctUs.correo = txtCorreo.getText();
         ctUs.telefono = txtTeléfono.getText();
         ctUs.insertUs();
+            Login newFrame = new Login();
+        newFrame.setVisible(true);
+        dispose();
+        }
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed

@@ -84,7 +84,7 @@ public class mdUser {
             return true;
 
         } catch (SQLException e) {
-            e.printStackTrace(); // Manejo de la excepción SQLException
+            e.printStackTrace();
             System.out.println(e.toString());
             return false; //DIO ERROR
         }

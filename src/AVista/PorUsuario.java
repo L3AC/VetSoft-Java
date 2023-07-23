@@ -282,6 +282,7 @@ public class PorUsuario extends javax.swing.JFrame {
         });
         GlassPanePopup.showPopup(obj);
         } else {
+           
             Encontrar();
         }
     }//GEN-LAST:event_btnEnviarActionPerformed
@@ -374,9 +375,15 @@ public class PorUsuario extends javax.swing.JFrame {
             ps.setString(2, txtUser.getText());
             ps.executeUpdate();
         Login newFrame = new Login();
-
         newFrame.setVisible(true);
-        dispose();
+        this.dispose();
+            CódigoErrorDSI4 obj = new CódigoErrorDSI4();
+                    obj.eventOK(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                GlassPanePopup.closePopupLast();
+            }
+        });
         
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.toString());

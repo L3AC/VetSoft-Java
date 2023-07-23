@@ -57,7 +57,7 @@ public class CodigoDeErrorDLI3 extends javax.swing.JPanel {
         jLabel1.setText("Código de error \"LI-3\"");
         panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
-        cmdok.setBackground(new java.awt.Color(48, 170, 63));
+        cmdok.setBackground(new java.awt.Color(95, 171, 211));
         cmdok.setBorder(null);
         cmdok.setForeground(new java.awt.Color(255, 255, 255));
         cmdok.setText("Ok");
