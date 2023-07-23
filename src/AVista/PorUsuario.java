@@ -381,9 +381,11 @@ public class PorUsuario extends javax.swing.JFrame {
             ps.setString(1,cryp.encrypt( txtNueva.getText(), "key"));
             ps.setString(2, txtUser.getText());
             ps.executeUpdate();
+            
         Login newFrame = new Login();
         newFrame.setVisible(true);
         this.dispose();
+        
             CódigoErrorDSI4 obj = new CódigoErrorDSI4();
                     obj.eventOK(new ActionListener() {
             @Override
@@ -391,7 +393,7 @@ public class PorUsuario extends javax.swing.JFrame {
                 GlassPanePopup.closePopupLast();
             }
         });
-        
+        GlassPanePopup.showPopup(obj);
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.toString());
         }
@@ -424,6 +426,10 @@ public class PorUsuario extends javax.swing.JFrame {
                     txtNueva.setEnabled(true);
                     txtNueva2.setEnabled(true);
                     btnCambiar.setEnabled(true);
+                    txtUser.setEnabled(false);
+                    btnEnviar.setEnabled(false);
+                    btnVeri.setEnabled(false);
+                    txtCod.setEnabled(false);
                 } else {
                     CodigoErrorDRC3 obj = new CodigoErrorDRC3();
         obj.eventOK(new ActionListener() {

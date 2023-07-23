@@ -62,7 +62,7 @@ public class NuevaContra extends javax.swing.JFrame {
         panelRound1 = new Design.PanelRound();
         lbUs1 = new javax.swing.JLabel();
         lbCod = new javax.swing.JLabel();
-        buttonGradient1 = new Design.ButtonGradient();
+        btnCambiar = new Design.ButtonGradient();
         txtNueva = new Design.PasswordField();
         txtNueva2 = new Design.PasswordField();
         jLabel6 = new javax.swing.JLabel();
@@ -90,14 +90,14 @@ public class NuevaContra extends javax.swing.JFrame {
         lbCod.setText("Confirmar Contraseña");
         panelRound1.add(lbCod, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 180, 30));
 
-        buttonGradient1.setText("Cambiar Contraseña");
-        buttonGradient1.setColor1(new java.awt.Color(255, 255, 255));
-        buttonGradient1.addActionListener(new java.awt.event.ActionListener() {
+        btnCambiar.setText("Cambiar Contraseña");
+        btnCambiar.setColor1(new java.awt.Color(255, 255, 255));
+        btnCambiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonGradient1ActionPerformed(evt);
+                btnCambiarActionPerformed(evt);
             }
         });
-        panelRound1.add(buttonGradient1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 210, 40));
+        panelRound1.add(btnCambiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 210, 40));
 
         txtNueva.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 250, -1));
@@ -157,7 +157,7 @@ public void act() throws Exception{
         }
     }
     
-    private void buttonGradient1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGradient1ActionPerformed
+    private void btnCambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarActionPerformed
                if (txtNueva.getText().equals(txtNueva2.getText())) {
                 try {
                     act();
@@ -176,7 +176,7 @@ public void act() throws Exception{
         GlassPanePopup.showPopup(obj);
             }        // TODO add your handling code here:
             
-    }//GEN-LAST:event_buttonGradient1ActionPerformed
+    }//GEN-LAST:event_btnCambiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -214,7 +214,7 @@ public void act() throws Exception{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Design.ButtonGradient buttonGradient1;
+    private Design.ButtonGradient btnCambiar;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel lbCod;
     private javax.swing.JLabel lbUs1;
