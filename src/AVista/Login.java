@@ -41,8 +41,7 @@ public class Login extends javax.swing.JFrame {
     Fuentes tipoFuente;
     Desg dsg = new Desg();
     Crypt cryp = new Crypt();
-    
-    private int elpepe;
+
     private int idTipoU;
     private int idUs;
     private int idCuenta;
