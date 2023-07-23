@@ -100,13 +100,14 @@ public class AsistenteDoc extends javax.swing.JPanel {
         jLabel2.setText("ASISTENTES A CARGO");
         PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 60, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Nombre del asistente:");
         PCont.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 200, 40));
 
         txtBusq.setBackground(new java.awt.Color(202, 233, 255));
         txtBusq.setForeground(new java.awt.Color(0, 0, 0));
+        txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
         PCont.add(txtBusq, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 640, 50));
 
         btnEliminar.setText("Eliminar");

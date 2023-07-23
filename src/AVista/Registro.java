@@ -138,14 +138,14 @@ public class Registro extends javax.swing.JFrame {
                 btnRegistrarActionPerformed(evt);
             }
         });
-        panelRound2.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 220, 100, 30));
+        panelRound2.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 220, 120, 30));
 
         lbFalso.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbFalso.setForeground(new java.awt.Color(0, 0, 0));
         lbFalso.setText("Correo electrónico falso");
         panelRound2.add(lbFalso, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 150, -1));
 
-        txtTeléfono.setShadowColor(new java.awt.Color(153, 0, 153));
+        txtTeléfono.setShadowColor(new java.awt.Color(0, 0, 51));
         txtTeléfono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTeléfonoActionPerformed(evt);
@@ -158,7 +158,7 @@ public class Registro extends javax.swing.JFrame {
         });
         panelRound2.add(txtTeléfono, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, 180, -1));
 
-        txtUsuario.setShadowColor(new java.awt.Color(153, 0, 153));
+        txtUsuario.setShadowColor(new java.awt.Color(0, 0, 51));
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsuarioActionPerformed(evt);
@@ -177,7 +177,7 @@ public class Registro extends javax.swing.JFrame {
         });
         panelRound2.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 210, -1));
 
-        txtCorreo.setShadowColor(new java.awt.Color(153, 0, 153));
+        txtCorreo.setShadowColor(new java.awt.Color(0, 0, 51));
         txtCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCorreoActionPerformed(evt);
@@ -193,7 +193,7 @@ public class Registro extends javax.swing.JFrame {
         });
         panelRound2.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 210, -1));
 
-        txtContra.setShadowColor(new java.awt.Color(153, 0, 153));
+        txtContra.setShadowColor(new java.awt.Color(0, 0, 51));
         txtContra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtContraActionPerformed(evt);
@@ -206,6 +206,7 @@ public class Registro extends javax.swing.JFrame {
         });
         panelRound2.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 180, -1));
 
+        cbCargo.setForeground(new java.awt.Color(0, 0, 0));
         cbCargo.setLabeText("Nivel de Usuario");
         cbCargo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -143,16 +143,22 @@ public class insertUs extends javax.swing.JPanel {
         lbDisp.setText("Usuario no disponible");
         panelRound1.add(lbDisp, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 190, 30));
 
+        txtUsuario.setShadowColor(new java.awt.Color(0, 0, 51));
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsuarioActionPerformed(evt);
             }
         });
         panelRound1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 240, 50));
+
+        txtCorreo.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 240, 50));
+
+        txtTel.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 230, 290, 50));
 
         txtContra.setText("passwordField1");
+        txtContra.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 90, 300, 50));
 
         btnConfirm.setText("Confirmar");

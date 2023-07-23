@@ -71,22 +71,91 @@ public class CRUDTipoAnim extends javax.swing.JPanel {
     private void initComponents() {
 
         PCont = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tbData = new SwingTable.Table();
         txtNC = new Design.TextFieldSV();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtNP = new Design.TextFieldSV();
-        jLabel1 = new javax.swing.JLabel();
         txtBusq = new Design.TextFieldSV();
         btnLimp = new Design.ButtonGradient();
         btnEliminar = new Design.ButtonGradient();
         btnAct = new Design.ButtonGradient();
         btnAgregar = new Design.ButtonGradient();
+        panelRound1 = new Design.PanelRound();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbData = new SwingTable.Table();
+        jLabel1 = new javax.swing.JLabel();
 
         PCont.setBackground(new java.awt.Color(255, 255, 255));
         PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        txtNC.setBackground(new java.awt.Color(202, 233, 255));
+        txtNC.setShadowColor(new java.awt.Color(0, 0, 51));
+        PCont.add(txtNC, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 300, 310, -1));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("Nombre científico del animal");
+        PCont.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 260, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Nombre popular del animal");
+        PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 150, -1, -1));
+
+        txtNP.setBackground(new java.awt.Color(202, 233, 255));
+        txtNP.setShadowColor(new java.awt.Color(0, 0, 51));
+        PCont.add(txtNP, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 190, 310, -1));
+
+        txtBusq.setBackground(new java.awt.Color(202, 233, 255));
+        txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBusqKeyReleased(evt);
+            }
+        });
+        PCont.add(txtBusq, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 470, -1));
+
+        btnLimp.setText("Limpiar");
+        btnLimp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpActionPerformed(evt);
+            }
+        });
+        PCont.add(btnLimp, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 60, 110, 40));
+
+        btnEliminar.setText("Eliminar");
+        btnEliminar.setToolTipText("");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+        PCont.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 450, 110, 40));
+
+        btnAct.setText("Actualizar");
+        btnAct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActActionPerformed(evt);
+            }
+        });
+        PCont.add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 450, 110, 40));
+
+        btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
+        PCont.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 450, 110, 40));
+
+        panelRound1.setBackground(new java.awt.Color(202, 233, 255));
+        panelRound1.setRoundBottomLeft(50);
+        panelRound1.setRoundBottomRight(50);
+        panelRound1.setRoundTopLeft(50);
+        panelRound1.setRoundTopRight(50);
+        panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tbData.setBackground(new java.awt.Color(255, 255, 255));
         tbData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
@@ -114,67 +183,14 @@ public class CRUDTipoAnim extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tbData);
 
-        PCont.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 137, 780, 610));
+        panelRound1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 780, 360));
 
-        txtNC.setShadowColor(new java.awt.Color(153, 0, 153));
-        PCont.add(txtNC, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 300, 310, -1));
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel4.setText("Nombre científico del animal");
-        PCont.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 260, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel2.setText("Nombre popular del animal");
-        PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 150, -1, -1));
-
-        txtNP.setShadowColor(new java.awt.Color(153, 0, 153));
-        PCont.add(txtNP, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 190, 310, -1));
+        PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 830, 420));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setText("Animal");
-        PCont.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 60, -1, -1));
-
-        txtBusq.setShadowColor(new java.awt.Color(153, 0, 153));
-        txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtBusqKeyReleased(evt);
-            }
-        });
-        PCont.add(txtBusq, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 470, -1));
-
-        btnLimp.setText("Limpiar");
-        btnLimp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpActionPerformed(evt);
-            }
-        });
-        PCont.add(btnLimp, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 40, 110, 40));
-
-        btnEliminar.setText("Eliminar");
-        btnEliminar.setToolTipText("");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
-            }
-        });
-        PCont.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 450, 110, 40));
-
-        btnAct.setText("Actualizar");
-        btnAct.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActActionPerformed(evt);
-            }
-        });
-        PCont.add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 450, 110, 40));
-
-        btnAgregar.setText("Agregar");
-        btnAgregar.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarActionPerformed(evt);
-            }
-        });
-        PCont.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 450, 110, 40));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Animal:");
+        PCont.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -285,6 +301,7 @@ public class CRUDTipoAnim extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private Design.PanelRound panelRound1;
     private SwingTable.Table tbData;
     private Design.TextFieldSV txtBusq;
     private Design.TextFieldSV txtNC;

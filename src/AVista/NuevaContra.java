@@ -98,7 +98,11 @@ public class NuevaContra extends javax.swing.JFrame {
             }
         });
         panelRound1.add(buttonGradient1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 210, 40));
+
+        txtNueva.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 250, -1));
+
+        txtNueva2.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtNueva2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 250, -1));
 
         panelRound2.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 580, 270));

@@ -156,18 +156,24 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Nombres");
         panelRound1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 100, 30));
+
+        txtNombre.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 314, 55));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Número de DUI");
         panelRound1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 150, 30));
+
+        txtApellidos.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, 299, 54));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Apellidos");
         panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, 100, 30));
+
+        txtDir.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, 299, 52));
 
         lbDir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -180,6 +186,8 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Nacimiento");
         panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, 150, 30));
+
+        txtDui.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtDui, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 314, 53));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N

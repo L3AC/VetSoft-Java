@@ -152,7 +152,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="560" y="220" width="100" height="30"/>
+                  <AbsoluteConstraints x="510" y="220" width="120" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -175,7 +175,7 @@
             <Component class="Design.TextFieldSV" name="txtTel&#xe9;fono">
               <Properties>
                 <Property name="shadowColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="99" green="0" red="99" type="rgb"/>
+                  <Color blue="33" green="0" red="0" type="rgb"/>
                 </Property>
               </Properties>
               <Events>
@@ -191,7 +191,7 @@
             <Component class="Design.TextFieldSV" name="txtUsuario">
               <Properties>
                 <Property name="shadowColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="99" green="0" red="99" type="rgb"/>
+                  <Color blue="33" green="0" red="0" type="rgb"/>
                 </Property>
               </Properties>
               <Events>
@@ -209,7 +209,7 @@
             <Component class="Design.TextFieldSV" name="txtCorreo">
               <Properties>
                 <Property name="shadowColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="99" green="0" red="99" type="rgb"/>
+                  <Color blue="33" green="0" red="0" type="rgb"/>
                 </Property>
               </Properties>
               <Events>
@@ -226,7 +226,7 @@
             <Component class="Design.PasswordField" name="txtContra">
               <Properties>
                 <Property name="shadowColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="99" green="0" red="99" type="rgb"/>
+                  <Color blue="33" green="0" red="0" type="rgb"/>
                 </Property>
               </Properties>
               <Events>
@@ -241,6 +241,9 @@
             </Component>
             <Component class="Design.Combobox" name="cbCargo">
               <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="0" type="rgb"/>
+                </Property>
                 <Property name="labeText" type="java.lang.String" value="Nivel de Usuario"/>
               </Properties>
               <Events>

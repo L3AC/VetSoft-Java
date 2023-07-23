@@ -248,7 +248,11 @@ public class insertCita extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Nota del doctor");
         panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 150, 30));
+
+        txtNotaCl.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtNotaCl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 920, 50));
+
+        txtNotaD.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtNotaD, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, 920, 50));
 
         lbEsp2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N

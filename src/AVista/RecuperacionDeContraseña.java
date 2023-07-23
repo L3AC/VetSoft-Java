@@ -105,10 +105,10 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
 
         panelRound2.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 530, 231));
 
-        LBRecup.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        LBRecup.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         LBRecup.setForeground(new java.awt.Color(27, 73, 101));
         LBRecup.setText("Recuperación de Contraseña");
-        panelRound2.add(LBRecup, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 321, -1));
+        panelRound2.add(LBRecup, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 340, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {

@@ -149,8 +149,14 @@ public class updtUsuario extends javax.swing.JPanel {
         lbDisp.setForeground(new java.awt.Color(0, 0, 0));
         lbDisp.setText("Usuario no disponible");
         panelRound1.add(lbDisp, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 190, 30));
+
+        txtUsuario.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 230, 50));
+
+        txtTel.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 230, 50));
+
+        txtCorreo.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 70, 230, 50));
 
         javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);

@@ -134,6 +134,8 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         panelRound1.setRoundTopLeft(50);
         panelRound1.setRoundTopRight(50);
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtApellidos.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, 290, 49));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -151,12 +153,16 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Nombres");
         panelRound1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 100, 30));
+
+        txtNombre.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 293, 51));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Número de DUI");
         panelRound1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 150, -1));
+
+        txtDui.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtDui, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 234, 51));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -168,6 +174,8 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         cbSexo.setForeground(new java.awt.Color(0, 0, 0));
         cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femenino", "Masculino" }));
         panelRound1.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 200, 40));
+
+        txtDir.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, 290, 51));
 
         lbDir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N

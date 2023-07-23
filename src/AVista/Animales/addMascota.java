@@ -142,9 +142,11 @@ public class addMascota extends javax.swing.JPanel {
         panelRound1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 100, 30));
 
         txtNombre.setForeground(new java.awt.Color(0, 0, 0));
+        txtNombre.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 250, 50));
 
         txtPeso.setForeground(new java.awt.Color(0, 0, 0));
+        txtPeso.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 190, 50));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -158,6 +160,7 @@ public class addMascota extends javax.swing.JPanel {
         panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, 150, 30));
 
         txtPad.setForeground(new java.awt.Color(0, 0, 0));
+        txtPad.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtPad, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 260, 50));
 
         btnConfirm.setText("Confirmar");

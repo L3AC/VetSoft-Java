@@ -101,7 +101,9 @@ public class PorUsuario extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
+        BtnRegresar1.setBackground(new java.awt.Color(255, 255, 255));
         BtnRegresar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
+        BtnRegresar1.setBorder(null);
         BtnRegresar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnRegresar1ActionPerformed(evt);
@@ -109,6 +111,7 @@ public class PorUsuario extends javax.swing.JFrame {
         });
 
         lbMayor.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        lbMayor.setForeground(new java.awt.Color(27, 73, 101));
         lbMayor.setText("Recuperación de contraseña por usuario");
 
         panelRound1.setBackground(new java.awt.Color(202, 233, 255));
@@ -170,6 +173,7 @@ public class PorUsuario extends javax.swing.JFrame {
         });
         panelRound1.add(btnCambiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 170, 30));
 
+        txtUser.setShadowColor(new java.awt.Color(0, 0, 51));
         txtUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUserActionPerformed(evt);
@@ -182,6 +186,7 @@ public class PorUsuario extends javax.swing.JFrame {
         });
         panelRound1.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 180, -1));
 
+        txtCod.setShadowColor(new java.awt.Color(0, 0, 51));
         txtCod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCodActionPerformed(evt);
@@ -189,6 +194,7 @@ public class PorUsuario extends javax.swing.JFrame {
         });
         panelRound1.add(txtCod, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 180, -1));
 
+        txtNueva.setShadowColor(new java.awt.Color(0, 0, 51));
         txtNueva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNuevaActionPerformed(evt);
@@ -201,6 +207,7 @@ public class PorUsuario extends javax.swing.JFrame {
         });
         panelRound1.add(txtNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, 180, -1));
 
+        txtNueva2.setShadowColor(new java.awt.Color(0, 0, 51));
         txtNueva2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNueva2ActionPerformed(evt);

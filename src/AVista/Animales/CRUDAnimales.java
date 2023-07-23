@@ -109,6 +109,7 @@ public class CRUDAnimales extends javax.swing.JPanel {
         });
 
         txtBusq.setBackground(new java.awt.Color(202, 233, 255));
+        txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
         txtBusq.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBusqActionPerformed(evt);
@@ -148,7 +149,7 @@ public class CRUDAnimales extends javax.swing.JPanel {
 
         btnVac.setText("Vacunaciones");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Nombre del dueño:");
 
