@@ -32,8 +32,13 @@ public class CRUDAsistente extends javax.swing.JPanel {
         this.idTipoUs = idTipoUs;
         initComponents();
         loadD();
-        
-        txtBusq.setDocument(new Valida(100, "[a-zA-Z]*"));
+        if(idTipoUs==1){
+            
+        }
+        else{
+            btnEditar.setVisible(false);
+            btnEliminar.setVisible(false);
+        }
         
     }
 
@@ -136,7 +141,7 @@ public class CRUDAsistente extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Nombre del asistente:");
+        jLabel1.setText("Nombre del doctor a cargo:");
 
         javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
         PCont.setLayout(PContLayout);
@@ -152,9 +157,9 @@ public class CRUDAsistente extends javax.swing.JPanel {
                 .addGap(41, 41, 41))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PContLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 681, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(257, 257, 257))
         );
         PContLayout.setVerticalGroup(
