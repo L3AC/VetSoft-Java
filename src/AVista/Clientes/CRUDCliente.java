@@ -27,7 +27,12 @@ public class CRUDCliente extends javax.swing.JPanel {
         this.nUs = nUs;
         initComponents();
         loadD();
-        txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9]*"));
+        if(nUs==4||nUs==5){
+            btnEditar.setVisible(false);
+            btnEliminar.setVisible(false);
+            btnReservas.setVisible(false);
+        }
+        
     }
 
     public CRUDCliente() throws SQLException {

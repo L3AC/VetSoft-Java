@@ -31,7 +31,7 @@ public class CREARasistente extends javax.swing.JPanel {
     private int idUsAsis;
     private int idTipoUs;
     private int idCuenta;
-    
+
     Desg dsg = new Desg();
     DefaultTableModel model;
 
@@ -40,12 +40,11 @@ public class CREARasistente extends javax.swing.JPanel {
         initComponents();
         loadD();
         lbVerif.setVisible(false);
-        
-        txtBusq.setDocument(new Valida(30, "[a-zA-Z]*"));
+
         txtNombre.setDocument(new Valida(50, "[a-zA-Z]*"));
         txtDui.setDocument(new Valida(10, "[0-9]*"));
         txtApellidos.setDocument(new Valida(50, "[a-zA-Z]*"));
-                verifPerfil();
+        verifPerfil();
     }
 
     final void loadD() throws SQLException {
@@ -74,7 +73,7 @@ public class CREARasistente extends javax.swing.JPanel {
                 model.addRow(oValores);
             }
         } catch (Exception e) {
-               System.out.println(e.toString());
+            System.out.println(e.toString());
         }
     }
 
@@ -237,7 +236,7 @@ public class CREARasistente extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         try {
-            CRUDDoctores subp=new CRUDDoctores(idTipoUs);
+            CRUDDoctores subp = new CRUDDoctores(idTipoUs);
             dsg.ShowPanel(subp, PCont, 1320, 810);
         } catch (SQLException ex) {
             Logger.getLogger(CREARasistente.class.getName()).log(Level.SEVERE, null, ex);
@@ -254,21 +253,21 @@ public class CREARasistente extends javax.swing.JPanel {
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
-       ctAsistente ct=new ctAsistente();
-       ct.idDoctor=idDoc;
-       ct.idUsuario=Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-       ct.nombre=txtNombre.getText();
-       ct.apellido=txtApellidos.getText();
-       ct.dui=txtDui.getText();
-       ct.nacimiento=dt.format(dpNaci.getCalendar().getTime());
-       ct.sexo=cbSexo.getSelectedItem().toString();
-       ct.insertAsis();
+        ctAsistente ct = new ctAsistente();
+        ct.idDoctor = idDoc;
+        ct.idUsuario = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+        ct.nombre = txtNombre.getText();
+        ct.apellido = txtApellidos.getText();
+        ct.dui = txtDui.getText();
+        ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
+        ct.sexo = cbSexo.getSelectedItem().toString();
+        ct.insertAsis();
     }//GEN-LAST:event_btnConfirmActionPerformed
-    
+
     final void verifPerfil() throws SQLException {
         ctAsistente ctAs = new ctAsistente();
         ctAs.idUsuario = idUsAsis = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-        
+
         List<Component> lista = new ArrayList<>();
         lista.add(lbNom);
         lista.add(lbApell);
