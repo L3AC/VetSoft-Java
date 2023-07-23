@@ -35,6 +35,7 @@ public class Dashboard extends javax.swing.JFrame {
     private int idUs;
     private int idCuenta;
     Desg dsg = new Desg();
+    String hola;
 
     public Dashboard() {
         initComponents();
