@@ -68,6 +68,8 @@ public class addMascota extends javax.swing.JPanel {
         txtPad = new Design.TextFieldSV();
         btnConfirm = new Design.ButtonGradient();
 
+        setPreferredSize(new java.awt.Dimension(1320, 810));
+
         PCont.setBackground(new java.awt.Color(255, 255, 255));
         PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
