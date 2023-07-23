@@ -32,16 +32,12 @@ public class CRUDDoctores extends javax.swing.JPanel {
         if (idTipoUs == 1) {//ADMIN
            
         }
-        if (idTipoUs == 2 || idTipoUs == 5) {//RECEPCIONISTA Y ASISTENTE
+        if (idTipoUs == 2 || idTipoUs==4||idTipoUs == 5) {//RECEPCIONISTA Y ASISTENTE
             btnAdd.setVisible(false);
             btnEditar.setVisible(false);
             btnEliminar.setVisible(false);
         }
-        if (idTipoUs == 4) {//DOCTOR
-            btnAdd.setVisible(false);
-            btnEditar.setVisible(false);
-            btnEliminar.setVisible(false);
-        }
+
 
         txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9]*"));
         
