@@ -15,12 +15,12 @@ import java.sql.*;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 
 
-public class mdUser {
-
+public class mdUser extends JFrame{
     Connection con = Conx.Conectar();
     Crypt cripto = new Crypt();
     PreparedStatement ps;
