@@ -52,7 +52,7 @@ public class CódigoErrorDRC4 extends javax.swing.JPanel {
         txt.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         txt.setForeground(new java.awt.Color(133, 133, 133));
         txt.setText("“La contraseña no es igual”");
-        panelRound1.add(txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
+        panelRound1.add(txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, -1));
 
         boton1.setBackground(new java.awt.Color(48, 170, 63));
         boton1.setBorder(null);
@@ -61,7 +61,12 @@ public class CódigoErrorDRC4 extends javax.swing.JPanel {
         boton1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         boton1.setMaximumSize(new java.awt.Dimension(29, 34));
         boton1.setMinimumSize(new java.awt.Dimension(29, 34));
-        panelRound1.add(boton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 70, 30));
+        boton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton1ActionPerformed(evt);
+            }
+        });
+        panelRound1.add(boton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 70, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -74,6 +79,10 @@ public class CódigoErrorDRC4 extends javax.swing.JPanel {
             .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void boton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
