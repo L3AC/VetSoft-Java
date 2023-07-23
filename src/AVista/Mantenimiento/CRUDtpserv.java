@@ -37,19 +37,18 @@ public class CRUDtpserv extends javax.swing.JPanel {
     public CRUDtpserv(int idTipoUs) throws SQLException {
         this.idTipoUs = idTipoUs;
         initComponents();
+        txtServ.setDocument(new Valida(50, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
+        txtCosto.setDocument(new Valida(50, "[0-9.]*"));
         loadD();
         loadCombo(cbNivelS);
         setData();
-        txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9 ]*"));
-        txtServ.setDocument(new Valida(50, "[a-zA-Z0-9 ]*"));
-        txtCosto.setDocument(new Valida(50, "[0-9]*"));
     }
 
     final void loadD() throws SQLException {
         String[] column = {"idTipoServicio", "idNIvelServicio", "Prioridad", "Nombre", "Costo"};
         model = new DefaultTableModel(null, column);
-        dsg.ColumnHide(model, tbData, 0, 2);
-        dsg.ColumnHide(model, tbData, 1, 2);
+        dsg.ColumnHide(model, tbData, 0, 5);
+        dsg.ColumnHide(model, tbData, 1, 5);
         CargarTabla();
         if (tbData.getRowCount() > 0) {
             tbData.setRowSelectionInterval(0, 0);
@@ -90,9 +89,15 @@ public class CRUDtpserv extends javax.swing.JPanel {
     }
 
     final void setData() {
-        cbNivelS.setSelectedItem(tbData.getValueAt(tbData.getSelectedRow(), 2).toString());
         txtServ.setText(tbData.getValueAt(tbData.getSelectedRow(), 3).toString());
         txtCosto.setText(tbData.getValueAt(tbData.getSelectedRow(), 4).toString());
+        cbNivelS.setSelectedItem(tbData.getValueAt(tbData.getSelectedRow(), 2).toString());
+    }
+
+    final void cleanData() {
+        cbNivelS.setSelectedIndex(-1);
+        txtServ.setText(null);
+        txtCosto.setText(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -239,7 +244,7 @@ public class CRUDtpserv extends javax.swing.JPanel {
             if (dsg.areFieldsNotEmpty(lista)) {//VERIFICAR QUE NO ESTE VACIO
                 ctTipoServ ct = new ctTipoServ();
                 ct.idNivelServ = dsg.getMap(cbMapNPS, cbNivelS.getSelectedItem().toString());;
-                ct.Nombre = txtBusq.getText();
+                ct.Nombre = txtServ.getText();
                 ct.Costo = Float.parseFloat(txtCosto.getText());
                 ct.insertServ();
                 loadD();
@@ -253,8 +258,7 @@ public class CRUDtpserv extends javax.swing.JPanel {
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnLimpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpActionPerformed
-        txtServ.setText(null);
-        txtCosto.setText(null);
+        cleanData();
     }//GEN-LAST:event_btnLimpActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -306,7 +310,7 @@ public class CRUDtpserv extends javax.swing.JPanel {
                 ctTipoServ ct = new ctTipoServ();
                 ct.idTipoServ = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
                 ct.idNivelServ = dsg.getMap(cbMapNPS, cbNivelS.getSelectedItem().toString());;
-                ct.Nombre = txtBusq.getText();
+                ct.Nombre = txtServ.getText();
                 ct.Costo = Float.parseFloat(txtCosto.getText());
                 ct.updtServ();
                 loadD();
