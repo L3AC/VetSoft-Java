@@ -67,7 +67,6 @@ public class CRUDAnimales extends javax.swing.JPanel {
     private void initComponents() {
 
         PCont = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         btnEmergen = new Design.ButtonGradient();
         btnAgendar = new Design.ButtonGradient();
         btnReservas3 = new Design.ButtonGradient();
@@ -78,11 +77,11 @@ public class CRUDAnimales extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbData = new SwingTable.Table();
         btnVac = new Design.ButtonGradient();
+        jLabel2 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setText("Nombre del dueño");
+        PCont.setBackground(new java.awt.Color(255, 255, 255));
 
         btnEmergen.setText("Emergencia");
 
@@ -109,6 +108,7 @@ public class CRUDAnimales extends javax.swing.JPanel {
             }
         });
 
+        txtBusq.setBackground(new java.awt.Color(202, 233, 255));
         txtBusq.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBusqActionPerformed(evt);
@@ -121,12 +121,11 @@ public class CRUDAnimales extends javax.swing.JPanel {
         });
 
         panelRound1.setBackground(new java.awt.Color(202, 233, 255));
-        panelRound1.setRoundBottomLeft(50);
-        panelRound1.setRoundBottomRight(50);
         panelRound1.setRoundTopLeft(50);
         panelRound1.setRoundTopRight(50);
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tbData.setBackground(new java.awt.Color(255, 255, 255));
         tbData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -149,16 +148,20 @@ public class CRUDAnimales extends javax.swing.JPanel {
 
         btnVac.setText("Vacunaciones");
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Nombre del dueño:");
+
         javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
         PCont.setLayout(PContLayout);
         PContLayout.setHorizontalGroup(
             PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PContLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
+                .addGap(109, 109, 109)
+                .addComponent(jLabel2)
+                .addGap(27, 27, 27)
                 .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(122, 122, 122)
+                .addGap(123, 123, 123)
                 .addComponent(btnEmergen, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(PContLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
@@ -174,16 +177,12 @@ public class CRUDAnimales extends javax.swing.JPanel {
         PContLayout.setVerticalGroup(
             PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PContLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(57, 57, 57)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEmergen, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jLabel1))
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(btnEmergen, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(59, 59, 59)
+                    .addComponent(jLabel2))
+                .addGap(52, 52, 52)
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PContLayout.createSequentialGroup()
@@ -281,7 +280,7 @@ public class CRUDAnimales extends javax.swing.JPanel {
     private Design.ButtonGradient btnEmergen;
     private Design.ButtonGradient btnReservas3;
     private Design.ButtonGradient btnVac;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private Design.PanelRound panelRound1;
     private SwingTable.Table tbData;

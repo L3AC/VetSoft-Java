@@ -235,6 +235,7 @@ public class insertCita extends javax.swing.JPanel {
 
         cbHora.setBackground(new java.awt.Color(255, 255, 255));
         cbHora.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        cbHora.setForeground(new java.awt.Color(0, 0, 0));
         cbHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "7:00", "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00" }));
         cbHora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -277,7 +278,7 @@ public class insertCita extends javax.swing.JPanel {
                 btnConfirmActionPerformed(evt);
             }
         });
-        PCont.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 670, 150, 60));
+        PCont.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 670, 150, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

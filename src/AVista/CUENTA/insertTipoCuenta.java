@@ -131,6 +131,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         btnBack.setBackground(new java.awt.Color(255, 255, 255));
         btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
+        btnBack.setBorder(null);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -187,6 +188,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 100, 30));
 
         cbSexo.setBackground(new java.awt.Color(255, 255, 255));
+        cbSexo.setForeground(new java.awt.Color(0, 0, 0));
         cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femenino", "Masculino" }));
         panelRound1.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 200, 40));
 

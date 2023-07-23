@@ -72,6 +72,7 @@ public class addMascota extends javax.swing.JPanel {
 
         btnBack.setBackground(new java.awt.Color(255, 255, 255));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
+        btnBack.setBorder(null);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -89,7 +90,14 @@ public class addMascota extends javax.swing.JPanel {
         panelRound1.setRoundTopRight(50);
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        cbSexo.setBackground(new java.awt.Color(255, 255, 255));
+        cbSexo.setForeground(new java.awt.Color(0, 0, 0));
         cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hembra", "Macho" }));
+        cbSexo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbSexoActionPerformed(evt);
+            }
+        });
         panelRound1.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 220, 40));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -98,6 +106,7 @@ public class addMascota extends javax.swing.JPanel {
         panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 100, 30));
 
         cbRaza.setBackground(new java.awt.Color(255, 255, 255));
+        cbRaza.setForeground(new java.awt.Color(0, 0, 0));
         panelRound1.add(cbRaza, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, 240, 40));
 
         lbEsp.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -106,6 +115,7 @@ public class addMascota extends javax.swing.JPanel {
         panelRound1.add(lbEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 40, -1));
 
         cbTipoA.setBackground(new java.awt.Color(255, 255, 255));
+        cbTipoA.setForeground(new java.awt.Color(0, 0, 0));
         cbTipoA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbTipoAActionPerformed(evt);
@@ -130,7 +140,11 @@ public class addMascota extends javax.swing.JPanel {
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Nombre");
         panelRound1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 100, 30));
+
+        txtNombre.setForeground(new java.awt.Color(0, 0, 0));
         panelRound1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 250, 50));
+
+        txtPeso.setForeground(new java.awt.Color(0, 0, 0));
         panelRound1.add(txtPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 190, 50));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -142,6 +156,8 @@ public class addMascota extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Padecimientos");
         panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, 150, 30));
+
+        txtPad.setForeground(new java.awt.Color(0, 0, 0));
         panelRound1.add(txtPad, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 260, 50));
 
         btnConfirm.setText("Confirmar");
@@ -254,6 +270,10 @@ public class addMascota extends javax.swing.JPanel {
         
         
     }//GEN-LAST:event_btnConfirmActionPerformed
+
+    private void cbSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSexoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbSexoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

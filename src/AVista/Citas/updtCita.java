@@ -92,6 +92,7 @@ public class updtCita extends javax.swing.JPanel {
 
         btnBack.setBackground(new java.awt.Color(255, 255, 255));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
+        btnBack.setBorder(null);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -182,6 +183,7 @@ public class updtCita extends javax.swing.JPanel {
 
         cbHora.setBackground(new java.awt.Color(255, 255, 255));
         cbHora.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        cbHora.setForeground(new java.awt.Color(0, 0, 0));
         cbHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "7:00:00", "8:00:00", "9:00:00", "10:00:00", "11:00:00", "12:00:00", "13:00:00", "14:00:00", "15:00:00", "16:00:00", "17:00:00", "18:00:00", "19:00:00", "20:00:00", "21:00:00" }));
         cbHora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
