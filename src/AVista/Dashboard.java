@@ -300,10 +300,10 @@ public class Dashboard extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
 
-        body.setBackground(new java.awt.Color(204, 204, 204));
+        body.setBackground(new java.awt.Color(255, 255, 255));
         body.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        PanelMenu.setBackground(new java.awt.Color(95, 171, 211));
+        PanelMenu.setBackground(new java.awt.Color(255, 255, 255));
         PanelMenu.setForeground(new java.awt.Color(255, 255, 255));
         PanelMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
