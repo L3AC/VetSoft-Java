@@ -11,9 +11,9 @@ public class mdCitas {
 
     public ResultSet citaOther(String cliente) {
         String query = "SET LANGUAGE Spanish\n"
-       + "select idCita, c.idAnimal,Estado,CONCAT(CONVERT(varchar, fecha, 100),' ',CONVERT(varchar, hora, 100)) as 'Fecha',a.Nombre as 'Mascota',CONCAT(cl.Nombre,' ',cl.Apellido) as 'Dueño',CONCAT(d.Nombre,' ',d.Apellido) as 'Doctor'\n"
-       + "from tbCitas c, tbAnimales a,tbDoctores d,tbClientes cl where c.idAnimal=a.idAnimal and c.idDoctor=d.idDoctor and cl.idCliente=a.idCliente and Estado='Aceptada' and 'Dueño' like ? \n"
-       + "or cl.idCliente=a.idCliente and c.idAnimal=a.idAnimal and c.idDoctor=d.idDoctor and Estado='Pendiente' and 'Dueño' like ?;";
+                + "select idCita, c.idAnimal,Estado,CONCAT(CONVERT(varchar, fecha, 100),' ',CONVERT(varchar, hora, 100)) as 'Fecha',a.Nombre as 'Mascota',CONCAT(cl.Nombre,' ',cl.Apellido) as 'Dueño',CONCAT(d.Nombre,' ',d.Apellido) as 'Doctor'\n"
+                + "from tbCitas c, tbAnimales a,tbDoctores d,tbClientes cl where c.idAnimal=a.idAnimal and c.idDoctor=d.idDoctor and cl.idCliente=a.idCliente and Estado='Aceptada' and CONCAT(cl.Nombre,' ',cl.Apellido) like ?\n"
+                + "or cl.idCliente=a.idCliente and c.idAnimal=a.idAnimal and c.idDoctor=d.idDoctor and Estado='Pendiente' and CONCAT(cl.Nombre,' ',cl.Apellido) like ?;";
         try {
             ps = con.prepareStatement(query);
             ps.setString(1, "%" + cliente + "%");
@@ -32,8 +32,8 @@ public class mdCitas {
         String query = "SET LANGUAGE Spanish\n"
                 + "select idCita, c.idAnimal,Estado,CONCAT(CONVERT(varchar, fecha, 100),' ',CONVERT(varchar, hora, 100)) as 'Fecha',a.Nombre as 'Mascota',CONCAT(cl.Nombre,' ',cl.Apellido) as 'Dueño',CONCAT(d.Nombre,' ',d.Apellido) as 'Doctor'\n"
                 + "from tbCitas c, tbAnimales a,tbDoctores d,tbClientes cl where c.idAnimal=a.idAnimal and c.idDoctor=d.idDoctor and cl.idCliente=a.idCliente and \n"
-                + "Estado='Aceptada' and 'Dueño' like ? and c.idDoctor=? or cl.idCliente=a.idCliente and c.idAnimal=a.idAnimal and c.idDoctor=d.idDoctor and \n"
-                + "Estado='Pendiente' and 'Dueño' like ? and c.idDoctor=?;";
+                + "Estado='Aceptada' and CONCAT(cl.Nombre,' ',cl.Apellido) like ? and c.idDoctor=? or cl.idCliente=a.idCliente and c.idAnimal=a.idAnimal and c.idDoctor=d.idDoctor and \n"
+                + "Estado='Pendiente' and CONCAT(cl.Nombre,' ',cl.Apellido) like ? and c.idDoctor=?;";
         try {
             ps = con.prepareStatement(query);
             ps.setString(1, "%" + cliente + "%");
@@ -84,13 +84,14 @@ public class mdCitas {
             return false;
         }
     }
+
     public boolean aceptCita(int idC) {
         String query = "update tbCitas set Estado='Aceptada' where idCita=?;";
         try {
             ps = con.prepareStatement(query);
             ps.setInt(1, idC);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Registro eliminado");
+            JOptionPane.showMessageDialog(null, "Cita aceptada");
             return true;
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
@@ -101,7 +102,7 @@ public class mdCitas {
     }
 
     public boolean insertCita(int idAni, int idTS, int idD, String notaCl,
-            String notaDoc, String fecha,String hora) {
+            String notaDoc, String fecha, String hora) {
         String query = "insert into tbCitas values(?,?,?,'Pendiente',?,?,?,?,GETDATE())";
         try {
             ps = con.prepareStatement(query);
@@ -124,8 +125,8 @@ public class mdCitas {
         }
     }
 
-    public boolean updateCita(int idCita, int idTS, int idD, String nCl, 
-            String nDoc, String fecha,String hora) {
+    public boolean updateCita(int idCita, int idTS, int idD, String nCl,
+            String nDoc, String fecha, String hora) {
         String query = "update tbCitas set idTipoServicio=?,idDoctor=?,"
                 + "notaDelCliente=?,notaDelDoctor=?,fecha=?,hora=? where idCita=?;";
         try {
@@ -149,13 +150,13 @@ public class mdCitas {
         }
     }
 
-    public ResultSet verifDisp(int idD, String fecha,String hora) {
+    public ResultSet verifDisp(int idD, String fecha, String hora) {
         String query = "select * from tbCitas c where idDoctor=? and fecha=? and hora=? and estado='Pendiente';";
         try {
             ps = con.prepareStatement(query);
             ps.setInt(1, idD);
             ps.setString(2, fecha);
-             ps.setString(3, hora);
+            ps.setString(3, hora);
             rs = ps.executeQuery();
             return rs;
         } catch (SQLException e) {

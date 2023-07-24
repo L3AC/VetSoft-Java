@@ -206,8 +206,10 @@ public class CRUDCita extends javax.swing.JPanel {
         dsg.ColumnHide(model, tbData, 1, 7);
         if (idTipoUs == 4) {
             docTabla();
+            System.err.println("doc");
         } else {
             otherTabla();
+             System.err.println("oth");
         }
         if (tbData.getRowCount() > 0) {
             tbData.setRowSelectionInterval(0, 0);
@@ -226,6 +228,7 @@ public class CRUDCita extends javax.swing.JPanel {
             ctD.idDoctor = idCuenta;
             ctD.cliente = txtBusq.getText().toString();
             ResultSet rs = ctD.citaDoc();
+            //System.err.println(txtBusq.getText().toString());
             while (rs.next()) {
                 Object[] oValores = {rs.getInt("idCita"), rs.getInt("idAnimal"),
                     rs.getString("Estado"), rs.getString("Fecha"),
@@ -246,7 +249,7 @@ public class CRUDCita extends javax.swing.JPanel {
             ctCitas ctD = new ctCitas();
             ctD.cliente = txtBusq.getText().toString();
             ResultSet rs = ctD.citaOther();
-            System.err.println(txtBusq.getText().toString());
+            
             while (rs.next()) {
                 Object[] oValores = {rs.getInt("idCita"), rs.getInt("idAnimal"),
                     rs.getString("Estado"), rs.getString("Fecha"),
