@@ -4,6 +4,7 @@
  */
 package AVista.Mantenimiento;
 
+
 import AControlador.ctRaza;
 import Design.Desg;
 import Validation.Valida;
@@ -11,6 +12,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -68,9 +71,9 @@ public class CRUDRazas extends javax.swing.JPanel {
 
         textFieldSV1 = new Design.TextFieldSV();
         jLabel1 = new javax.swing.JLabel();
-        buttonGradient1 = new Design.ButtonGradient();
-        buttonGradient2 = new Design.ButtonGradient();
-        buttonGradient3 = new Design.ButtonGradient();
+        btnAgregar = new Design.ButtonGradient();
+        btnEditar = new Design.ButtonGradient();
+        btnEliminar = new Design.ButtonGradient();
         txtBusq = new Design.TextFieldSV();
         panelRound1 = new Design.PanelRound();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -87,11 +90,16 @@ public class CRUDRazas extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Nombre de la Raza");
 
-        buttonGradient1.setText("Agregar");
+        btnAgregar.setText("Agregar");
 
-        buttonGradient2.setText("Editar");
+        btnEditar.setText("Editar");
 
-        buttonGradient3.setText("Eliminar");
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         txtBusq.setBackground(new java.awt.Color(202, 233, 255));
         txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
@@ -166,13 +174,13 @@ public class CRUDRazas extends javax.swing.JPanel {
                     .addComponent(textFieldSV1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(31, 31, 31)
-                        .addComponent(buttonGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(31, 31, 31)
-                        .addComponent(buttonGradient2, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(31, 31, 31)
-                        .addComponent(buttonGradient3, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,11 +206,11 @@ public class CRUDRazas extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(textFieldSV1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(83, 83, 83)
-                        .addComponent(buttonGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(56, 56, 56)
-                        .addComponent(buttonGradient2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(50, 50, 50)
-                        .addComponent(buttonGradient3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -218,11 +226,39 @@ public class CRUDRazas extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBusqActionPerformed
 
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+ UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
+        int opcion = JOptionPane.showOptionDialog(
+                null,
+                "¿Desea eliminar el registro?",
+                "Advertencia",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.WARNING_MESSAGE,
+                null,
+                new Object[]{"Sí", "No"},
+                "No");
+
+        if (opcion == JOptionPane.YES_OPTION) {
+            try {
+                ctRaza ct = new ctRaza();
+                ct.idRaza = Integer.parseInt(tbRaza.getValueAt(tbRaza.getSelectedRow(), 0).toString());
+                ct.deleteRaza();
+                loadD();
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDEsp.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (opcion == JOptionPane.NO_OPTION) {
+
+        }
+                                              
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Design.ButtonGradient buttonGradient1;
-    private Design.ButtonGradient buttonGradient2;
-    private Design.ButtonGradient buttonGradient3;
+    private Design.ButtonGradient btnAgregar;
+    private Design.ButtonGradient btnEditar;
+    private Design.ButtonGradient btnEliminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

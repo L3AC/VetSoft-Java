@@ -58,8 +58,8 @@ public class Login extends javax.swing.JFrame {
         UsuarioL.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 25));
         PassL.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 22));
 
-        txtUser.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
-        txtPass.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
+        txtUser.setDocument(new Valida(30, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
+        txtPass.setDocument(new Valida(30, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         setLocationRelativeTo(null);
         String iconPath = "src/Imagenes/logoC.png";
         ImageIcon icon = new ImageIcon(iconPath);

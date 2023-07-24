@@ -58,7 +58,9 @@ public class ctRaza {
     public ResultSet comboRaza() {
         return md.comboRaza(idTipoAnimal);
     }
-
+   public boolean deleteRaza(){
+       return md.deleteRaza(idRaza);
+   }
     /*public boolean insertAnim() {
         return ani.insertAnim(idCliente, idRaza, padecimientos, nombre, peso, edad, sexo);
     }

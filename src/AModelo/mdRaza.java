@@ -125,11 +125,11 @@ public class mdRaza {
         }
     }
     
-    public boolean deleteRaza(int idE) {
-        String query = "DELETE tbEspecialidades where idEspecialidades=?;";
+    public boolean deleteRaza(int idRaza) {
+        String query = "DELETE tbRazas where idRaza=?;";
         try {
             ps = con.prepareStatement(query);
-            ps.setInt(1, idE);
+            ps.setInt(1, idRaza);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Registro eliminado");
             return true;
