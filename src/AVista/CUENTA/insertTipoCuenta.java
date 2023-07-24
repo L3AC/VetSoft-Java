@@ -309,6 +309,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+        
         if (nivelRow == 2) {
             ctRecep ct = new ctRecep();
             ct.idUsuario = idUs;
