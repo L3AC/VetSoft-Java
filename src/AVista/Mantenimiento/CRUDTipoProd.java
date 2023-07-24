@@ -8,6 +8,7 @@ import AControlador.ctProd;
 import AControlador.ctTipoServ;
 import Design.Desg;
 import Design.TextFieldSV;
+import Validation.Valida;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -34,6 +35,8 @@ public class CRUDTipoProd extends javax.swing.JPanel {
         initComponents();
         loadD();
         setData();
+        txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
+        txtProd.setDocument(new Valida(100, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
     }
 
     final void loadD() throws SQLException {

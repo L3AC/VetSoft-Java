@@ -26,7 +26,7 @@ public class CRUDEsp extends javax.swing.JPanel {
         initComponents();
         loadD();
 
-        txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9 ]*"));
+        txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
     }
 
     public CRUDEsp() throws SQLException {

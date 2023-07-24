@@ -33,7 +33,7 @@ public class CRUDRecep extends javax.swing.JPanel {
         initComponents();
         loadD();
         
-        txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9]*"));
+        txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
     }
 
     final void loadD() throws SQLException {

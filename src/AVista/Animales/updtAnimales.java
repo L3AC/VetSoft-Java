@@ -39,9 +39,9 @@ public class updtAnimales extends javax.swing.JPanel {
         loadComboRaza(cbRaza);
         loadData();
         
-        txtNombre.setDocument(new Valida(25, "[a-zA-Z]*"));
+        txtNombre.setDocument(new Valida(25, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         txtPeso.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
-        txtPad.setDocument(new Valida(300, "[a-zA-Z0-9]*"));
+        txtPad.setDocument(new Valida(300, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         dpNaci.setMaxSelectableDate(Calendar.getInstance().getTime());
     }
 

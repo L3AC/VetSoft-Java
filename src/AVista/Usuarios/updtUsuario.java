@@ -28,7 +28,7 @@ public class updtUsuario extends javax.swing.JPanel {
         initComponents();
        
         
-        txtUsuario.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
+        txtUsuario.setDocument(new Valida(30, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         txtCorreo.setDocument(new Valida(50, "[a-zA-Z0-9@._]*"));
         txtTel.setDocument(new Valida(10, "[0-9]*"));
         lbDisp.setVisible(false);

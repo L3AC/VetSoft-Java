@@ -27,6 +27,7 @@ public class CRUDRazas extends javax.swing.JPanel {
     public CRUDRazas() throws SQLException {
         initComponents();
         loadD();
+        txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
     }
 
      final void loadD() throws SQLException {
@@ -94,6 +95,11 @@ public class CRUDRazas extends javax.swing.JPanel {
 
         txtBusq.setBackground(new java.awt.Color(202, 233, 255));
         txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtBusq.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBusqActionPerformed(evt);
+            }
+        });
         txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtBusqKeyReleased(evt);
@@ -207,6 +213,10 @@ public class CRUDRazas extends javax.swing.JPanel {
                  Logger.getLogger(CRUDRazas.class.getName()).log(Level.SEVERE, null, ex);
              }
     }//GEN-LAST:event_txtBusqKeyReleased
+
+    private void txtBusqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBusqActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBusqActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -38,7 +38,7 @@ public class CRUDusuarios extends javax.swing.JPanel {
         loadD();
         verifPerfil();
         
-        txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9]*"));
+        txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
     }
 
     final void loadD() throws SQLException {

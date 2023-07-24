@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import Validation.Valida;
+import java.util.Calendar;
 
 public class UPDTAsistente extends javax.swing.JPanel {
 
@@ -31,6 +32,10 @@ public class UPDTAsistente extends javax.swing.JPanel {
         txtNombre.setDocument(new Valida(50, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         txtDui.setDocument(new Valida(10, "[0-9]*"));
         txtApellidos.setDocument(new Valida(50, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
+                
+        Calendar fechaActual = Calendar.getInstance();
+        fechaActual.add(Calendar.YEAR, -18);
+        dpNaci.setMaxSelectableDate(fechaActual.getTime());
         loadD();
         loadAsis();
     }
