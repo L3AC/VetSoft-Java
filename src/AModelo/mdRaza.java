@@ -43,10 +43,11 @@ public class mdRaza {
         }
     }
     public ResultSet selectRaza(String nombreRaza) {
-        String query = "select r.idRaza,ta.nombrePopular,r.nombreRaza from tbRazas r,tbTipoAnimales ta where r.idTipoAnimal=ta.idTipoAnimal";
+        String query = "select r.idRaza,ta.nombrePopular,r.nombreRaza from tbRazas r,tbTipoAnimales ta "
+                + "where r.idTipoAnimal=ta.idTipoAnimal and r.nombreRaza like ?";
         try {
             ps = con.prepareStatement(query);
-             ps.setString(1, nombreRaza);
+             ps.setString(1, "%"+nombreRaza+"%");
             rs = ps.executeQuery();
             return rs;
 
