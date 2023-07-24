@@ -43,6 +43,7 @@ public class Login extends javax.swing.JFrame {
     Crypt cryp = new Crypt();
 
     private int idTipoU;
+    public String lui;
     private int idUs;
     private int idCuenta;
 

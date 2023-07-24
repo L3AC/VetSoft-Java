@@ -94,7 +94,7 @@ public class CRUDEsp extends javax.swing.JPanel {
 
         txtEsp.setBackground(new java.awt.Color(202, 233, 255));
         txtEsp.setShadowColor(new java.awt.Color(0, 0, 51));
-        add(txtEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 200, 310, -1));
+        add(txtEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 200, 310, -1));
 
         btnEliminar.setText("Eliminar");
         btnEliminar.setToolTipText("");
@@ -103,7 +103,7 @@ public class CRUDEsp extends javax.swing.JPanel {
                 btnEliminarActionPerformed(evt);
             }
         });
-        add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 430, 160, 40));
+        add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 430, 160, 40));
 
         btnAct.setText("Actualizar");
         btnAct.addActionListener(new java.awt.event.ActionListener() {
@@ -111,7 +111,7 @@ public class CRUDEsp extends javax.swing.JPanel {
                 btnActActionPerformed(evt);
             }
         });
-        add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 370, 160, 40));
+        add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 360, 160, 40));
 
         btnAgregar.setText("Agregar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -119,12 +119,12 @@ public class CRUDEsp extends javax.swing.JPanel {
                 btnAgregarActionPerformed(evt);
             }
         });
-        add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 300, 160, 40));
+        add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 290, 160, 40));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Nombre de la Especialidad");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 160, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 160, -1, -1));
 
         txtBusq.setBackground(new java.awt.Color(202, 233, 255));
         txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));

@@ -74,4 +74,7 @@ public class ctRaza {
     public ResultSet selectRaza() {
         return md.selectRaza(nombreRaza);
     }
+    public ResultSet loadRaza(){
+        return md.loadRaza(nombreRaza);
+    }
 }

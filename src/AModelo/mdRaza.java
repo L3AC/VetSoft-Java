@@ -42,13 +42,11 @@ public class mdRaza {
             return null;
         }
     }
-    public ResultSet loadRaza(int idRaza, String nombrePopular, String nombreRaza) {
+    public ResultSet selectRaza(String nombreRaza) {
         String query = "select r.idRaza,ta.nombrePopular,r.nombreRaza from tbRazas r,tbTipoAnimales ta where r.idTipoAnimal=ta.idTipoAnimal";
         try {
             ps = con.prepareStatement(query);
-            ps.setInt(1, idRaza);
-            ps.setString(2, nombrePopular);
-             ps.setString(3, nombreRaza);
+             ps.setString(1, nombreRaza);
             rs = ps.executeQuery();
             return rs;
 
@@ -58,7 +56,7 @@ public class mdRaza {
         }
     }
     
-    public ResultSet selectRaza(String nombreRaza) {
+    public ResultSet loadRaza(String nombreRaza) {
         String query = "select * from tbRazas where nombreRaza like ?;";
         try {
             ps = con.prepareStatement(query);

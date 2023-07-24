@@ -73,14 +73,7 @@ public class mdUser extends JFrame{
             ps.setString(4, correo);
             ps.setString(5, tel);
             ps.executeUpdate();
-            CódigoErrorDSI2 obj = new CódigoErrorDSI2();
-        obj.eventOK(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                GlassPanePopup.closePopupLast();
-            }
-        });
-        GlassPanePopup.showPopup(obj);
+            System.out.println("Funciono jejje");
             return true;
 
         } catch (SQLException e) {
