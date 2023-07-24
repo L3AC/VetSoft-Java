@@ -32,7 +32,7 @@ public class MenuAdmin extends JPanel{
     }
 
     private void initAdmin() {
-        setBackground(Color.WHITE);
+        setBackground(Color.RED);
         setLayout(new BorderLayout());
         JScrollPane scroll = createScroll();
         panelMenu = createPanelMenu();

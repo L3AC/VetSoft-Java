@@ -107,7 +107,6 @@ public class CREARasistente extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
         PCont.setBackground(new java.awt.Color(255, 255, 255));
-        PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnBack.setBackground(new java.awt.Color(255, 255, 255));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
@@ -117,50 +116,40 @@ public class CREARasistente extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        PCont.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 51, 70, 60));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(27, 73, 101));
         jLabel2.setText("CREAR PERFIL");
-        PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 40, 230, 50));
 
         lbApell.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbApell.setForeground(new java.awt.Color(0, 0, 0));
         lbApell.setText("Apellidos");
-        PCont.add(lbApell, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 210, 100, 30));
 
         lbNaci.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbNaci.setForeground(new java.awt.Color(0, 0, 0));
         lbNaci.setText("Nacimiento");
-        PCont.add(lbNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 370, 110, 30));
 
         dpNaci.setBackground(new java.awt.Color(255, 255, 255));
-        PCont.add(dpNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 410, 260, 40));
 
         lbDui.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbDui.setForeground(new java.awt.Color(0, 0, 0));
         lbDui.setText("Número de DUI");
-        PCont.add(lbDui, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 360, 150, 30));
 
         lbSexo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbSexo.setForeground(new java.awt.Color(0, 0, 0));
         lbSexo.setText("Sexo");
-        PCont.add(lbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 470, 100, 30));
 
         cbSexo.setBackground(new java.awt.Color(255, 255, 255));
         cbSexo.setForeground(new java.awt.Color(27, 73, 101));
         cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femenino", "Masculino" }));
-        PCont.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 510, 200, 40));
 
         lbVerif.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbVerif.setForeground(new java.awt.Color(0, 0, 0));
         lbVerif.setText("Ya hay un perfil creado con este usuario");
-        PCont.add(lbVerif, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, 350, 30));
 
         lbNom.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbNom.setForeground(new java.awt.Color(0, 0, 0));
         lbNom.setText("Nombres");
-        PCont.add(lbNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 210, 100, 30));
 
         btnConfirm.setText("Confirmar");
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
@@ -168,23 +157,18 @@ public class CREARasistente extends javax.swing.JPanel {
                 btnConfirmActionPerformed(evt);
             }
         });
-        PCont.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 510, 145, 45));
 
         txtNombre.setBackground(new java.awt.Color(202, 233, 255));
         txtNombre.setShadowColor(new java.awt.Color(0, 0, 51));
-        PCont.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 270, 287, -1));
 
         txtDui.setBackground(new java.awt.Color(202, 233, 255));
         txtDui.setShadowColor(new java.awt.Color(0, 0, 51));
-        PCont.add(txtDui, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 410, 287, -1));
 
         txtApellidos.setBackground(new java.awt.Color(202, 233, 255));
         txtApellidos.setShadowColor(new java.awt.Color(0, 0, 51));
-        PCont.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 270, 287, -1));
 
         txtBusq.setBackground(new java.awt.Color(202, 233, 255));
         txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
-        PCont.add(txtBusq, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 310, -1));
 
         panelRound1.setBackground(new java.awt.Color(202, 233, 255));
         panelRound1.setRoundBottomLeft(50);
@@ -214,18 +198,110 @@ public class CREARasistente extends javax.swing.JPanel {
 
         panelRound1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 520, 360));
 
-        PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 561, 400));
-
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Usuario:");
-        PCont.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 72, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clinica 64px.png"))); // NOI18N
-        PCont.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 30, -1, -1));
 
         jLabel3.setText("VetSoft+");
-        PCont.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 100, -1, -1));
+
+        javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
+        PCont.setLayout(PContLayout);
+        PContLayout.setHorizontalGroup(
+            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(69, 69, 69)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(441, 441, 441)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(390, 390, 390)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel3))))
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(100, 100, 100)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(lbVerif, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 561, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbNom, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbDui, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDui, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbApell, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(lbNaci, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dpNaci, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
+        PContLayout.setVerticalGroup(
+            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel3)))
+                .addGap(14, 14, 14)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel5))
+                    .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbVerif, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PContLayout.createSequentialGroup()
+                                .addComponent(lbNom, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(49, 49, 49)
+                                .addComponent(lbDui, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(txtDui, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(19, 19, 19)
+                                .addComponent(lbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(cbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(PContLayout.createSequentialGroup()
+                                .addComponent(lbApell, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(59, 59, 59)
+                                .addComponent(lbNaci, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(dpNaci, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(60, 60, 60)
+                                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

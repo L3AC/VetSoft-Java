@@ -85,16 +85,13 @@ public class CRUDEsp extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Especialidad:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, -1, -1));
 
         txtEsp.setBackground(new java.awt.Color(202, 233, 255));
         txtEsp.setShadowColor(new java.awt.Color(0, 0, 51));
-        add(txtEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 200, 310, -1));
 
         btnEliminar.setText("Eliminar");
         btnEliminar.setToolTipText("");
@@ -103,7 +100,6 @@ public class CRUDEsp extends javax.swing.JPanel {
                 btnEliminarActionPerformed(evt);
             }
         });
-        add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 430, 160, 40));
 
         btnAct.setText("Actualizar");
         btnAct.addActionListener(new java.awt.event.ActionListener() {
@@ -111,7 +107,6 @@ public class CRUDEsp extends javax.swing.JPanel {
                 btnActActionPerformed(evt);
             }
         });
-        add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 360, 160, 40));
 
         btnAgregar.setText("Agregar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -119,12 +114,10 @@ public class CRUDEsp extends javax.swing.JPanel {
                 btnAgregarActionPerformed(evt);
             }
         });
-        add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 290, 160, 40));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Nombre de la Especialidad");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 160, -1, -1));
 
         txtBusq.setBackground(new java.awt.Color(202, 233, 255));
         txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
@@ -138,7 +131,6 @@ public class CRUDEsp extends javax.swing.JPanel {
                 txtBusqKeyReleased(evt);
             }
         });
-        add(txtBusq, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 400, -1));
 
         panelRound1.setBackground(new java.awt.Color(202, 233, 255));
         panelRound1.setRoundBottomLeft(50);
@@ -177,13 +169,67 @@ public class CRUDEsp extends javax.swing.JPanel {
 
         panelRound1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 750, 370));
 
-        add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 810, 410));
-
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clinica 64px.png"))); // NOI18N
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 20, -1, -1));
 
         jLabel4.setText("VetSoft+");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 90, -1, -1));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(100, 100, 100)
+                .addComponent(jLabel1)
+                .addGap(42, 42, 42)
+                .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(420, 420, 420)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel4))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 810, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(txtEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAct, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel4))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(49, 49, 49)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(8, 8, 8)
+                        .addComponent(txtEsp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49)
+                        .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(btnAct, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked

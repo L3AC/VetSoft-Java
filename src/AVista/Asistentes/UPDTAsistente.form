@@ -38,8 +38,129 @@
         </Property>
       </Properties>
 
-      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
-        <Property name="useNullLayout" type="boolean" value="false"/>
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="70" pref="70" max="-2" attributes="0"/>
+                  <Component id="btnBack" min="-2" pref="70" max="-2" attributes="0"/>
+                  <EmptySpace min="450" pref="450" max="-2" attributes="0"/>
+                  <Component id="jLabel2" min="-2" pref="254" max="-2" attributes="0"/>
+                  <EmptySpace min="376" pref="376" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="150" pref="150" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
+                          <Component id="txtBusq" min="-2" pref="383" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="jLabel5" min="-2" pref="83" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="71" pref="71" max="-2" attributes="0"/>
+                  <Component id="lbDoc1" min="-2" pref="130" max="-2" attributes="0"/>
+                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                  <Component id="lbDoc" min="-2" pref="460" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="61" pref="61" max="-2" attributes="0"/>
+                  <Component id="panelRound1" min="-2" pref="583" max="-2" attributes="0"/>
+                  <EmptySpace min="32" pref="32" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lbNom" min="-2" pref="100" max="-2" attributes="0"/>
+                      <Component id="txtNombre" min="-2" pref="278" max="-2" attributes="0"/>
+                      <Component id="lbDui" min="-2" pref="150" max="-2" attributes="0"/>
+                      <Component id="txtDui" min="-2" pref="270" max="-2" attributes="0"/>
+                      <Component id="lbSexo" min="-2" pref="100" max="-2" attributes="0"/>
+                      <Component id="cbSexo" min="-2" pref="200" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lbApell" min="-2" pref="100" max="-2" attributes="0"/>
+                      <Component id="txtApellidos" min="-2" pref="270" max="-2" attributes="0"/>
+                      <Component id="lbNaci" min="-2" pref="110" max="-2" attributes="0"/>
+                      <Component id="dpNaci" min="-2" pref="270" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="53" pref="53" max="-2" attributes="0"/>
+                          <Component id="btnConfirm" min="-2" pref="149" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="42" pref="42" max="-2" attributes="0"/>
+                          <Component id="btnBack" min="-2" pref="60" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="22" pref="22" max="-2" attributes="0"/>
+                          <Component id="jLabel2" min="-2" pref="50" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="txtBusq" min="-2" pref="51" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
+                          <Component id="lbDoc1" min="-2" pref="30" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="lbDoc" min="-2" pref="30" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="16" pref="16" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                          <Component id="panelRound1" min="-2" pref="381" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="lbNom" min="-2" pref="30" max="-2" attributes="0"/>
+                          <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                          <Component id="txtNombre" min="-2" pref="52" max="-2" attributes="0"/>
+                          <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                          <Component id="lbDui" min="-2" pref="30" max="-2" attributes="0"/>
+                          <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                          <Component id="txtDui" min="-2" pref="52" max="-2" attributes="0"/>
+                          <EmptySpace min="35" pref="35" max="-2" attributes="0"/>
+                          <Component id="lbSexo" min="-2" pref="30" max="-2" attributes="0"/>
+                          <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                          <Component id="cbSexo" min="-2" pref="40" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="lbApell" min="-2" pref="30" max="-2" attributes="0"/>
+                          <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                          <Component id="txtApellidos" min="-2" pref="54" max="-2" attributes="0"/>
+                          <EmptySpace min="26" pref="26" max="-2" attributes="0"/>
+                          <Component id="lbNaci" min="-2" pref="30" max="-2" attributes="0"/>
+                          <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                          <Component id="dpNaci" min="-2" pref="50" max="-2" attributes="0"/>
+                          <EmptySpace min="65" pref="65" max="-2" attributes="0"/>
+                          <Component id="btnConfirm" min="-2" pref="47" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+          </Group>
+        </DimensionLayout>
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JButton" name="btnBack">
@@ -57,11 +178,6 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackActionPerformed"/>
           </Events>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="70" y="60" width="70" height="60"/>
-            </Constraint>
-          </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
@@ -73,11 +189,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="EDITAR PERFIL"/>
           </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="590" y="40" width="254" height="50"/>
-            </Constraint>
-          </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="lbDoc">
           <Properties>
@@ -89,11 +200,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="doctor"/>
           </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="820" y="130" width="460" height="30"/>
-            </Constraint>
-          </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="lbNom">
           <Properties>
@@ -105,11 +211,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Nombres"/>
           </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="676" y="197" width="100" height="30"/>
-            </Constraint>
-          </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="lbDui">
           <Properties>
@@ -121,11 +222,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="N&#xfa;mero de DUI"/>
           </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="676" y="327" width="150" height="30"/>
-            </Constraint>
-          </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="lbSexo">
           <Properties>
@@ -137,11 +233,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Sexo"/>
           </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="676" y="462" width="100" height="30"/>
-            </Constraint>
-          </Constraints>
         </Component>
         <Component class="javax.swing.JComboBox" name="cbSexo">
           <Properties>
@@ -161,11 +252,6 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="676" y="510" width="200" height="40"/>
-            </Constraint>
-          </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="lbApell">
           <Properties>
@@ -177,11 +263,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Apellidos"/>
           </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="1004" y="197" width="100" height="30"/>
-            </Constraint>
-          </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="lbNaci">
           <Properties>
@@ -193,18 +274,8 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Nacimiento"/>
           </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="1004" y="325" width="110" height="30"/>
-            </Constraint>
-          </Constraints>
         </Component>
         <Component class="com.toedter.calendar.JDateChooser" name="dpNaci">
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="1004" y="367" width="270" height="50"/>
-            </Constraint>
-          </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="lbDoc1">
           <Properties>
@@ -216,11 +287,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Doctor a cargo:"/>
           </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="684" y="131" width="130" height="30"/>
-            </Constraint>
-          </Constraints>
         </Component>
         <Component class="Design.TextFieldSV" name="txtNombre">
           <Properties>
@@ -231,11 +297,6 @@
               <Color blue="33" green="0" red="0" type="rgb"/>
             </Property>
           </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="676" y="245" width="278" height="52"/>
-            </Constraint>
-          </Constraints>
         </Component>
         <Component class="Design.TextFieldSV" name="txtDui">
           <Properties>
@@ -246,11 +307,6 @@
               <Color blue="33" green="0" red="0" type="rgb"/>
             </Property>
           </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="676" y="375" width="270" height="52"/>
-            </Constraint>
-          </Constraints>
         </Component>
         <Component class="Design.TextFieldSV" name="txtApellidos">
           <Properties>
@@ -261,11 +317,6 @@
               <Color blue="33" green="0" red="0" type="rgb"/>
             </Property>
           </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="1004" y="245" width="270" height="54"/>
-            </Constraint>
-          </Constraints>
         </Component>
         <Component class="Design.ButtonGradient" name="btnConfirm">
           <Properties>
@@ -274,11 +325,6 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConfirmActionPerformed"/>
           </Events>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="1057" y="482" width="149" height="47"/>
-            </Constraint>
-          </Constraints>
         </Component>
         <Container class="Design.PanelRound" name="panelRound1">
           <Properties>
@@ -290,11 +336,6 @@
             <Property name="roundTopLeft" type="int" value="50"/>
             <Property name="roundTopRight" type="int" value="50"/>
           </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="61" y="209" width="583" height="381"/>
-            </Constraint>
-          </Constraints>
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
             <Property name="useNullLayout" type="boolean" value="false"/>
@@ -345,11 +386,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Doctor:"/>
           </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="150" y="140" width="83" height="-1"/>
-            </Constraint>
-          </Constraints>
         </Component>
         <Component class="Design.TextFieldSV" name="txtBusq">
           <Properties>
@@ -363,11 +399,6 @@
           <Events>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtBusqKeyReleased"/>
           </Events>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="230" y="130" width="383" height="51"/>
-            </Constraint>
-          </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
@@ -375,21 +406,11 @@
               <Image iconType="3" name="/Imagenes/clinica 64px.png"/>
             </Property>
           </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="1220" y="18" width="-1" height="-1"/>
-            </Constraint>
-          </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
             <Property name="text" type="java.lang.String" value="VetSoft+"/>
           </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="1230" y="88" width="-1" height="-1"/>
-            </Constraint>
-          </Constraints>
         </Component>
       </SubComponents>
     </Container>

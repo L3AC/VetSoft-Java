@@ -66,7 +66,6 @@ public class UPDTAsistente extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
         PCont.setBackground(new java.awt.Color(255, 255, 255));
-        PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnBack.setBackground(new java.awt.Color(255, 255, 255));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
@@ -76,65 +75,51 @@ public class UPDTAsistente extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        PCont.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 70, 60));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(27, 73, 101));
         jLabel2.setText("EDITAR PERFIL");
-        PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 40, 254, 50));
 
         lbDoc.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbDoc.setForeground(new java.awt.Color(0, 0, 0));
         lbDoc.setText("doctor");
-        PCont.add(lbDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 130, 460, 30));
 
         lbNom.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbNom.setForeground(new java.awt.Color(0, 0, 0));
         lbNom.setText("Nombres");
-        PCont.add(lbNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(676, 197, 100, 30));
 
         lbDui.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbDui.setForeground(new java.awt.Color(0, 0, 0));
         lbDui.setText("Número de DUI");
-        PCont.add(lbDui, new org.netbeans.lib.awtextra.AbsoluteConstraints(676, 327, 150, 30));
 
         lbSexo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbSexo.setForeground(new java.awt.Color(0, 0, 0));
         lbSexo.setText("Sexo");
-        PCont.add(lbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(676, 462, 100, 30));
 
         cbSexo.setBackground(new java.awt.Color(255, 255, 255));
         cbSexo.setForeground(new java.awt.Color(0, 0, 0));
         cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femenino", "Masculino" }));
-        PCont.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(676, 510, 200, 40));
 
         lbApell.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbApell.setForeground(new java.awt.Color(0, 0, 0));
         lbApell.setText("Apellidos");
-        PCont.add(lbApell, new org.netbeans.lib.awtextra.AbsoluteConstraints(1004, 197, 100, 30));
 
         lbNaci.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbNaci.setForeground(new java.awt.Color(0, 0, 0));
         lbNaci.setText("Nacimiento");
-        PCont.add(lbNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(1004, 325, 110, 30));
-        PCont.add(dpNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(1004, 367, 270, 50));
 
         lbDoc1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbDoc1.setForeground(new java.awt.Color(0, 0, 0));
         lbDoc1.setText("Doctor a cargo:");
-        PCont.add(lbDoc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(684, 131, 130, 30));
 
         txtNombre.setBackground(new java.awt.Color(202, 233, 255));
         txtNombre.setShadowColor(new java.awt.Color(0, 0, 51));
-        PCont.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(676, 245, 278, 52));
 
         txtDui.setBackground(new java.awt.Color(202, 233, 255));
         txtDui.setShadowColor(new java.awt.Color(0, 0, 51));
-        PCont.add(txtDui, new org.netbeans.lib.awtextra.AbsoluteConstraints(676, 375, 270, 52));
 
         txtApellidos.setBackground(new java.awt.Color(202, 233, 255));
         txtApellidos.setShadowColor(new java.awt.Color(0, 0, 51));
-        PCont.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(1004, 245, 270, 54));
 
         btnConfirm.setText("Confirmar");
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
@@ -142,7 +127,6 @@ public class UPDTAsistente extends javax.swing.JPanel {
                 btnConfirmActionPerformed(evt);
             }
         });
-        PCont.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(1057, 482, 149, 47));
 
         panelRound1.setBackground(new java.awt.Color(202, 233, 255));
         panelRound1.setRoundBottomLeft(50);
@@ -172,12 +156,9 @@ public class UPDTAsistente extends javax.swing.JPanel {
 
         panelRound1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 540, 330));
 
-        PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 209, 583, 381));
-
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Doctor:");
-        PCont.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 83, -1));
 
         txtBusq.setBackground(new java.awt.Color(202, 233, 255));
         txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
@@ -186,13 +167,111 @@ public class UPDTAsistente extends javax.swing.JPanel {
                 txtBusqKeyReleased(evt);
             }
         });
-        PCont.add(txtBusq, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 383, 51));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clinica 64px.png"))); // NOI18N
-        PCont.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 18, -1, -1));
 
         jLabel3.setText("VetSoft+");
-        PCont.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 88, -1, -1));
+
+        javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
+        PCont.setLayout(PContLayout);
+        PContLayout.setHorizontalGroup(
+            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(450, 450, 450)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(376, 376, 376)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel3))))
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(150, 150, 150)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(71, 71, 71)
+                .addComponent(lbDoc1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(lbDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbNom, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbDui, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDui, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbApell, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbNaci, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dpNaci, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
+        PContLayout.setVerticalGroup(
+            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel3)))
+                .addGap(10, 10, 10)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel5))
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(lbDoc1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addComponent(lbNom, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(lbDui, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtDui, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(lbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(cbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addComponent(lbApell, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(lbNaci, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(dpNaci, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(65, 65, 65)
+                        .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

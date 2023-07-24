@@ -83,6 +83,7 @@ public class PorUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panelRound2 = new Design.PanelRound();
         BtnRegresar1 = new javax.swing.JButton();
         lbMayor = new javax.swing.JLabel();
         panelRound1 = new Design.PanelRound();
@@ -97,11 +98,14 @@ public class PorUsuario extends javax.swing.JFrame {
         txtCod = new Design.TextFieldSV();
         txtNueva = new Design.PasswordField();
         txtNueva2 = new Design.PasswordField();
-        jLabel2 = new javax.swing.JLabel();
-        VetSoft2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelRound2.setBackground(new java.awt.Color(255, 255, 255));
+        panelRound2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BtnRegresar1.setBackground(new java.awt.Color(255, 255, 255));
         BtnRegresar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
@@ -111,10 +115,12 @@ public class PorUsuario extends javax.swing.JFrame {
                 BtnRegresar1ActionPerformed(evt);
             }
         });
+        panelRound2.add(BtnRegresar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 29, 28));
 
         lbMayor.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         lbMayor.setForeground(new java.awt.Color(27, 73, 101));
         lbMayor.setText("Recuperación de contraseña por usuario");
+        panelRound2.add(lbMayor, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, -1));
 
         panelRound1.setBackground(new java.awt.Color(202, 233, 255));
         panelRound1.setRoundBottomLeft(50);
@@ -222,112 +228,57 @@ public class PorUsuario extends javax.swing.JFrame {
         });
         panelRound1.add(txtNueva2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 200, 180, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clinica 64px.png"))); // NOI18N
+        panelRound2.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 734, 344));
 
-        VetSoft2.setText("VetSoft+");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 734, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(43, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(VetSoft2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(BtnRegresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lbMayor)
-                                .addGap(110, 110, 110)
-                                .addComponent(jLabel2)))
-                        .addGap(33, 33, 33))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BtnRegresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbMayor))
-                        .addGap(22, 22, 22))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(VetSoft2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
-        );
+        getContentPane().add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BtnRegresar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegresar1ActionPerformed
+    private void txtNueva2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNueva2KeyTyped
         // TODO add your handling code here:
-        
-         RecuperacionDeContraseña newFrame = new RecuperacionDeContraseña();
-        
-        newFrame.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_BtnRegresar1ActionPerformed
 
-    private void btnVeriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVeriActionPerformed
-        // TODO add your handling code here:
-        if (txtUser.getText().isEmpty() || txtCod.getText().isEmpty()) {
-            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
-        obj.eventOK(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                GlassPanePopup.closePopupLast();
-            }
-        });
-        GlassPanePopup.showPopup(obj);
-        } else {
-            EncCod(txtUser.getText());
-        }
-        
-    }//GEN-LAST:event_btnVeriActionPerformed
+    }//GEN-LAST:event_txtNueva2KeyTyped
 
-    private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
+    private void txtNueva2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNueva2ActionPerformed
+
+    }//GEN-LAST:event_txtNueva2ActionPerformed
+
+    private void txtNuevaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNuevaKeyTyped
         // TODO add your handling code here:
-       if (txtUser.getText().isEmpty()) {
-            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
-        obj.eventOK(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                GlassPanePopup.closePopupLast();
-            }
-        });
-        GlassPanePopup.showPopup(obj);
-        } else {
-           
-            Encontrar();
-        }
-    }//GEN-LAST:event_btnEnviarActionPerformed
+
+    }//GEN-LAST:event_txtNuevaKeyTyped
+
+    private void txtNuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNuevaActionPerformed
+
+    }//GEN-LAST:event_txtNuevaActionPerformed
+
+    private void txtCodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodActionPerformed
+
+    }//GEN-LAST:event_txtCodActionPerformed
+
+    private void txtUserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyTyped
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_txtUserKeyTyped
+
+    private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
+
+    }//GEN-LAST:event_txtUserActionPerformed
 
     private void btnCambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarActionPerformed
         // TODO add your handling code here:
-        
+
         if (txtUser.getText().isEmpty() || txtCod.getText().isEmpty()
-                || txtNueva.getText().isEmpty() || txtNueva2.getText().isEmpty()) {
+            || txtNueva.getText().isEmpty() || txtNueva2.getText().isEmpty()) {
             CódigoErrorDSI5 obj = new CódigoErrorDSI5();
-        obj.eventOK(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                GlassPanePopup.closePopupLast();
-            }
-        });
-        GlassPanePopup.showPopup(obj);
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         } else {
             if (txtNueva.getText().equals(txtNueva2.getText())) {
                 try {
@@ -337,50 +288,61 @@ public class PorUsuario extends javax.swing.JFrame {
                 }
             }
             else{
-            CódigoErrorDRC4 obj = new CódigoErrorDRC4();
-        obj.eventOK(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                GlassPanePopup.closePopupLast();
+                CódigoErrorDRC4 obj = new CódigoErrorDRC4();
+                obj.eventOK(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        GlassPanePopup.closePopupLast();
+                    }
+                });
+                GlassPanePopup.showPopup(obj);
             }
-        });
-        GlassPanePopup.showPopup(obj);   
-        }
-         
+
         }
     }//GEN-LAST:event_btnCambiarActionPerformed
 
-    private void txtCodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodActionPerformed
-        
-    }//GEN-LAST:event_txtCodActionPerformed
-
-    private void txtUserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyTyped
+    private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
         // TODO add your handling code here:
-        
-        
-    }//GEN-LAST:event_txtUserKeyTyped
+        if (txtUser.getText().isEmpty()) {
+            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+        } else {
 
-    private void txtNuevaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNuevaKeyTyped
+            Encontrar();
+        }
+    }//GEN-LAST:event_btnEnviarActionPerformed
+
+    private void btnVeriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVeriActionPerformed
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_txtNuevaKeyTyped
+        if (txtUser.getText().isEmpty() || txtCod.getText().isEmpty()) {
+            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+        } else {
+            EncCod(txtUser.getText());
+        }
 
-    private void txtNueva2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNueva2KeyTyped
+    }//GEN-LAST:event_btnVeriActionPerformed
+
+    private void BtnRegresar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegresar1ActionPerformed
         // TODO add your handling code here:
-       
-    }//GEN-LAST:event_txtNueva2KeyTyped
 
-    private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
-        
-    }//GEN-LAST:event_txtUserActionPerformed
+        RecuperacionDeContraseña newFrame = new RecuperacionDeContraseña();
 
-    private void txtNuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNuevaActionPerformed
-        
-    }//GEN-LAST:event_txtNuevaActionPerformed
-
-    private void txtNueva2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNueva2ActionPerformed
-        
-    }//GEN-LAST:event_txtNueva2ActionPerformed
+        newFrame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BtnRegresar1ActionPerformed
 
     public void transparente(){
     
@@ -648,17 +610,16 @@ public class PorUsuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnRegresar1;
-    private javax.swing.JLabel VetSoft2;
     private Design.ButtonGradient btnCambiar;
     private Design.ButtonGradient btnEnviar;
     private Design.ButtonGradient btnVeri;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lbCod;
     private javax.swing.JLabel lbCod1;
     private javax.swing.JLabel lbMayor;
     private javax.swing.JLabel lbUs1;
     private javax.swing.JLabel lbUs2;
     private Design.PanelRound panelRound1;
+    private Design.PanelRound panelRound2;
     private Design.TextFieldSV txtCod;
     private Design.PasswordField txtNueva;
     private Design.PasswordField txtNueva2;

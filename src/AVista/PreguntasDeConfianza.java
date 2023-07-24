@@ -90,6 +90,7 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         VetSoft2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         panelRound3.setBackground(new java.awt.Color(255, 255, 255));
         panelRound3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

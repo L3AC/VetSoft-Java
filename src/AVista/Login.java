@@ -86,6 +86,7 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImages(null);
+        setResizable(false);
 
         panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

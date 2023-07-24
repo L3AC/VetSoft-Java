@@ -77,6 +77,7 @@ public class NuevaContra extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setResizable(false);
 
         panelRound2.setBackground(new java.awt.Color(255, 255, 255));
         panelRound2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -118,7 +119,7 @@ public class NuevaContra extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(27, 73, 101));
         jLabel6.setText("Cambio de contraseña");
-        panelRound2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 380, -1));
+        panelRound2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 380, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clinica .png"))); // NOI18N
         jLabel1.setText("jLabel1");
