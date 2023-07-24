@@ -26,6 +26,11 @@ public class updtUsuario extends javax.swing.JPanel {
         this.idTipoUs = idTipoUs;
         this.idUs = idUs;
         initComponents();
+       
+        
+        txtUsuario.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
+        txtCorreo.setDocument(new Valida(50, "[a-zA-Z0-9@._]*"));
+        txtTel.setDocument(new Valida(10, "[0-9]*"));
         lbDisp.setVisible(false);
         if(idTipoUs==1){
            
@@ -36,10 +41,6 @@ public class updtUsuario extends javax.swing.JPanel {
         }
         loadCombo(cbCargo);
         CargarDatos();
-        
-        txtUsuario.setDocument(new Valida(30, "[a-zA-Z]*"));
-        txtCorreo.setDocument(new Valida(50, "[a-zA-Z0-9]*"));
-        txtTel.setDocument(new Valida(10, "[0-9]*"));
         
     }
 

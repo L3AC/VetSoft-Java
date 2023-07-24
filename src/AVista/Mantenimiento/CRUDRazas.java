@@ -47,10 +47,10 @@ public class CRUDRazas extends javax.swing.JPanel {
         try {
             ctRaza ct = new ctRaza();
             ct.nombreRaza= txtBusq.getText().toString();
-            ResultSet rs = ct.selectRaza();
+            ResultSet rs = ct.loadRaza();
             while (rs.next()) {
                 Object[] oValores = {rs.getInt("idRaza"), rs.getString(
-                    "Raza")};
+                    "nombreRaza")};
 
                 model.addRow(oValores);
             }
