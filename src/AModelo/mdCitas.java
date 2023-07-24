@@ -12,7 +12,7 @@ public class mdCitas {
     public ResultSet citaOther(String cliente) {
         String query = "SET LANGUAGE Spanish\n"
        + "select idCita, c.idAnimal,Estado,CONCAT(CONVERT(varchar, fecha, 100),' ',CONVERT(varchar, hora, 100)) as 'Fecha',a.Nombre as 'Mascota',CONCAT(cl.Nombre,' ',cl.Apellido) as 'Dueño',CONCAT(d.Nombre,' ',d.Apellido) as 'Doctor'\n"
-       + "from tbCitas c, tbAnimales a,tbDoctores d,tbClientes cl where c.idAnimal=a.idAnimal and c.idDoctor=d.idDoctor and cl.idCliente=a.idCliente and Estado='Aceptada' and 'Dueño' like ?\n"
+       + "from tbCitas c, tbAnimales a,tbDoctores d,tbClientes cl where c.idAnimal=a.idAnimal and c.idDoctor=d.idDoctor and cl.idCliente=a.idCliente and Estado='Aceptada' and 'Dueño' like ? \n"
        + "or cl.idCliente=a.idCliente and c.idAnimal=a.idAnimal and c.idDoctor=d.idDoctor and Estado='Pendiente' and 'Dueño' like ?;";
         try {
             ps = con.prepareStatement(query);

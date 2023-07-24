@@ -246,6 +246,7 @@ public class CRUDCita extends javax.swing.JPanel {
             ctCitas ctD = new ctCitas();
             ctD.cliente = txtBusq.getText().toString();
             ResultSet rs = ctD.citaOther();
+            System.err.println(txtBusq.getText().toString());
             while (rs.next()) {
                 Object[] oValores = {rs.getInt("idCita"), rs.getInt("idAnimal"),
                     rs.getString("Estado"), rs.getString("Fecha"),
