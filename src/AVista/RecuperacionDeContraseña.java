@@ -56,6 +56,8 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
         btnPreguntas = new Design.ButtonGradient();
         LBRecup = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -65,10 +67,6 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
 
         panelRound2.setBackground(new java.awt.Color(255, 255, 255));
         panelRound2.setForeground(new java.awt.Color(255, 255, 255));
-        panelRound2.setRoundBottomLeft(50);
-        panelRound2.setRoundBottomRight(50);
-        panelRound2.setRoundTopLeft(50);
-        panelRound2.setRoundTopRight(50);
         panelRound2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelRound1.setBackground(new java.awt.Color(202, 233, 255));
@@ -103,12 +101,12 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
         });
         panelRound1.add(btnPreguntas, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 170, 336, -1));
 
-        panelRound2.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 530, 231));
+        panelRound2.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 530, 231));
 
-        LBRecup.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        LBRecup.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         LBRecup.setForeground(new java.awt.Color(27, 73, 101));
         LBRecup.setText("Recuperación de Contraseña");
-        panelRound2.add(LBRecup, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 340, -1));
+        panelRound2.add(LBRecup, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 380, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -116,9 +114,15 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
                 jLabel2MouseClicked(evt);
             }
         });
-        panelRound2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 30, 30));
+        panelRound2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 40, 30));
 
-        getContentPane().add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 310));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clinica 64px.png"))); // NOI18N
+        panelRound2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, -1, -1));
+
+        jLabel4.setText("VetSoft+");
+        panelRound2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 80, -1, -1));
+
+        getContentPane().add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 360));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -201,6 +205,8 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
     private Design.Desg desg1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private Design.PanelRound panelRound1;
     private Design.PanelRound panelRound2;
     // End of variables declaration//GEN-END:variables

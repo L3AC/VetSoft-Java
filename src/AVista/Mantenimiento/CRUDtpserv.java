@@ -120,6 +120,8 @@ public class CRUDtpserv extends javax.swing.JPanel {
         panelRound1 = new Design.PanelRound();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbData = new SwingTable.Table();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         PCont.setBackground(new java.awt.Color(255, 255, 255));
         PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -147,7 +149,7 @@ public class CRUDtpserv extends javax.swing.JPanel {
                 btnLimpActionPerformed(evt);
             }
         });
-        PCont.add(btnLimp, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 50, 110, 40));
+        PCont.add(btnLimp, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 60, 180, 40));
 
         btnEliminar.setText("Eliminar");
         btnEliminar.setToolTipText("");
@@ -242,6 +244,12 @@ public class CRUDtpserv extends javax.swing.JPanel {
         panelRound1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 780, 440));
 
         PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 820, 500));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clinica 64px.png"))); // NOI18N
+        PCont.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 20, -1, -1));
+
+        jLabel6.setText("VetSoft+");
+        PCont.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 90, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -358,6 +366,8 @@ public class CRUDtpserv extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private Design.PanelRound panelRound1;
     private SwingTable.Table tbData;

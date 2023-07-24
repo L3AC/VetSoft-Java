@@ -84,6 +84,8 @@ public class updtCita extends javax.swing.JPanel {
         btnEditar = new Design.ButtonGradient();
         btnConfirm = new Design.ButtonGradient();
         lbMasc = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
@@ -222,7 +224,13 @@ public class updtCita extends javax.swing.JPanel {
         lbMasc.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbMasc.setForeground(new java.awt.Color(0, 0, 0));
         lbMasc.setText("Mascota:");
-        PCont.add(lbMasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 60, 440, 30));
+        PCont.add(lbMasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 80, 440, 30));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clinica 64px.png"))); // NOI18N
+        PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 20, -1, -1));
+
+        jLabel4.setText("VetSoft+");
+        PCont.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 90, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -421,7 +429,9 @@ public class updtCita extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cbServicio;
     private com.toedter.calendar.JDateChooser dpFecha;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lbCosto;

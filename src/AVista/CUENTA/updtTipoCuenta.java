@@ -102,6 +102,8 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         txtDir = new Design.TextFieldSV();
         lbDir = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
@@ -210,6 +212,12 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         );
 
         PCont.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, -1, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clinica 64px.png"))); // NOI18N
+        PCont.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 20, -1, -1));
+
+        jLabel7.setText("VetSoft+");
+        PCont.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 90, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -354,8 +362,10 @@ public class updtTipoCuenta extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lbDir;

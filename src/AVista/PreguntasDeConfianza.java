@@ -86,16 +86,18 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         txtPregunta2 = new Design.TextFieldSV();
         txtPregunta3 = new Design.TextFieldSV();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        VetSoft2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panelRound3.setBackground(new java.awt.Color(255, 255, 255));
         panelRound3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel6.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(27, 73, 101));
         jLabel6.setText("Preguntas de seguridad");
-        panelRound3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, -1, -1));
+        panelRound3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, -1, -1));
 
         panelRound4.setBackground(new java.awt.Color(202, 233, 255));
         panelRound4.setRoundBottomLeft(50);
@@ -196,7 +198,7 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         });
         panelRound4.add(txtPregunta3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 220, 200, -1));
 
-        panelRound3.add(panelRound4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 890, 360));
+        panelRound3.add(panelRound4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 890, 360));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -206,6 +208,12 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         });
         panelRound3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clinica 64px.png"))); // NOI18N
+        panelRound3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, -1, -1));
+
+        VetSoft2.setText("VetSoft+");
+        panelRound3.add(VetSoft2, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 80, 50, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -214,7 +222,7 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound3, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
+            .addComponent(panelRound3, javax.swing.GroupLayout.DEFAULT_SIZE, 481, Short.MAX_VALUE)
         );
 
         pack();
@@ -496,10 +504,12 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel VetSoft2;
     private Design.ButtonGradient btnEnviar;
     private Design.ButtonGradient btnVerificar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

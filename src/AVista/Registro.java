@@ -94,6 +94,8 @@ public class Registro extends javax.swing.JFrame {
         lbDisp = new javax.swing.JLabel();
         Titulo = new javax.swing.JLabel();
         btnVolver = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -220,7 +222,7 @@ public class Registro extends javax.swing.JFrame {
         lbDisp.setText("Usuario no disponible");
         panelRound2.add(lbDisp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 140, -1));
 
-        panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 680, 270));
+        panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 680, 270));
 
         Titulo.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
         Titulo.setForeground(new java.awt.Color(27, 73, 101));
@@ -233,7 +235,13 @@ public class Registro extends javax.swing.JFrame {
                 btnVolverMouseClicked(evt);
             }
         });
-        panelRound1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        panelRound1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 50, 50));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clinica 64px.png"))); // NOI18N
+        panelRound1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 10, -1, -1));
+
+        jLabel3.setText("VetSoft+");
+        panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -243,7 +251,7 @@ public class Registro extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
         );
 
         pack();
@@ -414,6 +422,8 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JLabel btnVolver;
     private Design.Combobox cbCargo;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

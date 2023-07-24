@@ -114,6 +114,8 @@ public class updtAnimales extends javax.swing.JPanel {
         txtPeso = new Design.TextFieldSV();
         txtPad = new Design.TextFieldSV();
         btnConfirm = new Design.ButtonGradient();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
@@ -192,8 +194,14 @@ public class updtAnimales extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Padecimientos");
         panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 400, 150, 30));
+
+        txtNombre.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 280, 50));
+
+        txtPeso.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 190, 270, 50));
+
+        txtPad.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtPad, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 440, 710, 50));
 
         btnConfirm.setText("Confirmar");
@@ -203,6 +211,10 @@ public class updtAnimales extends javax.swing.JPanel {
             }
         });
 
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clinica 64px.png"))); // NOI18N
+
+        jLabel7.setText("VetSoft+");
+
         javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
         PCont.setLayout(PContLayout);
         PContLayout.setHorizontalGroup(
@@ -210,26 +222,44 @@ public class updtAnimales extends javax.swing.JPanel {
             .addGroup(PContLayout.createSequentialGroup()
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(365, 365, 365)
-                        .addComponent(jLabel2))
-                    .addGroup(PContLayout.createSequentialGroup()
                         .addGap(150, 150, 150)
                         .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 1010, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PContLayout.createSequentialGroup()
                         .addGap(579, 579, 579)
                         .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(160, 160, 160))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(365, 365, 365)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PContLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel7)
+                        .addGap(9, 9, 9)))
+                .addGap(35, 35, 35))
         );
         PContLayout.setVerticalGroup(
             PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PContLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(PContLayout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(jLabel2)))
+                        .addGap(38, 38, 38))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PContLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel7)
+                        .addGap(18, 18, 18)))
                 .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -292,8 +322,10 @@ public class updtAnimales extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lbEsp;
     private javax.swing.JLabel lbEsp1;

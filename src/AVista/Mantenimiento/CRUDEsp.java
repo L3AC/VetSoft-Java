@@ -81,6 +81,8 @@ public class CRUDEsp extends javax.swing.JPanel {
         panelRound1 = new Design.PanelRound();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbData = new SwingTable.Table();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -101,7 +103,7 @@ public class CRUDEsp extends javax.swing.JPanel {
                 btnEliminarActionPerformed(evt);
             }
         });
-        add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 450, 110, 40));
+        add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 430, 160, 40));
 
         btnAct.setText("Actualizar");
         btnAct.addActionListener(new java.awt.event.ActionListener() {
@@ -109,7 +111,7 @@ public class CRUDEsp extends javax.swing.JPanel {
                 btnActActionPerformed(evt);
             }
         });
-        add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 380, 110, 40));
+        add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 370, 160, 40));
 
         btnAgregar.setText("Agregar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -117,7 +119,7 @@ public class CRUDEsp extends javax.swing.JPanel {
                 btnAgregarActionPerformed(evt);
             }
         });
-        add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 310, 110, 40));
+        add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 300, 160, 40));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -176,6 +178,12 @@ public class CRUDEsp extends javax.swing.JPanel {
         panelRound1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 750, 370));
 
         add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 810, 410));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clinica 64px.png"))); // NOI18N
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 20, -1, -1));
+
+        jLabel4.setText("VetSoft+");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 90, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
@@ -262,6 +270,8 @@ public class CRUDEsp extends javax.swing.JPanel {
     private Design.ButtonGradient btnEliminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private Design.PanelRound panelRound1;
     private SwingTable.Table tbData;

@@ -101,6 +101,8 @@ public class CREARasistente extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbData = new SwingTable.Table();
         jLabel5 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
@@ -219,6 +221,12 @@ public class CREARasistente extends javax.swing.JPanel {
         jLabel5.setText("Usuario:");
         PCont.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 72, -1));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clinica 64px.png"))); // NOI18N
+        PCont.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 30, -1, -1));
+
+        jLabel3.setText("VetSoft+");
+        PCont.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 100, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -297,7 +305,9 @@ public class CREARasistente extends javax.swing.JPanel {
     private Design.ButtonGradient btnConfirm;
     private javax.swing.JComboBox<String> cbSexo;
     private com.toedter.calendar.JDateChooser dpNaci;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbApell;

@@ -157,6 +157,8 @@ public class insertCita extends javax.swing.JPanel {
         cbDoc = new javax.swing.JComboBox<>();
         lbDispo = new javax.swing.JLabel();
         btnConfirm = new Design.ButtonGradient();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
@@ -284,6 +286,12 @@ public class insertCita extends javax.swing.JPanel {
         });
         PCont.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 670, 150, 50));
 
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clinica 64px.png"))); // NOI18N
+        PCont.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 20, -1, -1));
+
+        jLabel5.setText("VetSoft+");
+        PCont.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 90, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -365,6 +373,8 @@ public class insertCita extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lbCosto;

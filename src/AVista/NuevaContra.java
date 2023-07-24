@@ -58,6 +58,8 @@ public class NuevaContra extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        VetSoft = new javax.swing.JLabel();
+        VetSoft1 = new javax.swing.JLabel();
         panelRound2 = new Design.PanelRound();
         panelRound1 = new Design.PanelRound();
         lbUs1 = new javax.swing.JLabel();
@@ -66,6 +68,12 @@ public class NuevaContra extends javax.swing.JFrame {
         txtNueva = new Design.PasswordField();
         txtNueva2 = new Design.PasswordField();
         jLabel6 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        VetSoft2 = new javax.swing.JLabel();
+
+        VetSoft.setText("VetSoft+");
+
+        VetSoft1.setText("VetSoft+");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -105,22 +113,29 @@ public class NuevaContra extends javax.swing.JFrame {
         txtNueva2.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtNueva2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 250, -1));
 
-        panelRound2.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 580, 270));
+        panelRound2.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 580, 270));
 
         jLabel6.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(27, 73, 101));
         jLabel6.setText("Cambio de contraseña");
-        panelRound2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 380, -1));
+        panelRound2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 380, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clinica .png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        panelRound2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, 70, 70));
+
+        VetSoft2.setText("VetSoft+");
+        panelRound2.add(VetSoft2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, 60, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound2, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+            .addComponent(panelRound2, javax.swing.GroupLayout.DEFAULT_SIZE, 598, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound2, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
+            .addComponent(panelRound2, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
         );
 
         pack();
@@ -214,7 +229,11 @@ public void act() throws Exception{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel VetSoft;
+    private javax.swing.JLabel VetSoft1;
+    private javax.swing.JLabel VetSoft2;
     private Design.ButtonGradient btnCambiar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel lbCod;
     private javax.swing.JLabel lbUs1;
