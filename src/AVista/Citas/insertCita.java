@@ -43,21 +43,17 @@ public class insertCita extends javax.swing.JPanel {
         this.idTipoUs = idTipoUs;
         this.idAnim = idAnim;
         initComponents();
+
+        txtNotaCl.setDocument(new Valida(200, "[a-zA-Z0-9 ]*"));
+        txtNotaD.setDocument(new Valida(200, "[a-zA-Z0-9 ]*"));
+        Calendar today = Calendar.getInstance();
+        today.add(Calendar.DAY_OF_MONTH, 1);
+        dpFecha.setDate(today.getTime());
+        dpFecha.setMinSelectableDate(today.getTime());
         loadComboServ(cbServicio);
         loadComboEsp(cbEsp);
         loadComboDoc(cbDoc);
         precio();
-        lbDispo.setVisible(false);
-        
-        txtNotaCl.setDocument(new Valida(200, "[a-zA-Z0-9 ]*"));
-        txtNotaD.setDocument(new Valida(200, "[a-zA-Z0-9 ]*"));
-        
-        
-        Calendar today = Calendar.getInstance();
-        today.add(Calendar.DAY_OF_MONTH, 1);
-        
-        dpFecha.setDate(today.getTime());
-        dpFecha.setMinSelectableDate(today.getTime());
     }
 
     private void loadComboServ(JComboBox cb) throws SQLException {
@@ -113,8 +109,7 @@ public class insertCita extends javax.swing.JPanel {
     private void dispo() throws SQLException {
         ctCitas ct = new ctCitas();
         if (cbDoct.isEmpty()) {
-            
-            
+
         } else {
             ct.idDoctor = dsg.getMap(cbDoct, cbDoc.getSelectedItem().toString());
             ct.fecha = dt.format(dpFecha.getCalendar().getTime());
