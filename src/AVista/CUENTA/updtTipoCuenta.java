@@ -36,7 +36,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         this.idCuenta = idCuenta;
         this.nivelRow = nivelRow;
         initComponents();
-        
+
         txtNombre.setDocument(new Valida(50, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         txtDui.setDocument(new Valida(10, "[0-9]*"));
         txtApellidos.setDocument(new Valida(50, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
@@ -52,7 +52,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
                 cbEsp.setSelectedIndex(0);
                 loadDoc();
             }
-            
+
             if (nivelRow != 3) {//IDCLIENTE
                 lbDir.setVisible(false);
                 txtDir.setVisible(false);
@@ -72,7 +72,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
             lbEsp.setVisible(false);
             cbEsp.setVisible(false);
         }
-        
+
         Calendar fechaActual = Calendar.getInstance();
         fechaActual.add(Calendar.YEAR, -18);
         dpNaci.setMaxSelectableDate(fechaActual.getTime());
@@ -362,38 +362,43 @@ public class updtTipoCuenta extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
-        SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
-        if (nivelRow == 2) {
-            ctRecep ct = new ctRecep();
-            ct.idRecep = idCuenta;
-            ct.nombre = txtNombre.getText();
-            ct.apellido = txtApellidos.getText();
-            ct.dui = txtDui.getText();
-            ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
-            ct.sexo = cbSexo.getSelectedItem().toString();
-            ct.updtRecep();
-        }
-        if (nivelRow == 3) {
-            ctCliente ct = new ctCliente();
-            ct.idCliente = idCuenta;
-            ct.nombre = txtNombre.getText();
-            ct.apellido = txtApellidos.getText();
-            ct.dui = txtDui.getText();
-            ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
-            ct.sexo = cbSexo.getSelectedItem().toString();
-            ct.direccion = txtDir.getText();
-            ct.updtCl();
-        }
-        if (nivelRow == 4) {
-            ctDoctores ct = new ctDoctores();
-            ct.idDoctor = idCuenta;
-            ct.idEsp = dsg.getMap(cbMap, cbEsp.getSelectedItem().toString());
-            ct.nombre = txtNombre.getText();
-            ct.apellido = txtApellidos.getText();
-            ct.dui = txtDui.getText();
-            ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
-            ct.sexo = cbSexo.getSelectedItem().toString();
-            ct.updateDoc();
+        if (txtNombre.getText().isEmpty() || txtApellidos.getText().isEmpty()
+                || txtDui.getText().isEmpty() || txtDir.getText().isEmpty()) {
+
+        } else {
+            SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+            if (nivelRow == 2) {
+                ctRecep ct = new ctRecep();
+                ct.idRecep = idCuenta;
+                ct.nombre = txtNombre.getText();
+                ct.apellido = txtApellidos.getText();
+                ct.dui = txtDui.getText();
+                ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
+                ct.sexo = cbSexo.getSelectedItem().toString();
+                ct.updtRecep();
+            }
+            if (nivelRow == 3) {
+                ctCliente ct = new ctCliente();
+                ct.idCliente = idCuenta;
+                ct.nombre = txtNombre.getText();
+                ct.apellido = txtApellidos.getText();
+                ct.dui = txtDui.getText();
+                ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
+                ct.sexo = cbSexo.getSelectedItem().toString();
+                ct.direccion = txtDir.getText();
+                ct.updtCl();
+            }
+            if (nivelRow == 4) {
+                ctDoctores ct = new ctDoctores();
+                ct.idDoctor = idCuenta;
+                ct.idEsp = dsg.getMap(cbMap, cbEsp.getSelectedItem().toString());
+                ct.nombre = txtNombre.getText();
+                ct.apellido = txtApellidos.getText();
+                ct.dui = txtDui.getText();
+                ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
+                ct.sexo = cbSexo.getSelectedItem().toString();
+                ct.updateDoc();
+            }
         }
     }//GEN-LAST:event_btnConfirmActionPerformed
 

@@ -33,15 +33,14 @@ public class insertTipoCuenta extends javax.swing.JPanel {
     ctEsp ct = new ctEsp();
     Desg dsg = new Desg();
     Map<Integer, String> cbMap = new HashMap<>();
-    
+
     public insertTipoCuenta(int idTipoUs, int idUs, int nivelRow) throws SQLException {
         this.idTipoUs = idTipoUs;
         this.idUs = idUs;
         this.nivelRow = nivelRow;
         initComponents();
-        ((JTextField)dpNaci.getDateEditor().getUiComponent()).setEditable(false);
+        ((JTextField) dpNaci.getDateEditor().getUiComponent()).setEditable(false);
 
-        
         txtNombre.setDocument(new Valida(50, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         txtDui.setDocument(new Valida(10, "[0-9]*"));
         txtApellidos.setDocument(new Valida(50, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
@@ -67,9 +66,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
             lbEsp.setVisible(false);
             cbEsp.setVisible(false);
         }
-        
-        
-        
+
         Calendar fechaActual = Calendar.getInstance();
         fechaActual.add(Calendar.YEAR, -18);
         dpNaci.setMaxSelectableDate(fechaActual.getTime());
@@ -295,12 +292,12 @@ public class insertTipoCuenta extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         try {
-            CRUDusuarios subp=new CRUDusuarios(idTipoUs);
+            CRUDusuarios subp = new CRUDusuarios(idTipoUs);
             dsg.ShowPanel(subp, PCont, 1320, 810);
         } catch (SQLException ex) {
             Logger.getLogger(insertTipoCuenta.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void cbEspActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEspActionPerformed
@@ -308,40 +305,45 @@ public class insertTipoCuenta extends javax.swing.JPanel {
     }//GEN-LAST:event_cbEspActionPerformed
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
-        SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
-        
-        if (nivelRow == 2) {
-            ctRecep ct = new ctRecep();
-            ct.idUsuario = idUs;
-            ct.nombre = txtNombre.getText();
-            ct.apellido = txtApellidos.getText();
-            ct.dui = txtDui.getText();
-            ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
-            System.out.println(dt.format(dpNaci.getCalendar().getTime()));
-            ct.sexo = cbSexo.getSelectedItem().toString();
-            ct.insertRe();
-        }
-        if (nivelRow == 3) {
-            ctCliente ct = new ctCliente();
-            ct.idUsuario = idUs;
-            ct.nombre = txtNombre.getText();
-            ct.apellido = txtApellidos.getText();
-            ct.dui = txtDui.getText();
-            ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
-            ct.sexo = cbSexo.getSelectedItem().toString();
-            ct.direccion = txtDir.getText();
-            ct.insertCl();
-        }
-        if (nivelRow == 4) {
-            ctDoctores ct = new ctDoctores();
-            ct.idUsuario = idUs;
-            ct.idEsp = dsg.getMap(cbMap, cbEsp.getSelectedItem().toString());
-            ct.nombre = txtNombre.getText();
-            ct.apellido = txtApellidos.getText();
-            ct.dui = txtDui.getText();
-            ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
-            ct.sexo = cbSexo.getSelectedItem().toString();
-            ct.insertDoc();
+        if (txtNombre.getText().isEmpty() || txtApellidos.getText().isEmpty()
+                || txtDui.getText().isEmpty() || txtDir.getText().isEmpty()) {
+
+        } else {
+            SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+
+            if (nivelRow == 2) {
+                ctRecep ct = new ctRecep();
+                ct.idUsuario = idUs;
+                ct.nombre = txtNombre.getText();
+                ct.apellido = txtApellidos.getText();
+                ct.dui = txtDui.getText();
+                ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
+                System.out.println(dt.format(dpNaci.getCalendar().getTime()));
+                ct.sexo = cbSexo.getSelectedItem().toString();
+                ct.insertRe();
+            }
+            if (nivelRow == 3) {
+                ctCliente ct = new ctCliente();
+                ct.idUsuario = idUs;
+                ct.nombre = txtNombre.getText();
+                ct.apellido = txtApellidos.getText();
+                ct.dui = txtDui.getText();
+                ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
+                ct.sexo = cbSexo.getSelectedItem().toString();
+                ct.direccion = txtDir.getText();
+                ct.insertCl();
+            }
+            if (nivelRow == 4) {
+                ctDoctores ct = new ctDoctores();
+                ct.idUsuario = idUs;
+                ct.idEsp = dsg.getMap(cbMap, cbEsp.getSelectedItem().toString());
+                ct.nombre = txtNombre.getText();
+                ct.apellido = txtApellidos.getText();
+                ct.dui = txtDui.getText();
+                ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
+                ct.sexo = cbSexo.getSelectedItem().toString();
+                ct.insertDoc();
+            }
         }
     }//GEN-LAST:event_btnConfirmActionPerformed
 

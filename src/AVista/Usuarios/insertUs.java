@@ -9,6 +9,7 @@ import AControlador.ctTipoUs;
 import AControlador.ctUser;
 import AModelo.Crypt;
 import Design.Desg;
+import Design.TextFieldSV;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -17,6 +18,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import Validation.Valida;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -27,38 +30,39 @@ public class insertUs extends javax.swing.JPanel {
     private int idTipoUs;
     private int tpUs;
     Crypt cryp = new Crypt();
-    ctTipoUs ctTP=new ctTipoUs();
+    ctTipoUs ctTP = new ctTipoUs();
     Desg dsg = new Desg();
-    Map<Integer, String> cbMap= new HashMap<>();
-    
+    Map<Integer, String> cbMap = new HashMap<>();
+
     public insertUs(int idTipoUs) throws SQLException {
-        this.idTipoUs=idTipoUs;
+        this.idTipoUs = idTipoUs;
         initComponents();
-        loadCombo(cbCargo);
-        lbDisp.setVisible(false);
-        cbCargo.setSelectedIndex(0);
-        if(idTipoUs==2){
-            lbCargo.setVisible(false);
-            cbCargo.setVisible(false);
-            
         txtUsuario.setDocument(new Valida(30, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         txtCorreo.setDocument(new Valida(50, "[a-zA-Z0-9@._]*"));
         txtContra.setDocument(new Valida(100, "[a-zA-Z0-9]*"));
-        txtTel.setDocument(new Valida(10, "[0-9]*"));    
+        txtTel.setDocument(new Valida(10, "[0-9]*"));
+        loadCombo(cbCargo);
+        lbDisp.setVisible(false);
+        cbCargo.setSelectedIndex(0);
+        if (idTipoUs == 2) {
+            lbCargo.setVisible(false);
+            cbCargo.setVisible(false);
+
         }
-        
+
     }
-    private void loadCombo(JComboBox cb) throws SQLException{
-        ResultSet rs=ctTP.selectTP();
+
+    private void loadCombo(JComboBox cb) throws SQLException {
+        ResultSet rs = ctTP.selectTP();
         while (rs.next()) {
-                int idTP=rs.getInt("idTipoUsuario");
-                String nombre=rs.getString("nivel");
-                cb.addItem(nombre);
-                cbMap.put(idTP, nombre);
-                
-            }
+            int idTP = rs.getInt("idTipoUsuario");
+            String nombre = rs.getString("nivel");
+            cb.addItem(nombre);
+            cbMap.put(idTP, nombre);
+
+        }
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -190,7 +194,7 @@ public class insertUs extends javax.swing.JPanel {
             .addGroup(PContLayout.createSequentialGroup()
                 .addGap(80, 80, 80)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(390, 390, 390)
+                .addGap(399, 399, 399)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,9 +212,9 @@ public class insertUs extends javax.swing.JPanel {
                             .addGroup(PContLayout.createSequentialGroup()
                                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(549, 549, 549))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PContLayout.createSequentialGroup()
+                            .addGroup(PContLayout.createSequentialGroup()
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(41, 41, 41))))
                     .addGroup(PContLayout.createSequentialGroup()
@@ -251,23 +255,31 @@ public class insertUs extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
-        ctUser ctUs=new ctUser();
-        if(idTipoUs==1){
-           ctUs.idTipoCuenta=dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
-        }
-        if(idTipoUs==2){
-            ctUs.idTipoCuenta=3;
-        }
-        ctUs.usuario=txtUsuario.getText();
-        try {
-            ctUs.contra=cryp.encrypt(txtContra.getText(), "key");
+        List<TextFieldSV> lista = new ArrayList<>();
+        lista.add(txtCorreo);
+        lista.add(txtTel);
+        if (txtContra.getText().isEmpty() || cbCargo.getSelectedIndex() == -1||txtCorreo.getText().isEmpty() ||txtTel.getText().isEmpty() ) {
             
-        } catch (Exception ex) {
-            Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
         }
-        ctUs.correo=txtCorreo.getText();
-        ctUs.telefono=txtTel.getText();
-        ctUs.insertUs();
+        else{
+            ctUser ctUs = new ctUser();
+            if (idTipoUs == 1) {
+                ctUs.idTipoCuenta = dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
+            }
+            if (idTipoUs == 2) {
+                ctUs.idTipoCuenta = 3;
+            }
+            ctUs.usuario = txtUsuario.getText();
+            try {
+                ctUs.contra = cryp.encrypt(txtContra.getText(), "key");
+
+            } catch (Exception ex) {
+                Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            ctUs.correo = txtCorreo.getText();
+            ctUs.telefono = txtTel.getText();
+            ctUs.insertUs();
+        }
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
