@@ -124,13 +124,16 @@ public class CRUDtpserv extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
 
         PCont.setBackground(new java.awt.Color(255, 255, 255));
+        PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Costo del servicio");
+        PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 390, -1, -1));
 
         txtCosto.setBackground(new java.awt.Color(202, 233, 255));
         txtCosto.setShadowColor(new java.awt.Color(0, 0, 51));
+        PCont.add(txtCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 430, 310, -1));
 
         btnAgregar.setText("Agregar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -138,6 +141,7 @@ public class CRUDtpserv extends javax.swing.JPanel {
                 btnAgregarActionPerformed(evt);
             }
         });
+        PCont.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 560, 110, 40));
 
         btnLimp.setText("Limpiar");
         btnLimp.addActionListener(new java.awt.event.ActionListener() {
@@ -145,6 +149,7 @@ public class CRUDtpserv extends javax.swing.JPanel {
                 btnLimpActionPerformed(evt);
             }
         });
+        PCont.add(btnLimp, new org.netbeans.lib.awtextra.AbsoluteConstraints(828, 60, 180, 40));
 
         btnEliminar.setText("Eliminar");
         btnEliminar.setToolTipText("");
@@ -153,6 +158,7 @@ public class CRUDtpserv extends javax.swing.JPanel {
                 btnEliminarActionPerformed(evt);
             }
         });
+        PCont.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 560, 110, 40));
 
         cbNivelS.setBackground(new java.awt.Color(202, 233, 255));
         cbNivelS.setForeground(new java.awt.Color(80, 80, 80));
@@ -162,6 +168,7 @@ public class CRUDtpserv extends javax.swing.JPanel {
                 cbNivelSActionPerformed(evt);
             }
         });
+        PCont.add(cbNivelS, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 190, 270, 40));
 
         txtBusq.setBackground(new java.awt.Color(202, 233, 255));
         txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
@@ -170,17 +177,21 @@ public class CRUDtpserv extends javax.swing.JPanel {
                 txtBusqKeyReleased(evt);
             }
         });
+        PCont.add(txtBusq, new org.netbeans.lib.awtextra.AbsoluteConstraints(218, 60, 470, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Prioridad de atención");
+        PCont.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 150, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Nombre del servicio");
+        PCont.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 270, -1, -1));
 
         txtServ.setBackground(new java.awt.Color(202, 233, 255));
         txtServ.setShadowColor(new java.awt.Color(0, 0, 51));
+        PCont.add(txtServ, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 310, 310, -1));
 
         btnAct.setText("Actualizar");
         btnAct.addActionListener(new java.awt.event.ActionListener() {
@@ -188,10 +199,12 @@ public class CRUDtpserv extends javax.swing.JPanel {
                 btnActActionPerformed(evt);
             }
         });
+        PCont.add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 560, 110, 40));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Servicio:");
+        PCont.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
 
         panelRound1.setBackground(new java.awt.Color(202, 233, 255));
         panelRound1.setRoundBottomLeft(50);
@@ -230,94 +243,13 @@ public class CRUDtpserv extends javax.swing.JPanel {
 
         panelRound1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 780, 440));
 
+        PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 820, 500));
+
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clinica 64px.png"))); // NOI18N
+        PCont.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1138, 20, -1, -1));
 
         jLabel6.setText("VetSoft+");
-
-        javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
-        PCont.setLayout(PContLayout);
-        PContLayout.setHorizontalGroup(
-            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(jLabel1)
-                .addGap(23, 23, 23)
-                .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(140, 140, 140)
-                .addComponent(btnLimp, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(130, 130, 130)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel6))))
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 820, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel3))
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(cbNivelS, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel4))
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(txtServ, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel2))
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(txtCosto, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(btnAct, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
-        PContLayout.setVerticalGroup(
-            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel6))
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnLimp, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(34, 34, 34)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel3)
-                        .addGap(15, 15, 15)
-                        .addComponent(cbNivelS, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel4)
-                        .addGap(15, 15, 15)
-                        .addComponent(txtServ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
-                        .addComponent(jLabel2)
-                        .addGap(15, 15, 15)
-                        .addComponent(txtCosto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(89, 89, 89)
-                        .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAct, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-        );
+        PCont.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1158, 90, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
