@@ -27,11 +27,68 @@ public class SeguridadC extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        txtProd = new Design.TextFieldSV();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtProd1 = new Design.TextFieldSV();
+        jLabel4 = new javax.swing.JLabel();
+        txtProd2 = new Design.TextFieldSV();
+        btnConfirm = new Design.ButtonGradient();
+        btnConfirm1 = new Design.ButtonGradient();
+        jLabel5 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtProd.setBackground(new java.awt.Color(202, 233, 255));
+        txtProd.setShadowColor(new java.awt.Color(0, 0, 51));
+        jPanel1.add(txtProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, 290, -1));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Ingrese su contraseña actual");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 180, 260, -1));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Ingrese su nueva contraseña");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 390, 260, -1));
+
+        txtProd1.setBackground(new java.awt.Color(202, 233, 255));
+        txtProd1.setShadowColor(new java.awt.Color(0, 0, 51));
+        jPanel1.add(txtProd1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 430, 290, -1));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("Digite su contraseña de nuevo");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 500, 260, -1));
+
+        txtProd2.setBackground(new java.awt.Color(202, 233, 255));
+        txtProd2.setShadowColor(new java.awt.Color(0, 0, 51));
+        jPanel1.add(txtProd2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 540, 290, -1));
+
+        btnConfirm.setText("Verificar");
+        btnConfirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 290, 160, 40));
+
+        btnConfirm1.setText("Cambiar");
+        btnConfirm1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirm1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnConfirm1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 620, 160, 40));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(27, 73, 101));
+        jLabel5.setText("CAMBIO DE CONTRASEÑA");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 440, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -45,8 +102,62 @@ public class SeguridadC extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
+        /*if (txtNombre.getText().isEmpty() || txtApellidos.getText().isEmpty()
+            || txtDui.getText().isEmpty() || txtDir.getText().isEmpty()) {
+
+        } else {
+            SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+            if (nivelRow == 2) {
+                ctRecep ct = new ctRecep();
+                ct.idRecep = idCuenta;
+                ct.nombre = txtNombre.getText();
+                ct.apellido = txtApellidos.getText();
+                ct.dui = txtDui.getText();
+                ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
+                ct.sexo = cbSexo.getSelectedItem().toString();
+                ct.updtRecep();
+            }
+            if (nivelRow == 3) {
+                ctCliente ct = new ctCliente();
+                ct.idCliente = idCuenta;
+                ct.nombre = txtNombre.getText();
+                ct.apellido = txtApellidos.getText();
+                ct.dui = txtDui.getText();
+                ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
+                ct.sexo = cbSexo.getSelectedItem().toString();
+                ct.direccion = txtDir.getText();
+                ct.updtCl();
+            }
+            if (nivelRow == 4) {
+                ctDoctores ct = new ctDoctores();
+                ct.idDoctor = idCuenta;
+                ct.idEsp = dsg.getMap(cbMap, cbEsp.getSelectedItem().toString());
+                ct.nombre = txtNombre.getText();
+                ct.apellido = txtApellidos.getText();
+                ct.dui = txtDui.getText();
+                ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
+                ct.sexo = cbSexo.getSelectedItem().toString();
+                ct.updateDoc();
+            }
+        }*/
+    }//GEN-LAST:event_btnConfirmActionPerformed
+
+    private void btnConfirm1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirm1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnConfirm1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private Design.ButtonGradient btnConfirm;
+    private Design.ButtonGradient btnConfirm1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private Design.TextFieldSV txtProd;
+    private Design.TextFieldSV txtProd1;
+    private Design.TextFieldSV txtProd2;
     // End of variables declaration//GEN-END:variables
 }
