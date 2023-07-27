@@ -1,17 +1,27 @@
 package Design;
 
+import AVista.Productos.updateProd;
 import java.awt.*;
 import java.awt.Image;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.View;
@@ -89,6 +99,7 @@ public class Desg {
         }
         return true;
     }
+
     public boolean NotEmpty(java.util.List<PasswordField> editTextList) {
         for (PasswordField editText : editTextList) {
             String text = editText.getText().toString().trim();
@@ -97,6 +108,28 @@ public class Desg {
             }
         }
         return true;
+    }
+
+    public byte[] selectImg(File archivoImagen) throws IOException {
+        byte[] bytesImagen = new byte[(int) archivoImagen.length()];
+        FileInputStream fis = new FileInputStream(archivoImagen);
+        fis.read(bytesImagen);
+        fis.close();
+        return bytesImagen;
+    }
+
+    public void putImg(JLabel lbImg, byte[] bytesImagen) {
+
+        //byte[] bytesImagen = selectImg(file);
+        if (bytesImagen != null) {
+            try {
+                Image image = ImageIO.read(new ByteArrayInputStream(bytesImagen));
+                Image scaledImage = image.getScaledInstance(lbImg.getWidth(), lbImg.getHeight(), Image.SCALE_SMOOTH);
+                lbImg.setIcon(new ImageIcon(scaledImage));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 }
