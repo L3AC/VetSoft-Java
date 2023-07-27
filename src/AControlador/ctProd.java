@@ -11,6 +11,9 @@ public class ctProd {
     public int idTipoProd;
     public String tipoProd;
     public String producto;
+    public byte image;
+    public float precio;
+    public String proveedor;
 
     public int getIdTipoProd() {
         return idTipoProd;
@@ -34,6 +37,30 @@ public class ctProd {
 
     public void setTipoProd(String tipoProd) {
         this.tipoProd = tipoProd;
+    }
+
+    public byte getImage() {
+        return image;
+    }
+
+    public void setImage(byte image) {
+        this.image = image;
+    }
+
+    public float getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(float precio) {
+        this.precio = precio;
+    }
+
+    public String getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(String proveedor) {
+        this.proveedor = proveedor;
     }
     
     

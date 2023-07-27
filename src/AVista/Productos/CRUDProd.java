@@ -37,6 +37,8 @@ public class CRUDProd extends javax.swing.JPanel {
         btnEditar = new Design.ButtonGradient();
         btnAgregar1 = new Design.ButtonGradient();
 
+        setPreferredSize(new java.awt.Dimension(1320, 810));
+
         PCont.setBackground(new java.awt.Color(255, 255, 255));
         PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -75,9 +77,9 @@ public class CRUDProd extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tbData);
 
-        panelRound1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 780, 440));
+        panelRound1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 930, 500));
 
-        PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 820, 500));
+        PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 990, 560));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -99,7 +101,7 @@ public class CRUDProd extends javax.swing.JPanel {
                 btnEliminarActionPerformed(evt);
             }
         });
-        PCont.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 400, 130, 50));
+        PCont.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 390, 130, 50));
 
         btnEjemp.setText("Ejemplares");
         btnEjemp.addActionListener(new java.awt.event.ActionListener() {
@@ -107,7 +109,7 @@ public class CRUDProd extends javax.swing.JPanel {
                 btnEjempActionPerformed(evt);
             }
         });
-        PCont.add(btnEjemp, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 140, 130, 50));
+        PCont.add(btnEjemp, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 140, 130, 50));
 
         btnEditar.setText("Editar");
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -115,7 +117,7 @@ public class CRUDProd extends javax.swing.JPanel {
                 btnEditarActionPerformed(evt);
             }
         });
-        PCont.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 310, 130, 50));
+        PCont.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 300, 130, 50));
 
         btnAgregar1.setText("Agregar");
         btnAgregar1.addActionListener(new java.awt.event.ActionListener() {
@@ -123,7 +125,7 @@ public class CRUDProd extends javax.swing.JPanel {
                 btnAgregar1ActionPerformed(evt);
             }
         });
-        PCont.add(btnAgregar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 220, 130, 50));
+        PCont.add(btnAgregar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 220, 130, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
