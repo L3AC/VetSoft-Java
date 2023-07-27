@@ -5,7 +5,11 @@
 package AVista.Productos;
 
 import Design.Desg;
+import java.awt.Dimension;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -47,6 +51,12 @@ public class updateProd extends javax.swing.JPanel {
 
         PCont.setBackground(new java.awt.Color(255, 255, 255));
         PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lbImg.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbImgMouseClicked(evt);
+            }
+        });
         PCont.add(lbImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 200, 150));
 
         btnImg.setText("Select");
@@ -84,6 +94,36 @@ public class updateProd extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_btnImgActionPerformed
+
+    private void lbImgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbImgMouseClicked
+        boolean isFullScreen = false;
+        ImageIcon originalImageIcon = new ImageIcon("C:/Users/LEAC2/Downloads/one.png");
+        int previousWidth = 0;
+        int previousHeight = 0;
+        if (isFullScreen) {
+                // Restaura el tamaño original de la imagen
+                lbImg.setIcon(originalImageIcon);
+                PCont.setPreferredSize(new Dimension(previousWidth, previousHeight));
+                PCont.revalidate();
+                PCont.repaint();
+            } else {
+                // Pone la imagen en pantalla completa
+                Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+                previousWidth = PCont.getWidth();
+                previousHeight = PCont.getHeight();
+
+                PCont.setPreferredSize(screenSize);
+                PCont.revalidate();
+                PCont.repaint();
+
+                Image scaledImage = originalImageIcon.getImage().getScaledInstance(screenSize.width, screenSize.height, Image.SCALE_DEFAULT);
+                ImageIcon scaledImageIcon = new ImageIcon(scaledImage);
+                lbImg.setIcon(scaledImageIcon);
+            }
+
+            // Cambia el estado del modo pantalla completa
+            isFullScreen = !isFullScreen;
+    }//GEN-LAST:event_lbImgMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
