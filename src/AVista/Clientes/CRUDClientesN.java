@@ -27,6 +27,9 @@ public class CRUDClientesN extends javax.swing.JPanel {
     private void initComponents() {
 
         panelRound1 = new Design.PanelRound();
+        panelRound2 = new Design.PanelRound();
+        panelRound3 = new Design.PanelRound();
+        panelRound4 = new Design.PanelRound();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -37,11 +40,38 @@ public class CRUDClientesN extends javax.swing.JPanel {
         panelRound1.setRoundTopLeft(50);
         panelRound1.setRoundTopRight(50);
         panelRound1.setLayout(null);
-        add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(201, 239, 300, 160));
+        add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 170, 300, 160));
+
+        panelRound2.setBackground(new java.awt.Color(51, 255, 204));
+        panelRound2.setRoundBottomLeft(50);
+        panelRound2.setRoundBottomRight(50);
+        panelRound2.setRoundTopLeft(50);
+        panelRound2.setRoundTopRight(50);
+        panelRound2.setLayout(null);
+        add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, 300, 160));
+
+        panelRound3.setBackground(new java.awt.Color(51, 255, 204));
+        panelRound3.setRoundBottomLeft(50);
+        panelRound3.setRoundBottomRight(50);
+        panelRound3.setRoundTopLeft(50);
+        panelRound3.setRoundTopRight(50);
+        panelRound3.setLayout(null);
+        add(panelRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, 300, 160));
+
+        panelRound4.setBackground(new java.awt.Color(51, 255, 204));
+        panelRound4.setRoundBottomLeft(50);
+        panelRound4.setRoundBottomRight(50);
+        panelRound4.setRoundTopLeft(50);
+        panelRound4.setRoundTopRight(50);
+        panelRound4.setLayout(null);
+        add(panelRound4, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 360, 300, 160));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Design.PanelRound panelRound1;
+    private Design.PanelRound panelRound2;
+    private Design.PanelRound panelRound3;
+    private Design.PanelRound panelRound4;
     // End of variables declaration//GEN-END:variables
 }
