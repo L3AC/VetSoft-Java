@@ -14,6 +14,7 @@ import AVista.Mantenimiento.CRUDRazas;
 import AVista.Mantenimiento.CRUDTipoAnim;
 import AVista.Mantenimiento.CRUDTipoProd;
 import AVista.Mantenimiento.CRUDtpserv;
+import AVista.Productos.CRUDProd;
 import AVista.Productos.updateProd;
 import AVista.Recepcionista.CRUDRecep;
 import AVista.Usuarios.CRUDusuarios;
@@ -79,10 +80,9 @@ public class Dashboard extends javax.swing.JFrame {
                 try {
                     //INICIO
                     if (index == 0) {//HOME
-                        /*Home subp = new Home();
-                        dsg.ShowPanel(subp, PCont, 1320, 810);*/
-                        updateProd subp = new updateProd(1,1);
+                        Home subp = new Home();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
+                        
                     }
                     //GESTION PRINCIPAL
                     if (index == 1 && indexSubMenu == 1) {//USUARIOS
@@ -117,8 +117,9 @@ public class Dashboard extends javax.swing.JFrame {
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     //TIENDA
-                    if (index == 3 && indexSubMenu == 1) {
-
+                    if (index == 3 && indexSubMenu == 2) {
+                        CRUDProd subp = new CRUDProd(idTipoU);
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     //MANTENIMIENTO
                     if (index == 4 && indexSubMenu == 1) {

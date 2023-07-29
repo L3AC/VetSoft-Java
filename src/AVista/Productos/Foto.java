@@ -2,6 +2,9 @@ package AVista.Productos;
 
 import AVista.Clientes.CRUDCliente;
 import Design.Desg;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Foto extends javax.swing.JPanel {
 
@@ -83,8 +86,12 @@ public class Foto extends javax.swing.JPanel {
             dsg.ShowPanel(subp, PCont, 1320, 810);*/
         }
         if (window == 2) {
-            updateProd subp = new updateProd(idTipoUs, idProd);
-            dsg.ShowPanel(subp, PCont, 1320, 810);
+            try {
+                updateProd subp = new updateProd(idTipoUs, idProd);
+                dsg.ShowPanel(subp, PCont, 1320, 810);
+            } catch (SQLException ex) {
+                Logger.getLogger(Foto.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
     }//GEN-LAST:event_lbImgMouseClicked

@@ -68,7 +68,7 @@ public class CRUDProd extends javax.swing.JPanel {
         btnEliminar = new Design.ButtonGradient();
         btnEjemp = new Design.ButtonGradient();
         btnEditar = new Design.ButtonGradient();
-        btnAgregar1 = new Design.ButtonGradient();
+        btnAgregar = new Design.ButtonGradient();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
@@ -147,13 +147,13 @@ public class CRUDProd extends javax.swing.JPanel {
         });
         PCont.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 300, 130, 50));
 
-        btnAgregar1.setText("Agregar");
-        btnAgregar1.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregar1ActionPerformed(evt);
+                btnAgregarActionPerformed(evt);
             }
         });
-        PCont.add(btnAgregar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 220, 130, 50));
+        PCont.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 220, 130, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -213,19 +213,28 @@ public class CRUDProd extends javax.swing.JPanel {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        updateProd subp = new updateProd(idTipoUs,
+        try {
+            updateProd subp = new updateProd(idTipoUs,
                     Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
             dsg.ShowPanel(subp, PCont, 1320, 810);
+        } catch (SQLException ex) {
+            Logger.getLogger(CRUDProd.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnEditarActionPerformed
 
-    private void btnAgregar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAgregar1ActionPerformed
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        try {
+            insertProd subp =new insertProd(idTipoUs);
+            dsg.ShowPanel(subp, PCont, 1320, 810);
+        } catch (SQLException ex) {
+            Logger.getLogger(CRUDProd.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
-    private Design.ButtonGradient btnAgregar1;
+    private Design.ButtonGradient btnAgregar;
     private Design.ButtonGradient btnEditar;
     private Design.ButtonGradient btnEjemp;
     private Design.ButtonGradient btnEliminar;
