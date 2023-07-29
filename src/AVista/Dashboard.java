@@ -81,7 +81,7 @@ public class Dashboard extends javax.swing.JFrame {
                     if (index == 0) {//HOME
                         /*Home subp = new Home();
                         dsg.ShowPanel(subp, PCont, 1320, 810);*/
-                        updateProd subp = new updateProd();
+                        updateProd subp = new updateProd(1,1);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     //GESTION PRINCIPAL

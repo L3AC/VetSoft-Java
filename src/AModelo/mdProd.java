@@ -72,7 +72,7 @@ public class mdProd extends JFrame {
         }
     }
 
-    public boolean insProd(int idTP,String n1,String n2,float price,byte img) {
+    public boolean insProd(int idTP,String n1,String n2,float price,byte[] img) {
         String query = "insert into tbProductos (idTipoProducto,Nombre,Proveedor,Precio,img,fechaRegistro)\n"
                 + "values (?,?,?,?,?,GETDATE())";
         try {
@@ -81,7 +81,7 @@ public class mdProd extends JFrame {
             ps.setString(2, n1);
             ps.setString(3, n2);
             ps.setFloat(4, price);
-            ps.setByte(5, img);
+            ps.setBytes(5, img);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Campos ingresados");
             return true;
@@ -94,7 +94,7 @@ public class mdProd extends JFrame {
         }
     }
 
-    public boolean upProd(int id,int idTP,String n1,String n2,float price,byte img) {
+    public boolean upProd(int id,int idTP,String n1,String n2,float price,byte[] img) {
         String query = "update tbProductos set idTipoProducto=?,Nombre=?,Proveedor=?,Precio=?,img=? where idProducto=?";
         try {
             ps = con.prepareStatement(query);
@@ -103,7 +103,7 @@ public class mdProd extends JFrame {
             ps.setString(2, n1);
             ps.setString(3, n2);
             ps.setFloat(4, price);
-            ps.setByte(5, img);
+            ps.setBytes(5, img);
             ps.setInt(6, id);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Campos actualizados");

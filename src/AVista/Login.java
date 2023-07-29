@@ -40,6 +40,7 @@ public class Login extends javax.swing.JFrame {
 
     Fuentes tipoFuente;
     Desg dsg = new Desg();
+    Valida vali = new Valida();
     Crypt cryp = new Crypt();
 
     private int idTipoU;
@@ -57,6 +58,7 @@ public class Login extends javax.swing.JFrame {
         VetSoft.setFont(tipoFuente.fuente(tipoFuente.COM, 1, 11));
         UsuarioL.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 25));
         PassL.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 22));
+        
 
         txtUser.setDocument(new Valida(30, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         txtPass.setDocument(new Valida(30, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
@@ -155,6 +157,9 @@ public class Login extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtUserKeyPressed(evt);
             }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtUserKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtUserKeyTyped(evt);
             }
@@ -168,6 +173,9 @@ public class Login extends javax.swing.JFrame {
             }
         });
         txtPass.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPassKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtPassKeyTyped(evt);
             }
@@ -289,6 +297,14 @@ public class Login extends javax.swing.JFrame {
         dispose();
 
     }//GEN-LAST:event_txtOlvidasteContraMouseClicked
+
+    private void txtUserKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyReleased
+        //vali.minL(txtUser, btnIngresar, 5);
+    }//GEN-LAST:event_txtUserKeyReleased
+
+    private void txtPassKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassKeyReleased
+        //vali.minL(txtPass, btnIngresar, 5);
+    }//GEN-LAST:event_txtPassKeyReleased
     public void SelectID() throws SQLException {
         try {
             ctUser ct = new ctUser();

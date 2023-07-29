@@ -5,6 +5,7 @@
 package AVista.Productos;
 
 import Design.Desg;
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
@@ -29,12 +30,14 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class updateProd extends javax.swing.JPanel {
 
-    /**
-     * Creates new form updateProd
-     */
+    private int idTipoUs;
+    private int idProd;
+    private byte[] bytesImagen;
     Desg dsg = new Desg();
 
-    public updateProd() {
+    public updateProd(int idTipoUs, int idProd) {
+        this.idTipoUs = idTipoUs;
+        this.idProd = idProd;
         initComponents();
 
     }
@@ -50,14 +53,12 @@ public class updateProd extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
         PCont.setBackground(new java.awt.Color(255, 255, 255));
-        PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbImg.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lbImgMouseClicked(evt);
             }
         });
-        PCont.add(lbImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 200, 150));
 
         btnImg.setText("Select");
         btnImg.addActionListener(new java.awt.event.ActionListener() {
@@ -65,17 +66,36 @@ public class updateProd extends javax.swing.JPanel {
                 btnImgActionPerformed(evt);
             }
         });
-        PCont.add(btnImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 260, 80, 40));
+
+        javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
+        PCont.setLayout(PContLayout);
+        PContLayout.setHorizontalGroup(
+            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(300, 300, 300)
+                .addComponent(lbImg, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(160, 160, 160)
+                .addComponent(btnImg, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        PContLayout.setVerticalGroup(
+            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(190, 190, 190)
+                .addComponent(lbImg, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(260, 260, 260)
+                .addComponent(btnImg, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PCont, javax.swing.GroupLayout.DEFAULT_SIZE, 1320, Short.MAX_VALUE)
+            .addComponent(PCont, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PCont, javax.swing.GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE)
+            .addComponent(PCont, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -87,8 +107,8 @@ public class updateProd extends javax.swing.JPanel {
         if (seleccion == JFileChooser.APPROVE_OPTION) {
             try {
                 File file = fileChooser.getSelectedFile();
-                byte[] bytesImagen = dsg.selectImg(file);
-                dsg.putImg(lbImg,bytesImagen);
+                bytesImagen = dsg.selectImg(file);
+                dsg.putImg(lbImg, bytesImagen);
             } catch (IOException ex) {
                 Logger.getLogger(updateProd.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -96,33 +116,9 @@ public class updateProd extends javax.swing.JPanel {
     }//GEN-LAST:event_btnImgActionPerformed
 
     private void lbImgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbImgMouseClicked
-        boolean isFullScreen = false;
-        ImageIcon originalImageIcon = new ImageIcon("C:/Users/LEAC2/Downloads/one.png");
-        int previousWidth = 0;
-        int previousHeight = 0;
-        if (isFullScreen) {
-                // Restaura el tamaño original de la imagen
-                lbImg.setIcon(originalImageIcon);
-                PCont.setPreferredSize(new Dimension(previousWidth, previousHeight));
-                PCont.revalidate();
-                PCont.repaint();
-            } else {
-                // Pone la imagen en pantalla completa
-                Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-                previousWidth = PCont.getWidth();
-                previousHeight = PCont.getHeight();
-
-                PCont.setPreferredSize(screenSize);
-                PCont.revalidate();
-                PCont.repaint();
-
-                Image scaledImage = originalImageIcon.getImage().getScaledInstance(screenSize.width, screenSize.height, Image.SCALE_DEFAULT);
-                ImageIcon scaledImageIcon = new ImageIcon(scaledImage);
-                lbImg.setIcon(scaledImageIcon);
-            }
-
-            // Cambia el estado del modo pantalla completa
-            isFullScreen = !isFullScreen;
+        
+        Foto subp = new Foto(idTipoUs, 1, bytesImagen, 2);
+        dsg.ShowPanel(subp, PCont, 1320, 810);
     }//GEN-LAST:event_lbImgMouseClicked
 
 

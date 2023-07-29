@@ -213,7 +213,9 @@ public class CRUDProd extends javax.swing.JPanel {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        // TODO add your handling code here:
+        updateProd subp = new updateProd(idTipoUs,
+                    Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
+            dsg.ShowPanel(subp, PCont, 1320, 810);
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnAgregar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregar1ActionPerformed

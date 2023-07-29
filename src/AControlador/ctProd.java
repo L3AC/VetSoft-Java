@@ -13,7 +13,7 @@ public class ctProd {
     public int idProd;
     public String tipoProd;
     public String producto;
-    public byte image;
+    public byte[] image;
     public float precio;
     public String proveedor;
 
@@ -41,13 +41,14 @@ public class ctProd {
         this.tipoProd = tipoProd;
     }
 
-    public byte getImage() {
+    public byte[] getImage() {
         return image;
     }
 
-    public void setImage(byte image) {
+    public void setImage(byte[] image) {
         this.image = image;
     }
+
 
     public float getPrecio() {
         return precio;

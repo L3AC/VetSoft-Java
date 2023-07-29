@@ -69,6 +69,15 @@ public class Desg {
         cont.repaint();
     }
 
+    public void Showfoto(JLabel img, JPanel cont, int w, int h) {
+        img.setSize(w, h);
+        img.setLocation(0, 0);
+        cont.removeAll();
+        cont.add(img, BorderLayout.CENTER);
+        cont.revalidate();
+        cont.repaint();
+    }
+
     public int getMap(Map<Integer, String> map, String value) {
         for (Map.Entry<Integer, String> entry : map.entrySet()) {
             if (entry.getValue().equals(value)) {

@@ -80,7 +80,7 @@ public class insertProd extends javax.swing.JPanel {
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         
 
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_btnAgregarActionPerformed
 
 
