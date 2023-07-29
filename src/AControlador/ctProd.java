@@ -8,7 +8,9 @@ import AModelo.mdProd;
 import java.sql.ResultSet;
 
 public class ctProd {
+
     public int idTipoProd;
+    public int idProd;
     public String tipoProd;
     public String producto;
     public byte image;
@@ -62,26 +64,46 @@ public class ctProd {
     public void setProveedor(String proveedor) {
         this.proveedor = proveedor;
     }
-    
-    
-    mdProd md=new mdProd();
-    
-    /*public ResultSet comboTipoProd() {
-        return md.comboServ();
+
+    public int getIdProd() {
+        return idProd;
     }
 
-    public ResultSet selectServ() {
-        return md.selectServ(idTipoServ);
-    }*/
+    public void setIdProd(int idProd) {
+        this.idProd = idProd;
+    }
+    
+
+    mdProd md = new mdProd();
+
+    public ResultSet tbProd() {
+        return md.tbProd(producto);
+    }
+
+    public ResultSet selectProd() {
+        return md.selectProd(idProd);
+    }
+
+    public boolean dlProd() {
+        return md.dlProd(idProd);
+    }
+
+    public boolean upProd() {
+        return md.upProd(idProd,idTipoProd,producto,proveedor,precio,image);
+    }
+
+    public boolean insProd() {
+        return md.insProd(idTipoProd,producto,proveedor,precio,image);
+    }
+    
+    //////////////////////TABLA DE TIPO DE PRODUCTOS ///////////////////
 
     public ResultSet tableTProd() {
         return md.tableTProd(tipoProd);
     }
-
-    /*public ResultSet comboPrior() {
-        return md.comboPrior();
-    }*/
-    
+    public ResultSet comboTProd() {
+        return md.comboTProd();
+    }
 
     public boolean insertTProd() {
         return md.insertTProd(tipoProd);
@@ -93,5 +115,5 @@ public class ctProd {
 
     public boolean deleteTProd() {
         return md.deleteTProd(idTipoProd);
-    } 
+    }
 }

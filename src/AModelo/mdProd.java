@@ -21,6 +21,103 @@ public class mdProd extends JFrame {
     ResultSet rs;
     PreparedStatement ps;
 
+    public ResultSet tbProd(String n1) {
+
+        String query = "select idProducto,tp.tipo,Nombre,Proveedor,Precio from tbProductos p,"
+                + "tbTipoProductos tp where p.idTipoProducto=tp.idTipoProducto and Nombre like ?";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setString(1, "%" + n1 + "%");
+            rs = ps.executeQuery();
+            return rs;
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return null; //DIO ERROR
+        }
+    }
+
+    public ResultSet selectProd(int id) {
+
+        String query = "select idProducto,tp.tipo,Nombre,Proveedor,Precio,img "
+                + "from tbProductos p,tbTipoProductos tp "
+                + "where p.idTipoProducto=tp.idTipoProducto and idProducto=?";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            return rs;
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return null; //DIO ERROR
+        }
+    }
+
+    public boolean dlProd(int idC) {
+        String query = "DELETE tbProductos where idProducto=?;";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setInt(1, idC);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Registro eliminado");
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return false;
+        }
+    }
+
+    public boolean insProd(int idTP,String n1,String n2,float price,byte img) {
+        String query = "insert into tbProductos (idTipoProducto,Nombre,Proveedor,Precio,img,fechaRegistro)\n"
+                + "values (?,?,?,?,?,GETDATE())";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setInt(1, idTP);
+            ps.setString(2, n1);
+            ps.setString(3, n2);
+            ps.setFloat(4, price);
+            ps.setByte(5, img);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Campos ingresados");
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return false; //DIO ERROR
+        }
+    }
+
+    public boolean upProd(int id,int idTP,String n1,String n2,float price,byte img) {
+        String query = "update tbProductos set idTipoProducto=?,Nombre=?,Proveedor=?,Precio=?,img=? where idProducto=?";
+        try {
+            ps = con.prepareStatement(query);
+            ps = con.prepareStatement(query);
+            ps.setInt(1, idTP);
+            ps.setString(2, n1);
+            ps.setString(3, n2);
+            ps.setFloat(4, price);
+            ps.setByte(5, img);
+            ps.setInt(6, id);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Campos actualizados");
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return false; //DIO ERROR
+        }
+    }
+
+    //////////////////////TABLA DE TIPO DE PRODUCTOS ///////////////////
     public ResultSet tableTProd(String n1) {
 
         String query = "select * from tbTipoProductos where tipo like ?";
@@ -34,6 +131,19 @@ public class mdProd extends JFrame {
             System.out.println(e.toString());
             JOptionPane.showMessageDialog(null, "Error al ejecutar");
             return null; //DIO ERROR
+        }
+    }
+        public ResultSet comboTProd() {
+        String query = "select * from tbTipoProductos;";
+        try {
+            ps = con.prepareStatement(query);
+            rs = ps.executeQuery();
+            return rs;
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return null;
         }
     }
 
@@ -71,7 +181,7 @@ public class mdProd extends JFrame {
     }
 
     public boolean updtTProd(int id, String n1) {
-        String query = "update tbTipoProductos set tipo=? where idTipoProducto=?;;";
+        String query = "update tbTipoProductos set tipo=? where idTipoProducto=?;";
         try {
             ps = con.prepareStatement(query);
             ps.setInt(2, id);
