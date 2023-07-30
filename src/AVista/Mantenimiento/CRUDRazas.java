@@ -93,6 +93,11 @@ public class CRUDRazas extends javax.swing.JPanel {
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1038, 188, -1, -1));
 
         btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
         add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1018, 362, 193, 39));
 
         btnEditar.setText("Editar");
@@ -199,6 +204,10 @@ public class CRUDRazas extends javax.swing.JPanel {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

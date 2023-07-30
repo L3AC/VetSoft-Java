@@ -88,6 +88,7 @@ public class CRUDTipoAnim extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
 
         PCont.setBackground(new java.awt.Color(255, 255, 255));
+        PCont.setPreferredSize(new java.awt.Dimension(1320, 810));
 
         txtNC.setBackground(new java.awt.Color(202, 233, 255));
         txtNC.setShadowColor(new java.awt.Color(0, 0, 51));

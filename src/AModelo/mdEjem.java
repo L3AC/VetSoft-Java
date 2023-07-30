@@ -47,12 +47,11 @@ public class mdEjem {
             return false;
         }
     }
-    public boolean insEjem(int id,String n1) {
-        String query = "insert into tbEjemplares values(?,?,getdate())";
+    public boolean insEjem(int id) {
+        String query = "insert into tbEjemplares values(?,'Disponible',getdate())";
         try {
             ps = con.prepareStatement(query);
             ps.setInt(1, id);
-            ps.setString(2, n1);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Campos ingresados");
             return true;

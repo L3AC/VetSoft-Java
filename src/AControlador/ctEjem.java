@@ -44,6 +44,6 @@ public class ctEjem {
     }
 
     public boolean insEjem() {
-        return md.insEjem(idProd,estado);
+        return md.insEjem(idProd);
     }
 }
