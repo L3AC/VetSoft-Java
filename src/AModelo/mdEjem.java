@@ -13,24 +13,30 @@ public class mdEjem {
     PreparedStatement ps;
     ResultSet rs;
 
-    public ResultSet selectEjem(String n1) {
-        String query = "select * from tbEspecialidades where especialidad like ?;";
+    public ResultSet tbEjem(String n1,int idP) {
+
+        String query = "select idEjemplar,tp.tipo,p.Nombre,Estado from tbEjemplares e, tbProductos p, "
+                + "tbTipoProductos tp where e.idProducto=p.idProducto and "
+                + "tp.idTipoProducto=p.idTipoProducto and Estado like ? and e.idProducto=?";
         try {
             ps = con.prepareStatement(query);
             ps.setString(1, "%" + n1 + "%");
+            ps.setInt(2, idP);
             rs = ps.executeQuery();
             return rs;
-
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e.toString());
-            return null;
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return null; //DIO ERROR
         }
     }
-    public boolean deleteEsp(int idEsp) {
-        String query = "DELETE tbEspecialidades where idEspecialidad=?;";
+
+    public boolean dlEjem(int id) {
+        String query = "DELETE tbEjemplares where idEjemplar=?;";
         try {
             ps = con.prepareStatement(query);
-            ps.setInt(1, idEsp);
+            ps.setInt(1, id);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Registro eliminado");
             return true;
@@ -39,6 +45,23 @@ public class mdEjem {
             System.out.println(e.toString());
             JOptionPane.showMessageDialog(null, "Error al ejecutar");
             return false;
+        }
+    }
+    public boolean insEjem(int id,String n1) {
+        String query = "insert into tbEjemplares values(?,?,getdate())";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setInt(1, id);
+            ps.setString(2, n1);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Campos ingresados");
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return false; //DIO ERROR
         }
     }
 }

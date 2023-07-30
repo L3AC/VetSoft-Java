@@ -81,6 +81,7 @@ public class CRUDRazas extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(1320, 810));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         textFieldSV1.setBackground(new java.awt.Color(202, 233, 255));
