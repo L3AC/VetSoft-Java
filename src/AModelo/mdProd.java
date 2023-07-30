@@ -23,8 +23,9 @@ public class mdProd extends JFrame {
 
     public ResultSet tbProd(String n1) {
 
-        String query = "select idProducto,tp.tipo,Nombre,Proveedor,Precio from tbProductos p,"
-                + "tbTipoProductos tp where p.idTipoProducto=tp.idTipoProducto and Nombre like ?";
+        String query = "select idProducto,tp.tipo,Nombre,Proveedor,CONVERT(DECIMAL(18, 2),Precio) AS precio"
+                + " from tbProductos p,tbTipoProductos tp where p.idTipoProducto=tp.idTipoProducto"
+                + " and Nombre like ?";
         try {
             ps = con.prepareStatement(query);
             ps.setString(1, "%" + n1 + "%");

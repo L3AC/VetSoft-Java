@@ -34,30 +34,26 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-/**
- *
- * @author LEAC2
- */
 public class updateProd extends javax.swing.JPanel {
 
     private int idTipoUs;
     private int idProd;
     private byte[] bytesImagen;
     Desg dsg = new Desg();
-        Map<Integer, String> cbTP = new HashMap<>();
+    Map<Integer, String> cbTP = new HashMap<>();
 
     public updateProd(int idTipoUs, int idProd) throws SQLException {
         this.idTipoUs = idTipoUs;
         this.idProd = idProd;
         initComponents();
         loadCombo(cbTipoProd);
-        loadDoc();
+        loadData();
     }
 
-    final void loadDoc()  {
+    final void loadData() {
         try {
             ctProd ct = new ctProd();
-            ct.idProd= idProd;
+            ct.idProd = idProd;
 
             ResultSet rs = ct.selectProd();
             while (rs.next()) {
@@ -65,13 +61,16 @@ public class updateProd extends javax.swing.JPanel {
                 txtProducto.setText(rs.getString("nombre"));
                 txtProv.setText(rs.getString("proveedor"));
                 txtPrecio.setText(rs.getString("precio"));
-                bytesImagen=rs.getBytes("img");
+                bytesImagen = rs.getBytes("img");
+                lbImg.setSize(300, 260);
+                dsg.putImg(lbImg, bytesImagen);
             }
         } catch (Exception e) {
             System.err.println(e.toString());
         }
     }
-        private void loadCombo(JComboBox cb) throws SQLException {
+
+    private void loadCombo(JComboBox cb) throws SQLException {
         ctProd ct = new ctProd();
         ResultSet rs = ct.comboTProd();
         while (rs.next()) {
@@ -194,7 +193,6 @@ public class updateProd extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cbTipoProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTipoProdActionPerformed
-
         /*tpUs = dsg.getMap(cbTP, cbCargo.getSelectedItem().toString());
         System.out.println("ID seleccionado: " + tpUs);*/
     }//GEN-LAST:event_cbTipoProdActionPerformed
@@ -206,14 +204,14 @@ public class updateProd extends javax.swing.JPanel {
         lista.add(txtPrecio);
         if (dsg.areFieldsNotEmpty(lista) && bytesImagen != null) {
             ctProd ct = new ctProd();
-            ct.idProd=idProd;
+            ct.idProd = idProd;
             ct.idTipoProd = dsg.getMap(cbTP, cbTipoProd.getSelectedItem().toString());
             ct.producto = txtProducto.getText();
             ct.proveedor = txtProv.getText();
             ct.precio = Float.parseFloat(txtPrecio.getText());
+            ct.image = bytesImagen;
             ct.upProd();
-        }
-        else{
+        } else {
             JOptionPane.showMessageDialog(null, "Campos vacíos");
         }
     }//GEN-LAST:event_btnConfirmActionPerformed
