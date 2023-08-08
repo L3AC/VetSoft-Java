@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 public class ctEjem {
 
     public int idEjem;
+    public int idCl;
     public int idProd;
     public String estado;
 
@@ -32,11 +33,20 @@ public class ctEjem {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    
-    mdEjem md=new mdEjem();
-    
+
+    public int getIdCl() {
+        return idCl;
+    }
+
+    public void setIdCl(int idCl) {
+        this.idCl = idCl;
+    }
+
+    mdEjem md = new mdEjem();
+
+    //TABLA DE EJEMPLARES
     public ResultSet tbEjem() {
-        return md.tbEjem(estado,idProd);
+        return md.tbEjem(estado, idProd);
     }
 
     public boolean dlEjem() {
@@ -46,4 +56,6 @@ public class ctEjem {
     public boolean insEjem() {
         return md.insEjem(idProd);
     }
+    //TABLA DE RESERVAS DE EJEMPLARES
+    
 }

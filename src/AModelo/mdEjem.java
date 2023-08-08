@@ -63,4 +63,79 @@ public class mdEjem {
             return false; //DIO ERROR
         }
     }
+    
+    //TABLA DE RESERVAS DE EJEMPLARES 
+    public ResultSet tbEjemRe(String n1,int idP) {
+
+        String query = "select idEjemplar,tp.tipo,p.Nombre,Estado from tbEjemplares e, tbProductos p, "
+                + "tbTipoProductos tp where e.idProducto=p.idProducto and "
+                + "tp.idTipoProducto=p.idTipoProducto and Estado like ? and e.idProducto=?";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setString(1, "%" + n1 + "%");
+            ps.setInt(2, idP);
+            rs = ps.executeQuery();
+            return rs;
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return null; //DIO ERROR
+        }
+    }
+
+    public boolean dlEjemRe(int id) {
+        String query = "DELETE tbEjemplares where idEjemplar=?;";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setInt(1, id);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Registro eliminado");
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return false;
+        }
+    }
+    public boolean insEjemRe(int id) {
+        String query = "insert into tbEjemplares values(?,'Disponible',getdate())";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setInt(1, id);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Campos ingresados");
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return false; //DIO ERROR
+        }
+    }
+    public boolean upEjemRe(int id,int idTP,String n1,String n2,float price,byte[] img) {
+        String query = "update tbProductos set idTipoProducto=?,Nombre=?,Proveedor=?,Precio=?,img=? where idProducto=?";
+        try {
+            ps = con.prepareStatement(query);
+            ps = con.prepareStatement(query);
+            ps.setInt(1, idTP);
+            ps.setString(2, n1);
+            ps.setString(3, n2);
+            ps.setFloat(4, price);
+            ps.setBytes(5, img);
+            ps.setInt(6, id);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Campos actualizados");
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return false; //DIO ERROR
+        }
+    }
+
 }
