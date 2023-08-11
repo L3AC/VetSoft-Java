@@ -9,6 +9,7 @@ public class ctEjem {
     public int idCl;
     public int idProd;
     public String estado;
+    public String nombre;
 
     public int getIdEjem() {
         return idEjem;
@@ -42,6 +43,14 @@ public class ctEjem {
         this.idCl = idCl;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
     mdEjem md = new mdEjem();
 
     //TABLA DE EJEMPLARES
@@ -56,6 +65,17 @@ public class ctEjem {
     public boolean insEjem() {
         return md.insEjem(idProd);
     }
-    //TABLA DE RESERVAS DE EJEMPLARES
-    
+
+    //TABLA DE EJEMPLARES RESERVADOS
+    public ResultSet tbEjemRe() {
+        return md.tbEjemRe(nombre);
+    }
+
+    public boolean dlEjemRe() {
+        return md.dlEjem(idEjem);
+    }
+
+    public boolean insEjemRe() {
+        return md.insEjem(idProd);
+    }
 }

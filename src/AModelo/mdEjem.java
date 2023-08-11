@@ -13,7 +13,7 @@ public class mdEjem {
     PreparedStatement ps;
     ResultSet rs;
 
-    public ResultSet tbEjem(String n1,int idP) {
+    public ResultSet tbEjem(String n1, int idP) {
 
         String query = "select idEjemplar,tp.tipo,p.Nombre,Estado from tbEjemplares e, tbProductos p, "
                 + "tbTipoProductos tp where e.idProducto=p.idProducto and "
@@ -47,6 +47,7 @@ public class mdEjem {
             return false;
         }
     }
+
     public boolean insEjem(int id) {
         String query = "insert into tbEjemplares values(?,'Disponible',getdate())";
         try {
@@ -63,17 +64,16 @@ public class mdEjem {
             return false; //DIO ERROR
         }
     }
-    
-    //TABLA DE RESERVAS DE EJEMPLARES 
-    public ResultSet tbEjemRe(String n1,int idP) {
 
-        String query = "select idEjemplar,tp.tipo,p.Nombre,Estado from tbEjemplares e, tbProductos p, "
-                + "tbTipoProductos tp where e.idProducto=p.idProducto and "
-                + "tp.idTipoProducto=p.idTipoProducto and Estado like ? and e.idProducto=?";
+    //TABLA DE RESERVAS DE EJEMPLARES 
+    public ResultSet tbEjemRe(String n1) {
+
+        String query = "select idEjemplar,tp.tipo,p.Nombre as Producto,Precio from tbEjemplares e,tbProductos p,tbTipoProductos tp \n"
+                + "where e.idProducto=p.idProducto and tp.idTipoProducto=p.idTipoProducto\n"
+                + "and Estado='Disponible' and p.Nombre like ?";
         try {
             ps = con.prepareStatement(query);
             ps.setString(1, "%" + n1 + "%");
-            ps.setInt(2, idP);
             rs = ps.executeQuery();
             return rs;
         } catch (SQLException e) {
@@ -99,6 +99,7 @@ public class mdEjem {
             return false;
         }
     }
+
     public boolean insEjemRe(int id) {
         String query = "insert into tbEjemplares values(?,'Disponible',getdate())";
         try {
@@ -115,7 +116,8 @@ public class mdEjem {
             return false; //DIO ERROR
         }
     }
-    public boolean upEjemRe(int id,int idTP,String n1,String n2,float price,byte[] img) {
+
+    public boolean upEjemRe(int id, int idTP, String n1, String n2, float price, byte[] img) {
         String query = "update tbProductos set idTipoProducto=?,Nombre=?,Proveedor=?,Precio=?,img=? where idProducto=?";
         try {
             ps = con.prepareStatement(query);

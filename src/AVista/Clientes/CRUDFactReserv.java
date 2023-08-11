@@ -38,6 +38,8 @@ public class CRUDFactReserv extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         btnFact = new Design.ButtonGradient();
 
+        setPreferredSize(new java.awt.Dimension(1320, 810));
+
         PCont.setBackground(new java.awt.Color(255, 255, 255));
         PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

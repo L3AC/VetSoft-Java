@@ -1,23 +1,28 @@
 package AVista.Clientes;
 
 import AControlador.ctCliente;
+import AControlador.ctEjem;
 import Design.Desg;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
 public class CRUDEjemRe extends javax.swing.JPanel {
 
-    public int nUs;
+    private int idTipoUs;
     private int idCl;
-    ctCliente ct = new ctCliente();
     Desg dsg = new Desg();
     DefaultTableModel model;
 
-    public CRUDEjemRe() {
+    public CRUDEjemRe(int idCl, int idTipoUs) throws SQLException {
+        this.idCl = idCl;
+        this.idTipoUs = idTipoUs;
         initComponents();
+        loadD();
     }
 
     @SuppressWarnings("unchecked")
@@ -129,8 +134,8 @@ public class CRUDEjemRe extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-     final void loadD() throws SQLException {
-        String[] column = {"idCliente", "Nombre", "Edad", "Sexo"};
+    final void loadD() throws SQLException {
+        String[] column = {"idEjemplar", "Tipo", "Producto", "Precio"};
         model = new DefaultTableModel(null, column);
         dsg.ColumnHide(model, tbData, 0, 4);
         CargarTabla();
@@ -146,11 +151,12 @@ public class CRUDEjemRe extends javax.swing.JPanel {
         }
 
         try {
+            ctEjem ct = new ctEjem();
             ct.nombre = txtBusq.getText().toString();
-            ResultSet rs = ct.cargarCl();
+            ResultSet rs = ct.tbEjemRe();
             while (rs.next()) {
-                Object[] oValores = {rs.getInt("idCliente"), rs.getString("Nombre"),
-                    rs.getString("Edad"), rs.getString("Sexo")};
+                Object[] oValores = {rs.getInt("idEjemplar"), rs.getString("tipo"),
+                    rs.getString("producto"), rs.getFloat("precio")};
                 model.addRow(oValores);
             }
         } catch (Exception e) {
@@ -171,11 +177,11 @@ public class CRUDEjemRe extends javax.swing.JPanel {
     }//GEN-LAST:event_txtBusqActionPerformed
 
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
-        /*try {
+        try {
             loadD();
         } catch (SQLException ex) {
-            Logger.getLogger(CRUDEjemp.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+            Logger.getLogger(CRUDEjemRe.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_txtBusqKeyReleased
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
