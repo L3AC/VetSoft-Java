@@ -141,7 +141,6 @@ public class CRUDEjemRe extends javax.swing.JPanel {
         CargarTabla();
         if (tbData.getRowCount() > 0) {
             tbData.setRowSelectionInterval(0, 0);
-            idCl = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
         }
     }
 
@@ -164,12 +163,14 @@ public class CRUDEjemRe extends javax.swing.JPanel {
         }
     }
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        /*try {
-            CRUDProd subp = new CRUDProd(idTipoUs);
+        
+        try {
+            CRUDCliente subp = new CRUDCliente(idTipoUs);
             dsg.ShowPanel(subp, PCont, 1320, 810);
         } catch (SQLException ex) {
-            Logger.getLogger(CRUDProd.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+            Logger.getLogger(CRUDEjemRe.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void txtBusqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBusqActionPerformed
@@ -185,21 +186,19 @@ public class CRUDEjemRe extends javax.swing.JPanel {
     }//GEN-LAST:event_txtBusqKeyReleased
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        /*int cantidad = Integer.parseInt(txtNum.getText());
-        for (int i = 1; i <= cantidad; i++) {
-            try {
-                ctEjem ct = new ctEjem();
-                ct.idProd = idProd;
-                ct.insEjem();
-                loadD();
-            }
-             try {
-            } catch (SQLException ex) {
-                Logger.getLogger(CRUDEjemp.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
-                Logger.getLogger(CRUDEjemp.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }*/
+
+        try {
+            ctEjem ct = new ctEjem();
+            ct.idCl = idCl;
+            ct.idEjem=Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+            ct.insEjemRe();
+            ct.estado="Reservado";
+            ct.stateEjemRe();
+            loadD();
+        } catch (SQLException ex) {
+            Logger.getLogger(CRUDEjemRe.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
 
     }//GEN-LAST:event_btnAgregarActionPerformed
 

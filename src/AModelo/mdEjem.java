@@ -83,14 +83,16 @@ public class mdEjem {
             return null; //DIO ERROR
         }
     }
+    
 
-    public boolean dlEjemRe(int id) {
-        String query = "DELETE tbEjemplares where idEjemplar=?;";
+    public boolean stateEjemRe(int id,String est) {
+        String query = "update tbEjemplares set Estado=? where idEjemplar=?;";
         try {
             ps = con.prepareStatement(query);
-            ps.setInt(1, id);
+            ps.setString(1, est);
+            ps.setInt(2, id);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Registro eliminado");
+            JOptionPane.showMessageDialog(null, "Campo Actualizado");
             return true;
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
@@ -100,11 +102,12 @@ public class mdEjem {
         }
     }
 
-    public boolean insEjemRe(int id) {
-        String query = "insert into tbEjemplares values(?,'Disponible',getdate())";
+    public boolean insEjemRe(int idEjem,int idCl) {
+        String query = "insert into tbReservaProductos values(?,?,GETDATE())";
         try {
             ps = con.prepareStatement(query);
-            ps.setInt(1, id);
+            ps.setInt(1, idEjem);
+            ps.setInt(2, idCl);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Campos ingresados");
             return true;
@@ -117,19 +120,14 @@ public class mdEjem {
         }
     }
 
-    public boolean upEjemRe(int id, int idTP, String n1, String n2, float price, byte[] img) {
-        String query = "update tbProductos set idTipoProducto=?,Nombre=?,Proveedor=?,Precio=?,img=? where idProducto=?";
+    public boolean dlEjemRe(int id) {
+        String query = "delete ";
         try {
             ps = con.prepareStatement(query);
             ps = con.prepareStatement(query);
-            ps.setInt(1, idTP);
-            ps.setString(2, n1);
-            ps.setString(3, n2);
-            ps.setFloat(4, price);
-            ps.setBytes(5, img);
-            ps.setInt(6, id);
+            ps.setInt(1, id);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Campos actualizados");
+            JOptionPane.showMessageDialog(null, "Registro Eliminado");
             return true;
 
         } catch (SQLException e) {
