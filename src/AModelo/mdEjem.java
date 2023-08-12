@@ -101,41 +101,4 @@ public class mdEjem {
             return false;
         }
     }
-
-    public boolean insEjemRe(int idEjem,int idCl) {
-        String query = "insert into tbReservaProductos values(?,?,GETDATE())";
-        try {
-            ps = con.prepareStatement(query);
-            ps.setInt(1, idEjem);
-            ps.setInt(2, idCl);
-            ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Campos ingresados");
-            return true;
-
-        } catch (SQLException e) {
-            e.printStackTrace(); // Manejo de la excepción SQLException
-            System.out.println(e.toString());
-            JOptionPane.showMessageDialog(null, "Error al ejecutar");
-            return false; //DIO ERROR
-        }
-    }
-
-    public boolean dlEjemRe(int id) {
-        String query = "delete ";
-        try {
-            ps = con.prepareStatement(query);
-            ps = con.prepareStatement(query);
-            ps.setInt(1, id);
-            ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Registro Eliminado");
-            return true;
-
-        } catch (SQLException e) {
-            e.printStackTrace(); // Manejo de la excepción SQLException
-            System.out.println(e.toString());
-            JOptionPane.showMessageDialog(null, "Error al ejecutar");
-            return false; //DIO ERROR
-        }
-    }
-
 }

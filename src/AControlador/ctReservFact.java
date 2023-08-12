@@ -1,12 +1,13 @@
+
 package AControlador;
 
-import AModelo.mdEjem;
+import AModelo.mdReservFact;
 import java.sql.ResultSet;
 
-public class ctEjem {
-
-    public int idEjem;
+public class ctReservFact {
+        public int idEjem;
     public int idCl;
+    public int idReserv;
     public int idProd;
     public String estado;
     public String nombre;
@@ -17,6 +18,14 @@ public class ctEjem {
 
     public void setIdEjem(int idEjem) {
         this.idEjem = idEjem;
+    }
+
+    public int getIdCl() {
+        return idCl;
+    }
+
+    public void setIdCl(int idCl) {
+        this.idCl = idCl;
     }
 
     public int getIdProd() {
@@ -35,14 +44,6 @@ public class ctEjem {
         this.estado = estado;
     }
 
-    public int getIdCl() {
-        return idCl;
-    }
-
-    public void setIdCl(int idCl) {
-        this.idCl = idCl;
-    }
-
     public String getNombre() {
         return nombre;
     }
@@ -50,30 +51,18 @@ public class ctEjem {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
-    mdEjem md = new mdEjem();
-
-    //TABLA DE EJEMPLARES
-    public ResultSet tbEjem() {
-        return md.tbEjem(estado, idProd);
-    }
-
-    public boolean dlEjem() {
-        return md.dlEjem(idEjem);
-    }
-
-    public boolean insEjem() {
-        return md.insEjem(idProd);
-    }
-
-    //TABLA DE EJEMPLARES RESERVADOS
-    public ResultSet tbEjemRe() {
-        return md.tbEjemRe(nombre);
-    }
-
-    public boolean stateEjemRe() {
-        return md.stateEjemRe(idEjem, estado);
-    }
-
     
+    mdReservFact md = new mdReservFact();
+    
+    public ResultSet tbReservF() {
+        return md.tbReservF(idCl,nombre);
+    }
+    
+    public boolean insEjemRe() {    
+        return md.insEjemRe(idEjem, idCl);
+    }
+
+    public boolean dlEjemRe() {
+        return md.dlEjemRe(idReserv);
+    }
 }

@@ -2,6 +2,7 @@ package AVista.Clientes;
 
 import AControlador.ctCliente;
 import AControlador.ctEjem;
+import AControlador.ctReservFact;
 import Design.Desg;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -188,12 +189,13 @@ public class CRUDEjemRe extends javax.swing.JPanel {
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
 
         try {
-            ctEjem ct = new ctEjem();
+            ctReservFact ct = new ctReservFact();
             ct.idCl = idCl;
             ct.idEjem=Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
             ct.insEjemRe();
-            ct.estado="Reservado";
-            ct.stateEjemRe();
+            ctEjem ct2 = new ctEjem();
+            ct2.estado="Reservado";
+            ct2.stateEjemRe();
             loadD();
         } catch (SQLException ex) {
             Logger.getLogger(CRUDEjemRe.class.getName()).log(Level.SEVERE, null, ex);
