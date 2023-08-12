@@ -71,11 +71,11 @@ public class ctEjem {
         return md.tbEjemRe(nombre);
     }
 
-    public boolean dlEjemRe() {
-        return md.dlEjem(idEjem);
+    public boolean stateEjemRe() {
+        return md.stateEjemRe(idEjem,estado);
     }
 
     public boolean insEjemRe() {
-        return md.insEjem(idProd);
+        return md.insEjemRe(idEjem,idCl);
     }
 }
