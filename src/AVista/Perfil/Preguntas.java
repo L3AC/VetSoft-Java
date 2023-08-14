@@ -1,13 +1,32 @@
-
 package AVista.Perfil;
 
-public class Preguntaaas extends javax.swing.JPanel {
+import AModelo.Crypt;
+import Design.Desg;
+import Validation.Valida;
+import java.awt.Component;
+import java.util.ArrayList;
+import java.util.List;
 
+public class Preguntas extends javax.swing.JPanel {
 
-    public Preguntaaas() {
+    Desg dsg = new Desg();
+    Valida vali = new Valida();
+    Crypt cryp = new Crypt();
+    private int idUs;
+
+    public Preguntas(int idUs) {
+        this.idUs=idUs;
         initComponents();
+        enab(false);
+        
     }
-
+    
+    final void enab(boolean tf){
+        List<Component> lista = new ArrayList<>();
+        lista.add(txtResp1);lista.add(txtResp2);
+        lista.add(txtResp3);  
+        dsg.enable(lista, tf);
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -21,6 +40,7 @@ public class Preguntaaas extends javax.swing.JPanel {
         txtResp1 = new Design.TextFieldSV();
         txtResp2 = new Design.TextFieldSV();
         txtResp3 = new Design.TextFieldSV();
+        btnGuard = new Design.ButtonGradient();
         btnAct = new Design.ButtonGradient();
 
         setBackground(new java.awt.Color(202, 233, 255));
@@ -94,13 +114,21 @@ public class Preguntaaas extends javax.swing.JPanel {
         });
         PCont.add(txtResp3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 480, 430, -1));
 
+        btnGuard.setText("Guardar");
+        btnGuard.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardActionPerformed(evt);
+            }
+        });
+        PCont.add(btnGuard, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 620, 160, 60));
+
         btnAct.setText("Actualizar");
         btnAct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActActionPerformed(evt);
             }
         });
-        PCont.add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 590, 160, 60));
+        PCont.add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 620, 160, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -142,16 +170,20 @@ public class Preguntaaas extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtResp3KeyTyped
 
-    private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
-        
-    }//GEN-LAST:event_btnActActionPerformed
+    private void btnGuardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardActionPerformed
 
+    }//GEN-LAST:event_btnGuardActionPerformed
+
+    private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
+         enab(true);
+    }//GEN-LAST:event_btnActActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
     private Design.ButtonGradient btnAct;
     private javax.swing.JButton btnBack;
+    private Design.ButtonGradient btnGuard;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

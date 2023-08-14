@@ -29,7 +29,6 @@ public class Valida extends PlainDocument {
 
     }
     
-   
     public boolean minim(TextFieldSV textField, int minDigitos) {
     String texto = textField.getText();
     int contadorDigitos = 0;

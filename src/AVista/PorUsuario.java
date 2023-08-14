@@ -37,13 +37,7 @@ import javax.swing.JOptionPane;
 import Validation.Valida;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javafx.fxml.FXML;
-import javafx.scene.web.WebView;
 
-/**
- *
- * @author Gerson
- */
 public class PorUsuario extends javax.swing.JFrame {
 
     
@@ -52,11 +46,6 @@ public class PorUsuario extends javax.swing.JFrame {
     String mail;
     String codigo;
     Crypt cryp = new Crypt();
-    private WebView webView;
-    
-    /**
-     * Creates new form PorUsuario
-     */
     
     public PorUsuario() {
         GlassPanePopup.install(this);

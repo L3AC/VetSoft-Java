@@ -7,7 +7,7 @@ package AVista.Clientes;
 import Design.PanelRound;
 import java.awt.Color;
 import java.awt.Panel;
-import javafx.embed.swing.JFXPanel;
+//import javafx.embed.swing.JFXPanel;
 import javax.swing.JFrame;
 
 

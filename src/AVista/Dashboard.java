@@ -14,6 +14,7 @@ import AVista.Mantenimiento.CRUDRazas;
 import AVista.Mantenimiento.CRUDTipoAnim;
 import AVista.Mantenimiento.CRUDTipoProd;
 import AVista.Mantenimiento.CRUDtpserv;
+import AVista.Perfil.Preguntas;
 import AVista.Productos.CRUDProd;
 import AVista.Productos.updateProd;
 import AVista.Recepcionista.CRUDRecep;
@@ -82,7 +83,7 @@ public class Dashboard extends javax.swing.JFrame {
                     if (index == 0) {//HOME
                         Home subp = new Home();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
-                        
+
                     }
                     //GESTION PRINCIPAL
                     if (index == 1 && indexSubMenu == 1) {//USUARIOS
@@ -143,8 +144,9 @@ public class Dashboard extends javax.swing.JFrame {
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     //CUENTA
-                    if (index == 5 && indexSubMenu == 1) {
-
+                    if (index == 5 && indexSubMenu == 3) {
+                        Preguntas subp = new Preguntas(idUs);
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
 
                 } catch (NullPointerException e) {

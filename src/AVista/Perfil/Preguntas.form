@@ -166,6 +166,19 @@
             </Constraint>
           </Constraints>
         </Component>
+        <Component class="Design.ButtonGradient" name="btnGuard">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Guardar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardActionPerformed"/>
+          </Events>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="670" y="620" width="160" height="60"/>
+            </Constraint>
+          </Constraints>
+        </Component>
         <Component class="Design.ButtonGradient" name="btnAct">
           <Properties>
             <Property name="text" type="java.lang.String" value="Actualizar"/>
@@ -175,7 +188,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="470" y="590" width="160" height="60"/>
+              <AbsoluteConstraints x="470" y="620" width="160" height="60"/>
             </Constraint>
           </Constraints>
         </Component>
