@@ -26,6 +26,7 @@ public class Preguntas extends javax.swing.JPanel {
         lista.add(txtResp1);lista.add(txtResp2);
         lista.add(txtResp3);  
         dsg.enable(lista, tf);
+        
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -36,7 +37,6 @@ public class Preguntas extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        btnBack = new javax.swing.JButton();
         txtResp1 = new Design.TextFieldSV();
         txtResp2 = new Design.TextFieldSV();
         txtResp3 = new Design.TextFieldSV();
@@ -64,16 +64,6 @@ public class Preguntas extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Cascadia Code", 0, 16)); // NOI18N
         jLabel1.setText("¿Cuál es el nombre de tu mejor amigo de la infancia?");
         PCont.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 290, -1, -1));
-
-        btnBack.setBackground(new java.awt.Color(255, 255, 255));
-        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
-        btnBack.setBorder(null);
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-        PCont.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 80, 60));
 
         txtResp1.setShadowColor(new java.awt.Color(153, 0, 153));
         txtResp1.addActionListener(new java.awt.event.ActionListener() {
@@ -120,7 +110,7 @@ public class Preguntas extends javax.swing.JPanel {
                 btnGuardActionPerformed(evt);
             }
         });
-        PCont.add(btnGuard, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 620, 160, 60));
+        PCont.add(btnGuard, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 620, 160, 60));
 
         btnAct.setText("Actualizar");
         btnAct.addActionListener(new java.awt.event.ActionListener() {
@@ -128,7 +118,7 @@ public class Preguntas extends javax.swing.JPanel {
                 btnActActionPerformed(evt);
             }
         });
-        PCont.add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 620, 160, 60));
+        PCont.add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 620, 160, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -141,10 +131,6 @@ public class Preguntas extends javax.swing.JPanel {
             .addComponent(PCont, javax.swing.GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBackActionPerformed
 
     private void txtResp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtResp1ActionPerformed
         // TODO add your handling code here:
@@ -175,14 +161,22 @@ public class Preguntas extends javax.swing.JPanel {
     }//GEN-LAST:event_btnGuardActionPerformed
 
     private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
-         enab(true);
+        if (btnGuard.isVisible()) {
+                btnAct.setText("Editar");
+                enab(false);
+                btnGuard.setVisible(false);
+            } else {
+                btnAct.setText("Cancelar");
+                enab(true);
+                btnGuard.setVisible(true);
+            } 
+        enab(true);
     }//GEN-LAST:event_btnActActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
     private Design.ButtonGradient btnAct;
-    private javax.swing.JButton btnBack;
     private Design.ButtonGradient btnGuard;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

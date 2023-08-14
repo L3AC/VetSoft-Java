@@ -290,26 +290,26 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUserKeyPressed
 
     private void txtUserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyTyped
-        if (txtUser.getText().length() >= 4) {
+        /*if (txtUser.getText().length() >= 4) {
             lbMin.setVisible(false);
             btnIngresar.setEnabled(true);
         } else {
             lbMin.setVisible(true);
             btnIngresar.setEnabled(false);
         }        // TODO add your handling code here:
-
+*/
     }//GEN-LAST:event_txtUserKeyTyped
 
     private void txtPassKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassKeyTyped
         // TODO add your handling code here:
-        if(txtPass.getText().length()>= 3){
+        /*if(txtPass.getText().length()>= 3){
             lbMin1.setVisible(false);
             btnIngresar.setEnabled(true);
         }else {
             lbMin1.setVisible(true);
             btnIngresar.setEnabled(false);
         }        // TODO add your handling code here:
-
+*/
     }//GEN-LAST:event_txtPassKeyTyped
 
     private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
