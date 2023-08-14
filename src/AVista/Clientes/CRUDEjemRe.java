@@ -194,6 +194,7 @@ public class CRUDEjemRe extends javax.swing.JPanel {
             ct.idEjem=Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
             ct.insEjemRe();
             ctEjem ct2 = new ctEjem();
+            ct2.idEjem=Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
             ct2.estado="Reservado";
             ct2.stateEjemRe();
             loadD();
