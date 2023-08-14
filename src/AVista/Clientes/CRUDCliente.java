@@ -6,6 +6,7 @@ import AControlador.ctCliente;
 import AControlador.ctDoctores;
 import AVista.Animales.addMascota;
 import Design.Desg;
+import Design.PanelRound;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -14,6 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 import Validation.Valida;
+import java.awt.Color;
 
 public class CRUDCliente extends javax.swing.JPanel {
 
@@ -315,6 +317,9 @@ public class CRUDCliente extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+   
+        
     }//GEN-LAST:event_btnReservas1ActionPerformed
 
 
