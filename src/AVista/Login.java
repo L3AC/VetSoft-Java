@@ -69,7 +69,7 @@ public class Login extends javax.swing.JFrame {
         setIconImage(icon.getImage());
         lbMin.setVisible(false);
         lbMin1.setVisible(false);
-        
+
     }
 
     @SuppressWarnings("unchecked")
@@ -290,10 +290,10 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUserKeyPressed
 
     private void txtUserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyTyped
-if(txtUser.getText().length()>= 4){
+        if (txtUser.getText().length() >= 4) {
             lbMin.setVisible(false);
             btnIngresar.setEnabled(true);
-        }else {
+        } else {
             lbMin.setVisible(true);
             btnIngresar.setEnabled(false);
         }        // TODO add your handling code here:
@@ -334,7 +334,6 @@ if(txtUser.getText().length()>= 4){
         //vali.minL(txtUser, btnIngresar, 5);
 
 
-
     }//GEN-LAST:event_txtUserKeyReleased
 
     private void txtPassKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassKeyReleased
@@ -343,7 +342,7 @@ if(txtUser.getText().length()>= 4){
 
     private void lbMinKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lbMinKeyReleased
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_lbMinKeyReleased
     public void SelectID() throws SQLException {
         try {
