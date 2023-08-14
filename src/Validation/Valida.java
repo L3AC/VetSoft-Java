@@ -37,6 +37,18 @@ public class Valida extends PlainDocument {
 
         return matcher.find();
     }
+    public boolean minim(TextFieldSV textField, int minDigitos) {
+    String texto = textField.getText();
+    int contadorDigitos = 0;
+
+    for (int i = 0; i < texto.length(); i++) {
+        if (Character.isDigit(texto.charAt(i))) {
+            contadorDigitos++;
+        }
+    }
+
+    return contadorDigitos >= minDigitos;
+}
 
     @Override
     public void insertString(int offset, String str, AttributeSet attr) throws BadLocationException {
