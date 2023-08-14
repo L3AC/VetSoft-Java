@@ -27,12 +27,12 @@ public class CRUDCliente extends javax.swing.JPanel {
         this.nUs = nUs;
         initComponents();
         loadD();
-        if(nUs==4||nUs==5){
+        if (nUs == 4 || nUs == 5) {
             btnEditar.setVisible(false);
             btnEliminar.setVisible(false);
             btnReservas.setVisible(false);
         }
-        
+
     }
 
     public CRUDCliente() throws SQLException {
@@ -166,6 +166,11 @@ public class CRUDCliente extends javax.swing.JPanel {
         jLabel3.setText("VetSoft+");
 
         btnReservas1.setText("Compra");
+        btnReservas1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReservas1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
         PCont.setLayout(PContLayout);
@@ -296,12 +301,21 @@ public class CRUDCliente extends javax.swing.JPanel {
 
     private void btnReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservasActionPerformed
         try {
-            CRUDEjemRe subp = new CRUDEjemRe( Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()),nUs);
+            CRUDEjemRe subp = new CRUDEjemRe(Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()), nUs);
             dsg.ShowPanel(subp, PCont, 1320, 810);
         } catch (SQLException ex) {
             Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnReservasActionPerformed
+
+    private void btnReservas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservas1ActionPerformed
+        try {
+            CRUDFactReserv subp = new CRUDFactReserv(Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()), nUs);
+            dsg.ShowPanel(subp, PCont, 1320, 810);
+        } catch (SQLException ex) {
+            Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnReservas1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
