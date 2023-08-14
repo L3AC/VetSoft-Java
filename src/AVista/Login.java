@@ -59,6 +59,7 @@ public class Login extends javax.swing.JFrame {
         UsuarioL.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 25));
         PassL.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 22));
         
+        
 
         txtUser.setDocument(new Valida(30, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         txtPass.setDocument(new Valida(30, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
@@ -300,6 +301,13 @@ public class Login extends javax.swing.JFrame {
 
     private void txtUserKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyReleased
         //vali.minL(txtUser, btnIngresar, 5);
+        
+       if(vali.validar(txtUser.getText().toString())){
+        System.out.println("La cadena tiene al menos 8 dígitos.");
+        } else {
+            System.out.println("La cadena no tiene al menos 8 dígitos.");
+        }
+         
     }//GEN-LAST:event_txtUserKeyReleased
 
     private void txtPassKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassKeyReleased

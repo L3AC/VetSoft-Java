@@ -5,6 +5,7 @@
 package Validation;
 
 import Design.TextFieldSV;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JButton;
 import javax.swing.text.AttributeSet;
@@ -25,6 +26,16 @@ public class Valida extends PlainDocument {
 
     public Valida() {
 
+    }
+    
+    public static boolean validar(String cadena) {
+        // Expresión regular para verificar al menos 8 dígitos
+        String patron = "\\d{8,}";
+
+        Pattern pattern = Pattern.compile(patron);
+        Matcher matcher = pattern.matcher(cadena);
+
+        return matcher.find();
     }
 
     @Override
