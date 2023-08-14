@@ -5,6 +5,7 @@
 package Validation;
 
 import Design.TextFieldSV;
+import java.awt.Color;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JButton;
@@ -28,7 +29,7 @@ public class Valida extends PlainDocument {
 
     }
     
-    public static boolean validar(String cadena) {
+    public boolean validar(String cadena) {
         // Expresión regular para verificar al menos 8 dígitos
         String patron = "\\d{8,}";
 
@@ -36,6 +37,25 @@ public class Valida extends PlainDocument {
         Matcher matcher = pattern.matcher(cadena);
 
         return matcher.find();
+    }
+    
+    public void Digitos(TextFieldSV textField, int minDigitos) {
+        String texto = textField.getText();
+        int contadorDigitos = 0;
+
+        for (int i = 0; i < texto.length(); i++) {
+            if (Character.isDigit(texto.charAt(i))) {
+                contadorDigitos++;
+            }
+        }
+
+        if (contadorDigitos >= minDigitos) {
+            // Cumple con el mínimo de dígitos requeridos
+            textField.setBackground(Color.WHITE);
+        } else {
+            // No cumple con el mínimo de dígitos requeridos
+            textField.setBackground(Color.RED);
+        }
     }
     public boolean minim(TextFieldSV textField, int minDigitos) {
     String texto = textField.getText();

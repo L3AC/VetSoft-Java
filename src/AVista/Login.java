@@ -31,6 +31,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.mail.Message;
 import javax.swing.ImageIcon;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 /**
  *
@@ -65,6 +67,7 @@ public class Login extends javax.swing.JFrame {
         String iconPath = "src/Imagenes/logoC.png";
         ImageIcon icon = new ImageIcon(iconPath);
         setIconImage(icon.getImage());
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -300,11 +303,7 @@ public class Login extends javax.swing.JFrame {
     private void txtUserKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyReleased
         //vali.minL(txtUser, btnIngresar, 5);
 
-        if (vali.minim(txtUser, 8)) {
-            System.out.println("El texto cumple con el mínimo de dígitos requeridos.");
-        } else {
-            System.out.println("El texto no cumple con el mínimo de dígitos requeridos.");
-        }
+
 
     }//GEN-LAST:event_txtUserKeyReleased
 
