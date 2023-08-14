@@ -302,6 +302,13 @@ if(txtUser.getText().length()>= 4){
 
     private void txtPassKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassKeyTyped
         // TODO add your handling code here:
+        if(txtPass.getText().length()>= 3){
+            lbMin1.setVisible(false);
+            btnIngresar.setEnabled(true);
+        }else {
+            lbMin1.setVisible(true);
+            btnIngresar.setEnabled(false);
+        }        // TODO add your handling code here:
 
     }//GEN-LAST:event_txtPassKeyTyped
 
