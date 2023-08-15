@@ -25,9 +25,16 @@ public class Preguntas extends javax.swing.JPanel {
         initComponents();
         enab(false);
         btnGuard.setVisible(false);
-        loadRes(1, txtResp1);
-        loadRes(2, txtResp2);
-        loadRes(3, txtResp3);
+        
+        if (loadRes(1, txtResp1)==false) {
+            txtResp1.setText("No hay respuesta aun");
+        }
+        if(loadRes(2, txtResp2)==false){
+            txtResp2.setText("No hay respuesta aun");
+        }
+        if(loadRes(3, txtResp3)==false){
+            txtResp3.setText("No hay respuesta aun");
+        }
     }
 
     final void enab(boolean tf) {
@@ -36,7 +43,6 @@ public class Preguntas extends javax.swing.JPanel {
         lista.add(txtResp2);
         lista.add(txtResp3);
         dsg.enable(lista, tf);
-
     }
 
     @SuppressWarnings("unchecked")
@@ -166,31 +172,57 @@ public class Preguntas extends javax.swing.JPanel {
     private void txtResp3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtResp3KeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_txtResp3KeyTyped
-    final void loadRes(int idPreg,TextFieldSV txt) throws SQLException {
+    final boolean loadRes(int idPreg, TextFieldSV txt) throws SQLException {
         try {
             ctPreguntas ct = new ctPreguntas();
             ct.idPreg = idPreg;
-            ct.idUs=idUs;
+            ct.idUs = idUs;
 
             ResultSet rs = ct.loadResp();
             while (rs.next()) {
                 txt.setText(rs.getString("respuesta"));
-                }
+                return true;
+            }
+
+        } catch (Exception e) {
+            System.err.println(e.toString());
+            return false;
+        }
+        return false;
+    }
+    final boolean upResp(int idPreg,int idUs,String resp) throws SQLException {
+        try {
+            ctPreguntas ct = new ctPreguntas();
+            ct.idPreg = idPreg;
+            ct.idUs = idUs;
+            ct.resp=resp;
+            ct.updateResp();
+            return true;
             
         } catch (Exception e) {
             System.err.println(e.toString());
+            return false;
         }
     }
-    private void btnGuardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardActionPerformed
-        /*try {
-            ctPreguntas ct=new ctPreguntas();
-            ct.idPreg=1;
-            ct.idUs=idUs;
+    
+    final boolean insResp(int idPreg,int idUs,String resp) throws SQLException {
+        try {
+            ctPreguntas ct = new ctPreguntas();
+            ct.idPreg = idPreg;
+            ct.idUs = idUs;
+            ct.resp=resp;
+            ct.insertResp();
+            return true;
             
-        } catch (SQLException ex) {
-            Logger.getLogger(Preguntas.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        } catch (Exception e) {
+            System.err.println(e.toString());
+            return false;
+        }
+        
+    }
 
+    private void btnGuardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardActionPerformed
+        //if()
 
     }//GEN-LAST:event_btnGuardActionPerformed
 

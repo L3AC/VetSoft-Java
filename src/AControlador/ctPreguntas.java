@@ -2,6 +2,7 @@
 package AControlador;
 
 import AModelo.mdPreguntas;
+import Design.TextFieldSV;
 import java.sql.ResultSet;
 
 public class ctPreguntas {

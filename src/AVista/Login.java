@@ -35,8 +35,6 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import org.w3c.dom.Document;
 
-
- 
 public class Login extends javax.swing.JFrame {
 
     Fuentes tipoFuente;
@@ -224,8 +222,7 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    
+
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         try {
             List<TextFieldSV> lista = new ArrayList<>();
@@ -291,7 +288,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUserKeyPressed
 
     private void txtUserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyTyped
-          if(txtPass.getText().length()>= 3 && txtUser.getText().length()>= 4){
+        /* if(txtPass.getText().length()>= 3 && txtUser.getText().length()>= 4){
             lbMin.setVisible(false);
             lbMin1.setVisible(false);
             btnIngresar.setEnabled(true);
@@ -299,13 +296,13 @@ public class Login extends javax.swing.JFrame {
             lbMin.setVisible(true);
             lbMin1.setVisible(true);
             btnIngresar.setEnabled(false);
-        }   
-       
+        } */
+
     }//GEN-LAST:event_txtUserKeyTyped
 
     private void txtPassKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassKeyTyped
         // TODO add your handling code here:
-       if(txtPass.getText().length()>= 3 && txtUser.getText().length()>= 4){
+        /*if(txtPass.getText().length()>= 3 && txtUser.getText().length()>= 4){
             lbMin.setVisible(false);
             lbMin1.setVisible(false);
             btnIngresar.setEnabled(true);
@@ -313,8 +310,8 @@ public class Login extends javax.swing.JFrame {
             lbMin.setVisible(true);
             lbMin1.setVisible(true);
             btnIngresar.setEnabled(false);
-        }  
-       
+        }  */
+
     }//GEN-LAST:event_txtPassKeyTyped
 
     private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
