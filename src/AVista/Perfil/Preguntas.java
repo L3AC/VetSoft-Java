@@ -1,11 +1,17 @@
 package AVista.Perfil;
 
+import AControlador.ctPreguntas;
 import AModelo.Crypt;
 import Design.Desg;
+import Design.TextFieldSV;
 import Validation.Valida;
 import java.awt.Component;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Preguntas extends javax.swing.JPanel {
 
@@ -14,29 +20,34 @@ public class Preguntas extends javax.swing.JPanel {
     Crypt cryp = new Crypt();
     private int idUs;
 
-    public Preguntas(int idUs) {
-        this.idUs=idUs;
+    public Preguntas(int idUs) throws SQLException {
+        this.idUs = idUs;
         initComponents();
         enab(false);
-        
+        btnGuard.setVisible(false);
+        loadRes(1, txtResp1);
+        loadRes(2, txtResp2);
+        loadRes(3, txtResp3);
     }
-    
-    final void enab(boolean tf){
+
+    final void enab(boolean tf) {
         List<Component> lista = new ArrayList<>();
-        lista.add(txtResp1);lista.add(txtResp2);
-        lista.add(txtResp3);  
+        lista.add(txtResp1);
+        lista.add(txtResp2);
+        lista.add(txtResp3);
         dsg.enable(lista, tf);
-        
+
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         PCont = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lbPreg3 = new javax.swing.JLabel();
+        lbPreg1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lbPreg2 = new javax.swing.JLabel();
         txtResp1 = new Design.TextFieldSV();
         txtResp2 = new Design.TextFieldSV();
         txtResp3 = new Design.TextFieldSV();
@@ -49,21 +60,21 @@ public class Preguntas extends javax.swing.JPanel {
         PCont.setBackground(new java.awt.Color(255, 255, 255));
         PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setFont(new java.awt.Font("Cascadia Code", 0, 16)); // NOI18N
-        jLabel3.setText("¿Cuál es tu película favorita?");
-        PCont.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 430, -1, -1));
+        lbPreg3.setFont(new java.awt.Font("Cascadia Code", 0, 16)); // NOI18N
+        lbPreg3.setText("¿Cuál es tu película favorita?");
+        PCont.add(lbPreg3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 430, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Cascadia Code", 0, 16)); // NOI18N
-        jLabel2.setText("¿Cuál es tu película favorita?");
-        PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 160, -1, -1));
+        lbPreg1.setFont(new java.awt.Font("Cascadia Code", 0, 16)); // NOI18N
+        lbPreg1.setText("¿Cuál es tu película favorita?");
+        PCont.add(lbPreg1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 160, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Cascadia Code", 0, 24)); // NOI18N
         jLabel4.setText("Preguntas de Seguridad");
         PCont.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Cascadia Code", 0, 16)); // NOI18N
-        jLabel1.setText("¿Cuál es el nombre de tu mejor amigo de la infancia?");
-        PCont.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 290, -1, -1));
+        lbPreg2.setFont(new java.awt.Font("Cascadia Code", 0, 16)); // NOI18N
+        lbPreg2.setText("¿Cuál es el nombre de tu mejor amigo de la infancia?");
+        PCont.add(lbPreg2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 290, -1, -1));
 
         txtResp1.setShadowColor(new java.awt.Color(153, 0, 153));
         txtResp1.addActionListener(new java.awt.event.ActionListener() {
@@ -155,22 +166,44 @@ public class Preguntas extends javax.swing.JPanel {
     private void txtResp3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtResp3KeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_txtResp3KeyTyped
+    final void loadRes(int idPreg,TextFieldSV txt) throws SQLException {
+        try {
+            ctPreguntas ct = new ctPreguntas();
+            ct.idPreg = idPreg;
+            ct.idUs=idUs;
 
+            ResultSet rs = ct.loadResp();
+            while (rs.next()) {
+                txt.setText(rs.getString("respuesta"));
+                }
+            
+        } catch (Exception e) {
+            System.err.println(e.toString());
+        }
+    }
     private void btnGuardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardActionPerformed
+        /*try {
+            ctPreguntas ct=new ctPreguntas();
+            ct.idPreg=1;
+            ct.idUs=idUs;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Preguntas.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
+
 
     }//GEN-LAST:event_btnGuardActionPerformed
 
     private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
         if (btnGuard.isVisible()) {
-                btnAct.setText("Editar");
-                enab(false);
-                btnGuard.setVisible(false);
-            } else {
-                btnAct.setText("Cancelar");
-                enab(true);
-                btnGuard.setVisible(true);
-            } 
-        enab(true);
+            btnAct.setText("Editar");
+            enab(false);
+            btnGuard.setVisible(false);
+        } else {
+            btnAct.setText("Cancelar");
+            enab(true);
+            btnGuard.setVisible(true);
+        }
     }//GEN-LAST:event_btnActActionPerformed
 
 
@@ -178,10 +211,10 @@ public class Preguntas extends javax.swing.JPanel {
     private javax.swing.JPanel PCont;
     private Design.ButtonGradient btnAct;
     private Design.ButtonGradient btnGuard;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel lbPreg1;
+    private javax.swing.JLabel lbPreg2;
+    private javax.swing.JLabel lbPreg3;
     private Design.TextFieldSV txtResp1;
     private Design.TextFieldSV txtResp2;
     private Design.TextFieldSV txtResp3;

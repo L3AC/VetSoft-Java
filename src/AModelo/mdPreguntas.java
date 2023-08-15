@@ -13,7 +13,7 @@ public class mdPreguntas {
     PreparedStatement ps;
     ResultSet rs;
 
-    public ResultSet selectResp(int idUs, int idPreg) {
+    public ResultSet loadResp(int idUs, int idPreg) {
         String query = "select * from tbPreguntasUsuarios where idUsuario=? and idPregunta=?;";
         try {
             ps = con.prepareStatement(query);
@@ -44,11 +44,13 @@ public class mdPreguntas {
         }
     }
 
-    public boolean insertEsp(int idEsp, String Especialidad) {
-        String query = "insert into tbEspecialidades values(?);";
+    public boolean insertResp(int idPreg,int idUs, String resp) {
+        String query = "insert into tbPreguntasUsuarios values(?,?,?);";
         try {
             ps = con.prepareStatement(query);
-            ps.setString(1, Especialidad);
+            ps.setInt(1, idPreg);
+            ps.setString(2, resp);
+            ps.setInt(3, idUs);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Campos ingresados");
             return true;
@@ -61,13 +63,14 @@ public class mdPreguntas {
         }
     }
 
-    public boolean updateEsp(int idEsp, String Esp) {
-        String query = "update tbEspecialidades SET Especialidad=? \n"
-                + "where idEspecialidad=?;";
+    public boolean updateResp(int idUs,int idP, String resp) {
+        String query = "update tbPreguntasUsuarios set respuesta=? "
+                + "where idUsuario=? and idPregunta=?;";
         try {
             ps = con.prepareStatement(query);
-            ps.setString(1, Esp);
-            ps.setInt(2, idEsp);
+            ps.setString(1, resp);
+            ps.setInt(2, idUs);
+            ps.setInt(3, idP);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Campos actualizados");
             return true;

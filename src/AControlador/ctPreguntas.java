@@ -44,7 +44,13 @@ public class ctPreguntas {
     
     mdPreguntas md=new mdPreguntas();
     
-    public ResultSet selectResp(){
-        return md.selectResp(idUs, idPreg);
+    public ResultSet loadResp(){
+        return md.loadResp(idUs, idPreg);
+    }
+    public boolean updateResp(){
+        return md.updateResp(idUs, idPreg, resp);
+    }
+    public boolean insertResp(){
+        return md.insertResp(idUs, idPreg, resp);
     }
 }
