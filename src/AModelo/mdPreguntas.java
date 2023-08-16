@@ -62,7 +62,7 @@ public class mdPreguntas {
         }
     }
 
-    public boolean updateResp(int idUs, int idP, String resp) {
+    public boolean updateResp( int idP,int idUs, String resp) {
         String query = "update tbPreguntasUsuarios set respuesta=? "
                 + "where idUsuario=? and idPregunta=?;";
         try {

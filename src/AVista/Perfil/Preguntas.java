@@ -22,6 +22,7 @@ public class Preguntas extends javax.swing.JPanel {
 
     public Preguntas(int idUs) throws SQLException {
         this.idUs = idUs;
+        System.out.println(idUs);
         initComponents();
         enab(false);
         btnGuard.setVisible(false);
@@ -167,19 +168,35 @@ public class Preguntas extends javax.swing.JPanel {
     private void txtResp3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtResp3KeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_txtResp3KeyTyped
-    final boolean loadRes(int idPreg, TextFieldSV txt) throws SQLException {
+    private void loadRes(int idPreg, TextFieldSV txt) throws SQLException {
         try {
             ctPreguntas ct = new ctPreguntas();
             ct.idPreg = idPreg;
             ct.idUs = idUs;
-
             ResultSet rs = ct.loadResp();
+
             if (rs.next()) {
                 txt.setText(rs.getString("respuesta"));
+            } else {
+                txt.setText("No hay respuesta aun");
+            }
+
+        } catch (Exception e) {
+            System.err.println(e.toString());
+        }
+    }
+
+    private boolean verifExist(int idPreg, TextFieldSV txt) throws SQLException {
+        try {
+            ctPreguntas ct = new ctPreguntas();
+            ct.idPreg = idPreg;
+            ct.idUs = idUs;
+            ResultSet rs = ct.loadResp();
+
+            if (rs.next()) {
                 return true;
             } else {
-                txt.setText(rs.getString("No hay respuesta aun"));
-                return true;
+                return false;
             }
 
         } catch (Exception e) {
@@ -188,51 +205,47 @@ public class Preguntas extends javax.swing.JPanel {
         }
     }
 
-    final boolean upResp(int idPreg, int idUs, String resp) throws SQLException {
+    private void upResp(int idPreg, int idUs, String resp) throws SQLException {
         try {
             ctPreguntas ct = new ctPreguntas();
             ct.idPreg = idPreg;
+            System.err.println(idPreg);
             ct.idUs = idUs;
+            System.err.println(idUs);
             ct.resp = resp;
+            System.err.println(resp);
             ct.updateResp();
-            return true;
 
         } catch (Exception e) {
             System.err.println(e.toString());
-            return false;
         }
     }
 
-    final boolean insResp(int idPreg, int idUs, String resp) throws SQLException {
+    private void insResp(int idPreg, int idUs, String resp) throws SQLException {
         try {
             ctPreguntas ct = new ctPreguntas();
             ct.idPreg = idPreg;
             ct.idUs = idUs;
             ct.resp = resp;
             ct.insertResp();
-            return true;
 
         } catch (Exception e) {
             System.err.println(e.toString());
-            return false;
         }
     }
 
     private void btnGuardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardActionPerformed
+
         try {
-            /*List<Component> lista = new ArrayList<>();
-            lista.add(txtResp1);
-            lista.add(txtResp2);
-            lista.add(txtResp3);
-            dsg.enable(lista, tf);*/
-            if (loadRes(1, txtResp1) && loadRes(2, txtResp2) && loadRes(3, txtResp3)) {
-                upResp(1, idUs,txtResp1.getText().toString());
-                upResp(2, idUs,txtResp2.getText().toString());
-                upResp(3, idUs,txtResp3.getText().toString());
+            if (verifExist(1, txtResp1) && verifExist(2, txtResp2) && verifExist(3, txtResp3)) {
+                System.out.println(23);
+                upResp(1, idUs, txtResp1.getText());
+                upResp(2, idUs, txtResp2.getText());
+                upResp(3, idUs, txtResp3.getText());
             } else {
-                insResp(1, idUs, txtResp1.getText().toString());
-                insResp(2, idUs, txtResp2.getText().toString());
-                insResp(3, idUs, txtResp3.getText().toString());
+                insResp(1, idUs, txtResp1.getText());
+                insResp(2, idUs, txtResp2.getText());
+                insResp(3, idUs, txtResp3.getText());
             }
         } catch (SQLException ex) {
             Logger.getLogger(Preguntas.class.getName()).log(Level.SEVERE, null, ex);

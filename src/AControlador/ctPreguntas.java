@@ -49,10 +49,10 @@ public class ctPreguntas {
         return md.loadResp(idUs, idPreg);
     }
     public boolean updateResp(){
-        return md.updateResp(idUs, idPreg, resp);
+        return md.updateResp( idPreg, idUs,resp);
     }
     public boolean insertResp(){
-        return md.insertResp(idUs, idPreg, resp);
+        return md.insertResp( idPreg,idUs, resp);
     }
     
 }
