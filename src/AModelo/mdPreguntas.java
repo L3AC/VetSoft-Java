@@ -28,23 +28,22 @@ public class mdPreguntas {
         }
     }
 
-    public boolean deleteEsp(int idEsp) {
-        String query = "DELETE tbEspecialidades where idEspecialidad=?;";
+    public ResultSet verifExist(int idUs, int idPreg) {
+        String query = "select * from tbPreguntasUsuarios where idUsuario=? and idPregunta=?;";
         try {
             ps = con.prepareStatement(query);
-            ps.setInt(1, idEsp);
-            ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Registro eliminado");
-            return true;
+            ps.setInt(1, idUs);
+            ps.setInt(2, idPreg);
+            rs = ps.executeQuery();
+            return rs;
+
         } catch (SQLException e) {
-            e.printStackTrace(); // Manejo de la excepción SQLException
-            System.out.println(e.toString());
-            JOptionPane.showMessageDialog(null, "Error al ejecutar");
-            return false;
+            JOptionPane.showMessageDialog(null, e.toString());
+            return null;
         }
     }
 
-    public boolean insertResp(int idPreg,int idUs, String resp) {
+    public boolean insertResp(int idPreg, int idUs, String resp) {
         String query = "insert into tbPreguntasUsuarios values(?,?,?);";
         try {
             ps = con.prepareStatement(query);
@@ -63,7 +62,7 @@ public class mdPreguntas {
         }
     }
 
-    public boolean updateResp(int idUs,int idP, String resp) {
+    public boolean updateResp(int idUs, int idP, String resp) {
         String query = "update tbPreguntasUsuarios set respuesta=? "
                 + "where idUsuario=? and idPregunta=?;";
         try {
