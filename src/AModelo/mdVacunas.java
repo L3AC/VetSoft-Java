@@ -12,12 +12,12 @@ public class mdVacunas {
     PreparedStatement ps;
     ResultSet rs;
     
-    public ResultSet loadResp(int idUs, int idPreg) {
-        String query = "select * from tbPreguntasUsuarios where idUsuario=? and idPregunta=?;";
+    //TIPO DE VACUNA
+    public ResultSet loadTPVac(String n1) {
+        String query = "select * from tbTipoVacunas where NombreVacuna like ?";
         try {
             ps = con.prepareStatement(query);
-            ps.setInt(1, idUs);
-            ps.setInt(2, idPreg);
+            ps.setString(1, "%"+n1+"%");
             rs = ps.executeQuery();
             return rs;
 
@@ -26,4 +26,57 @@ public class mdVacunas {
             return null;
         }
     }
+    public boolean insTPVac(String n1,String n2) {
+        String query = "insert into tbTipoVacunas values(?,?);";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setString(1, n2);
+            ps.setString(2, n2);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Campos ingresados");
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return false; //DIO ERROR
+        }
+    }
+    public boolean delTPVac(int id1) {
+        String query = "DELETE tbTipoVacunas where idTipoVacuna=?;";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setInt(1, id1);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Registro eliminado");
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return false;
+        }
+    }
+
+    public boolean upTPVac(String n1,String n2,int id1) {
+        String query = "update tbPreguntasUsuarios set NombreVacuna=?,Utilidad=? "
+                + "where idTipoVacuna=?;";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setString(1, n1);
+            ps.setString(2, n2);
+            ps.setInt(3, id1);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Campos actualizados");
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return false; //DIO ERROR
+        }
+    }
+    //VACUNACIONES
 }
