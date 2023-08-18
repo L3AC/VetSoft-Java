@@ -53,13 +53,16 @@ public class Login extends javax.swing.JFrame {
         setTitle("VetSoft");
         tipoFuente = new Fuentes();
 
+        /*Este apartado de setFound nos ayuda a poner un tipo de fuente en especifico y el tamaño de la letra*/
         Titulo.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 32));
         VetSoft.setFont(tipoFuente.fuente(tipoFuente.COM, 1, 11));
         UsuarioL.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 25));
         PassL.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 22));
-
+        
+        /*Este apartado validamos los Jtexfield que no se escriban números o letras con un maximo de digitos*/
         txtUser.setDocument(new Valida(30, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         txtPass.setDocument(new Valida(30, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
+        
         setLocationRelativeTo(null);
         String iconPath = "src/Imagenes/logoC.png";
         ImageIcon icon = new ImageIcon(iconPath);
@@ -222,7 +225,9 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
+/*Cuando se le de clic al botón ingresar lo que alla escrito el empleado en los texfiel de Usuario y contraseña se hara un reconocimiento de si el empleado existe
+    o no, si el usuario existe lo dejara entrar si el usuario no existe no lo dejara entrar al sistema
+    */
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         try {
             List<TextFieldSV> lista = new ArrayList<>();
@@ -346,6 +351,8 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
 
     }//GEN-LAST:event_lbMinKeyReleased
+    
+    /*Esta función nos ayuda a obtener y reconocer el Id del usuario que esta en la base de datos y poder ingresar al sistem*/
     public void SelectID() throws SQLException {
         try {
             ctUser ct = new ctUser();

@@ -47,6 +47,7 @@ public class NuevaContra extends javax.swing.JFrame {
         initComponents();
         txtNueva.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
         txtNueva2.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
+        lbUs3.setVisible(false);
     }
 
     /**
@@ -62,11 +63,12 @@ public class NuevaContra extends javax.swing.JFrame {
         VetSoft1 = new javax.swing.JLabel();
         panelRound2 = new Design.PanelRound();
         panelRound1 = new Design.PanelRound();
-        lbUs1 = new javax.swing.JLabel();
+        lbUs3 = new javax.swing.JLabel();
         lbCod = new javax.swing.JLabel();
         btnCambiar = new Design.ButtonGradient();
         txtNueva = new Design.PasswordField();
         txtNueva2 = new Design.PasswordField();
+        lbUs1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         VetSoft2 = new javax.swing.JLabel();
@@ -89,10 +91,9 @@ public class NuevaContra extends javax.swing.JFrame {
         panelRound1.setRoundTopRight(50);
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lbUs1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lbUs1.setForeground(new java.awt.Color(0, 0, 0));
-        lbUs1.setText("Ingrese su nueva Contraseña");
-        panelRound1.add(lbUs1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, 30));
+        lbUs3.setForeground(new java.awt.Color(0, 0, 0));
+        lbUs3.setText("Minimo de digitos 3");
+        panelRound1.add(lbUs3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, -1, 30));
 
         lbCod.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbCod.setForeground(new java.awt.Color(0, 0, 0));
@@ -109,10 +110,20 @@ public class NuevaContra extends javax.swing.JFrame {
         panelRound1.add(btnCambiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 210, 40));
 
         txtNueva.setShadowColor(new java.awt.Color(0, 0, 51));
-        panelRound1.add(txtNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 250, -1));
+        txtNueva.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNuevaKeyTyped(evt);
+            }
+        });
+        panelRound1.add(txtNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 250, -1));
 
         txtNueva2.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtNueva2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 250, -1));
+
+        lbUs1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbUs1.setForeground(new java.awt.Color(0, 0, 0));
+        lbUs1.setText("Ingrese su nueva Contraseña");
+        panelRound1.add(lbUs1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, 30));
 
         panelRound2.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 580, 270));
 
@@ -194,6 +205,16 @@ public void act() throws Exception{
             
     }//GEN-LAST:event_btnCambiarActionPerformed
 
+    private void txtNuevaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNuevaKeyTyped
+        // TODO add your handling code here:
+         if(txtNueva.getText().length()>= 3){
+            lbUs3.setVisible(false);
+        }else {
+            lbUs3.setVisible(true);
+
+        } 
+    }//GEN-LAST:event_txtNuevaKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -238,6 +259,7 @@ public void act() throws Exception{
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel lbCod;
     private javax.swing.JLabel lbUs1;
+    private javax.swing.JLabel lbUs3;
     private Design.PanelRound panelRound1;
     private Design.PanelRound panelRound2;
     private Design.PasswordField txtNueva;

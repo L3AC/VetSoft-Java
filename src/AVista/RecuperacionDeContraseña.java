@@ -33,7 +33,8 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
         transparente();
         String corridoTumbados;
         this.getContentPane().setBackground(Color.WHITE);
-
+        
+ /*Este apartado de setFound nos ayuda a poner un tipo de fuente en especifico y el tamaño de la letra*/
         jLabel1.setFont(new Font("Comfortaa", Font.PLAIN, 18));
         LBRecup.setFont(new Font("Comfortaa", Font.PLAIN, 20));
 
@@ -136,6 +137,7 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
         btnPreguntas.setBorderPainted(false);
     }
 
+    //Este apartado nos dice que si le damos click al botón por Email nos mandara a la primera recup de contraseña
     private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioActionPerformed
         // TODO add your handling code here:
 
@@ -145,6 +147,7 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnUsuarioActionPerformed
 
+    //Este apartado nos dice que si le damos click al botón por preguntas de seguridad nos mandara a la segunda recup de contraseña
     private void btnPreguntasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreguntasActionPerformed
         // TODO add your handling code here:
 
@@ -154,6 +157,7 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnPreguntasActionPerformed
 
+    //Este apartado nos dice que si le damos click al label que tiene una flecha nos llevara a la pantalla anterior
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
         Login newFrame = new Login();

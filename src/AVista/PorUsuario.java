@@ -59,6 +59,7 @@ public class PorUsuario extends javax.swing.JFrame {
         txtNueva2.setEnabled(false);
         btnCambiar.setEnabled(false);
         
+        /*Este apartado validamos los Jtexfield que no se escriban números o letras con un maximo de digitos*/
         txtUser.setDocument(new Valida(30, "[a-zA-Z]*"));
         txtCod.setDocument(new Valida(20, "[a-zA-Z0-9]*"));
         txtNueva.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
@@ -374,6 +375,9 @@ public class PorUsuario extends javax.swing.JFrame {
         }
     }
     
+    
+    /*En esta función se hace el reconocimiento del codigó de verificación si es correcto o no 
+    */
    public void EncCod(String user) {
         String cadena = "select * from tbUsuarios where usuario=? COLLATE SQL_Latin1_General_CP1_CS_AS;";
 
@@ -436,7 +440,7 @@ public class PorUsuario extends javax.swing.JFrame {
         }
    }
    
-   //ENVIAR MAIL
+   //Por medio de esta función se envia el correo electronico al usuario con su debido codigó de verificación
     public void Em(String txt, String clave) {
         try {
             Properties props = new Properties();
@@ -485,7 +489,7 @@ public class PorUsuario extends javax.swing.JFrame {
             System.out.println(e.toString());
         }
     }
-    
+    //Esta función nos ayudara a encontrar el usuario y su correo electronico dentro de la base de datos para luego enviar su debido correo electronico y codigo de verificación
     public void Encontrar(){
     
         String cadena = "select * from tbUsuarios where usuario=? COLLATE SQL_Latin1_General_CP1_CS_AS;";
@@ -525,6 +529,7 @@ public class PorUsuario extends javax.swing.JFrame {
         }   
     }
     
+    //Por medio de esta función se le creara el codigo de verificación que luego sera enviado al usuario por medio de su correo electronico
     public void InsertC(String code){
      String cadena = "update tbUsuarios set codigoVerif=? "
                 + "where usuario=? COLLATE SQL_Latin1_General_CP1_CS_AS;";
@@ -549,6 +554,7 @@ public class PorUsuario extends javax.swing.JFrame {
      }
     }
     
+    //Esta función generara un codigo de verficación con letras y numeros para el usuario
     public String GenerC(int longi){
     String num = "0123456789";
         String lmin = "abcdefghijklmnopqrstuvwxyz";

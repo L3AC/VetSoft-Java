@@ -50,11 +50,14 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         txtPregunta2.setEnabled(false);
         txtPregunta3.setEnabled(false);
         btnEnviar.setEnabled(false);
-
+        
+        /*Este apartado validamos los Jtexfield que no se escriban números o letras con un maximo de digitos*/
         txtUser.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
         txtPregunta1.setDocument(new Valida(30, "[a-zA-Z0-9 ]*"));
         txtPregunta2.setDocument(new Valida(30, "[a-zA-Z0-9 ]*"));
         txtPregunta3.setDocument(new Valida(30, "[a-zA-Z0-9 ]*"));
+        
+        
         setLocationRelativeTo(null);
         String iconPath = "src/Imagenes/logoC.png";
         ImageIcon icon = new ImageIcon(iconPath);
@@ -229,6 +232,7 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Esta función nos ayuda a encontrar el id de las preguntas contestadas anteriormente el usuario para la recup de contraseña por medio de preguntas de seguridad
     public boolean VeriResp(String resp, int idPreg) throws SQLException {
 
         String cadenita = "select pu.respuesta,pu.idUsuario,pu.idPregunta from tbPreguntasUsuarios pu,tbPreguntas p,"
@@ -272,6 +276,7 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         }
     }
 
+    //Nos ayuda a encontrar la existencia del id del usuario, si el usuario contesto o no contesto las preguntas de seguridad
     public void VerExist() {
 
         String Cadena = "select * from tbPreguntasUsuarios where idUsuario=?;";
@@ -325,6 +330,8 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
 
     }
 
+    
+    //Nos ayuda a encontrar al usuario y la contraseña del usuario para poder mostrarsela por medio de un mensaje en pantalla que si desea cambiarla o dejarla igual
     public void Encod() throws Exception {
         String cadena = "select * from tbUsuarios where Usuario=? COLLATE SQL_Latin1_General_CP1_CS_AS;";
 
@@ -396,6 +403,7 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnVerificarActionPerformed
 
+    //Anteriormente dicho este es el mensaje que vera el usuario donde se le mostrara la contraseña y si quiere cambiarla se le enviara a otra pantalla donde podra cambiar su contraseña
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
         try {
             // TODO add your handling code here:

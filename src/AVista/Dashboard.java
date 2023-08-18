@@ -46,6 +46,7 @@ public class Dashboard extends javax.swing.JFrame {
         GlassPanePopup.install(this);
     }
 
+    //Esto nos ayudara a que dependiendo del Id del usuario se vean diferentes tipos de funcionalidades que puede tener el usuario dentro del sistema
     public Dashboard(int idTipoU, int idUs, int idCuenta) {
         this.idTipoU = idTipoU;
         this.idUs = idUs;
@@ -74,6 +75,7 @@ public class Dashboard extends javax.swing.JFrame {
         setIconImage(icon.getImage());
     }
 
+    //Aqui tenemos cuales son las funciones que tendra el Administrador
     private void initAdmin() {
         dash = this;
         menuAdmin.addEvent(new MenuSelectEvent() {
@@ -174,6 +176,7 @@ public class Dashboard extends javax.swing.JFrame {
 
     }
 
+    //Aqui tenemos cuales son las funciones que tendra la Recepcionista
     private void initRecep() {
         dash = this;
         menuRecep.addEvent(new MenuSelectEvent() {
@@ -236,6 +239,7 @@ public class Dashboard extends javax.swing.JFrame {
 
     }
 
+    //Aqui tenemos cuales son las funciones que tendra el Docto@r                
     private void initDoc() {
         dash = this;
         menuDoc.addEvent(new MenuSelectEvent() {
