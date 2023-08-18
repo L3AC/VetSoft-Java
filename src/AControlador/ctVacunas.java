@@ -69,5 +69,7 @@ public class ctVacunas {
     public boolean delTPVac() {
         return md.delTPVac(idTipoVac);
     }
+    
+    //VACUNACION
 
 }

@@ -30,7 +30,7 @@ public class mdVacunas {
         String query = "insert into tbTipoVacunas values(?,?);";
         try {
             ps = con.prepareStatement(query);
-            ps.setString(1, n2);
+            ps.setString(1, n1);
             ps.setString(2, n2);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Campos ingresados");
@@ -60,7 +60,7 @@ public class mdVacunas {
     }
 
     public boolean upTPVac(String n1,String n2,int id1) {
-        String query = "update tbPreguntasUsuarios set NombreVacuna=?,Utilidad=? "
+        String query = "update tbTipoVacunas set NombreVacuna=?,Utilidad=? "
                 + "where idTipoVacuna=?;";
         try {
             ps = con.prepareStatement(query);

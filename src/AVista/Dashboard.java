@@ -19,6 +19,7 @@ import AVista.Productos.CRUDProd;
 import AVista.Productos.updateProd;
 import AVista.Recepcionista.CRUDRecep;
 import AVista.Usuarios.CRUDusuarios;
+import AVista.Vacunas.CRUDTipoVac;
 import Design.Desg;
 import Mensajes.MensajeNoEncontroUsuarios;
 import java.awt.event.ActionEvent;
@@ -141,6 +142,10 @@ public class Dashboard extends javax.swing.JFrame {
                     }
                     if (index == 4 && indexSubMenu == 5) {
                         CRUDTipoProd subp = new CRUDTipoProd(idTipoU);
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                    }
+                    if (index == 4 && indexSubMenu == 6) {
+                        CRUDTipoVac subp = new CRUDTipoVac(idTipoU);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     //CUENTA
