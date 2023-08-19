@@ -4,6 +4,7 @@ import AControlador.ctAnimales;
 import AControlador.ctCliente;
 import AControlador.ctRecep;
 import AVista.Citas.insertCita;
+import AVista.Vacunas.AddVacuna;
 import Design.Desg;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -78,14 +79,15 @@ public class CRUDAnimales extends javax.swing.JPanel {
         tbData = new SwingTable.Table();
         btnVac = new Design.ButtonGradient();
         jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        btnAddV = new Design.ButtonGradient();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
         PCont.setBackground(new java.awt.Color(255, 255, 255));
+        PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnEmergen.setText("Emergencia");
+        PCont.add(btnEmergen, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 40, 140, 50));
 
         btnAgendar.setText("Agendar Cita");
         btnAgendar.addActionListener(new java.awt.event.ActionListener() {
@@ -93,6 +95,7 @@ public class CRUDAnimales extends javax.swing.JPanel {
                 btnAgendarActionPerformed(evt);
             }
         });
+        PCont.add(btnAgendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 200, 140, 50));
 
         btnReservas3.setText("Examenes");
         btnReservas3.addActionListener(new java.awt.event.ActionListener() {
@@ -100,6 +103,7 @@ public class CRUDAnimales extends javax.swing.JPanel {
                 btnReservas3ActionPerformed(evt);
             }
         });
+        PCont.add(btnReservas3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 600, 140, 50));
 
         btnEditar.setText("Editar");
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -107,6 +111,7 @@ public class CRUDAnimales extends javax.swing.JPanel {
                 btnEditarActionPerformed(evt);
             }
         });
+        PCont.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 280, 140, 50));
 
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -114,6 +119,7 @@ public class CRUDAnimales extends javax.swing.JPanel {
                 btnEliminarActionPerformed(evt);
             }
         });
+        PCont.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 360, 140, 50));
 
         txtBusq.setBackground(new java.awt.Color(202, 233, 255));
         txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
@@ -127,6 +133,7 @@ public class CRUDAnimales extends javax.swing.JPanel {
                 txtBusqKeyReleased(evt);
             }
         });
+        PCont.add(txtBusq, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 99, 720, 51));
 
         panelRound1.setBackground(new java.awt.Color(202, 233, 255));
         panelRound1.setRoundTopLeft(50);
@@ -152,74 +159,30 @@ public class CRUDAnimales extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tbData);
 
-        panelRound1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 1020, 460));
+        panelRound1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 920, 460));
 
-        btnVac.setText("Vacunaciones");
+        PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 202, 980, 520));
+
+        btnVac.setText("Vacunas");
+        btnVac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVacActionPerformed(evt);
+            }
+        });
+        PCont.add(btnVac, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 440, 140, 50));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Nombre del dueño:");
+        PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 107, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clinica 64px.png"))); // NOI18N
-
-        jLabel3.setText("VetSoft+");
-
-        javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
-        PCont.setLayout(PContLayout);
-        PContLayout.setHorizontalGroup(
-            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(27, 27, 27)
-                        .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(211, 211, 211)
-                        .addComponent(jLabel3))
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 1080, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnVac, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnReservas3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAgendar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEmergen, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(21, 52, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PContLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(43, 43, 43))
-        );
-        PContLayout.setVerticalGroup(
-            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel2))
-                    .addComponent(jLabel3))
-                .addGap(52, 52, 52)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addComponent(btnEmergen, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(61, 61, 61)
-                        .addComponent(btnAgendar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(53, 53, 53)
-                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(54, 54, 54)
-                        .addComponent(btnVac, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)
-                        .addComponent(btnReservas3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
+        btnAddV.setText("Agreagar vacuna");
+        btnAddV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddVActionPerformed(evt);
+            }
+        });
+        PCont.add(btnAddV, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 520, 140, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -299,18 +262,26 @@ public class CRUDAnimales extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnReservas3ActionPerformed
 
+    private void btnVacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVacActionPerformed
+        
+    }//GEN-LAST:event_btnVacActionPerformed
+
+    private void btnAddVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddVActionPerformed
+       AddVacuna subp = new AddVacuna(idTipoUs,Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
+            dsg.ShowPanel(subp, PCont, 1320, 810);
+    }//GEN-LAST:event_btnAddVActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
+    private Design.ButtonGradient btnAddV;
     private Design.ButtonGradient btnAgendar;
     private Design.ButtonGradient btnEditar;
     private Design.ButtonGradient btnEliminar;
     private Design.ButtonGradient btnEmergen;
     private Design.ButtonGradient btnReservas3;
     private Design.ButtonGradient btnVac;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private Design.PanelRound panelRound1;
     private SwingTable.Table tbData;

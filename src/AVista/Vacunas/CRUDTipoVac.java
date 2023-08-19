@@ -46,11 +46,13 @@ public class CRUDTipoVac extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
         PCont.setBackground(new java.awt.Color(255, 255, 255));
+        PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Nombre de vacuna:");
+        PCont.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 74, -1, -1));
 
         txtBusq.setBackground(new java.awt.Color(202, 233, 255));
         txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
@@ -59,6 +61,7 @@ public class CRUDTipoVac extends javax.swing.JPanel {
                 txtBusqKeyReleased(evt);
             }
         });
+        PCont.add(txtBusq, new org.netbeans.lib.awtextra.AbsoluteConstraints(253, 66, 470, 50));
 
         panelRound1.setBackground(new java.awt.Color(202, 233, 255));
         panelRound1.setRoundBottomLeft(50);
@@ -88,12 +91,15 @@ public class CRUDTipoVac extends javax.swing.JPanel {
 
         panelRound1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 620, 430));
 
+        PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 680, 495));
+
         btnAddM.setText("Agregar ");
         btnAddM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddMActionPerformed(evt);
             }
         });
+        PCont.add(btnAddM, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 490, 130, 50));
 
         btnEditar.setText("Editar");
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -101,6 +107,7 @@ public class CRUDTipoVac extends javax.swing.JPanel {
                 btnEditarActionPerformed(evt);
             }
         });
+        PCont.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 490, 130, 48));
 
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -108,76 +115,25 @@ public class CRUDTipoVac extends javax.swing.JPanel {
                 btnEliminarActionPerformed(evt);
             }
         });
+        PCont.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 490, 130, 49));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Nombre de la vacuna");
+        PCont.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 190, -1, -1));
 
         txtUso.setBackground(new java.awt.Color(202, 233, 255));
         txtUso.setShadowColor(new java.awt.Color(0, 0, 51));
+        PCont.add(txtUso, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 350, 440, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Para que sirve la vacuna");
+        PCont.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 310, -1, -1));
 
         txtVacuna.setBackground(new java.awt.Color(202, 233, 255));
         txtVacuna.setShadowColor(new java.awt.Color(0, 0, 51));
-
-        javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
-        PCont.setLayout(PContLayout);
-        PContLayout.setHorizontalGroup(
-            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addComponent(jLabel1)
-                .addGap(21, 21, 21)
-                .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtVacuna, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtUso, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addComponent(btnAddM, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)))))
-        );
-        PContLayout.setVerticalGroup(
-            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jLabel1))
-                    .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel6)
-                        .addGap(15, 15, 15)
-                        .addComponent(txtVacuna, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
-                        .addComponent(jLabel7)
-                        .addGap(15, 15, 15)
-                        .addComponent(txtUso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(99, 99, 99)
-                        .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAddM, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-        );
+        PCont.add(txtVacuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 230, 290, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -297,8 +253,6 @@ public class CRUDTipoVac extends javax.swing.JPanel {
     private Design.PanelRound panelRound1;
     private SwingTable.Table tbData;
     private Design.TextFieldSV txtBusq;
-    private Design.TextFieldSV txtNum;
-    private Design.TextFieldSV txtNum1;
     private Design.TextFieldSV txtUso;
     private Design.TextFieldSV txtVacuna;
     // End of variables declaration//GEN-END:variables

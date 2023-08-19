@@ -71,5 +71,8 @@ public class ctVacunas {
     }
     
     //VACUNACION
+        public boolean insVac() {
+        return md.insVac(idAnimal,idTipoVac);
+    }
 
 }

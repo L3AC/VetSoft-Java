@@ -84,4 +84,37 @@ public class mdVacunas {
         }
     }
     //VACUNACIONES
+    public boolean insVac(int id1,int id2) {
+        String query = "insert into tbVacunaciones values(?,?,getdate());";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setInt(1, id1);
+            ps.setInt(2, id2);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Campos ingresados");
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return false; //DIO ERROR
+        }
+    }
+    public boolean delVac(int id1) {
+        String query = "DELETE tbVacunaciones where idVacunacion=?;";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setInt(1, id1);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Registro eliminado");
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return false;
+        }
+    }
+    
 }
