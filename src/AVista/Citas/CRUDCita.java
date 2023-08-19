@@ -103,6 +103,11 @@ public class CRUDCita extends javax.swing.JPanel {
         btnRec.setText("Receta");
 
         btnFact.setText("Factura");
+        btnFact.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFactActionPerformed(evt);
+            }
+        });
 
         btnEditar.setText("+ Info");
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -352,6 +357,10 @@ public class CRUDCita extends javax.swing.JPanel {
 
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
+
+    private void btnFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFactActionPerformed
+        //
+    }//GEN-LAST:event_btnFactActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

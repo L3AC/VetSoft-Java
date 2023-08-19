@@ -177,6 +177,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Factura"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFactActionPerformed"/>
+          </Events>
         </Component>
         <Component class="Design.ButtonGradient" name="btnEditar">
           <Properties>

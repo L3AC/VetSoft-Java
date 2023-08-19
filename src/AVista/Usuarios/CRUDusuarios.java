@@ -239,7 +239,6 @@ public class CRUDusuarios extends javax.swing.JPanel {
 
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
         verifPerfil();
-
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void btnAddCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCuentaActionPerformed

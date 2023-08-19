@@ -69,10 +69,18 @@ public class ctVacunas {
     public boolean delTPVac() {
         return md.delTPVac(idTipoVac);
     }
-    
+
     //VACUNACION
-        public boolean insVac() {
-        return md.insVac(idAnimal,idTipoVac);
+    public boolean insVac() {
+        return md.insVac(idAnimal, idTipoVac);
+    }
+
+    public boolean delVac() {
+        return md.delVac(idVac);
+    }
+
+    public ResultSet verifVac() {
+        return md.loadTPVac(nombreVac);
     }
 
 }

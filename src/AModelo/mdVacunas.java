@@ -84,6 +84,34 @@ public class mdVacunas {
         }
     }
     //VACUNACIONES
+     public ResultSet loadVac(String n1) {
+        String query = "select * from tbTipoVacunas where NombreVacuna like ?";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setString(1, "%"+n1+"%");
+            rs = ps.executeQuery();
+            return rs;
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+            return null;
+        }
+    }
+      public ResultSet verifVac(int id1, int id2) {
+        String query = "select * from tbVacunaciones where idAnimal=? and idTipoVacuna=?";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setInt(1, id1);
+            ps.setInt(2, id2);
+            rs = ps.executeQuery();
+            return rs;
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+            return null;
+        }
+    }
+    
     public boolean insVac(int id1,int id2) {
         String query = "insert into tbVacunaciones values(?,?,getdate());";
         try {

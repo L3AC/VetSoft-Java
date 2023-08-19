@@ -86,10 +86,12 @@ public class updtCita extends javax.swing.JPanel {
         lbMasc = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        btnEditar1 = new Design.ButtonGradient();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
         PCont.setBackground(new java.awt.Color(255, 255, 255));
+        PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnBack.setBackground(new java.awt.Color(255, 255, 255));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
@@ -99,10 +101,12 @@ public class updtCita extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
+        PCont.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 52, 70, 60));
 
         lbTitulo.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         lbTitulo.setForeground(new java.awt.Color(27, 73, 101));
         lbTitulo.setText("INFORMACIÓN CITA");
+        PCont.add(lbTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 360, -1));
 
         panelRound1.setBackground(new java.awt.Color(202, 233, 255));
         panelRound1.setRoundBottomLeft(50);
@@ -200,12 +204,15 @@ public class updtCita extends javax.swing.JPanel {
         lbEsp3.setText("Servicio");
         panelRound1.add(lbEsp3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 80, -1));
 
+        PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 150, 1010, 530));
+
         btnEditar.setText("Editar");
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditarActionPerformed(evt);
             }
         });
+        PCont.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 700, 150, 60));
 
         btnConfirm.setText("Confirmar");
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
@@ -213,65 +220,26 @@ public class updtCita extends javax.swing.JPanel {
                 btnConfirmActionPerformed(evt);
             }
         });
+        PCont.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 700, 150, 60));
 
         lbMasc.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbMasc.setForeground(new java.awt.Color(0, 0, 0));
         lbMasc.setText("Mascota:");
+        PCont.add(lbMasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(768, 66, 440, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clinica 64px.png"))); // NOI18N
+        PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 20, -1, -1));
 
         jLabel4.setText("VetSoft+");
+        PCont.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 90, -1, -1));
 
-        javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
-        PCont.setLayout(PContLayout);
-        PContLayout.setHorizontalGroup(
-            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(200, 200, 200)
-                .addComponent(lbTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(lbMasc, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel4))))
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(209, 209, 209)
-                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 1010, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(220, 220, 220)
-                .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
-                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        PContLayout.setVerticalGroup(
-            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbTitulo)
-                            .addComponent(lbMasc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel4)))
-                .addGap(38, 38, 38)
-                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
+        btnEditar1.setText("Editar");
+        btnEditar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditar1ActionPerformed(evt);
+            }
+        });
+        PCont.add(btnEditar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 700, 150, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -458,12 +426,17 @@ public class updtCita extends javax.swing.JPanel {
         ct.updtCita();
     }//GEN-LAST:event_btnConfirmActionPerformed
 
+    private void btnEditar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditar1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
     private javax.swing.JButton btnBack;
     private Design.ButtonGradient btnConfirm;
     private Design.ButtonGradient btnEditar;
+    private Design.ButtonGradient btnEditar1;
     private javax.swing.JComboBox<String> cbDoc;
     private javax.swing.JComboBox<String> cbEsp;
     private javax.swing.JComboBox<String> cbHora;
