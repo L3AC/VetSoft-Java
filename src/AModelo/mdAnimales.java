@@ -9,6 +9,8 @@ public class mdAnimales {
     ResultSet rs;
     PreparedStatement ps;
 
+/*Esto nos ayuda a cargar la mascota que esta 
+que esta registrado dentro de la base de datos con su nombre, nombre popular, la raza, el dueño, tipo de animal entre otras*/
     public ResultSet cargarAnim(String nombre) {
         String query = "select idAnimal,nombrePopular as 'Animal',a.nombre as 'Nombre',CONCAT(c.nombre,' ',c.apellido) as 'Dueño'\n"
                 + "	from tbAnimales a,tbTipoAnimales ta,tbRazas r,tbClientes c where a.idCliente=c.idCliente and\n"
@@ -26,6 +28,7 @@ public class mdAnimales {
         }
     }
 
+    //Esto nos ayuda a seleccionar el animal con su debida raza, tipo de animal y el id del animal dentro de la base de datos
     public ResultSet selectAnim(int idA) {
         String query = "select * from tbAnimales a,tbRazas r,tbTipoAnimales tp "
                 + "where a.idRaza=r.idRaza and r.idTipoAnimal=tp.idTipoAnimal and idAnimal=?;";
@@ -42,6 +45,7 @@ public class mdAnimales {
         }
     }
 
+    //Esto nos ayudara cuando se quiera borrar el registro de alguna mascota dentro del sistema
     public boolean deleteAnim(int idA) {
         String query = "delete tbAnimales where idAnimal=?;";
         try {
@@ -58,6 +62,7 @@ public class mdAnimales {
         }
     }
 
+    //Esto nos ayudara a poder registrar nuevas mascotas dentro del sistema 
     public boolean insertAnim(int idCl, int idR, String padec, String nombre,
             String peso, String edad, String sexo) {
         String query = "insert into tbAnimales values(?,?,?,?,?,?,?,GETDATE());";
@@ -82,6 +87,7 @@ public class mdAnimales {
         }
     }
 
+    //Esto nos ayudara a actualizar algun campo a la mascota por ejemplo la edad que puede ser actualizada
     public boolean updateAnim(int idA, int idR, String padec, String nombre,
             String peso, String edad, String sexo) {
         String query = "update tbAnimales set idRaza=?,padecimientos=?,nombre=?,peso=?,edad=?,sexo=?\n"

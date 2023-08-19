@@ -10,6 +10,7 @@ public class mdClientes {
     ResultSet rs;
     PreparedStatement ps;
 
+    //Esto nos ayudara a cargar la informacion del cliente dentro del sistema
     public ResultSet cargarCl(String nombre) {
         String query = "select idCliente,CONCAT(nombre,' ',apellido) as 'Nombre',DATEDIFF(YEAR, nacimiento, GETDATE()) as 'Edad'\n"
                 + ",sexo as Sexo from tbClientes where CONCAT(nombre,' ',apellido) like ?;";
@@ -25,6 +26,7 @@ public class mdClientes {
             return null; //DIO ERROR
         }
     }
+    //Aqui se seleccionara el cliente por medio de su Id dentro de la base de datos
         public ResultSet selectCl(int idD) {
         String query = "select * from tbClientes where idCliente=?;";
         try {
@@ -40,6 +42,7 @@ public class mdClientes {
         }
     }
 
+        //Esto nos ayudara a poder borrar algun cliente dentro del sistema y base de datos
     public boolean deleteCl(int idD) {
         String query = "DELETE tbClientes where idCliente=?;";
         try {
@@ -56,6 +59,7 @@ public class mdClientes {
         }
     }
 
+    //Esto nos ayudara a insertar un nuevo cliente dentro del sistema y base de datos
     public boolean insertCl(int idUs, String nombre, String apellido,
             String dui, String naci, String sexo,String direccion) {
         String query = "insert into tbClientes"
@@ -81,6 +85,7 @@ public class mdClientes {
         }
     }
 
+    //Esto nos ayudara a actualizar algun campo dentro de la información del cliente
     public boolean updateCl(int idCl, String nombre, String apellido, String dui, String naci, String sexo) {
         String query = "update tbClientes SET nombre=?,apellido=?,DUI=?,nacimiento=?,sexo=? \n" +
         "where idCliente=?;";

@@ -21,6 +21,7 @@ public class mdTipoAnim {
     PreparedStatement ps;
     ResultSet rs;
 
+    //Esto nos ayudara a cargar los datos del usuario dentro del sistema
     public ResultSet loadData(int idUs) {//EDITAR INFO
         String query = "select idUsuario,tu.nivel as 'Cargo',usuario,correo,telefono from tbUsuarios u,\n"
                 + "tbTipoUsuario tu where u.idTipoUsuario=tu.idTipoUsuario and idUsuario=?;";
@@ -37,6 +38,7 @@ public class mdTipoAnim {
         }
     }
 
+    //Esto nos ayudara a cargar los nombre populares de los animales
     public ResultSet tableTPA(String nombre) {//TABLA
         String query = "select * from tbTipoAnimales where nombrePopular like ?;";
         try {
@@ -53,6 +55,7 @@ public class mdTipoAnim {
         }
     }
 
+    //Esto nos ayudara a insertar dentro de la tabla tipo de animales el nombre popular del animal
     public boolean insertTPA(String n1, String n2) {
         String query = "insert into tbTipoAnimales values(?,?);";
         try {
@@ -72,6 +75,7 @@ public class mdTipoAnim {
         }
     }
 
+    //Esto nos ayudara a actualizar los datos de la tabla tipo animales
     public boolean updtTPA(int id1, String n1, String n2) {
         String query = "update tbTipoAnimales set nombrePopular=? , nombreCientifico=? where idTipoAnimal=?;";
         try {
@@ -91,7 +95,8 @@ public class mdTipoAnim {
             return false; //DIO ERROR
         }
     }
-
+    
+//Esto nos ayudara a eliminar algun tipo de animal por medio del id dentro del sistema
     public boolean deleteTPA(int idD) {
         String query = "delete tbTipoAnimales where idTipoAnimal=?";
         try {

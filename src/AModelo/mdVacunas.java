@@ -26,6 +26,8 @@ public class mdVacunas {
             return null;
         }
     }
+    
+    //Esto nos ayudara a insertar si hay nuevos tipos de vacunas
     public boolean insTPVac(String n1,String n2) {
         String query = "insert into tbTipoVacunas values(?,?);";
         try {
@@ -43,6 +45,8 @@ public class mdVacunas {
             return false; //DIO ERROR
         }
     }
+    
+    //Esto nos ayudara a eliminar algun tipo de vacunas 
     public boolean delTPVac(int id1) {
         String query = "DELETE tbTipoVacunas where idTipoVacuna=?;";
         try {
@@ -59,6 +63,7 @@ public class mdVacunas {
         }
     }
 
+    //Esto nos ayudara a actualizar algun campo dentro de la tabla tipo de vacunas
     public boolean upTPVac(String n1,String n2,int id1) {
         String query = "update tbTipoVacunas set NombreVacuna=?,Utilidad=? "
                 + "where idTipoVacuna=?;";

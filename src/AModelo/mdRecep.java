@@ -12,6 +12,8 @@ public class mdRecep {
     ResultSet rs;
     PreparedStatement ps;
 
+    
+    //Esto nos ayudara a cargar los datos del recepcionista dentro del sistema
     public ResultSet cargarRecep(String nombre) {
         String query = "select idRecepcionista,CONCAT(nombre,' ',apellido) as 'Nombre',DATEDIFF(YEAR, nacimiento, GETDATE()) as 'Edad'\n"
                 + "                ,sexo as Sexo from tbRecepcionistas where CONCAT(nombre,' ',apellido) like ?;";
@@ -28,6 +30,7 @@ public class mdRecep {
         }
     }
 
+    //Esto nos ayudara a seleccionar al recepcionista por medio del id
     public ResultSet selectRecep(int idD) {
         String query = "select * from tbRecepcionistas where idRecepcionista=?;";
         try {
@@ -43,6 +46,7 @@ public class mdRecep {
         }
     }
 
+    //Esto nos ayudara a insertar a un nuevo recepcionista dentro del sistema
     public boolean insertRe(int idUs, String nombre, String apellido,
             String dui, String naci, String sexo) {
         String query = "insert into tbRecepcionistas values(?,?,?,?,?,?,GETDATE());";
@@ -66,6 +70,7 @@ public class mdRecep {
         }
     }
 
+    //Esto nos ayudara a actualizar un nuevo recepcionista dentro del sistema
     public boolean updateRecep(int idC, String nombre, String apellido, String dui, String naci, String sexo) {
         String query = "update tbRecepcionistas SET nombre=?,apellido=?,DUI=?,nacimiento=?,sexo=? \n"
                 + "where idRecepcionista=?;";
@@ -89,6 +94,7 @@ public class mdRecep {
         }
     }
 
+    //Esto nos ayudara a eliminar un recepcionista dentro del sistema
     public boolean deleteRecep(int idD) {
         String query = "DELETE tbRecepcionistas where idRecepcionista=?;";
         try {

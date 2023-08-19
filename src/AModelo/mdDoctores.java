@@ -6,6 +6,7 @@ public class mdDoctores {
     ResultSet rs;
     PreparedStatement ps;
 
+    //Esto nos ayudara a cargar la especialidad del doctor dentro del sistema
     public ResultSet loadData(int idC) {//EDITAR
         String query = "select * from tbDoctores d, tbEspecialidades e"
                 + " where idDoctor=? AND d.idEspecialidad=e.idEspecialidad;";
@@ -21,6 +22,8 @@ public class mdDoctores {
             return null; //DIO ERROR
         }
     }
+    
+    //Esto nos ayudara a cargar toda la información del doctor dentro del sistema
     public ResultSet cargarDoc(String nombre) {//TABLA
         String query = "select idDoctor,especialidad,CONCAT(d.nombre,' ',d.apellido) as 'Nombre' from  " +
         " tbDoctores d, tbEspecialidades e where d.idEspecialidad=e.idEspecialidad "
@@ -38,6 +41,7 @@ public class mdDoctores {
             return null; //DIO ERROR
         }
     }
+    
     public ResultSet comboDoc(int id) {//TABLA
         String query = "select idDoctor, CONCAT(nombre,' ',Apellido) "
                 + "as nombre from tbDoctores where idEspecialidad=?;";
@@ -54,6 +58,8 @@ public class mdDoctores {
             return null; //DIO ERROR
         }
     }
+    
+    //Esto nos ayudara a insertar a un nuevo doctor dentro del sistema
     public boolean insertDoc(int idUs,int idEsp, String nombre, String apellido,
             String dui, String naci, String sexo) {
         String query = "insert into tbDoctores values(?,?,?,?,?,?,?,GETDATE());";
@@ -77,6 +83,8 @@ public class mdDoctores {
             return false; //DIO ERROR
         }
     }
+    
+    //Esto nos ayudara a poder actualizar algun campo dentro del sistema del doctor por ejemplo la especialidad del doctor
     public boolean updateDoc(int idC,int idEsp, String nombre, String apellido, String dui,
             String naci, String sexo) {
         String query = "update tbDoctores SET nombre=?,apellido=?,DUI=?,nacimiento=?,sexo=?, idEspecialidad=? \n" +
@@ -101,6 +109,8 @@ public class mdDoctores {
             return false; //DIO ERROR
         }
     }
+    
+    //Esto nos ayudara a borrar el registro de algun doctor dentro del sistema
     public boolean deleteDoc(int idD) {
         String query = "DELETE tbDoctores where idDoc=?;";
         try {

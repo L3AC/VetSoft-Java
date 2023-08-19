@@ -21,6 +21,7 @@ public class mdProd extends JFrame {
     ResultSet rs;
     PreparedStatement ps;
 
+    //Esto nos ayudara a cargar los datos de los productos en el sistema
     public ResultSet tbProd(String n1) {
 
         String query = "select idProducto,tp.tipo,Nombre,Proveedor,CONVERT(DECIMAL(18, 2),Precio) AS precio"
@@ -39,6 +40,7 @@ public class mdProd extends JFrame {
         }
     }
 
+    //Esto nos ayudara a seleccionar los productos dentro del sistema
     public ResultSet selectProd(int id) {
 
         String query = "select idProducto,tp.tipo,Nombre,Proveedor,Precio,img "
@@ -57,6 +59,7 @@ public class mdProd extends JFrame {
         }
     }
 
+    //Esto nos ayudara a borrar los productos que ya no se encuentre disponibles en fisico dentro del sistema
     public boolean dlProd(int idC) {
         String query = "DELETE tbProductos where idProducto=?;";
         try {
@@ -73,6 +76,7 @@ public class mdProd extends JFrame {
         }
     }
 
+    //Esto nos ayudara a insertar nuevos productos dentro del sistema
     public boolean insProd(int idTP,String n1,String n2,float price,byte[] img) {
         String query = "insert into tbProductos (idTipoProducto,Nombre,Proveedor,Precio,img,fechaRegistro)\n"
                 + "values (?,?,?,?,?,GETDATE())";
@@ -95,6 +99,7 @@ public class mdProd extends JFrame {
         }
     }
 
+    //Esto nos ayudara a actualizar algun campo del producto
     public boolean upProd(int id,int idTP,String n1,String n2,float price,byte[] img) {
         String query = "update tbProductos set idTipoProducto=?,Nombre=?,Proveedor=?,Precio=?,img=? where idProducto=?";
         try {
@@ -148,6 +153,7 @@ public class mdProd extends JFrame {
         }
     }
 
+        //Estp nos ayudara a borrar el tipo de producto 
     public boolean deleteTProd(int idC) {
         String query = "DELETE tbTipoProductos where idTipoProducto=?;";
         try {
@@ -164,6 +170,7 @@ public class mdProd extends JFrame {
         }
     }
 
+    //Esto nos ayudara a insertar los tipos de productos dentro del sistema
     public boolean insertTProd(String n1) {
         String query = "insert tbTipoProductos values(?,getdate());";
         try {
@@ -181,6 +188,7 @@ public class mdProd extends JFrame {
         }
     }
 
+    //Esto nos ayudara a actualizar el tipo de producto dentro del sistema
     public boolean updtTProd(int id, String n1) {
         String query = "update tbTipoProductos set tipo=? where idTipoProducto=?;";
         try {

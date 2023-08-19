@@ -13,6 +13,7 @@ public class mdPreguntas {
     PreparedStatement ps;
     ResultSet rs;
 
+    //Esto nos ayudara a encontrar las respuestas por el usuario para la recup por preguntas de seguridad
     public ResultSet loadResp(int idUs, int idPreg) {
         String query = "select * from tbPreguntasUsuarios where idUsuario=? and idPregunta=?;";
         try {
@@ -28,6 +29,7 @@ public class mdPreguntas {
         }
     }
 
+    //Esto nos ayudara a verificar la existencia de las preguntas contestadas por el usuario
     public ResultSet verifExist(int idUs, int idPreg) {
         String query = "select * from tbPreguntasUsuarios where idUsuario=? and idPregunta=?;";
         try {
@@ -43,6 +45,7 @@ public class mdPreguntas {
         }
     }
 
+    //Esto nos ayudara a insertar en la base de datos las respuestas a las preguntas del usuario anteriormente contestadas
     public boolean insertResp(int idPreg, int idUs, String resp) {
         String query = "insert into tbPreguntasUsuarios values(?,?,?);";
         try {
@@ -62,6 +65,7 @@ public class mdPreguntas {
         }
     }
 
+    //Esto nos ayudara a actualizar las respuesta a las preguntas del usuario dentro del sistema
     public boolean updateResp( int idP,int idUs, String resp) {
         String query = "update tbPreguntasUsuarios set respuesta=? "
                 + "where idUsuario=? and idPregunta=?;";

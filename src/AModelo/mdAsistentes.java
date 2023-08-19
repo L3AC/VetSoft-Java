@@ -9,6 +9,7 @@ public class mdAsistentes {
     ResultSet rs;
     PreparedStatement ps;
 
+    //Esto nos ayuda a cargar los datos del asistente y el doctor que esta a cargo de dicho asistente
     public ResultSet cargarAsis(String nombre) {//TABLA
         String query = "select idAsistente,CONCAT(d.nombre,' ',d.apellido) as 'Doctor a cargo',"
         +"CONCAT(a.nombre,' ',a.apellido) as 'Nombre',DATEDIFF(YEAR, a.nacimiento, GETDATE()) as 'Edad',"
@@ -28,6 +29,7 @@ public class mdAsistentes {
         }
     }
 
+    //Aqui se verificara si existe el el asistente con usuario dentro de la base de datos para poder cargarlo en el sistema
     public ResultSet verifPerfil(int idUs) {//TABLA
         String query = "select u.usuario from tbUsuarios u, tbAsistentes c "
                 + "where u.idUsuario=c.idUsuario and u.idUsuario=?;";
@@ -60,6 +62,7 @@ public class mdAsistentes {
         }
     }
 
+    
     public ResultSet selectAsis(int idD) {
         String query = "select a.Nombre, a.Apellido,a.DUI,a.Nacimiento,a.Sexo,CONCAT(d.nombre,' ',d.Apellido) as 'doc'\n" +
         "from tbAsistentes a, tbDoctores d where a.idDoctor=d.idDoctor and idAsistente=?;";
@@ -77,6 +80,7 @@ public class mdAsistentes {
         }
     }
 
+    //Esto nos ayudara a insertar un nuevo Asistente dentro del sistema y base de datos
     public boolean insertAsis(int idUs, int idDoc, String nombre, String apellido,
             String dui, String naci, String sexo) {
         String query = "insert into tbAsistentes values(?,?,?,?,?,?,?,getdate());";
@@ -101,6 +105,7 @@ public class mdAsistentes {
         }
     }
 
+    //Esto nos ayudara a actualizar un asistente en el sistema y base de datos
     public boolean updtAsis(int idC, int idDoc, String nombre, String apellido,
             String dui, String naci, String sexo) {
         String query = "update tbAsistentes SET idDoctor=?, nombre=?,apellido=?,DUI=?,nacimiento=?,sexo=? \n"
@@ -126,6 +131,7 @@ public class mdAsistentes {
         }
     }
 
+    //Esto nos ayudara cuando se quiera borrar algun registro de algun asistente dentro del sistema y base de datos
     public boolean deleteAsis(int idD) {
         String query = "DELETE tbAsistentes where idAsistente=?;";
         try {

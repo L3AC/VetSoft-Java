@@ -25,6 +25,8 @@ public class mdUser extends JFrame{
     Crypt cripto = new Crypt();
     PreparedStatement ps;
     ResultSet rs;
+    
+    //Esto nos ayudara a cargar los datos del usuario
     public ResultSet loadData(int idUs) {//EDITAR INFO
         String query = "select idUsuario,tu.nivel as 'Cargo',usuario,correo,telefono from tbUsuarios u,\n" +
         "tbTipoUsuario tu where u.idTipoUsuario=tu.idTipoUsuario and idUsuario=?;";
@@ -39,6 +41,8 @@ public class mdUser extends JFrame{
             return null; //DIO ERROR
         }
     }
+    
+    //Esto nos ayudara a cargar todos los datos de los niveles de usuario admin y recepcionista
     public ResultSet cargarUs(String nombre,int nUs) {//TABLA
         String query = "";
         try {
@@ -60,6 +64,8 @@ public class mdUser extends JFrame{
             return null; //DIO ERROR
         }
     }
+    
+    //Esto nos ayudara a insertar un nuevo usuario dentro del sistema y base de datos
     public boolean insertUs(int idTipoC, String usuario, String contra, 
             String correo, String tel) {
         String query = "insert into tbUsuarios values(?,?,?,?,?,null,GETDATE());";
@@ -82,6 +88,8 @@ public class mdUser extends JFrame{
             return false; //DIO ERROR
         }
     }
+    
+    //Esto nos ayudara a actualizar a algun usuario dentro del sistema y base de datos
     public boolean updateUs(int idTipoUs, String usuario, String correo, 
             String tel,int idUs) {
         String query = "update tbUsuarios SET idTipoUsuario=?,usuario=?,correo=?,telefono=?"
@@ -111,6 +119,8 @@ public class mdUser extends JFrame{
             return false; //DIO ERROR
         }
     }
+    
+    //Esto nos ayudara a eliminar a algun usuario dentro del sistema po medio del id
     public boolean deleteUs(int idD) {
         String query = "DELETE tbUsuarios where idUsuario=?;";
         try {
@@ -132,6 +142,8 @@ public class mdUser extends JFrame{
             return false;
         }
     }
+    
+    //Esto nos ayudara a verificar la existencia del usuario dentro de la base de datos y sistema
     public ResultSet verifUs(String usuario) throws SQLException {
         String url = "select * from tbUsuarios where usuario=? COLLATE SQL_Latin1_General_CP1_CS_AS;";
         try {
@@ -147,6 +159,7 @@ public class mdUser extends JFrame{
         }
     }
 
+    //Esto nos ayudara a seleccionar el tipo de usuario
     public ResultSet SelectTipoUs(String usuario, String passw) throws SQLException {
         String url = "SELECT * FROM tbUsuarios WHERE usuario = ? COLLATE SQL_Latin1_General_CP1_CS_AS \n"
                 + " AND contraseña = ? COLLATE SQL_Latin1_General_CP1_CS_AS;";
@@ -166,6 +179,7 @@ public class mdUser extends JFrame{
         }
     }
 
+    //Esto nos ayudara a seleccionar el tipo de usuario por medio de su ID
     public ResultSet SelectTipoID(int idTipoU, int idUs) throws SQLException {
         String url = "SELECT * FROM tbAdministradores WHERE idUsuario = ?;";
         System.out.println(idUs + " " + idTipoU);
@@ -194,6 +208,8 @@ public class mdUser extends JFrame{
             return null; //DIO ERROR
         }
     }
+    
+    //Esto nos ayudara a verificar el perfil del usuario dentro del sistema
     public ResultSet verifPerfil(int idUs, int idTipoC) throws SQLException {
         String url = "";
         System.out.println(idUs + " " + idTipoC);

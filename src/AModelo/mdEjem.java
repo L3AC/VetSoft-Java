@@ -13,6 +13,7 @@ public class mdEjem {
     PreparedStatement ps;
     ResultSet rs;
 
+    //Esto nos ayudara dentro del sistema a cargar el tipo de ejemplar que esta en la base de datos
     public ResultSet tbEjem(String n1, int idP) {
 
         String query = "select idEjemplar,tp.tipo,p.Nombre,Estado from tbEjemplares e, tbProductos p, "
@@ -32,6 +33,7 @@ public class mdEjem {
         }
     }
 
+    //Esto nos ayudara a borrar el ejemplar del producto dentro del sistema y base de datos
     public boolean dlEjem(int id) {
         String query = "DELETE tbEjemplares where idEjemplar=?;";
         try {
@@ -48,6 +50,7 @@ public class mdEjem {
         }
     }
 
+    //Esto nos ayudara a insertar un nuevo ejemplar de algun producto dentro del sistema
     public boolean insEjem(int id) {
         String query = "insert into tbEjemplares values(?,'Disponible',getdate())";
         try {
@@ -85,6 +88,7 @@ public class mdEjem {
     }
     
 
+    //Esto nos ayudara a actualizar los ejemplares de los productos dentro del sistema
     public boolean stateEjemRe(int id,String est) {
         String query = "update tbEjemplares set Estado=? where idEjemplar=?;";
         try {

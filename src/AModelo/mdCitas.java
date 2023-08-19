@@ -9,6 +9,7 @@ public class mdCitas {
     ResultSet rs;
     PreparedStatement ps;
 
+    //Esto nos ayudara a ver la informacion necesario que necesita y que llegara al sistema por ejemplo la secreteraria que podra ver toda la inf de la cita
     public ResultSet citaOther(String cliente) {
         String query = "SET LANGUAGE Spanish\n"
                 + "select idCita, c.idAnimal,Estado,CONCAT(CONVERT(varchar, fecha, 100),' ',CONVERT(varchar, hora, 100)) as 'Fecha',a.Nombre as 'Mascota',CONCAT(cl.Nombre,' ',cl.Apellido) as 'Dueño',CONCAT(d.Nombre,' ',d.Apellido) as 'Doctor'\n"
@@ -28,6 +29,7 @@ public class mdCitas {
         }
     }
 
+    //Esto ayudara al doctor a ver mas a profundidad la informacion de la cita que esta pidiendo el cliente para su mascota
     public ResultSet citaDoc(int idDoc, String cliente) {
         String query = "SET LANGUAGE Spanish\n"
                 + "select idCita, c.idAnimal,Estado,CONCAT(CONVERT(varchar, fecha, 100),' ',CONVERT(varchar, hora, 100)) as 'Fecha',a.Nombre as 'Mascota',CONCAT(cl.Nombre,' ',cl.Apellido) as 'Dueño',CONCAT(d.Nombre,' ',d.Apellido) as 'Doctor'\n"
@@ -50,6 +52,7 @@ public class mdCitas {
         }
     }
 
+    //Esto ayudara a seleccionar la cita y poder cargarlo en otros campos dentro del sistema
     public ResultSet selectCita(int idC) {
         String query = "SET LANGUAGE spanish\n"
                 + "select a.Nombre as 'Animal',tp.Nombre as 'Serv',e.Especialidad,CONCAT(d.Nombre,' ',d.Apellido) as 'Doctor',\n"
@@ -69,6 +72,7 @@ public class mdCitas {
         }
     }
 
+    //Esto nos ayudara a borrar una cita dentro del sistema
     public boolean deleteCita(int idC) {
         String query = "DELETE tbCitas where idCita=?;";
         try {
@@ -85,6 +89,7 @@ public class mdCitas {
         }
     }
 
+    //Esto nos ayudara a aceptar una cita dentro del sistema luego de ver si esta disponible el doctor
     public boolean aceptCita(int idC) {
         String query = "update tbCitas set Estado='Aceptada' where idCita=?;";
         try {
@@ -101,6 +106,7 @@ public class mdCitas {
         }
     }
 
+    //Esto nos ayudara a poder registrar una nueva cita para la mascota por ejemplo si es una cita de rayos x
     public boolean insertCita(int idAni, int idTS, int idD, String notaCl,
             String notaDoc, String fecha, String hora) {
         String query = "insert into tbCitas values(?,?,?,'Pendiente',?,?,?,?,GETDATE())";
@@ -125,6 +131,7 @@ public class mdCitas {
         }
     }
 
+    //Esto nos ayudara a actualizar alguna cita si necesita un cambio por ejemplo la hora de la cita
     public boolean updateCita(int idCita, int idTS, int idD, String nCl,
             String nDoc, String fecha, String hora) {
         String query = "update tbCitas set idTipoServicio=?,idDoctor=?,"
@@ -150,6 +157,7 @@ public class mdCitas {
         }
     }
 
+    //Esto nos ayudara a verificar la disponibilidad de la cita por ejemplo la fecha o si el doctor esta disponible 
     public ResultSet verifDisp(int idD, String fecha, String hora) {
         String query = "select * from tbCitas c where idDoctor=? and fecha=? and hora=? and estado='Pendiente';";
         try {
@@ -167,6 +175,7 @@ public class mdCitas {
         }
     }
 
+    //Esto nos ayudara para verificar si la cita sigue pendiente dentro del sistema
     public ResultSet verifEstate(int idD) {
         String query = "select * from tbCitas c where idCita=? and estado='Pendiente';";
         try {

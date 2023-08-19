@@ -12,6 +12,8 @@ import java.sql.SQLException;
  *
  * @author LEAC2
  */
+
+// Esta es la conexión a la base de datos con el usuario, contraseña y el localhost
 public class Conx {
     public static Connection Conectar(){
         String cadena = "jdbc:sqlserver://localhost:1433;"

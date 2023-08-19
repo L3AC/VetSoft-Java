@@ -21,6 +21,7 @@ public class mdTipoServ {
     PreparedStatement ps;
     ResultSet rs;
 
+    //Esto nos ayudara a cargar la info del usuario para luego poder editarla
     public ResultSet loadData(int idUs) {//EDITAR INFO
         String query = "select idUsuario,tu.nivel as 'Cargo',usuario,correo,telefono from tbUsuarios u,\n"
                 + "tbTipoUsuario tu where u.idTipoUsuario=tu.idTipoUsuario and idUsuario=?;";
@@ -37,6 +38,7 @@ public class mdTipoServ {
         }
     }
 
+    //Esto nos ayudara a cargas los datos de la tabla tipo servicio
     public ResultSet tableServ(String nombre) {//TABLA
         String query = "select idTipoServicio,ts.idNivelServicio,ns.Prioridad,Nombre,costo from tbTipoServicio ts, tbNivelServicio ns\n"
                 + "where ns.idNivelServicio=ts.idNivelServicio and Nombre like ?;";
@@ -54,6 +56,7 @@ public class mdTipoServ {
         }
     }
 
+    //Esto nos ayudara a cargar en un combobox el nivel de servicio que existe dentro de la base de datos
     public ResultSet comboServ() {//EDITAR INFO
         String query = "select * from tbTipoServicio where idNivelServicio=2;";
         try {
@@ -68,6 +71,7 @@ public class mdTipoServ {
         }
     }
 
+    //Esto nos ayudara a seleccionar dentro de la tabla tipo de servicio el id del nivel de servicio y tipo de servicio
     public ResultSet selectServ(int id) {//EDITAR INFO
         String query = "select * from tbTipoServicio where idNivelServicio=2 and idTipoServicio=?;";
         try {
@@ -83,6 +87,7 @@ public class mdTipoServ {
         }
     }
 
+    //Esto nos ayudara a insertar un nuevo tipo de servicio dentro del sistema y base de datos
     public boolean insertServ(int idNs, String serv, float costo) {
         String query = "insert into tbTipoServicio values(?,?,?);";
         try {
@@ -104,6 +109,7 @@ public class mdTipoServ {
         }
     }
 
+    //Esto nos ayudara a actualizar algun campo dentro de la tabla tipo de servicio
     public boolean updtServ(int idTipoS, int idNs, String serv, float costo) {
         String query = "update tbTipoServicio set idNivelServicio=?, Nombre=?,costo=? where idTipoServicio=?;";
         try {
@@ -125,6 +131,7 @@ public class mdTipoServ {
         }
     }
 
+    //Esto nos ayudara a eliminar dentro del sistema algun tipo de servicio
     public boolean deleteServ(int idD) {
         String query = "delete tbTipoServicio where idTipoServicio=?";
         try {

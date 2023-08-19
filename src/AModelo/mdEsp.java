@@ -17,6 +17,7 @@ public class mdEsp {
     PreparedStatement ps;
     ResultSet rs;
     
+    //Esto nos ayudara a cargar las especialidades que existen en la base de datos dentro del sistema
     public ResultSet loadEsp() {
         String query = "select * from tbEspecialidades;";
         try {
@@ -30,6 +31,7 @@ public class mdEsp {
         }
     }
     
+    //Esto nos ayudara a seleccionar la especialidad dentro del sistema
     public ResultSet selectEsp(String Esp) {
         String query = "select * from tbEspecialidades where especialidad like ?;";
         try {
@@ -44,6 +46,7 @@ public class mdEsp {
         }
     }
     
+    //Esto nos ayudara a eliminar alguna especialidad dentro del sistema y base de datos
       public boolean deleteEsp(int idEsp) {
         String query = "DELETE tbEspecialidades where idEspecialidad=?;";
         try {
@@ -59,6 +62,8 @@ public class mdEsp {
             return false;
         }
     }
+      
+      //Esto nos ayudara a insertar una nueva especialidad dentro del sistema y base de datos
       public boolean insertEsp(int idEsp, String Especialidad) {
         String query = "insert into tbEspecialidades values(?);";
         try {
@@ -76,6 +81,7 @@ public class mdEsp {
         }
     }
 
+      //Esto nos ayudara a actualizar las especialidades que existan dentro de la base de datos y sistema
     public boolean updateEsp(int idEsp, String Esp) {
         String query = "update tbEspecialidades SET Especialidad=? \n" +
         "where idEspecialidad=?;";

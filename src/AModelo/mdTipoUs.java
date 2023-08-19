@@ -16,7 +16,7 @@ public class mdTipoUs {
     PreparedStatement ps;
     ResultSet rs;
     
-    
+    //Esto nos ayudara a seleccionar el tipo de usuario por medio de su id mayor a 1
     public ResultSet selectTP() {
         String query = "select * from tbTipoUsuario where idTipoUsuario>1";
         try {
@@ -30,6 +30,7 @@ public class mdTipoUs {
         }
     }
     
+    //Esto nos ayudara a seleccionar el tipo de usuario
     public ResultSet selectUser(){
      String url = "select * from tbTipoUsuario where idTipoUsuario!=1 and idTipoUsuario!=3;";
       

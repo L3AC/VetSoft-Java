@@ -13,6 +13,7 @@ public class mdReservFact {
     PreparedStatement ps;
     ResultSet rs;
 
+    //Esto nos ayudara a ver la reserva de producto que a hecho el cliente dentro del sistema
     public ResultSet tbReservF(int idCl,String n1) {
 
         String query = "select rp.idReservaProducto,rp.idEjemplar,tp.tipo,p.Nombre as Producto,Precio \n"
@@ -33,6 +34,7 @@ public class mdReservFact {
         }
     }
 
+    //Esto nos ayudara a ver que tipo de de producto es por medio del ejemplar y ver si esta reservado o no
     public boolean insEjemRe(int idEjem, int idCl) {
         String query = "insert into tbReservaProductos values(?,?,GETDATE())";
         try {
@@ -51,6 +53,7 @@ public class mdReservFact {
         }
     }
 
+    //Esto nos ayudara a borrar algun producto reservado dentro del sistema
     public boolean dlEjemRe(int id) {
         String query = "delete tbReservaProductos where idReservaProducto=?;";
         try {
