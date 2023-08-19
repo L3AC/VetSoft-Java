@@ -186,9 +186,9 @@ public class HVacunas extends javax.swing.JPanel {
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void btnElimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElimActionPerformed
-        ctVacunas ct=new ctVacunas();
+        /*ctVacunas ct=new ctVacunas();
         ct.idAnimal=idAnim;
-        ct
+        ct*/
     }//GEN-LAST:event_btnElimActionPerformed
 
 
