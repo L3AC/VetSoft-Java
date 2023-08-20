@@ -24,6 +24,7 @@ public class AddVacuna extends javax.swing.JPanel {
         this.idAnim = idAnim;
         initComponents();
         loadD();
+        verifVac();
     }
 
     final void loadD() throws SQLException {
@@ -55,27 +56,18 @@ public class AddVacuna extends javax.swing.JPanel {
         }
     }
 
-    final void verifPerfil() {
-        /*idUsRow = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-        nivelRow = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 1).toString());
+    final void verifVac() throws SQLException {
+        ctVacunas ct=new ctVacunas();
+        ct.idAnimal=idAnim;
+        ct.idTipoVac=Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+        
+        if(ct.verifVac().next()){
+            btnAddM.setVisible(false);
+        }
+        else{
+            btnAddM.setVisible(true);
+        }
 
-        if (nivelRow == 2 || nivelRow == 3 || nivelRow == 4) {
-            btnAddCuenta.setVisible(true);
-            ct.idUs = idUsRow;
-            ct.idTipoCuenta = nivelRow;
-
-            try {
-                if (ct.verifPerfil().next()) {
-                    btnAddCuenta.setVisible(false);
-                } else {
-                    btnAddCuenta.setVisible(true);
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(CRUDusuarios.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else {
-            btnAddCuenta.setVisible(false);
-        }*/
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -183,7 +175,11 @@ public class AddVacuna extends javax.swing.JPanel {
     }//GEN-LAST:event_btnAddMActionPerformed
 
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
-        
+        try { 
+            verifVac();
+        } catch (SQLException ex) {
+            Logger.getLogger(AddVacuna.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_tbDataMouseClicked
 
     
