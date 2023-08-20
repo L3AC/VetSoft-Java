@@ -4,59 +4,31 @@
  */
 package AVista;
 
+import java.util.*;
+
 /**
  *
  * @author LEAC2
  */
-public class Home extends javax.swing.JPanel {
-
-    /*public static void main(String[] args) throws InterruptedException{
-        
-        int horas=0, minutos=0, segundos=0;
-        
-        while(true){
-            //Mostrar
-            if(horas<10){
-                System.out.print("0");
-            }
-            System.out.println(horas+":");
-            
-            if(minutos<10){
-                System.out.print("0");
-            }
-            System.out.println(minutos+":");
-            
-            if(segundos<10){
-                System.out.print("0");
-            }
-            System.out.println(segundos);
-            
-            //Aumentar el tiempo
-            segundos++;
-            
-            //Comprobar el tiempo
-            if(segundos==60){
-                segundos=0;
-                minutos++;
-                if(minutos==60){
-                    minutos=0;
-                    horas++;
-                if(horas==24){
-                    horas=0;
-                }
-               }
-            }            
-            Thread.sleep(1000);        
-        }
-             
-    }*/
+public class Home extends javax.swing.JPanel implements Runnable{
     
+    String hora, minutos,segundos,ampm;
+    Calendar calendario;
+    Thread h1;
     
+    public static void main(String[] args) throws InterruptedException{
+                           
+    }
+       
     /**
      * Creates new form Home
      */
     public Home() {
         initComponents();
+        h1 = new Thread(this);
+        h1.start();
+        
+        setVisible(true);
     }
 
     /**
@@ -71,6 +43,8 @@ public class Home extends javax.swing.JPanel {
         PCont = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        panelRound1 = new Design.PanelRound();
+        lblReloj = new javax.swing.JLabel();
 
         PCont.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -81,6 +55,14 @@ public class Home extends javax.swing.JPanel {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clinica media.png"))); // NOI18N
         jLabel2.setAlignmentX(50.0F);
         jLabel2.setMaximumSize(new java.awt.Dimension(100, 100));
+
+        panelRound1.setBackground(new java.awt.Color(255, 204, 204));
+        panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblReloj.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblReloj.setForeground(new java.awt.Color(0, 0, 0));
+        lblReloj.setText("jLabel3");
+        panelRound1.add(lblReloj, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 370, 80));
 
         javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
         PCont.setLayout(PContLayout);
@@ -94,6 +76,10 @@ public class Home extends javax.swing.JPanel {
                 .addGap(417, 417, 417)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(464, 464, 464)
+                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PContLayout.setVerticalGroup(
             PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,7 +88,9 @@ public class Home extends javax.swing.JPanel {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(237, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -122,5 +110,37 @@ public class Home extends javax.swing.JPanel {
     private javax.swing.JPanel PCont;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblReloj;
+    private Design.PanelRound panelRound1;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void run() {
+        Thread ct= Thread.currentThread();
+        
+        while(ct==h1){
+            calcula();
+            lblReloj.setText(hora+":"+minutos+":"+segundos+" "+ampm);
+            try{
+                Thread.sleep(1000);
+            }catch(InterruptedException e){}
+        }
+    }
+
+    private void calcula() {
+        Calendar calendario = new GregorianCalendar();
+        Date fechaHoraActual = new Date();
+        
+        calendario.setTime(fechaHoraActual);
+        ampm= calendario.get(Calendar.AM_PM)==Calendar.AM?"AM":"PM";
+        
+        if(ampm.equals("PM")){
+            int h=calendario.get(Calendar.HOUR_OF_DAY)-12;
+            hora = h>9?""+h:"0"+h;
+        }else{
+            hora= calendario.get(Calendar.HOUR_OF_DAY)>9?""+calendario.get(Calendar.HOUR_OF_DAY):"0"+calendario.get(Calendar.HOUR_OF_DAY);
+        }
+        minutos = calendario.get(Calendar.MINUTE)>9?""+calendario.get(Calendar.MINUTE):"0"+calendario.get(Calendar.MINUTE);
+        segundos = calendario.get(Calendar.SECOND)>9?""+calendario.get(Calendar.SECOND):"0"+calendario.get(Calendar.SECOND);
+    }
 }
