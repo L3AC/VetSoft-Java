@@ -212,7 +212,7 @@ public class HVacunas extends javax.swing.JPanel {
     private void btnCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCartActionPerformed
         HashMap<String, Object> param = new HashMap<>();
         param.put("idA", idAnim);
-        dsg.reportS("Reporte Vacunas", "src/AVista/Vacunas/Cita.jasper", param);
+        dsg.reportS("Reporte Vacunas", "src/AVista/Vacunas/Vacuna.jasper", param);
     }//GEN-LAST:event_btnCartActionPerformed
 
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
@@ -234,7 +234,7 @@ public class HVacunas extends javax.swing.JPanel {
         if (opcion == JOptionPane.YES_OPTION) {
             ctVacunas ct=new ctVacunas();
             ct.idVac= Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-            ct.delTPVac();
+            ct.delVac();
             try {
                 loadD();
             } catch (SQLException ex) {
