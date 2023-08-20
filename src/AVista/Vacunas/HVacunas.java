@@ -150,8 +150,8 @@ public class HVacunas extends javax.swing.JPanel {
             ct.idAnimal=idAnim;
             ResultSet rs = ct.loadVac();
             while (rs.next()) {
-                Object[] oValores = {rs.getInt("idTipoVacuna"), rs.getString("NombreVacuna"),
-                    rs.getString("Utilidad")};
+                Object[] oValores = {rs.getInt("idVacunacion"), rs.getString("NombreVacuna"),
+                    rs.getString("Utilidad"),rs.getString("Fecha")};
                 model.addRow(oValores);
             }
         } catch (Exception e) {
@@ -172,7 +172,7 @@ public class HVacunas extends javax.swing.JPanel {
         try {
             loadD();
         } catch (SQLException ex) {
-            Logger.getLogger(AddVacuna.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(HVacunas.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_txtBusqKeyReleased
 

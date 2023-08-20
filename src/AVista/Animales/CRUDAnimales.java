@@ -5,6 +5,7 @@ import AControlador.ctCliente;
 import AControlador.ctRecep;
 import AVista.Citas.insertCita;
 import AVista.Vacunas.AddVacuna;
+import AVista.Vacunas.HVacunas;
 import Design.Desg;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -305,7 +306,12 @@ public class CRUDAnimales extends javax.swing.JPanel {
     }//GEN-LAST:event_btnReservas3ActionPerformed
 
     private void btnVacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVacActionPerformed
-        
+        try {
+            HVacunas subp = new HVacunas(idTipoUs,Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
+            dsg.ShowPanel(subp, PCont, 1320, 810);
+        } catch (SQLException ex) {
+            Logger.getLogger(HVacunas.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnVacActionPerformed
 
     private void btnAddVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddVActionPerformed
