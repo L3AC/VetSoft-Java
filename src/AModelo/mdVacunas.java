@@ -1,4 +1,3 @@
-
 package AModelo;
 
 import java.sql.Connection;
@@ -8,16 +7,17 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class mdVacunas {
+
     Connection con = Conx.Conectar();
     PreparedStatement ps;
     ResultSet rs;
-    
+
     //TIPO DE VACUNA
     public ResultSet loadTPVac(String n1) {
         String query = "select * from tbTipoVacunas where NombreVacuna like ?";
         try {
             ps = con.prepareStatement(query);
-            ps.setString(1, "%"+n1+"%");
+            ps.setString(1, "%" + n1 + "%");
             rs = ps.executeQuery();
             return rs;
 
@@ -26,9 +26,9 @@ public class mdVacunas {
             return null;
         }
     }
-    
+
     //Esto nos ayudara a insertar si hay nuevos tipos de vacunas
-    public boolean insTPVac(String n1,String n2) {
+    public boolean insTPVac(String n1, String n2) {
         String query = "insert into tbTipoVacunas values(?,?);";
         try {
             ps = con.prepareStatement(query);
@@ -45,7 +45,7 @@ public class mdVacunas {
             return false; //DIO ERROR
         }
     }
-    
+
     //Esto nos ayudara a eliminar algun tipo de vacunas 
     public boolean delTPVac(int id1) {
         String query = "DELETE tbTipoVacunas where idTipoVacuna=?;";
@@ -64,7 +64,7 @@ public class mdVacunas {
     }
 
     //Esto nos ayudara a actualizar algun campo dentro de la tabla tipo de vacunas
-    public boolean upTPVac(String n1,String n2,int id1) {
+    public boolean upTPVac(String n1, String n2, int id1) {
         String query = "update tbTipoVacunas set NombreVacuna=?,Utilidad=? "
                 + "where idTipoVacuna=?;";
         try {
@@ -83,12 +83,15 @@ public class mdVacunas {
             return false; //DIO ERROR
         }
     }
+
     //VACUNACIONES
-     public ResultSet loadVac(String n1) {
-        String query = "select * from tbTipoVacunas where NombreVacuna like ?";
+    public ResultSet loadVac(int id1, String n1) {
+        String query = "select idVacunacion,NombreVacuna,Utilidad,  CONVERT(varchar, fechaRegistro, 105) as Fecha  from tbVacunaciones v, tbTipoVacunas tv \n"
+                + "where v.idTipoVacuna=tv.idTipoVacuna and idAnimal=? and NombreVacuna like ?;";
         try {
             ps = con.prepareStatement(query);
-            ps.setString(1, "%"+n1+"%");
+            ps.setInt(1, id1);
+            ps.setString(2, "%" + n1 + "%");
             rs = ps.executeQuery();
             return rs;
 
@@ -97,7 +100,8 @@ public class mdVacunas {
             return null;
         }
     }
-      public ResultSet verifVac(int id1, int id2) {
+
+    public ResultSet verifVac(int id1, int id2) {
         String query = "select * from tbVacunaciones where idAnimal=? and idTipoVacuna=?";
         try {
             ps = con.prepareStatement(query);
@@ -111,8 +115,8 @@ public class mdVacunas {
             return null;
         }
     }
-    
-    public boolean insVac(int id1,int id2) {
+
+    public boolean insVac(int id1, int id2) {
         String query = "insert into tbVacunaciones values(?,?,getdate());";
         try {
             ps = con.prepareStatement(query);
@@ -129,6 +133,7 @@ public class mdVacunas {
             return false; //DIO ERROR
         }
     }
+
     public boolean delVac(int id1) {
         String query = "DELETE tbVacunaciones where idVacunacion=?;";
         try {
@@ -144,5 +149,5 @@ public class mdVacunas {
             return false;
         }
     }
-    
+
 }

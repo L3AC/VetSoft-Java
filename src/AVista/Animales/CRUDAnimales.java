@@ -309,8 +309,12 @@ public class CRUDAnimales extends javax.swing.JPanel {
     }//GEN-LAST:event_btnVacActionPerformed
 
     private void btnAddVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddVActionPerformed
-       AddVacuna subp = new AddVacuna(idTipoUs,Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
+        try {
+            AddVacuna subp = new AddVacuna(idTipoUs,Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
             dsg.ShowPanel(subp, PCont, 1320, 810);
+        } catch (SQLException ex) {
+            Logger.getLogger(CRUDAnimales.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnAddVActionPerformed
 
 

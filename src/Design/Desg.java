@@ -1,12 +1,16 @@
 package Design;
 
+import AModelo.Conx;
 import AVista.Productos.updateProd;
 import java.awt.*;
 import java.awt.Image;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.Connection;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,14 +25,23 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
+import javax.swing.WindowConstants;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.View;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 
 public class Desg {
     //DefaultTableModel model;
+
+    Connection con = Conx.Conectar();
 
     public void setImageBtn(JButton elm, String root) {
         ImageIcon image = new ImageIcon(root);
@@ -68,7 +81,6 @@ public class Desg {
         cont.revalidate();
         cont.repaint();
     }
-
 
     public int getMap(Map<Integer, String> map, String value) {
         for (Map.Entry<Integer, String> entry : map.entrySet()) {
@@ -132,13 +144,29 @@ public class Desg {
             }
         }
     }
-        public void Showfoto(JLabel img, JPanel cont, int w, int h) {
+
+    public void Showfoto(JLabel img, JPanel cont, int w, int h) {
         img.setSize(w, h);
         img.setLocation(0, 0);
         cont.removeAll();
         cont.add(img, BorderLayout.CENTER);
         cont.revalidate();
         cont.repaint();
+    }
+
+    public void reportS(String ti, String path, HashMap param) {
+        try {
+
+            JasperReport report = (JasperReport) JRLoader.loadObjectFromFile(path);
+            JasperPrint jprint = JasperFillManager.fillReport(report, param, con);
+            JasperViewer view = new JasperViewer(jprint, false);
+            view.setTitle(ti);
+            view.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+            view.setVisible(true);
+
+        } catch (JRException ex) {
+            ex.getMessage();
+        }
     }
 
 }

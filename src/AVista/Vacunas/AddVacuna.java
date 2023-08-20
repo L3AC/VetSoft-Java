@@ -19,10 +19,11 @@ public class AddVacuna extends javax.swing.JPanel {
     Desg dsg = new Desg();
     DefaultTableModel model;
 
-    public AddVacuna(int idTipoUs, int idAnim) {
+    public AddVacuna(int idTipoUs, int idAnim) throws SQLException {
         this.idTipoUs = idTipoUs;
         this.idAnim = idAnim;
         initComponents();
+        loadD();
     }
 
     final void loadD() throws SQLException {

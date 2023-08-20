@@ -6,15 +6,17 @@ import AVista.Animales.CRUDAnimales;
 import Design.Desg;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
 public class HVacunas extends javax.swing.JPanel {
 
     public int idTipoUs;
     private int idAnim;
-
     Desg dsg = new Desg();
     DefaultTableModel model;
     
@@ -69,7 +71,7 @@ public class HVacunas extends javax.swing.JPanel {
         });
         PCont.add(txtBusq, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 470, 50));
 
-        btnCart.setText("Cartilla");
+        btnCart.setText("Reporte");
         btnCart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCartActionPerformed(evt);
@@ -145,7 +147,8 @@ public class HVacunas extends javax.swing.JPanel {
         try {
             ctVacunas ct = new ctVacunas();
             ct.nombreVac = txtBusq.getText().toString();
-            ResultSet rs = ct.loadTPVac();
+            ct.idAnimal=idAnim;
+            ResultSet rs = ct.loadVac();
             while (rs.next()) {
                 Object[] oValores = {rs.getInt("idTipoVacuna"), rs.getString("NombreVacuna"),
                     rs.getString("Utilidad")};
@@ -174,11 +177,9 @@ public class HVacunas extends javax.swing.JPanel {
     }//GEN-LAST:event_txtBusqKeyReleased
 
     private void btnCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCartActionPerformed
-        /*try {
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(HVacunas.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        HashMap<String, Object> param = new HashMap<>();
+        param.put("idA", idAnim);
+        dsg.reportS("Reporte Vacunas", "src/AVista/Vacunas/Cita.jasper", param);
     }//GEN-LAST:event_btnCartActionPerformed
 
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
@@ -186,9 +187,29 @@ public class HVacunas extends javax.swing.JPanel {
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void btnElimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElimActionPerformed
-        /*ctVacunas ct=new ctVacunas();
-        ct.idAnimal=idAnim;
-        ct*/
+        UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
+        int opcion = JOptionPane.showOptionDialog(
+                null,
+                "¿Desea eliminar el registro?",
+                "Advertencia",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.WARNING_MESSAGE,
+                null,
+                new Object[]{"Sí", "No"},
+                "No");
+
+        if (opcion == JOptionPane.YES_OPTION) {
+            ctVacunas ct=new ctVacunas();
+            ct.idVac= Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+            ct.delTPVac();
+            try {
+                loadD();
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDTipoVac.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (opcion == JOptionPane.NO_OPTION) {
+
+        }
     }//GEN-LAST:event_btnElimActionPerformed
 
 

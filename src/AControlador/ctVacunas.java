@@ -79,8 +79,12 @@ public class ctVacunas {
         return md.delVac(idVac);
     }
 
+    public ResultSet loadVac() {
+        return md.loadVac(idAnimal, nombreVac);
+    }
+
     public ResultSet verifVac() {
-        return md.loadTPVac(nombreVac);
+        return md.verifVac(idAnimal, idTipoVac);
     }
 
 }
