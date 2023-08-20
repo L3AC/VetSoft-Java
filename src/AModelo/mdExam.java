@@ -12,7 +12,7 @@ public class mdExam {
     PreparedStatement ps;
     ResultSet rs;
     
-    public ResultSet loadTPVac(String n1) {
+    public ResultSet loadExam(String n1) {
         String query = "select * from tbTipoVacunas where NombreVacuna like ?";
         try {
             ps = con.prepareStatement(query);
