@@ -43,7 +43,6 @@ public class Login extends javax.swing.JFrame {
     Crypt cryp = new Crypt();
 
     private int idTipoU;
-    public String lui;
     private int idUs;
     private int idCuenta;
 
@@ -53,7 +52,7 @@ public class Login extends javax.swing.JFrame {
         setTitle("VetSoft");
         tipoFuente = new Fuentes();
 
-        /*Este apartado de setFound nos ayuda a poner un tipo de fuente en especifico y el tamaño de la letra*/
+        /*Este apartado de setFont nos ayuda a poner un tipo de fuente en especifico y el tamaño de la letra*/
         Titulo.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 32));
         VetSoft.setFont(tipoFuente.fuente(tipoFuente.COM, 1, 11));
         UsuarioL.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 25));

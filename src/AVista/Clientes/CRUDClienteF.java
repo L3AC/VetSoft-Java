@@ -1,6 +1,7 @@
 package AVista.Clientes;
 
 import java.awt.Color;
+import Tipografias.Fuentes;
 
 /**
  *
@@ -8,10 +9,17 @@ import java.awt.Color;
  */
 public class CRUDClienteF extends javax.swing.JPanel {
 
-   
+     Fuentes tipoFuente;
+     
     public CRUDClienteF() {
         initComponents();
         setBackground(new Color (0,0,0,0));
+        
+        tipoFuente = new Fuentes();
+
+        /*Este apartado de setFont nos ayuda a poner un tipo de fuente en especifico y el tamaño de la letra*/
+        Titulo.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 50));
+
     }
 
     @SuppressWarnings("unchecked")
@@ -20,19 +28,31 @@ public class CRUDClienteF extends javax.swing.JPanel {
 
         backGround1 = new Design.BackGround();
         header = new Design.PanelRound();
+        Titulo = new javax.swing.JLabel();
         mainPanel = new Design.PanelRound();
         jScrollPane1 = new javax.swing.JScrollPane();
+        panelCliente1 = new Design.PanelCliente();
+
+        Titulo.setText("Clientes");
 
         javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
         header.setLayout(headerLayout);
         headerLayout.setHorizontalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(headerLayout.createSequentialGroup()
+                .addGap(590, 590, 590)
+                .addComponent(Titulo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(headerLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(Titulo)
+                .addContainerGap(50, Short.MAX_VALUE))
         );
+
+        jScrollPane1.setViewportView(panelCliente1);
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
@@ -44,9 +64,9 @@ public class CRUDClienteF extends javax.swing.JPanel {
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGap(187, 187, 187)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 519, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 712, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -61,7 +81,7 @@ public class CRUDClienteF extends javax.swing.JPanel {
             backGround1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backGround1Layout.createSequentialGroup()
                 .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -79,9 +99,11 @@ public class CRUDClienteF extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Titulo;
     private Design.BackGround backGround1;
     private Design.PanelRound header;
     private javax.swing.JScrollPane jScrollPane1;
     private Design.PanelRound mainPanel;
+    private Design.PanelCliente panelCliente1;
     // End of variables declaration//GEN-END:variables
 }
