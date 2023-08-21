@@ -78,5 +78,8 @@ public class ctExam {
     public ResultSet loadExam() {
         return md.loadExam(idAnim, serv);
     }
+        public ResultSet selectExam() {
+        return md.selectExam(idExam);
+    }
 
 }

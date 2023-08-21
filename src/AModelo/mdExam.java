@@ -28,8 +28,22 @@ public class mdExam {
         }
     }
 
+    public ResultSet selectExam(int id1) {
+        String query = "select idExamenClinico,ec.idTipoServicio,imagen,ts.Nombre,Nota from tbExamenesClinicos ec,tbTipoServicio ts \n"
+                + "  where ec.idTipoServicio=ts.idTipoServicio and idAnimal=?";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setInt(1, id1);
+            rs = ps.executeQuery();
+            return rs;
 
-    public boolean insExam(int id1,int id2,byte[] img,String n1) {
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+            return null;
+        }
+    }
+
+    public boolean insExam(int id1, int id2, byte[] img, String n1) {
         String query = "insert tbExamenesClinicos values(?,?,?,?,GETDATE());";
         try {
             ps = con.prepareStatement(query);
@@ -48,6 +62,7 @@ public class mdExam {
             return false; //DIO ERROR
         }
     }
+
     public boolean delExam(int id1) {
         String query = "delete tbExamenesClinicos where idExamenClinico=?;";
         try {
@@ -64,7 +79,7 @@ public class mdExam {
         }
     }
 
-    public boolean upExam(int id1,byte[] img,String n1,int id2) {
+    public boolean upExam(int id1, byte[] img, String n1, int id2) {
         String query = "UPDATE tbExamenesClinicos set idTipoServicio=?, "
                 + "imagen=?,Nota=? where idExamenClinico=?;";
         try {
