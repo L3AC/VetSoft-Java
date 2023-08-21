@@ -191,8 +191,8 @@ public class CRUDExam extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnAgendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgendarActionPerformed
-        insertExam subp = new insertExam(idAnim, idTipoUs);
-        dsg.ShowPanel(subp, PCont, 1320, 810);
+        /*insertExam subp = new insertExam(idAnim, idTipoUs);
+        dsg.ShowPanel(subp, PCont, 1320, 810);*/
     }//GEN-LAST:event_btnAgendarActionPerformed
 
     private void btnAgendar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgendar1ActionPerformed
