@@ -1,5 +1,6 @@
 package AVista.Animales;
 
+import AControlador.ctExam;
 import AControlador.ctTipoServ;
 import AVista.Productos.updateProd;
 import Design.Desg;
@@ -40,7 +41,7 @@ public class insertExam extends javax.swing.JPanel {
         PCont = new javax.swing.JPanel();
         panelRound1 = new Design.PanelRound();
         jLabel1 = new javax.swing.JLabel();
-        txtNotaCl = new Design.TextFieldSV();
+        txtNota = new Design.TextFieldSV();
         lbImg = new javax.swing.JLabel();
         cbTp = new Design.Combobox();
         btnSelect = new Design.ButtonGradient();
@@ -66,8 +67,8 @@ public class insertExam extends javax.swing.JPanel {
         jLabel1.setText("Nota");
         panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 50, 30));
 
-        txtNotaCl.setShadowColor(new java.awt.Color(0, 0, 51));
-        panelRound1.add(txtNotaCl, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 920, 50));
+        txtNota.setShadowColor(new java.awt.Color(0, 0, 51));
+        panelRound1.add(txtNota, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 920, 50));
 
         lbImg.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbImg.setForeground(new java.awt.Color(0, 0, 0));
@@ -75,11 +76,6 @@ public class insertExam extends javax.swing.JPanel {
 
         cbTp.setForeground(new java.awt.Color(80, 80, 80));
         cbTp.setLabeText("");
-        cbTp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbTpActionPerformed(evt);
-            }
-        });
         panelRound1.add(cbTp, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 270, 40));
 
         btnSelect.setText("Seleccionar foto");
@@ -146,17 +142,13 @@ public class insertExam extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
-        /*ctCitas ct = new ctCitas();
-
-        ct.idAnimal = idAnim;
-        ct.idTipoServicio = dsg.getMap(cbServ, cbServicio.getSelectedItem().toString());
-        ct.idDoctor = dsg.getMap(cbDoct, cbDoc.getSelectedItem().toString());
-        ct.notaDelCliente = txtNotaCl.getText();
-        ct.notaDelDoctor = txtNotaD.getText();
-        ct.fecha = dt.format(dpFecha.getCalendar().getTime());
-        ct.hora = cbHora.getSelectedItem().toString();
-        System.err.println(dt.format(dpFecha.getCalendar().getTime()) + " " + cbHora.getSelectedItem().toString());
-        ct.insertCita();*/
+        ctExam ct=new ctExam();
+        ct.idAnim=idAnim;
+        ct.idTipoS=dsg.getMap(cbServ, cbTp.getSelectedItem().toString());
+        ct.image=bImg;
+        ct.nota=txtNota.getText().toString();
+        ct.insExam();
+        
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     private void btnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectActionPerformed
@@ -174,10 +166,6 @@ public class insertExam extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_btnSelectActionPerformed
-
-    private void cbTpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTpActionPerformed
-
-    }//GEN-LAST:event_cbTpActionPerformed
 
     private void loadComboServ(JComboBox cb) throws SQLException {
         ctTipoServ ct = new ctTipoServ();
@@ -203,6 +191,6 @@ public class insertExam extends javax.swing.JPanel {
     private javax.swing.JLabel lbEsp2;
     private javax.swing.JLabel lbImg;
     private Design.PanelRound panelRound1;
-    private Design.TextFieldSV txtNotaCl;
+    private Design.TextFieldSV txtNota;
     // End of variables declaration//GEN-END:variables
 }
