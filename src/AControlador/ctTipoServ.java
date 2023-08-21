@@ -50,7 +50,7 @@ public class ctTipoServ {
     mdTipoServ md = new mdTipoServ();
 
     public ResultSet comboServ() {
-        return md.comboServ();
+        return md.comboServ(idNivelServ);
     }
 
     public ResultSet selectServ() {

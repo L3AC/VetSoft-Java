@@ -58,6 +58,7 @@ public class insertCita extends javax.swing.JPanel {
 
     private void loadComboServ(JComboBox cb) throws SQLException {
         ctTipoServ ct = new ctTipoServ();
+        ct.idNivelServ=2;
         ResultSet rs = ct.comboServ();
         while (rs.next()) {
             int idTP = rs.getInt("idTipoServicio");

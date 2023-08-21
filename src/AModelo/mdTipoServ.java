@@ -57,10 +57,11 @@ public class mdTipoServ {
     }
 
     //Esto nos ayudara a cargar en un combobox el nivel de servicio que existe dentro de la base de datos
-    public ResultSet comboServ() {//EDITAR INFO
-        String query = "select * from tbTipoServicio where idNivelServicio=2;";
+    public ResultSet comboServ(int id) {//EDITAR INFO
+        String query = "select * from tbTipoServicio where idNivelServicio=?;";
         try {
             ps = con.prepareStatement(query);
+            ps.setInt(1, id);
             rs = ps.executeQuery();
             return rs;
         } catch (SQLException e) {

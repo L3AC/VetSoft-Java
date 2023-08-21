@@ -1,15 +1,17 @@
-
 package AControlador;
 
 import AModelo.mdEjem;
 import AModelo.mdExam;
+import java.sql.ResultSet;
 
 public class ctExam {
+
     public int idExam;
     public int idAnim;
     public int idTipoS;
     public byte[] image;
     public String nota;
+    public String serv;
 
     public int getIdExam() {
         return idExam;
@@ -50,8 +52,31 @@ public class ctExam {
     public void setNota(String nota) {
         this.nota = nota;
     }
-    
-    mdExam md=new mdExam();
-    
-    
+
+    public String getServ() {
+        return serv;
+    }
+
+    public void setServ(String serv) {
+        this.serv = serv;
+    }
+
+    mdExam md = new mdExam();
+
+    public boolean insExam() {
+        return md.insExam(idAnim, idTipoS,image,nota);
+    }
+
+    public boolean delExam() {
+        return md.delExam(idExam);
+    }
+
+    public boolean upExam() {
+        return md.upExam( idTipoS,image,nota,idExam);
+    }
+
+    public ResultSet loadExam() {
+        return md.loadExam(idAnim, serv);
+    }
+
 }
