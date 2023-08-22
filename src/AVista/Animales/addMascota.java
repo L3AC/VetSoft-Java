@@ -40,6 +40,8 @@ public class addMascota extends javax.swing.JPanel {
         txtPeso.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
         txtPad.setDocument(new Valida(300, "[a-zA-Z0-9 ]*"));
         dpNaci.setMaxSelectableDate(Calendar.getInstance().getTime());
+        lbMin.setVisible(false);
+        lbMin1.setVisible(false);
     }
     
     
@@ -52,11 +54,11 @@ public class addMascota extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         panelRound1 = new Design.PanelRound();
-        cbSexo = new javax.swing.JComboBox<String>();
+        cbSexo = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
-        cbRaza = new javax.swing.JComboBox<String>();
+        cbRaza = new javax.swing.JComboBox<>();
         lbEsp = new javax.swing.JLabel();
-        cbTipoA = new javax.swing.JComboBox<String>();
+        cbTipoA = new javax.swing.JComboBox<>();
         lbEsp1 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         dpNaci = new com.toedter.calendar.JDateChooser();
@@ -67,6 +69,7 @@ public class addMascota extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         txtPad = new Design.TextFieldSV();
         jLabel8 = new javax.swing.JLabel();
+        lbMin1 = new javax.swing.JLabel();
         btnConfirm = new Design.ButtonGradient();
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -97,7 +100,7 @@ public class addMascota extends javax.swing.JPanel {
 
         cbSexo.setBackground(new java.awt.Color(255, 255, 255));
         cbSexo.setForeground(new java.awt.Color(0, 0, 0));
-        cbSexo.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "Hembra", "Macho" }));
+        cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hembra", "Macho" }));
         cbSexo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbSexoActionPerformed(evt);
@@ -156,6 +159,11 @@ public class addMascota extends javax.swing.JPanel {
 
         txtPeso.setForeground(new java.awt.Color(0, 0, 0));
         txtPeso.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtPeso.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPesoKeyTyped(evt);
+            }
+        });
         panelRound1.add(txtPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 190, 50));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -176,6 +184,10 @@ public class addMascota extends javax.swing.JPanel {
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Nombre");
         panelRound1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 100, 30));
+
+        lbMin1.setForeground(new java.awt.Color(0, 0, 0));
+        lbMin1.setText("Minimo de digitos 10");
+        panelRound1.add(lbMin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, 120, 30));
 
         btnConfirm.setText("Confirmar");
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
@@ -312,8 +324,21 @@ public class addMascota extends javax.swing.JPanel {
 
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
         // TODO add your handling code here:
-        
+         if(txtNombre.getText().length()>= 2){
+            lbMin.setVisible(false);
+        }else {
+            lbMin.setVisible(true);
+        } 
     }//GEN-LAST:event_txtNombreKeyTyped
+
+    private void txtPesoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesoKeyTyped
+        // TODO add your handling code here:
+        if(txtPeso.getText().length()>= 9){
+            lbMin1.setVisible(false); 
+        }else {
+            lbMin1.setVisible(true);
+        } 
+    }//GEN-LAST:event_txtPesoKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -335,6 +360,7 @@ public class addMascota extends javax.swing.JPanel {
     private javax.swing.JLabel lbEsp;
     private javax.swing.JLabel lbEsp1;
     private javax.swing.JLabel lbMin;
+    private javax.swing.JLabel lbMin1;
     private Design.PanelRound panelRound1;
     private Design.TextFieldSV txtNombre;
     private Design.TextFieldSV txtPad;

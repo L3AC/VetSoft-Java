@@ -244,7 +244,7 @@ public class Registro extends javax.swing.JFrame {
 
         lbMin.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbMin.setForeground(new java.awt.Color(0, 0, 0));
-        lbMin.setText("Minimo de digitos 3");
+        lbMin.setText("Minimo de digitos 8");
         lbMin.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 lbMinKeyTyped(evt);
@@ -348,7 +348,7 @@ public class Registro extends javax.swing.JFrame {
     private void txtUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyTyped
         // TODO add your handling code here:
          //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros, donde si solo escribe dos numeros le saldra un texfield
-         if(txtUsuario.getText().length()>= 4){
+         if(txtUsuario.getText().length()>= 3){
             lbMinimo2.setVisible(false);
         }else {
             lbMinimo2.setVisible(true);
@@ -358,7 +358,7 @@ public class Registro extends javax.swing.JFrame {
     private void txtContraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyTyped
         // TODO add your handling code here:
         //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros, donde si solo escribe dos numeros le saldra un texfield
-        if(txtContra.getText().length()>= 3){
+        if(txtContra.getText().length()>= 7){
             lbMin.setVisible(false);
         }else {
             lbMin.setVisible(true);
