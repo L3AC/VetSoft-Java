@@ -2,6 +2,7 @@ package AVista.Animales;
 
 import AControlador.ctExam;
 import AControlador.ctProd;
+import AControlador.ctTipoServ;
 import Design.Desg;
 import java.io.File;
 import java.io.IOException;
@@ -11,6 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
@@ -26,32 +28,44 @@ public class updateExam extends javax.swing.JPanel {
     DefaultTableModel model;
     Map<Integer, String> cbServ = new HashMap<>();
 
-    public updateExam(int idAnim, int idTipoUs, int idExam) {
+    public updateExam(int idAnim, int idTipoUs, int idExam) throws SQLException {
         this.idTipoUs = idTipoUs;
         this.idAnim = idAnim;
         this.idExam = idExam;
         initComponents();
+        loadComboServ(cbTp);
         loadData();
     }
 
     final void loadData() {
-        /*try {
+        try {
             ctExam ct = new ctExam();
             ct.idExam= idExam;
 
             ResultSet rs = ct.selectExam();
             while (rs.next()) {
-                cbTipoProd.setSelectedItem(rs.getString("tipo"));
-                txtProducto.setText(rs.getString("nombre"));
-                txtProv.setText(rs.getString("proveedor"));
-                txtPrecio.setText(rs.getString("precio"));
-                bytesImagen = rs.getBytes("img");
+                cbTp.setSelectedItem(rs.getString("Serv"));
+                txtNota.setText(rs.getString("Nota"));
+                bImg = rs.getBytes("imagen");
                 lbImg.setSize(300, 260);
                 dsg.putImg(lbImg, bImg);
             }
         } catch (Exception e) {
             System.err.println(e.toString());
-        }*/
+        }
+    }
+    
+     private void loadComboServ(JComboBox cb) throws SQLException {
+        ctTipoServ ct = new ctTipoServ();
+        ct.idNivelServ = 3;
+        ResultSet rs = ct.comboServ();
+        while (rs.next()) {
+            int idTP = rs.getInt("idTipoServicio");
+            String nombre = rs.getString("Nombre");
+            cb.addItem(nombre);
+            cbServ.put(idTP, nombre);
+        }
+        cb.setSelectedIndex(0);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -72,7 +86,6 @@ public class updateExam extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
         PCont.setBackground(new java.awt.Color(255, 255, 255));
-        PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnBack.setBackground(new java.awt.Color(255, 255, 255));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
@@ -82,12 +95,10 @@ public class updateExam extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        PCont.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 80, 70));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(27, 73, 101));
         jLabel2.setText("EDITAR EXAMEN MÉDICO");
-        PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, -1, -1));
 
         panelRound1.setBackground(new java.awt.Color(202, 233, 255));
         panelRound1.setRoundBottomLeft(50);
@@ -127,15 +138,43 @@ public class updateExam extends javax.swing.JPanel {
         lbEsp2.setText("Tipo de servicio");
         panelRound1.add(lbEsp2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 130, -1));
 
-        PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 980, 440));
-
         btnConfirm.setText("Confirmar");
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfirmActionPerformed(evt);
             }
         });
-        PCont.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 640, 140, 60));
+
+        javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
+        PCont.setLayout(PContLayout);
+        PContLayout.setHorizontalGroup(
+            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(340, 340, 340)
+                .addComponent(jLabel2))
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(170, 170, 170)
+                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 980, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(590, 590, 590)
+                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        PContLayout.setVerticalGroup(
+            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel2)))
+                .addGap(50, 50, 50)
+                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

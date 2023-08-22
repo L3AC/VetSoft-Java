@@ -13,7 +13,7 @@ public class mdExam {
     ResultSet rs;
 
     public ResultSet loadExam(int id1, String n1) {
-        String query = "select idExamenClinico,ts.Nombre,Nota from tbExamenesClinicos ec,tbTipoServicio ts \n"
+        String query = "select idExamenClinico,ts.Nombre as Nombre,Nota from tbExamenesClinicos ec,tbTipoServicio ts \n"
                 + "where ec.idTipoServicio=ts.idTipoServicio and ts.Nombre like ? and idAnimal=?";
         try {
             ps = con.prepareStatement(query);
@@ -29,7 +29,7 @@ public class mdExam {
     }
 
     public ResultSet selectExam(int id1) {
-        String query = "select idExamenClinico,ec.idTipoServicio,imagen,ts.Nombre,Nota from tbExamenesClinicos ec,tbTipoServicio ts \n"
+        String query = "select idExamenClinico,ec.idTipoServicio as idServ,imagen,ts.Nombre as Serv,Nota from tbExamenesClinicos ec,tbTipoServicio ts \n"
                 + "  where ec.idTipoServicio=ts.idTipoServicio and idAnimal=?";
         try {
             ps = con.prepareStatement(query);
