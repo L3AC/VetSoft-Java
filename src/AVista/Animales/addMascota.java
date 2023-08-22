@@ -52,20 +52,21 @@ public class addMascota extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         panelRound1 = new Design.PanelRound();
-        cbSexo = new javax.swing.JComboBox<>();
+        cbSexo = new javax.swing.JComboBox<String>();
         jLabel6 = new javax.swing.JLabel();
-        cbRaza = new javax.swing.JComboBox<>();
+        cbRaza = new javax.swing.JComboBox<String>();
         lbEsp = new javax.swing.JLabel();
-        cbTipoA = new javax.swing.JComboBox<>();
+        cbTipoA = new javax.swing.JComboBox<String>();
         lbEsp1 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         dpNaci = new com.toedter.calendar.JDateChooser();
-        jLabel5 = new javax.swing.JLabel();
+        lbMin = new javax.swing.JLabel();
         txtNombre = new Design.TextFieldSV();
         txtPeso = new Design.TextFieldSV();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtPad = new Design.TextFieldSV();
+        jLabel8 = new javax.swing.JLabel();
         btnConfirm = new Design.ButtonGradient();
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -96,18 +97,18 @@ public class addMascota extends javax.swing.JPanel {
 
         cbSexo.setBackground(new java.awt.Color(255, 255, 255));
         cbSexo.setForeground(new java.awt.Color(0, 0, 0));
-        cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hembra", "Macho" }));
+        cbSexo.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "Hembra", "Macho" }));
         cbSexo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbSexoActionPerformed(evt);
             }
         });
-        panelRound1.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 270, 220, 40));
+        panelRound1.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, 220, 40));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Sexo");
-        panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 230, 50, 30));
+        panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, 50, 30));
 
         cbRaza.setBackground(new java.awt.Color(255, 255, 255));
         cbRaza.setForeground(new java.awt.Color(0, 0, 0));
@@ -135,18 +136,22 @@ public class addMascota extends javax.swing.JPanel {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Nacimiento (Aproximado)");
-        panelRound1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 250, 30));
+        panelRound1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 250, 30));
 
         dpNaci.setBackground(new java.awt.Color(255, 255, 255));
-        panelRound1.add(dpNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 220, 40));
+        panelRound1.add(dpNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 220, 40));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Nombre");
-        panelRound1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 100, 30));
+        lbMin.setForeground(new java.awt.Color(0, 0, 0));
+        lbMin.setText("Minimo de digitos 3");
+        panelRound1.add(lbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 110, 30));
 
         txtNombre.setForeground(new java.awt.Color(0, 0, 0));
         txtNombre.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreKeyTyped(evt);
+            }
+        });
         panelRound1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 250, 50));
 
         txtPeso.setForeground(new java.awt.Color(0, 0, 0));
@@ -161,11 +166,16 @@ public class addMascota extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Padecimientos");
-        panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 350, 120, 30));
+        panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, 120, 30));
 
         txtPad.setForeground(new java.awt.Color(0, 0, 0));
         txtPad.setShadowColor(new java.awt.Color(0, 0, 51));
-        panelRound1.add(txtPad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 710, 50));
+        panelRound1.add(txtPad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 710, 50));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel8.setText("Nombre");
+        panelRound1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 100, 30));
 
         btnConfirm.setText("Confirmar");
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
@@ -203,7 +213,7 @@ public class addMascota extends javax.swing.JPanel {
                     .addGroup(PContLayout.createSequentialGroup()
                         .addGap(558, 558, 558)
                         .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 285, Short.MAX_VALUE))
+                .addGap(0, 282, Short.MAX_VALUE))
         );
         PContLayout.setVerticalGroup(
             PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,8 +230,8 @@ public class addMascota extends javax.swing.JPanel {
                             .addComponent(jLabel2)
                             .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(21, 21, 21)
-                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(125, Short.MAX_VALUE))
         );
@@ -300,6 +310,11 @@ public class addMascota extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbSexoActionPerformed
 
+    private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_txtNombreKeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
@@ -313,12 +328,13 @@ public class addMascota extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lbEsp;
     private javax.swing.JLabel lbEsp1;
+    private javax.swing.JLabel lbMin;
     private Design.PanelRound panelRound1;
     private Design.TextFieldSV txtNombre;
     private Design.TextFieldSV txtPad;

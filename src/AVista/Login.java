@@ -66,8 +66,6 @@ public class Login extends javax.swing.JFrame {
         String iconPath = "src/Imagenes/logoC.png";
         ImageIcon icon = new ImageIcon(iconPath);
         setIconImage(icon.getImage());
-        lbMin.setVisible(false);
-        lbMin1.setVisible(false);
 
     }
 
@@ -86,8 +84,6 @@ public class Login extends javax.swing.JFrame {
         txtOlvidasteContra = new javax.swing.JLabel();
         txtUser = new Design.TextFieldSV();
         txtPass = new Design.PasswordField();
-        lbMin1 = new javax.swing.JLabel();
-        lbMin = new javax.swing.JLabel();
         Titulo = new javax.swing.JLabel();
         VetSoft = new javax.swing.JLabel();
 
@@ -187,19 +183,6 @@ public class Login extends javax.swing.JFrame {
         });
         panelRound2.add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 370, 50));
 
-        lbMin1.setForeground(new java.awt.Color(255, 0, 0));
-        lbMin1.setText("Minimo de digitos 3");
-        panelRound2.add(lbMin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 120, 20));
-
-        lbMin.setForeground(new java.awt.Color(255, 0, 0));
-        lbMin.setText("Minimo de digitos 4");
-        lbMin.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                lbMinKeyReleased(evt);
-            }
-        });
-        panelRound2.add(lbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 120, 20));
-
         panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 560, 290));
 
         Titulo.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
@@ -292,29 +275,11 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUserKeyPressed
 
     private void txtUserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyTyped
-        /* if(txtPass.getText().length()>= 3 && txtUser.getText().length()>= 4){
-            lbMin.setVisible(false);
-            lbMin1.setVisible(false);
-            btnIngresar.setEnabled(true);
-        }else {
-            lbMin.setVisible(true);
-            lbMin1.setVisible(true);
-            btnIngresar.setEnabled(false);
-        } */
 
     }//GEN-LAST:event_txtUserKeyTyped
 
     private void txtPassKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassKeyTyped
         // TODO add your handling code here:
-        /*if(txtPass.getText().length()>= 3 && txtUser.getText().length()>= 4){
-            lbMin.setVisible(false);
-            lbMin1.setVisible(false);
-            btnIngresar.setEnabled(true);
-        }else {
-            lbMin.setVisible(true);
-            lbMin1.setVisible(true);
-            btnIngresar.setEnabled(false);
-        }  */
 
     }//GEN-LAST:event_txtPassKeyTyped
 
@@ -345,11 +310,6 @@ public class Login extends javax.swing.JFrame {
     private void txtPassKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassKeyReleased
         //vali.minL(txtPass, btnIngresar, 5);
     }//GEN-LAST:event_txtPassKeyReleased
-
-    private void lbMinKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lbMinKeyReleased
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_lbMinKeyReleased
     
     /*Esta función nos ayuda a obtener y reconocer el Id del usuario que esta en la base de datos y poder ingresar al sistem*/
     public void SelectID() throws SQLException {
@@ -412,8 +372,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel lbMin;
-    private javax.swing.JLabel lbMin1;
     private Design.PanelRound panelRound1;
     private Design.PanelRound panelRound2;
     private javax.swing.JLabel txtOlvidasteContra;

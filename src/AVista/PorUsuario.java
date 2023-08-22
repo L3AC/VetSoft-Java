@@ -308,6 +308,8 @@ public class PorUsuario extends javax.swing.JFrame {
         } else {
 
             Encontrar();
+            btnEnviar.setEnabled(false);
+            
         }
     }//GEN-LAST:event_btnEnviarActionPerformed
 
@@ -511,6 +513,8 @@ public class PorUsuario extends javax.swing.JFrame {
             Em(mail, codigo);
             txtCod.setEnabled(true);
             btnVeri.setEnabled(true);
+            txtUser.setEnabled(false);
+            btnCambiar.setEnabled(false);
             } else{
                 CodigoErrorDRC2 obj = new CodigoErrorDRC2();
         obj.eventOK(new ActionListener() {
