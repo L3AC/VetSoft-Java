@@ -35,15 +35,16 @@ public class updtAnimales extends javax.swing.JPanel {
     public updtAnimales(int idAnim) throws SQLException {
         this.idAnim = idAnim;
         initComponents();
-        loadComboTP(cbTipoA);
-        loadComboRaza(cbRaza);
-        loadData();
         
         txtNombre.setDocument(new Valida(25, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
-        txtPeso.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
+        txtPeso.setDocument(new Valida(30, "[a-zA-Z0-9 .]*"));
         txtPad.setDocument(new Valida(300, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         dpNaci.setMaxSelectableDate(Calendar.getInstance().getTime());
         lbMin.setVisible(false);
+        
+        loadComboTP(cbTipoA);
+        loadComboRaza(cbRaza);
+        loadData();
     }
 
     final void loadData() throws SQLException {
@@ -53,9 +54,10 @@ public class updtAnimales extends javax.swing.JPanel {
 
             ResultSet rs = ct.selectAnim();
             while (rs.next()) {
-                txtNombre.setText(rs.getString("nombre"));
-                txtPeso.setText(rs.getString("peso"));
-                txtPad.setText(rs.getString("padecimientos"));
+                txtNombre.setText(rs.getString("Nombre"));
+                System.out.println(rs.getString("Nombre"));
+                txtPeso.setText(rs.getString("Peso"));
+                txtPad.setText(rs.getString("Padecimientos"));
                 dpNaci.setDate(rs.getDate("edad"));
                 cbTipoA.setSelectedItem(rs.getString("nombrePopular"));
                 cbRaza.setSelectedItem(rs.getString("nombreRaza"));
