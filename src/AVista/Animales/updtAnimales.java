@@ -41,6 +41,7 @@ public class updtAnimales extends javax.swing.JPanel {
         txtPad.setDocument(new Valida(300, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         dpNaci.setMaxSelectableDate(Calendar.getInstance().getTime());
         lbMin.setVisible(false);
+        lbMin1.setVisible(false);
         
         loadComboTP(cbTipoA);
         loadComboRaza(cbRaza);
@@ -117,6 +118,7 @@ public class updtAnimales extends javax.swing.JPanel {
         txtPeso = new Design.TextFieldSV();
         txtPad = new Design.TextFieldSV();
         jLabel10 = new javax.swing.JLabel();
+        lbMin1 = new javax.swing.JLabel();
         btnConfirm = new Design.ButtonGradient();
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -207,6 +209,11 @@ public class updtAnimales extends javax.swing.JPanel {
         panelRound1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 280, 50));
 
         txtPeso.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtPeso.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPesoKeyTyped(evt);
+            }
+        });
         panelRound1.add(txtPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 190, 270, 50));
 
         txtPad.setShadowColor(new java.awt.Color(0, 0, 51));
@@ -216,6 +223,10 @@ public class updtAnimales extends javax.swing.JPanel {
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Nombre");
         panelRound1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 100, 30));
+
+        lbMin1.setForeground(new java.awt.Color(0, 0, 0));
+        lbMin1.setText("Minimo de digitos 10");
+        panelRound1.add(lbMin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 230, 120, 30));
 
         btnConfirm.setText("Confirmar");
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
@@ -287,7 +298,7 @@ public class updtAnimales extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PCont, javax.swing.GroupLayout.DEFAULT_SIZE, 847, Short.MAX_VALUE)
+            .addComponent(PCont, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -330,6 +341,15 @@ public class updtAnimales extends javax.swing.JPanel {
         } 
     }//GEN-LAST:event_txtNombreKeyTyped
 
+    private void txtPesoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesoKeyTyped
+        // TODO add your handling code here:
+        if(txtNombre.getText().length()>= 9){
+            lbMin1.setVisible(false);
+        }else {
+            lbMin1.setVisible(true);
+        } 
+    }//GEN-LAST:event_txtPesoKeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
@@ -350,6 +370,7 @@ public class updtAnimales extends javax.swing.JPanel {
     private javax.swing.JLabel lbEsp;
     private javax.swing.JLabel lbEsp1;
     private javax.swing.JLabel lbMin;
+    private javax.swing.JLabel lbMin1;
     private Design.PanelRound panelRound1;
     private Design.TextFieldSV txtNombre;
     private Design.TextFieldSV txtPad;
