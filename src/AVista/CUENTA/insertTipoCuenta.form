@@ -26,7 +26,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="PCont" alignment="0" max="32767" attributes="0"/>
+          <Component id="PCont" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -109,6 +109,7 @@
                   </Group>
                   <EmptySpace min="33" pref="33" max="-2" attributes="0"/>
                   <Component id="btnConfirm" min="-2" pref="48" max="-2" attributes="0"/>
+                  <EmptySpace pref="127" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

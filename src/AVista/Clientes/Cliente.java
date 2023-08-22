@@ -4,17 +4,52 @@
  */
 package AVista.Clientes;
 
+import AControlador.ctCliente;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+
 /**
  *
  * @author godna
  */
 public class Cliente extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Cliente
-     */
+    
+    public   boolean isSelected(){
+        return selected;
+    }
+    
+    public void setSelected(boolean selected){
+        this.selected = selected;
+        repaint();
+    }
+    
+  private boolean selected;
+
     public Cliente() {
         initComponents();
+        setOpaque(false);
+    }
+    
+    private  ctCliente data;
+    public void setData(ctCliente data){
+        this.data  = data;
+        pic.setImage(data.getImage());
+        txtNom.setText(data.getNombre());
+    }
+    @Override
+    public void paint(Graphics graphics){
+        Graphics2D g2 = (Graphics2D) graphics.create();
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2.setColor(new Color(242,242,242));
+        if(selected){
+            g2.setColor(new Color(94,156,255));
+            g2.drawRoundRect(0,0,getWidth(),, WIDTH, WIDTH, HEIGHT, WIDTH, HEIGHT);
+        }
+        g2.dispose();
+        super.paint(graphics);  
     }
 
     /**
@@ -27,31 +62,68 @@ public class Cliente extends javax.swing.JPanel {
     private void initComponents() {
 
         panelRound1 = new Design.PanelRound();
+        pic = new Design.PictureBox();
+        txtNom = new javax.swing.JLabel();
 
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setBackground(new Color(255,255,255,0));
+        setForeground(new Color(255,255,255,0));
 
         panelRound1.setBackground(new java.awt.Color(255, 255, 255));
-        panelRound1.setRoundBottomLeft(30);
-        panelRound1.setRoundBottomRight(30);
-        panelRound1.setRoundTopLeft(30);
-        panelRound1.setRoundTopRight(30);
+        panelRound1.setRoundBottomLeft(35);
+        panelRound1.setRoundBottomRight(35);
+        panelRound1.setRoundTopLeft(35);
+        panelRound1.setRoundTopRight(35);
+
+        pic.setImage(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ClienteI_1.png"))); // NOI18N
+
+        txtNom.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtNom.setText("Nombre");
 
         javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
         panelRound1.setLayout(panelRound1Layout);
         panelRound1Layout.setHorizontalGroup(
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 270, Short.MAX_VALUE)
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(pic, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addComponent(txtNom)
+                .addContainerGap(109, Short.MAX_VALUE))
         );
         panelRound1Layout.setVerticalGroup(
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 110, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
+                .addContainerGap(27, Short.MAX_VALUE)
+                .addComponent(pic, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addComponent(txtNom)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 110));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Design.PanelRound panelRound1;
+    private Design.PictureBox pic;
+    private javax.swing.JLabel txtNom;
     // End of variables declaration//GEN-END:variables
 }

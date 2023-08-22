@@ -1,15 +1,33 @@
 package AControlador;
+
 import AModelo.mdClientes;
 import java.sql.*;
+import javax.swing.Icon;
+
 public class ctCliente {
+
     public int idCliente;
     public int idUsuario;
-    public String nombre ;
+    public String nombre;
     public String apellido;
     public String dui;
     public String nacimiento;
     public String sexo;
     public String direccion;
+    Icon image;
+
+    public ctCliente() {
+
+    }
+
+
+    public Icon getImage() {
+        return image;
+    }
+
+    public void setImage(Icon image) {
+        this.image = image;
+    }
 
     public int getIdCliente() {
         return idCliente;
@@ -66,7 +84,7 @@ public class ctCliente {
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
-    
+
     public String getDireccion() {
         return direccion;
     }
@@ -74,26 +92,27 @@ public class ctCliente {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
-    
+
     mdClientes cl = new mdClientes();
 
     public ResultSet cargarCl() {
         return cl.cargarCl(nombre);
     }
-        public ResultSet selectCl() {
+
+    public ResultSet selectCl() {
         return cl.selectCl(idCliente);
     }
-        
 
     public boolean insertCl() {
-        return cl.insertCl(idUsuario,nombre, apellido, dui, nacimiento, sexo,direccion);
+        return cl.insertCl(idUsuario, nombre, apellido, dui, nacimiento, sexo, direccion);
     }
 
     public boolean updtCl() {
-        return cl.updateCl(idCliente,nombre, apellido, dui, nacimiento, sexo);
+        return cl.updateCl(idCliente, nombre, apellido, dui, nacimiento, sexo);
     }
 
     public boolean deleteCl() {
         return cl.deleteCl(idCliente);
     }
+
 }

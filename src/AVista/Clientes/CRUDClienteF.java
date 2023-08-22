@@ -32,6 +32,7 @@ public class CRUDClienteF extends javax.swing.JPanel {
         mainPanel = new Design.PanelRound();
         jScrollPane1 = new javax.swing.JScrollPane();
         panelCliente1 = new Design.PanelCliente();
+        cliente2 = new AVista.Clientes.Cliente();
 
         Titulo.setText("Clientes");
 
@@ -42,7 +43,7 @@ public class CRUDClienteF extends javax.swing.JPanel {
             .addGroup(headerLayout.createSequentialGroup()
                 .addGap(590, 590, 590)
                 .addComponent(Titulo)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(718, Short.MAX_VALUE))
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -52,19 +53,20 @@ public class CRUDClienteF extends javax.swing.JPanel {
                 .addContainerGap(50, Short.MAX_VALUE))
         );
 
+        panelCliente1.setBackground(new java.awt.Color(0, 0, 0));
+        panelCliente1.add(cliente2);
+
         jScrollPane1.setViewportView(panelCliente1);
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                .addGap(0, 635, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 685, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+            .addGroup(mainPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 712, Short.MAX_VALUE)
                 .addContainerGap())
@@ -101,6 +103,7 @@ public class CRUDClienteF extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Titulo;
     private Design.BackGround backGround1;
+    private AVista.Clientes.Cliente cliente2;
     private Design.PanelRound header;
     private javax.swing.JScrollPane jScrollPane1;
     private Design.PanelRound mainPanel;
