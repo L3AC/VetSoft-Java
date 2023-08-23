@@ -31,7 +31,7 @@ que esta registrado dentro de la base de datos con su nombre, nombre popular, la
     //Esto nos ayuda a seleccionar el animal con su debida raza, tipo de animal y el id del animal dentro de la base de datos
     public ResultSet selectAnim(int idA) {
         String query = "select * from tbAnimales a,tbRazas r,tbTipoAnimales tp "
-                + "where a.idRaza=r.idRaza and r.idTipoAnimal=tp.idTipoAnimal and idAnimal=?;";
+                + " where a.idRaza=r.idRaza and r.idTipoAnimal=tp.idTipoAnimal and idAnimal=?;";
         try {
             ps = con.prepareStatement(query);
             ps.setInt(1, idA);

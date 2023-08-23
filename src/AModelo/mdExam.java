@@ -30,7 +30,7 @@ public class mdExam {
 
     public ResultSet selectExam(int id1) {
         String query = "select idExamenClinico,ec.idTipoServicio as idServ,imagen,ts.Nombre as Serv,Nota from tbExamenesClinicos ec,tbTipoServicio ts \n"
-                + "  where ec.idTipoServicio=ts.idTipoServicio and idAnimal=?";
+                + "  where ec.idTipoServicio=ts.idTipoServicio and idExamenClinico=?";
         try {
             ps = con.prepareStatement(query);
             ps.setInt(1, id1);

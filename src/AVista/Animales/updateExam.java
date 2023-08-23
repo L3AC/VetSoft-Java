@@ -117,7 +117,7 @@ public class updateExam extends javax.swing.JPanel {
 
         lbImg.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbImg.setForeground(new java.awt.Color(0, 0, 0));
-        panelRound1.add(lbImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 40, 320, 280));
+        panelRound1.add(lbImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 30, 320, 280));
 
         cbTp.setForeground(new java.awt.Color(80, 80, 80));
         cbTp.setLabeText("");

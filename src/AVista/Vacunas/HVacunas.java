@@ -1,6 +1,7 @@
 
 package AVista.Vacunas;
 
+import AControlador.ctExam;
 import AControlador.ctVacunas;
 import AVista.Animales.CRUDAnimales;
 import Design.Desg;
@@ -25,6 +26,7 @@ public class HVacunas extends javax.swing.JPanel {
         this.idAnim = idAnim;
         initComponents();
         loadD();
+        loadData();
     }
 
     @SuppressWarnings("unchecked")
@@ -40,10 +42,14 @@ public class HVacunas extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbData = new SwingTable.Table();
         btnElim = new Design.ButtonGradient();
+        btnAct = new Design.ButtonGradient();
+        txtDosis = new Design.TextFieldSV();
+        jLabel2 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
         PCont.setBackground(new java.awt.Color(255, 255, 255));
+        PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnBack.setBackground(new java.awt.Color(255, 255, 255));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
@@ -53,11 +59,13 @@ public class HVacunas extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
+        PCont.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 70, 60));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Nombre de vacuna:");
+        jLabel1.setText("Dosis aplicadas");
+        PCont.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 180, -1, -1));
 
         txtBusq.setBackground(new java.awt.Color(202, 233, 255));
         txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
@@ -66,6 +74,7 @@ public class HVacunas extends javax.swing.JPanel {
                 txtBusqKeyReleased(evt);
             }
         });
+        PCont.add(txtBusq, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 60, 470, 50));
 
         btnCart.setText("Reporte");
         btnCart.addActionListener(new java.awt.event.ActionListener() {
@@ -73,6 +82,7 @@ public class HVacunas extends javax.swing.JPanel {
                 btnCartActionPerformed(evt);
             }
         });
+        PCont.add(btnCart, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 470, 130, 50));
 
         panelRound1.setBackground(new java.awt.Color(202, 233, 255));
         panelRound1.setRoundBottomLeft(50);
@@ -102,53 +112,38 @@ public class HVacunas extends javax.swing.JPanel {
 
         panelRound1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 900, 430));
 
+        PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 970, 495));
+
         btnElim.setText("Eliminar");
         btnElim.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnElimActionPerformed(evt);
             }
         });
+        PCont.add(btnElim, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 390, 130, 50));
 
-        javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
-        PCont.setLayout(PContLayout);
-        PContLayout.setHorizontalGroup(
-            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(120, 120, 120)
-                .addComponent(jLabel1)
-                .addGap(14, 14, 14)
-                .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 970, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnElim, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCart, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
-        PContLayout.setVerticalGroup(
-            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel1))
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(50, 50, 50)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(btnElim, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(btnCart, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
+        btnAct.setText("Actualizar");
+        btnAct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActActionPerformed(evt);
+            }
+        });
+        PCont.add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 310, 130, 50));
+
+        txtDosis.setBackground(new java.awt.Color(202, 233, 255));
+        txtDosis.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtDosis.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtDosisKeyReleased(evt);
+            }
+        });
+        PCont.add(txtDosis, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 220, 70, 40));
+
+        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Nombre de vacuna:");
+        PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -163,9 +158,9 @@ public class HVacunas extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     final void loadD() throws SQLException {
-        String[] column = {"idTipoVacuna", "Vacuna", "Uso"};
+        String[] column = {"idTipoVacuna", "Vacuna", "Dosis","Uso"};
         model = new DefaultTableModel(null, column);
-        dsg.ColumnHide(model, tbData, 0, 3);
+        dsg.ColumnHide(model, tbData, 0, 4);
         CargarTabla();
         if (tbData.getRowCount() > 0) {
             tbData.setRowSelectionInterval(0, 0);
@@ -184,8 +179,21 @@ public class HVacunas extends javax.swing.JPanel {
             ResultSet rs = ct.loadVac();
             while (rs.next()) {
                 Object[] oValores = {rs.getInt("idVacunacion"), rs.getString("NombreVacuna"),
-                    rs.getString("Utilidad"),rs.getString("Fecha")};
+                    rs.getInt("Dosis"),rs.getString("Utilidad")};
                 model.addRow(oValores);
+            }
+        } catch (Exception e) {
+            System.err.println(e.toString());
+        }
+    }
+    final void loadData() {
+        try {
+            ctVacunas ct = new ctVacunas();
+            ct.idVac=Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()); ;
+
+            ResultSet rs = ct.cargarV();
+            while (rs.next()) {
+                txtDosis.setText( String.valueOf(rs.getInt("dosis")));
             }
         } catch (Exception e) {
             System.err.println(e.toString());
@@ -216,7 +224,7 @@ public class HVacunas extends javax.swing.JPanel {
     }//GEN-LAST:event_btnCartActionPerformed
 
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
-
+        loadData();
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void btnElimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElimActionPerformed
@@ -245,16 +253,30 @@ public class HVacunas extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnElimActionPerformed
 
+    private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
+       ctVacunas ct=new ctVacunas();
+       ct.idVac=Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+       ct.dosis=Integer.parseInt(txtDosis.getText());
+       ct.upVac();
+    }//GEN-LAST:event_btnActActionPerformed
+
+    private void txtDosisKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDosisKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDosisKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
+    private Design.ButtonGradient btnAct;
     private javax.swing.JButton btnBack;
     private Design.ButtonGradient btnCart;
     private Design.ButtonGradient btnElim;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private Design.PanelRound panelRound1;
     private SwingTable.Table tbData;
     private Design.TextFieldSV txtBusq;
+    private Design.TextFieldSV txtDosis;
     // End of variables declaration//GEN-END:variables
 }

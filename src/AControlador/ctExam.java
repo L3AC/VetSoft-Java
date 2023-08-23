@@ -64,7 +64,7 @@ public class ctExam {
     mdExam md = new mdExam();
 
     public boolean insExam() {
-        return md.insExam(idAnim, idTipoS,image,nota);
+        return md.insExam(idAnim, idTipoS, image, nota);
     }
 
     public boolean delExam() {
@@ -72,13 +72,14 @@ public class ctExam {
     }
 
     public boolean upExam() {
-        return md.upExam( idTipoS,image,nota,idExam);
+        return md.upExam(idTipoS, image, nota, idExam);
     }
 
     public ResultSet loadExam() {
         return md.loadExam(idAnim, serv);
     }
-        public ResultSet selectExam() {
+
+    public ResultSet selectExam() {
         return md.selectExam(idExam);
     }
 

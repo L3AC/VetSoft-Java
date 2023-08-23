@@ -93,7 +93,7 @@ public class AddVacuna extends javax.swing.JPanel {
                 btnAddMActionPerformed(evt);
             }
         });
-        PCont.add(btnAddM, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 180, 130, 50));
+        PCont.add(btnAddM, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 290, 130, 50));
 
         panelRound1.setBackground(new java.awt.Color(202, 233, 255));
         panelRound1.setRoundBottomLeft(50);

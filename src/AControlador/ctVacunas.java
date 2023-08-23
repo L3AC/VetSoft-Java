@@ -8,6 +8,7 @@ public class ctVacunas {
     public int idTipoVac;
     public int idVac;
     public int idAnimal;
+    public int dosis;
     public String nombreVac;
     public String util;
 
@@ -51,6 +52,14 @@ public class ctVacunas {
         this.util = util;
     }
 
+    public int getDosis() {
+        return dosis;
+    }
+
+    public void setDosis(int dosis) {
+        this.dosis = dosis;
+    }
+
     mdVacunas md = new mdVacunas();
 
     //tipo de vacunas
@@ -72,7 +81,11 @@ public class ctVacunas {
 
     //VACUNACION
     public boolean insVac() {
-        return md.insVac(idAnimal, idTipoVac);
+        return md.insVac(idAnimal, idTipoVac, dosis);
+    }
+
+    public boolean upVac() {
+        return md.upVac(dosis, idVac);
     }
 
     public boolean delVac() {
@@ -81,6 +94,9 @@ public class ctVacunas {
 
     public ResultSet loadVac() {
         return md.loadVac(idAnimal, nombreVac);
+    }
+        public ResultSet cargarV() {
+        return md.cargarV(idVac);
     }
 
     public ResultSet verifVac() {

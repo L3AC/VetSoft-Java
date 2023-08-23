@@ -64,7 +64,7 @@ public class mdVacunas {
     }
 
     //Esto nos ayudara a actualizar algun campo dentro de la tabla tipo de vacunas
-    public boolean upTPVac(String n1, String n2, int id1) {
+    public boolean upTPVac(String n1, String n2,int id1) {
         String query = "update tbTipoVacunas set NombreVacuna=?,Utilidad=? "
                 + "where idTipoVacuna=?;";
         try {
@@ -86,12 +86,26 @@ public class mdVacunas {
 
     //VACUNACIONES
     public ResultSet loadVac(int id1, String n1) {
-        String query = "select idVacunacion,NombreVacuna,Utilidad,  CONVERT(varchar, fechaRegistro, 105) as Fecha  from tbVacunaciones v, tbTipoVacunas tv \n"
+        String query = "select idVacunacion,NombreVacuna,Utilidad,dosis,"
+                + "CONVERT(varchar, fechaRegistro, 105) as Fecha  from tbVacunaciones v, tbTipoVacunas tv \n"
                 + "where v.idTipoVacuna=tv.idTipoVacuna and idAnimal=? and NombreVacuna like ?;";
         try {
             ps = con.prepareStatement(query);
             ps.setInt(1, id1);
             ps.setString(2, "%" + n1 + "%");
+            rs = ps.executeQuery();
+            return rs;
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+            return null;
+        }
+    }
+    public ResultSet cargarV(int id1) {
+        String query = "select * from tbVacunaciones where idVacunacion=?;";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setInt(1, id1);
             rs = ps.executeQuery();
             return rs;
 
@@ -116,14 +130,33 @@ public class mdVacunas {
         }
     }
 
-    public boolean insVac(int id1, int id2) {
-        String query = "insert into tbVacunaciones values(?,?,getdate());";
+    public boolean insVac(int id1, int id2,int ds1) {
+        String query = "insert into tbVacunaciones(idAnimal,idTipoVacuna,dosis,fecharegistro)"
+                + " values(?,?,?,getdate());";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setInt(1, id1);
+            ps.setInt(2, id2);
+            ps.setInt(3, ds1);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Campos ingresados");
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return false; //DIO ERROR
+        }
+    }
+    public boolean upVac(int id1, int id2) {
+        String query = "update tbVacunaciones set dosis=? where idVacunacion=?;";
         try {
             ps = con.prepareStatement(query);
             ps.setInt(1, id1);
             ps.setInt(2, id2);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Campos ingresados");
+            JOptionPane.showMessageDialog(null, "Registro actualizado");
             return true;
 
         } catch (SQLException e) {
