@@ -240,13 +240,19 @@ public class HVacunas extends javax.swing.JPanel {
                 "No");
 
         if (opcion == JOptionPane.YES_OPTION) {
-            ctVacunas ct=new ctVacunas();
-            ct.idVac= Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-            ct.delVac();
             try {
+                ctVacunas ct=new ctVacunas();
+                ct.idVac= Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                ct.delVac();
                 loadD();
+                loadData();
+                try {
+                    loadD();
+                } catch (SQLException ex) {
+                    Logger.getLogger(CRUDTipoVac.class.getName()).log(Level.SEVERE, null, ex);
+                }
             } catch (SQLException ex) {
-                Logger.getLogger(CRUDTipoVac.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(HVacunas.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else if (opcion == JOptionPane.NO_OPTION) {
 
@@ -254,10 +260,16 @@ public class HVacunas extends javax.swing.JPanel {
     }//GEN-LAST:event_btnElimActionPerformed
 
     private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
-       ctVacunas ct=new ctVacunas();
-       ct.idVac=Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-       ct.dosis=Integer.parseInt(txtDosis.getText());
-       ct.upVac();
+        try {
+            ctVacunas ct=new ctVacunas();
+            ct.idVac=Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+            ct.dosis=Integer.parseInt(txtDosis.getText());
+            ct.upVac();
+            loadD();
+            loadData();
+        } catch (SQLException ex) {
+            Logger.getLogger(HVacunas.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnActActionPerformed
 
     private void txtDosisKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDosisKeyReleased
