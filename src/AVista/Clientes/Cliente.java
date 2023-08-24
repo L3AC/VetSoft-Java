@@ -46,7 +46,7 @@ public class Cliente extends javax.swing.JPanel {
         g2.setColor(new Color(242,242,242));
         if(selected){
             g2.setColor(new Color(94,156,255));
-            g2.drawRoundRect(0,0,getWidth(),, WIDTH, WIDTH, HEIGHT, WIDTH, HEIGHT);
+            //g2.drawRoundRect(0,0,getWidth(),, WIDTH, WIDTH, HEIGHT, WIDTH, HEIGHT);
         }
         g2.dispose();
         super.paint(graphics);  

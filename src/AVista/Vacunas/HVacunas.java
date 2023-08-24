@@ -220,7 +220,7 @@ public class HVacunas extends javax.swing.JPanel {
     private void btnCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCartActionPerformed
         HashMap<String, Object> param = new HashMap<>();
         param.put("idA", idAnim);
-        dsg.reportS("Reporte Vacunas", "src/AVista/Vacunas/Vacuna.jasper", param);
+        dsg.reportS("Reporte Vacunas", "src/AVista/Vacunas/Vacunas.jasper", param);
     }//GEN-LAST:event_btnCartActionPerformed
 
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
