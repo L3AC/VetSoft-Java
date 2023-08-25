@@ -3,6 +3,7 @@ package AVista.Citas;
 import AControlador.ctAnimales;
 import AControlador.ctCitas;
 import AControlador.ctDoctores;
+import AControlador.ctReceta;
 import AVista.Animales.CRUDAnimales;
 import AVista.Animales.updtAnimales;
 import Design.Desg;
@@ -105,6 +106,11 @@ public class CRUDCita extends javax.swing.JPanel {
         PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 167, 1080, 490));
 
         btnRec.setText("Receta");
+        btnRec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRecActionPerformed(evt);
+            }
+        });
         PCont.add(btnRec, new org.netbeans.lib.awtextra.AbsoluteConstraints(1151, 428, 120, 40));
 
         btnFact.setText("Factura");
@@ -235,6 +241,17 @@ public class CRUDCita extends javax.swing.JPanel {
             btnAceptar.setVisible(false);
         }
     }
+    private boolean verifR() throws SQLException {
+        ctReceta ct = new ctReceta();
+        ct.idCita = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+        ResultSet rs = ct.verifR();
+        if (rs.next()) {
+            return true;//se encontro registro
+        }
+        else{
+            return false;//no se encontro
+        }
+    }
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         try {
@@ -318,6 +335,24 @@ public class CRUDCita extends javax.swing.JPanel {
     private void btnFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFactActionPerformed
         
     }//GEN-LAST:event_btnFactActionPerformed
+
+    private void btnRecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecActionPerformed
+        try {
+            if(verifR()==true){
+                upReceta subp = new upReceta(idTipoUs,idCuenta,
+                        Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
+                dsg.ShowPanel(subp, PCont, 1320, 810);
+            }
+            else{
+                AddReceta subp = new AddReceta(idTipoUs,idCuenta,
+                        Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
+                dsg.ShowPanel(subp, PCont, 1320, 810);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CRUDCita.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_btnRecActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
