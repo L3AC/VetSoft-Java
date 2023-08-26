@@ -19,7 +19,7 @@ public class mdReservFact {
         String query = "select rp.idReservaProducto,rp.idEjemplar,tp.tipo,p.Nombre as Producto,Precio \n"
                 + "from tbReservaProductos rp,tbEjemplares e,tbProductos p,tbTipoProductos tp,tbClientes c\n"
                 + "where e.idProducto=p.idProducto and tp.idTipoProducto=p.idTipoProducto and \n"
-                + "rp.idEjemplar=e.idEjemplar and rp.idCliente=c.idCliente and p.Nombre like ? and rp.idCliente=?";
+                + "rp.idEjemplar=e.idEjemplar and rp.idCliente=c.idCliente and p.Nombre like ? and rp.idCliente=? and e.Estado='Reservado'";
         try {
             ps = con.prepareStatement(query);
             ps.setString(1, "%" + n1 + "%");
