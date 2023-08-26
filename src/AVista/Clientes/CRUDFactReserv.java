@@ -5,12 +5,17 @@
 package AVista.Clientes;
 
 import AControlador.ctEjem;
+import AControlador.ctExam;
 import AControlador.ctReservFact;
+import AVista.Animales.CRUDAnimales;
 import Design.Desg;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
 public class CRUDFactReserv extends javax.swing.JPanel {
@@ -201,22 +206,70 @@ public class CRUDFactReserv extends javax.swing.JPanel {
     }//GEN-LAST:event_txtBusqKeyReleased
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
+        int opcion = JOptionPane.showOptionDialog(
+                null,
+                "¿Desea eliminar el registro?",
+                "Advertencia",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.WARNING_MESSAGE,
+                null,
+                new Object[]{"Sí", "No"},
+                "No");
 
-        try {
-            ctReservFact ct = new ctReservFact();
-            ct.idReserv = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());;
-            ct.dlEjemRe();
-            ctEjem ct2 = new ctEjem();
-            ct2.estado = "Disponible";
-            ct2.stateEjemRe();
-            loadD();
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDFactReserv.class.getName()).log(Level.SEVERE, null, ex);
+        if (opcion == JOptionPane.YES_OPTION) {
+            try {
+                ctReservFact ct = new ctReservFact();
+                ct.idReserv = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                ct.dlEjemRe();
+                ctEjem ct2 = new ctEjem();
+                ct2.idEjem = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 1).toString());
+                ct2.estado = "Disponible";
+                ct2.stateEjemRe();
+                loadD();
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDFactReserv.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (opcion == JOptionPane.NO_OPTION) {
+
         }
 
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFactActionPerformed
+        UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
+        int opcion = JOptionPane.showOptionDialog(
+                null,
+                "Al hacer la factura la reservas se cancelaran, ¿Está seguro de realizarlo?",
+                "Advertencia",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.WARNING_MESSAGE,
+                null,
+                new Object[]{"Sí", "No"},
+                "No");
+
+        if (opcion == JOptionPane.YES_OPTION) {
+            try {
+                HashMap<String, Object> param = new HashMap<>();
+                param.put("idCl", idCl);
+                dsg.reportS("Factura", "src/AVista/Clientes/Producto.jasper", param);
+                
+                ctReservFact ct = new ctReservFact();
+                ct.idCl = idCl;
+                ResultSet rs = ct.selectR();
+                while (rs.next()) {
+                    ctEjem ct2=new ctEjem();
+                    ct2.idEjem=rs.getInt("idEjemplar");
+                    ct2.estado="Inactivo";
+                    ct2.stateEjemRe();
+                }
+                loadD();
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDFactReserv.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (opcion == JOptionPane.NO_OPTION) {
+
+        }
 
     }//GEN-LAST:event_btnFactActionPerformed
 

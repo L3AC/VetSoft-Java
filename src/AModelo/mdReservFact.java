@@ -14,7 +14,7 @@ public class mdReservFact {
     ResultSet rs;
 
     //Esto nos ayudara a ver la reserva de producto que a hecho el cliente dentro del sistema
-    public ResultSet tbReservF(int idCl,String n1) {
+    public ResultSet tbReservF(int idCl, String n1) {
 
         String query = "select rp.idReservaProducto,rp.idEjemplar,tp.tipo,p.Nombre as Producto,Precio \n"
                 + "from tbReservaProductos rp,tbEjemplares e,tbProductos p,tbTipoProductos tp,tbClientes c\n"
@@ -24,6 +24,22 @@ public class mdReservFact {
             ps = con.prepareStatement(query);
             ps.setString(1, "%" + n1 + "%");
             ps.setInt(2, idCl);
+            rs = ps.executeQuery();
+            return rs;
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return null; //DIO ERROR
+        }
+    }
+
+    public ResultSet selecR(int idCl) {
+
+        String query = "select * from tbReservaProductos where idCliente=?";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setInt(1, idCl);
             rs = ps.executeQuery();
             return rs;
         } catch (SQLException e) {
@@ -70,4 +86,5 @@ public class mdReservFact {
             return false; //DIO ERROR
         }
     }
+
 }

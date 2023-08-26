@@ -1,5 +1,6 @@
 package AVista.Animales;
 
+import AControlador.ctCitas;
 import AControlador.ctCliente;
 import AControlador.ctExam;
 import Design.Desg;
@@ -7,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
 public class CRUDExam extends javax.swing.JPanel {
@@ -18,7 +21,7 @@ public class CRUDExam extends javax.swing.JPanel {
 
     public CRUDExam(int idAnim, int idTipoUs) throws SQLException {
         this.idTipoUs = idTipoUs;
-        this.idAnim =idAnim;
+        this.idAnim = idAnim;
         initComponents();
         loadD();
     }
@@ -187,7 +190,7 @@ public class CRUDExam extends javax.swing.JPanel {
 
         try {
             ctExam ct = new ctExam();
-            ct.idAnim=idAnim;
+            ct.idAnim = idAnim;
             ct.serv = txtBusq.getText().toString();
             ResultSet rs = ct.loadExam();
             while (rs.next()) {
@@ -227,13 +230,35 @@ public class CRUDExam extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnElimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElimActionPerformed
-        /*insertExam subp = new insertExam(idAnim, idTipoUs);
-        dsg.ShowPanel(subp, PCont, 1320, 810);*/
+        UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
+        int opcion = JOptionPane.showOptionDialog(
+                null,
+                "¿Desea eliminar el registro?",
+                "Advertencia",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.WARNING_MESSAGE,
+                null,
+                new Object[]{"Sí", "No"},
+                "No");
+
+        if (opcion == JOptionPane.YES_OPTION) {
+            ctExam ct = new ctExam();
+            ct.idExam = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+            ct.delExam();
+            try {
+                loadD();
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDAnimales.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (opcion == JOptionPane.NO_OPTION) {
+
+        }
+
     }//GEN-LAST:event_btnElimActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         try {
-            insertExam subp = new insertExam(idAnim,idTipoUs);
+            insertExam subp = new insertExam(idAnim, idTipoUs);
             dsg.ShowPanel(subp, PCont, 1320, 810);
         } catch (SQLException ex) {
             Logger.getLogger(CRUDExam.class.getName()).log(Level.SEVERE, null, ex);
@@ -242,7 +267,7 @@ public class CRUDExam extends javax.swing.JPanel {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         try {
-            updateExam subp = new updateExam(idAnim,idTipoUs,Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
+            updateExam subp = new updateExam(idAnim, idTipoUs, Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
             dsg.ShowPanel(subp, PCont, 1320, 810);
         } catch (SQLException ex) {
             Logger.getLogger(CRUDExam.class.getName()).log(Level.SEVERE, null, ex);

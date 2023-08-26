@@ -1,11 +1,11 @@
-
 package AControlador;
 
 import AModelo.mdReservFact;
 import java.sql.ResultSet;
 
 public class ctReservFact {
-        public int idEjem;
+
+    public int idEjem;
     public int idCl;
     public int idReserv;
     public int idProd;
@@ -51,14 +51,18 @@ public class ctReservFact {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
+
     mdReservFact md = new mdReservFact();
-    
+
     public ResultSet tbReservF() {
-        return md.tbReservF(idCl,nombre);
+        return md.tbReservF(idCl, nombre);
     }
-    
-    public boolean insEjemRe() {    
+
+    public ResultSet selectR() {
+        return md.selecR(idCl);
+    }
+
+    public boolean insEjemRe() {
         return md.insEjemRe(idEjem, idCl);
     }
 
