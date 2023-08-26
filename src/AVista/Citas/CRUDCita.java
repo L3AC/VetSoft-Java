@@ -13,6 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import Validation.Valida;
+import java.util.HashMap;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
@@ -383,7 +384,36 @@ public class CRUDCita extends javax.swing.JPanel {
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFactActionPerformed
+        UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
+        int opcion = JOptionPane.showOptionDialog(
+                null,
+                "Al hacer la factura, la cita se inhabilitara,\\"
+                        + " ¿Está seguro de realizarlo?",
+                "Confirmar",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.WARNING_MESSAGE,
+                null,
+                new Object[]{"Sí", "No"},
+                "No");
 
+        if (opcion == JOptionPane.YES_OPTION) {
+            try {
+                
+                ctCitas ct=new ctCitas();
+                ct.idCita=Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                ct.estado="Inactiva";
+                ct.stateCita();
+                HashMap<String, Object> param = new HashMap<>();
+                param.put("idCita", Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
+                dsg.reportS("Reporte", "src/AVista/Citas/Cita.jasper", param);
+                loadD();
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDCita.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        } else if (opcion == JOptionPane.NO_OPTION) {
+
+        }
     }//GEN-LAST:event_btnFactActionPerformed
 
     private void btnRecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecActionPerformed

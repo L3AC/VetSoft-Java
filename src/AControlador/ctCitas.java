@@ -107,9 +107,10 @@ public class ctCitas {
     }
 
     public ResultSet verifDispo() {
-        return cl.verifDisp(idDoctor, fecha,hora);
+        return cl.verifDisp(idDoctor, fecha, hora);
     }
-        public ResultSet verifEstate() {
+
+    public ResultSet verifEstate() {
         return cl.verifEstate(idCita);
     }
 
@@ -119,18 +120,23 @@ public class ctCitas {
 
     public boolean insertCita() {
         return cl.insertCita(idAnimal, idTipoServicio, idDoctor, notaDelCliente,
-                notaDelDoctor, fecha,hora);
+                notaDelDoctor, fecha, hora);
     }
 
     public boolean updtCita() {
         return cl.updateCita(idCita, idTipoServicio, idDoctor, notaDelCliente,
-                notaDelDoctor, fecha,hora);
+                notaDelDoctor, fecha, hora);
+    }
+
+    public boolean stateCita() {
+        return cl.stateCita(idCita, estado);
     }
 
     public boolean deleteCita() {
         return cl.deleteCita(idCita);
     }
-        public boolean aceptCita() {
+
+    public boolean aceptCita() {
         return cl.aceptCita(idCita);
     }
 }

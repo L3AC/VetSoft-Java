@@ -162,6 +162,23 @@ public class mdCitas {
             return false; //DIO ERROR
         }
     }
+    public boolean stateCita(int idCita,String n1) {
+        String query = "update tbCitas set estado=? where idCita=?;";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setString(1, n1);
+            ps.setInt(2, idCita);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Campos actualizados");
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return false; //DIO ERROR
+        }
+    }
 
     //Esto nos ayudara a verificar la disponibilidad de la cita por ejemplo la fecha o si el doctor esta disponible 
     public ResultSet verifDisp(int idD, String fecha, String hora) {
