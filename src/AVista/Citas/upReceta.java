@@ -1,21 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package AVista.Citas;
 
+import AControlador.ctExam;
+import AControlador.ctReceta;
 import Design.Desg;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author LEAC2
- */
 public class upReceta extends javax.swing.JPanel {
 
     private int idTipoUs;
+    private int idRe;
     private int idCita;
     private int idCuenta;
     Desg dsg = new Desg();
@@ -120,20 +115,22 @@ public class upReceta extends javax.swing.JPanel {
     }//GEN-LAST:event_txtInsKeyReleased
 
     private void btnElimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElimActionPerformed
-        /*try {
-            ctVacunas ct=new ctVacunas();
-            ct.idVac=Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-            ct.dosis=Integer.parseInt(txtDosis.getText());
-            ct.upVac();
-            loadD();
-            loadData();
+        try {
+            ctReceta ct = new ctReceta();
+            ct.idRe = idRe;
+            ct.dlRe();
+            CRUDCita subp = new CRUDCita(idTipoUs, idCuenta);
+            dsg.ShowPanel(subp, PCont, 1320, 810);
         } catch (SQLException ex) {
-            Logger.getLogger(HVacunas.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+            Logger.getLogger(upReceta.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnElimActionPerformed
 
     private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
-        // TODO add your handling code here:
+        ctReceta ct = new ctReceta();
+        ct.idRe = idRe;
+        ct.instruc=txtIns.getText();
+        ct.upRe();
     }//GEN-LAST:event_btnActActionPerformed
 
 

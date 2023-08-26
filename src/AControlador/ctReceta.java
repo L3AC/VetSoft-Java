@@ -44,7 +44,7 @@ public class ctReceta {
     }
 
     public boolean upRe() {
-        return md.upRe(instruc, idCita);
+        return md.upRe(instruc, idRe);
     }
 
     public boolean insRe() {
