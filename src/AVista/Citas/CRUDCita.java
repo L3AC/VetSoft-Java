@@ -248,10 +248,10 @@ public class CRUDCita extends javax.swing.JPanel {
             ResultSet rs = ctD.citaDoc();
             //System.err.println(txtBusq.getText().toString());
             while (rs.next()) {
-                Object[] oValores = {rs.getInt("idCita"), rs.getInt("idAnimal"),
+                Object[] oValores = {rs.getInt("idCita"), rs.getInt("idAnimal"),rs.getInt("nivelS"),
                     rs.getString("Estado"), rs.getString("Fecha"),
                     rs.getString("Mascota"), rs.getString("Dueño"),
-                    rs.getString("Doctor"),rs.getInt("nivelS")};
+                    rs.getString("Doctor")};
                 model.addRow(oValores);
             }
         } catch (Exception e) {
@@ -269,10 +269,10 @@ public class CRUDCita extends javax.swing.JPanel {
             ResultSet rs = ctD.citaOther();
 
             while (rs.next()) {
-                Object[] oValores = {rs.getInt("idCita"), rs.getInt("idAnimal"),
+                Object[] oValores = {rs.getInt("idCita"), rs.getInt("idAnimal"),rs.getInt("nivelS"),
                     rs.getString("Estado"), rs.getString("Fecha"),
                     rs.getString("Mascota"), rs.getString("Dueño"),
-                    rs.getString("Doctor"),rs.getInt("nivelS")};
+                    rs.getString("Doctor")};
                 model.addRow(oValores);
             }
         } catch (Exception e) {
