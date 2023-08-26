@@ -96,7 +96,7 @@ public class mdEjem {
             ps.setString(1, est);
             ps.setInt(2, id);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Campo Actualizado");
+            //JOptionPane.showMessageDialog(null, "Campo Actualizado");
             return true;
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException

@@ -33,15 +33,17 @@ public class insertCita extends javax.swing.JPanel {
 
     private int idTipoUs;
     private int idAnim;
+    private int idNivelServ;
     Desg dsg = new Desg();
     Map<Integer, String> cbServ = new HashMap<>();
     Map<Integer, String> cbAre = new HashMap<>();
     Map<Integer, String> cbDoct = new HashMap<>();
     SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
 
-    public insertCita(int idTipoUs, int idAnim) throws SQLException {
+    public insertCita(int idTipoUs, int idAnim,int idNivelServ) throws SQLException {
         this.idTipoUs = idTipoUs;
         this.idAnim = idAnim;
+        this.idNivelServ=idNivelServ;
         initComponents();
 
         txtNotaCl.setDocument(new Valida(200, "[a-zA-Z0-9 ]*"));
@@ -58,7 +60,7 @@ public class insertCita extends javax.swing.JPanel {
 
     private void loadComboServ(JComboBox cb) throws SQLException {
         ctTipoServ ct = new ctTipoServ();
-        ct.idNivelServ=2;
+        ct.idNivelServ=idNivelServ;
         ResultSet rs = ct.comboServ();
         while (rs.next()) {
             int idTP = rs.getInt("idTipoServicio");

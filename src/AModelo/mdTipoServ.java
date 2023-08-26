@@ -72,6 +72,7 @@ public class mdTipoServ {
         }
     }
 
+
     //Esto nos ayudara a seleccionar dentro de la tabla tipo de servicio el id del nivel de servicio y tipo de servicio
     public ResultSet selectServ(int id) {//EDITAR INFO
         String query = "select * from tbTipoServicio where idNivelServicio=2 and idTipoServicio=?;";

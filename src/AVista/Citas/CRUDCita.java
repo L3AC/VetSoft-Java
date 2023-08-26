@@ -30,17 +30,16 @@ public class CRUDCita extends javax.swing.JPanel {
         initComponents();
         loadD();
 
-        if(idTipoUS==4||idTipoUS==1){//DOCTOR Y ADMIN
-            
-        }
-        else{
+        if (idTipoUS == 4 || idTipoUS == 1) {//DOCTOR Y ADMIN
+
+        } else {
             btnRec.setVisible(false);
         }
-        if(idTipoUS==5){//ASISTENTE
+        if (idTipoUS == 5) {//ASISTENTE
             btnAceptar.setVisible(false);
             btnEliminar.setVisible(false);
         }
-        
+
     }
 
     @SuppressWarnings("unchecked")
@@ -217,16 +216,18 @@ public class CRUDCita extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
     final void loadD() throws SQLException {
-        String[] column = {"idCita", "idAnimal", "Estado", "Fecha", "Mascota", "Dueño", "Doctor"};
+        String[] column = {"idCita", "idAnimal","idNivelS", "Estado", "Fecha", "Mascota", "Dueño"
+                ,"Doctor"};
         model = new DefaultTableModel(null, column);
-        dsg.ColumnHide(model, tbData, 0, 7);
-        dsg.ColumnHide(model, tbData, 1, 7);
+        dsg.ColumnHide(model, tbData, 0, 8);
+        dsg.ColumnHide(model, tbData, 1, 8);
+        dsg.ColumnHide(model, tbData, 2, 8);
         if (idTipoUs == 4) {
             docTabla();
             System.err.println("doc");
         } else {
             otherTabla();
-             System.err.println("oth");
+            System.err.println("oth");
         }
         if (tbData.getRowCount() > 0) {
             tbData.setRowSelectionInterval(0, 0);
@@ -250,7 +251,7 @@ public class CRUDCita extends javax.swing.JPanel {
                 Object[] oValores = {rs.getInt("idCita"), rs.getInt("idAnimal"),
                     rs.getString("Estado"), rs.getString("Fecha"),
                     rs.getString("Mascota"), rs.getString("Dueño"),
-                    rs.getString("Doctor")};
+                    rs.getString("Doctor"),rs.getInt("nivelS")};
                 model.addRow(oValores);
             }
         } catch (Exception e) {
@@ -266,12 +267,12 @@ public class CRUDCita extends javax.swing.JPanel {
             ctCitas ctD = new ctCitas();
             ctD.cliente = txtBusq.getText().toString();
             ResultSet rs = ctD.citaOther();
-            
+
             while (rs.next()) {
                 Object[] oValores = {rs.getInt("idCita"), rs.getInt("idAnimal"),
                     rs.getString("Estado"), rs.getString("Fecha"),
                     rs.getString("Mascota"), rs.getString("Dueño"),
-                    rs.getString("Doctor")};
+                    rs.getString("Doctor"),rs.getInt("nivelS")};
                 model.addRow(oValores);
             }
         } catch (Exception e) {
@@ -285,19 +286,18 @@ public class CRUDCita extends javax.swing.JPanel {
         ResultSet rs = ct.verifEstate();
         if (rs.next()) {
             btnAceptar.setVisible(true);
-        }
-        else{
+        } else {
             btnAceptar.setVisible(false);
         }
     }
+
     private boolean verifR() throws SQLException {
         ctReceta ct = new ctReceta();
         ct.idCita = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
         ResultSet rs = ct.verifR();
         if (rs.next()) {
             return true;//se encontro registro
-        }
-        else{
+        } else {
             return false;//no se encontro
         }
     }
@@ -306,7 +306,8 @@ public class CRUDCita extends javax.swing.JPanel {
         try {
             updtCita subp = new updtCita(idTipoUs,
                     Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()),
-                    idCuenta);
+                    idCuenta,
+            Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 2).toString()));
             dsg.ShowPanel(subp, PCont, 1320, 810);
         } catch (SQLException ex) {
             Logger.getLogger(CRUDAnimales.class.getName()).log(Level.SEVERE, null, ex);
@@ -326,7 +327,7 @@ public class CRUDCita extends javax.swing.JPanel {
                 "No");
 
         if (opcion == JOptionPane.YES_OPTION) {
-            ctCitas ct=new ctCitas();
+            ctCitas ct = new ctCitas();
             ct.idCita = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
             ct.deleteCita();
             try {
@@ -368,7 +369,7 @@ public class CRUDCita extends javax.swing.JPanel {
                 "No");
 
         if (opcion == JOptionPane.YES_OPTION) {
-            ctCitas ct=new ctCitas();
+            ctCitas ct = new ctCitas();
             ct.idCita = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
             ct.aceptCita();
             try {
@@ -382,25 +383,24 @@ public class CRUDCita extends javax.swing.JPanel {
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFactActionPerformed
-        
+
     }//GEN-LAST:event_btnFactActionPerformed
 
     private void btnRecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecActionPerformed
         try {
-            if(verifR()==true){
-                upReceta subp = new upReceta(idTipoUs,idCuenta,
+            if (verifR() == true) {
+                upReceta subp = new upReceta(idTipoUs, idCuenta,
                         Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
                 dsg.ShowPanel(subp, PCont, 1320, 810);
-            }
-            else{
-                AddReceta subp = new AddReceta(idTipoUs,idCuenta,
+            } else {
+                AddReceta subp = new AddReceta(idTipoUs, idCuenta,
                         Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
                 dsg.ShowPanel(subp, PCont, 1320, 810);
             }
         } catch (SQLException ex) {
             Logger.getLogger(CRUDCita.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_btnRecActionPerformed
 
 

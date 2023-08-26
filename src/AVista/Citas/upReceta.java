@@ -35,6 +35,7 @@ public class upReceta extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         btnAct = new Design.ButtonGradient();
+        btnReport = new Design.ButtonGradient();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
@@ -66,7 +67,7 @@ public class upReceta extends javax.swing.JPanel {
                 btnElimActionPerformed(evt);
             }
         });
-        PCont.add(btnElim, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 420, 130, 50));
+        PCont.add(btnElim, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 420, 130, 50));
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -85,7 +86,15 @@ public class upReceta extends javax.swing.JPanel {
                 btnActActionPerformed(evt);
             }
         });
-        PCont.add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 420, 130, 50));
+        PCont.add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, 130, 50));
+
+        btnReport.setText("Reporte");
+        btnReport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReportActionPerformed(evt);
+            }
+        });
+        PCont.add(btnReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 420, 130, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -150,12 +159,17 @@ public class upReceta extends javax.swing.JPanel {
         ct.upRe();
     }//GEN-LAST:event_btnActActionPerformed
 
+    private void btnReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportActionPerformed
+        
+    }//GEN-LAST:event_btnReportActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
     private Design.ButtonGradient btnAct;
     private javax.swing.JButton btnBack;
     private Design.ButtonGradient btnElim;
+    private Design.ButtonGradient btnReport;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private Design.TextFieldSV txtIns;

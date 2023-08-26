@@ -12,9 +12,13 @@ public class mdCitas {
     //Esto nos ayudara a ver la informacion necesario que necesita y que llegara al sistema por ejemplo la secreteraria que podra ver toda la inf de la cita
     public ResultSet citaOther(String cliente) {
         String query = "SET LANGUAGE Spanish\n"
-                + "select idCita, c.idAnimal,Estado,CONCAT(CONVERT(varchar, fecha, 100),' ',CONVERT(varchar, hora, 100)) as 'Fecha',a.Nombre as 'Mascota',CONCAT(cl.Nombre,' ',cl.Apellido) as 'Dueño',CONCAT(d.Nombre,' ',d.Apellido) as 'Doctor'\n"
-                + "from tbCitas c, tbAnimales a,tbDoctores d,tbClientes cl where c.idAnimal=a.idAnimal and c.idDoctor=d.idDoctor and cl.idCliente=a.idCliente and Estado='Aceptada' and CONCAT(cl.Nombre,' ',cl.Apellido) like ?\n"
-                + "or cl.idCliente=a.idCliente and c.idAnimal=a.idAnimal and c.idDoctor=d.idDoctor and Estado='Pendiente' and CONCAT(cl.Nombre,' ',cl.Apellido) like ?;";
+                + "select ts.idNivelServicio as nivelS,idCita, c.idAnimal,Estado,CONCAT(CONVERT(varchar, fecha, 100),' ',CONVERT(varchar, hora, 100)) as 'Fecha',\n"
+                + "a.Nombre as 'Mascota',CONCAT(cl.Nombre,' ',cl.Apellido) as 'Dueño',CONCAT(d.Nombre,' ',d.Apellido) as 'Doctor' \n"
+                + "from tbCitas c, tbAnimales a,tbDoctores d,tbClientes cl,tbTipoServicio ts,tbNivelServicio ns \n"
+                + "where c.idAnimal=a.idAnimal and c.idDoctor=d.idDoctor and cl.idCliente=a.idCliente and c.idTipoServicio=ts.idTipoServicio and ts.idNivelServicio=ns.idNivelServicio\n"
+                + "and Estado='Aceptada' and CONCAT(cl.Nombre,' ',cl.Apellido) like ? \n"
+                + "or cl.idCliente=a.idCliente and c.idAnimal=a.idAnimal and c.idDoctor=d.idDoctor and c.idTipoServicio=ts.idTipoServicio and ts.idNivelServicio=ns.idNivelServicio\n"
+                + "and Estado='Pendiente' and CONCAT(cl.Nombre,' ',cl.Apellido) like ?;";
         try {
             ps = con.prepareStatement(query);
             ps.setString(1, "%" + cliente + "%");
@@ -32,10 +36,12 @@ public class mdCitas {
     //Esto ayudara al doctor a ver mas a profundidad la informacion de la cita que esta pidiendo el cliente para su mascota
     public ResultSet citaDoc(int idDoc, String cliente) {
         String query = "SET LANGUAGE Spanish\n"
-                + "select idCita, c.idAnimal,Estado,CONCAT(CONVERT(varchar, fecha, 100),' ',CONVERT(varchar, hora, 100)) as 'Fecha',a.Nombre as 'Mascota',CONCAT(cl.Nombre,' ',cl.Apellido) as 'Dueño',CONCAT(d.Nombre,' ',d.Apellido) as 'Doctor'\n"
-                + "from tbCitas c, tbAnimales a,tbDoctores d,tbClientes cl where c.idAnimal=a.idAnimal and c.idDoctor=d.idDoctor and cl.idCliente=a.idCliente and \n"
-                + "Estado='Aceptada' and CONCAT(cl.Nombre,' ',cl.Apellido) like ? and c.idDoctor=? or cl.idCliente=a.idCliente and c.idAnimal=a.idAnimal and c.idDoctor=d.idDoctor and \n"
-                + "Estado='Pendiente' and CONCAT(cl.Nombre,' ',cl.Apellido) like ? and c.idDoctor=?;";
+                + "select ts.idNivelServicio as nivelS,idCita, c.idAnimal,Estado,CONCAT(CONVERT(varchar, fecha, 100),' ',CONVERT(varchar, hora, 100)) as 'Fecha',a.Nombre as 'Mascota',CONCAT(cl.Nombre,' ',cl.Apellido) as 'Dueño',CONCAT(d.Nombre,' ',d.Apellido) as 'Doctor'\n" +
+"from tbCitas c, tbAnimales a,tbDoctores d,tbClientes cl,tbTipoServicio ts,tbNivelServicio ns\n" +
+"where c.idAnimal=a.idAnimal and c.idDoctor=d.idDoctor and cl.idCliente=a.idCliente and c.idTipoServicio=ts.idTipoServicio and ts.idNivelServicio=ns.idNivelServicio\n" +
+"and Estado='Aceptada' and CONCAT(cl.Nombre,' ',cl.Apellido) like ? and c.idDoctor=? or \n" +
+"cl.idCliente=a.idCliente and c.idAnimal=a.idAnimal and c.idDoctor=d.idDoctor and c.idTipoServicio=ts.idTipoServicio and ts.idNivelServicio=ns.idNivelServicio\n" +
+"and Estado='Pendiente' and CONCAT(cl.Nombre,' ',cl.Apellido) like ? and c.idDoctor=?;";
         try {
             ps = con.prepareStatement(query);
             ps.setString(1, "%" + cliente + "%");

@@ -28,16 +28,18 @@ public class updtCita extends javax.swing.JPanel {
     private int idTipoUs;
     private int idCita;
     private int idCuenta;
+    private int idNivelServ;
     Desg dsg = new Desg();
     Map<Integer, String> cbServ = new HashMap<>();
     Map<Integer, String> cbAre = new HashMap<>();
     Map<Integer, String> cbDoct = new HashMap<>();
     SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
 
-    public updtCita(int idTipoUs, int idCita, int idCuenta) throws SQLException {
+    public updtCita(int idTipoUs, int idCita, int idCuenta,int idNivelServ) throws SQLException {
         this.idTipoUs = idTipoUs;
         this.idCita = idCita;
         this.idCuenta = idCuenta;
+        this.idNivelServ=idNivelServ;
         initComponents();
         loadComboServ(cbServicio);
         loadComboEsp(cbEsp);
@@ -255,6 +257,7 @@ public class updtCita extends javax.swing.JPanel {
 
     private void loadComboServ(JComboBox cb) throws SQLException {
         ctTipoServ ct = new ctTipoServ();
+        ct.idNivelServ=idNivelServ;
         ResultSet rs = ct.comboServ();
         while (rs.next()) {
             int idTP = rs.getInt("idTipoServicio");
