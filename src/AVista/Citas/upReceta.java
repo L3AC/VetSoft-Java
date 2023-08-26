@@ -3,6 +3,7 @@ package AVista.Citas;
 import AControlador.ctExam;
 import AControlador.ctReceta;
 import Design.Desg;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,6 +21,7 @@ public class upReceta extends javax.swing.JPanel {
         this.idTipoUs = idTipoUs;
         this.idCuenta = idCuenta;
         initComponents();
+        loadData();
     }
 
     @SuppressWarnings("unchecked")
@@ -97,6 +99,21 @@ public class upReceta extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    final void loadData() {
+        try {
+            ctReceta ct = new ctReceta();
+            ct.idCita= idCita;
+
+            ResultSet rs = ct.verifR();
+            while (rs.next()) {
+                idRe=rs.getInt("idReceta");
+                txtIns.setText(rs.getString("instrucciones"));
+            }
+        } catch (Exception e) {
+            System.err.println(e.toString());
+        }
+    }
+    
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         try {
             CRUDCita subp = new CRUDCita(idTipoUs, idCuenta);

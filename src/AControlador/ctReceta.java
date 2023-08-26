@@ -34,7 +34,7 @@ public class ctReceta {
     }
 
     mdReceta md = new mdReceta();
-
+    
     public ResultSet verifR() {
         return md.verifR(idCita);
     }

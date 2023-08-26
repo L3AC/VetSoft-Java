@@ -11,7 +11,7 @@ public class mdReceta {
     Connection con = Conx.Conectar();
     PreparedStatement ps;
     ResultSet rs;
-
+    
     public ResultSet verifR(int idD) {
         String query = "select * from tbRecetas where idCita=?;";
         try {
