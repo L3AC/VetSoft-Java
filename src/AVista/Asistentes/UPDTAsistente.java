@@ -7,6 +7,8 @@ package AVista.Asistentes;
 import AControlador.ctAsistente;
 import AControlador.ctDoctores;
 import Design.Desg;
+import Mensajes.CódigoErrorDSI5;
+import Mensajes.GlassPanePopup;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -14,6 +16,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import Validation.Valida;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Calendar;
 
 public class UPDTAsistente extends javax.swing.JPanel {
@@ -407,6 +411,16 @@ public class UPDTAsistente extends javax.swing.JPanel {
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
+        if (txtApellidos.getText().isEmpty() || txtDui.getText().isEmpty()|| txtNombre.getText().isEmpty()) {
+            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
+        obj.eventOK(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                GlassPanePopup.closePopupLast();
+            }
+        });
+        GlassPanePopup.showPopup(obj);
+        } else{ 
         SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
         ctAsistente ct = new ctAsistente();
         ct.idAsistente = idAsis;
@@ -417,6 +431,8 @@ public class UPDTAsistente extends javax.swing.JPanel {
         ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
         ct.sexo = cbSexo.getSelectedItem().toString();
         ct.updtAsis();        
+        }
+        
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased

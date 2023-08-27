@@ -9,6 +9,8 @@ import AVista.Clientes.CRUDCliente;
 import AVista.Doctores.CRUDDoctores;
 import AVista.Recepcionista.CRUDRecep;
 import Design.Desg;
+import Mensajes.CódigoErrorDSI5;
+import Mensajes.GlassPanePopup;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -19,6 +21,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import Validation.Valida;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Calendar;
 
 public class updtTipoCuenta extends javax.swing.JPanel {
@@ -76,6 +80,9 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         Calendar fechaActual = Calendar.getInstance();
         fechaActual.add(Calendar.YEAR, -18);
         dpNaci.setMaxSelectableDate(fechaActual.getTime());
+        lbMin.setVisible(false);
+        lbMin1.setVisible(false);
+        lbMin2.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -95,12 +102,15 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         dpNaci = new com.toedter.calendar.JDateChooser();
         jLabel5 = new javax.swing.JLabel();
         txtNombre = new Design.TextFieldSV();
-        jLabel8 = new javax.swing.JLabel();
+        lbMin = new javax.swing.JLabel();
         txtDui = new Design.TextFieldSV();
         jLabel6 = new javax.swing.JLabel();
         cbSexo = new javax.swing.JComboBox<>();
         txtDir = new Design.TextFieldSV();
         lbDir = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        lbMin2 = new javax.swing.JLabel();
+        lbMin1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -139,7 +149,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
                 btnConfirmActionPerformed(evt);
             }
         });
-        PCont.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 560, 182, 50));
+        PCont.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 620, 182, 50));
 
         panelRound1.setBackground(new java.awt.Color(202, 233, 255));
         panelRound1.setRoundBottomLeft(50);
@@ -149,6 +159,11 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtApellidos.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtApellidos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtApellidosKeyTyped(evt);
+            }
+        });
         panelRound1.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 290, 49));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -168,35 +183,57 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         panelRound1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 100, 30));
 
         txtNombre.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreKeyTyped(evt);
+            }
+        });
         panelRound1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 293, 51));
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setText("Número de DUI");
-        panelRound1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 150, -1));
+        lbMin.setForeground(new java.awt.Color(0, 0, 0));
+        lbMin.setText("Minimo de digitos 5");
+        panelRound1.add(lbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 150, -1));
 
         txtDui.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtDui.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDuiKeyTyped(evt);
+            }
+        });
         panelRound1.add(txtDui, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 234, 51));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Sexo");
-        panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 100, 30));
+        panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 100, 30));
 
         cbSexo.setBackground(new java.awt.Color(255, 255, 255));
         cbSexo.setForeground(new java.awt.Color(0, 0, 0));
         cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femenino", "Masculino" }));
-        panelRound1.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 200, 40));
+        panelRound1.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 200, 40));
 
         txtDir.setShadowColor(new java.awt.Color(0, 0, 51));
-        panelRound1.add(txtDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 290, 51));
+        panelRound1.add(txtDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, 290, 51));
 
         lbDir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbDir.setForeground(new java.awt.Color(0, 0, 0));
         lbDir.setText("Dirección");
-        panelRound1.add(lbDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, 150, 30));
+        panelRound1.add(lbDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, 150, 30));
 
-        PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, 715, 400));
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setText("Número de DUI");
+        panelRound1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 150, -1));
+
+        lbMin2.setForeground(new java.awt.Color(0, 0, 0));
+        lbMin2.setText("Minimo de digitos 10");
+        panelRound1.add(lbMin2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 150, -1));
+
+        lbMin1.setForeground(new java.awt.Color(0, 0, 0));
+        lbMin1.setText("Minimo de digitos 5");
+        panelRound1.add(lbMin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 150, -1));
+
+        PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, 715, 430));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -318,7 +355,14 @@ public class updtTipoCuenta extends javax.swing.JPanel {
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         if (txtNombre.getText().isEmpty() || txtApellidos.getText().isEmpty()
                 || txtDui.getText().isEmpty() || txtDir.getText().isEmpty()) {
-
+        CódigoErrorDSI5 obj = new CódigoErrorDSI5();
+        obj.eventOK(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                GlassPanePopup.closePopupLast();
+            }
+        });
+        GlassPanePopup.showPopup(obj);
         } else {
             SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
             if (nivelRow == 2) {
@@ -356,6 +400,33 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnConfirmActionPerformed
 
+    private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
+        // TODO add your handling code here:
+        if(txtNombre.getText().length()>= 4){
+            lbMin.setVisible(false);
+        }else {
+            lbMin.setVisible(true);
+        } 
+    }//GEN-LAST:event_txtNombreKeyTyped
+
+    private void txtApellidosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidosKeyTyped
+        // TODO add your handling code here:
+        if(txtApellidos.getText().length()>= 4){
+            lbMin1.setVisible(false);
+        }else {
+            lbMin1.setVisible(true);
+        } 
+    }//GEN-LAST:event_txtApellidosKeyTyped
+
+    private void txtDuiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDuiKeyTyped
+        // TODO add your handling code here:
+        if(txtDui.getText().length()>= 9){
+            lbMin2.setVisible(false);
+        }else {
+            lbMin2.setVisible(true);
+        } 
+    }//GEN-LAST:event_txtDuiKeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
@@ -371,10 +442,13 @@ public class updtTipoCuenta extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lbDir;
     private javax.swing.JLabel lbEsp;
+    private javax.swing.JLabel lbMin;
+    private javax.swing.JLabel lbMin1;
+    private javax.swing.JLabel lbMin2;
     private Design.PanelRound panelRound1;
     private Design.TextFieldSV txtApellidos;
     private Design.TextFieldSV txtDir;

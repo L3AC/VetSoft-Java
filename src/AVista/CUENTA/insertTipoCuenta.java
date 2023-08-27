@@ -13,6 +13,8 @@ import AControlador.ctUser;
 import AVista.Usuarios.CRUDusuarios;
 import AVista.Usuarios.insertUs;
 import Design.Desg;
+import Mensajes.CódigoErrorDSI5;
+import Mensajes.GlassPanePopup;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -23,6 +25,8 @@ import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import Validation.Valida;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Calendar;
 
 public class insertTipoCuenta extends javax.swing.JPanel {
@@ -70,6 +74,9 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         Calendar fechaActual = Calendar.getInstance();
         fechaActual.add(Calendar.YEAR, -18);
         dpNaci.setMaxSelectableDate(fechaActual.getTime());
+        lbMin.setVisible(false);
+        lbMin1.setVisible(false);
+        lbMin2.setVisible(false);
 
     }
 
@@ -97,7 +104,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         panelRound1 = new Design.PanelRound();
         jLabel5 = new javax.swing.JLabel();
         txtNombre = new Design.TextFieldSV();
-        jLabel9 = new javax.swing.JLabel();
+        lbMin1 = new javax.swing.JLabel();
         txtApellidos = new Design.TextFieldSV();
         jLabel1 = new javax.swing.JLabel();
         txtDir = new Design.TextFieldSV();
@@ -107,6 +114,9 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         txtDui = new Design.TextFieldSV();
         jLabel6 = new javax.swing.JLabel();
         cbSexo = new javax.swing.JComboBox<>();
+        jLabel10 = new javax.swing.JLabel();
+        lbMin2 = new javax.swing.JLabel();
+        lbMin = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -160,14 +170,23 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         panelRound1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 100, 30));
 
         txtNombre.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreKeyTyped(evt);
+            }
+        });
         panelRound1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 314, 55));
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel9.setText("Número de DUI");
-        panelRound1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 150, 30));
+        lbMin1.setForeground(new java.awt.Color(0, 0, 0));
+        lbMin1.setText("Minimo de digitos 10");
+        panelRound1.add(lbMin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 140, 150, 30));
 
         txtApellidos.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtApellidos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtApellidosKeyTyped(evt);
+            }
+        });
         panelRound1.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, 299, 54));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -176,12 +195,12 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, 100, 30));
 
         txtDir.setShadowColor(new java.awt.Color(0, 0, 51));
-        panelRound1.add(txtDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, 299, 52));
+        panelRound1.add(txtDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 430, 299, 52));
 
         lbDir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbDir.setForeground(new java.awt.Color(0, 0, 0));
         lbDir.setText("Dirección");
-        panelRound1.add(lbDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, 150, 30));
+        panelRound1.add(lbDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, 150, 30));
         panelRound1.add(dpNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 250, 250, 50));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -190,17 +209,35 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, 150, 30));
 
         txtDui.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtDui.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDuiKeyTyped(evt);
+            }
+        });
         panelRound1.add(txtDui, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 314, 53));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Sexo");
-        panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 100, 30));
+        panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 100, 30));
 
         cbSexo.setBackground(new java.awt.Color(255, 255, 255));
         cbSexo.setForeground(new java.awt.Color(0, 0, 0));
         cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femenino", "Masculino" }));
-        panelRound1.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 200, 40));
+        panelRound1.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 440, 200, 40));
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel10.setText("Número de DUI");
+        panelRound1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 150, 30));
+
+        lbMin2.setForeground(new java.awt.Color(0, 0, 0));
+        lbMin2.setText("Minimo de digitos 10");
+        panelRound1.add(lbMin2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 150, 30));
+
+        lbMin.setForeground(new java.awt.Color(0, 0, 0));
+        lbMin.setText("Minimo de digitos 5");
+        panelRound1.add(lbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 150, 30));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -223,30 +260,30 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         PCont.setLayout(PContLayout);
         PContLayout.setHorizontalGroup(
             PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PContLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(536, 536, 536))
             .addGroup(PContLayout.createSequentialGroup()
                 .addGap(70, 70, 70)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(410, 410, 410)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel4))
-                .addGap(40, 40, 40))
-            .addGroup(PContLayout.createSequentialGroup()
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(70, 70, 70)
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(410, 410, 410)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel4))
+                        .addGap(40, 40, 40))
+                    .addGroup(PContLayout.createSequentialGroup()
                         .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(59, 59, 59)
-                        .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 728, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(575, 575, 575)
-                        .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 263, Short.MAX_VALUE))
+                        .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 728, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 263, Short.MAX_VALUE))))
         );
         PContLayout.setVerticalGroup(
             PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -264,19 +301,20 @@ public class insertTipoCuenta extends javax.swing.JPanel {
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel7)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(183, 183, 183)
+                        .addGap(189, 189, 189)
                         .addComponent(lbEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
                         .addComponent(cbEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addGap(69, 69, 69))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -308,6 +346,15 @@ public class insertTipoCuenta extends javax.swing.JPanel {
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         if (txtNombre.getText().isEmpty() || txtApellidos.getText().isEmpty()
                 || txtDui.getText().isEmpty() || txtDir.getText().isEmpty()) {
+            
+            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
+        obj.eventOK(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                GlassPanePopup.closePopupLast();
+            }
+        });
+        GlassPanePopup.showPopup(obj);
 
         } else {
             SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
@@ -348,6 +395,33 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnConfirmActionPerformed
 
+    private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
+        // TODO add your handling code here:
+         if(txtNombre.getText().length()>= 4){
+            lbMin.setVisible(false);
+        }else {
+            lbMin.setVisible(true);
+        } 
+    }//GEN-LAST:event_txtNombreKeyTyped
+
+    private void txtApellidosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidosKeyTyped
+        // TODO add your handling code here:
+         if(txtApellidos.getText().length()>= 4){
+            lbMin1.setVisible(false);
+        }else {
+            lbMin1.setVisible(true);
+        } 
+    }//GEN-LAST:event_txtApellidosKeyTyped
+
+    private void txtDuiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDuiKeyTyped
+        // TODO add your handling code here:
+         if(txtDui.getText().length()>= 9){
+            lbMin2.setVisible(false);
+        }else {
+            lbMin2.setVisible(true);
+        } 
+    }//GEN-LAST:event_txtDuiKeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
@@ -357,16 +431,19 @@ public class insertTipoCuenta extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cbSexo;
     private com.toedter.calendar.JDateChooser dpNaci;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbDir;
     private javax.swing.JLabel lbEsp;
+    private javax.swing.JLabel lbMin;
+    private javax.swing.JLabel lbMin1;
+    private javax.swing.JLabel lbMin2;
     private Design.PanelRound panelRound1;
     private Design.TextFieldSV txtApellidos;
     private Design.TextFieldSV txtDir;

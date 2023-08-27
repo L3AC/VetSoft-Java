@@ -10,6 +10,8 @@ import AControlador.ctUser;
 import AVista.Doctores.CRUDDoctores;
 import AVista.Usuarios.CRUDusuarios;
 import Design.Desg;
+import Mensajes.CódigoErrorDSI5;
+import Mensajes.GlassPanePopup;
 import java.awt.Component;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,6 +22,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import Validation.Valida;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Calendar;
 
 /**
@@ -393,7 +397,17 @@ public class CREARasistente extends javax.swing.JPanel {
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
-        SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+
+        if (txtApellidos.getText().isEmpty() || txtNombre.getText().isEmpty()|| txtDui.getText().isEmpty()) {
+            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
+        obj.eventOK(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                GlassPanePopup.closePopupLast();
+            }
+        });
+        GlassPanePopup.showPopup(obj);
+        } else {SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
         ctAsistente ct = new ctAsistente();
         ct.idDoctor = idDoc;
         ct.idUsuario = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
@@ -403,6 +417,7 @@ public class CREARasistente extends javax.swing.JPanel {
         ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
         ct.sexo = cbSexo.getSelectedItem().toString();
         ct.insertAsis();
+        }
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
