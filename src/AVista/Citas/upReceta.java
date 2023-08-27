@@ -5,6 +5,7 @@ import AControlador.ctReceta;
 import Design.Desg;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -111,18 +112,18 @@ public class upReceta extends javax.swing.JPanel {
     final void loadData() {
         try {
             ctReceta ct = new ctReceta();
-            ct.idCita= idCita;
+            ct.idCita = idCita;
 
             ResultSet rs = ct.verifR();
             while (rs.next()) {
-                idRe=rs.getInt("idReceta");
+                idRe = rs.getInt("idReceta");
                 txtIns.setText(rs.getString("instrucciones"));
             }
         } catch (Exception e) {
             System.err.println(e.toString());
         }
     }
-    
+
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         try {
             CRUDCita subp = new CRUDCita(idTipoUs, idCuenta);
@@ -155,12 +156,14 @@ public class upReceta extends javax.swing.JPanel {
     private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
         ctReceta ct = new ctReceta();
         ct.idRe = idRe;
-        ct.instruc=txtIns.getText();
+        ct.instruc = txtIns.getText();
         ct.upRe();
     }//GEN-LAST:event_btnActActionPerformed
 
     private void btnReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportActionPerformed
-        
+        HashMap<String, Object> param = new HashMap<>();
+        param.put("idRe", idRe);
+        dsg.reportS("Receta", "src/AVista/Citas/Receta.jasper", param);
     }//GEN-LAST:event_btnReportActionPerformed
 
 
