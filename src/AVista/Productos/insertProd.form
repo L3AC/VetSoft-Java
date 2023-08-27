@@ -62,25 +62,43 @@
               </Group>
               <Group type="102" attributes="0">
                   <EmptySpace min="370" pref="370" max="-2" attributes="0"/>
-                  <Component id="cbTipoProd" min="-2" pref="180" max="-2" attributes="0"/>
-                  <EmptySpace min="150" pref="150" max="-2" attributes="0"/>
-                  <Component id="txtProv" min="-2" pref="280" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="370" pref="370" max="-2" attributes="0"/>
                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="244" pref="244" max="-2" attributes="0"/>
                   <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
-                  <EmptySpace min="320" pref="320" max="-2" attributes="0"/>
-                  <Component id="txtProducto" min="-2" pref="300" max="-2" attributes="0"/>
-                  <EmptySpace min="130" pref="130" max="-2" attributes="0"/>
-                  <Component id="txtPrecio" min="-2" pref="160" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
                   <EmptySpace min="590" pref="590" max="-2" attributes="0"/>
                   <Component id="btnAgregar" min="-2" pref="140" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="320" pref="320" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="txtProducto" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                          <Component id="lbMin1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                          <Component id="lbMin2" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="txtPrecio" min="-2" pref="160" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="370" pref="370" max="-2" attributes="0"/>
+                  <Component id="cbTipoProd" min="-2" pref="180" max="-2" attributes="0"/>
+                  <EmptySpace min="150" pref="150" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                          <Component id="lbMin" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="txtProv" min="-2" pref="280" max="-2" attributes="0"/>
+                  </Group>
               </Group>
           </Group>
         </DimensionLayout>
@@ -107,7 +125,9 @@
                       <Component id="cbTipoProd" min="-2" pref="40" max="-2" attributes="0"/>
                       <Component id="txtProv" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="59" pref="59" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="lbMin" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
@@ -117,7 +137,12 @@
                       <Component id="txtProducto" min="-2" max="-2" attributes="0"/>
                       <Component id="txtPrecio" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="79" pref="79" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lbMin1" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbMin2" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                   <Component id="btnAgregar" min="-2" pref="50" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -144,6 +169,9 @@
               <Color blue="33" green="0" red="0" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPrecioKeyTyped"/>
+          </Events>
         </Component>
         <Component class="Design.ButtonGradient" name="btnAgregar">
           <Properties>
@@ -184,6 +212,9 @@
               <Color blue="33" green="0" red="0" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtProductoKeyTyped"/>
+          </Events>
         </Component>
         <Component class="Design.TextFieldSV" name="txtProv">
           <Properties>
@@ -194,6 +225,9 @@
               <Color blue="33" green="0" red="0" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtProvKeyTyped"/>
+          </Events>
         </Component>
         <Component class="Design.ButtonGradient" name="btnSelect">
           <Properties>
@@ -253,6 +287,39 @@
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lbImgMouseClicked"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbMin1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Minimo de digitos 3"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbMin">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Minimo de digitos 3"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbMin2">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Minimo de digitos 2"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

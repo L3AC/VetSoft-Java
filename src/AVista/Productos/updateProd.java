@@ -7,12 +7,16 @@ package AVista.Productos;
 import AControlador.ctProd;
 import Design.Desg;
 import Design.TextFieldSV;
+import Mensajes.CódigoErrorDSI5;
+import Mensajes.GlassPanePopup;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -48,6 +52,9 @@ public class updateProd extends javax.swing.JPanel {
         initComponents();
         loadCombo(cbTipoProd);
         loadData();
+        lbMin.setVisible(false);
+        lbMin1.setVisible(false);
+        lbMin2.setVisible(false);
     }
 
     final void loadData() {
@@ -93,11 +100,14 @@ public class updateProd extends javax.swing.JPanel {
         txtPrecio = new Design.TextFieldSV();
         btnConfirm = new Design.ButtonGradient();
         txtProducto = new Design.TextFieldSV();
-        jLabel5 = new javax.swing.JLabel();
+        lbMin2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         btnSelect = new Design.ButtonGradient();
         lbImg = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        lbMin1 = new javax.swing.JLabel();
+        lbMin = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
@@ -120,6 +130,11 @@ public class updateProd extends javax.swing.JPanel {
 
         txtProv.setBackground(new java.awt.Color(202, 233, 255));
         txtProv.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtProv.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtProvKeyTyped(evt);
+            }
+        });
         PCont.add(txtProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 430, 280, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -129,6 +144,11 @@ public class updateProd extends javax.swing.JPanel {
 
         txtPrecio.setBackground(new java.awt.Color(202, 233, 255));
         txtPrecio.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPrecioKeyTyped(evt);
+            }
+        });
         PCont.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 560, 160, -1));
 
         btnConfirm.setText("Confirmar");
@@ -141,12 +161,17 @@ public class updateProd extends javax.swing.JPanel {
 
         txtProducto.setBackground(new java.awt.Color(202, 233, 255));
         txtProducto.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtProducto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtProductoKeyTyped(evt);
+            }
+        });
         PCont.add(txtProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 560, 300, -1));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Nombre del producto");
-        PCont.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 530, -1, -1));
+        lbMin2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lbMin2.setForeground(new java.awt.Color(0, 0, 0));
+        lbMin2.setText("Minimo de digitos 2");
+        PCont.add(lbMin2, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 600, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
@@ -180,6 +205,21 @@ public class updateProd extends javax.swing.JPanel {
         });
         PCont.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 70, 60));
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel8.setText("Nombre del producto");
+        PCont.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 530, -1, -1));
+
+        lbMin1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lbMin1.setForeground(new java.awt.Color(0, 0, 0));
+        lbMin1.setText("Minimo de digitos 3");
+        PCont.add(lbMin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 600, -1, -1));
+
+        lbMin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lbMin.setForeground(new java.awt.Color(0, 0, 0));
+        lbMin.setText("Minimo de digitos 3");
+        PCont.add(lbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 470, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -212,7 +252,14 @@ public class updateProd extends javax.swing.JPanel {
             ct.image = bytesImagen;
             ct.upProd();
         } else {
-            JOptionPane.showMessageDialog(null, "Campos vacíos");
+              CódigoErrorDSI5 obj = new CódigoErrorDSI5();
+        obj.eventOK(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                GlassPanePopup.closePopupLast();
+            }
+        });
+        GlassPanePopup.showPopup(obj);
         }
     }//GEN-LAST:event_btnConfirmActionPerformed
 
@@ -247,6 +294,36 @@ public class updateProd extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void txtProvKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtProvKeyTyped
+        // TODO add your handling code here:
+        
+         if(txtProv.getText().length()>= 2){
+            lbMin.setVisible(false);
+        }else {
+            lbMin.setVisible(true);
+        } 
+    }//GEN-LAST:event_txtProvKeyTyped
+
+    private void txtProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtProductoKeyTyped
+        // TODO add your handling code here:
+        
+        if(txtProducto.getText().length()>= 2){
+            lbMin1.setVisible(false);
+        }else {
+            lbMin1.setVisible(true);
+        } 
+    }//GEN-LAST:event_txtProductoKeyTyped
+
+    private void txtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioKeyTyped
+        // TODO add your handling code here:
+        
+        if(txtPrecio.getText().length()>= 1){
+            lbMin2.setVisible(false);
+        }else {
+            lbMin2.setVisible(true);
+        } 
+    }//GEN-LAST:event_txtPrecioKeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
@@ -255,10 +332,13 @@ public class updateProd extends javax.swing.JPanel {
     private Design.ButtonGradient btnSelect;
     private Design.Combobox cbTipoProd;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel lbImg;
+    private javax.swing.JLabel lbMin;
+    private javax.swing.JLabel lbMin1;
+    private javax.swing.JLabel lbMin2;
     private Design.TextFieldSV txtPrecio;
     private Design.TextFieldSV txtProducto;
     private Design.TextFieldSV txtProv;

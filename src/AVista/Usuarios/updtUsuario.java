@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import Validation.Valida;
+import org.apache.commons.validator.EmailValidator;
 
 public class updtUsuario extends javax.swing.JPanel {
 
@@ -32,6 +33,9 @@ public class updtUsuario extends javax.swing.JPanel {
         txtCorreo.setDocument(new Valida(50, "[a-zA-Z0-9@._]*"));
         txtTel.setDocument(new Valida(10, "[0-9]*"));
         lbDisp.setVisible(false);
+        lbMin.setVisible(false);
+        lbMin1.setVisible(false);
+        lbFalso.setVisible(false);
         if(idTipoUs==1){
            
         }
@@ -75,17 +79,20 @@ public class updtUsuario extends javax.swing.JPanel {
         PCont = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
-        buttonGradient1 = new Design.ButtonGradient();
+        btnConfirmar = new Design.ButtonGradient();
         panelRound1 = new Design.PanelRound();
         cbCargo = new javax.swing.JComboBox<>();
         lbCargo = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        lbMin1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         lbDisp = new javax.swing.JLabel();
         txtUsuario = new Design.TextFieldSV();
         txtTel = new Design.TextFieldSV();
         txtCorreo = new Design.TextFieldSV();
+        jLabel10 = new javax.swing.JLabel();
+        lbFalso = new javax.swing.JLabel();
+        lbMin = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -106,10 +113,10 @@ public class updtUsuario extends javax.swing.JPanel {
             }
         });
 
-        buttonGradient1.setText("Confirmar");
-        buttonGradient1.addActionListener(new java.awt.event.ActionListener() {
+        btnConfirmar.setText("Confirmar");
+        btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonGradient1ActionPerformed(evt);
+                btnConfirmarActionPerformed(evt);
             }
         });
 
@@ -133,10 +140,9 @@ public class updtUsuario extends javax.swing.JPanel {
         lbCargo.setText("Nivel de cargo");
         panelRound1.add(lbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, 130, 40));
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setText("Correo electrónico");
-        panelRound1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(575, 30, 150, 30));
+        lbMin1.setForeground(new java.awt.Color(0, 0, 0));
+        lbMin1.setText("Minimo de digitos 8");
+        panelRound1.add(lbMin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, 150, 30));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
@@ -148,19 +154,46 @@ public class updtUsuario extends javax.swing.JPanel {
         jLabel9.setText("Usuario");
         panelRound1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 70, 30));
 
-        lbDisp.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbDisp.setForeground(new java.awt.Color(0, 0, 0));
         lbDisp.setText("Usuario no disponible");
-        panelRound1.add(lbDisp, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 190, 30));
+        panelRound1.add(lbDisp, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 190, 30));
 
         txtUsuario.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtUsuarioKeyTyped(evt);
+            }
+        });
         panelRound1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 230, 50));
 
         txtTel.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtTel.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTelKeyTyped(evt);
+            }
+        });
         panelRound1.add(txtTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 230, 50));
 
         txtCorreo.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtCorreo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCorreoKeyReleased(evt);
+            }
+        });
         panelRound1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 70, 230, 50));
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel10.setText("Correo electrónico");
+        panelRound1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(575, 30, 150, 30));
+
+        lbFalso.setForeground(new java.awt.Color(0, 0, 0));
+        lbFalso.setText("Correo electrónico falso");
+        panelRound1.add(lbFalso, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 110, 150, 30));
+
+        lbMin.setForeground(new java.awt.Color(0, 0, 0));
+        lbMin.setText("Minimo de digitos 4");
+        panelRound1.add(lbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 150, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clinica 64px.png"))); // NOI18N
 
@@ -177,7 +210,7 @@ public class updtUsuario extends javax.swing.JPanel {
                         .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 825, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PContLayout.createSequentialGroup()
                         .addGap(532, 532, 532)
-                        .addComponent(buttonGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(238, Short.MAX_VALUE))
             .addGroup(PContLayout.createSequentialGroup()
                 .addGap(55, 55, 55)
@@ -207,7 +240,7 @@ public class updtUsuario extends javax.swing.JPanel {
                 .addGap(50, 50, 50)
                 .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(54, 54, 54)
-                .addComponent(buttonGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(136, Short.MAX_VALUE))
         );
 
@@ -238,7 +271,7 @@ public class updtUsuario extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void buttonGradient1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGradient1ActionPerformed
+    private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
 
         ctUser ctUs=new ctUser();
         if(idTipoUs==1){
@@ -252,22 +285,60 @@ public class updtUsuario extends javax.swing.JPanel {
         ctUs.telefono=txtTel.getText();
         ctUs.idUs=idUs;
         ctUs.updtUs();
-    }//GEN-LAST:event_buttonGradient1ActionPerformed
+    }//GEN-LAST:event_btnConfirmarActionPerformed
+
+    private void txtCorreoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoKeyReleased
+        // TODO add your handling code here:
+         if (EmailValidator.getInstance().isValid(txtCorreo.getText())) {
+            //if(verificar_Email(jTextField1.getText())){    
+
+            lbFalso.setVisible(false);
+            btnConfirmar.setEnabled(true);
+
+        } else {
+
+            lbFalso.setVisible(true);
+            btnConfirmar.setEnabled(false);
+
+        }
+    }//GEN-LAST:event_txtCorreoKeyReleased
+
+    private void txtUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyTyped
+        // TODO add your handling code here:
+        if(txtUsuario.getText().length()>= 3){
+            lbMin.setVisible(false);
+        }else {
+            lbMin.setVisible(true);
+        } 
+    }//GEN-LAST:event_txtUsuarioKeyTyped
+
+    private void txtTelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelKeyTyped
+        // TODO add your handling code here:
+        
+        if(txtTel.getText().length()>= 7){
+            lbMin1.setVisible(false);
+        }else {
+            lbMin1.setVisible(true);
+        } 
+    }//GEN-LAST:event_txtTelKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
     private javax.swing.JButton btnBack;
-    private Design.ButtonGradient buttonGradient1;
+    private Design.ButtonGradient btnConfirmar;
     private javax.swing.JComboBox<String> cbCargo;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lbCargo;
     private javax.swing.JLabel lbDisp;
+    private javax.swing.JLabel lbFalso;
+    private javax.swing.JLabel lbMin;
+    private javax.swing.JLabel lbMin1;
     private Design.PanelRound panelRound1;
     private Design.TextFieldSV txtCorreo;
     private Design.TextFieldSV txtTel;

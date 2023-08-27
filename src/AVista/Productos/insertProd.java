@@ -6,6 +6,11 @@ import AControlador.ctProd;
 import AControlador.ctRaza;
 import Design.Desg;
 import Design.TextFieldSV;
+import Mensajes.CódigoErrorDSI5;
+import Mensajes.GlassPanePopup;
+import Validation.Valida;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.sql.ResultSet;
@@ -34,6 +39,13 @@ public class insertProd extends javax.swing.JPanel {
         this.idTipoUs = idTipoUs;
         initComponents();
          loadCombo(cbTipoProd);
+         
+         txtProducto.setDocument(new Valida(300, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ,.]*"));
+         txtProv.setDocument(new Valida(300, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ,.]*"));
+         txtPrecio.setDocument(new Valida(10, "[0-9]*"));
+         lbMin.setVisible(false);
+        lbMin1.setVisible(false);
+        lbMin2.setVisible(false);
     }
 
     private void loadCombo(JComboBox cb) throws SQLException {
@@ -64,6 +76,9 @@ public class insertProd extends javax.swing.JPanel {
         cbTipoProd = new Design.Combobox();
         jLabel7 = new javax.swing.JLabel();
         lbImg = new javax.swing.JLabel();
+        lbMin1 = new javax.swing.JLabel();
+        lbMin = new javax.swing.JLabel();
+        lbMin2 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
@@ -76,6 +91,11 @@ public class insertProd extends javax.swing.JPanel {
 
         txtPrecio.setBackground(new java.awt.Color(202, 233, 255));
         txtPrecio.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPrecioKeyTyped(evt);
+            }
+        });
 
         btnAgregar.setText("Confirmar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -94,9 +114,19 @@ public class insertProd extends javax.swing.JPanel {
 
         txtProducto.setBackground(new java.awt.Color(202, 233, 255));
         txtProducto.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtProducto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtProductoKeyTyped(evt);
+            }
+        });
 
         txtProv.setBackground(new java.awt.Color(202, 233, 255));
         txtProv.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtProv.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtProvKeyTyped(evt);
+            }
+        });
 
         btnSelect.setText("Seleccionar foto");
         btnSelect.addActionListener(new java.awt.event.ActionListener() {
@@ -134,6 +164,18 @@ public class insertProd extends javax.swing.JPanel {
             }
         });
 
+        lbMin1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lbMin1.setForeground(new java.awt.Color(0, 0, 0));
+        lbMin1.setText("Minimo de digitos 3");
+
+        lbMin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lbMin.setForeground(new java.awt.Color(0, 0, 0));
+        lbMin.setText("Minimo de digitos 3");
+
+        lbMin2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lbMin2.setForeground(new java.awt.Color(0, 0, 0));
+        lbMin2.setText("Minimo de digitos 2");
+
         javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
         PCont.setLayout(PContLayout);
         PContLayout.setHorizontalGroup(
@@ -153,22 +195,34 @@ public class insertProd extends javax.swing.JPanel {
                 .addComponent(jLabel6))
             .addGroup(PContLayout.createSequentialGroup()
                 .addGap(370, 370, 370)
-                .addComponent(cbTipoProd, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(150, 150, 150)
-                .addComponent(txtProv, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(370, 370, 370)
                 .addComponent(jLabel5)
                 .addGap(244, 244, 244)
                 .addComponent(jLabel7))
             .addGroup(PContLayout.createSequentialGroup()
-                .addGap(320, 320, 320)
-                .addComponent(txtProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(130, 130, 130)
-                .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(PContLayout.createSequentialGroup()
                 .addGap(590, 590, 590)
                 .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(320, 320, 320)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(lbMin1)))
+                .addGap(130, 130, 130)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(lbMin2))
+                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(370, 370, 370)
+                .addComponent(cbTipoProd, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(150, 150, 150)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(lbMin))
+                    .addComponent(txtProv, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         PContLayout.setVerticalGroup(
             PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,7 +243,9 @@ public class insertProd extends javax.swing.JPanel {
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cbTipoProd, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtProv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(59, 59, 59)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbMin)
+                .addGap(37, 37, 37)
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(jLabel7))
@@ -197,7 +253,11 @@ public class insertProd extends javax.swing.JPanel {
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(79, 79, 79)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbMin1)
+                    .addComponent(lbMin2))
+                .addGap(48, 48, 48)
                 .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -218,7 +278,7 @@ public class insertProd extends javax.swing.JPanel {
         lista.add(txtProducto);
         lista.add(txtProv);
         lista.add(txtPrecio);
-        if (dsg.areFieldsNotEmpty(lista) && bytesImagen != null) {
+        if ( dsg.areFieldsNotEmpty(lista) && bytesImagen != null) {
             ctProd ct = new ctProd();
             ct.idTipoProd = dsg.getMap(cbTP, cbTipoProd.getSelectedItem().toString());
             ct.producto = txtProducto.getText();
@@ -228,7 +288,14 @@ public class insertProd extends javax.swing.JPanel {
             ct.insProd();
         }
         else{
-            JOptionPane.showMessageDialog(null, "Campos vacíos");
+              CódigoErrorDSI5 obj = new CódigoErrorDSI5();
+        obj.eventOK(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                GlassPanePopup.closePopupLast();
+            }
+        });
+        GlassPanePopup.showPopup(obj);
         }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
@@ -269,6 +336,34 @@ public class insertProd extends javax.swing.JPanel {
         System.out.println("ID seleccionado: " + tpUs);*/
     }//GEN-LAST:event_cbTipoProdActionPerformed
 
+    private void txtProvKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtProvKeyTyped
+        // TODO add your handling code here:
+        
+         if(txtProv.getText().length()>= 2){
+            lbMin.setVisible(false);
+        }else {
+            lbMin.setVisible(true);
+        } 
+    }//GEN-LAST:event_txtProvKeyTyped
+
+    private void txtProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtProductoKeyTyped
+        // TODO add your handling code here:
+         if(txtProducto.getText().length()>= 2){
+            lbMin1.setVisible(false);
+        }else {
+            lbMin1.setVisible(true);
+        } 
+    }//GEN-LAST:event_txtProductoKeyTyped
+
+    private void txtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioKeyTyped
+        // TODO add your handling code here:
+         if(txtPrecio.getText().length()>= 1){
+            lbMin2.setVisible(false);
+        }else {
+            lbMin2.setVisible(true);
+        } 
+    }//GEN-LAST:event_txtPrecioKeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
@@ -281,6 +376,9 @@ public class insertProd extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel lbImg;
+    private javax.swing.JLabel lbMin;
+    private javax.swing.JLabel lbMin1;
+    private javax.swing.JLabel lbMin2;
     private Design.TextFieldSV txtPrecio;
     private Design.TextFieldSV txtProducto;
     private Design.TextFieldSV txtProv;

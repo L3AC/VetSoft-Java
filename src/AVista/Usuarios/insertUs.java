@@ -10,6 +10,8 @@ import AControlador.ctUser;
 import AModelo.Crypt;
 import Design.Desg;
 import Design.TextFieldSV;
+import Mensajes.CódigoErrorDSI5;
+import Mensajes.GlassPanePopup;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -18,8 +20,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import Validation.Valida;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.validator.EmailValidator;
 
 /**
  *
@@ -44,6 +49,10 @@ public class insertUs extends javax.swing.JPanel {
         loadCombo(cbCargo);
         lbDisp.setVisible(false);
         cbCargo.setSelectedIndex(0);
+        lbMin.setVisible(false);
+        lbMin1.setVisible(false);
+        lbMin2.setVisible(false);
+        lbFalso.setVisible(false);
         if (idTipoUs == 2) {
             lbCargo.setVisible(false);
             cbCargo.setVisible(false);
@@ -71,7 +80,7 @@ public class insertUs extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
         panelRound1 = new Design.PanelRound();
-        jLabel9 = new javax.swing.JLabel();
+        lbFalso = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         lbCargo = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -82,6 +91,10 @@ public class insertUs extends javax.swing.JPanel {
         txtCorreo = new Design.TextFieldSV();
         txtTel = new Design.TextFieldSV();
         txtContra = new Design.PasswordField();
+        jLabel10 = new javax.swing.JLabel();
+        lbMin = new javax.swing.JLabel();
+        lbMin2 = new javax.swing.JLabel();
+        lbMin1 = new javax.swing.JLabel();
         btnConfirm = new Design.ButtonGradient();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -110,10 +123,9 @@ public class insertUs extends javax.swing.JPanel {
         panelRound1.setRoundTopRight(50);
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel9.setText("Usuario");
-        panelRound1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 70, 30));
+        lbFalso.setForeground(new java.awt.Color(0, 0, 0));
+        lbFalso.setText("Correo electronico falso");
+        panelRound1.add(lbFalso, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, 140, 30));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
@@ -123,7 +135,7 @@ public class insertUs extends javax.swing.JPanel {
         lbCargo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbCargo.setForeground(new java.awt.Color(0, 0, 0));
         lbCargo.setText("Nivel de cargo");
-        panelRound1.add(lbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, 130, 30));
+        panelRound1.add(lbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, 130, 30));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
@@ -133,7 +145,7 @@ public class insertUs extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Contraseña");
-        panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 40, 100, 30));
+        panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 20, 100, 30));
 
         cbCargo.setBackground(new java.awt.Color(255, 255, 255));
         cbCargo.setForeground(new java.awt.Color(51, 51, 51));
@@ -142,9 +154,8 @@ public class insertUs extends javax.swing.JPanel {
                 cbCargoActionPerformed(evt);
             }
         });
-        panelRound1.add(cbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, 160, 40));
+        panelRound1.add(cbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 390, 160, 40));
 
-        lbDisp.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbDisp.setForeground(new java.awt.Color(0, 0, 0));
         lbDisp.setText("Usuario no disponible");
         panelRound1.add(lbDisp, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 190, 30));
@@ -155,17 +166,53 @@ public class insertUs extends javax.swing.JPanel {
                 txtUsuarioActionPerformed(evt);
             }
         });
-        panelRound1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 240, 50));
+        txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtUsuarioKeyTyped(evt);
+            }
+        });
+        panelRound1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 240, 50));
 
         txtCorreo.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtCorreo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCorreoKeyReleased(evt);
+            }
+        });
         panelRound1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 240, 50));
 
         txtTel.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtTel.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTelKeyTyped(evt);
+            }
+        });
         panelRound1.add(txtTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 230, 290, 50));
 
-        txtContra.setText("passwordField1");
         txtContra.setShadowColor(new java.awt.Color(0, 0, 51));
-        panelRound1.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 90, 300, 50));
+        txtContra.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtContraKeyTyped(evt);
+            }
+        });
+        panelRound1.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 70, 300, 50));
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel10.setText("Usuario");
+        panelRound1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 70, 30));
+
+        lbMin.setForeground(new java.awt.Color(0, 0, 0));
+        lbMin.setText("Minimo de digitos 4");
+        panelRound1.add(lbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 110, 30));
+
+        lbMin2.setForeground(new java.awt.Color(0, 0, 0));
+        lbMin2.setText("Minimo de digitos 8");
+        panelRound1.add(lbMin2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 280, 110, 30));
+
+        lbMin1.setForeground(new java.awt.Color(0, 0, 0));
+        lbMin1.setText("Minimo de digitos 8");
+        panelRound1.add(lbMin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 110, 110, 30));
 
         btnConfirm.setText("Confirmar");
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
@@ -183,15 +230,6 @@ public class insertUs extends javax.swing.JPanel {
         PContLayout.setHorizontalGroup(
             PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PContLayout.createSequentialGroup()
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(538, 538, 538)
-                        .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(200, 200, 200)
-                        .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 958, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(162, Short.MAX_VALUE))
-            .addGroup(PContLayout.createSequentialGroup()
                 .addGap(80, 80, 80)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(399, 399, 399)
@@ -201,6 +239,15 @@ public class insertUs extends javax.swing.JPanel {
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(42, 42, 42))
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(200, 200, 200)
+                        .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 958, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(537, 537, 537)
+                        .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(162, Short.MAX_VALUE))
         );
         PContLayout.setVerticalGroup(
             PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,23 +255,19 @@ public class insertUs extends javax.swing.JPanel {
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PContLayout.createSequentialGroup()
                         .addGap(50, 50, 50)
-                        .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(PContLayout.createSequentialGroup()
-                                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(549, 549, 549))
-                            .addGroup(PContLayout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(41, 41, 41))))
+                        .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(PContLayout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addComponent(jLabel4)))
+                .addGap(68, 68, 68)
+                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
                 .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(123, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -259,7 +302,14 @@ public class insertUs extends javax.swing.JPanel {
         lista.add(txtCorreo);
         lista.add(txtTel);
         if (txtContra.getText().isEmpty() || cbCargo.getSelectedIndex() == -1||txtCorreo.getText().isEmpty() ||txtTel.getText().isEmpty() ) {
-            
+            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
+        obj.eventOK(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                GlassPanePopup.closePopupLast();
+            }
+        });
+        GlassPanePopup.showPopup(obj);
         }
         else{
             ctUser ctUs = new ctUser();
@@ -286,6 +336,50 @@ public class insertUs extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
+    private void txtCorreoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoKeyReleased
+        // TODO add your handling code here:
+        if (EmailValidator.getInstance().isValid(txtCorreo.getText())) {
+            //if(verificar_Email(jTextField1.getText())){    
+
+            lbFalso.setVisible(false);
+            btnConfirm.setEnabled(true);
+
+        } else {
+
+            lbFalso.setVisible(true);
+            btnConfirm.setEnabled(false);
+
+        }
+    }//GEN-LAST:event_txtCorreoKeyReleased
+
+    private void txtUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyTyped
+        // TODO add your handling code here:
+        
+         if(txtUsuario.getText().length()>= 3){
+            lbMin.setVisible(false);
+        }else {
+            lbMin.setVisible(true);
+        } 
+    }//GEN-LAST:event_txtUsuarioKeyTyped
+
+    private void txtContraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyTyped
+        // TODO add your handling code here:
+        if(txtContra.getText().length()>= 7){
+            lbMin1.setVisible(false);
+        }else {
+            lbMin1.setVisible(true);
+        } 
+    }//GEN-LAST:event_txtContraKeyTyped
+
+    private void txtTelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelKeyTyped
+        // TODO add your handling code here:
+        if(txtTel.getText().length()>= 7){
+            lbMin2.setVisible(false);
+        }else {
+            lbMin2.setVisible(true);
+        } 
+    }//GEN-LAST:event_txtTelKeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
@@ -293,14 +387,18 @@ public class insertUs extends javax.swing.JPanel {
     private Design.ButtonGradient btnConfirm;
     private javax.swing.JComboBox<String> cbCargo;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lbCargo;
     private javax.swing.JLabel lbDisp;
+    private javax.swing.JLabel lbFalso;
+    private javax.swing.JLabel lbMin;
+    private javax.swing.JLabel lbMin1;
+    private javax.swing.JLabel lbMin2;
     private Design.PanelRound panelRound1;
     private Design.PasswordField txtContra;
     private Design.TextFieldSV txtCorreo;
