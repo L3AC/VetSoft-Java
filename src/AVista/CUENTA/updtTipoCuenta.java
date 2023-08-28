@@ -83,6 +83,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         lbMin.setVisible(false);
         lbMin1.setVisible(false);
         lbMin2.setVisible(false);
+        lbMin3.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -93,7 +94,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         lbEsp = new javax.swing.JLabel();
-        cbEsp = new javax.swing.JComboBox<>();
+        cbEsp = new javax.swing.JComboBox<String>();
         btnConfirm = new Design.ButtonGradient();
         panelRound1 = new Design.PanelRound();
         txtApellidos = new Design.TextFieldSV();
@@ -105,7 +106,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         lbMin = new javax.swing.JLabel();
         txtDui = new Design.TextFieldSV();
         jLabel6 = new javax.swing.JLabel();
-        cbSexo = new javax.swing.JComboBox<>();
+        cbSexo = new javax.swing.JComboBox<String>();
         txtDir = new Design.TextFieldSV();
         lbMin3 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -210,10 +211,15 @@ public class updtTipoCuenta extends javax.swing.JPanel {
 
         cbSexo.setBackground(new java.awt.Color(255, 255, 255));
         cbSexo.setForeground(new java.awt.Color(0, 0, 0));
-        cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femenino", "Masculino" }));
+        cbSexo.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "Femenino", "Masculino" }));
         panelRound1.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 200, 40));
 
         txtDir.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtDir.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDirKeyTyped(evt);
+            }
+        });
         panelRound1.add(txtDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, 290, 51));
 
         lbMin3.setForeground(new java.awt.Color(0, 0, 0));
@@ -431,6 +437,15 @@ public class updtTipoCuenta extends javax.swing.JPanel {
             lbMin2.setVisible(true);
         } 
     }//GEN-LAST:event_txtDuiKeyTyped
+
+    private void txtDirKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDirKeyTyped
+        // TODO add your handling code here:
+        if(txtDir.getText().length()>= 9){
+            lbMin3.setVisible(false);
+        }else {
+            lbMin3.setVisible(true);
+        } 
+    }//GEN-LAST:event_txtDirKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

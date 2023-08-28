@@ -77,6 +77,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         lbMin.setVisible(false);
         lbMin1.setVisible(false);
         lbMin2.setVisible(false);
+        lbMin3.setVisible(false);
 
     }
 
@@ -196,6 +197,11 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, 100, 30));
 
         txtDir.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtDir.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDirKeyTyped(evt);
+            }
+        });
         panelRound1.add(txtDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 430, 299, 52));
 
         lbMin3.setForeground(new java.awt.Color(0, 0, 0));
@@ -426,6 +432,15 @@ public class insertTipoCuenta extends javax.swing.JPanel {
             lbMin2.setVisible(true);
         } 
     }//GEN-LAST:event_txtDuiKeyTyped
+
+    private void txtDirKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDirKeyTyped
+        // TODO add your handling code here:
+        if(txtDir.getText().length()>= 9){
+            lbMin3.setVisible(false);
+        }else {
+            lbMin3.setVisible(true);
+        } 
+    }//GEN-LAST:event_txtDirKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
