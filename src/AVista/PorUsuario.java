@@ -2,8 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 package AVista;
+
 import static java.lang.Integer.parseInt;
 import java.awt.Color;
 import java.awt.Font;
@@ -39,7 +39,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PorUsuario extends javax.swing.JFrame {
-
     
     Conx con = new Conx();
     Connection acceso;
@@ -58,7 +57,7 @@ public class PorUsuario extends javax.swing.JFrame {
         txtNueva.setEnabled(false);
         txtNueva2.setEnabled(false);
         btnCambiar.setEnabled(false);
-        
+
         /*Este apartado validamos los Jtexfield que no se escriban números o letras con un maximo de digitos*/
         txtUser.setDocument(new Valida(30, "[a-zA-Z]*"));
         txtCod.setDocument(new Valida(20, "[a-zA-Z0-9]*"));
@@ -263,7 +262,7 @@ public class PorUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         if (txtUser.getText().isEmpty() || txtCod.getText().isEmpty()
-            || txtNueva.getText().isEmpty() || txtNueva2.getText().isEmpty()) {
+                || txtNueva.getText().isEmpty() || txtNueva2.getText().isEmpty()) {
             CódigoErrorDSI5 obj = new CódigoErrorDSI5();
             obj.eventOK(new ActionListener() {
                 @Override
@@ -279,8 +278,7 @@ public class PorUsuario extends javax.swing.JFrame {
                 } catch (Exception ex) {
                     Logger.getLogger(PorUsuario.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            }
-            else{
+            } else {
                 CódigoErrorDRC4 obj = new CódigoErrorDRC4();
                 obj.eventOK(new ActionListener() {
                     @Override
@@ -290,7 +288,7 @@ public class PorUsuario extends javax.swing.JFrame {
                 });
                 GlassPanePopup.showPopup(obj);
             }
-
+            
         }
     }//GEN-LAST:event_btnCambiarActionPerformed
 
@@ -306,9 +304,8 @@ public class PorUsuario extends javax.swing.JFrame {
             });
             GlassPanePopup.showPopup(obj);
         } else {
-
+            
             Encontrar();
-            btnEnviar.setEnabled(false);
             
         }
     }//GEN-LAST:event_btnEnviarActionPerformed
@@ -334,58 +331,57 @@ public class PorUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         RecuperacionDeContraseña newFrame = new RecuperacionDeContraseña();
-
+        
         newFrame.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnRegresar1ActionPerformed
-
-    public void transparente(){
     
+    public void transparente() {
+        
         BtnRegresar1.setOpaque(false);
         BtnRegresar1.setContentAreaFilled(false);
         BtnRegresar1.setBorderPainted(false);
         
     }
     
-    public void act() throws Exception{
-    String cadena = "update tbUsuarios set contraseña=? "
+    public void act() throws Exception {
+        String cadena = "update tbUsuarios set contraseña=? "
                 + "where usuario=? COLLATE SQL_Latin1_General_CP1_CS_AS;";
-    PreparedStatement ps;
-    
-    try {
-
+        PreparedStatement ps;
+        
+        try {
+            
             acceso = con.Conectar();
             ps = acceso.prepareStatement(cadena);
-            ps.setString(1,cryp.encrypt( txtNueva.getText(), "key"));
+            ps.setString(1, cryp.encrypt(txtNueva.getText(), "key"));
             ps.setString(2, txtUser.getText());
             ps.executeUpdate();
             
-        Login newFrame = new Login();
-        newFrame.setVisible(true);
-        this.dispose();
-        
+            Login newFrame = new Login();
+            newFrame.setVisible(true);
+            this.dispose();
+            
             CódigoErrorDSI4 obj = new CódigoErrorDSI4();
-                    obj.eventOK(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                GlassPanePopup.closePopupLast();
-            }
-        });
-        GlassPanePopup.showPopup(obj);
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.toString());
         }
     }
-    
-    
-    /*En esta función se hace el reconocimiento del codigó de verificación si es correcto o no 
-    */
-   public void EncCod(String user) {
-        String cadena = "select * from tbUsuarios where usuario=? COLLATE SQL_Latin1_General_CP1_CS_AS;";
 
+    /*En esta función se hace el reconocimiento del codigó de verificación si es correcto o no 
+     */
+    public void EncCod(String user) {
+        String cadena = "select * from tbUsuarios where usuario=? COLLATE SQL_Latin1_General_CP1_CS_AS;";
+        
         PreparedStatement ps;
         ResultSet st;
-
+        
         try {
             acceso = con.Conectar();
             ps = acceso.prepareStatement(cadena, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -398,12 +394,12 @@ public class PorUsuario extends javax.swing.JFrame {
                 if (cod.equals(txtCod.getText())) {
                     CódigoErrorDSI6 obj = new CódigoErrorDSI6();
                     obj.eventOK(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                GlassPanePopup.closePopupLast();
-            }
-        });
-        GlassPanePopup.showPopup(obj);
+                        @Override
+                        public void actionPerformed(ActionEvent ae) {
+                            GlassPanePopup.closePopupLast();
+                        }
+                    });
+                    GlassPanePopup.showPopup(obj);
                     txtNueva.setEnabled(true);
                     txtNueva2.setEnabled(true);
                     btnCambiar.setEnabled(true);
@@ -413,36 +409,36 @@ public class PorUsuario extends javax.swing.JFrame {
                     txtCod.setEnabled(false);
                 } else {
                     CodigoErrorDRC3 obj = new CodigoErrorDRC3();
-        obj.eventOK(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                GlassPanePopup.closePopupLast();
-            }
-        });
-        GlassPanePopup.showPopup(obj);
+                    obj.eventOK(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent ae) {
+                            GlassPanePopup.closePopupLast();
+                        }
+                    });
+                    GlassPanePopup.showPopup(obj);
                     txtNueva.setEnabled(false);
                     txtNueva2.setEnabled(false);
                     btnCambiar.setEnabled(false);
                 }
-
+                
             } else {
                 CodigoErrorDRC2 obj = new CodigoErrorDRC2();
-        obj.eventOK(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                GlassPanePopup.closePopupLast();
-            }
-        });
-        GlassPanePopup.showPopup(obj);
-
+                obj.eventOK(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        GlassPanePopup.closePopupLast();
+                    }
+                });
+                GlassPanePopup.showPopup(obj);
+                
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.toString());
             //System.out.println(e.toString());
         }
-   }
-   
-   //Por medio de esta función se envia el correo electronico al usuario con su debido codigó de verificación
+    }
+
+    //Por medio de esta función se envia el correo electronico al usuario con su debido codigó de verificación
     public void Em(String txt, String clave) {
         try {
             Properties props = new Properties();
@@ -452,37 +448,232 @@ public class PorUsuario extends javax.swing.JFrame {
             props.put("mail.smtp.socketFactory.port", "465");
             props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
             props.put("mail.smtp.ssl.protocols", "TLSv1.2");
-
+            
             Session ses = Session.getDefaultInstance(props);
-
+            
             String cRem = "vetsoftsoporte@gmail.com";
             String pRem = "jtsteydqiifilcpi";
             String cRec = txt;
             String asunto = "Recuperacion de clave";
-            String mensaje = "Codigo de verificacion: " + clave;
-
+            String mensaje = "<!DOCTYPE html>\n" +
+"<html lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\">\n" +
+"\n" +
+"<head>\n" +
+"    <meta charset=\"utf-8\">\n" +
+"    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
+"    <title>Correo</title>\n" +
+"\n" +
+"    <style>\n" +
+"        @import url('https://fonts.googleapis.com/css2?family=Karla:wght@300&family=Montserrat:wght@300&family=Poppins:wght@300&family=Roboto+Mono:ital@0;1&display=swap');\n" +
+"\n" +
+"        *, *:before, *:after {\n" +
+"            -moz-box-sizing: border-box;\n" +
+"            -webkit-box-sizing: border-box;\n" +
+"            box-sizing: border-box;\n" +
+"        }\n" +
+"\n" +
+"        body {\n" +
+"            background-color: #1B4965;\n" +
+"            margin-top: 55px;\n" +
+"            margin-bottom: 55px;\n" +
+"        }\n" +
+"\n" +
+"        form {\n" +
+"            max-width: 300px;\n" +
+"            margin: 10px auto;\n" +
+"            padding: 10px 20px;\n" +
+"            background: rgb(255, 255, 255);\n" +
+"            border-radius: 5px;\n" +
+"        }\n" +
+"\n" +
+"        h1 {\n" +
+"            text-align: center;\n" +
+"            font-family: Brush Script MT;\n" +
+"            font-family: 'Roboto Mono', monospace;\n" +
+"            font-family: 'Montserrat', sans-serif;\n" +
+"            font-size: 35px;\n" +
+"            color: black;\n" +
+"        }\n" +
+"\n" +
+"        h3 {\n" +
+"            text-align: center;\n" +
+"            font-family: 'Karla', sans-serif;\n" +
+"            color: black;\n" +
+"        }\n" +
+"\n" +
+"        select {\n" +
+"            padding: 6px;\n" +
+"            height: 32px;\n" +
+"            border-radius: 2px;\n" +
+"        }\n" +
+"\n" +
+"        fieldset {\n" +
+"            margin-bottom: 30px;\n" +
+"            border: none;\n" +
+"        }\n" +
+"\n" +
+"        legend {\n" +
+"            font-family: Candara;\n" +
+"            font-size: 1.5em;\n" +
+"            margin-bottom: 10px;\n" +
+"            font-family: 'Poppins', sans-serif;\n" +
+"        }\n" +
+"\n" +
+"        label {\n" +
+"            display: block;\n" +
+"            margin-bottom: 8px;\n" +
+"            font-family: Times New Roman;\n" +
+"            font-family: 'Karla', sans-serif;\n" +
+"        }\n" +
+"\n" +
+"            label.light {\n" +
+"                font-weight: 300;\n" +
+"                display: inline;\n" +
+"            }\n" +
+"\n" +
+"        .img {\n" +
+"            padding-top: 10px;\n" +
+"        }\n" +
+"\n" +
+"        @media screen and (min-width: 480px) {\n" +
+"\n" +
+"            form {\n" +
+"                max-width: 480px;\n" +
+"            }\n" +
+"        }\n" +
+"\n" +
+"        @media screen and (max-width: 480px) {\n" +
+"\n" +
+"            form {\n" +
+"                max-width: 480px;\n" +
+"            }\n" +
+"\n" +
+"            .img {\n" +
+"                width: 300px;\n" +
+"                padding-top: 10px;\n" +
+"            }\n" +
+"\n" +
+"            .logo {\n" +
+"                width: 40px;\n" +
+"            }\n" +
+"\n" +
+"            @media screen and (max-width: 388px) {\n" +
+"\n" +
+"                form {\n" +
+"                    max-width: 388px;\n" +
+"                }\n" +
+"\n" +
+"                .img {\n" +
+"                    width: 280px;\n" +
+"                    padding-top: 10px;\n" +
+"                }\n" +
+"\n" +
+"                .logo {\n" +
+"                    width: 30px;\n" +
+"                }\n" +
+"            }\n" +
+"\n" +
+"            @media screen and (max-width: 374px) {\n" +
+"\n" +
+"                form {\n" +
+"                    max-width: 374px;\n" +
+"                }\n" +
+"\n" +
+"                .img {\n" +
+"                    width: 250px;\n" +
+"                    padding-top: 10px;\n" +
+"                }\n" +
+"\n" +
+"                .logo {\n" +
+"                    width: 20px;\n" +
+"                }\n" +
+"            }\n" +
+"\n" +
+"            @media screen and (max-width: 330px) {\n" +
+"\n" +
+"                form {\n" +
+"                    max-width: 330px;\n" +
+"                }\n" +
+"\n" +
+"                .img {\n" +
+"                    width: 210px;\n" +
+"                    padding-top: 10px;\n" +
+"                }\n" +
+"\n" +
+"                .logo {\n" +
+"                    width: 20px;\n" +
+"                }\n" +
+"            }\n" +
+"        }\n" +
+"    </style>\n" +
+"</head>\n" +
+"\n" +
+"<body>\n" +
+"    <div>\n" +
+"        <form action=\"index.html\" method=\"post\">\n" +
+"          <p style=\"text-align: center; \">\n" +
+"            <img class=\"img\" src=\"clinica 2.jpg\" width=\"100px\">\n" +
+"        </a>\n" +
+"    </p>\n" +
+"            <h1> Vetsoft </h1>\n" +
+"            <hr style: width=\"50%\" color=\"black\">\n" +
+"            <br>\n" +
+"            <fieldset>\n" +
+"\n" +
+"                <legend>Hola: <b> </b></legend>\n" +
+"\n" +
+"                <label>\n" +
+"                   Antes de completar el proceso de recuperación de contraseña debes de verificar tu código de verificación dento del programa Vetsoft\n" +
+"                </label>\n" +
+"            </fieldset>\n" +
+"            <fieldset>\n" +
+"\n" +
+"                <legend>Tu código de verificación es: "+ clave +"<br> <b></b></legend>\n"+
+"\n" +
+"                <label>A continuación ingresa en el programa de Vetsoft y digita el código antes mencionado en el área de código de verificación.</label>\n" +
+"\n" +
+"                <p style=\"text-align: center; \">\n" +
+"                        <img class=\"img\" src=\"https://i.gifer.com/EOt.gif\" width=\"300px\">\n" +
+"                    </a>\n" +
+"                </p>\n" +
+"            </fieldset>\n" +
+"        </form>\n" +
+"    </div>\n" +
+"</body>\n" +
+"\n" +
+"</html>" ;
+            
             MimeMessage msg = new MimeMessage(ses);
             msg.setFrom(new InternetAddress(cRem));
-
+            
             msg.addRecipient(Message.RecipientType.TO,
                     new InternetAddress(cRec));
             msg.setSubject(asunto);
             msg.setText(mensaje);
-
+            
+            MimeMultipart multipart = new MimeMultipart();
+            MimeBodyPart htmlPart = new MimeBodyPart();
+            htmlPart.setContent(mensaje, "text/html");
+            
+            multipart.addBodyPart(htmlPart);
+            
+            msg.setContent(multipart);
+            //Transport.send(msg);
+            
             Transport t = ses.getTransport("smtp");
-
+            
             t.connect(cRem, pRem);//correo y contraseña
             t.sendMessage(msg, msg.getRecipients(Message.RecipientType.TO));
             t.close();
-
+            
             CódigoErrorDSI11 obj = new CódigoErrorDSI11();
-        obj.eventOK(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                GlassPanePopup.closePopupLast();
-            }
-        });
-        GlassPanePopup.showPopup(obj);
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         } catch (AddressException e) {
             JOptionPane.showMessageDialog(null, e.toString());
             System.out.println(e.toString());
@@ -491,76 +682,78 @@ public class PorUsuario extends javax.swing.JFrame {
             System.out.println(e.toString());
         }
     }
+
     //Esta función nos ayudara a encontrar el usuario y su correo electronico dentro de la base de datos para luego enviar su debido correo electronico y codigo de verificación
-    public void Encontrar(){
-    
+    public void Encontrar() {
+        
         String cadena = "select * from tbUsuarios where usuario=? COLLATE SQL_Latin1_General_CP1_CS_AS;";
         
         PreparedStatement ps;
         ResultSet st;
         
-        try{
+        try {
             acceso = con.Conectar();
-            ps = acceso.prepareStatement(cadena, ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+            ps = acceso.prepareStatement(cadena, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ps.setString(1, txtUser.getText());
             st = ps.executeQuery();
             st.last();
             int found = st.getRow();
             if (found == 1) {
-            mail = st.getString("correo");
-            codigo = GenerC(8);
-            InsertC(codigo);
-            Em(mail, codigo);
-            txtCod.setEnabled(true);
-            btnVeri.setEnabled(true);
-            txtUser.setEnabled(false);
-            btnCambiar.setEnabled(false);
-            } else{
+                mail = st.getString("correo");
+                codigo = GenerC(8);
+                InsertC(codigo);
+                Em(mail, codigo);
+                txtCod.setEnabled(true);
+                btnVeri.setEnabled(true);
+                txtUser.setEnabled(false);
+                btnCambiar.setEnabled(false);
+                btnEnviar.setEnabled(false);
+            } else {
                 CodigoErrorDRC2 obj = new CodigoErrorDRC2();
-        obj.eventOK(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                GlassPanePopup.closePopupLast();
-            }
-        });
-        GlassPanePopup.showPopup(obj);
+                obj.eventOK(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        GlassPanePopup.closePopupLast();
+                    }
+                });
+                GlassPanePopup.showPopup(obj);
                 txtCod.setEnabled(false);
                 btnVeri.setEnabled(false);
                 
             }
-        } catch (SQLException e){
-          JOptionPane.showMessageDialog(null, e.toString());
-        }   
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+        }        
     }
-    
+
     //Por medio de esta función se le creara el codigo de verificación que luego sera enviado al usuario por medio de su correo electronico
-    public void InsertC(String code){
-     String cadena = "update tbUsuarios set codigoVerif=? "
+    public void InsertC(String code) {
+        String cadena = "update tbUsuarios set codigoVerif=? "
                 + "where usuario=? COLLATE SQL_Latin1_General_CP1_CS_AS;";
-     
-     PreparedStatement ps;
-     try{
-     acceso = con.Conectar();
-     ps = acceso.prepareStatement(cadena);
-     ps.setString(1, code);
-     ps.setString(2, txtUser.getText());
-     ps.executeUpdate();
-     CódigoDSI10 obj = new CódigoDSI10();
-        obj.eventOK(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                GlassPanePopup.closePopupLast();
-            }
-        });
-        GlassPanePopup.showPopup(obj);
-     }catch (SQLException e){
-     JOptionPane.showMessageDialog(null, e.toString());
-     }
+        
+        PreparedStatement ps;
+        try {
+            acceso = con.Conectar();
+            ps = acceso.prepareStatement(cadena);
+            ps.setString(1, code);
+            ps.setString(2, txtUser.getText());
+            ps.executeUpdate();
+            CódigoDSI10 obj = new CódigoDSI10();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+        }
     }
-    
+
     //Esta función generara un codigo de verficación con letras y numeros para el usuario
-    public String GenerC(int longi){
-    String num = "0123456789";
+    public String GenerC(int longi) {
+        String num = "0123456789";
         String lmin = "abcdefghijklmnopqrstuvwxyz";
         String lmay = lmin.toUpperCase();
         
@@ -575,7 +768,7 @@ public class PorUsuario extends javax.swing.JFrame {
         return result;
         
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -628,4 +821,3 @@ public class PorUsuario extends javax.swing.JFrame {
     private Design.TextFieldSV txtUser;
     // End of variables declaration//GEN-END:variables
 }
-
