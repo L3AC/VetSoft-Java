@@ -58,7 +58,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
             }
 
             if (nivelRow != 3) {//IDCLIENTE
-                lbDir.setVisible(false);
+                lbMin3.setVisible(false);
                 txtDir.setVisible(false);
             } else {
                 loadCl();
@@ -68,7 +68,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         if (nivelRow == 2) {//IDRECEP
             lbEsp.setVisible(false);
             cbEsp.setVisible(false);
-            lbDir.setVisible(false);
+            lbMin3.setVisible(false);
             txtDir.setVisible(false);
             loadRecep();
         }
@@ -107,10 +107,11 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         cbSexo = new javax.swing.JComboBox<>();
         txtDir = new Design.TextFieldSV();
-        lbDir = new javax.swing.JLabel();
+        lbMin3 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         lbMin2 = new javax.swing.JLabel();
         lbMin1 = new javax.swing.JLabel();
+        lbDir1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -215,10 +216,9 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         txtDir.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, 290, 51));
 
-        lbDir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lbDir.setForeground(new java.awt.Color(0, 0, 0));
-        lbDir.setText("Dirección");
-        panelRound1.add(lbDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, 150, 30));
+        lbMin3.setForeground(new java.awt.Color(0, 0, 0));
+        lbMin3.setText("Minimo de digitos 10");
+        panelRound1.add(lbMin3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 390, 120, 30));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
@@ -232,6 +232,11 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         lbMin1.setForeground(new java.awt.Color(0, 0, 0));
         lbMin1.setText("Minimo de digitos 5");
         panelRound1.add(lbMin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 150, -1));
+
+        lbDir1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbDir1.setForeground(new java.awt.Color(0, 0, 0));
+        lbDir1.setText("Dirección");
+        panelRound1.add(lbDir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, 150, 30));
 
         PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, 715, 430));
 
@@ -444,11 +449,12 @@ public class updtTipoCuenta extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lbDir;
+    private javax.swing.JLabel lbDir1;
     private javax.swing.JLabel lbEsp;
     private javax.swing.JLabel lbMin;
     private javax.swing.JLabel lbMin1;
     private javax.swing.JLabel lbMin2;
+    private javax.swing.JLabel lbMin3;
     private Design.PanelRound panelRound1;
     private Design.TextFieldSV txtApellidos;
     private Design.TextFieldSV txtDir;
