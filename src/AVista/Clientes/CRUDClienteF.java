@@ -1,5 +1,6 @@
-package AVista.Clientes;
+ package AVista.Clientes;
 
+import AControlador.ctCliente;
 import java.awt.Color;
 import Tipografias.Fuentes;
 
@@ -21,6 +22,8 @@ public class CRUDClienteF extends javax.swing.JPanel {
         Titulo.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 50));
 
     }
+    
+        
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -32,7 +35,6 @@ public class CRUDClienteF extends javax.swing.JPanel {
         mainPanel = new Design.PanelRound();
         jScrollPane1 = new javax.swing.JScrollPane();
         panelCliente1 = new Design.PanelCliente();
-        cliente2 = new AVista.Clientes.Cliente();
 
         Titulo.setText("Clientes");
 
@@ -54,8 +56,6 @@ public class CRUDClienteF extends javax.swing.JPanel {
         );
 
         panelCliente1.setBackground(new java.awt.Color(0, 0, 0));
-        panelCliente1.add(cliente2);
-
         jScrollPane1.setViewportView(panelCliente1);
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
@@ -103,7 +103,6 @@ public class CRUDClienteF extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Titulo;
     private Design.BackGround backGround1;
-    private AVista.Clientes.Cliente cliente2;
     private Design.PanelRound header;
     private javax.swing.JScrollPane jScrollPane1;
     private Design.PanelRound mainPanel;

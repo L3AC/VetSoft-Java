@@ -114,5 +114,7 @@ public class ctCliente {
     public boolean deleteCl() {
         return cl.deleteCl(idCliente);
     }
+    
+   
 
 }

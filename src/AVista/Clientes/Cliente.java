@@ -9,6 +9,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -32,13 +34,21 @@ public class Cliente extends javax.swing.JPanel {
         initComponents();
         setOpaque(false);
     }
+        
+
     
-    private  ctCliente data;
-    public void setData(ctCliente data){
-        this.data  = data;
-        pic.setImage(data.getImage());
-        txtNom.setText(data.getNombre());
+    
+    public void setData(/*ctCliente data*/) throws SQLException{
+        
+        //this.data  = data;
+        ctCliente ct=new ctCliente();
+        ct.nombre = "";
+         ResultSet rs = ct.cargarCl();
+         rs.last();
+        //pic.setImage(data.getImage());
+        txtNom.setText(rs.getString("Nombre"));
     }
+    
     @Override
     public void paint(Graphics graphics){
         Graphics2D g2 = (Graphics2D) graphics.create();
