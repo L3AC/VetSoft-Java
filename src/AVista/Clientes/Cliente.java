@@ -38,15 +38,14 @@ public class Cliente extends javax.swing.JPanel {
 
     
     
-    public void setData(/*ctCliente data*/) throws SQLException{
+    private ctCliente data;
+    
+    public void setData(ctCliente data) throws SQLException{
         
-        //this.data  = data;
-        ctCliente ct=new ctCliente();
-        ct.nombre = "";
-         ResultSet rs = ct.cargarCl();
-         rs.last();
-        //pic.setImage(data.getImage());
-        txtNom.setText(rs.getString("Nombre"));
+        this.data  = data;
+        pic.setImage(data.getImage());
+        txtNom.setText(data.getNombre());
+        
     }
     
     @Override

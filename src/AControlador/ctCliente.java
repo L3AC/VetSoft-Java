@@ -114,6 +114,11 @@ public class ctCliente {
     public boolean deleteCl() {
         return cl.deleteCl(idCliente);
     }
+    public ResultSet CargarCCI(){
+        mdClientes mCI = new mdClientes();
+        return mCI.mostrarClientes(nombre);
+    }
+    
     
    
 

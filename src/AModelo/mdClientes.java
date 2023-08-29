@@ -108,6 +108,20 @@ public class mdClientes {
             return false; //DIO ERROR
         }
     }
-
+    
+    
+ public ResultSet mostrarClientes(String nombre) {
+        String query = "select * from tbClientes where Nombre =?;";
+        try {
+            ps = con.prepareStatement(query);   
+            rs = ps.executeQuery();
+            return rs;
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return null; //DIO ERROR
+        }
+    }
     }
 

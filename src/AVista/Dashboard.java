@@ -5,7 +5,6 @@ import AVista.Asistentes.CRUDAsistente;
 import AVista.Citas.CRUDCita;
 import AVista.Clientes.CRUDCliente;
 import AVista.CUENTA.insertTipoCuenta;
-import AVista.Clientes.CRUDClienteF;
 import AVista.Doctores.CRUDDoctores;
 import java.awt.Component;
 import JavaMenu.MenuSelectEvent;
@@ -156,10 +155,7 @@ public class Dashboard extends javax.swing.JFrame {
                         Preguntas subp = new Preguntas(idUs);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
-                    if (index == 5 && indexSubMenu == 1){
-                        CRUDClienteF subp = new CRUDClienteF();
-                        dsg.ShowPanel(subp, PCont, 1320, 810);
-                    }
+                   
 
                 } catch (NullPointerException e) {
                     StackTraceElement[] stackTrace = e.getStackTrace();
