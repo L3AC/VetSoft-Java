@@ -1,5 +1,6 @@
 package AVista;
 
+import AControlador.ctVariableGlobal;
 import AVista.Animales.CRUDAnimales;
 import AVista.Asistentes.CRUDAsistente;
 import AVista.Citas.CRUDCita;
@@ -7,6 +8,7 @@ import AVista.Clientes.CRUDCliente;
 import AVista.CUENTA.insertTipoCuenta;
 import AVista.Doctores.CRUDDoctores;
 import java.awt.Component;
+import AVista.Clientes.CRUDClientesN;
 import JavaMenu.MenuSelectEvent;
 import AVista.Login;
 import AVista.Mantenimiento.CRUDEsp;
@@ -50,6 +52,8 @@ public class Dashboard extends javax.swing.JFrame {
     public Dashboard(int idTipoU, int idUs, int idCuenta) {
         this.idTipoU = idTipoU;
         this.idUs = idUs;
+        ctVariableGlobal.idus = idUs;
+        System.out.println("id"+ctVariableGlobal.idus);
         this.idCuenta = idCuenta;
         initComponents();
         setTitle("VetSoft");
@@ -155,6 +159,11 @@ public class Dashboard extends javax.swing.JFrame {
                         Preguntas subp = new Preguntas(idUs);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
+                       if (index == 5 && indexSubMenu == 1) {
+                        CRUDClientesN subp = new CRUDClientesN();
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                    }
+                    
                    
 
                 } catch (NullPointerException e) {

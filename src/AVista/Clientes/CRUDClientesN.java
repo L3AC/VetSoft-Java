@@ -4,7 +4,14 @@
  */
 package AVista.Clientes;
 
+import AControlador.ctCliente;
+import AControlador.ctVariableGlobal;
 import java.awt.BorderLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -16,17 +23,56 @@ public class CRUDClientesN extends javax.swing.JPanel {
      * Creates new form CRUDClientesN
      */
     
-    private FormCliente home; 
-    public CRUDClientesN() {
+
+    public CRUDClientesN() throws SQLException {
         initComponents();
-        init();
+        DataProductos();
+        addItem(ccliente);
     }
+    //Habilitar eventos de la carta
+//private EventCard event;
+//
+//    public void setEvent(EventCard event) {
+//        this.event = event;
+//    }
     
-    private void init(){
-        home = new FormCliente();
-        panelCliente.setLayout(new BorderLayout());
-        panelCliente.add(home);
+    ctCliente ccliente = new ctCliente();
+    
+    public final void DataProductos(){
+    try{
+     ccliente.idUsuario =ctVariableGlobal.idus; 
+    ResultSet rs = ccliente.CargarCCI();
+        System.out.println("1");
+    while(rs.next()){
+        System.out.println("2");
+        addItem((ctCliente) ccliente.CargarCCI());
+        System.out.println("3");
     }
+    }catch(Exception ex){
+        System.out.println("    no funciona me mato por que elegi software");
+    }
+    }
+
+
+  //Metodo para agregar la carta
+public void addItem(ctCliente data) throws SQLException{
+//Clase para el componente
+
+try{
+    Cliente card = new Cliente();
+    card.setData(data);
+    card.setSize(341, 152);
+  System.out.println("Me mato por que elegi software");
+    panelCliente.add(card);
+    panelCliente.repaint();
+    panelCliente.revalidate();
+    System.out.println("Hasta aqui llega mi paciencia");
+    }catch(Exception ex){
+        System.out.println("dios");
+    }
+    }
+
+   
 
     /**
      * This method is called from within the constructor to initialize the form.

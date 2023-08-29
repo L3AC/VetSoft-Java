@@ -52,8 +52,6 @@
                   <Component id="panelRound1" min="-2" pref="1067" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnAddCuenta" min="-2" pref="140" max="-2" attributes="0"/>
-                      <Component id="btnInsert" min="-2" pref="140" max="-2" attributes="0"/>
                       <Component id="btnEditar" min="-2" pref="140" max="-2" attributes="0"/>
                       <Component id="btnEliminar" min="-2" pref="140" max="-2" attributes="0"/>
                   </Group>
@@ -70,6 +68,13 @@
                       <Component id="jLabel3" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="btnInsert" min="-2" pref="140" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btnAddCuenta" min="-2" pref="140" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="360" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -95,15 +100,16 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="panelRound1" min="-2" pref="460" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                          <Component id="btnAddCuenta" min="-2" pref="50" max="-2" attributes="0"/>
-                          <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
-                          <Component id="btnInsert" min="-2" pref="50" max="-2" attributes="0"/>
-                          <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="190" max="-2" attributes="0"/>
                           <Component id="btnEditar" min="-2" pref="50" max="-2" attributes="0"/>
                           <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
                           <Component id="btnEliminar" min="-2" pref="50" max="-2" attributes="0"/>
                       </Group>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btnInsert" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="btnAddCuenta" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>

@@ -116,7 +116,7 @@ public class ctCliente {
     }
     public ResultSet CargarCCI(){
         mdClientes mCI = new mdClientes();
-        return mCI.mostrarClientes(nombre);
+        return mCI.mostrarClientes(idUsuario);
     }
     
     

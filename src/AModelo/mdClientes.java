@@ -110,10 +110,11 @@ public class mdClientes {
     }
     
     
- public ResultSet mostrarClientes(String nombre) {
-        String query = "select * from tbClientes where Nombre =?;";
+ public ResultSet mostrarClientes(int idUs) {
+        String query = "SELECT nombre FROM tbClientes WHERE idUsuario =?;";
         try {
             ps = con.prepareStatement(query);   
+            ps.setInt(1, idUs);
             rs = ps.executeQuery();
             return rs;
         } catch (SQLException e) {
