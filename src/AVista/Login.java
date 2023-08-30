@@ -125,7 +125,7 @@ public class Login extends javax.swing.JFrame {
                 jLabel6MouseClicked(evt);
             }
         });
-        panelRound2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
+        panelRound2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
 
         btnIngresar.setText("Ingresar");
         btnIngresar.setColor1(new java.awt.Color(255, 255, 255));

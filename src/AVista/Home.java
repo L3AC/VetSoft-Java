@@ -56,12 +56,12 @@ public class Home extends javax.swing.JPanel implements Runnable{
         jLabel2.setAlignmentX(50.0F);
         jLabel2.setMaximumSize(new java.awt.Dimension(100, 100));
 
-        panelRound1.setBackground(new java.awt.Color(255, 204, 204));
+        panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblReloj.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblReloj.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         lblReloj.setForeground(new java.awt.Color(0, 0, 0));
-        lblReloj.setText("jLabel3");
+        lblReloj.setText("        jLabel3");
         panelRound1.add(lblReloj, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 370, 80));
 
         javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
