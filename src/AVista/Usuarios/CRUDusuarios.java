@@ -36,8 +36,9 @@ public class CRUDusuarios extends javax.swing.JPanel {
         this.idTipoUs = idTipoUs;
         initComponents();
         loadD();
-        verifPerfil();
-        
+        if (tbData.getRowCount() > 0) {
+            verifPerfil();
+        }
         txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
     }
 
@@ -72,7 +73,7 @@ public class CRUDusuarios extends javax.swing.JPanel {
                 model.addRow(oValores);
             }
         } catch (Exception e) {
-
+            System.err.println(e.toString());
         }
     }
 
@@ -242,18 +243,24 @@ public class CRUDusuarios extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
-        verifPerfil();
+        if (tbData.getRowCount() > 0) {
+            verifPerfil();
+        }
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void btnAddCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCuentaActionPerformed
-        insertTipoCuenta subp;
-        try {
-            subp = new insertTipoCuenta(idTipoUs, idUsRow,
-     Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 1).toString()));
-            
-            dsg.ShowPanel(subp, PCont, 1320, 810);
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDusuarios.class.getName()).log(Level.SEVERE, null, ex);
+        if (tbData.getRowCount() > 0) {
+            insertTipoCuenta subp;
+            try {
+                subp = new insertTipoCuenta(idTipoUs, idUsRow,
+                        Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 1).toString()));
+
+                dsg.ShowPanel(subp, PCont, 1320, 810);
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDusuarios.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "No hay registros aun");
         }
     }//GEN-LAST:event_btnAddCuentaActionPerformed
 
@@ -269,39 +276,47 @@ public class CRUDusuarios extends javax.swing.JPanel {
     }//GEN-LAST:event_btnInsertActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        updtUsuario subp;
-        try {
-            subp = new updtUsuario(idTipoUs, idUsRow);
-            dsg.ShowPanel(subp, PCont, 1320, 810);
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDusuarios.class.getName()).log(Level.SEVERE, null, ex);
+        if (tbData.getRowCount() > 0) {
+            updtUsuario subp;
+            try {
+                subp = new updtUsuario(idTipoUs, idUsRow);
+                dsg.ShowPanel(subp, PCont, 1320, 810);
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDusuarios.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "No hay registros aun");
         }
 
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
-        int opcion = JOptionPane.showOptionDialog(
-                null,
-                "¿Desea eliminar el registro?",
-                "Advertencia",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.WARNING_MESSAGE,
-                null,
-                new Object[]{"Sí", "No"},
-                "No");
+        if (tbData.getRowCount() > 0) {
+            UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
+            int opcion = JOptionPane.showOptionDialog(
+                    null,
+                    "¿Desea eliminar el registro?",
+                    "Advertencia",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.WARNING_MESSAGE,
+                    null,
+                    new Object[]{"Sí", "No"},
+                    "No");
 
-        if (opcion == JOptionPane.YES_OPTION) {
-            try {
-                ctUser ct = new ctUser();
-                ct.idUs = idUsRow;
-                ct.deleteUs();
-                loadD();
-            } catch (SQLException ex) {
-                Logger.getLogger(CRUDusuarios.class.getName()).log(Level.SEVERE, null, ex);
+            if (opcion == JOptionPane.YES_OPTION) {
+                try {
+                    ctUser ct = new ctUser();
+                    ct.idUs = idUsRow;
+                    ct.deleteUs();
+                    loadD();
+                } catch (SQLException ex) {
+                    Logger.getLogger(CRUDusuarios.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else if (opcion == JOptionPane.NO_OPTION) {
+
             }
-        } else if (opcion == JOptionPane.NO_OPTION) {
-
+        } else {
+            JOptionPane.showMessageDialog(null, "No hay registros aun");
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
