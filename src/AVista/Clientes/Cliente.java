@@ -17,7 +17,9 @@ import java.sql.SQLException;
  * @author godna
  */
 public class Cliente extends javax.swing.JPanel {
-
+    
+ ctCliente ccliente = new ctCliente();
+    private  String nombre;
     
     public   boolean isSelected(){
         return selected;
@@ -30,23 +32,33 @@ public class Cliente extends javax.swing.JPanel {
     
   private boolean selected;
 
-    public Cliente() {
+    public Cliente() throws SQLException {
         initComponents();
+        setData(CargarCCI);
         setOpaque(false);
     }
         
 
     
     
-    private ctCliente data;
+    private ctCliente CargarCCI;
     
-    public void setData(ctCliente data) throws SQLException{
+    public void setData(ctCliente CargarCCI) throws SQLException{
         
-        this.data  = data;
-        pic.setImage(data.getImage());
-        txtNom.setText(data.getNombre());
-        
+         try {
+            ccliente.nombre = nombre;
+            ResultSet rs = ccliente.CargarCCI();
+            while (rs.next()) {
+               txtNom.setText(CargarCCI.getNombre());
+
+                
+            }
+        } catch (Exception e) {
+              System.err.println(e.toString());
+        }
     }
+        
+    
     
     @Override
     public void paint(Graphics graphics){
