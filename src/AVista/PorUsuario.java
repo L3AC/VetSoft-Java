@@ -461,7 +461,7 @@ public class PorUsuario extends javax.swing.JFrame {
 "<head>\n" +
 "    <meta charset=\"utf-8\">\n" +
 "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
-"    <title>Correo</title>\n" +
+"    <title>Código de verificación</title>\n" +
 "\n" +
 "    <style>\n" +
 "        @import url('https://fonts.googleapis.com/css2?family=Karla:wght@300&family=Montserrat:wght@300&family=Poppins:wght@300&family=Roboto+Mono:ital@0;1&display=swap');\n" +
@@ -612,7 +612,7 @@ public class PorUsuario extends javax.swing.JFrame {
 "    <div>\n" +
 "        <form action=\"index.html\" method=\"post\">\n" +
 "          <p style=\"text-align: center; \">\n" +
-"            <img class=\"img\" src=\"clinica 2.jpg\" width=\"100px\">\n" +
+"            <img class=\"img\" src=\"https://cdn.icon-icons.com/icons2/2093/PNG/512/hospital_health_clinic_urban_buildings_medical_icon_128575.png\" width=\"100px\">\n" +
 "        </a>\n" +
 "    </p>\n" +
 "            <h1> Vetsoft </h1>\n" +
@@ -620,7 +620,7 @@ public class PorUsuario extends javax.swing.JFrame {
 "            <br>\n" +
 "            <fieldset>\n" +
 "\n" +
-"                <legend>Hola: <b> </b></legend>\n" +
+"                <legend>Hola: "+ txtUser.getText()+" <b> </b></legend>\n" +
 "\n" +
 "                <label>\n" +
 "                   Antes de completar el proceso de recuperación de contraseña debes de verificar tu código de verificación dento del programa Vetsoft\n" +
@@ -630,7 +630,7 @@ public class PorUsuario extends javax.swing.JFrame {
 "\n" +
 "                <legend>Tu código de verificación es: "+ clave +"<br> <b></b></legend>\n"+
 "\n" +
-"                <label>A continuación ingresa en el programa de Vetsoft y digita el código antes mencionado en el área de código de verificación.</label>\n" +
+"                <label>Ingresa al programa de Vetsoft y digita el código antes mencionado en el área de código de verificación.</label>\n" +
 "\n" +
 "                <p style=\"text-align: center; \">\n" +
 "                        <img class=\"img\" src=\"https://i.gifer.com/EOt.gif\" width=\"300px\">\n" +
