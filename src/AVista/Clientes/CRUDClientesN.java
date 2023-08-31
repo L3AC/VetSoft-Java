@@ -5,12 +5,13 @@
 package AVista.Clientes;
 
 import AControlador.ctCliente;
-import AControlador.ctVariableGlobal;
+import Design.PanelCliente;;
 import java.awt.BorderLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 /**
@@ -18,31 +19,25 @@ import javax.swing.SwingUtilities;
  * @author godna
  */
 public class CRUDClientesN extends javax.swing.JPanel {
-
-    /**
-     * Creates new form CRUDClientesN
-     */
+    ctCliente ccliente = new ctCliente();
+    private  String nombre;
     
-
+   
     public CRUDClientesN() throws SQLException {
         initComponents();
         DataProductos();
         addItem(ccliente);
+        
+        
     }
-    //Habilitar eventos de la carta
-//private EventCard event;
-//
-//    public void setEvent(EventCard event) {
-//        this.event = event;
-//    }
+  
+
     
-    ctCliente ccliente = new ctCliente();
+    public final void DataProductos() throws SQLException{
     
-    public final void DataProductos(){
-    try{
-     ccliente.idUsuario =ctVariableGlobal.idus; 
-    ResultSet rs = ccliente.CargarCCI();
-        System.out.println("1");
+     try{
+        ccliente.nombre = nombre;
+    ResultSet rs = ccliente.CargarCCI(); 
     while(rs.next()){
         System.out.println("2");
         addItem((ctCliente) ccliente.CargarCCI());
@@ -50,27 +45,22 @@ public class CRUDClientesN extends javax.swing.JPanel {
     }
     }catch(Exception ex){
         System.out.println("    no funciona me mato por que elegi software");
-    }
-    }
 
-
+ }
+   }   
+     
   //Metodo para agregar la carta
-public void addItem(ctCliente data) throws SQLException{
-//Clase para el componente
-
-try{
-    Cliente card = new Cliente();
-    card.setData(data);
-    card.setSize(341, 152);
-  System.out.println("Me mato por que elegi software");
-    panelCliente.add(card);
-    panelCliente.repaint();
-    panelCliente.revalidate();
-    System.out.println("Hasta aqui llega mi paciencia");
-    }catch(Exception ex){
-        System.out.println("dios");
+public void addItem(ctCliente CargarCCI) throws SQLException {
+    try {
+        Cliente card = new Cliente();
+        card.setData(CargarCCI);
+        card.setSize(341, 152);
+        panelCliente.add(card);
+        panelCliente.repaint();
+        panelCliente.revalidate();
+    } catch (Exception ex) {
     }
-    }
+}
 
    
 

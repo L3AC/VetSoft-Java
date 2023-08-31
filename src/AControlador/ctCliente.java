@@ -14,21 +14,9 @@ public class ctCliente {
     public String nacimiento;
     public String sexo;
     public String direccion;
-    Icon image;
-
-    public ctCliente() {
-
-    }
-
-
-    public Icon getImage() {
-        return image;
-    }
-
-    public void setImage(Icon image) {
-        this.image = image;
-    }
-
+ 
+   
+   
     public int getIdCliente() {
         return idCliente;
     }
@@ -115,8 +103,7 @@ public class ctCliente {
         return cl.deleteCl(idCliente);
     }
     public ResultSet CargarCCI(){
-        mdClientes mCI = new mdClientes();
-        return mCI.mostrarClientes(idUsuario);
+        return cl.mostrarClientes(nombre);
     }
     
     
