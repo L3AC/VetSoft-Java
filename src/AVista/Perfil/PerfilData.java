@@ -68,7 +68,7 @@ public class PerfilData extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(27, 73, 101));
         jLabel2.setText("CUENTA PERSONAL");
-        PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 40, 330, 50));
+        PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 40, 330, 50));
 
         panelRound1.setBackground(new java.awt.Color(202, 233, 255));
         panelRound1.setRoundBottomLeft(50);

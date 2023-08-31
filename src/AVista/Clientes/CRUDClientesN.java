@@ -5,7 +5,8 @@
 package AVista.Clientes;
 
 import AControlador.ctCliente;
-import Design.PanelCliente;;
+import Design.PanelCliente;
+;
 import java.awt.BorderLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -18,51 +19,50 @@ import javax.swing.SwingUtilities;
  *
  * @author godna
  */
+
+
 public class CRUDClientesN extends javax.swing.JPanel {
-    ctCliente ccliente = new ctCliente();
-    private  String nombre;
-    
-   
+
+    //private String nombre;
+
     public CRUDClientesN() throws SQLException {
         initComponents();
         DataProductos();
-        addItem(ccliente);
-        
-        
+        //addItem(ccliente);
     }
-  
 
-    
-    public final void DataProductos() throws SQLException{
-    
-     try{
-        ccliente.nombre = nombre;
-    ResultSet rs = ccliente.CargarCCI(); 
-    while(rs.next()){
-        System.out.println("2");
-        addItem((ctCliente) ccliente.CargarCCI());
-        System.out.println("3");
+    public final void DataProductos() throws SQLException {
+
+        try {
+            ctCliente ccliente = new ctCliente();
+            //ccliente.nombre = nombre;
+            ResultSet rs = ccliente.CargarCCI();
+            while (rs.next()) {
+                System.out.println("2");
+                //nombre=rs.getString("nombre");
+                addItem(rs.getString("nombre"));
+                
+                System.out.println("3");
+            }
+        } catch (Exception ex) {
+            System.out.println("    no funciona me mato por que elegi software");
+
+        }
     }
-    }catch(Exception ex){
-        System.out.println("    no funciona me mato por que elegi software");
 
- }
-   }   
-     
-  //Metodo para agregar la carta
-public void addItem(ctCliente CargarCCI) throws SQLException {
-    try {
-        Cliente card = new Cliente();
-        card.setData(CargarCCI);
-        card.setSize(341, 152);
-        panelCliente.add(card);
-        panelCliente.repaint();
-        panelCliente.revalidate();
-    } catch (Exception ex) {
+    //Metodo para agregar la carta
+    public void addItem(String nombre) throws SQLException {
+        try {
+            Cliente card = new Cliente(nombre);
+            card.setData();
+            card.setSize(341, 152);
+            panelCliente.add(card);
+            panelCliente.repaint();
+            panelCliente.revalidate();
+        } catch (Exception ex) {
+            System.err.println(ex.toString());
+        }
     }
-}
-
-   
 
     /**
      * This method is called from within the constructor to initialize the form.

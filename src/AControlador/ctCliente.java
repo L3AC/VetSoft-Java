@@ -103,10 +103,7 @@ public class ctCliente {
         return cl.deleteCl(idCliente);
     }
     public ResultSet CargarCCI(){
-        return cl.mostrarClientes(nombre);
+        return cl.mostrarClientes();
     }
-    
-    
-   
 
 }

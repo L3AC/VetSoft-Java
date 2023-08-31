@@ -17,60 +17,54 @@ import java.sql.SQLException;
  * @author godna
  */
 public class Cliente extends javax.swing.JPanel {
+
     
- ctCliente ccliente = new ctCliente();
-    private  String nombre;
-    
-    public   boolean isSelected(){
+    private String nombre;
+
+    public boolean isSelected() {
         return selected;
     }
-    
-    public void setSelected(boolean selected){
+
+    public void setSelected(boolean selected) {
         this.selected = selected;
         repaint();
     }
-    
-  private boolean selected;
 
-    public Cliente() throws SQLException {
+    private boolean selected;
+
+    public Cliente(String nombre) throws SQLException {
+        this.nombre=nombre;
         initComponents();
-        setData(CargarCCI);
+        setData();
         setOpaque(false);
     }
-        
 
-    
-    
-    private ctCliente CargarCCI;
-    
-    public void setData(ctCliente CargarCCI) throws SQLException{
-        
-         try {
+    public void setData() throws SQLException {
+
+        try {
+            /*ctCliente ccliente = new ctCliente();
             ccliente.nombre = nombre;
             ResultSet rs = ccliente.CargarCCI();
-            while (rs.next()) {
-               txtNom.setText(CargarCCI.getNombre());
+            while (rs.next()) {*/
+                txtNom.setText(nombre);
 
-                
-            }
+           // }
         } catch (Exception e) {
-              System.err.println(e.toString());
+            System.err.println(e.toString());
         }
     }
-        
-    
-    
+
     @Override
-    public void paint(Graphics graphics){
+    public void paint(Graphics graphics) {
         Graphics2D g2 = (Graphics2D) graphics.create();
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        g2.setColor(new Color(242,242,242));
-        if(selected){
-            g2.setColor(new Color(94,156,255));
+        g2.setColor(new Color(242, 242, 242));
+        if (selected) {
+            g2.setColor(new Color(94, 156, 255));
             //g2.drawRoundRect(0,0,getWidth(),, WIDTH, WIDTH, HEIGHT, WIDTH, HEIGHT);
         }
         g2.dispose();
-        super.paint(graphics);  
+        super.paint(graphics);
     }
 
     /**
