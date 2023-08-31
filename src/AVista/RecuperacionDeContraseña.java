@@ -83,31 +83,33 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
         panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 410, -1));
 
         btnUsuario.setText("Por email");
-        btnUsuario.setColor1(new java.awt.Color(255, 255, 255));
+        btnUsuario.setColor1(new java.awt.Color(153, 204, 255));
+        btnUsuario.setColor2(new java.awt.Color(153, 204, 255));
         btnUsuario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUsuarioActionPerformed(evt);
             }
         });
-        panelRound1.add(btnUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 95, 338, -1));
+        panelRound1.add(btnUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 270, -1));
 
         btnPreguntas.setText("Preguntas de confianza");
-        btnPreguntas.setColor1(new java.awt.Color(255, 255, 255));
+        btnPreguntas.setColor1(new java.awt.Color(153, 204, 255));
+        btnPreguntas.setColor2(new java.awt.Color(153, 204, 255));
         btnPreguntas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnPreguntas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPreguntasActionPerformed(evt);
             }
         });
-        panelRound1.add(btnPreguntas, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 170, 336, -1));
+        panelRound1.add(btnPreguntas, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 270, -1));
 
         panelRound2.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 530, 231));
 
         LBRecup.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         LBRecup.setForeground(new java.awt.Color(27, 73, 101));
         LBRecup.setText("Recuperación de Contraseña");
-        panelRound2.add(LBRecup, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 380, -1));
+        panelRound2.add(LBRecup, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 380, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {

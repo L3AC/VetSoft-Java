@@ -100,8 +100,10 @@ public class NuevaContra extends javax.swing.JFrame {
         lbCod.setText("Confirmar Contraseña");
         panelRound1.add(lbCod, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 180, 30));
 
+        btnCambiar.setBorder(null);
         btnCambiar.setText("Cambiar Contraseña");
-        btnCambiar.setColor1(new java.awt.Color(255, 255, 255));
+        btnCambiar.setColor1(new java.awt.Color(153, 204, 255));
+        btnCambiar.setColor2(new java.awt.Color(153, 204, 255));
         btnCambiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCambiarActionPerformed(evt);

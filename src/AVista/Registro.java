@@ -143,8 +143,8 @@ public class Registro extends javax.swing.JFrame {
         panelRound2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 70, -1));
 
         btnRegistrar.setText("Registrar");
-        btnRegistrar.setColor1(new java.awt.Color(255, 255, 255));
-        btnRegistrar.setColor2(new java.awt.Color(204, 255, 255));
+        btnRegistrar.setColor1(new java.awt.Color(153, 204, 255));
+        btnRegistrar.setColor2(new java.awt.Color(153, 204, 255));
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarActionPerformed(evt);

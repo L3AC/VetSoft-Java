@@ -136,7 +136,7 @@ public class Login extends javax.swing.JFrame {
                 btnIngresarActionPerformed(evt);
             }
         });
-        panelRound2.add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 140, -1));
+        panelRound2.add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 140, -1));
 
         txtOlvidasteContra.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         txtOlvidasteContra.setForeground(new java.awt.Color(27, 73, 101));
@@ -183,7 +183,7 @@ public class Login extends javax.swing.JFrame {
         });
         panelRound2.add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 370, 50));
 
-        panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 560, 290));
+        panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 550, 290));
 
         Titulo.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
         Titulo.setForeground(new java.awt.Color(27, 73, 101));
@@ -197,7 +197,7 @@ public class Login extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, 904, Short.MAX_VALUE)
+            .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,6 +210,7 @@ public class Login extends javax.swing.JFrame {
 /*Cuando se le de clic al botón ingresar lo que alla escrito el empleado en los texfiel de Usuario y contraseña se hara un reconocimiento de si el empleado existe
     o no, si el usuario existe lo dejara entrar si el usuario no existe no lo dejara entrar al sistema
     */
+    
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         try {
             List<TextFieldSV> lista = new ArrayList<>();
@@ -258,6 +259,7 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnIngresarActionPerformed
 
+    
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         try {
             Registro newFrame = new Registro();

@@ -131,7 +131,8 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         panelRound4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 160, -1, 30));
 
         btnVerificar.setText("Verificar");
-        btnVerificar.setColor1(new java.awt.Color(255, 255, 255));
+        btnVerificar.setColor1(new java.awt.Color(153, 204, 255));
+        btnVerificar.setColor2(new java.awt.Color(153, 204, 255));
         btnVerificar.setFont(new java.awt.Font("Microsoft PhagsPa", 0, 14)); // NOI18N
         btnVerificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,7 +142,8 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         panelRound4.add(btnVerificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 100, -1));
 
         btnEnviar.setText("Enviar");
-        btnEnviar.setColor1(new java.awt.Color(255, 255, 255));
+        btnEnviar.setColor1(new java.awt.Color(153, 204, 255));
+        btnEnviar.setColor2(new java.awt.Color(153, 204, 255));
         btnEnviar.setFont(new java.awt.Font("Microsoft PhagsPa", 0, 14)); // NOI18N
         btnEnviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

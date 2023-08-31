@@ -128,8 +128,8 @@ public class PorUsuario extends javax.swing.JFrame {
 
         btnVeri.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         btnVeri.setText("Verificar");
-        btnVeri.setColor1(new java.awt.Color(255, 255, 255));
-        btnVeri.setColor2(new java.awt.Color(204, 255, 255));
+        btnVeri.setColor1(new java.awt.Color(153, 204, 255));
+        btnVeri.setColor2(new java.awt.Color(153, 204, 255));
         btnVeri.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVeriActionPerformed(evt);
@@ -154,8 +154,8 @@ public class PorUsuario extends javax.swing.JFrame {
 
         btnEnviar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         btnEnviar.setText("Enviar Correo");
-        btnEnviar.setColor1(new java.awt.Color(255, 255, 255));
-        btnEnviar.setColor2(new java.awt.Color(204, 255, 255));
+        btnEnviar.setColor1(new java.awt.Color(153, 204, 255));
+        btnEnviar.setColor2(new java.awt.Color(153, 204, 255));
         btnEnviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEnviarActionPerformed(evt);
@@ -164,8 +164,8 @@ public class PorUsuario extends javax.swing.JFrame {
         panelRound1.add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 110, 30));
 
         btnCambiar.setText("Cambiar Contraseña");
-        btnCambiar.setColor1(new java.awt.Color(255, 255, 255));
-        btnCambiar.setColor2(new java.awt.Color(204, 255, 255));
+        btnCambiar.setColor1(new java.awt.Color(153, 204, 255));
+        btnCambiar.setColor2(new java.awt.Color(153, 204, 255));
         btnCambiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCambiarActionPerformed(evt);
