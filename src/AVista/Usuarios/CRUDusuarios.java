@@ -143,10 +143,7 @@ public class CRUDusuarios extends javax.swing.JPanel {
         });
 
         btnEditar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        btnEditar.setForeground(new java.awt.Color(255, 255, 255));
         btnEditar.setText("Editar");
-        btnEditar.setColor1(new java.awt.Color(27, 73, 101));
-        btnEditar.setColor2(new java.awt.Color(27, 73, 101));
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditarActionPerformed(evt);

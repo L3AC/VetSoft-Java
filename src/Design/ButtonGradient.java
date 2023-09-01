@@ -59,7 +59,7 @@ public class ButtonGradient extends JButton  {
     private float alpha = 0.3f;
     private boolean mouseOver;
     private boolean pressed;
-    private Color borderColor = new Color(202,233,255);
+    //private Color borderColor = new Color(202,233,255);
     private Point pressedLocation;
     private float pressedSize;
     private float sizeSpeed = 1f;
@@ -67,7 +67,7 @@ public class ButtonGradient extends JButton  {
 
     public ButtonGradient() {
         setContentAreaFilled(false);
-        setForeground(Color.WHITE);
+        setForeground(new Color(27,77,101));
         setCursor(new Cursor(Cursor.HAND_CURSOR));
         setBorder(new EmptyBorder(7, 5, 7, 5));
         addMouseListener(new MouseAdapter() {
@@ -131,7 +131,7 @@ public class ButtonGradient extends JButton  {
         });
     }
 
-    @Override
+    /*@Override
     protected void paintComponent(Graphics grphcs) {
     int width = getWidth();
     int height = getHeight();
@@ -154,9 +154,9 @@ public class ButtonGradient extends JButton  {
     grphcs.drawImage(img, 0, 0, null);
 
     super.paintComponent(grphcs);
-    }
+    }*/
     
-    /*@Override
+    @Override
     protected void paintComponent(Graphics grphcs) {
         int width = getWidth();
         int height = getHeight();
@@ -175,7 +175,7 @@ public class ButtonGradient extends JButton  {
         g2.dispose();
         grphcs.drawImage(img, 0, 0, null);
         super.paintComponent(grphcs);
-    }*/
+    }
 
     private void createStyle(Graphics2D g2) {
         g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_ATOP, alpha));
