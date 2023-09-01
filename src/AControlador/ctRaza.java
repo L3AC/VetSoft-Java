@@ -54,12 +54,12 @@ public class ctRaza {
    public boolean deleteRaza(){
        return md.deleteRaza(idRaza);
    }
-   /* public boolean insRaza(){
-       return md.insertRaza(idRaza);
+    public boolean insRaza(){
+       return md.insertRaza(idTipoAnimal,nombreRaza);
    }
-     public boolean deleteRaza(){
-       return md.deleteRaza(idRaza);
-   }*/
+     public boolean upRaza(){
+       return md.updateRaza(idTipoAnimal,nombreRaza,idRaza);
+   }
     /*public boolean insertAnim() {
         return ani.insertAnim(idCliente, idRaza, padecimientos, nombre, peso, edad, sexo);
     }

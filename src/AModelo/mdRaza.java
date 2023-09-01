@@ -150,15 +150,16 @@ public class mdRaza {
         }
     }
 
-    //Esto nos ayudara a insertar una nueva raza dentro del sistema
-    public boolean insertRaza(int id1, String n1) {
-        String query = "update tbRazas set nombreRaza=? where idRaza=?;";
+    //Esto nos ayudara a actualizar una raza dentro del sistema
+    public boolean updateRaza(int id1, String n1,int id2) {
+        String query = "update tbRazas set idTipoAnimal=?,nombreRaza=? where idRaza=?;";
         try {
             ps = con.prepareStatement(query);
-            ps.setString(1, n1);
-            ps.setInt(2, id1);
+            ps.setInt(1, id1);
+            ps.setString(2, n1);
+            ps.setInt(3, id2);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Campos ingresados");
+            JOptionPane.showMessageDialog(null, "Campos actualizados");
             return true;
 
         } catch (SQLException e) {
@@ -169,16 +170,15 @@ public class mdRaza {
         }
     }
 
-    //Esto nos ayudara a actualizar los campos necesarios de razas 
-    public boolean updateRaza(int idEsp, String Esp) {
-        String query = "update tbEspecialidades SET Especialidad=? \n"
-                + "where idEspecialidad=?;";
+    //Esto nos ayudara a registrar los campos necesarios de razas 
+    public boolean insertRaza(int id1, String n1) {
+        String query = "insert into tbRazas values(?,?);";
         try {
             ps = con.prepareStatement(query);
-            ps.setString(1, Esp);
-            ps.setInt(2, idEsp);
+            ps.setInt(1, id1);
+            ps.setString(2, n1);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Campos actualizados");
+            JOptionPane.showMessageDialog(null, "Campos ingresados");
             return true;
 
         } catch (SQLException e) {

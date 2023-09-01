@@ -341,7 +341,7 @@ public class CRUDtpserv extends javax.swing.JPanel {
             if (dsg.areFieldsNotEmpty(lista)) {
                 ctTipoServ ct = new ctTipoServ();
                 ct.idTipoServ = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-                ct.idNivelServ = dsg.getMap(cbMapNPS, cbNivelS.getSelectedItem().toString());;
+                ct.idNivelServ = dsg.getMap(cbMapNPS, cbNivelS.getSelectedItem().toString());
                 ct.Nombre = txtServ.getText();
                 ct.Costo = Float.parseFloat(txtCosto.getText());
                 ct.updtServ();

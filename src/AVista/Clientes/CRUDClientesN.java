@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+
 package AVista.Clientes;
 
 import AControlador.ctCliente;
@@ -15,10 +12,6 @@ import java.sql.SQLException;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
-/**
- *
- * @author godna
- */
 
 
 public class CRUDClientesN extends javax.swing.JPanel {
