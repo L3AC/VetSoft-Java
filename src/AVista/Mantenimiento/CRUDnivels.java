@@ -26,8 +26,12 @@ public class CRUDnivels extends javax.swing.JPanel {
     Desg dsg = new Desg();
     DefaultTableModel model;
 
-    public CRUDnivels() {
+    public CRUDnivels() throws SQLException {
         initComponents();
+        loadD();
+        if (tbData.getRowCount() > 0) {
+            setData();
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -139,7 +143,7 @@ public class CRUDnivels extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
     final void loadD() throws SQLException {
-        String[] column = {"idTipoProducto", "Tipo de producto"};
+        String[] column = {"idNivelServicio", "Nivel de servicio"};
         model = new DefaultTableModel(null, column);
         dsg.ColumnHide(model, tbData, 0, 2);
         CargarTabla();
@@ -153,11 +157,11 @@ public class CRUDnivels extends javax.swing.JPanel {
             model.removeRow(0);
         }
         try {
-            ctProd ct = new ctProd();
-            ct.tipoProd = txtBusq.getText().toString();
-            ResultSet rs = ct.tableTProd();
+            ctTipoServ ct = new ctTipoServ();
+            ct.prioridad = txtBusq.getText().toString();
+            ResultSet rs = ct.loadNServ();
             while (rs.next()) {
-                Object[] oValores = {rs.getInt("idTipoProducto"), rs.getString("tipo")};
+                Object[] oValores = {rs.getInt("idNivelServicio"), rs.getString("Prioridad")};
                 model.addRow(oValores);
             }
         } catch (Exception e) {
@@ -179,8 +183,8 @@ public class CRUDnivels extends javax.swing.JPanel {
         if (tbData.getRowCount() > 0) {
             try {
                 ctTipoServ ct = new ctTipoServ();
-                ct.idNivelServ =Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-                ct.prioridad=txtPriori.getText();
+                ct.idNivelServ = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                ct.prioridad = txtPriori.getText();
                 ct.upNServ();
                 loadD();
             } catch (SQLException ex) {
@@ -192,8 +196,11 @@ public class CRUDnivels extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnActActionPerformed
 
+    final void setData() {
+        txtPriori.setText(tbData.getValueAt(tbData.getSelectedRow(), 1).toString());
+    }
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
-        //setData();
+        setData();
     }//GEN-LAST:event_tbDataMouseClicked
 
 
