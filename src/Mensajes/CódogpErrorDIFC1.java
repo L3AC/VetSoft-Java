@@ -5,6 +5,11 @@
 package Mensajes;
 
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+import java.awt.event.ActionListener;
+import java.awt.geom.RoundRectangle2D;
 
 /**
  *
@@ -17,6 +22,24 @@ public class CódogpErrorDIFC1 extends javax.swing.JPanel {
      */
     public CódogpErrorDIFC1() {
         initComponents();
+        txt.setBackground(new Color(0, 0, 0, 0));
+        txt.setOpaque(false);
+    }
+     protected void paintComponent(Graphics grphcs) {
+        Graphics2D g2 = (Graphics2D) grphcs.create();
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2.setColor(getBackground());
+        g2.fill(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 15, 15));
+        g2.dispose();
+        super.paintComponent(grphcs);
+    }
+
+      public void EventErrorLI1(ActionListener event){
+    cmdOk.addActionListener(event);
+    }
+    
+    public void eventOK(ActionListener event) {
+        cmdOk.addActionListener(event);
     }
 
     /**
@@ -31,7 +54,7 @@ public class CódogpErrorDIFC1 extends javax.swing.JPanel {
         panelRound1 = new Design.PanelRound();
         jLabel1 = new javax.swing.JLabel();
         txt = new javax.swing.JLabel();
-        boton1 = new Mensajes.Boton();
+        cmdOk = new Mensajes.Boton();
 
         setBackground(new Color(255,255,255,0));
         setForeground(new Color(255,255,255,0));
@@ -54,19 +77,19 @@ public class CódogpErrorDIFC1 extends javax.swing.JPanel {
         txt.setText("\"Información No Disponible\"");
         panelRound1.add(txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
 
-        boton1.setBackground(new java.awt.Color(95, 171, 211));
-        boton1.setBorder(null);
-        boton1.setForeground(new java.awt.Color(255, 255, 255));
-        boton1.setText("Ok");
-        boton1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        boton1.setMaximumSize(new java.awt.Dimension(29, 34));
-        boton1.setMinimumSize(new java.awt.Dimension(29, 34));
-        boton1.addActionListener(new java.awt.event.ActionListener() {
+        cmdOk.setBackground(new java.awt.Color(95, 171, 211));
+        cmdOk.setBorder(null);
+        cmdOk.setForeground(new java.awt.Color(255, 255, 255));
+        cmdOk.setText("Ok");
+        cmdOk.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        cmdOk.setMaximumSize(new java.awt.Dimension(29, 34));
+        cmdOk.setMinimumSize(new java.awt.Dimension(29, 34));
+        cmdOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boton1ActionPerformed(evt);
+                cmdOkActionPerformed(evt);
             }
         });
-        panelRound1.add(boton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 70, 30));
+        panelRound1.add(cmdOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 70, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -80,13 +103,13 @@ public class CódogpErrorDIFC1 extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void boton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton1ActionPerformed
+    private void cmdOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdOkActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_boton1ActionPerformed
+    }//GEN-LAST:event_cmdOkActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Mensajes.Boton boton1;
+    private Mensajes.Boton cmdOk;
     private javax.swing.JLabel jLabel1;
     private Design.PanelRound panelRound1;
     private javax.swing.JLabel txt;

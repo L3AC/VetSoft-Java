@@ -7,6 +7,8 @@ import AVista.Citas.insertCita;
 import AVista.Vacunas.AddVacuna;
 import AVista.Vacunas.HVacunas;
 import Design.Desg;
+import Mensajes.CódogpErrorDIFC1;
+import Mensajes.GlassPanePopup;
 import Tipografias.Fuentes;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,32 +18,34 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 import Validation.Valida;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class CRUDAnimales extends javax.swing.JPanel {
 
     public int idTipoUs;
     private int idAnimal;
-    
+
     Desg dsg = new Desg();
     Fuentes tipoFuente;
     DefaultTableModel model;
 
     public CRUDAnimales(int idTipoUs) throws SQLException {
-        this.idTipoUs=idTipoUs;
+        this.idTipoUs = idTipoUs;
         initComponents();
         loadD();
-        
+
         tipoFuente = new Fuentes();
-        
+
         jLabel2.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 18));
         tbData.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 13));
-        
+
         txtBusq.setDocument(new Valida(50, "[a-zA-Z]*"));
-        
+
     }
 
     final void loadD() throws SQLException {
-        
+
         String[] column = {"idAnimal", "Animal", "Nombre", "Dueño"};
         model = new DefaultTableModel(null, column);
         dsg.ColumnHide(model, tbData, 0, 4);
@@ -257,29 +261,41 @@ public class CRUDAnimales extends javax.swing.JPanel {
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
-        int opcion = JOptionPane.showOptionDialog(
-                null,
-                "¿Desea eliminar el registro?",
-                "Advertencia",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.WARNING_MESSAGE,
-                null,
-                new Object[]{"Sí", "No"},
-                "No");
+        if (tbData.getRowCount() > 0) {
+            UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
+            int opcion = JOptionPane.showOptionDialog(
+                    null,
+                    "¿Desea eliminar el registro?",
+                    "Advertencia",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.WARNING_MESSAGE,
+                    null,
+                    new Object[]{"Sí", "No"},
+                    "No");
 
-        if (opcion == JOptionPane.YES_OPTION) {
-            ctAnimales ct=new ctAnimales();
-            ct.idAnimal = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-            ct.deleteAnim();
-            try {
-                loadD();
-            } catch (SQLException ex) {
-                Logger.getLogger(CRUDAnimales.class.getName()).log(Level.SEVERE, null, ex);
+            if (opcion == JOptionPane.YES_OPTION) {
+                ctAnimales ct = new ctAnimales();
+                ct.idAnimal = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                ct.deleteAnim();
+                try {
+                    loadD();
+                } catch (SQLException ex) {
+                    Logger.getLogger(CRUDAnimales.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else if (opcion == JOptionPane.NO_OPTION) {
+
             }
-        } else if (opcion == JOptionPane.NO_OPTION) {
-
+        } else {
+            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
+
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
@@ -292,21 +308,42 @@ public class CRUDAnimales extends javax.swing.JPanel {
     }//GEN-LAST:event_txtBusqKeyReleased
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        
-        try {
-            updtAnimales subp = new updtAnimales(Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
-            dsg.ShowPanel(subp, PCont, 1320, 810);
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDAnimales.class.getName()).log(Level.SEVERE, null, ex);
+        if (tbData.getRowCount() > 0) {
+            try {
+                updtAnimales subp = new updtAnimales(Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
+                dsg.ShowPanel(subp, PCont, 1320, 810);
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDAnimales.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnAgendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgendarActionPerformed
-        try {
-            insertCita subp = new insertCita(idTipoUs,Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()),2);
-            dsg.ShowPanel(subp, PCont, 1320, 810);
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDAnimales.class.getName()).log(Level.SEVERE, null, ex);
+        if (tbData.getRowCount() > 0) {
+            try {
+                insertCita subp = new insertCita(idTipoUs, Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()), 2);
+                dsg.ShowPanel(subp, PCont, 1320, 810);
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDAnimales.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
     }//GEN-LAST:event_btnAgendarActionPerformed
 
@@ -315,29 +352,62 @@ public class CRUDAnimales extends javax.swing.JPanel {
     }//GEN-LAST:event_txtBusqActionPerformed
 
     private void btnExamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExamActionPerformed
-        try {
-            CRUDExam subp = new CRUDExam(idAnimal,idTipoUs);
-            dsg.ShowPanel(subp, PCont, 1320, 810);
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDAnimales.class.getName()).log(Level.SEVERE, null, ex);
+        if (tbData.getRowCount() > 0) {
+            try {
+                CRUDExam subp = new CRUDExam(idAnimal, idTipoUs);
+                dsg.ShowPanel(subp, PCont, 1320, 810);
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDAnimales.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
     }//GEN-LAST:event_btnExamActionPerformed
 
     private void btnVacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVacActionPerformed
-        try {
-            HVacunas subp = new HVacunas(idTipoUs,Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
-            dsg.ShowPanel(subp, PCont, 1320, 810);
-        } catch (SQLException ex) {
-            Logger.getLogger(HVacunas.class.getName()).log(Level.SEVERE, null, ex);
+        if (tbData.getRowCount() > 0) {
+            try {
+                HVacunas subp = new HVacunas(idTipoUs, Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
+                dsg.ShowPanel(subp, PCont, 1320, 810);
+            } catch (SQLException ex) {
+                Logger.getLogger(HVacunas.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
     }//GEN-LAST:event_btnVacActionPerformed
 
     private void btnAddVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddVActionPerformed
-        try {
-            AddVacuna subp = new AddVacuna(idTipoUs,Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
-            dsg.ShowPanel(subp, PCont, 1320, 810);
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDAnimales.class.getName()).log(Level.SEVERE, null, ex);
+        if (tbData.getRowCount() > 0) {
+            try {
+                AddVacuna subp = new AddVacuna(idTipoUs, Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
+                dsg.ShowPanel(subp, PCont, 1320, 810);
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDAnimales.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
     }//GEN-LAST:event_btnAddVActionPerformed
 
