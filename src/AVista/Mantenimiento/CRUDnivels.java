@@ -20,10 +20,11 @@ import javax.swing.table.DefaultTableModel;
  */
 public class CRUDnivels extends javax.swing.JPanel {
 
-        private int idTipoUs;
+    private int idTipoUs;
     private int idEsRow;
     Desg dsg = new Desg();
     DefaultTableModel model;
+
     public CRUDnivels() {
         initComponents();
     }
@@ -39,7 +40,6 @@ public class CRUDnivels extends javax.swing.JPanel {
         btnAgregar = new Design.ButtonGradient();
         btnAct = new Design.ButtonGradient();
         btnEliminar = new Design.ButtonGradient();
-        btnLimp = new Design.ButtonGradient();
         jLabel1 = new javax.swing.JLabel();
         panelRound1 = new Design.PanelRound();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -63,8 +63,8 @@ public class CRUDnivels extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Nombre");
-        PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 200, -1, -1));
+        jLabel2.setText("Nivel de servicio");
+        PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 200, -1, -1));
 
         txtProd.setBackground(new java.awt.Color(202, 233, 255));
         txtProd.setShadowColor(new java.awt.Color(0, 0, 51));
@@ -95,14 +95,6 @@ public class CRUDnivels extends javax.swing.JPanel {
             }
         });
         PCont.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 312, 110, 40));
-
-        btnLimp.setText("Limpiar");
-        btnLimp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpActionPerformed(evt);
-            }
-        });
-        PCont.add(btnLimp, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 116, 181, 40));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -192,7 +184,7 @@ public class CRUDnivels extends javax.swing.JPanel {
         }
 
     }
-    
+
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
         try {
             loadD();
@@ -242,14 +234,14 @@ public class CRUDnivels extends javax.swing.JPanel {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
         int opcion = JOptionPane.showOptionDialog(
-            null,
-            "¿Desea eliminar el registro?",
-            "Advertencia",
-            JOptionPane.YES_NO_OPTION,
-            JOptionPane.WARNING_MESSAGE,
-            null,
-            new Object[]{"Sí", "No"},
-            "No");
+                null,
+                "¿Desea eliminar el registro?",
+                "Advertencia",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.WARNING_MESSAGE,
+                null,
+                new Object[]{"Sí", "No"},
+                "No");
 
         if (opcion == JOptionPane.YES_OPTION) {
             try {
@@ -265,10 +257,6 @@ public class CRUDnivels extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void btnLimpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpActionPerformed
-        txtProd.setText(null);
-    }//GEN-LAST:event_btnLimpActionPerformed
-
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
         //setData();
     }//GEN-LAST:event_tbDataMouseClicked
@@ -279,7 +267,6 @@ public class CRUDnivels extends javax.swing.JPanel {
     private Design.ButtonGradient btnAct;
     private Design.ButtonGradient btnAgregar;
     private Design.ButtonGradient btnEliminar;
-    private Design.ButtonGradient btnLimp;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

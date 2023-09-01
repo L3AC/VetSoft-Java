@@ -94,6 +94,11 @@ public class CRUDAnimales extends javax.swing.JPanel {
         PCont.setBackground(new java.awt.Color(27, 73, 101));
 
         btnEmergen.setText("Emergencia");
+        btnEmergen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEmergenActionPerformed(evt);
+            }
+        });
 
         btnAgendar.setText("Agendar Cita");
         btnAgendar.addActionListener(new java.awt.event.ActionListener() {
@@ -335,6 +340,10 @@ public class CRUDAnimales extends javax.swing.JPanel {
             Logger.getLogger(CRUDAnimales.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnAddVActionPerformed
+
+    private void btnEmergenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmergenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEmergenActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

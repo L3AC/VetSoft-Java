@@ -111,6 +111,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Emergencia"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEmergenActionPerformed"/>
+          </Events>
         </Component>
         <Component class="Design.ButtonGradient" name="btnAgendar">
           <Properties>
