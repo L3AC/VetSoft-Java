@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javaswingdev.GoogleMaterialDesignIcon;
 import SwingScroll.ScrollBar;
+import Tipografias.Fuentes;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -26,13 +27,14 @@ public class MenuAdmin extends JPanel{
     
     private int index = -1;
     private final List<MenuSelectEvent> events = new ArrayList<>();
+    Fuentes tipoFuente;
     
     public MenuAdmin() {
         initAdmin();
     }
 
     private void initAdmin() {
-        setBackground(Color.RED);
+        setBackground(Color.black);
         setLayout(new BorderLayout());
         JScrollPane scroll = createScroll();
         panelMenu = createPanelMenu();
@@ -40,7 +42,7 @@ public class MenuAdmin extends JPanel{
         scroll.getViewport().setOpaque(false);
         scroll.setViewportBorder(null);
         add(scroll);
-        addTitle("Inicio");
+        addTitle("HOLA");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.DASHBOARD, "Bienvenido"));
         addTitle("Gestión principal");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PERSON, 
@@ -103,13 +105,18 @@ public class MenuAdmin extends JPanel{
 
     //  Public Method
     public void addMenuItem(ModelMenuItem menu) {
+        
+        tipoFuente = new Fuentes();
         panelMenu.add(createMenuItem(menu), "h 35!");
+        setFont(tipoFuente.fuente(tipoFuente.COM, 0, 13));
     }
 
     public void addTitle(String title) {
-        JLabel label = new JLabel(title);
+        tipoFuente = new Fuentes();
+        
+        JLabel label = new JLabel(title);//label.getFont().deriveFont(Font.BOLD)
         label.setBorder(new EmptyBorder(15, 20, 5, 5));
-        label.setFont(label.getFont().deriveFont(Font.BOLD));
+        label.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 13));
         label.setForeground(new Color(170, 170, 170));
         panelMenu.add(label);
     }
