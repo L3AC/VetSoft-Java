@@ -299,8 +299,10 @@ public class updateProd extends javax.swing.JPanel {
         
          if(txtProv.getText().length()>= 2){
             lbMin.setVisible(false);
+            btnConfirm.setEnabled(true);
         }else {
             lbMin.setVisible(true);
+             btnConfirm.setEnabled(false);
         } 
     }//GEN-LAST:event_txtProvKeyTyped
 
@@ -309,8 +311,10 @@ public class updateProd extends javax.swing.JPanel {
         
         if(txtProducto.getText().length()>= 2){
             lbMin1.setVisible(false);
+            btnConfirm.setEnabled(true);
         }else {
             lbMin1.setVisible(true);
+            btnConfirm.setEnabled(false);
         } 
     }//GEN-LAST:event_txtProductoKeyTyped
 
@@ -319,8 +323,10 @@ public class updateProd extends javax.swing.JPanel {
         
         if(txtPrecio.getText().length()>= 1){
             lbMin2.setVisible(false);
+            btnConfirm.setEnabled(true);
         }else {
             lbMin2.setVisible(true);
+            btnConfirm.setEnabled(false);
         } 
     }//GEN-LAST:event_txtPrecioKeyTyped
 

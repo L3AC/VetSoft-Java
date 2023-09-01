@@ -138,8 +138,10 @@ public class AddReceta extends javax.swing.JPanel {
         
         if(txtIns.getText().length()>= 4){
             lbMin.setVisible(false);
+            btnAg.setEnabled(true);
         }else {
             lbMin.setVisible(true);
+            btnAg.setEnabled(false);
         } 
     }//GEN-LAST:event_txtInsKeyTyped
 

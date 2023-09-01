@@ -323,8 +323,10 @@ public class addMascota extends javax.swing.JPanel {
         // TODO add your handling code here:
          if(txtNombre.getText().length()>= 2){
             lbMin.setVisible(false);
+            btnConfirm.setEnabled(true);
         }else {
             lbMin.setVisible(true);
+            btnConfirm.setEnabled(false);
         } 
     }//GEN-LAST:event_txtNombreKeyTyped
 
@@ -332,8 +334,10 @@ public class addMascota extends javax.swing.JPanel {
         // TODO add your handling code here:
         if(txtPeso.getText().length()>= 9){
             lbMin1.setVisible(false); 
+             btnConfirm.setEnabled(true);
         }else {
             lbMin1.setVisible(true);
+             btnConfirm.setEnabled(false);
         } 
     }//GEN-LAST:event_txtPesoKeyTyped
 

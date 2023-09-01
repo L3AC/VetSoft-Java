@@ -26,7 +26,7 @@ public class CRUDTipoVac extends javax.swing.JPanel {
         this.idUs = idUs;
         initComponents();
         loadD();
-        
+
     }
 
     @SuppressWarnings("unchecked")
@@ -167,7 +167,7 @@ public class CRUDTipoVac extends javax.swing.JPanel {
         }
 
         try {
-            ctVacunas ct=new ctVacunas();
+            ctVacunas ct = new ctVacunas();
             ct.nombreVac = txtBusq.getText().toString();
             ResultSet rs = ct.loadTPVac();
             while (rs.next()) {
@@ -189,10 +189,10 @@ public class CRUDTipoVac extends javax.swing.JPanel {
     }//GEN-LAST:event_txtBusqKeyReleased
 
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
-          if (tbData.getRowCount() > 0) {   
-        txtVacuna.setText(tbData.getValueAt(tbData.getSelectedRow(), 1).toString());
-           txtUso.setText(tbData.getValueAt(tbData.getSelectedRow(), 2).toString());
-          } else {
+        if (tbData.getRowCount() > 0) {
+            txtVacuna.setText(tbData.getValueAt(tbData.getSelectedRow(), 1).toString());
+            txtUso.setText(tbData.getValueAt(tbData.getSelectedRow(), 2).toString());
+        } else {
             CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
             obj.eventOK(new ActionListener() {
                 @Override
@@ -206,9 +206,9 @@ public class CRUDTipoVac extends javax.swing.JPanel {
 
     private void btnAddMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddMActionPerformed
         try {
-            ctVacunas ct=new ctVacunas();
-            ct.nombreVac=txtVacuna.getText().toString();
-            ct.util=txtUso.getText().toString();
+            ctVacunas ct = new ctVacunas();
+            ct.nombreVac = txtVacuna.getText().toString();
+            ct.util = txtUso.getText().toString();
             ct.insTPVac();
             loadD();
         } catch (SQLException ex) {
@@ -218,10 +218,10 @@ public class CRUDTipoVac extends javax.swing.JPanel {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         try {
-            ctVacunas ct=new ctVacunas();
-            ct.idTipoVac=Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-            ct.nombreVac=txtVacuna.getText().toString();
-            ct.util=txtUso.getText().toString();
+            ctVacunas ct = new ctVacunas();
+            ct.idTipoVac = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+            ct.nombreVac = txtVacuna.getText().toString();
+            ct.util = txtUso.getText().toString();
             ct.upTPVac();
             loadD();
         } catch (SQLException ex) {
@@ -242,8 +242,8 @@ public class CRUDTipoVac extends javax.swing.JPanel {
                 "No");
 
         if (opcion == JOptionPane.YES_OPTION) {
-            ctVacunas ct=new ctVacunas();
-            ct.idTipoVac= Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+            ctVacunas ct = new ctVacunas();
+            ct.idTipoVac = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
             ct.delTPVac();
             try {
                 loadD();

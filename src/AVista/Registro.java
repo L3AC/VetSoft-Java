@@ -360,8 +360,10 @@ public class Registro extends javax.swing.JFrame {
         //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros, donde si solo escribe dos numeros le saldra un texfield
         if(txtContra.getText().length()>= 7){
             lbMin.setVisible(false);
+            btnRegistrar.setEnabled(true);
         }else {
             lbMin.setVisible(true);
+            btnRegistrar.setEnabled(false);
         } 
     }//GEN-LAST:event_txtContraKeyTyped
 
@@ -374,8 +376,10 @@ public class Registro extends javax.swing.JFrame {
         // TODO add your handling code here:
       if(txtTeléfono.getText().length()>= 7){
             lbMin1.setVisible(false);
+            btnRegistrar.setEnabled(true);
         }else {
             lbMin1.setVisible(true);
+            btnRegistrar.setEnabled(false);
         } 
 
     }//GEN-LAST:event_txtTeléfonoKeyTyped
@@ -404,6 +408,10 @@ public class Registro extends javax.swing.JFrame {
     private void txtUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyReleased
         // TODO add your handling code here:
 
+        if(txtUsuario.getText().length()>= 3){
+            lbMinimo2.setVisible(false);
+        btnRegistrar.setEnabled(true);
+        
         ctUser ctUs = new ctUser();
         ctUs.usuario = txtUsuario.getText().toString();
         try {
@@ -417,6 +425,10 @@ public class Registro extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
         }
+        } else {
+            lbMinimo2.setVisible(true);
+            btnRegistrar.setEnabled(false);
+        } 
     }//GEN-LAST:event_txtUsuarioKeyReleased
 
     private void txtTeléfonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTeléfonoActionPerformed

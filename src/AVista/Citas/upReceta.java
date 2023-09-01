@@ -198,6 +198,7 @@ public class upReceta extends javax.swing.JPanel {
             LbMin.setVisible(false);
         }else {
             LbMin.setVisible(true);
+            
         } 
     }//GEN-LAST:event_txtInsKeyTyped
 

@@ -341,8 +341,10 @@ public class insertProd extends javax.swing.JPanel {
         
          if(txtProv.getText().length()>= 2){
             lbMin.setVisible(false);
+             btnAgregar.setEnabled(true);
         }else {
             lbMin.setVisible(true);
+            btnAgregar.setEnabled(false);
         } 
     }//GEN-LAST:event_txtProvKeyTyped
 
@@ -350,8 +352,10 @@ public class insertProd extends javax.swing.JPanel {
         // TODO add your handling code here:
          if(txtProducto.getText().length()>= 2){
             lbMin1.setVisible(false);
+             btnAgregar.setEnabled(true);
         }else {
             lbMin1.setVisible(true);
+             btnAgregar.setEnabled(false);
         } 
     }//GEN-LAST:event_txtProductoKeyTyped
 
@@ -359,8 +363,10 @@ public class insertProd extends javax.swing.JPanel {
         // TODO add your handling code here:
          if(txtPrecio.getText().length()>= 1){
             lbMin2.setVisible(false);
+             btnAgregar.setEnabled(true);
         }else {
             lbMin2.setVisible(true);
+             btnAgregar.setEnabled(false);
         } 
     }//GEN-LAST:event_txtPrecioKeyTyped
 

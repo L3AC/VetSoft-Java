@@ -357,8 +357,10 @@ public class insertUs extends javax.swing.JPanel {
         
          if(txtUsuario.getText().length()>= 3){
             lbMin.setVisible(false);
+            btnConfirm.setEnabled(true);
         }else {
             lbMin.setVisible(true);
+            btnConfirm.setEnabled(false);
         } 
     }//GEN-LAST:event_txtUsuarioKeyTyped
 
@@ -366,8 +368,10 @@ public class insertUs extends javax.swing.JPanel {
         // TODO add your handling code here:
         if(txtContra.getText().length()>= 7){
             lbMin1.setVisible(false);
+            btnConfirm.setEnabled(true);
         }else {
             lbMin1.setVisible(true);
+            btnConfirm.setEnabled(false);
         } 
     }//GEN-LAST:event_txtContraKeyTyped
 
@@ -375,8 +379,10 @@ public class insertUs extends javax.swing.JPanel {
         // TODO add your handling code here:
         if(txtTel.getText().length()>= 7){
             lbMin2.setVisible(false);
+            btnConfirm.setEnabled(true);
         }else {
             lbMin2.setVisible(true);
+            btnConfirm.setEnabled(false);
         } 
     }//GEN-LAST:event_txtTelKeyTyped
 

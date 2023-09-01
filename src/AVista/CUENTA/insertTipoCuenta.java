@@ -410,8 +410,10 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         // TODO add your handling code here:
          if(txtNombre.getText().length()>= 4){
             lbMin.setVisible(false);
+            btnConfirm.setEnabled(true);
         }else {
             lbMin.setVisible(true);
+            btnConfirm.setEnabled(false);
         } 
     }//GEN-LAST:event_txtNombreKeyTyped
 
@@ -419,8 +421,10 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         // TODO add your handling code here:
          if(txtApellidos.getText().length()>= 4){
             lbMin1.setVisible(false);
+            btnConfirm.setEnabled(true);
         }else {
             lbMin1.setVisible(true);
+            btnConfirm.setEnabled(false);
         } 
     }//GEN-LAST:event_txtApellidosKeyTyped
 
@@ -428,8 +432,10 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         // TODO add your handling code here:
          if(txtDui.getText().length()>= 9){
             lbMin2.setVisible(false);
+            btnConfirm.setEnabled(true);
         }else {
             lbMin2.setVisible(true);
+            btnConfirm.setEnabled(false);
         } 
     }//GEN-LAST:event_txtDuiKeyTyped
 
@@ -437,8 +443,10 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         // TODO add your handling code here:
         if(txtDir.getText().length()>= 9){
             lbMin3.setVisible(false);
+            btnConfirm.setEnabled(true);
         }else {
             lbMin3.setVisible(true);
+            btnConfirm.setEnabled(false);
         } 
     }//GEN-LAST:event_txtDirKeyTyped
 

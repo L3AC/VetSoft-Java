@@ -307,8 +307,10 @@ public class updtUsuario extends javax.swing.JPanel {
         // TODO add your handling code here:
         if(txtUsuario.getText().length()>= 3){
             lbMin.setVisible(false);
+            btnConfirmar.setEnabled(true);
         }else {
             lbMin.setVisible(true);
+            btnConfirmar.setEnabled(false);
         } 
     }//GEN-LAST:event_txtUsuarioKeyTyped
 
@@ -317,8 +319,10 @@ public class updtUsuario extends javax.swing.JPanel {
         
         if(txtTel.getText().length()>= 7){
             lbMin1.setVisible(false);
+            btnConfirmar.setEnabled(true);
         }else {
             lbMin1.setVisible(true);
+            btnConfirmar.setEnabled(false);
         } 
     }//GEN-LAST:event_txtTelKeyTyped
 

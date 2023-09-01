@@ -451,8 +451,10 @@ public class UPDTAsistente extends javax.swing.JPanel {
         // TODO add your handling code here:
         if(txtNombre.getText().length()>= 2){
             lbMin.setVisible(false);
+            btnConfirm.setEnabled(true);
         }else {
             lbMin.setVisible(true);
+            btnConfirm.setEnabled(false);
         } 
     }//GEN-LAST:event_txtNombreKeyTyped
 
@@ -460,8 +462,10 @@ public class UPDTAsistente extends javax.swing.JPanel {
         // TODO add your handling code here:
         if(txtApellidos.getText().length()>= 9){
             lbMin.setVisible(false);
+            btnConfirm.setEnabled(true);
         }else {
             lbMin.setVisible(true);
+            btnConfirm.setEnabled(false);
         } 
     }//GEN-LAST:event_txtApellidosKeyTyped
 
@@ -470,8 +474,10 @@ public class UPDTAsistente extends javax.swing.JPanel {
         
         if(txtDui.getText().length()>= 9){
             lbMin.setVisible(false);
+            btnConfirm.setEnabled(true);
         }else {
             lbMin.setVisible(true);
+            btnConfirm.setEnabled(false);
         } 
     }//GEN-LAST:event_txtDuiKeyTyped
 

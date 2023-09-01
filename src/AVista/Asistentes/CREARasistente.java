@@ -424,8 +424,10 @@ public class CREARasistente extends javax.swing.JPanel {
         // TODO add your handling code here:
         if(txtNombre.getText().length()>= 2){
             lbMin.setVisible(false);
+            btnConfirm.setEnabled(true);
         }else {
             lbMin.setVisible(true);
+            btnConfirm.setEnabled(false);
         } 
     }//GEN-LAST:event_txtNombreKeyTyped
 
@@ -433,8 +435,10 @@ public class CREARasistente extends javax.swing.JPanel {
         // TODO add your handling code here:
         if(txtDui.getText().length()>= 9){
             lbMin2.setVisible(false);
+            btnConfirm.setEnabled(true);
         }else {
             lbMin2.setVisible(true);
+            btnConfirm.setEnabled(false);
         } 
     }//GEN-LAST:event_txtDuiKeyTyped
 
@@ -442,8 +446,10 @@ public class CREARasistente extends javax.swing.JPanel {
         // TODO add your handling code here:
         if(txtApellidos.getText().length()>= 4){
             lbMin1.setVisible(false);
+            btnConfirm.setEnabled(true);
         }else {
             lbMin1.setVisible(true);
+            btnConfirm.setEnabled(false);
         } 
     }//GEN-LAST:event_txtApellidosKeyTyped
 
