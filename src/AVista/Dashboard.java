@@ -12,9 +12,11 @@ import AVista.Clientes.CRUDClientesN;
 import JavaMenu.MenuSelectEvent;
 import AVista.Login;
 import AVista.Mantenimiento.CRUDEsp;
+import AVista.Mantenimiento.CRUDPregN;
 import AVista.Mantenimiento.CRUDRazas;
 import AVista.Mantenimiento.CRUDTipoAnim;
 import AVista.Mantenimiento.CRUDTipoProd;
+import AVista.Mantenimiento.CRUDnivels;
 import AVista.Mantenimiento.CRUDtpserv;
 import AVista.Perfil.Preguntas;
 import AVista.Productos.CRUDProd;
@@ -154,6 +156,14 @@ public class Dashboard extends javax.swing.JFrame {
                         CRUDTipoVac subp = new CRUDTipoVac(idTipoU);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
+                    if (index == 4 && indexSubMenu == 7) {
+                        CRUDnivels subp = new CRUDnivels();
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                    }
+                    if (index == 4 && indexSubMenu == 8) {
+                        CRUDPregN subp = new CRUDPregN();
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                    }
                     //CUENTA
                     if (index == 5 && indexSubMenu == 3) {
                         Preguntas subp = new Preguntas(idUs);
@@ -228,11 +238,12 @@ public class Dashboard extends javax.swing.JFrame {
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     //TIENDA
-                    if (index == 3 && indexSubMenu == 1) {//RESERVAS
-
-                    }
+                    /*if (index == 3 && indexSubMenu == 1) {//RESERVAS
+                        
+                    }*/
                     if (index == 4 && indexSubMenu == 2) {//PRODUCTOS
-
+                        CRUDProd subp = new CRUDProd(idTipoU);
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     //CUENTA
                     if (index == 4 && indexSubMenu == 1) {
@@ -335,8 +346,8 @@ public class Dashboard extends javax.swing.JFrame {
         menuAdmin.setForeground(new java.awt.Color(153, 0, 51));
         menuAdmin.setPreferredSize(new java.awt.Dimension(250, 770));
         PanelMenu.add(menuAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 810));
-        PanelMenu.add(menuDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 250, 770));
-        PanelMenu.add(menuRecep, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 250, 770));
+        PanelMenu.add(menuDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 810));
+        PanelMenu.add(menuRecep, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 810));
 
         body.add(PanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 810));
 

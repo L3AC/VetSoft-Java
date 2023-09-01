@@ -54,7 +54,7 @@ public class MenuRecep extends JPanel {
                 "Asistentes"));
         addTitle("Tienda");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.ADD_ALARM, "Gestión de productos",
-                 "Reservas", "Productos"));
+                 /*"Reservas",*/ "Productos"));
         addTitle("Cuenta");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PEOPLE,
                 "Mi Cuenta", "Perfil", "Seguridad",

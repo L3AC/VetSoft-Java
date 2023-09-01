@@ -42,7 +42,7 @@ public class MenuAdmin extends JPanel{
         scroll.getViewport().setOpaque(false);
         scroll.setViewportBorder(null);
         add(scroll);
-        addTitle("HOLA");
+        addTitle("Inicio");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.DASHBOARD, "Bienvenido"));
         addTitle("Gestión principal");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PERSON, 
@@ -54,7 +54,7 @@ public class MenuAdmin extends JPanel{
                 "Asistentes"));
         addTitle("Tienda");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.ADD_ALARM, "Gestión de productos"
-                ,"Reservas","Productos"));
+                ,/*"Reservas",*/"Productos"));
         addTitle("Mantenimiento");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.ADD_ALARM, 
                 "Mantenimiento","Especialidades","Razas","Tipo Animales","Tipo Servicio"
