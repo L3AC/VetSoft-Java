@@ -7,12 +7,16 @@ import AControlador.ctReceta;
 import AVista.Animales.CRUDAnimales;
 import AVista.Animales.updtAnimales;
 import Design.Desg;
+import Mensajes.CódogpErrorDIFC1;
+import Mensajes.GlassPanePopup;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import Validation.Valida;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -217,8 +221,8 @@ public class CRUDCita extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
     final void loadD() throws SQLException {
-        String[] column = {"idCita", "idAnimal","idNivelS", "Estado", "Fecha", "Mascota", "Dueño"
-                ,"Doctor"};
+        String[] column = {"idCita", "idAnimal", "idNivelS", "Estado", "Fecha", "Mascota", "Dueño",
+             "Doctor"};
         model = new DefaultTableModel(null, column);
         dsg.ColumnHide(model, tbData, 0, 8);
         dsg.ColumnHide(model, tbData, 1, 8);
@@ -249,7 +253,7 @@ public class CRUDCita extends javax.swing.JPanel {
             ResultSet rs = ctD.citaDoc();
             //System.err.println(txtBusq.getText().toString());
             while (rs.next()) {
-                Object[] oValores = {rs.getInt("idCita"), rs.getInt("idAnimal"),rs.getInt("nivelS"),
+                Object[] oValores = {rs.getInt("idCita"), rs.getInt("idAnimal"), rs.getInt("nivelS"),
                     rs.getString("Estado"), rs.getString("Fecha"),
                     rs.getString("Mascota"), rs.getString("Dueño"),
                     rs.getString("Doctor")};
@@ -270,7 +274,7 @@ public class CRUDCita extends javax.swing.JPanel {
             ResultSet rs = ctD.citaOther();
 
             while (rs.next()) {
-                Object[] oValores = {rs.getInt("idCita"), rs.getInt("idAnimal"),rs.getInt("nivelS"),
+                Object[] oValores = {rs.getInt("idCita"), rs.getInt("idAnimal"), rs.getInt("nivelS"),
                     rs.getString("Estado"), rs.getString("Fecha"),
                     rs.getString("Mascota"), rs.getString("Dueño"),
                     rs.getString("Doctor")};
@@ -308,7 +312,7 @@ public class CRUDCita extends javax.swing.JPanel {
             updtCita subp = new updtCita(idTipoUs,
                     Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()),
                     idCuenta,
-            Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 2).toString()));
+                    Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 2).toString()));
             dsg.ShowPanel(subp, PCont, 1320, 810);
         } catch (SQLException ex) {
             Logger.getLogger(CRUDAnimales.class.getName()).log(Level.SEVERE, null, ex);
@@ -316,29 +320,41 @@ public class CRUDCita extends javax.swing.JPanel {
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
-        int opcion = JOptionPane.showOptionDialog(
-                null,
-                "¿Desea eliminar el registro?",
-                "Advertencia",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.WARNING_MESSAGE,
-                null,
-                new Object[]{"Sí", "No"},
-                "No");
+        if (tbData.getRowCount() > 0) {
+            UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
+            int opcion = JOptionPane.showOptionDialog(
+                    null,
+                    "¿Desea eliminar el registro?",
+                    "Advertencia",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.WARNING_MESSAGE,
+                    null,
+                    new Object[]{"Sí", "No"},
+                    "No");
 
-        if (opcion == JOptionPane.YES_OPTION) {
-            ctCitas ct = new ctCitas();
-            ct.idCita = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-            ct.deleteCita();
-            try {
-                loadD();
-            } catch (SQLException ex) {
-                Logger.getLogger(CRUDAnimales.class.getName()).log(Level.SEVERE, null, ex);
+            if (opcion == JOptionPane.YES_OPTION) {
+                ctCitas ct = new ctCitas();
+                ct.idCita = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                ct.deleteCita();
+                try {
+                    loadD();
+                } catch (SQLException ex) {
+                    Logger.getLogger(CRUDAnimales.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else if (opcion == JOptionPane.NO_OPTION) {
+
             }
-        } else if (opcion == JOptionPane.NO_OPTION) {
-
+        } else {
+            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
+
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
@@ -388,7 +404,7 @@ public class CRUDCita extends javax.swing.JPanel {
         int opcion = JOptionPane.showOptionDialog(
                 null,
                 "Al hacer la factura, la cita se inhabilitara,\\"
-                        + " ¿Está seguro de realizarlo?",
+                + " ¿Está seguro de realizarlo?",
                 "Confirmar",
                 JOptionPane.YES_NO_OPTION,
                 JOptionPane.WARNING_MESSAGE,
@@ -398,10 +414,10 @@ public class CRUDCita extends javax.swing.JPanel {
 
         if (opcion == JOptionPane.YES_OPTION) {
             try {
-                
-                ctCitas ct=new ctCitas();
-                ct.idCita=Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-                ct.estado="Inactiva";
+
+                ctCitas ct = new ctCitas();
+                ct.idCita = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                ct.estado = "Inactiva";
                 ct.stateCita();
                 HashMap<String, Object> param = new HashMap<>();
                 param.put("idCita", Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
@@ -410,7 +426,7 @@ public class CRUDCita extends javax.swing.JPanel {
             } catch (SQLException ex) {
                 Logger.getLogger(CRUDCita.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+
         } else if (opcion == JOptionPane.NO_OPTION) {
 
         }
