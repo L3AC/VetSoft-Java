@@ -1,16 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package AControlador;
 
 import AModelo.mdRaza;
 import java.sql.ResultSet;
 
-/**
- *
- * @author LEAC2
- */
 public class ctRaza {
 
     public int idTipoAnimal;
@@ -61,6 +54,12 @@ public class ctRaza {
    public boolean deleteRaza(){
        return md.deleteRaza(idRaza);
    }
+   /* public boolean insRaza(){
+       return md.insertRaza(idRaza);
+   }
+     public boolean deleteRaza(){
+       return md.deleteRaza(idRaza);
+   }*/
     /*public boolean insertAnim() {
         return ani.insertAnim(idCliente, idRaza, padecimientos, nombre, peso, edad, sexo);
     }

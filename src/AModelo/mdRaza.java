@@ -31,7 +31,7 @@ public class mdRaza {
     }
 
     //Esto nos ayudara a cargar la raza del animal dentro del sistema
-        public ResultSet comboRaza(int idTP) {
+    public ResultSet comboRaza(int idTP) {
         String query = "select idRaza,nombreRaza from tbRazas r, tbTipoAnimales ta where r.idTipoAnimal=ta.idTipoAnimal and r.idTipoAnimal=?;";
         try {
             ps = con.prepareStatement(query);
@@ -44,13 +44,14 @@ public class mdRaza {
             return null;
         }
     }
-        //Esto nos ayuudara a seleccionar la raza con su nombre, nombre popular, tipo de animal y id
+    //Esto nos ayuudara a seleccionar la raza con su nombre, nombre popular, tipo de animal y id
+
     public ResultSet selectRaza(String nombreRaza) {
         String query = "select r.idRaza,ta.nombrePopular,r.nombreRaza from tbRazas r,tbTipoAnimales ta "
                 + "where r.idTipoAnimal=ta.idTipoAnimal and r.nombreRaza like ?";
         try {
             ps = con.prepareStatement(query);
-             ps.setString(1, "%"+nombreRaza+"%");
+            ps.setString(1, "%" + nombreRaza + "%");
             rs = ps.executeQuery();
             return rs;
 
@@ -59,13 +60,13 @@ public class mdRaza {
             return null;
         }
     }
-    
+
     //Esto nos ayudara a cargar el nombre de la raza
     public ResultSet loadRaza(String nombreRaza) {
         String query = "select * from tbRazas where nombreRaza like ?;";
         try {
             ps = con.prepareStatement(query);
-             ps.setString(1,    "%"+nombreRaza+"%");
+            ps.setString(1, "%" + nombreRaza + "%");
             rs = ps.executeQuery();
             return rs;
 
@@ -131,7 +132,7 @@ public class mdRaza {
             return false; //DIO ERROR
         }
     }
-    
+
     //Esto nos ayudara a eliminar alguna raza dentro del sistema
     public boolean deleteRaza(int idRaza) {
         String query = "DELETE tbRazas where idRaza=?;";
@@ -150,13 +151,12 @@ public class mdRaza {
     }
 
     //Esto nos ayudara a insertar una nueva raza dentro del sistema
-    public boolean insertRaza(int idEsp, String Especialidad) {
-        String query = "insert into tbEspecialidades(idEspecialidad, Especialidad)"
-                + " values(?,?);";
+    public boolean insertRaza(int id1, String n1) {
+        String query = "update tbRazas set nombreRaza=? where idRaza=?;";
         try {
             ps = con.prepareStatement(query);
-            ps.setInt(1, idEsp);
-            ps.setString(2, Especialidad);
+            ps.setString(1, n1);
+            ps.setInt(2, id1);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Campos ingresados");
             return true;
@@ -188,5 +188,5 @@ public class mdRaza {
             return false; //DIO ERROR
         }
     }
-    
+
 }
