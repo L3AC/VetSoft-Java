@@ -59,6 +59,7 @@ public class ButtonGradient extends JButton  {
     private float alpha = 0.3f;
     private boolean mouseOver;
     private boolean pressed;
+    private Color borderColor = new Color(202,233,255);
     private Point pressedLocation;
     private float pressedSize;
     private float sizeSpeed = 1f;
@@ -66,7 +67,7 @@ public class ButtonGradient extends JButton  {
 
     public ButtonGradient() {
         setContentAreaFilled(false);
-        setForeground(Color.BLACK);
+        setForeground(Color.WHITE);
         setCursor(new Cursor(Cursor.HAND_CURSOR));
         setBorder(new EmptyBorder(7, 5, 7, 5));
         addMouseListener(new MouseAdapter() {
@@ -132,6 +133,31 @@ public class ButtonGradient extends JButton  {
 
     @Override
     protected void paintComponent(Graphics grphcs) {
+    int width = getWidth();
+    int height = getHeight();
+    BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+    Graphics2D g2 = img.createGraphics();
+    g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+
+    // Draw the border (colored)
+    g2.setColor(borderColor);
+    g2.drawRoundRect(0, 0, width - 1, height - 1, height, height);
+
+    // Add Style
+    createStyle(g2);
+
+    if (pressed) {
+        paintPressed(g2);
+    }
+
+    g2.dispose();
+    grphcs.drawImage(img, 0, 0, null);
+
+    super.paintComponent(grphcs);
+    }
+    
+    /*@Override
+    protected void paintComponent(Graphics grphcs) {
         int width = getWidth();
         int height = getHeight();
         BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
@@ -149,14 +175,14 @@ public class ButtonGradient extends JButton  {
         g2.dispose();
         grphcs.drawImage(img, 0, 0, null);
         super.paintComponent(grphcs);
-    }
+    }*/
 
     private void createStyle(Graphics2D g2) {
         g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_ATOP, alpha));
         int width = getWidth();
         int height = getHeight();
-        GradientPaint gra = new GradientPaint(0, 0, Color.WHITE, 0, height, new Color(255, 255, 255, 60));
-        g2.setPaint(gra);
+        //GradientPaint gra = new GradientPaint(0, 0, Color.WHITE, 0, height, new Color(255, 255, 255, 60));
+        //g2.setPaint(gra);
         Path2D.Float f = new Path2D.Float();
         f.moveTo(0, 0);
         int controll = height + height / 2;
