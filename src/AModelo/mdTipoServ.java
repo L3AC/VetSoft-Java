@@ -72,7 +72,6 @@ public class mdTipoServ {
         }
     }
 
-
     //Esto nos ayudara a seleccionar dentro de la tabla tipo de servicio el id del nivel de servicio y tipo de servicio
     public ResultSet selectServ(int id) {//EDITAR INFO
         String query = "select * from tbTipoServicio where idNivelServicio=2 and idTipoServicio=?;";
@@ -149,6 +148,7 @@ public class mdTipoServ {
             return false;
         }
     }
+
     public ResultSet comboPrior() {//TABLA
         String query = "select * from tbNivelServicio";
         try {
@@ -161,6 +161,43 @@ public class mdTipoServ {
             System.out.println(e.toString());
             JOptionPane.showMessageDialog(null, "Error al ejecutar");
             return null; //DIO ERROR
+        }
+    }
+
+    /////// TABLA NIVEL SERVICIO
+    //BUSQUEDA PARA CRUD
+    public ResultSet loadNServ(String n1) {//TABLA
+        String query = "select * from tbNivelServicio where Prioridad like ?";
+        try {
+
+            ps = con.prepareStatement(query);
+            ps.setString(1, "%" + n1 + "%");
+            rs = ps.executeQuery();
+            return rs;
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return null; //DIO ERROR
+        }
+    }
+
+    public boolean upNServ(int id1, String n1) {
+        String query = "update tbNivelServicio set Prioridad=? where idNivelServicio=?;";
+        try {
+
+            ps = con.prepareStatement(query);
+            ps.setString(1, n1);
+            ps.setInt(2, id1);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Campos actualizados");
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return false; //DIO ERROR
         }
     }
 }

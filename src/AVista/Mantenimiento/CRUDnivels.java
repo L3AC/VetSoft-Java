@@ -5,6 +5,7 @@
 package AVista.Mantenimiento;
 
 import AControlador.ctProd;
+import AControlador.ctTipoServ;
 import Design.Desg;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,8 +26,12 @@ public class CRUDnivels extends javax.swing.JPanel {
     Desg dsg = new Desg();
     DefaultTableModel model;
 
-    public CRUDnivels() {
+    public CRUDnivels() throws SQLException {
         initComponents();
+        loadD();
+        if (tbData.getRowCount() > 0) {
+            setData();
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -36,10 +41,8 @@ public class CRUDnivels extends javax.swing.JPanel {
         PCont = new javax.swing.JPanel();
         txtBusq = new Design.TextFieldSV();
         jLabel2 = new javax.swing.JLabel();
-        txtProd = new Design.TextFieldSV();
-        btnAgregar = new Design.ButtonGradient();
+        txtPriori = new Design.TextFieldSV();
         btnAct = new Design.ButtonGradient();
-        btnEliminar = new Design.ButtonGradient();
         jLabel1 = new javax.swing.JLabel();
         panelRound1 = new Design.PanelRound();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -64,20 +67,11 @@ public class CRUDnivels extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Nivel de servicio");
-        PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 200, -1, -1));
+        PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 250, -1, -1));
 
-        txtProd.setBackground(new java.awt.Color(202, 233, 255));
-        txtProd.setShadowColor(new java.awt.Color(0, 0, 51));
-        PCont.add(txtProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 238, 310, -1));
-
-        btnAgregar.setText("Agregar");
-        btnAgregar.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarActionPerformed(evt);
-            }
-        });
-        PCont.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 312, 110, 40));
+        txtPriori.setBackground(new java.awt.Color(202, 233, 255));
+        txtPriori.setShadowColor(new java.awt.Color(0, 0, 51));
+        PCont.add(txtPriori, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 280, 310, -1));
 
         btnAct.setText("Actualizar");
         btnAct.addActionListener(new java.awt.event.ActionListener() {
@@ -85,16 +79,7 @@ public class CRUDnivels extends javax.swing.JPanel {
                 btnActActionPerformed(evt);
             }
         });
-        PCont.add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 312, 110, 40));
-
-        btnEliminar.setText("Eliminar");
-        btnEliminar.setToolTipText("");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
-            }
-        });
-        PCont.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 312, 110, 40));
+        PCont.add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 370, 120, 50));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -136,9 +121,9 @@ public class CRUDnivels extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tbData);
 
-        panelRound1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 780, 410));
+        panelRound1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 670, 250));
 
-        PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 198, 820, 456));
+        PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 720, 290));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clinica 64px.png"))); // NOI18N
         PCont.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1213, 21, -1, -1));
@@ -158,7 +143,7 @@ public class CRUDnivels extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
     final void loadD() throws SQLException {
-        String[] column = {"idTipoProducto", "Tipo de producto"};
+        String[] column = {"idNivelServicio", "Nivel de servicio"};
         model = new DefaultTableModel(null, column);
         dsg.ColumnHide(model, tbData, 0, 2);
         CargarTabla();
@@ -172,11 +157,11 @@ public class CRUDnivels extends javax.swing.JPanel {
             model.removeRow(0);
         }
         try {
-            ctProd ct = new ctProd();
-            ct.tipoProd = txtBusq.getText().toString();
-            ResultSet rs = ct.tableTProd();
+            ctTipoServ ct = new ctTipoServ();
+            ct.prioridad = txtBusq.getText().toString();
+            ResultSet rs = ct.loadNServ();
             while (rs.next()) {
-                Object[] oValores = {rs.getInt("idTipoProducto"), rs.getString("tipo")};
+                Object[] oValores = {rs.getInt("idNivelServicio"), rs.getString("Prioridad")};
                 model.addRow(oValores);
             }
         } catch (Exception e) {
@@ -194,79 +179,34 @@ public class CRUDnivels extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtBusqKeyReleased
 
-    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        /*List<TextFieldSV> lista = new ArrayList<>();
-        lista.add(txtProd);
-        try {
-            if (dsg.areFieldsNotEmpty(lista)) {//VERIFICAR QUE NO ESTE VACIO
-                ctProd ct = new ctProd();
-
-                ct.tipoProd = txtProd.getText();
-                ct.insertTProd();
-                loadD();
-            } else {
-
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDTipoProd.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-    }//GEN-LAST:event_btnAgregarActionPerformed
-
     private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
-        /*try {
-            List<TextFieldSV> lista = new ArrayList<>();
-            lista.add(txtProd);
-            // lista.add(txtServ);
-            if (dsg.areFieldsNotEmpty(lista)) {
-                ctProd ct = new ctProd();
-                ct.idTipoProd = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-                ct.tipoProd = txtProd.getText();
-                ct.updtTProd();
-                loadD();
-            } else {
-
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDTipoProd.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-    }//GEN-LAST:event_btnActActionPerformed
-
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
-        int opcion = JOptionPane.showOptionDialog(
-                null,
-                "¿Desea eliminar el registro?",
-                "Advertencia",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.WARNING_MESSAGE,
-                null,
-                new Object[]{"Sí", "No"},
-                "No");
-
-        if (opcion == JOptionPane.YES_OPTION) {
+        if (tbData.getRowCount() > 0) {
             try {
-                ctProd ct = new ctProd();
-                ct.idTipoProd = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-                ct.deleteTProd();
+                ctTipoServ ct = new ctTipoServ();
+                ct.idNivelServ = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                ct.prioridad = txtPriori.getText();
+                ct.upNServ();
                 loadD();
             } catch (SQLException ex) {
-                Logger.getLogger(CRUDTipoProd.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(CRUDnivels.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else if (opcion == JOptionPane.NO_OPTION) {
-
+        } else {
+            JOptionPane.showMessageDialog(null, "No hay registros");
         }
-    }//GEN-LAST:event_btnEliminarActionPerformed
 
+    }//GEN-LAST:event_btnActActionPerformed
+
+    final void setData() {
+        txtPriori.setText(tbData.getValueAt(tbData.getSelectedRow(), 1).toString());
+    }
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
-        //setData();
+        setData();
     }//GEN-LAST:event_tbDataMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
     private Design.ButtonGradient btnAct;
-    private Design.ButtonGradient btnAgregar;
-    private Design.ButtonGradient btnEliminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -275,6 +215,6 @@ public class CRUDnivels extends javax.swing.JPanel {
     private Design.PanelRound panelRound1;
     private SwingTable.Table tbData;
     private Design.TextFieldSV txtBusq;
-    private Design.TextFieldSV txtProd;
+    private Design.TextFieldSV txtPriori;
     // End of variables declaration//GEN-END:variables
 }
