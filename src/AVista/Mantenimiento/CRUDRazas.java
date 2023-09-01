@@ -79,18 +79,25 @@ public class CRUDRazas extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        cbCargo = new Design.Combobox();
+        jLabel5 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1320, 810));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         textFieldSV1.setBackground(new java.awt.Color(202, 233, 255));
-        add(textFieldSV1, new org.netbeans.lib.awtextra.AbsoluteConstraints(987, 238, 286, -1));
+        textFieldSV1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldSV1ActionPerformed(evt);
+            }
+        });
+        add(textFieldSV1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 360, 286, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Nombre de la Raza");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1038, 188, -1, -1));
+        jLabel1.setText("Tipo de animal");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 170, -1, -1));
 
         btnAgregar.setText("Agregar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -98,10 +105,15 @@ public class CRUDRazas extends javax.swing.JPanel {
                 btnAgregarActionPerformed(evt);
             }
         });
-        add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1018, 362, 193, 39));
+        add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 440, 160, 50));
 
         btnEditar.setText("Editar");
-        add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1018, 457, 193, 38));
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+        add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 510, 160, 50));
 
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -109,7 +121,7 @@ public class CRUDRazas extends javax.swing.JPanel {
                 btnEliminarActionPerformed(evt);
             }
         });
-        add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1018, 545, 193, 40));
+        add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 580, 160, 50));
 
         txtBusq.setBackground(new java.awt.Color(202, 233, 255));
         txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
@@ -163,6 +175,21 @@ public class CRUDRazas extends javax.swing.JPanel {
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Nombre de la Raza");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, -1, -1));
+
+        cbCargo.setBackground(new java.awt.Color(202, 233, 255));
+        cbCargo.setForeground(new java.awt.Color(0, 0, 0));
+        cbCargo.setLabeText("");
+        cbCargo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbCargoActionPerformed(evt);
+            }
+        });
+        add(cbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 210, 230, 40));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("Nombre de la Raza");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 310, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
@@ -178,28 +205,33 @@ public class CRUDRazas extends javax.swing.JPanel {
     }//GEN-LAST:event_txtBusqActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
-        int opcion = JOptionPane.showOptionDialog(
-                null,
-                "¿Desea eliminar el registro?",
-                "Advertencia",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.WARNING_MESSAGE,
-                null,
-                new Object[]{"Sí", "No"},
-                "No");
+        if (model.getRowCount() > 0) {
+            UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
+            int opcion = JOptionPane.showOptionDialog(
+                    null,
+                    "¿Desea eliminar el registro?",
+                    "Advertencia",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.WARNING_MESSAGE,
+                    null,
+                    new Object[]{"Sí", "No"},
+                    "No");
 
-        if (opcion == JOptionPane.YES_OPTION) {
-            try {
-                ctRaza ct = new ctRaza();
-                ct.idRaza = Integer.parseInt(tbRaza.getValueAt(tbRaza.getSelectedRow(), 0).toString());
-                ct.deleteRaza();
-                loadD();
-            } catch (SQLException ex) {
-                Logger.getLogger(CRUDEsp.class.getName()).log(Level.SEVERE, null, ex);
+            if (opcion == JOptionPane.YES_OPTION) {
+                try {
+                    ctRaza ct = new ctRaza();
+                    ct.idRaza = Integer.parseInt(tbRaza.getValueAt(tbRaza.getSelectedRow(), 0).toString());
+                    ct.deleteRaza();
+                    loadD();
+                } catch (SQLException ex) {
+                    Logger.getLogger(CRUDEsp.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else if (opcion == JOptionPane.NO_OPTION) {
+
             }
-        } else if (opcion == JOptionPane.NO_OPTION) {
-
+        }
+        else{
+            
         }
 
         // TODO add your handling code here:
@@ -209,15 +241,31 @@ public class CRUDRazas extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAgregarActionPerformed
 
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void cbCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCargoActionPerformed
+        /*// TODO add your handling code here:
+        tpUs = dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
+        System.out.println("ID seleccionado: " + tpUs);*/
+    }//GEN-LAST:event_cbCargoActionPerformed
+
+    private void textFieldSV1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldSV1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldSV1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Design.ButtonGradient btnAgregar;
     private Design.ButtonGradient btnEditar;
     private Design.ButtonGradient btnEliminar;
+    private Design.Combobox cbCargo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private Design.PanelRound panelRound1;
     private SwingTable.Table tbRaza;
