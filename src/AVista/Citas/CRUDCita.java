@@ -308,6 +308,7 @@ public class CRUDCita extends javax.swing.JPanel {
     }
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        if (tbData.getRowCount() > 0) {
         try {
             updtCita subp = new updtCita(idTipoUs,
                     Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()),
@@ -316,6 +317,16 @@ public class CRUDCita extends javax.swing.JPanel {
             dsg.ShowPanel(subp, PCont, 1320, 810);
         } catch (SQLException ex) {
             Logger.getLogger(CRUDAnimales.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        } else {
+            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
     }//GEN-LAST:event_btnEditarActionPerformed
 
@@ -374,6 +385,7 @@ public class CRUDCita extends javax.swing.JPanel {
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+        if (tbData.getRowCount() > 0) {
         UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
         int opcion = JOptionPane.showOptionDialog(
                 null,
@@ -397,9 +409,20 @@ public class CRUDCita extends javax.swing.JPanel {
         } else if (opcion == JOptionPane.NO_OPTION) {
 
         }
+        } else {
+            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+        }
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFactActionPerformed
+         if (tbData.getRowCount() > 0) {
         UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
         int opcion = JOptionPane.showOptionDialog(
                 null,
@@ -430,9 +453,21 @@ public class CRUDCita extends javax.swing.JPanel {
         } else if (opcion == JOptionPane.NO_OPTION) {
 
         }
+         } else {
+            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+        }
+
     }//GEN-LAST:event_btnFactActionPerformed
 
     private void btnRecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecActionPerformed
+         if (tbData.getRowCount() > 0) {
         try {
             if (verifR() == true) {
                 upReceta subp = new upReceta(idTipoUs, idCuenta,
@@ -445,6 +480,16 @@ public class CRUDCita extends javax.swing.JPanel {
             }
         } catch (SQLException ex) {
             Logger.getLogger(CRUDCita.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         } else {
+            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
 
     }//GEN-LAST:event_btnRecActionPerformed

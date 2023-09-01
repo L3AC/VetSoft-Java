@@ -1,10 +1,13 @@
-
 package AVista.Vacunas;
 
 import AControlador.ctExam;
 import AControlador.ctVacunas;
 import AVista.Animales.CRUDAnimales;
 import Design.Desg;
+import Mensajes.CódogpErrorDIFC1;
+import Mensajes.GlassPanePopup;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -20,7 +23,7 @@ public class HVacunas extends javax.swing.JPanel {
     private int idAnim;
     Desg dsg = new Desg();
     DefaultTableModel model;
-    
+
     public HVacunas(int idTipoUs, int idAnim) throws SQLException {
         this.idTipoUs = idTipoUs;
         this.idAnim = idAnim;
@@ -158,7 +161,7 @@ public class HVacunas extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     final void loadD() throws SQLException {
-        String[] column = {"idTipoVacuna", "Vacuna", "Dosis","Uso"};
+        String[] column = {"idTipoVacuna", "Vacuna", "Dosis", "Uso"};
         model = new DefaultTableModel(null, column);
         dsg.ColumnHide(model, tbData, 0, 4);
         CargarTabla();
@@ -175,31 +178,32 @@ public class HVacunas extends javax.swing.JPanel {
         try {
             ctVacunas ct = new ctVacunas();
             ct.nombreVac = txtBusq.getText().toString();
-            ct.idAnimal=idAnim;
+            ct.idAnimal = idAnim;
             ResultSet rs = ct.loadVac();
             while (rs.next()) {
                 Object[] oValores = {rs.getInt("idVacunacion"), rs.getString("NombreVacuna"),
-                    rs.getInt("Dosis"),rs.getString("Utilidad")};
+                    rs.getInt("Dosis"), rs.getString("Utilidad")};
                 model.addRow(oValores);
             }
         } catch (Exception e) {
             System.err.println(e.toString());
         }
     }
+
     final void loadData() {
         try {
             ctVacunas ct = new ctVacunas();
-            ct.idVac=Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()); ;
+            ct.idVac = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());;
 
             ResultSet rs = ct.cargarV();
             while (rs.next()) {
-                txtDosis.setText( String.valueOf(rs.getInt("dosis")));
+                txtDosis.setText(String.valueOf(rs.getInt("dosis")));
             }
         } catch (Exception e) {
             System.err.println(e.toString());
         }
     }
-    
+
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         try {
             CRUDAnimales subp = new CRUDAnimales(idTipoUs);
@@ -218,7 +222,7 @@ public class HVacunas extends javax.swing.JPanel {
     }//GEN-LAST:event_txtBusqKeyReleased
 
     private void btnCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCartActionPerformed
-            HashMap<String, Object> param = new HashMap<>();
+        HashMap<String, Object> param = new HashMap<>();
         param.put("idA", idAnim);
         dsg.reportS("Reporte Vacunas", "src/AVista/Vacunas/Vacunas.jasper", param);
     }//GEN-LAST:event_btnCartActionPerformed
@@ -228,47 +232,69 @@ public class HVacunas extends javax.swing.JPanel {
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void btnElimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElimActionPerformed
-        UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
-        int opcion = JOptionPane.showOptionDialog(
-                null,
-                "¿Desea eliminar el registro?",
-                "Advertencia",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.WARNING_MESSAGE,
-                null,
-                new Object[]{"Sí", "No"},
-                "No");
+        if (tbData.getRowCount() > 0) {
+            UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
+            int opcion = JOptionPane.showOptionDialog(
+                    null,
+                    "¿Desea eliminar el registro?",
+                    "Advertencia",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.WARNING_MESSAGE,
+                    null,
+                    new Object[]{"Sí", "No"},
+                    "No");
 
-        if (opcion == JOptionPane.YES_OPTION) {
-            try {
-                ctVacunas ct=new ctVacunas();
-                ct.idVac= Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-                ct.delVac();
-                loadD();
-                loadData();
+            if (opcion == JOptionPane.YES_OPTION) {
                 try {
+                    ctVacunas ct = new ctVacunas();
+                    ct.idVac = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                    ct.delVac();
                     loadD();
+                    loadData();
+                    try {
+                        loadD();
+                    } catch (SQLException ex) {
+                        Logger.getLogger(CRUDTipoVac.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 } catch (SQLException ex) {
-                    Logger.getLogger(CRUDTipoVac.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(HVacunas.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            } catch (SQLException ex) {
-                Logger.getLogger(HVacunas.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else if (opcion == JOptionPane.NO_OPTION) {
+            } else if (opcion == JOptionPane.NO_OPTION) {
 
+            }
+        } else {
+            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
     }//GEN-LAST:event_btnElimActionPerformed
 
     private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
+        if (tbData.getRowCount() > 0) {
         try {
-            ctVacunas ct=new ctVacunas();
-            ct.idVac=Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-            ct.dosis=Integer.parseInt(txtDosis.getText());
+            ctVacunas ct = new ctVacunas();
+            ct.idVac = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+            ct.dosis = Integer.parseInt(txtDosis.getText());
             ct.upVac();
             loadD();
             loadData();
         } catch (SQLException ex) {
             Logger.getLogger(HVacunas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        } else {
+            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
     }//GEN-LAST:event_btnActActionPerformed
 

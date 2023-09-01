@@ -6,6 +6,10 @@ package AVista.Productos;
 
 import AControlador.ctProd;
 import Design.Desg;
+import Mensajes.CódogpErrorDIFC1;
+import Mensajes.GlassPanePopup;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -198,7 +202,7 @@ public class CRUDProd extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
-         try {
+        try {
             loadD();
         } catch (SQLException ex) {
             //Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
@@ -207,16 +211,28 @@ public class CRUDProd extends javax.swing.JPanel {
     }//GEN-LAST:event_txtBusqKeyReleased
 
     private void btnEjempActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEjempActionPerformed
-         try {
-            CRUDEjemp subp = new CRUDEjemp(idTipoUs,
-                    Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
-            dsg.ShowPanel(subp, PCont, 1320, 810);
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDProd.class.getName()).log(Level.SEVERE, null, ex);
+        if (tbData.getRowCount() > 0) {
+            try {
+                CRUDEjemp subp = new CRUDEjemp(idTipoUs,
+                        Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
+                dsg.ShowPanel(subp, PCont, 1320, 810);
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDProd.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
     }//GEN-LAST:event_btnEjempActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        if (tbData.getRowCount() > 0) {
         UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
         int opcion = JOptionPane.showOptionDialog(
                 null,
@@ -240,24 +256,56 @@ public class CRUDProd extends javax.swing.JPanel {
         } else if (opcion == JOptionPane.NO_OPTION) {
 
         }
+        } else {
+            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        try {
-            updateProd subp = new updateProd(idTipoUs,
-                    Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
-            dsg.ShowPanel(subp, PCont, 1320, 810);
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDProd.class.getName()).log(Level.SEVERE, null, ex);
+        if (tbData.getRowCount() > 0) {
+            try {
+                updateProd subp = new updateProd(idTipoUs,
+                        Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
+                dsg.ShowPanel(subp, PCont, 1320, 810);
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDProd.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        try {
-            insertProd subp =new insertProd(idTipoUs);
-            dsg.ShowPanel(subp, PCont, 1320, 810);
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDProd.class.getName()).log(Level.SEVERE, null, ex);
+        if (tbData.getRowCount() > 0) {
+            try {
+                insertProd subp = new insertProd(idTipoUs);
+                dsg.ShowPanel(subp, PCont, 1320, 810);
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDProd.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
     }//GEN-LAST:event_btnAgregarActionPerformed
 

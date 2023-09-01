@@ -4,6 +4,8 @@ import AControlador.ctEsp;
 import AControlador.ctTipoServ;
 import AVista.Usuarios.CRUDusuarios;
 import Design.Desg;
+import Mensajes.CódogpErrorDIFC1;
+import Mensajes.GlassPanePopup;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -12,6 +14,8 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 import Validation.Valida;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class CRUDEsp extends javax.swing.JPanel {
 
@@ -256,43 +260,64 @@ public class CRUDEsp extends javax.swing.JPanel {
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
-        try {
-            ctEsp ctEs = new ctEsp();
-
-            ctEs.esp = txtEsp.getText();
-            ctEs.idEsp = idEsp;
-            ctEs.updtEsp();
-            loadD();
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDEsp.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-
-    }//GEN-LAST:event_btnActActionPerformed
-
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
-        int opcion = JOptionPane.showOptionDialog(
-                null,
-                "¿Desea eliminar el registro?",
-                "Advertencia",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.WARNING_MESSAGE,
-                null,
-                new Object[]{"Sí", "No"},
-                "No");
-
-        if (opcion == JOptionPane.YES_OPTION) {
+        if (tbData.getRowCount() > 0) {
             try {
-                ctEsp ct = new ctEsp();
-                ct.idEsp = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-                ct.deleteEsp();
+                ctEsp ctEs = new ctEsp();
+
+                ctEs.esp = txtEsp.getText();
+                ctEs.idEsp = idEsp;
+                ctEs.updtEsp();
                 loadD();
             } catch (SQLException ex) {
                 Logger.getLogger(CRUDEsp.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else if (opcion == JOptionPane.NO_OPTION) {
+        } else {
+            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+        }
 
+    }//GEN-LAST:event_btnActActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        if (tbData.getRowCount() > 0) {
+            UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
+            int opcion = JOptionPane.showOptionDialog(
+                    null,
+                    "¿Desea eliminar el registro?",
+                    "Advertencia",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.WARNING_MESSAGE,
+                    null,
+                    new Object[]{"Sí", "No"},
+                    "No");
+
+            if (opcion == JOptionPane.YES_OPTION) {
+                try {
+                    ctEsp ct = new ctEsp();
+                    ct.idEsp = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                    ct.deleteEsp();
+                    loadD();
+                } catch (SQLException ex) {
+                    Logger.getLogger(CRUDEsp.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else if (opcion == JOptionPane.NO_OPTION) {
+
+            }
+        } else {
+            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
@@ -301,13 +326,13 @@ public class CRUDEsp extends javax.swing.JPanel {
     }//GEN-LAST:event_txtBusqActionPerformed
 
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
-          try {
+        try {
             loadD();
         } catch (SQLException ex) {
             //Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println(ex.toString());
         }
-           
+
     }//GEN-LAST:event_txtBusqKeyReleased
 
 

@@ -7,6 +7,8 @@ import AVista.CUENTA.updtTipoCuenta;
 import AVista.Clientes.CRUDCliente;
 import AVista.Usuarios.updtUsuario;
 import Design.Desg;
+import Mensajes.CódogpErrorDIFC1;
+import Mensajes.GlassPanePopup;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -15,13 +17,15 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 import Validation.Valida;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class CRUDDoctores extends javax.swing.JPanel {
 
     private int idTipoUs;
     private int idDoc;
     private int idCuenta;
-    
+
     Desg dsg = new Desg();
     DefaultTableModel model;
 
@@ -30,19 +34,17 @@ public class CRUDDoctores extends javax.swing.JPanel {
         initComponents();
         loadD();
         if (idTipoUs == 1) {//ADMIN
-           
+
         }
-        if (idTipoUs == 2 || idTipoUs==4||idTipoUs == 5) {//RECEPCIONISTA Y ASISTENTE
+        if (idTipoUs == 2 || idTipoUs == 4 || idTipoUs == 5) {//RECEPCIONISTA Y ASISTENTE
             btnAdd.setVisible(false);
             btnEditar.setVisible(false);
             btnEliminar.setVisible(false);
         }
 
-
         txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9]*"));
-        
+
     }
-    
 
     final void loadD() throws SQLException {
         String[] column = {"idDoctor", "Especialidad", "Nombre"};
@@ -243,18 +245,30 @@ public class CRUDDoctores extends javax.swing.JPanel {
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        int fila = tbData.getSelectedRow();
-        idDoc = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
-        CREARasistente subp;
-        try {
-            subp = new CREARasistente(idDoc);
-            dsg.ShowPanel(subp, PCont, 1320, 810);
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDDoctores.class.getName()).log(Level.SEVERE, null, ex);
+        if (tbData.getRowCount() > 0) {
+            int fila = tbData.getSelectedRow();
+            idDoc = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
+            CREARasistente subp;
+            try {
+                subp = new CREARasistente(idDoc);
+                dsg.ShowPanel(subp, PCont, 1320, 810);
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDDoctores.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        if (tbData.getRowCount() > 0) {
         updtTipoCuenta subp;
         try {
             subp = new updtTipoCuenta(idTipoUs, idDoc, 4);
@@ -262,9 +276,20 @@ public class CRUDDoctores extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
+        } else {
+            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+        }
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+         if (tbData.getRowCount() > 0) {
         UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
         int opcion = JOptionPane.showOptionDialog(
                 null,
@@ -287,6 +312,16 @@ public class CRUDDoctores extends javax.swing.JPanel {
             }
         } else if (opcion == JOptionPane.NO_OPTION) {
 
+        }
+         } else {
+            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 

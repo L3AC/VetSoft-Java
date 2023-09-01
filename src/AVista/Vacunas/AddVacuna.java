@@ -5,6 +5,10 @@ import AVista.Animales.CRUDAnimales;
 import AVista.Animales.addMascota;
 import AVista.Usuarios.CRUDusuarios;
 import Design.Desg;
+import Mensajes.CódogpErrorDIFC1;
+import Mensajes.GlassPanePopup;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -163,7 +167,8 @@ public class AddVacuna extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddMActionPerformed
-       try {
+if (tbData.getRowCount() > 0) {
+        try {
             ctVacunas ct = new ctVacunas();
             ct.idAnimal = idAnim;
             ct.idTipoVac = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());;
@@ -171,6 +176,16 @@ public class AddVacuna extends javax.swing.JPanel {
             loadD();
         } catch (SQLException ex) {
             Logger.getLogger(AddVacuna.class.getName()).log(Level.SEVERE, null, ex);
+        }
+} else {
+            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
     }//GEN-LAST:event_btnAddMActionPerformed
 

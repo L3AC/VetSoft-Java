@@ -4,6 +4,10 @@ import AControlador.ctCliente;
 import AControlador.ctEjem;
 import AControlador.ctReservFact;
 import Design.Desg;
+import Mensajes.CódogpErrorDIFC1;
+import Mensajes.GlassPanePopup;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -164,14 +168,14 @@ public class CRUDEjemRe extends javax.swing.JPanel {
         }
     }
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        
+
         try {
             CRUDCliente subp = new CRUDCliente(idTipoUs);
             dsg.ShowPanel(subp, PCont, 1320, 810);
         } catch (SQLException ex) {
             Logger.getLogger(CRUDEjemRe.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void txtBusqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBusqActionPerformed
@@ -187,22 +191,31 @@ public class CRUDEjemRe extends javax.swing.JPanel {
     }//GEN-LAST:event_txtBusqKeyReleased
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        if (tbData.getRowCount() > 0) {
+            try {
+                ctReservFact ct = new ctReservFact();
+                ct.idCl = idCl;
+                ct.idEjem = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                ct.insEjemRe();
+                ctEjem ct2 = new ctEjem();
+                ct2.idEjem = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                ct2.estado = "Reservado";
+                ct2.stateEjemRe();
+                loadD();
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDEjemRe.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
-        try {
-            ctReservFact ct = new ctReservFact();
-            ct.idCl = idCl;
-            ct.idEjem=Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-            ct.insEjemRe();
-            ctEjem ct2 = new ctEjem();
-            ct2.idEjem=Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-            ct2.estado="Reservado";
-            ct2.stateEjemRe();
-            loadD();
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDEjemRe.class.getName()).log(Level.SEVERE, null, ex);
+        } else {
+            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
-
-
     }//GEN-LAST:event_btnAgregarActionPerformed
 
 

@@ -3,6 +3,10 @@ package AVista.Vacunas;
 import AControlador.ctCliente;
 import AControlador.ctVacunas;
 import Design.Desg;
+import Mensajes.CódogpErrorDIFC1;
+import Mensajes.GlassPanePopup;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -185,8 +189,19 @@ public class CRUDTipoVac extends javax.swing.JPanel {
     }//GEN-LAST:event_txtBusqKeyReleased
 
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
-           txtVacuna.setText(tbData.getValueAt(tbData.getSelectedRow(), 1).toString());
+          if (tbData.getRowCount() > 0) {   
+        txtVacuna.setText(tbData.getValueAt(tbData.getSelectedRow(), 1).toString());
            txtUso.setText(tbData.getValueAt(tbData.getSelectedRow(), 2).toString());
+          } else {
+            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+        }
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void btnAddMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddMActionPerformed

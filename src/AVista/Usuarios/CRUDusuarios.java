@@ -10,6 +10,8 @@ import AControlador.ctUser;
 import AVista.CUENTA.insertTipoCuenta;
 import AVista.CUENTA.updtTipoCuenta;
 import Design.Desg;
+import Mensajes.CódogpErrorDIFC1;
+import Mensajes.GlassPanePopup;
 import Tipografias.Fuentes;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,6 +21,8 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 import Validation.Valida;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
@@ -287,6 +291,7 @@ public class CRUDusuarios extends javax.swing.JPanel {
     }//GEN-LAST:event_btnAddCuentaActionPerformed
 
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
+        if (tbData.getRowCount() > 0) {
         insertUs subp;
         try {
             subp = new insertUs(idTipoUs);
@@ -294,7 +299,17 @@ public class CRUDusuarios extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(CRUDusuarios.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        
+        } else {
+            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+        }
     }//GEN-LAST:event_btnInsertActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed

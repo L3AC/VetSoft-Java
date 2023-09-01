@@ -8,7 +8,11 @@ import AControlador.ctProd;
 import AControlador.ctTipoServ;
 import Design.Desg;
 import Design.TextFieldSV;
+import Mensajes.CódogpErrorDIFC1;
+import Mensajes.GlassPanePopup;
 import Validation.Valida;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -288,6 +292,7 @@ public class CRUDTipoProd extends javax.swing.JPanel {
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
+ if (tbData.getRowCount() > 0) {
         try {
             List<TextFieldSV> lista = new ArrayList<>();
             lista.add(txtProd);
@@ -304,9 +309,20 @@ public class CRUDTipoProd extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(CRUDTipoProd.class.getName()).log(Level.SEVERE, null, ex);
         }
+ } else {
+            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+        }
     }//GEN-LAST:event_btnActActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        if (tbData.getRowCount() > 0) {
         UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
         int opcion = JOptionPane.showOptionDialog(
                 null,
@@ -329,6 +345,16 @@ public class CRUDTipoProd extends javax.swing.JPanel {
             }
         } else if (opcion == JOptionPane.NO_OPTION) {
 
+        }
+        } else {
+            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 

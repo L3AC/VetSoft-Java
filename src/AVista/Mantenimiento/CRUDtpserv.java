@@ -10,8 +10,12 @@ import AControlador.ctRaza;
 import AControlador.ctTipoServ;
 import Design.Desg;
 import Design.TextFieldSV;
+import Mensajes.CódogpErrorDIFC1;
+import Mensajes.GlassPanePopup;
 import Validation.Valida;
 import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -334,23 +338,34 @@ public class CRUDtpserv extends javax.swing.JPanel {
     }//GEN-LAST:event_txtBusqKeyReleased
 
     private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
-        try {
-            List<TextFieldSV> lista = new ArrayList<>();
-            lista.add(txtCosto);
-            lista.add(txtServ);
-            if (dsg.areFieldsNotEmpty(lista)) {
-                ctTipoServ ct = new ctTipoServ();
-                ct.idTipoServ = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-                ct.idNivelServ = dsg.getMap(cbMapNPS, cbNivelS.getSelectedItem().toString());
-                ct.Nombre = txtServ.getText();
-                ct.Costo = Float.parseFloat(txtCosto.getText());
-                ct.updtServ();
-                loadD();
-            } else {
+        if (tbData.getRowCount() > 0) {
+            try {
+                List<TextFieldSV> lista = new ArrayList<>();
+                lista.add(txtCosto);
+                lista.add(txtServ);
+                if (dsg.areFieldsNotEmpty(lista)) {
+                    ctTipoServ ct = new ctTipoServ();
+                    ct.idTipoServ = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                    ct.idNivelServ = dsg.getMap(cbMapNPS, cbNivelS.getSelectedItem().toString());
+                    ct.Nombre = txtServ.getText();
+                    ct.Costo = Float.parseFloat(txtCosto.getText());
+                    ct.updtServ();
+                    loadD();
+                } else {
 
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDtpserv.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDtpserv.class.getName()).log(Level.SEVERE, null, ex);
+        } else {
+            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
     }//GEN-LAST:event_btnActActionPerformed
 
