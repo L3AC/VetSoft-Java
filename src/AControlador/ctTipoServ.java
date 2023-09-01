@@ -76,5 +76,14 @@ public class ctTipoServ {
     public boolean deleteServ() {
         return md.deleteServ(idTipoServ);
     }
+    
+    //TABLA NIVEL SERVICIO
+    
+    public ResultSet loadNServ() {
+        return md.loadNServ(prioridad);
+    }
+        public boolean upNServ() {
+        return md.upNServ(idNivelServ,prioridad);
+    }
 
 }
