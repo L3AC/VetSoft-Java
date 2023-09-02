@@ -53,8 +53,8 @@ public class ButtonGradient extends JButton  {
         this.color2 = color2;
     }
 
-    private Color color1 = Color.decode("#CAE9FF");
-    private Color color2 = Color.decode("#CAE9FF");
+    private Color color1 = Color.decode("#FFFFFF");
+    private Color color2 = Color.decode("#FFFFFF");
     private final Timer timer;
     private final Timer timerPressed;
     private float alpha = 0.3f;
