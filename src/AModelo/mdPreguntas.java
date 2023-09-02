@@ -85,4 +85,35 @@ public class mdPreguntas {
             return false; //DIO ERROR
         }
     }
+    //TABLA PREGUNTAS
+     public ResultSet loadNPreg(String n1) {
+        String query = "select * from tbPreguntas where enunciado like ?;";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setString(1, "%" + n1 + "%");
+            rs = ps.executeQuery();
+            return rs;
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+            return null;
+        }
+    }
+     public boolean upNPreg( int idP,String n1) {
+        String query = "update tbPreguntas set enunciado=? where idPregunta=?;";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setString(1, n1);
+            ps.setInt(2, idP);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Campos actualizados");
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            return false; //DIO ERROR
+        }
+    }
 }

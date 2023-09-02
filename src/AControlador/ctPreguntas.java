@@ -1,4 +1,3 @@
-
 package AControlador;
 
 import AModelo.mdPreguntas;
@@ -6,6 +5,7 @@ import Design.TextFieldSV;
 import java.sql.ResultSet;
 
 public class ctPreguntas {
+
     public int idPreg;
     public int idUs;
     public String enun;
@@ -42,17 +42,27 @@ public class ctPreguntas {
     public void setResp(String resp) {
         this.resp = resp;
     }
-    
-    mdPreguntas md=new mdPreguntas();
-    
-    public ResultSet loadResp(){
+
+    mdPreguntas md = new mdPreguntas();
+
+    public ResultSet loadResp() {
         return md.loadResp(idUs, idPreg);
     }
-    public boolean updateResp(){
-        return md.updateResp( idPreg, idUs,resp);
+
+    public boolean updateResp() {
+        return md.updateResp(idPreg, idUs, resp);
     }
-    public boolean insertResp(){
-        return md.insertResp( idPreg,idUs, resp);
+
+    public boolean insertResp() {
+        return md.insertResp(idPreg, idUs, resp);
     }
-    
+
+    //TABLA DE PREGUNTAS 
+    public ResultSet loadNPreg() {
+        return md.loadNPreg(enun);
+    }
+
+    public boolean upNPreg() {
+        return md.upNPreg(idPreg, enun);
+    }
 }

@@ -59,6 +59,7 @@ public class PerfilData extends javax.swing.JPanel {
         lbFalso = new javax.swing.JLabel();
         lbMin4 = new javax.swing.JLabel();
         btnConfirm = new Design.ButtonGradient();
+        btnAct = new Design.ButtonGradient();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
@@ -215,7 +216,15 @@ public class PerfilData extends javax.swing.JPanel {
                 btnConfirmActionPerformed(evt);
             }
         });
-        PCont.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 660, 182, 60));
+        PCont.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 650, 160, 60));
+
+        btnAct.setText("Actualizar");
+        btnAct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActActionPerformed(evt);
+            }
+        });
+        PCont.add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 650, 160, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -344,9 +353,29 @@ public class PerfilData extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtDirKeyTyped
 
+    /*final void enab(boolean tf) {
+        List<Component> lista = new ArrayList<>();
+        lista.add(txtResp1);
+        lista.add(txtResp2);
+        lista.add(txtResp3);
+        dsg.enable(lista, tf);
+    }*/
+    private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
+        if (btnConfirm.isVisible()) {
+            btnAct.setText("Editar");
+            //enab(false);
+            btnConfirm.setVisible(false);
+        } else {
+            btnAct.setText("Cancelar");
+            //enab(true);
+            btnConfirm.setVisible(true);
+        }
+    }//GEN-LAST:event_btnActActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
+    private Design.ButtonGradient btnAct;
     private Design.ButtonGradient btnConfirm;
     private javax.swing.JComboBox<String> cbSexo;
     private com.toedter.calendar.JDateChooser dpNaci;

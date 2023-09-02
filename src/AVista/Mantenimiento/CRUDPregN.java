@@ -4,6 +4,7 @@
  */
 package AVista.Mantenimiento;
 
+import AControlador.ctPreguntas;
 import AControlador.ctTipoServ;
 import Design.Desg;
 import java.sql.ResultSet;
@@ -13,10 +14,6 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author LEAC2
- */
 public class CRUDPregN extends javax.swing.JPanel {
 
     private int idTipoUs;
@@ -27,10 +24,13 @@ public class CRUDPregN extends javax.swing.JPanel {
     public CRUDPregN() throws SQLException {
         initComponents();
         loadD();
+        if(tbData.getRowCount()>0){
+            setData();
+        }
     }
 
     final void loadD() throws SQLException {
-        String[] column = {"idNivelServicio", "Nivel de servicio"};
+        String[] column = {"idPregunta", "Pregunta"};
         model = new DefaultTableModel(null, column);
         dsg.ColumnHide(model, tbData, 0, 2);
         CargarTabla();
@@ -44,11 +44,11 @@ public class CRUDPregN extends javax.swing.JPanel {
             model.removeRow(0);
         }
         try {
-            ctTipoServ ct = new ctTipoServ();
-            ct.prioridad = txtBusq.getText().toString();
-            ResultSet rs = ct.loadNServ();
+            ctPreguntas ct = new ctPreguntas();
+            ct.enun = txtBusq.getText().toString();
+            ResultSet rs = ct.loadNPreg();
             while (rs.next()) {
-                Object[] oValores = {rs.getInt("idNivelServicio"), rs.getString("Prioridad")};
+                Object[] oValores = {rs.getInt("idPregunta"), rs.getString("enunciado")};
                 model.addRow(oValores);
             }
         } catch (Exception e) {
@@ -178,10 +178,10 @@ public class CRUDPregN extends javax.swing.JPanel {
     private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
         if (tbData.getRowCount() > 0) {
             try {
-                ctTipoServ ct = new ctTipoServ();
-                ct.idNivelServ = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-                ct.prioridad = txtPreg.getText();
-                ct.upNServ();
+                ctPreguntas ct = new ctPreguntas();
+                ct.idPreg = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                ct.enun = txtPreg.getText();
+                ct.upNPreg();
                 loadD();
             } catch (SQLException ex) {
                 Logger.getLogger(CRUDnivels.class.getName()).log(Level.SEVERE, null, ex);
@@ -191,7 +191,7 @@ public class CRUDPregN extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnActActionPerformed
 
-        final void setData() {
+    final void setData() {
         txtPreg.setText(tbData.getValueAt(tbData.getSelectedRow(), 1).toString());
     }
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
