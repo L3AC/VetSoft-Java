@@ -1,16 +1,18 @@
-
 package AVista.Perfil;
 
+import AControlador.ctCitas;
 import Mensajes.CódigoErrorDSI5;
 import Mensajes.GlassPanePopup;
 import Validation.Valida;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class PerfilData extends javax.swing.JPanel {
 
     public PerfilData() {
+        //this.id
         initComponents();
         txtUser.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
         txtTel.setDocument(new Valida(8, "[0-9]*"));
@@ -44,22 +46,25 @@ public class PerfilData extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         cbSexo = new javax.swing.JComboBox<>();
         txtDir = new Design.TextFieldSV();
-        lbDir = new javax.swing.JLabel();
         lbMin5 = new javax.swing.JLabel();
         txtUser = new Design.TextFieldSV();
         jLabel9 = new javax.swing.JLabel();
         txtCorreo = new Design.TextFieldSV();
         txtTel = new Design.TextFieldSV();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         lbMin = new javax.swing.JLabel();
         lbMin1 = new javax.swing.JLabel();
         lbMin2 = new javax.swing.JLabel();
         lbMin3 = new javax.swing.JLabel();
         lbFalso = new javax.swing.JLabel();
         lbMin4 = new javax.swing.JLabel();
+        cbTipoProd = new Design.Combobox();
+        lbDirEsp = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         btnConfirm = new Design.ButtonGradient();
         btnAct = new Design.ButtonGradient();
+        lbNDoc = new javax.swing.JLabel();
+        lbDoc1 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
@@ -95,7 +100,7 @@ public class PerfilData extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Nacimiento");
         panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, 150, 30));
-        panelRound1.add(dpNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, 280, 40));
+        panelRound1.add(dpNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, 220, 40));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
@@ -126,12 +131,12 @@ public class PerfilData extends javax.swing.JPanel {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Sexo");
-        panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 160, 100, 30));
+        panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 160, 100, 30));
 
         cbSexo.setBackground(new java.awt.Color(255, 255, 255));
         cbSexo.setForeground(new java.awt.Color(0, 0, 0));
         cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femenino", "Masculino" }));
-        panelRound1.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 210, 200, 40));
+        panelRound1.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 210, 200, 40));
 
         txtDir.setShadowColor(new java.awt.Color(0, 0, 51));
         txtDir.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -140,11 +145,6 @@ public class PerfilData extends javax.swing.JPanel {
             }
         });
         panelRound1.add(txtDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 330, 360, 51));
-
-        lbDir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lbDir.setForeground(new java.awt.Color(0, 0, 0));
-        lbDir.setText("Dirección");
-        panelRound1.add(lbDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 290, 150, 30));
 
         lbMin5.setForeground(new java.awt.Color(0, 0, 0));
         lbMin5.setText("Minimo de digitos 4");
@@ -179,11 +179,6 @@ public class PerfilData extends javax.swing.JPanel {
         jLabel10.setText("Télefono");
         panelRound1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 290, 150, -1));
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel11.setText("Usuario");
-        panelRound1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 100, 30));
-
         lbMin.setForeground(new java.awt.Color(0, 0, 0));
         lbMin.setText("Minimo de digitos 4");
         panelRound1.add(lbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 110, 30));
@@ -208,7 +203,26 @@ public class PerfilData extends javax.swing.JPanel {
         lbMin4.setText("Minimo de digitos 8");
         panelRound1.add(lbMin4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 370, 110, 30));
 
-        PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 1090, 460));
+        cbTipoProd.setForeground(new java.awt.Color(0, 0, 0));
+        cbTipoProd.setLabeText("");
+        cbTipoProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbTipoProdActionPerformed(evt);
+            }
+        });
+        panelRound1.add(cbTipoProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 330, 350, 50));
+
+        lbDirEsp.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbDirEsp.setForeground(new java.awt.Color(0, 0, 0));
+        lbDirEsp.setText("Dirección");
+        panelRound1.add(lbDirEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 290, 150, 30));
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel12.setText("Usuario");
+        panelRound1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 100, 30));
+
+        PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 1130, 440));
 
         btnConfirm.setText("Confirmar");
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
@@ -225,6 +239,16 @@ public class PerfilData extends javax.swing.JPanel {
             }
         });
         PCont.add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 650, 160, 60));
+
+        lbNDoc.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbNDoc.setForeground(new java.awt.Color(0, 0, 0));
+        lbNDoc.setText("Doctor encargado:");
+        PCont.add(lbNDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, 160, 30));
+
+        lbDoc1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbDoc1.setForeground(new java.awt.Color(0, 0, 0));
+        lbDoc1.setText("Doctor encargado:");
+        PCont.add(lbDoc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 160, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -286,24 +310,92 @@ public class PerfilData extends javax.swing.JPanel {
             }
         }*/
     }//GEN-LAST:event_btnConfirmActionPerformed
+    final void loadDoc() throws SQLException {
+        /*try {
+            ctCitas ct = new ctCitas();
+            ct.idCita = idCita;
 
+            ResultSet rs = ct.selectCita();
+            while (rs.next()) {
+                lbMasc.setText("Mascota: " + rs.getString("Animal"));
+                cbServicio.setSelectedItem(rs.getString("Serv"));
+                cbEsp.setSelectedItem(rs.getString("Especialidad"));
+                cbDoc.setSelectedItem(rs.getString("Doctor"));
+                dpFecha.setDate(rs.getDate("Fecha"));
+                String hora = rs.getString("hora") + "";
+                cbHora.setSelectedItem(hora);
+                System.out.println(rs.getString("Hora") + " " + cbHora.getSelectedItem().toString());
+                txtNotaCl.setText(rs.getString("notaDelCliente"));
+                txtNotaD.setText(rs.getString("notaDelDoctor"));
+
+            }
+        } catch (Exception e) {
+            System.err.println(e.toString());
+        }*/
+    }
+    final void loadAdRe() throws SQLException {
+        /*try {
+            ctCitas ct = new ctCitas();
+            ct.idCita = idCita;
+
+            ResultSet rs = ct.selectCita();
+            while (rs.next()) {
+                lbMasc.setText("Mascota: " + rs.getString("Animal"));
+                cbServicio.setSelectedItem(rs.getString("Serv"));
+                cbEsp.setSelectedItem(rs.getString("Especialidad"));
+                cbDoc.setSelectedItem(rs.getString("Doctor"));
+                dpFecha.setDate(rs.getDate("Fecha"));
+                String hora = rs.getString("hora") + "";
+                cbHora.setSelectedItem(hora);
+                System.out.println(rs.getString("Hora") + " " + cbHora.getSelectedItem().toString());
+                txtNotaCl.setText(rs.getString("notaDelCliente"));
+                txtNotaD.setText(rs.getString("notaDelDoctor"));
+
+            }
+        } catch (Exception e) {
+            System.err.println(e.toString());
+        }*/
+    }
+    final void loadAsis() throws SQLException {
+        /*try {
+            ctCitas ct = new ctCitas();
+            ct.idCita = idCita;
+
+            ResultSet rs = ct.selectCita();
+            while (rs.next()) {
+                lbMasc.setText("Mascota: " + rs.getString("Animal"));
+                cbServicio.setSelectedItem(rs.getString("Serv"));
+                cbEsp.setSelectedItem(rs.getString("Especialidad"));
+                cbDoc.setSelectedItem(rs.getString("Doctor"));
+                dpFecha.setDate(rs.getDate("Fecha"));
+                String hora = rs.getString("hora") + "";
+                cbHora.setSelectedItem(hora);
+                System.out.println(rs.getString("Hora") + " " + cbHora.getSelectedItem().toString());
+                txtNotaCl.setText(rs.getString("notaDelCliente"));
+                txtNotaD.setText(rs.getString("notaDelDoctor"));
+
+            }
+        } catch (Exception e) {
+            System.err.println(e.toString());
+        }*/
+    }
     private void txtUserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyTyped
         // TODO add your handling code here:
-        if(txtNombre.getText().length()>= 3){
+        if (txtNombre.getText().length() >= 3) {
             lbMin.setVisible(false);
             btnConfirm.setEnabled(true);
-        }else {
+        } else {
             lbMin.setVisible(true);
             btnConfirm.setEnabled(false);
-        } 
+        }
     }//GEN-LAST:event_txtUserKeyTyped
 
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
         // TODO add your handling code here:
-         if(txtNombre.getText().length()>= 4){
+        if (txtNombre.getText().length() >= 4) {
             lbMin1.setVisible(false);
             btnConfirm.setEnabled(true);
-        }else {
+        } else {
             lbMin1.setVisible(true);
             btnConfirm.setEnabled(false);
         }
@@ -311,10 +403,10 @@ public class PerfilData extends javax.swing.JPanel {
 
     private void txtApellidosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidosKeyTyped
         // TODO add your handling code here:
-         if(txtApellidos.getText().length()>= 9){
+        if (txtApellidos.getText().length() >= 9) {
             lbMin2.setVisible(false);
             btnConfirm.setEnabled(true);
-        }else {
+        } else {
             lbMin2.setVisible(true);
             btnConfirm.setEnabled(false);
         }
@@ -322,10 +414,10 @@ public class PerfilData extends javax.swing.JPanel {
 
     private void txtDuiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDuiKeyTyped
         // TODO add your handling code here:
-         if(txtDui.getText().length()>= 9){
+        if (txtDui.getText().length() >= 9) {
             lbMin3.setVisible(false);
             btnConfirm.setEnabled(true);
-        }else {
+        } else {
             lbMin3.setVisible(true);
             btnConfirm.setEnabled(false);
         }
@@ -333,10 +425,10 @@ public class PerfilData extends javax.swing.JPanel {
 
     private void txtTelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelKeyTyped
         // TODO add your handling code here:
-         if(txtTel.getText().length()>= 7){
+        if (txtTel.getText().length() >= 7) {
             lbMin4.setVisible(false);
             btnConfirm.setEnabled(true);
-        }else {
+        } else {
             lbMin4.setVisible(true);
             btnConfirm.setEnabled(false);
         }
@@ -344,10 +436,10 @@ public class PerfilData extends javax.swing.JPanel {
 
     private void txtDirKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDirKeyTyped
         // TODO add your handling code here:
-         if(txtDir.getText().length()>= 9){
+        if (txtDir.getText().length() >= 9) {
             lbMin5.setVisible(false);
             btnConfirm.setEnabled(true);
-        }else {
+        } else {
             lbMin5.setVisible(true);
             btnConfirm.setEnabled(false);
         }
@@ -372,23 +464,31 @@ public class PerfilData extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnActActionPerformed
 
+    private void cbTipoProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTipoProdActionPerformed
+
+        /*tpUs = dsg.getMap(cbTP, cbCargo.getSelectedItem().toString());
+        System.out.println("ID seleccionado: " + tpUs);*/
+    }//GEN-LAST:event_cbTipoProdActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
     private Design.ButtonGradient btnAct;
     private Design.ButtonGradient btnConfirm;
     private javax.swing.JComboBox<String> cbSexo;
+    private Design.Combobox cbTipoProd;
     private com.toedter.calendar.JDateChooser dpNaci;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel lbDir;
+    private javax.swing.JLabel lbDirEsp;
+    private javax.swing.JLabel lbDoc1;
     private javax.swing.JLabel lbFalso;
     private javax.swing.JLabel lbMin;
     private javax.swing.JLabel lbMin1;
@@ -396,6 +496,7 @@ public class PerfilData extends javax.swing.JPanel {
     private javax.swing.JLabel lbMin3;
     private javax.swing.JLabel lbMin4;
     private javax.swing.JLabel lbMin5;
+    private javax.swing.JLabel lbNDoc;
     private Design.PanelRound panelRound1;
     private Design.TextFieldSV txtApellidos;
     private Design.TextFieldSV txtCorreo;
