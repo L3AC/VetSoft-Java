@@ -62,6 +62,7 @@ public class CRUDExam extends javax.swing.JPanel {
         });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Examen:");
 
         panelRound1.setBackground(new java.awt.Color(255, 255, 255));
@@ -98,21 +99,27 @@ public class CRUDExam extends javax.swing.JPanel {
             }
         });
 
+        btnElim.setForeground(new java.awt.Color(0, 0, 0));
         btnElim.setText("Eliminar");
+        btnElim.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnElim.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnElimActionPerformed(evt);
             }
         });
 
+        btnAgregar.setForeground(new java.awt.Color(0, 0, 0));
         btnAgregar.setText("Agregar ");
+        btnAgregar.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarActionPerformed(evt);
             }
         });
 
+        btnEditar.setForeground(new java.awt.Color(0, 0, 0));
         btnEditar.setText("Editar");
+        btnEditar.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditarActionPerformed(evt);
@@ -134,15 +141,13 @@ public class CRUDExam extends javax.swing.JPanel {
                         .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PContLayout.createSequentialGroup()
                         .addGap(90, 90, 90)
-                        .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 820, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(170, 170, 170)
-                        .addComponent(btnElim, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(66, 66, 66)
-                        .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(68, 68, 68)
-                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(410, Short.MAX_VALUE))
+                        .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 820, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(103, 103, 103)
+                        .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnElim, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                            .addComponent(btnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
         PContLayout.setVerticalGroup(
             PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,14 +160,18 @@ public class CRUDExam extends javax.swing.JPanel {
                         .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(52, 52, 52)
-                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnElim, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(106, 106, 106)
+                        .addComponent(btnElim, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
+                        .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(90, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

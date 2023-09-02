@@ -76,9 +76,9 @@ public class CRUDProd extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
-        PCont.setBackground(new java.awt.Color(255, 255, 255));
+        PCont.setBackground(new java.awt.Color(190, 233, 232));
 
-        panelRound1.setBackground(new java.awt.Color(202, 233, 255));
+        panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomLeft(50);
         panelRound1.setRoundBottomRight(50);
         panelRound1.setRoundTopLeft(50);
@@ -114,7 +114,7 @@ public class CRUDProd extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Producto:");
 
-        txtBusq.setBackground(new java.awt.Color(202, 233, 255));
+        txtBusq.setBackground(new java.awt.Color(255, 255, 255));
         txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
         txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -122,28 +122,36 @@ public class CRUDProd extends javax.swing.JPanel {
             }
         });
 
+        btnEliminar.setForeground(new java.awt.Color(0, 0, 0));
         btnEliminar.setText("Eliminar");
+        btnEliminar.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
             }
         });
 
+        btnEjemp.setForeground(new java.awt.Color(0, 0, 0));
         btnEjemp.setText("Ejemplares");
+        btnEjemp.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnEjemp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEjempActionPerformed(evt);
             }
         });
 
+        btnEditar.setForeground(new java.awt.Color(0, 0, 0));
         btnEditar.setText("Editar");
+        btnEditar.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditarActionPerformed(evt);
             }
         });
 
+        btnAgregar.setForeground(new java.awt.Color(0, 0, 0));
         btnAgregar.setText("Agregar");
+        btnAgregar.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarActionPerformed(evt);
@@ -181,11 +189,11 @@ public class CRUDProd extends javax.swing.JPanel {
                     .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PContLayout.createSequentialGroup()
                         .addComponent(btnEjemp, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
+                        .addGap(54, 54, 54)
                         .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
+                        .addGap(47, 47, 47)
                         .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
+                        .addGap(47, 47, 47)
                         .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 

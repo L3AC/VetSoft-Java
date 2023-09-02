@@ -52,10 +52,10 @@ public class CRUDnivels extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
-        PCont.setBackground(new java.awt.Color(255, 255, 255));
+        PCont.setBackground(new java.awt.Color(190, 233, 232));
         PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtBusq.setBackground(new java.awt.Color(202, 233, 255));
+        txtBusq.setBackground(new java.awt.Color(255, 255, 255));
         txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
         txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -69,11 +69,13 @@ public class CRUDnivels extends javax.swing.JPanel {
         jLabel2.setText("Nivel de servicio");
         PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 250, -1, -1));
 
-        txtPriori.setBackground(new java.awt.Color(202, 233, 255));
+        txtPriori.setBackground(new java.awt.Color(255, 255, 255));
         txtPriori.setShadowColor(new java.awt.Color(0, 0, 51));
         PCont.add(txtPriori, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 280, 310, -1));
 
+        btnAct.setForeground(new java.awt.Color(0, 0, 0));
         btnAct.setText("Actualizar");
+        btnAct.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnAct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActActionPerformed(evt);

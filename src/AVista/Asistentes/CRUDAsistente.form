@@ -34,7 +34,7 @@
     <Container class="javax.swing.JPanel" name="PCont">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+          <Color blue="e8" green="e9" red="be" type="rgb"/>
         </Property>
       </Properties>
 
@@ -97,7 +97,13 @@
       <SubComponents>
         <Component class="Design.ButtonGradient" name="btnEditar">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Editar"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Comfortaa Regular" size="14" style="0"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditarActionPerformed"/>
@@ -105,7 +111,13 @@
         </Component>
         <Component class="Design.ButtonGradient" name="btnEliminar">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Eliminar"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Comfortaa Regular" size="14" style="0"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarActionPerformed"/>
@@ -114,7 +126,7 @@
         <Component class="Design.TextFieldSV" name="txtBusq">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="e9" red="ca" type="rgb"/>
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="shadowColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="0" red="0" type="rgb"/>
@@ -127,7 +139,7 @@
         <Container class="Design.PanelRound" name="panelRound1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="e9" red="ca" type="rgb"/>
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="roundBottomLeft" type="int" value="50"/>
             <Property name="roundBottomRight" type="int" value="50"/>

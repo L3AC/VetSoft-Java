@@ -58,7 +58,6 @@ public class PerfilData extends javax.swing.JPanel {
         lbMin3 = new javax.swing.JLabel();
         lbFalso = new javax.swing.JLabel();
         lbMin4 = new javax.swing.JLabel();
-        cbTipoProd = new Design.Combobox();
         lbDirEsp = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         btnConfirm = new Design.ButtonGradient();
@@ -68,21 +67,22 @@ public class PerfilData extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
-        PCont.setBackground(new java.awt.Color(255, 255, 255));
+        PCont.setBackground(new java.awt.Color(190, 233, 232));
         PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(27, 73, 101));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("CUENTA PERSONAL");
         PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 40, 330, 50));
 
-        panelRound1.setBackground(new java.awt.Color(202, 233, 255));
+        panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomLeft(50);
         panelRound1.setRoundBottomRight(50);
         panelRound1.setRoundTopLeft(50);
         panelRound1.setRoundTopRight(50);
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        txtApellidos.setBackground(new java.awt.Color(190, 233, 232));
         txtApellidos.setShadowColor(new java.awt.Color(0, 0, 51));
         txtApellidos.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -107,6 +107,7 @@ public class PerfilData extends javax.swing.JPanel {
         jLabel5.setText("Nombres");
         panelRound1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 30, 100, 30));
 
+        txtNombre.setBackground(new java.awt.Color(190, 233, 232));
         txtNombre.setShadowColor(new java.awt.Color(0, 0, 51));
         txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -120,6 +121,7 @@ public class PerfilData extends javax.swing.JPanel {
         jLabel8.setText("Número de DUI");
         panelRound1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 150, -1));
 
+        txtDui.setBackground(new java.awt.Color(190, 233, 232));
         txtDui.setShadowColor(new java.awt.Color(0, 0, 51));
         txtDui.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -133,23 +135,25 @@ public class PerfilData extends javax.swing.JPanel {
         jLabel6.setText("Sexo");
         panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 160, 100, 30));
 
-        cbSexo.setBackground(new java.awt.Color(255, 255, 255));
+        cbSexo.setBackground(new java.awt.Color(190, 233, 232));
         cbSexo.setForeground(new java.awt.Color(0, 0, 0));
         cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femenino", "Masculino" }));
         panelRound1.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 210, 200, 40));
 
+        txtDir.setBackground(new java.awt.Color(190, 233, 232));
         txtDir.setShadowColor(new java.awt.Color(0, 0, 51));
         txtDir.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtDirKeyTyped(evt);
             }
         });
-        panelRound1.add(txtDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 300, 360, 51));
+        panelRound1.add(txtDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 330, 360, 51));
 
         lbMin5.setForeground(new java.awt.Color(0, 0, 0));
         lbMin5.setText("Minimo de digitos 4");
         panelRound1.add(lbMin5, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 370, 110, 30));
 
+        txtUser.setBackground(new java.awt.Color(190, 233, 232));
         txtUser.setShadowColor(new java.awt.Color(0, 0, 51));
         txtUser.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -163,6 +167,7 @@ public class PerfilData extends javax.swing.JPanel {
         jLabel9.setText("Correo");
         panelRound1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 150, -1));
 
+        txtCorreo.setBackground(new java.awt.Color(190, 233, 232));
         txtCorreo.setShadowColor(new java.awt.Color(0, 0, 51));
         txtCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,6 +176,7 @@ public class PerfilData extends javax.swing.JPanel {
         });
         panelRound1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 290, 51));
 
+        txtTel.setBackground(new java.awt.Color(190, 233, 232));
         txtTel.setShadowColor(new java.awt.Color(0, 0, 51));
         txtTel.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -208,15 +214,6 @@ public class PerfilData extends javax.swing.JPanel {
         lbMin4.setText("Minimo de digitos 8");
         panelRound1.add(lbMin4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 370, 110, 30));
 
-        cbTipoProd.setForeground(new java.awt.Color(0, 0, 0));
-        cbTipoProd.setLabeText("");
-        cbTipoProd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbTipoProdActionPerformed(evt);
-            }
-        });
-        panelRound1.add(cbTipoProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 330, 350, 50));
-
         lbDirEsp.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbDirEsp.setForeground(new java.awt.Color(0, 0, 0));
         lbDirEsp.setText("Dirección");
@@ -229,7 +226,9 @@ public class PerfilData extends javax.swing.JPanel {
 
         PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 1130, 440));
 
+        btnConfirm.setForeground(new java.awt.Color(0, 0, 0));
         btnConfirm.setText("Confirmar");
+        btnConfirm.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfirmActionPerformed(evt);
@@ -237,7 +236,9 @@ public class PerfilData extends javax.swing.JPanel {
         });
         PCont.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 650, 160, 50));
 
+        btnAct.setForeground(new java.awt.Color(0, 0, 0));
         btnAct.setText("Actualizar");
+        btnAct.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnAct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActActionPerformed(evt);
@@ -469,12 +470,6 @@ public class PerfilData extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnActActionPerformed
 
-    private void cbTipoProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTipoProdActionPerformed
-
-        /*tpUs = dsg.getMap(cbTP, cbCargo.getSelectedItem().toString());
-        System.out.println("ID seleccionado: " + tpUs);*/
-    }//GEN-LAST:event_cbTipoProdActionPerformed
-
     private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCorreoActionPerformed
@@ -485,7 +480,6 @@ public class PerfilData extends javax.swing.JPanel {
     private Design.ButtonGradient btnAct;
     private Design.ButtonGradient btnConfirm;
     private javax.swing.JComboBox<String> cbSexo;
-    private Design.Combobox cbTipoProd;
     private com.toedter.calendar.JDateChooser dpNaci;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

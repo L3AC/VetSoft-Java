@@ -111,7 +111,7 @@ public class updateProd extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
-        PCont.setBackground(new java.awt.Color(255, 255, 255));
+        PCont.setBackground(new java.awt.Color(190, 233, 232));
         PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cbTipoProd.setForeground(new java.awt.Color(0, 0, 0));
@@ -128,7 +128,7 @@ public class updateProd extends javax.swing.JPanel {
         jLabel6.setText("Proveedor");
         PCont.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 400, -1, -1));
 
-        txtProv.setBackground(new java.awt.Color(202, 233, 255));
+        txtProv.setBackground(new java.awt.Color(255, 255, 255));
         txtProv.setShadowColor(new java.awt.Color(0, 0, 51));
         txtProv.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -142,7 +142,7 @@ public class updateProd extends javax.swing.JPanel {
         jLabel7.setText("Precio");
         PCont.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 530, -1, -1));
 
-        txtPrecio.setBackground(new java.awt.Color(202, 233, 255));
+        txtPrecio.setBackground(new java.awt.Color(255, 255, 255));
         txtPrecio.setShadowColor(new java.awt.Color(0, 0, 51));
         txtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -151,7 +151,9 @@ public class updateProd extends javax.swing.JPanel {
         });
         PCont.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 560, 160, -1));
 
+        btnConfirm.setForeground(new java.awt.Color(0, 0, 0));
         btnConfirm.setText("Confirmar");
+        btnConfirm.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfirmActionPerformed(evt);
@@ -159,7 +161,7 @@ public class updateProd extends javax.swing.JPanel {
         });
         PCont.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 680, 140, 50));
 
-        txtProducto.setBackground(new java.awt.Color(202, 233, 255));
+        txtProducto.setBackground(new java.awt.Color(255, 255, 255));
         txtProducto.setShadowColor(new java.awt.Color(0, 0, 51));
         txtProducto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -178,7 +180,9 @@ public class updateProd extends javax.swing.JPanel {
         jLabel4.setText("Tipo de producto");
         PCont.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 400, -1, -1));
 
+        btnSelect.setForeground(new java.awt.Color(0, 0, 0));
         btnSelect.setText("Seleccionar foto");
+        btnSelect.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnSelect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSelectActionPerformed(evt);
@@ -195,7 +199,7 @@ public class updateProd extends javax.swing.JPanel {
         });
         PCont.add(lbImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 30, 300, 260));
 
-        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setBackground(new java.awt.Color(190, 233, 232));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
         btnBack.setBorder(null);
         btnBack.addActionListener(new java.awt.event.ActionListener() {

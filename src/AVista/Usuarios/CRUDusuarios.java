@@ -132,6 +132,7 @@ public class CRUDusuarios extends javax.swing.JPanel {
             }
         });
 
+        btnAddCuenta.setForeground(new java.awt.Color(0, 0, 0));
         btnAddCuenta.setText("Crerar Cuenta");
         btnAddCuenta.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnAddCuenta.addActionListener(new java.awt.event.ActionListener() {
@@ -140,6 +141,7 @@ public class CRUDusuarios extends javax.swing.JPanel {
             }
         });
 
+        btnInsert.setForeground(new java.awt.Color(0, 0, 0));
         btnInsert.setText("Crear Usuario");
         btnInsert.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnInsert.addActionListener(new java.awt.event.ActionListener() {
@@ -149,6 +151,7 @@ public class CRUDusuarios extends javax.swing.JPanel {
         });
 
         btnEditar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnEditar.setForeground(new java.awt.Color(0, 0, 0));
         btnEditar.setText("Editar");
         btnEditar.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -157,6 +160,7 @@ public class CRUDusuarios extends javax.swing.JPanel {
             }
         });
 
+        btnEliminar.setForeground(new java.awt.Color(0, 0, 0));
         btnEliminar.setText("Eliminar");
         btnEliminar.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {

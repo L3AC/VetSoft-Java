@@ -93,6 +93,7 @@ public class AddVacuna extends javax.swing.JPanel {
 
         btnAddM.setForeground(new java.awt.Color(0, 0, 0));
         btnAddM.setText("Agregar ");
+        btnAddM.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnAddM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddMActionPerformed(evt);
@@ -130,7 +131,6 @@ public class AddVacuna extends javax.swing.JPanel {
 
         PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 970, 495));
 
-        txtBusq.setBackground(new java.awt.Color(255, 255, 255));
         txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
         txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {

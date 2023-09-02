@@ -94,7 +94,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         lbEsp = new javax.swing.JLabel();
-        cbEsp = new javax.swing.JComboBox<String>();
+        cbEsp = new javax.swing.JComboBox<>();
         btnConfirm = new Design.ButtonGradient();
         panelRound1 = new Design.PanelRound();
         txtApellidos = new Design.TextFieldSV();
@@ -106,7 +106,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         lbMin = new javax.swing.JLabel();
         txtDui = new Design.TextFieldSV();
         jLabel6 = new javax.swing.JLabel();
-        cbSexo = new javax.swing.JComboBox<String>();
+        cbSexo = new javax.swing.JComboBox<>();
         txtDir = new Design.TextFieldSV();
         lbMin3 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -119,10 +119,10 @@ public class updtTipoCuenta extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
-        PCont.setBackground(new java.awt.Color(255, 255, 255));
+        PCont.setBackground(new java.awt.Color(190, 233, 232));
         PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setBackground(new java.awt.Color(190, 233, 232));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
         btnBack.setBorder(null);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -133,7 +133,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         PCont.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 70, 60));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(27, 73, 101));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("ACTUALIZAR PERFIL");
         PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 60, 330, 50));
 
@@ -145,7 +145,9 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         cbEsp.setBackground(new java.awt.Color(255, 255, 255));
         PCont.add(cbEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 200, 40));
 
+        btnConfirm.setForeground(new java.awt.Color(0, 0, 0));
         btnConfirm.setText("Confirmar");
+        btnConfirm.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfirmActionPerformed(evt);
@@ -153,13 +155,14 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         });
         PCont.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 620, 182, 50));
 
-        panelRound1.setBackground(new java.awt.Color(202, 233, 255));
+        panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomLeft(50);
         panelRound1.setRoundBottomRight(50);
         panelRound1.setRoundTopLeft(50);
         panelRound1.setRoundTopRight(50);
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        txtApellidos.setBackground(new java.awt.Color(190, 233, 232));
         txtApellidos.setShadowColor(new java.awt.Color(0, 0, 51));
         txtApellidos.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -184,6 +187,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         jLabel5.setText("Nombres");
         panelRound1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 100, 30));
 
+        txtNombre.setBackground(new java.awt.Color(190, 233, 232));
         txtNombre.setShadowColor(new java.awt.Color(0, 0, 51));
         txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -196,6 +200,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         lbMin.setText("Minimo de digitos 5");
         panelRound1.add(lbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 150, -1));
 
+        txtDui.setBackground(new java.awt.Color(190, 233, 232));
         txtDui.setShadowColor(new java.awt.Color(0, 0, 51));
         txtDui.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -209,11 +214,12 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         jLabel6.setText("Sexo");
         panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 100, 30));
 
-        cbSexo.setBackground(new java.awt.Color(255, 255, 255));
+        cbSexo.setBackground(new java.awt.Color(190, 233, 232));
         cbSexo.setForeground(new java.awt.Color(0, 0, 0));
-        cbSexo.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "Femenino", "Masculino" }));
+        cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femenino", "Masculino" }));
         panelRound1.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 200, 40));
 
+        txtDir.setBackground(new java.awt.Color(190, 233, 232));
         txtDir.setShadowColor(new java.awt.Color(0, 0, 51));
         txtDir.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -246,7 +252,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
 
         PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, 715, 430));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(190, 233, 232));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -264,8 +270,9 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clinica 64px.png"))); // NOI18N
         PCont.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 20, -1, -1));
 
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("VetSoft+");
-        PCont.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 90, -1, -1));
+        PCont.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1226, 90, 60, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

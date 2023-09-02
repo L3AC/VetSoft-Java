@@ -90,9 +90,9 @@ public class CRUDTipoProd extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
-        PCont.setBackground(new java.awt.Color(255, 255, 255));
+        PCont.setBackground(new java.awt.Color(190, 233, 232));
 
-        txtBusq.setBackground(new java.awt.Color(202, 233, 255));
+        txtBusq.setBackground(new java.awt.Color(255, 255, 255));
         txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
         txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -104,33 +104,40 @@ public class CRUDTipoProd extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Tipo de producto");
 
-        txtProd.setBackground(new java.awt.Color(202, 233, 255));
+        txtProd.setBackground(new java.awt.Color(255, 255, 255));
         txtProd.setShadowColor(new java.awt.Color(0, 0, 51));
 
+        btnAgregar.setForeground(new java.awt.Color(0, 0, 0));
         btnAgregar.setText("Agregar");
-        btnAgregar.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        btnAgregar.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarActionPerformed(evt);
             }
         });
 
+        btnAct.setForeground(new java.awt.Color(0, 0, 0));
         btnAct.setText("Actualizar");
+        btnAct.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnAct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActActionPerformed(evt);
             }
         });
 
+        btnEliminar.setForeground(new java.awt.Color(0, 0, 0));
         btnEliminar.setText("Eliminar");
         btnEliminar.setToolTipText("");
+        btnEliminar.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
             }
         });
 
+        btnLimp.setForeground(new java.awt.Color(0, 0, 0));
         btnLimp.setText("Limpiar");
+        btnLimp.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnLimp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimpActionPerformed(evt);

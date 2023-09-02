@@ -125,10 +125,10 @@ public class insertTipoCuenta extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
-        PCont.setBackground(new java.awt.Color(255, 255, 255));
+        PCont.setBackground(new java.awt.Color(190, 233, 232));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(27, 73, 101));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("CREAR PERFIL");
 
         lbEsp.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -142,7 +142,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
             }
         });
 
-        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setBackground(new java.awt.Color(190, 233, 232));
         btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
         btnBack.setBorder(null);
@@ -152,14 +152,16 @@ public class insertTipoCuenta extends javax.swing.JPanel {
             }
         });
 
+        btnConfirm.setForeground(new java.awt.Color(0, 0, 0));
         btnConfirm.setText("Confirmar");
+        btnConfirm.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfirmActionPerformed(evt);
             }
         });
 
-        panelRound1.setBackground(new java.awt.Color(202, 233, 255));
+        panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomLeft(50);
         panelRound1.setRoundBottomRight(50);
         panelRound1.setRoundTopLeft(50);
@@ -171,6 +173,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         jLabel5.setText("Nombres");
         panelRound1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 100, 30));
 
+        txtNombre.setBackground(new java.awt.Color(190, 233, 232));
         txtNombre.setShadowColor(new java.awt.Color(0, 0, 51));
         txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -183,6 +186,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         lbMin1.setText("Minimo de digitos 10");
         panelRound1.add(lbMin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 140, 150, 30));
 
+        txtApellidos.setBackground(new java.awt.Color(190, 233, 232));
         txtApellidos.setShadowColor(new java.awt.Color(0, 0, 51));
         txtApellidos.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -196,6 +200,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         jLabel1.setText("Apellidos");
         panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, 100, 30));
 
+        txtDir.setBackground(new java.awt.Color(190, 233, 232));
         txtDir.setShadowColor(new java.awt.Color(0, 0, 51));
         txtDir.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -214,6 +219,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         jLabel3.setText("Nacimiento");
         panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, 150, 30));
 
+        txtDui.setBackground(new java.awt.Color(190, 233, 232));
         txtDui.setShadowColor(new java.awt.Color(0, 0, 51));
         txtDui.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -227,7 +233,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         jLabel6.setText("Sexo");
         panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 100, 30));
 
-        cbSexo.setBackground(new java.awt.Color(255, 255, 255));
+        cbSexo.setBackground(new java.awt.Color(190, 233, 232));
         cbSexo.setForeground(new java.awt.Color(0, 0, 0));
         cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femenino", "Masculino" }));
         panelRound1.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 440, 200, 40));
@@ -250,7 +256,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         lbDir1.setText("Dirección");
         panelRound1.add(lbDir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, 150, 30));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(190, 233, 232));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -265,6 +271,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clinica 64px.png"))); // NOI18N
 
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("VetSoft+");
 
         javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
@@ -318,7 +325,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
                         .addComponent(lbEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
                         .addComponent(cbEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(1, 1, 1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PContLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)

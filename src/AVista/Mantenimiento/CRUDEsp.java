@@ -88,32 +88,38 @@ public class CRUDEsp extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(190, 233, 232));
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Especialidad:");
 
-        txtEsp.setBackground(new java.awt.Color(202, 233, 255));
+        txtEsp.setBackground(new java.awt.Color(255, 255, 255));
         txtEsp.setShadowColor(new java.awt.Color(0, 0, 51));
 
+        btnEliminar.setForeground(new java.awt.Color(0, 0, 0));
         btnEliminar.setText("Eliminar");
         btnEliminar.setToolTipText("");
+        btnEliminar.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
             }
         });
 
+        btnAct.setForeground(new java.awt.Color(0, 0, 0));
         btnAct.setText("Actualizar");
+        btnAct.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnAct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActActionPerformed(evt);
             }
         });
 
+        btnAgregar.setForeground(new java.awt.Color(0, 0, 0));
         btnAgregar.setText("Agregar");
+        btnAgregar.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarActionPerformed(evt);
@@ -124,7 +130,7 @@ public class CRUDEsp extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Nombre de la Especialidad");
 
-        txtBusq.setBackground(new java.awt.Color(202, 233, 255));
+        txtBusq.setBackground(new java.awt.Color(255, 255, 255));
         txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
         txtBusq.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

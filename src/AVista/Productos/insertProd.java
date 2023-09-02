@@ -82,14 +82,14 @@ public class insertProd extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
-        PCont.setBackground(new java.awt.Color(255, 255, 255));
+        PCont.setBackground(new java.awt.Color(190, 233, 232));
         PCont.setPreferredSize(new java.awt.Dimension(1320, 810));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Tipo de producto");
 
-        txtPrecio.setBackground(new java.awt.Color(202, 233, 255));
+        txtPrecio.setBackground(new java.awt.Color(255, 255, 255));
         txtPrecio.setShadowColor(new java.awt.Color(0, 0, 51));
         txtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -97,7 +97,9 @@ public class insertProd extends javax.swing.JPanel {
             }
         });
 
+        btnAgregar.setForeground(new java.awt.Color(0, 0, 0));
         btnAgregar.setText("Confirmar");
+        btnAgregar.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarActionPerformed(evt);
@@ -112,7 +114,7 @@ public class insertProd extends javax.swing.JPanel {
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Proveedor");
 
-        txtProducto.setBackground(new java.awt.Color(202, 233, 255));
+        txtProducto.setBackground(new java.awt.Color(255, 255, 255));
         txtProducto.setShadowColor(new java.awt.Color(0, 0, 51));
         txtProducto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -120,7 +122,7 @@ public class insertProd extends javax.swing.JPanel {
             }
         });
 
-        txtProv.setBackground(new java.awt.Color(202, 233, 255));
+        txtProv.setBackground(new java.awt.Color(255, 255, 255));
         txtProv.setShadowColor(new java.awt.Color(0, 0, 51));
         txtProv.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -128,14 +130,16 @@ public class insertProd extends javax.swing.JPanel {
             }
         });
 
+        btnSelect.setForeground(new java.awt.Color(0, 0, 0));
         btnSelect.setText("Seleccionar foto");
+        btnSelect.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnSelect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSelectActionPerformed(evt);
             }
         });
 
-        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setBackground(new java.awt.Color(190, 233, 232));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
         btnBack.setBorder(null);
         btnBack.addActionListener(new java.awt.event.ActionListener() {

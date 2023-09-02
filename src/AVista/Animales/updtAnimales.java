@@ -125,10 +125,10 @@ public class updtAnimales extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
-        PCont.setBackground(new java.awt.Color(255, 255, 255));
+        PCont.setBackground(new java.awt.Color(190, 233, 232));
         PCont.setPreferredSize(new java.awt.Dimension(1320, 810));
 
-        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setBackground(new java.awt.Color(190, 233, 232));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
         btnBack.setBorder(null);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -138,10 +138,10 @@ public class updtAnimales extends javax.swing.JPanel {
         });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(27, 73, 101));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("ACTUALIZAR MASCOTA");
 
-        panelRound1.setBackground(new java.awt.Color(202, 233, 255));
+        panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomLeft(50);
         panelRound1.setRoundBottomRight(50);
         panelRound1.setRoundTopLeft(50);
@@ -153,11 +153,11 @@ public class updtAnimales extends javax.swing.JPanel {
         lbEsp1.setText("Tipo de animal");
         panelRound1.add(lbEsp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 130, -1));
 
-        cbRaza.setBackground(new java.awt.Color(255, 255, 255));
+        cbRaza.setBackground(new java.awt.Color(190, 233, 232));
         cbRaza.setForeground(new java.awt.Color(0, 0, 0));
         panelRound1.add(cbRaza, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 80, 240, 40));
 
-        cbTipoA.setBackground(new java.awt.Color(255, 255, 255));
+        cbTipoA.setBackground(new java.awt.Color(190, 233, 232));
         cbTipoA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbTipoAActionPerformed(evt);
@@ -190,7 +190,7 @@ public class updtAnimales extends javax.swing.JPanel {
         jLabel6.setText("Sexo");
         panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 310, 100, 30));
 
-        cbSexo.setBackground(new java.awt.Color(255, 255, 255));
+        cbSexo.setBackground(new java.awt.Color(190, 233, 232));
         cbSexo.setForeground(new java.awt.Color(0, 0, 0));
         cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hembra", "Macho" }));
         panelRound1.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 350, 210, 50));
@@ -200,6 +200,7 @@ public class updtAnimales extends javax.swing.JPanel {
         jLabel3.setText("Padecimientos");
         panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 440, 150, 30));
 
+        txtNombre.setBackground(new java.awt.Color(190, 233, 232));
         txtNombre.setShadowColor(new java.awt.Color(0, 0, 51));
         txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -208,6 +209,7 @@ public class updtAnimales extends javax.swing.JPanel {
         });
         panelRound1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 280, 50));
 
+        txtPeso.setBackground(new java.awt.Color(190, 233, 232));
         txtPeso.setShadowColor(new java.awt.Color(0, 0, 51));
         txtPeso.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -216,6 +218,7 @@ public class updtAnimales extends javax.swing.JPanel {
         });
         panelRound1.add(txtPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 190, 270, 50));
 
+        txtPad.setBackground(new java.awt.Color(190, 233, 232));
         txtPad.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtPad, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 480, 710, 50));
 
@@ -228,7 +231,9 @@ public class updtAnimales extends javax.swing.JPanel {
         lbMin1.setText("Minimo de digitos 10");
         panelRound1.add(lbMin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 230, 120, 30));
 
+        btnConfirm.setForeground(new java.awt.Color(0, 0, 0));
         btnConfirm.setText("Confirmar");
+        btnConfirm.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfirmActionPerformed(evt);

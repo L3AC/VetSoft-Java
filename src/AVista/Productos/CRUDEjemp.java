@@ -78,23 +78,27 @@ public class CRUDEjemp extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
-        PCont.setBackground(new java.awt.Color(255, 255, 255));
+        PCont.setBackground(new java.awt.Color(190, 233, 232));
 
+        btnAgregar.setForeground(new java.awt.Color(0, 0, 0));
         btnAgregar.setText("Agregar");
+        btnAgregar.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarActionPerformed(evt);
             }
         });
 
+        btnEliminar.setForeground(new java.awt.Color(0, 0, 0));
         btnEliminar.setText("Eliminar");
+        btnEliminar.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
             }
         });
 
-        panelRound1.setBackground(new java.awt.Color(202, 233, 255));
+        panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomLeft(50);
         panelRound1.setRoundBottomRight(50);
         panelRound1.setRoundTopLeft(50);
@@ -126,7 +130,7 @@ public class CRUDEjemp extends javax.swing.JPanel {
 
         panelRound1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 830, 500));
 
-        txtNum.setBackground(new java.awt.Color(202, 233, 255));
+        txtNum.setBackground(new java.awt.Color(255, 255, 255));
         txtNum.setShadowColor(new java.awt.Color(0, 0, 51));
         txtNum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,7 +147,7 @@ public class CRUDEjemp extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Cantidad a ingresar");
 
-        txtBusq.setBackground(new java.awt.Color(202, 233, 255));
+        txtBusq.setBackground(new java.awt.Color(255, 255, 255));
         txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
         txtBusq.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,7 +164,7 @@ public class CRUDEjemp extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Estado del ejemplar:");
 
-        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setBackground(new java.awt.Color(190, 233, 232));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
         btnBack.setBorder(null);
         btnBack.addActionListener(new java.awt.event.ActionListener() {

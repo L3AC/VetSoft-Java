@@ -38,7 +38,7 @@
     <Container class="javax.swing.JPanel" name="PCont">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+          <Color blue="e8" green="e9" red="be" type="rgb"/>
         </Property>
       </Properties>
 
@@ -116,7 +116,7 @@
                           <Component id="lbVerif" min="-2" pref="350" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="257" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="299" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -197,7 +197,7 @@
         <Component class="javax.swing.JButton" name="btnBack">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="e8" green="e9" red="be" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Imagenes/Flechita.png"/>
@@ -216,7 +216,7 @@
               <Font name="Segoe UI" size="36" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="65" green="49" red="1b" type="rgb"/>
+              <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="CREAR PERFIL"/>
           </Properties>
@@ -315,7 +315,13 @@
         </Component>
         <Component class="Design.ButtonGradient" name="btnConfirm">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Confirmar"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Comfortaa Regular" size="14" style="0"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConfirmActionPerformed"/>
@@ -324,7 +330,7 @@
         <Component class="Design.TextFieldSV" name="txtNombre">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="e9" red="ca" type="rgb"/>
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="shadowColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="0" red="0" type="rgb"/>
@@ -337,7 +343,7 @@
         <Component class="Design.TextFieldSV" name="txtDui">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="e9" red="ca" type="rgb"/>
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="shadowColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="0" red="0" type="rgb"/>
@@ -350,7 +356,7 @@
         <Component class="Design.TextFieldSV" name="txtApellidos">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="e9" red="ca" type="rgb"/>
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="shadowColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="0" red="0" type="rgb"/>
@@ -363,7 +369,7 @@
         <Component class="Design.TextFieldSV" name="txtBusq">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="e9" red="ca" type="rgb"/>
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="shadowColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="0" red="0" type="rgb"/>
@@ -373,7 +379,7 @@
         <Container class="Design.PanelRound" name="panelRound1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="e9" red="ca" type="rgb"/>
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="roundBottomLeft" type="int" value="50"/>
             <Property name="roundBottomRight" type="int" value="50"/>
@@ -440,6 +446,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="VetSoft+"/>
           </Properties>
         </Component>

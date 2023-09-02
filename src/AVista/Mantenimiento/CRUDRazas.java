@@ -107,11 +107,11 @@ public class CRUDRazas extends javax.swing.JPanel {
         cbTIpoA = new Design.Combobox();
         jLabel5 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(190, 233, 232));
         setPreferredSize(new java.awt.Dimension(1320, 810));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtNR.setBackground(new java.awt.Color(202, 233, 255));
+        txtNR.setBackground(new java.awt.Color(255, 255, 255));
         txtNR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNRActionPerformed(evt);
@@ -124,7 +124,9 @@ public class CRUDRazas extends javax.swing.JPanel {
         jLabel1.setText("Tipo de animal");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 170, -1, -1));
 
+        btnAgregar.setForeground(new java.awt.Color(0, 0, 0));
         btnAgregar.setText("Agregar");
+        btnAgregar.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarActionPerformed(evt);
@@ -132,7 +134,9 @@ public class CRUDRazas extends javax.swing.JPanel {
         });
         add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 440, 160, 50));
 
+        btnEditar.setForeground(new java.awt.Color(0, 0, 0));
         btnEditar.setText("Editar");
+        btnEditar.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditarActionPerformed(evt);
@@ -140,7 +144,9 @@ public class CRUDRazas extends javax.swing.JPanel {
         });
         add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 510, 160, 50));
 
+        btnEliminar.setForeground(new java.awt.Color(0, 0, 0));
         btnEliminar.setText("Eliminar");
+        btnEliminar.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
@@ -148,7 +154,7 @@ public class CRUDRazas extends javax.swing.JPanel {
         });
         add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 580, 160, 50));
 
-        txtBusq.setBackground(new java.awt.Color(202, 233, 255));
+        txtBusq.setBackground(new java.awt.Color(255, 255, 255));
         txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
         txtBusq.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -206,7 +212,6 @@ public class CRUDRazas extends javax.swing.JPanel {
         jLabel4.setText("Nombre de la Raza");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, -1, -1));
 
-        cbTIpoA.setBackground(new java.awt.Color(202, 233, 255));
         cbTIpoA.setForeground(new java.awt.Color(0, 0, 0));
         cbTIpoA.setLabeText("");
         cbTIpoA.addActionListener(new java.awt.event.ActionListener() {

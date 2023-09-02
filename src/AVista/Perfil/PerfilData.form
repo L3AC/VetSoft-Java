@@ -34,7 +34,7 @@
     <Container class="javax.swing.JPanel" name="PCont">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+          <Color blue="e8" green="e9" red="be" type="rgb"/>
         </Property>
       </Properties>
 
@@ -48,7 +48,7 @@
               <Font name="Segoe UI" size="36" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="65" green="49" red="1b" type="rgb"/>
+              <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="CUENTA PERSONAL"/>
           </Properties>
@@ -61,7 +61,7 @@
         <Container class="Design.PanelRound" name="panelRound1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="e9" red="ca" type="rgb"/>
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="roundBottomLeft" type="int" value="50"/>
             <Property name="roundBottomRight" type="int" value="50"/>
@@ -80,6 +80,9 @@
           <SubComponents>
             <Component class="Design.TextFieldSV" name="txtApellidos">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="e8" green="e9" red="be" type="rgb"/>
+                </Property>
                 <Property name="shadowColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="0" red="0" type="rgb"/>
                 </Property>
@@ -150,6 +153,9 @@
             </Component>
             <Component class="Design.TextFieldSV" name="txtNombre">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="e8" green="e9" red="be" type="rgb"/>
+                </Property>
                 <Property name="shadowColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="0" red="0" type="rgb"/>
                 </Property>
@@ -181,6 +187,9 @@
             </Component>
             <Component class="Design.TextFieldSV" name="txtDui">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="e8" green="e9" red="be" type="rgb"/>
+                </Property>
                 <Property name="shadowColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="0" red="0" type="rgb"/>
                 </Property>
@@ -213,7 +222,7 @@
             <Component class="javax.swing.JComboBox" name="cbSexo">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                  <Color blue="e8" green="e9" red="be" type="rgb"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
@@ -236,6 +245,9 @@
             </Component>
             <Component class="Design.TextFieldSV" name="txtDir">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="e8" green="e9" red="be" type="rgb"/>
+                </Property>
                 <Property name="shadowColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="0" red="0" type="rgb"/>
                 </Property>
@@ -245,7 +257,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="770" y="300" width="360" height="51"/>
+                  <AbsoluteConstraints x="670" y="330" width="360" height="51"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -264,6 +276,9 @@
             </Component>
             <Component class="Design.TextFieldSV" name="txtUser">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="e8" green="e9" red="be" type="rgb"/>
+                </Property>
                 <Property name="shadowColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="0" red="0" type="rgb"/>
                 </Property>
@@ -295,6 +310,9 @@
             </Component>
             <Component class="Design.TextFieldSV" name="txtCorreo">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="e8" green="e9" red="be" type="rgb"/>
+                </Property>
                 <Property name="shadowColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="0" red="0" type="rgb"/>
                 </Property>
@@ -310,6 +328,9 @@
             </Component>
             <Component class="Design.TextFieldSV" name="txtTel">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="e8" green="e9" red="be" type="rgb"/>
+                </Property>
                 <Property name="shadowColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="0" red="0" type="rgb"/>
                 </Property>
@@ -417,22 +438,6 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="Design.Combobox" name="cbTipoProd">
-              <Properties>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="0" type="rgb"/>
-                </Property>
-                <Property name="labeText" type="java.lang.String" value=""/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbTipoProdActionPerformed"/>
-              </Events>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="680" y="330" width="350" height="50"/>
-                </Constraint>
-              </Constraints>
-            </Component>
             <Component class="javax.swing.JLabel" name="lbDirEsp">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -469,7 +474,13 @@
         </Container>
         <Component class="Design.ButtonGradient" name="btnConfirm">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Confirmar"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Comfortaa Regular" size="14" style="0"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConfirmActionPerformed"/>
@@ -482,7 +493,13 @@
         </Component>
         <Component class="Design.ButtonGradient" name="btnAct">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Actualizar"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Comfortaa Regular" size="14" style="0"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnActActionPerformed"/>

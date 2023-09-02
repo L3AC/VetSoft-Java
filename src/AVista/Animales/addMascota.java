@@ -106,6 +106,7 @@ public class addMascota extends javax.swing.JPanel {
         });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("REGISTRAR MASCOTA");
 
         panelRound1.setBackground(new java.awt.Color(255, 255, 255));
@@ -125,6 +126,7 @@ public class addMascota extends javax.swing.JPanel {
         panelRound1.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, 220, 40));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Sexo");
         panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, 80, 30));
 
@@ -132,6 +134,7 @@ public class addMascota extends javax.swing.JPanel {
         panelRound1.add(cbRaza, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, 240, 40));
 
         lbEsp.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbEsp.setForeground(new java.awt.Color(0, 0, 0));
         lbEsp.setText("Raza");
         panelRound1.add(lbEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 70, -1));
 
@@ -144,16 +147,19 @@ public class addMascota extends javax.swing.JPanel {
         panelRound1.add(cbTipoA, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 240, 40));
 
         lbEsp1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbEsp1.setForeground(new java.awt.Color(0, 0, 0));
         lbEsp1.setText("Tipo de animal");
         panelRound1.add(lbEsp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 160, -1));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Nacimiento (Aproximado)");
         panelRound1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 250, 30));
 
         dpNaci.setBackground(new java.awt.Color(202, 233, 255));
         panelRound1.add(dpNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 220, 40));
 
+        lbMin.setForeground(new java.awt.Color(0, 0, 0));
         lbMin.setText("Minimo de digitos 3");
         panelRound1.add(lbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 110, 30));
 
@@ -178,10 +184,12 @@ public class addMascota extends javax.swing.JPanel {
         panelRound1.add(txtPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 190, 50));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Peso");
         panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 100, 30));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Padecimientos");
         panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, 160, 30));
 
@@ -191,12 +199,15 @@ public class addMascota extends javax.swing.JPanel {
         panelRound1.add(txtPad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 710, 50));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Nombre");
         panelRound1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 110, 30));
 
+        lbMin1.setForeground(new java.awt.Color(0, 0, 0));
         lbMin1.setText("Minimo de digitos 10");
         panelRound1.add(lbMin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, 120, 30));
 
+        btnConfirm.setForeground(new java.awt.Color(0, 0, 0));
         btnConfirm.setText("Confirmar");
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

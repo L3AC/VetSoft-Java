@@ -51,10 +51,10 @@ public class HVacunas extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
-        PCont.setBackground(new java.awt.Color(255, 255, 255));
+        PCont.setBackground(new java.awt.Color(190, 233, 232));
         PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setBackground(new java.awt.Color(190, 233, 232));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
         btnBack.setBorder(null);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -70,7 +70,7 @@ public class HVacunas extends javax.swing.JPanel {
         jLabel1.setText("Dosis aplicadas");
         PCont.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 180, -1, -1));
 
-        txtBusq.setBackground(new java.awt.Color(202, 233, 255));
+        txtBusq.setBackground(new java.awt.Color(255, 255, 255));
         txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
         txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -79,7 +79,9 @@ public class HVacunas extends javax.swing.JPanel {
         });
         PCont.add(txtBusq, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 60, 470, 50));
 
+        btnCart.setForeground(new java.awt.Color(0, 0, 0));
         btnCart.setText("Reporte");
+        btnCart.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnCart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCartActionPerformed(evt);
@@ -87,7 +89,7 @@ public class HVacunas extends javax.swing.JPanel {
         });
         PCont.add(btnCart, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 470, 130, 50));
 
-        panelRound1.setBackground(new java.awt.Color(202, 233, 255));
+        panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomLeft(50);
         panelRound1.setRoundBottomRight(50);
         panelRound1.setRoundTopLeft(50);
@@ -117,7 +119,9 @@ public class HVacunas extends javax.swing.JPanel {
 
         PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 970, 495));
 
+        btnElim.setForeground(new java.awt.Color(0, 0, 0));
         btnElim.setText("Eliminar");
+        btnElim.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnElim.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnElimActionPerformed(evt);
@@ -125,7 +129,9 @@ public class HVacunas extends javax.swing.JPanel {
         });
         PCont.add(btnElim, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 390, 130, 50));
 
+        btnAct.setForeground(new java.awt.Color(0, 0, 0));
         btnAct.setText("Actualizar");
+        btnAct.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnAct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActActionPerformed(evt);
@@ -133,7 +139,7 @@ public class HVacunas extends javax.swing.JPanel {
         });
         PCont.add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 310, 130, 50));
 
-        txtDosis.setBackground(new java.awt.Color(202, 233, 255));
+        txtDosis.setBackground(new java.awt.Color(255, 255, 255));
         txtDosis.setShadowColor(new java.awt.Color(0, 0, 51));
         txtDosis.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {

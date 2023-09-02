@@ -77,9 +77,9 @@ public class UPDTAsistente extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
-        PCont.setBackground(new java.awt.Color(255, 255, 255));
+        PCont.setBackground(new java.awt.Color(190, 233, 232));
 
-        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setBackground(new java.awt.Color(190, 233, 232));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
         btnBack.setBorder(null);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -89,7 +89,7 @@ public class UPDTAsistente extends javax.swing.JPanel {
         });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(27, 73, 101));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("EDITAR PERFIL");
 
         lbDoc.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -129,7 +129,7 @@ public class UPDTAsistente extends javax.swing.JPanel {
         lbDoc1.setForeground(new java.awt.Color(0, 0, 0));
         lbDoc1.setText("Doctor a cargo:");
 
-        txtNombre.setBackground(new java.awt.Color(202, 233, 255));
+        txtNombre.setBackground(new java.awt.Color(255, 255, 255));
         txtNombre.setShadowColor(new java.awt.Color(0, 0, 51));
         txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -137,7 +137,7 @@ public class UPDTAsistente extends javax.swing.JPanel {
             }
         });
 
-        txtDui.setBackground(new java.awt.Color(202, 233, 255));
+        txtDui.setBackground(new java.awt.Color(255, 255, 255));
         txtDui.setShadowColor(new java.awt.Color(0, 0, 51));
         txtDui.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -145,7 +145,7 @@ public class UPDTAsistente extends javax.swing.JPanel {
             }
         });
 
-        txtApellidos.setBackground(new java.awt.Color(202, 233, 255));
+        txtApellidos.setBackground(new java.awt.Color(255, 255, 255));
         txtApellidos.setShadowColor(new java.awt.Color(0, 0, 51));
         txtApellidos.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -153,14 +153,16 @@ public class UPDTAsistente extends javax.swing.JPanel {
             }
         });
 
+        btnConfirm.setForeground(new java.awt.Color(0, 0, 0));
         btnConfirm.setText("Confirmar");
+        btnConfirm.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfirmActionPerformed(evt);
             }
         });
 
-        panelRound1.setBackground(new java.awt.Color(202, 233, 255));
+        panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomLeft(50);
         panelRound1.setRoundBottomRight(50);
         panelRound1.setRoundTopLeft(50);
@@ -192,7 +194,7 @@ public class UPDTAsistente extends javax.swing.JPanel {
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Doctor:");
 
-        txtBusq.setBackground(new java.awt.Color(202, 233, 255));
+        txtBusq.setBackground(new java.awt.Color(255, 255, 255));
         txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
         txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -217,28 +219,6 @@ public class UPDTAsistente extends javax.swing.JPanel {
         PCont.setLayout(PContLayout);
         PContLayout.setHorizontalGroup(
             PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(450, 450, 450)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(376, 376, 376)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel3))))
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(150, 150, 150)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(71, 71, 71)
-                .addComponent(lbDoc1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(lbDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(PContLayout.createSequentialGroup()
                 .addGap(61, 61, 61)
                 .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -270,23 +250,52 @@ public class UPDTAsistente extends javax.swing.JPanel {
                     .addComponent(lbNaci, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(dpNaci, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(420, 420, 420)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PContLayout.createSequentialGroup()
+                                .addGap(80, 80, 80)
+                                .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(71, 71, 71)
+                        .addComponent(lbDoc1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(lbDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(406, 406, 406)
+                        .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addGroup(PContLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel3))))))
         );
         PContLayout.setVerticalGroup(
             PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PContLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel3)))
-                .addGap(10, 10, 10)
+                        .addGap(18, 18, 18)
+                        .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PContLayout.createSequentialGroup()
+                                .addGap(42, 42, 42)
+                                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(PContLayout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabel3)))
+                        .addGap(10, 10, 10))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PContLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)))
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PContLayout.createSequentialGroup()

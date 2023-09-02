@@ -39,51 +39,55 @@ public class SeguridadC extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(190, 233, 232));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtProd.setBackground(new java.awt.Color(202, 233, 255));
+        txtProd.setBackground(new java.awt.Color(255, 255, 255));
         txtProd.setShadowColor(new java.awt.Color(0, 0, 51));
-        jPanel1.add(txtProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 220, 290, -1));
+        jPanel1.add(txtProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 220, 330, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Ingrese su contraseña actual");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 180, 260, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 180, 260, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Ingrese su nueva contraseña");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 390, 260, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 390, 260, -1));
 
-        txtProd1.setBackground(new java.awt.Color(202, 233, 255));
+        txtProd1.setBackground(new java.awt.Color(255, 255, 255));
         txtProd1.setShadowColor(new java.awt.Color(0, 0, 51));
-        jPanel1.add(txtProd1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 430, 290, -1));
+        jPanel1.add(txtProd1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 430, 290, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Digite su contraseña de nuevo");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 500, 260, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 500, 260, -1));
 
-        txtProd2.setBackground(new java.awt.Color(202, 233, 255));
+        txtProd2.setBackground(new java.awt.Color(255, 255, 255));
         txtProd2.setShadowColor(new java.awt.Color(0, 0, 51));
-        jPanel1.add(txtProd2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 540, 290, -1));
+        jPanel1.add(txtProd2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 540, 290, -1));
 
+        btnConfirm.setForeground(new java.awt.Color(0, 0, 0));
         btnConfirm.setText("Verificar");
+        btnConfirm.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfirmActionPerformed(evt);
             }
         });
-        jPanel1.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 290, 160, 40));
+        jPanel1.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 270, 160, 40));
 
+        btnConfirm1.setForeground(new java.awt.Color(0, 0, 0));
         btnConfirm1.setText("Cambiar");
+        btnConfirm1.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnConfirm1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfirm1ActionPerformed(evt);
             }
         });
-        jPanel1.add(btnConfirm1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 630, 160, 40));
+        jPanel1.add(btnConfirm1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 630, 160, 40));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(27, 73, 101));

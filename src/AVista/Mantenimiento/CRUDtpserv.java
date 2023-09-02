@@ -127,7 +127,7 @@ public class CRUDtpserv extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
-        PCont.setBackground(new java.awt.Color(255, 255, 255));
+        PCont.setBackground(new java.awt.Color(190, 233, 232));
         PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -135,11 +135,13 @@ public class CRUDtpserv extends javax.swing.JPanel {
         jLabel2.setText("Costo del servicio");
         PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 390, -1, -1));
 
-        txtCosto.setBackground(new java.awt.Color(202, 233, 255));
+        txtCosto.setBackground(new java.awt.Color(255, 255, 255));
         txtCosto.setShadowColor(new java.awt.Color(0, 0, 51));
         PCont.add(txtCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 430, 310, -1));
 
+        btnAgregar.setForeground(new java.awt.Color(0, 0, 0));
         btnAgregar.setText("Agregar");
+        btnAgregar.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarActionPerformed(evt);
@@ -147,7 +149,9 @@ public class CRUDtpserv extends javax.swing.JPanel {
         });
         PCont.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 560, 110, 40));
 
+        btnLimp.setForeground(new java.awt.Color(0, 0, 0));
         btnLimp.setText("Limpiar");
+        btnLimp.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnLimp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimpActionPerformed(evt);
@@ -155,8 +159,10 @@ public class CRUDtpserv extends javax.swing.JPanel {
         });
         PCont.add(btnLimp, new org.netbeans.lib.awtextra.AbsoluteConstraints(828, 60, 180, 40));
 
+        btnEliminar.setForeground(new java.awt.Color(0, 0, 0));
         btnEliminar.setText("Eliminar");
         btnEliminar.setToolTipText("");
+        btnEliminar.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
@@ -164,7 +170,6 @@ public class CRUDtpserv extends javax.swing.JPanel {
         });
         PCont.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 560, 110, 40));
 
-        cbNivelS.setBackground(new java.awt.Color(202, 233, 255));
         cbNivelS.setForeground(new java.awt.Color(80, 80, 80));
         cbNivelS.setLabeText("");
         cbNivelS.addActionListener(new java.awt.event.ActionListener() {
@@ -174,7 +179,7 @@ public class CRUDtpserv extends javax.swing.JPanel {
         });
         PCont.add(cbNivelS, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 190, 270, 40));
 
-        txtBusq.setBackground(new java.awt.Color(202, 233, 255));
+        txtBusq.setBackground(new java.awt.Color(255, 255, 255));
         txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
         txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -193,11 +198,13 @@ public class CRUDtpserv extends javax.swing.JPanel {
         jLabel4.setText("Nombre del servicio");
         PCont.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 270, -1, -1));
 
-        txtServ.setBackground(new java.awt.Color(202, 233, 255));
+        txtServ.setBackground(new java.awt.Color(255, 255, 255));
         txtServ.setShadowColor(new java.awt.Color(0, 0, 51));
         PCont.add(txtServ, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 310, 310, -1));
 
+        btnAct.setForeground(new java.awt.Color(0, 0, 0));
         btnAct.setText("Actualizar");
+        btnAct.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnAct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActActionPerformed(evt);

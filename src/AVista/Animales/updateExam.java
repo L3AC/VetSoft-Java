@@ -85,7 +85,7 @@ public class updateExam extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
-        PCont.setBackground(new java.awt.Color(255, 255, 255));
+        PCont.setBackground(new java.awt.Color(190, 233, 232));
 
         btnBack.setBackground(new java.awt.Color(255, 255, 255));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
@@ -100,7 +100,7 @@ public class updateExam extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(27, 73, 101));
         jLabel2.setText("EDITAR EXAMEN MÉDICO");
 
-        panelRound1.setBackground(new java.awt.Color(202, 233, 255));
+        panelRound1.setBackground(new java.awt.Color(204, 255, 255));
         panelRound1.setRoundBottomLeft(50);
         panelRound1.setRoundBottomRight(50);
         panelRound1.setRoundTopLeft(50);
@@ -112,6 +112,7 @@ public class updateExam extends javax.swing.JPanel {
         jLabel1.setText("Nota");
         panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 50, 30));
 
+        txtNota.setBackground(new java.awt.Color(190, 233, 232));
         txtNota.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtNota, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 920, 50));
 
@@ -119,19 +120,19 @@ public class updateExam extends javax.swing.JPanel {
         lbImg.setForeground(new java.awt.Color(0, 0, 0));
         panelRound1.add(lbImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 30, 320, 280));
 
+        cbTp.setBackground(new java.awt.Color(190, 233, 232));
         cbTp.setForeground(new java.awt.Color(80, 80, 80));
         cbTp.setLabeText("");
         panelRound1.add(cbTp, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 270, 40));
 
+        btnSelect.setForeground(new java.awt.Color(0, 0, 0));
         btnSelect.setText("Seleccionar foto");
-        btnSelect.setColor1(new java.awt.Color(255, 255, 255));
-        btnSelect.setColor2(new java.awt.Color(255, 255, 255));
         btnSelect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSelectActionPerformed(evt);
             }
         });
-        panelRound1.add(btnSelect, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, 120, 40));
+        panelRound1.add(btnSelect, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, 180, 40));
 
         lbEsp2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbEsp2.setForeground(new java.awt.Color(0, 0, 0));
@@ -139,6 +140,7 @@ public class updateExam extends javax.swing.JPanel {
         panelRound1.add(lbEsp2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 130, -1));
 
         btnConfirm.setText("Confirmar");
+        btnConfirm.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfirmActionPerformed(evt);
@@ -150,16 +152,19 @@ public class updateExam extends javax.swing.JPanel {
         PContLayout.setHorizontalGroup(
             PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PContLayout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(340, 340, 340)
-                .addComponent(jLabel2))
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(170, 170, 170)
-                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 980, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(590, 590, 590)
-                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(340, 340, 340)
+                        .addComponent(jLabel2))
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(170, 170, 170)
+                        .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 980, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(590, 590, 590)
+                        .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(170, 170, 170))
         );
         PContLayout.setVerticalGroup(
             PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,7 +178,8 @@ public class updateExam extends javax.swing.JPanel {
                 .addGap(50, 50, 50)
                 .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
-                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
