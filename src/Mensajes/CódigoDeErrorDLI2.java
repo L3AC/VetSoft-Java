@@ -58,7 +58,6 @@ protected void paintComponent(Graphics grphcs) {
         setAlignmentX(50.0F);
         setAlignmentY(50.0F);
 
-        panelRound2.setBackground(new java.awt.Color(255, 255, 255));
         panelRound2.setRoundBottomLeft(50);
         panelRound2.setRoundBottomRight(50);
         panelRound2.setRoundTopLeft(50);

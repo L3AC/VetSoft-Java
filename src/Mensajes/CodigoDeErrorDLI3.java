@@ -64,6 +64,11 @@ public class CodigoDeErrorDLI3 extends javax.swing.JPanel {
         cmdok.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         cmdok.setMaximumSize(new java.awt.Dimension(29, 34));
         cmdok.setMinimumSize(new java.awt.Dimension(29, 34));
+        cmdok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdokActionPerformed(evt);
+            }
+        });
         panelRound1.add(cmdok, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, 77, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -77,6 +82,10 @@ public class CodigoDeErrorDLI3 extends javax.swing.JPanel {
             .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cmdokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdokActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmdokActionPerformed
 
     private void cmdCancelActionPerformed(java.awt.event.ActionEvent evt) {                                          
         GlassPanePopup.closePopupLast();

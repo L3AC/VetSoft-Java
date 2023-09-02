@@ -4,6 +4,9 @@
  */
 package Mensajes;
 
+import java.awt.Color;
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author User
@@ -15,6 +18,10 @@ public class CódigoError extends javax.swing.JPanel {
      */
     public CódigoError() {
         initComponents();
+        setOpaque(false);
+        txt.setBackground(new Color(0, 0, 0, 0));
+        txt.setOpaque(false);
+        
     }
 
     /**
@@ -29,8 +36,8 @@ public class CódigoError extends javax.swing.JPanel {
         buttonGradient1 = new Design.ButtonGradient();
         panelRound1 = new Design.PanelRound();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        boton1 = new Mensajes.Boton();
+        txt = new javax.swing.JLabel();
+        cmdok = new Mensajes.Boton();
 
         buttonGradient1.setText("buttonGradient1");
 
@@ -46,22 +53,21 @@ public class CódigoError extends javax.swing.JPanel {
         jLabel1.setText("Código de error");
         panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(133, 133, 133));
-        jLabel2.setText("\"No existen registros\"");
-        panelRound1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, -1, -1));
+        txt.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        txt.setForeground(new java.awt.Color(133, 133, 133));
+        txt.setText("\"No existen registros\"");
+        panelRound1.add(txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, -1, -1));
 
-        boton1.setBackground(new java.awt.Color(95, 171, 211));
-        boton1.setForeground(new java.awt.Color(255, 255, 255));
-        boton1.setText("Ok");
-        boton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        boton1.setMaximumSize(new java.awt.Dimension(29, 34));
-        boton1.addActionListener(new java.awt.event.ActionListener() {
+        cmdok.setBackground(new java.awt.Color(95, 171, 211));
+        cmdok.setForeground(new java.awt.Color(255, 255, 255));
+        cmdok.setText("Ok");
+        cmdok.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cmdok.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boton1ActionPerformed(evt);
+                cmdokActionPerformed(evt);
             }
         });
-        panelRound1.add(boton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 80, 30));
+        panelRound1.add(cmdok, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 80, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -75,16 +81,20 @@ public class CódigoError extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void boton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_boton1ActionPerformed
+    private void cmdokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdokActionPerformed
+        GlassPanePopup.closePopupLast();
+    }//GEN-LAST:event_cmdokActionPerformed
 
+    public void eventOK(ActionListener event) {
+        cmdok.addActionListener(event);
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Mensajes.Boton boton1;
     private Design.ButtonGradient buttonGradient1;
+    private Mensajes.Boton cmdok;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private Design.PanelRound panelRound1;
+    private javax.swing.JLabel txt;
     // End of variables declaration//GEN-END:variables
 }
