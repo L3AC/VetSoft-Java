@@ -10,6 +10,7 @@ import AControlador.ctUser;
 import AVista.CUENTA.insertTipoCuenta;
 import AVista.CUENTA.updtTipoCuenta;
 import Design.Desg;
+import Mensajes.CódigoError;
 import Mensajes.CódogpErrorDIFC1;
 import Mensajes.GlassPanePopup;
 import Tipografias.Fuentes;
@@ -290,7 +291,14 @@ public class CRUDusuarios extends javax.swing.JPanel {
                 Logger.getLogger(CRUDusuarios.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            JOptionPane.showMessageDialog(null, "No hay registros aun");
+            CódigoError obj = new CódigoError();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
     }//GEN-LAST:event_btnAddCuentaActionPerformed
 
@@ -305,7 +313,7 @@ public class CRUDusuarios extends javax.swing.JPanel {
         }
         
         } else {
-            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
@@ -326,7 +334,14 @@ public class CRUDusuarios extends javax.swing.JPanel {
                 Logger.getLogger(CRUDusuarios.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            JOptionPane.showMessageDialog(null, "No hay registros aun");
+             CódigoError obj = new CódigoError();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
 
     }//GEN-LAST:event_btnEditarActionPerformed
@@ -357,7 +372,14 @@ public class CRUDusuarios extends javax.swing.JPanel {
 
             }
         } else {
-            JOptionPane.showMessageDialog(null, "No hay registros aun");
+            CódigoError obj = new CódigoError();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
