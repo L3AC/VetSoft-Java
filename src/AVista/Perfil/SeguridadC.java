@@ -44,30 +44,30 @@ public class SeguridadC extends javax.swing.JPanel {
 
         txtProd.setBackground(new java.awt.Color(202, 233, 255));
         txtProd.setShadowColor(new java.awt.Color(0, 0, 51));
-        jPanel1.add(txtProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, 290, -1));
+        jPanel1.add(txtProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 220, 290, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Ingrese su contraseña actual");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 180, 260, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 180, 260, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Ingrese su nueva contraseña");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 390, 260, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 390, 260, -1));
 
         txtProd1.setBackground(new java.awt.Color(202, 233, 255));
         txtProd1.setShadowColor(new java.awt.Color(0, 0, 51));
-        jPanel1.add(txtProd1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 430, 290, -1));
+        jPanel1.add(txtProd1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 430, 290, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Digite su contraseña de nuevo");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 500, 260, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 500, 260, -1));
 
         txtProd2.setBackground(new java.awt.Color(202, 233, 255));
         txtProd2.setShadowColor(new java.awt.Color(0, 0, 51));
-        jPanel1.add(txtProd2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 540, 290, -1));
+        jPanel1.add(txtProd2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 540, 290, -1));
 
         btnConfirm.setText("Verificar");
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
@@ -75,7 +75,7 @@ public class SeguridadC extends javax.swing.JPanel {
                 btnConfirmActionPerformed(evt);
             }
         });
-        jPanel1.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 290, 160, 40));
+        jPanel1.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 290, 160, 40));
 
         btnConfirm1.setText("Cambiar");
         btnConfirm1.addActionListener(new java.awt.event.ActionListener() {
@@ -83,12 +83,12 @@ public class SeguridadC extends javax.swing.JPanel {
                 btnConfirm1ActionPerformed(evt);
             }
         });
-        jPanel1.add(btnConfirm1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 620, 160, 40));
+        jPanel1.add(btnConfirm1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 630, 160, 40));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(27, 73, 101));
         jLabel5.setText("CAMBIO DE CONTRASEÑA");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 440, 50));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, 440, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

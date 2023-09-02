@@ -144,7 +144,7 @@ public class PerfilData extends javax.swing.JPanel {
                 txtDirKeyTyped(evt);
             }
         });
-        panelRound1.add(txtDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 330, 360, 51));
+        panelRound1.add(txtDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 300, 360, 51));
 
         lbMin5.setForeground(new java.awt.Color(0, 0, 0));
         lbMin5.setText("Minimo de digitos 4");
@@ -164,6 +164,11 @@ public class PerfilData extends javax.swing.JPanel {
         panelRound1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 150, -1));
 
         txtCorreo.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtCorreo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCorreoActionPerformed(evt);
+            }
+        });
         panelRound1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 290, 51));
 
         txtTel.setShadowColor(new java.awt.Color(0, 0, 51));
@@ -230,7 +235,7 @@ public class PerfilData extends javax.swing.JPanel {
                 btnConfirmActionPerformed(evt);
             }
         });
-        PCont.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 650, 160, 60));
+        PCont.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 650, 160, 50));
 
         btnAct.setText("Actualizar");
         btnAct.addActionListener(new java.awt.event.ActionListener() {
@@ -238,7 +243,7 @@ public class PerfilData extends javax.swing.JPanel {
                 btnActActionPerformed(evt);
             }
         });
-        PCont.add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 650, 160, 60));
+        PCont.add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 650, 160, 50));
 
         lbNDoc.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbNDoc.setForeground(new java.awt.Color(0, 0, 0));
@@ -469,6 +474,10 @@ public class PerfilData extends javax.swing.JPanel {
         /*tpUs = dsg.getMap(cbTP, cbCargo.getSelectedItem().toString());
         System.out.println("ID seleccionado: " + tpUs);*/
     }//GEN-LAST:event_cbTipoProdActionPerformed
+
+    private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCorreoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

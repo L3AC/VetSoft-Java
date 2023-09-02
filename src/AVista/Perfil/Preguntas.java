@@ -46,15 +46,16 @@ public class Preguntas extends javax.swing.JPanel {
     private void initComponents() {
 
         PCont = new javax.swing.JPanel();
-        lbPreg3 = new javax.swing.JLabel();
-        lbPreg1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        lbPreg2 = new javax.swing.JLabel();
-        txtResp1 = new Design.TextFieldSV();
-        txtResp2 = new Design.TextFieldSV();
-        txtResp3 = new Design.TextFieldSV();
         btnGuard = new Design.ButtonGradient();
         btnAct = new Design.ButtonGradient();
+        panelRound1 = new Design.PanelRound();
+        lbPreg1 = new javax.swing.JLabel();
+        txtResp1 = new Design.TextFieldSV();
+        lbPreg2 = new javax.swing.JLabel();
+        txtResp2 = new Design.TextFieldSV();
+        lbPreg3 = new javax.swing.JLabel();
+        txtResp3 = new Design.TextFieldSV();
 
         setBackground(new java.awt.Color(202, 233, 255));
         setPreferredSize(new java.awt.Dimension(1320, 810));
@@ -62,23 +63,41 @@ public class Preguntas extends javax.swing.JPanel {
         PCont.setBackground(new java.awt.Color(255, 255, 255));
         PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lbPreg3.setFont(new java.awt.Font("Cascadia Code", 0, 16)); // NOI18N
-        lbPreg3.setText("¿Cuál es tu película favorita?");
-        PCont.add(lbPreg3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 430, -1, -1));
-
-        lbPreg1.setFont(new java.awt.Font("Cascadia Code", 0, 16)); // NOI18N
-        lbPreg1.setText("¿Cuál es tu película favorita?");
-        PCont.add(lbPreg1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 160, -1, -1));
-
-        jLabel4.setFont(new java.awt.Font("Cascadia Code", 0, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Cascadia Code", 0, 36)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(27, 73, 101));
         jLabel4.setText("Preguntas de Seguridad");
-        PCont.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, -1, -1));
+        PCont.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 60, -1, -1));
 
-        lbPreg2.setFont(new java.awt.Font("Cascadia Code", 0, 16)); // NOI18N
-        lbPreg2.setText("¿Cuál es el nombre de tu mejor amigo de la infancia?");
-        PCont.add(lbPreg2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 290, -1, -1));
+        btnGuard.setText("Guardar");
+        btnGuard.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardActionPerformed(evt);
+            }
+        });
+        PCont.add(btnGuard, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 620, 160, 50));
 
-        txtResp1.setShadowColor(new java.awt.Color(153, 0, 153));
+        btnAct.setText("Actualizar");
+        btnAct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActActionPerformed(evt);
+            }
+        });
+        PCont.add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 620, 160, 50));
+
+        panelRound1.setBackground(new java.awt.Color(202, 233, 255));
+        panelRound1.setForeground(new java.awt.Color(202, 233, 255));
+        panelRound1.setRoundBottomLeft(50);
+        panelRound1.setRoundBottomRight(50);
+        panelRound1.setRoundTopLeft(50);
+        panelRound1.setRoundTopRight(50);
+        panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lbPreg1.setFont(new java.awt.Font("Cascadia Code", 0, 18)); // NOI18N
+        lbPreg1.setForeground(new java.awt.Color(0, 0, 0));
+        lbPreg1.setText("¿Cuál es tu película favorita?");
+        panelRound1.add(lbPreg1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, -1, -1));
+
+        txtResp1.setShadowColor(new java.awt.Color(0, 0, 51));
         txtResp1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtResp1ActionPerformed(evt);
@@ -89,9 +108,14 @@ public class Preguntas extends javax.swing.JPanel {
                 txtResp1KeyTyped(evt);
             }
         });
-        PCont.add(txtResp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 210, 430, -1));
+        panelRound1.add(txtResp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 430, -1));
 
-        txtResp2.setShadowColor(new java.awt.Color(153, 0, 153));
+        lbPreg2.setFont(new java.awt.Font("Cascadia Code", 0, 18)); // NOI18N
+        lbPreg2.setForeground(new java.awt.Color(0, 0, 0));
+        lbPreg2.setText("¿Cuál es el nombre de tu mejor amigo de la infancia?");
+        panelRound1.add(lbPreg2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, -1, -1));
+
+        txtResp2.setShadowColor(new java.awt.Color(0, 0, 51));
         txtResp2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtResp2ActionPerformed(evt);
@@ -102,9 +126,14 @@ public class Preguntas extends javax.swing.JPanel {
                 txtResp2KeyTyped(evt);
             }
         });
-        PCont.add(txtResp2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 350, 430, -1));
+        panelRound1.add(txtResp2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, 430, -1));
 
-        txtResp3.setShadowColor(new java.awt.Color(153, 0, 153));
+        lbPreg3.setFont(new java.awt.Font("Cascadia Code", 0, 18)); // NOI18N
+        lbPreg3.setForeground(new java.awt.Color(0, 0, 0));
+        lbPreg3.setText("¿Cuál es tu película favorita?");
+        panelRound1.add(lbPreg3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, -1, -1));
+
+        txtResp3.setShadowColor(new java.awt.Color(0, 0, 51));
         txtResp3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtResp3ActionPerformed(evt);
@@ -115,23 +144,9 @@ public class Preguntas extends javax.swing.JPanel {
                 txtResp3KeyTyped(evt);
             }
         });
-        PCont.add(txtResp3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 480, 430, -1));
+        panelRound1.add(txtResp3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, 430, -1));
 
-        btnGuard.setText("Guardar");
-        btnGuard.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardActionPerformed(evt);
-            }
-        });
-        PCont.add(btnGuard, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 620, 160, 60));
-
-        btnAct.setText("Actualizar");
-        btnAct.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActActionPerformed(evt);
-            }
-        });
-        PCont.add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 620, 160, 60));
+        PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 850, 410));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -274,6 +289,7 @@ public class Preguntas extends javax.swing.JPanel {
     private javax.swing.JLabel lbPreg1;
     private javax.swing.JLabel lbPreg2;
     private javax.swing.JLabel lbPreg3;
+    private Design.PanelRound panelRound1;
     private Design.TextFieldSV txtResp1;
     private Design.TextFieldSV txtResp2;
     private Design.TextFieldSV txtResp3;
