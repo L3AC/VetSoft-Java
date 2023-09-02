@@ -88,18 +88,19 @@ public class AddVacuna extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
-        PCont.setBackground(new java.awt.Color(255, 255, 255));
+        PCont.setBackground(new java.awt.Color(190, 233, 232));
         PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnAddM.setForeground(new java.awt.Color(0, 0, 0));
         btnAddM.setText("Agregar ");
         btnAddM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddMActionPerformed(evt);
             }
         });
-        PCont.add(btnAddM, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 290, 130, 50));
+        PCont.add(btnAddM, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 220, 160, 50));
 
-        panelRound1.setBackground(new java.awt.Color(202, 233, 255));
+        panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomLeft(50);
         panelRound1.setRoundBottomRight(50);
         panelRound1.setRoundTopLeft(50);
@@ -129,7 +130,7 @@ public class AddVacuna extends javax.swing.JPanel {
 
         PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 970, 495));
 
-        txtBusq.setBackground(new java.awt.Color(202, 233, 255));
+        txtBusq.setBackground(new java.awt.Color(255, 255, 255));
         txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
         txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -144,7 +145,7 @@ public class AddVacuna extends javax.swing.JPanel {
         jLabel1.setText("Nombre de vacuna:");
         PCont.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, -1, -1));
 
-        btnBack3.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack3.setBackground(new java.awt.Color(190, 233, 232));
         btnBack3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
         btnBack3.setBorder(null);
         btnBack3.addActionListener(new java.awt.event.ActionListener() {

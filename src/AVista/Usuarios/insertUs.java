@@ -117,10 +117,10 @@ public class insertUs extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
-        PCont.setBackground(new java.awt.Color(27, 73, 101));
+        PCont.setBackground(new java.awt.Color(190, 233, 232));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("CREAR USUARIO");
 
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
@@ -131,29 +131,34 @@ public class insertUs extends javax.swing.JPanel {
             }
         });
 
-        panelRound1.setBackground(new java.awt.Color(202, 233, 255));
+        panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomLeft(50);
         panelRound1.setRoundBottomRight(50);
         panelRound1.setRoundTopLeft(50);
         panelRound1.setRoundTopRight(50);
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lbFalso.setForeground(new java.awt.Color(0, 0, 0));
         lbFalso.setText("Correo electronico falso");
         panelRound1.add(lbFalso, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, 140, 30));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Correo electrónico");
         panelRound1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 190, 30));
 
         lbCargo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbCargo.setForeground(new java.awt.Color(0, 0, 0));
         lbCargo.setText("Nivel de cargo");
         panelRound1.add(lbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 350, 160, 30));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Teléfono");
         panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 190, 130, 30));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Contraseña");
         panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 30, 150, 30));
 
@@ -165,9 +170,11 @@ public class insertUs extends javax.swing.JPanel {
         });
         panelRound1.add(cbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 390, 160, 40));
 
+        lbDisp.setForeground(new java.awt.Color(0, 0, 0));
         lbDisp.setText("Usuario no disponible");
         panelRound1.add(lbDisp, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 190, 30));
 
+        txtUsuario.setBackground(new java.awt.Color(202, 233, 255));
         txtUsuario.setShadowColor(new java.awt.Color(0, 0, 51));
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,6 +188,7 @@ public class insertUs extends javax.swing.JPanel {
         });
         panelRound1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 240, 50));
 
+        txtCorreo.setBackground(new java.awt.Color(202, 233, 255));
         txtCorreo.setShadowColor(new java.awt.Color(0, 0, 51));
         txtCorreo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -189,6 +197,7 @@ public class insertUs extends javax.swing.JPanel {
         });
         panelRound1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 240, 50));
 
+        txtTel.setBackground(new java.awt.Color(202, 233, 255));
         txtTel.setShadowColor(new java.awt.Color(0, 0, 51));
         txtTel.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -197,6 +206,7 @@ public class insertUs extends javax.swing.JPanel {
         });
         panelRound1.add(txtTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 230, 290, 50));
 
+        txtContra.setBackground(new java.awt.Color(202, 233, 255));
         txtContra.setShadowColor(new java.awt.Color(0, 0, 51));
         txtContra.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -206,18 +216,23 @@ public class insertUs extends javax.swing.JPanel {
         panelRound1.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 70, 300, 50));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Usuario");
         panelRound1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 90, 30));
 
+        lbMin.setForeground(new java.awt.Color(0, 0, 0));
         lbMin.setText("Minimo de digitos 4");
         panelRound1.add(lbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 110, 30));
 
+        lbMin2.setForeground(new java.awt.Color(0, 0, 0));
         lbMin2.setText("Minimo de digitos 8");
         panelRound1.add(lbMin2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 280, 110, 30));
 
+        lbMin1.setForeground(new java.awt.Color(0, 0, 0));
         lbMin1.setText("Minimo de digitos 8");
         panelRound1.add(lbMin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 110, 110, 30));
 
+        btnConfirm.setForeground(new java.awt.Color(0, 0, 0));
         btnConfirm.setText("Confirmar");
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -250,7 +265,7 @@ public class insertUs extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PContLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(495, 495, 495))
+                .addGap(551, 551, 551))
         );
         PContLayout.setVerticalGroup(
             PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -268,9 +283,9 @@ public class insertUs extends javax.swing.JPanel {
                         .addComponent(jLabel4)))
                 .addGap(68, 68, 68)
                 .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

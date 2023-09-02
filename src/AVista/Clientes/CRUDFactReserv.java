@@ -75,6 +75,7 @@ public class CRUDFactReserv extends javax.swing.JPanel {
         PCont.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 70, 60));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Producto");
         PCont.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 150, -1));
 
@@ -124,27 +125,32 @@ public class CRUDFactReserv extends javax.swing.JPanel {
 
         PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 890, 560));
 
+        btnEliminar.setForeground(new java.awt.Color(0, 0, 0));
         btnEliminar.setText("Eliminar de reserva");
+        btnEliminar.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
             }
         });
-        PCont.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 720, 200, 50));
+        PCont.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 300, 200, 50));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clinica 64px.png"))); // NOI18N
         PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 20, -1, -1));
 
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("VetSoft+");
         PCont.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 90, -1, -1));
 
+        btnFact.setForeground(new java.awt.Color(0, 0, 0));
         btnFact.setText("Factura");
+        btnFact.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnFact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFactActionPerformed(evt);
             }
         });
-        PCont.add(btnFact, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 720, 200, 50));
+        PCont.add(btnFact, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 390, 200, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

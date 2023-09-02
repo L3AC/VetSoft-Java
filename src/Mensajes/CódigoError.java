@@ -50,13 +50,13 @@ public class CódigoError extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Código de error");
-        panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+        jLabel1.setText("\"Código de error\"");
+        panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 20, 170, -1));
 
         txt.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         txt.setForeground(new java.awt.Color(133, 133, 133));
         txt.setText("\"No existen registros\"");
-        panelRound1.add(txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, -1, -1));
+        panelRound1.add(txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, -1, -1));
 
         cmdok.setBackground(new java.awt.Color(95, 171, 211));
         cmdok.setForeground(new java.awt.Color(255, 255, 255));
@@ -67,7 +67,7 @@ public class CódigoError extends javax.swing.JPanel {
                 cmdokActionPerformed(evt);
             }
         });
-        panelRound1.add(cmdok, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 80, 30));
+        panelRound1.add(cmdok, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, 80, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

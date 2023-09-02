@@ -49,7 +49,7 @@ public class CRUDTipoVac extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
-        PCont.setBackground(new java.awt.Color(255, 255, 255));
+        PCont.setBackground(new java.awt.Color(190, 233, 232));
         PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
@@ -58,7 +58,7 @@ public class CRUDTipoVac extends javax.swing.JPanel {
         jLabel1.setText("Nombre de vacuna:");
         PCont.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 74, -1, -1));
 
-        txtBusq.setBackground(new java.awt.Color(202, 233, 255));
+        txtBusq.setBackground(new java.awt.Color(255, 255, 255));
         txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
         txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -67,7 +67,7 @@ public class CRUDTipoVac extends javax.swing.JPanel {
         });
         PCont.add(txtBusq, new org.netbeans.lib.awtextra.AbsoluteConstraints(253, 66, 470, 50));
 
-        panelRound1.setBackground(new java.awt.Color(202, 233, 255));
+        panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomLeft(50);
         panelRound1.setRoundBottomRight(50);
         panelRound1.setRoundTopLeft(50);
@@ -97,36 +97,42 @@ public class CRUDTipoVac extends javax.swing.JPanel {
 
         PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 680, 495));
 
+        btnAddM.setForeground(new java.awt.Color(0, 0, 0));
         btnAddM.setText("Agregar ");
+        btnAddM.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnAddM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddMActionPerformed(evt);
             }
         });
-        PCont.add(btnAddM, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 490, 130, 50));
+        PCont.add(btnAddM, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 490, 140, 40));
 
+        btnEditar.setForeground(new java.awt.Color(0, 0, 0));
         btnEditar.setText("Editar");
+        btnEditar.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditarActionPerformed(evt);
             }
         });
-        PCont.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 490, 130, 48));
+        PCont.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 490, 140, 40));
 
+        btnEliminar.setForeground(new java.awt.Color(0, 0, 0));
         btnEliminar.setText("Eliminar");
+        btnEliminar.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
             }
         });
-        PCont.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 490, 130, 49));
+        PCont.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 490, 140, 40));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Nombre de la vacuna");
         PCont.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 190, -1, -1));
 
-        txtUso.setBackground(new java.awt.Color(202, 233, 255));
+        txtUso.setBackground(new java.awt.Color(255, 255, 255));
         txtUso.setShadowColor(new java.awt.Color(0, 0, 51));
         PCont.add(txtUso, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 350, 440, -1));
 
@@ -135,7 +141,7 @@ public class CRUDTipoVac extends javax.swing.JPanel {
         jLabel7.setText("Para que sirve la vacuna");
         PCont.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 310, -1, -1));
 
-        txtVacuna.setBackground(new java.awt.Color(202, 233, 255));
+        txtVacuna.setBackground(new java.awt.Color(255, 255, 255));
         txtVacuna.setShadowColor(new java.awt.Color(0, 0, 51));
         PCont.add(txtVacuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 230, 290, -1));
 
