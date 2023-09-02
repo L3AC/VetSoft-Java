@@ -160,9 +160,9 @@ public class insertCita extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
-        PCont.setBackground(new java.awt.Color(255, 255, 255));
+        PCont.setBackground(new java.awt.Color(190, 233, 232));
 
-        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setBackground(new java.awt.Color(190, 233, 232));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
         btnBack.setBorder(null);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -172,10 +172,10 @@ public class insertCita extends javax.swing.JPanel {
         });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(27, 73, 101));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("AGENDAR CITA");
 
-        panelRound1.setBackground(new java.awt.Color(202, 233, 255));
+        panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomLeft(50);
         panelRound1.setRoundBottomRight(50);
         panelRound1.setRoundTopLeft(50);
@@ -187,7 +187,7 @@ public class insertCita extends javax.swing.JPanel {
         lbEsp1.setText("Servicio");
         panelRound1.add(lbEsp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 80, -1));
 
-        cbEsp.setBackground(new java.awt.Color(255, 255, 255));
+        cbEsp.setBackground(new java.awt.Color(190, 233, 232));
         cbEsp.setForeground(new java.awt.Color(0, 0, 0));
         cbEsp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -196,7 +196,7 @@ public class insertCita extends javax.swing.JPanel {
         });
         panelRound1.add(cbEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 240, 40));
 
-        cbServicio.setBackground(new java.awt.Color(255, 255, 255));
+        cbServicio.setBackground(new java.awt.Color(190, 233, 232));
         cbServicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbServicioActionPerformed(evt);
@@ -230,7 +230,7 @@ public class insertCita extends javax.swing.JPanel {
         jLabel6.setText("Hora:");
         panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 140, 100, 30));
 
-        cbHora.setBackground(new java.awt.Color(255, 255, 255));
+        cbHora.setBackground(new java.awt.Color(190, 233, 232));
         cbHora.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cbHora.setForeground(new java.awt.Color(0, 0, 0));
         cbHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "7:00", "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00" }));
@@ -246,9 +246,11 @@ public class insertCita extends javax.swing.JPanel {
         jLabel3.setText("Nota del doctor");
         panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 150, 30));
 
+        txtNotaCl.setBackground(new java.awt.Color(190, 233, 232));
         txtNotaCl.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtNotaCl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 920, 50));
 
+        txtNotaD.setBackground(new java.awt.Color(190, 233, 232));
         txtNotaD.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtNotaD, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, 920, 50));
 
@@ -257,7 +259,7 @@ public class insertCita extends javax.swing.JPanel {
         lbEsp2.setText("Doctor");
         panelRound1.add(lbEsp2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 40, 70, -1));
 
-        cbDoc.setBackground(new java.awt.Color(255, 255, 255));
+        cbDoc.setBackground(new java.awt.Color(190, 233, 232));
         cbDoc.setForeground(new java.awt.Color(0, 0, 0));
         cbDoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -271,7 +273,9 @@ public class insertCita extends javax.swing.JPanel {
         lbDispo.setText("Disponible");
         panelRound1.add(lbDispo, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 190, 180, 30));
 
+        btnConfirm.setForeground(new java.awt.Color(0, 0, 0));
         btnConfirm.setText("Confirmar");
+        btnConfirm.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfirmActionPerformed(evt);

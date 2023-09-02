@@ -46,10 +46,10 @@ public class upReceta extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
-        PCont.setBackground(new java.awt.Color(255, 255, 255));
+        PCont.setBackground(new java.awt.Color(190, 233, 232));
         PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setBackground(new java.awt.Color(190, 233, 232));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
         btnBack.setBorder(null);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -59,7 +59,7 @@ public class upReceta extends javax.swing.JPanel {
         });
         PCont.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 70, 60));
 
-        txtIns.setBackground(new java.awt.Color(202, 233, 255));
+        txtIns.setBackground(new java.awt.Color(255, 255, 255));
         txtIns.setShadowColor(new java.awt.Color(0, 0, 51));
         txtIns.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -71,7 +71,9 @@ public class upReceta extends javax.swing.JPanel {
         });
         PCont.add(txtIns, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 1090, 50));
 
+        btnElim.setForeground(new java.awt.Color(0, 0, 0));
         btnElim.setText("Eliminar");
+        btnElim.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnElim.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnElimActionPerformed(evt);
@@ -86,11 +88,13 @@ public class upReceta extends javax.swing.JPanel {
         PCont.add(LbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, 170, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(27, 73, 101));
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("ACTUALIZAR RECETA");
         PCont.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 50, -1, -1));
 
+        btnAct.setForeground(new java.awt.Color(0, 0, 0));
         btnAct.setText("Actualizar");
+        btnAct.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnAct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActActionPerformed(evt);
@@ -98,7 +102,9 @@ public class upReceta extends javax.swing.JPanel {
         });
         PCont.add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, 130, 50));
 
+        btnReport.setForeground(new java.awt.Color(0, 0, 0));
         btnReport.setText("Reporte");
+        btnReport.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnReport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReportActionPerformed(evt);

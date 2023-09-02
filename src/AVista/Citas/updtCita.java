@@ -85,11 +85,10 @@ public class updtCita extends javax.swing.JPanel {
         lbMasc = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        btnEditar1 = new Design.ButtonGradient();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
-        PCont.setBackground(new java.awt.Color(255, 255, 255));
+        PCont.setBackground(new java.awt.Color(190, 233, 232));
         PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnBack.setBackground(new java.awt.Color(255, 255, 255));
@@ -103,11 +102,11 @@ public class updtCita extends javax.swing.JPanel {
         PCont.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 52, 70, 60));
 
         lbTitulo.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        lbTitulo.setForeground(new java.awt.Color(27, 73, 101));
+        lbTitulo.setForeground(new java.awt.Color(0, 0, 0));
         lbTitulo.setText("INFORMACIÓN CITA");
         PCont.add(lbTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 360, -1));
 
-        panelRound1.setBackground(new java.awt.Color(202, 233, 255));
+        panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomLeft(50);
         panelRound1.setRoundBottomRight(50);
         panelRound1.setRoundTopLeft(50);
@@ -145,9 +144,11 @@ public class updtCita extends javax.swing.JPanel {
         jLabel3.setText("Nota del doctor");
         panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 150, 30));
 
+        txtNotaCl.setBackground(new java.awt.Color(190, 233, 232));
         txtNotaCl.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtNotaCl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 920, 50));
 
+        txtNotaD.setBackground(new java.awt.Color(190, 233, 232));
         txtNotaD.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtNotaD, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, 920, 50));
 
@@ -161,7 +162,7 @@ public class updtCita extends javax.swing.JPanel {
         lbCosto.setText("Costo");
         panelRound1.add(lbCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 180, 30));
 
-        cbServicio.setBackground(new java.awt.Color(255, 255, 255));
+        cbServicio.setBackground(new java.awt.Color(190, 233, 232));
         cbServicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbServicioActionPerformed(evt);
@@ -169,7 +170,7 @@ public class updtCita extends javax.swing.JPanel {
         });
         panelRound1.add(cbServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 240, 40));
 
-        cbEsp.setBackground(new java.awt.Color(255, 255, 255));
+        cbEsp.setBackground(new java.awt.Color(190, 233, 232));
         cbEsp.setForeground(new java.awt.Color(0, 0, 0));
         cbEsp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,7 +179,7 @@ public class updtCita extends javax.swing.JPanel {
         });
         panelRound1.add(cbEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 240, 40));
 
-        cbDoc.setBackground(new java.awt.Color(255, 255, 255));
+        cbDoc.setBackground(new java.awt.Color(190, 233, 232));
         cbDoc.setForeground(new java.awt.Color(0, 0, 0));
         cbDoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,7 +188,7 @@ public class updtCita extends javax.swing.JPanel {
         });
         panelRound1.add(cbDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 70, 240, 40));
 
-        cbHora.setBackground(new java.awt.Color(255, 255, 255));
+        cbHora.setBackground(new java.awt.Color(190, 233, 232));
         cbHora.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cbHora.setForeground(new java.awt.Color(0, 0, 0));
         cbHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "7:00:00", "8:00:00", "9:00:00", "10:00:00", "11:00:00", "12:00:00", "13:00:00", "14:00:00", "15:00:00", "16:00:00", "17:00:00", "18:00:00", "19:00:00", "20:00:00", "21:00:00" }));
@@ -205,21 +206,25 @@ public class updtCita extends javax.swing.JPanel {
 
         PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 150, 1010, 530));
 
+        btnEditar.setForeground(new java.awt.Color(0, 0, 0));
         btnEditar.setText("Editar");
+        btnEditar.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditarActionPerformed(evt);
             }
         });
-        PCont.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 700, 150, 60));
+        PCont.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 700, 150, 50));
 
+        btnConfirm.setForeground(new java.awt.Color(0, 0, 0));
         btnConfirm.setText("Confirmar");
+        btnConfirm.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfirmActionPerformed(evt);
             }
         });
-        PCont.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 700, 150, 60));
+        PCont.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 700, 150, 50));
 
         lbMasc.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbMasc.setForeground(new java.awt.Color(0, 0, 0));
@@ -231,14 +236,6 @@ public class updtCita extends javax.swing.JPanel {
 
         jLabel4.setText("VetSoft+");
         PCont.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 90, -1, -1));
-
-        btnEditar1.setText("Editar");
-        btnEditar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditar1ActionPerformed(evt);
-            }
-        });
-        PCont.add(btnEditar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 700, 150, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -426,17 +423,12 @@ public class updtCita extends javax.swing.JPanel {
         ct.updtCita();
     }//GEN-LAST:event_btnConfirmActionPerformed
 
-    private void btnEditar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnEditar1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
     private javax.swing.JButton btnBack;
     private Design.ButtonGradient btnConfirm;
     private Design.ButtonGradient btnEditar;
-    private Design.ButtonGradient btnEditar1;
     private javax.swing.JComboBox<String> cbDoc;
     private javax.swing.JComboBox<String> cbEsp;
     private javax.swing.JComboBox<String> cbHora;
