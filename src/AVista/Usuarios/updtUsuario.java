@@ -3,6 +3,7 @@ package AVista.Usuarios;
 import AControlador.ctTipoUs;
 import AControlador.ctUser;
 import Design.Desg;
+import Tipografias.Fuentes;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -22,11 +23,25 @@ public class updtUsuario extends javax.swing.JPanel {
     ctUser ctUs = new ctUser();
     Desg dsg = new Desg();
     Map<Integer, String> cbMap = new HashMap<>();
+    Fuentes tipoFuente;
 
     public updtUsuario(int idTipoUs, int idUs) throws SQLException {
         this.idTipoUs = idTipoUs;
         this.idUs = idUs;
         initComponents();
+        
+        tipoFuente = new Fuentes();
+        
+        jLabel2.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 32));
+        jLabel9.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 17));
+        jLabel6.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 17));
+        jLabel10.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 17));
+        lbCargo.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 17));
+        txtUsuario.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 15));
+        txtTel.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 15));
+        txtCorreo.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 15));
+       
+        
        
         
         txtUsuario.setDocument(new Valida(30, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
@@ -98,13 +113,14 @@ public class updtUsuario extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
-        PCont.setBackground(new java.awt.Color(255, 255, 255));
+        PCont.setBackground(new java.awt.Color(27, 73, 101));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(27, 73, 101));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("ACTUALIZAR USUARIO");
 
-        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setBackground(new java.awt.Color(27, 73, 101));
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
         btnBack.setBorder(null);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +143,6 @@ public class updtUsuario extends javax.swing.JPanel {
         panelRound1.setRoundTopRight(50);
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        cbCargo.setBackground(new java.awt.Color(255, 255, 255));
         cbCargo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbCargoActionPerformed(evt);
@@ -136,25 +151,20 @@ public class updtUsuario extends javax.swing.JPanel {
         panelRound1.add(cbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 330, 160, 40));
 
         lbCargo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lbCargo.setForeground(new java.awt.Color(0, 0, 0));
         lbCargo.setText("Nivel de cargo");
-        panelRound1.add(lbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, 130, 40));
+        panelRound1.add(lbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 140, 40));
 
-        lbMin1.setForeground(new java.awt.Color(0, 0, 0));
         lbMin1.setText("Minimo de digitos 8");
         panelRound1.add(lbMin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, 150, 30));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Teléfono");
-        panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 170, 100, 30));
+        panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 120, 30));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Usuario");
-        panelRound1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 70, 30));
+        panelRound1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 130, 30));
 
-        lbDisp.setForeground(new java.awt.Color(0, 0, 0));
         lbDisp.setText("Usuario no disponible");
         panelRound1.add(lbDisp, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 190, 30));
 
@@ -183,20 +193,18 @@ public class updtUsuario extends javax.swing.JPanel {
         panelRound1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 70, 230, 50));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Correo electrónico");
-        panelRound1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(575, 30, 150, 30));
+        panelRound1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 40, 230, 30));
 
-        lbFalso.setForeground(new java.awt.Color(0, 0, 0));
         lbFalso.setText("Correo electrónico falso");
         panelRound1.add(lbFalso, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 110, 150, 30));
 
-        lbMin.setForeground(new java.awt.Color(0, 0, 0));
         lbMin.setText("Minimo de digitos 4");
         panelRound1.add(lbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 150, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clinica 64px.png"))); // NOI18N
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("VetSoft+");
 
         javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
@@ -204,44 +212,48 @@ public class updtUsuario extends javax.swing.JPanel {
         PContLayout.setHorizontalGroup(
             PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PContLayout.createSequentialGroup()
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(257, 257, 257)
-                        .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 825, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(532, 532, 532)
-                        .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(238, Short.MAX_VALUE))
-            .addGroup(PContLayout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(389, 389, 389)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(270, 270, 270)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel3))
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel3)))
                 .addGap(33, 33, 33))
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(257, 257, 257)
+                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 825, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(238, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PContLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(503, 503, 503))
         );
         PContLayout.setVerticalGroup(
             PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PContLayout.createSequentialGroup()
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(31, 31, 31)
                         .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(jLabel1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addGap(50, 50, 50)
+                            .addGroup(PContLayout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(PContLayout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addComponent(jLabel1)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)
+                        .addGap(50, 50, 50))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PContLayout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)))
                 .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
-                .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addGap(53, 53, 53)
+                .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(128, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
