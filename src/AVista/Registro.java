@@ -425,14 +425,16 @@ public class Registro extends javax.swing.JFrame {
 
         if (txtUsuario.getText().length() >= 4 && txtTeléfono.getText().length() >= 8 && txtContra.getText().length() >= 8) {
             lbMinimo2.setVisible(false);
-            lbMin.setVisible(false);
-            lbMin1.setVisible(false);
             btnRegistrar.setEnabled(true);
         } else {
-            lbMinimo2.setVisible(true);
-            lbMin.setVisible(true);
-            lbMin1.setVisible(true);
-            btnRegistrar.setEnabled(false);
+            if(txtUsuario.getText().length()>= 4){
+                lbMinimo2.setVisible(false);
+                btnRegistrar.setEnabled(false);
+            }
+            else{
+                lbMinimo2.setVisible(true);
+                btnRegistrar.setEnabled(false);
+            }
         }
     }//GEN-LAST:event_txtUsuarioKeyReleased
 
@@ -468,15 +470,18 @@ public class Registro extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (txtContra.getText().length() >= 8 && txtTeléfono.getText().length() >= 8 && txtUsuario.getText().length() >= 4) {
              lbMin.setVisible(false);
-            lbMinimo2.setVisible(false);
-            lbMin1.setVisible(false);
             btnRegistrar.setEnabled(true);
 
         } else {
-            lbMin.setVisible(true);
-            lbMinimo2.setVisible(true);
-            lbMin1.setVisible(true);
-            btnRegistrar.setEnabled(false);
+            if(txtContra.getText().length()>= 8){
+                lbMin.setVisible(false);
+                btnRegistrar.setEnabled(false);
+            }
+            else{
+                lbMin.setVisible(true);
+                btnRegistrar.setEnabled(false);
+            }
+            
         }
     }//GEN-LAST:event_txtContraKeyReleased
 
@@ -485,14 +490,16 @@ public class Registro extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (txtTeléfono.getText().length() >= 8 && txtContra.getText().length() >= 8 && txtUsuario.getText().length() >= 4) {
             lbMin1.setVisible(false);
-            lbMinimo2.setVisible(false);
-            lbMin.setVisible(false);
             btnRegistrar.setEnabled(true);
         } else {
-             lbMin1.setVisible(true);
-            lbMinimo2.setVisible(true);
-            lbMin.setVisible(true);
-            btnRegistrar.setEnabled(false);
+             if(txtTeléfono.getText().length()>= 8){
+                lbMin1.setVisible(false);
+                btnRegistrar.setEnabled(false);
+            }
+            else{
+                lbMin1.setVisible(true);
+                btnRegistrar.setEnabled(false);
+            }
         }
     }//GEN-LAST:event_txtTeléfonoKeyReleased
 
