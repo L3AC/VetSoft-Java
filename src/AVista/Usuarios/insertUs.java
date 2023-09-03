@@ -162,6 +162,7 @@ public class insertUs extends javax.swing.JPanel {
         jLabel1.setText("Contraseña");
         panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 30, 150, 30));
 
+        cbCargo.setBackground(new java.awt.Color(202, 233, 255));
         cbCargo.setForeground(new java.awt.Color(51, 51, 51));
         cbCargo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -241,7 +242,6 @@ public class insertUs extends javax.swing.JPanel {
         lbMin1.setText("Minimo de digitos 8");
         panelRound1.add(lbMin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 110, 110, 30));
 
-        btnConfirm.setForeground(new java.awt.Color(0, 0, 0));
         btnConfirm.setText("Confirmar");
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

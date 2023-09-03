@@ -101,7 +101,7 @@ public class PorUsuario extends javax.swing.JFrame {
         panelRound2.setBackground(new java.awt.Color(190, 233, 232));
         panelRound2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BtnRegresar1.setBackground(new java.awt.Color(255, 255, 255));
+        BtnRegresar1.setBackground(new java.awt.Color(190, 233, 232));
         BtnRegresar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
         BtnRegresar1.setBorder(null);
         BtnRegresar1.addActionListener(new java.awt.event.ActionListener() {
@@ -129,7 +129,6 @@ public class PorUsuario extends javax.swing.JFrame {
         panelRound1.add(lbCod, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, 180, 30));
 
         btnVeri.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        btnVeri.setForeground(new java.awt.Color(0, 0, 0));
         btnVeri.setText("Verificar");
         btnVeri.setColor1(new java.awt.Color(190, 233, 232));
         btnVeri.setColor2(new java.awt.Color(190, 233, 232));
@@ -156,7 +155,6 @@ public class PorUsuario extends javax.swing.JFrame {
         panelRound1.add(lbCod1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, 30));
 
         btnEnviar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        btnEnviar.setForeground(new java.awt.Color(0, 0, 0));
         btnEnviar.setText("Enviar Correo");
         btnEnviar.setColor1(new java.awt.Color(190, 233, 232));
         btnEnviar.setColor2(new java.awt.Color(190, 233, 232));
@@ -168,7 +166,6 @@ public class PorUsuario extends javax.swing.JFrame {
         });
         panelRound1.add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 110, 30));
 
-        btnCambiar.setForeground(new java.awt.Color(0, 0, 0));
         btnCambiar.setText("Cambiar Contraseña");
         btnCambiar.setColor1(new java.awt.Color(190, 233, 232));
         btnCambiar.setColor2(new java.awt.Color(190, 233, 232));
