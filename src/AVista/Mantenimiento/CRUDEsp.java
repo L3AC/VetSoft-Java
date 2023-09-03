@@ -250,6 +250,35 @@ public class CRUDEsp extends javax.swing.JPanel {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
 
+        
+           if (txtEsp.getText().isEmpty()) {
+            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+        } else {
+            ctUser ctUs = new ctUser();
+            ctUs.idTipoCuenta = dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
+
+            ctUs.usuario = txtUsuario.getText();
+            try {
+                ctUs.contra = cryp.encrypt(txtContra.getText(), "key");
+
+            } catch (Exception ex) {
+                Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            ctUs.correo = txtCorreo.getText();
+            ctUs.telefono = txtTeléfono.getText();
+            ctUs.insertUs();
+            Login newFrame = new Login();
+            newFrame.setVisible(true);
+            dispose();
+        }
+                   
         try {
             ctEsp ctEs = new ctEsp();
 

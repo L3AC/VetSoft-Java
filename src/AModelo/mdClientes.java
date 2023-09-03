@@ -111,10 +111,9 @@ public class mdClientes {
     
     
  public ResultSet mostrarClientes() {
-        String query = "SELECT nombre FROM tbClientes";// WHERE nombre = ?";
+        String query = "SELECT nombre FROM tbClientes";
         try {
             ps = con.prepareStatement(query);   
-            //ps.setString(1, nombre);
             rs = ps.executeQuery();
             return rs;
         } catch (SQLException e) {

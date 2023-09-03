@@ -313,7 +313,7 @@ public class Registro extends javax.swing.JFrame {
 
     //Cuando se le de al botón registrar se verificaran que todo lo anteriormente mencionado se este validado por ejemplo que los campos no esten vacios entreo otros mas
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        // TODO add your handling code here:
+    
 
         if (txtUsuario.getText().isEmpty() || txtContra.getText().isEmpty() || txtTeléfono.getText().isEmpty() || txtCorreo.getText().isEmpty()) {
             CódigoErrorDSI5 obj = new CódigoErrorDSI5();
