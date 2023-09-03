@@ -30,6 +30,7 @@ import org.apache.commons.validator.EmailValidator;
 public class PerfilData extends javax.swing.JPanel {
 
     private int idTipoUs;
+    private String user;
     private int idC;
     private int idUs;
     Desg dsg = new Desg();
@@ -47,6 +48,7 @@ public class PerfilData extends javax.swing.JPanel {
         txtNombre.setDocument(new Valida(50, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         txtApellidos.setDocument(new Valida(50, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         lbUs.setVisible(false);
+        lbMin5.setVisible(false);
         lbMin1.setVisible(false);
         lbMin2.setVisible(false);
         lbMin3.setVisible(false);
@@ -368,7 +370,7 @@ public class PerfilData extends javax.swing.JPanel {
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         if (txtNombre.getText().isEmpty() || txtApellidos.getText().isEmpty()
                 || txtDui.getText().isEmpty() || txtTel.getText().isEmpty()
-        || txtCorreo.getText().isEmpty()){
+                || txtCorreo.getText().isEmpty()) {
 
             CódigoErrorDSI5 obj = new CódigoErrorDSI5();
             obj.eventOK(new ActionListener() {
@@ -382,69 +384,69 @@ public class PerfilData extends javax.swing.JPanel {
             SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
             if (idTipoUs == 1) {
                 ctUser ct = new ctUser();
-                ctAdmin ct2=new ctAdmin();
-                ct.idUs=idUs;
-                ct.usuario=txtUser.getText();
-                ct.correo=txtCorreo.getText();
-                ct.telefono=txtTel.getText();
+                ctAdmin ct2 = new ctAdmin();
+                ct.idUs = idUs;
+                ct.usuario = txtUser.getText();
+                ct.correo = txtCorreo.getText();
+                ct.telefono = txtTel.getText();
                 ct.upUs2();
-                ct2.nombre=txtNombre.getText();
-                ct2.apellido=txtApellidos.getText();
-                ct2.dui=txtDui.getText();
-                ct2.sexo=cbSexo.getSelectedItem().toString();
-                ct2.nacimiento=dt.format(dpNaci.getCalendar().getTime());
-                ct2.idAdmin=idC;
+                ct2.nombre = txtNombre.getText();
+                ct2.apellido = txtApellidos.getText();
+                ct2.dui = txtDui.getText();
+                ct2.sexo = cbSexo.getSelectedItem().toString();
+                ct2.nacimiento = dt.format(dpNaci.getCalendar().getTime());
+                ct2.idAdmin = idC;
                 ct2.updAdmin();
             }
             if (idTipoUs == 2) {
                 ctUser ct = new ctUser();
-                ctRecep ct2=new ctRecep();
-                ct.idUs=idUs;
-                ct.usuario=txtUser.getText();
-                ct.correo=txtCorreo.getText();
-                ct.telefono=txtTel.getText();
+                ctRecep ct2 = new ctRecep();
+                ct.idUs = idUs;
+                ct.usuario = txtUser.getText();
+                ct.correo = txtCorreo.getText();
+                ct.telefono = txtTel.getText();
                 ct.upUs2();
-                ct2.nombre=txtNombre.getText();
-                ct2.apellido=txtApellidos.getText();
-                ct2.dui=txtDui.getText();
-                ct2.sexo=cbSexo.getSelectedItem().toString();
-                ct2.nacimiento=dt.format(dpNaci.getCalendar().getTime());
-                ct2.idRecep=idC;
+                ct2.nombre = txtNombre.getText();
+                ct2.apellido = txtApellidos.getText();
+                ct2.dui = txtDui.getText();
+                ct2.sexo = cbSexo.getSelectedItem().toString();
+                ct2.nacimiento = dt.format(dpNaci.getCalendar().getTime());
+                ct2.idRecep = idC;
                 ct2.updtRecep();
             }
             if (idTipoUs == 4) {
                 ctUser ct = new ctUser();
-                ctDoctores ct2=new ctDoctores();
-                ct.idUs=idUs;
-                ct.usuario=txtUser.getText();
-                ct.correo=txtCorreo.getText();
-                ct.telefono=txtTel.getText();
+                ctDoctores ct2 = new ctDoctores();
+                ct.idUs = idUs;
+                ct.usuario = txtUser.getText();
+                ct.correo = txtCorreo.getText();
+                ct.telefono = txtTel.getText();
                 ct.upUs2();
-                ct2.nombre=txtNombre.getText();
-                ct2.apellido=txtApellidos.getText();
-                ct2.dui=txtDui.getText();
-                ct2.sexo=cbSexo.getSelectedItem().toString();
-                ct2.nacimiento=dt.format(dpNaci.getCalendar().getTime());
+                ct2.nombre = txtNombre.getText();
+                ct2.apellido = txtApellidos.getText();
+                ct2.dui = txtDui.getText();
+                ct2.sexo = cbSexo.getSelectedItem().toString();
+                ct2.nacimiento = dt.format(dpNaci.getCalendar().getTime());
                 ct2.idEsp = dsg.getMap(mapEsp, cbEsp.getSelectedItem().toString());
-                ct2.idDoctor=idC;
+                ct2.idDoctor = idC;
                 ct2.updateDoc();
             }
             if (idTipoUs == 5) {
                 ctUser ct = new ctUser();
-                ctAsistente ct2=new ctAsistente();
-                ct.idUs=idUs;
-                ct.usuario=txtUser.getText();
-                ct.correo=txtCorreo.getText();
-                ct.telefono=txtTel.getText();
+                ctAsistente ct2 = new ctAsistente();
+                ct.idUs = idUs;
+                ct.usuario = txtUser.getText();
+                ct.correo = txtCorreo.getText();
+                ct.telefono = txtTel.getText();
                 ct.upUs2();
-                ct2.nombre=txtNombre.getText();
-                ct2.apellido=txtApellidos.getText();
-                ct2.dui=txtDui.getText();
-                ct2.sexo=cbSexo.getSelectedItem().toString();
-                ct2.nacimiento=dt.format(dpNaci.getCalendar().getTime());
+                ct2.nombre = txtNombre.getText();
+                ct2.apellido = txtApellidos.getText();
+                ct2.dui = txtDui.getText();
+                ct2.sexo = cbSexo.getSelectedItem().toString();
+                ct2.nacimiento = dt.format(dpNaci.getCalendar().getTime());
                 ct2.upAsis2();
             }
-        }  
+        }
     }//GEN-LAST:event_btnConfirmActionPerformed
     final void loadAdRe() throws SQLException {
         try {
@@ -456,6 +458,8 @@ public class PerfilData extends javax.swing.JPanel {
 
             while (rs.next()) {
                 txtUser.setText(rs.getString("usuario"));
+                user = rs.getString("usuario");
+                System.out.print(user);
                 txtNombre.setText(rs.getString("Nombre"));
                 txtApellidos.setText(rs.getString("Apellido"));
                 txtDui.setText(rs.getString("DUI"));
@@ -478,6 +482,7 @@ public class PerfilData extends javax.swing.JPanel {
 
             while (rs.next()) {
                 txtUser.setText(rs.getString("usuario"));
+                user = rs.getString("usuario");
                 txtNombre.setText(rs.getString("Nombre"));
                 txtApellidos.setText(rs.getString("Apellido"));
                 txtDui.setText(rs.getString("DUI"));
@@ -501,6 +506,7 @@ public class PerfilData extends javax.swing.JPanel {
 
             while (rs.next()) {
                 txtUser.setText(rs.getString("usuario"));
+                user = rs.getString("usuario");
                 txtNombre.setText(rs.getString("Nombre"));
                 txtApellidos.setText(rs.getString("Apellido"));
                 txtDui.setText(rs.getString("DUI"));
@@ -558,33 +564,45 @@ public class PerfilData extends javax.swing.JPanel {
 
     private void txtUserKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyReleased
 
-       ctUser ctUs = new ctUser();
+        ctUser ctUs = new ctUser();
         ctUs.usuario = txtUser.getText().toString();
         try {
             if (ctUs.verifUs().next()) {
-                lbUs.setVisible(true);
-                btnConfirm.setEnabled(false);
-
+                if (txtUser.getText().equals(user)) {
+                    lbUs.setVisible(false);
+                    btnConfirm.setEnabled(true);
+                } else {
+                    lbUs.setVisible(true);
+                    btnConfirm.setEnabled(false);
+                }
             } else {
                 lbUs.setVisible(false);
                 btnConfirm.setEnabled(true);
             }
+            if (txtUser.getText().length() >= 4 && txtNombre.getText().length() >= 5
+                    && txtApellidos.getText().length() >= 5 && txtDui.getText().length() >= 10
+                    && txtTel.getText().length() >= 8) {
+
+                lbMin5.setVisible(false);
+                btnConfirm.setEnabled(true);
+            } else {
+                if (txtUser.getText().length() >= 4 && lbUs.isVisible() == false) {
+                    lbMin5.setVisible(false);
+                    btnConfirm.setEnabled(true);
+                } else {
+                    if (txtUser.getText().equals(user)) {
+                        lbMin5.setVisible(false);
+                        btnConfirm.setEnabled(true);
+                    } else {
+                        lbMin5.setVisible(true);
+                        btnConfirm.setEnabled(false);
+                    }
+
+                }
+    }//GEN-LAST:event_txtUserKeyReleased
         } catch (SQLException ex) {
             Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        if (txtUser.getText().length() >= 4 && txtNombre.getText().length() >= 5 && txtApellidos.getText().length() >= 5 && txtDui.getText().length() >= 10 && txtTel.getText().length() >= 8) {
-            lbUs.setVisible(false);
-            btnConfirm.setEnabled(true);
-        } else {
-            if (txtUser.getText().length() >= 4) {
-                lbUs.setVisible(false);
-                btnConfirm.setEnabled(true);
-            } else {
-                lbUs.setVisible(true);
-                btnConfirm.setEnabled(false);
-            }
-    }//GEN-LAST:event_txtUserKeyReleased
     }
     private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
         // TODO add your handling code here:
