@@ -167,6 +167,9 @@ public class Registro extends javax.swing.JFrame {
             }
         });
         txtTeléfono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtTeléfonoKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtTeléfonoKeyReleased(evt);
             }
@@ -221,6 +224,9 @@ public class Registro extends javax.swing.JFrame {
             }
         });
         txtContra.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtContraKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtContraKeyReleased(evt);
             }
@@ -360,13 +366,13 @@ public class Registro extends javax.swing.JFrame {
     private void txtUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyTyped
         // TODO add your handling code here:
         //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros, donde si solo escribe dos numeros le saldra un texfield
-        
+
     }//GEN-LAST:event_txtUsuarioKeyTyped
 
     private void txtContraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyTyped
         // TODO add your handling code here:
         //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros, donde si solo escribe dos numeros le saldra un texfield
-    
+
     }//GEN-LAST:event_txtContraKeyTyped
 
     private void txtCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoKeyTyped
@@ -380,7 +386,7 @@ public class Registro extends javax.swing.JFrame {
 
     }//GEN-LAST:event_txtTeléfonoKeyTyped
 
-     //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros, donde si solo escribe dos numeros le saldra un texfield
+    //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros, donde si solo escribe dos numeros le saldra un texfield
     //Esto nos ayuda a verificar si el correo electronico es verdadero llamando a una libreria anteriormente puesta en el en apartado de librerias donde solamente se manda a llamar para validar
     private void txtCorreoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoKeyReleased
         // TODO add your handling code here:
@@ -402,10 +408,10 @@ public class Registro extends javax.swing.JFrame {
     //En este apartado validamos si el usuario ya existe en la base de datos y no se vuelva a repetir donde se le mostrar un texfield
     private void txtUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyReleased
         // TODO add your handling code here:
-       ctUser ctUs = new ctUser();
+        ctUser ctUs = new ctUser();
         ctUs.usuario = txtUsuario.getText().toString();
         try {
-            if (ctUs.verifUs().next())  {
+            if (ctUs.verifUs().next()) {
                 lbDisp.setVisible(true);
                 btnRegistrar.setEnabled(false);
 
@@ -416,12 +422,16 @@ public class Registro extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        if (txtUsuario.getText().length() >= 4) {
+
+        if (txtUsuario.getText().length() >= 4 && txtTeléfono.getText().length() >= 8 && txtContra.getText().length() >= 8) {
             lbMinimo2.setVisible(false);
+            lbMin.setVisible(false);
+            lbMin1.setVisible(false);
             btnRegistrar.setEnabled(true);
         } else {
             lbMinimo2.setVisible(true);
+            lbMin.setVisible(true);
+            lbMin1.setVisible(true);
             btnRegistrar.setEnabled(false);
         }
     }//GEN-LAST:event_txtUsuarioKeyReleased
@@ -453,30 +463,47 @@ public class Registro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_lbMin1KeyTyped
 
-     //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros, donde si solo escribe dos numeros le saldra un texfield
+    //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros, donde si solo escribe dos numeros le saldra un texfield
     private void txtContraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyReleased
         // TODO add your handling code here:
-        if (txtContra.getText().length() >= 8) {
-            lbMin.setVisible(false);
+        if (txtContra.getText().length() >= 8 && txtTeléfono.getText().length() >= 8 && txtUsuario.getText().length() >= 4) {
+             lbMin.setVisible(false);
+            lbMinimo2.setVisible(false);
+            lbMin1.setVisible(false);
             btnRegistrar.setEnabled(true);
 
         } else {
             lbMin.setVisible(true);
+            lbMinimo2.setVisible(true);
+            lbMin1.setVisible(true);
             btnRegistrar.setEnabled(false);
         }
     }//GEN-LAST:event_txtContraKeyReleased
 
-      //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros donde si solo escribe dos numeros le saldra un texfield
+    //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros donde si solo escribe dos numeros le saldra un texfield
     private void txtTeléfonoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTeléfonoKeyReleased
         // TODO add your handling code here:
-        if (txtTeléfono.getText().length() >= 8) {
+        if (txtTeléfono.getText().length() >= 8 && txtContra.getText().length() >= 8 && txtUsuario.getText().length() >= 4) {
             lbMin1.setVisible(false);
+            lbMinimo2.setVisible(false);
+            lbMin.setVisible(false);
             btnRegistrar.setEnabled(true);
         } else {
-            lbMin1.setVisible(true);
+             lbMin1.setVisible(true);
+            lbMinimo2.setVisible(true);
+            lbMin.setVisible(true);
             btnRegistrar.setEnabled(false);
         }
     }//GEN-LAST:event_txtTeléfonoKeyReleased
+
+    private void txtContraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyPressed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_txtContraKeyPressed
+
+    private void txtTeléfonoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTeléfonoKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTeléfonoKeyPressed
 
     /**
      * @param args the command line arguments
