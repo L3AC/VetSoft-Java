@@ -7,6 +7,7 @@ import AControlador.ctDoctores;
 import AControlador.ctEsp;
 import AControlador.ctRecep;
 import AControlador.ctUser;
+import AVista.Usuarios.insertUs;
 import Design.Desg;
 import Mensajes.CódigoErrorDSI5;
 import Mensajes.GlassPanePopup;
@@ -21,6 +22,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import org.apache.commons.validator.EmailValidator;
 
@@ -43,7 +46,7 @@ public class PerfilData extends javax.swing.JPanel {
         txtDui.setDocument(new Valida(10, "[0-9]*"));
         txtNombre.setDocument(new Valida(50, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         txtApellidos.setDocument(new Valida(50, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
-        lbMin.setVisible(false);
+        lbUs.setVisible(false);
         lbMin1.setVisible(false);
         lbMin2.setVisible(false);
         lbMin3.setVisible(false);
@@ -98,7 +101,7 @@ public class PerfilData extends javax.swing.JPanel {
         txtCorreo = new Design.TextFieldSV();
         txtTel = new Design.TextFieldSV();
         jLabel10 = new javax.swing.JLabel();
-        lbMin = new javax.swing.JLabel();
+        lbUs = new javax.swing.JLabel();
         lbMin1 = new javax.swing.JLabel();
         lbMin2 = new javax.swing.JLabel();
         lbMin3 = new javax.swing.JLabel();
@@ -107,6 +110,7 @@ public class PerfilData extends javax.swing.JPanel {
         lbEsp = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         cbEsp = new Design.Combobox();
+        lbMin5 = new javax.swing.JLabel();
         btnConfirm = new Design.ButtonGradient();
         btnAct = new Design.ButtonGradient();
         lbDoc2 = new javax.swing.JLabel();
@@ -244,9 +248,9 @@ public class PerfilData extends javax.swing.JPanel {
         jLabel10.setText("Télefono");
         panelRound1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 290, 150, -1));
 
-        lbMin.setForeground(new java.awt.Color(0, 0, 0));
-        lbMin.setText("Minimo de digitos 4");
-        panelRound1.add(lbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 110, 30));
+        lbUs.setForeground(new java.awt.Color(0, 0, 0));
+        lbUs.setText("Ya existe usuario");
+        panelRound1.add(lbUs, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 110, 30));
 
         lbMin1.setForeground(new java.awt.Color(0, 0, 0));
         lbMin1.setText("Minimo de digitos 5");
@@ -288,6 +292,10 @@ public class PerfilData extends javax.swing.JPanel {
             }
         });
         panelRound1.add(cbEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 330, 210, 40));
+
+        lbMin5.setForeground(new java.awt.Color(0, 0, 0));
+        lbMin5.setText("Minimo de digitos 4");
+        panelRound1.add(lbMin5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 110, 30));
 
         PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 1130, 440));
 
@@ -549,16 +557,31 @@ public class PerfilData extends javax.swing.JPanel {
     }//GEN-LAST:event_txtCorreoActionPerformed
 
     private void txtUserKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyReleased
-        // TODO add your handling code here:
+
+       ctUser ctUs = new ctUser();
+        ctUs.usuario = txtUser.getText().toString();
+        try {
+            if (ctUs.verifUs().next()) {
+                lbUs.setVisible(true);
+                btnConfirm.setEnabled(false);
+
+            } else {
+                lbUs.setVisible(false);
+                btnConfirm.setEnabled(true);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         if (txtUser.getText().length() >= 4 && txtNombre.getText().length() >= 5 && txtApellidos.getText().length() >= 5 && txtDui.getText().length() >= 10 && txtTel.getText().length() >= 8) {
-            lbMin.setVisible(false);
+            lbUs.setVisible(false);
             btnConfirm.setEnabled(true);
         } else {
             if (txtUser.getText().length() >= 4) {
-                lbMin.setVisible(false);
+                lbUs.setVisible(false);
                 btnConfirm.setEnabled(true);
             } else {
-                lbMin.setVisible(true);
+                lbUs.setVisible(true);
                 btnConfirm.setEnabled(false);
             }
     }//GEN-LAST:event_txtUserKeyReleased
@@ -663,11 +686,12 @@ public class PerfilData extends javax.swing.JPanel {
     private javax.swing.JLabel lbDoc2;
     private javax.swing.JLabel lbEsp;
     private javax.swing.JLabel lbFalso;
-    private javax.swing.JLabel lbMin;
     private javax.swing.JLabel lbMin1;
     private javax.swing.JLabel lbMin2;
     private javax.swing.JLabel lbMin3;
     private javax.swing.JLabel lbMin4;
+    private javax.swing.JLabel lbMin5;
+    private javax.swing.JLabel lbUs;
     private Design.PanelRound panelRound1;
     private Design.TextFieldSV txtApellidos;
     private Design.TextFieldSV txtCorreo;
