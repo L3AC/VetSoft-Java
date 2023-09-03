@@ -55,9 +55,9 @@ public class Dashboard extends javax.swing.JFrame {
     public Dashboard(int idTipoU, int idUs, int idCuenta) {
         this.idTipoU = idTipoU;
         this.idUs = idUs;
-        this.idCuenta=idCuenta;
+        this.idCuenta = idCuenta;
         ctVariableGlobal.idus = idUs;
-        System.out.println("id"+ctVariableGlobal.idus);
+        System.out.println("id" + ctVariableGlobal.idus);
         this.idCuenta = idCuenta;
         initComponents();
         setTitle("VetSoft");
@@ -168,7 +168,7 @@ public class Dashboard extends javax.swing.JFrame {
                     }
                     //CUENTA
                     if (index == 5 && indexSubMenu == 1) {
-                        PerfilData subp = new PerfilData(idTipoU,idCuenta,idUs);
+                        PerfilData subp = new PerfilData(idTipoU, idCuenta, idUs);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     if (index == 5 && indexSubMenu == 3) {
@@ -179,8 +179,7 @@ public class Dashboard extends javax.swing.JFrame {
                         CRUDClientesN subp = new CRUDClientesN();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }*/
-                    
-                   
+
 
                 } catch (NullPointerException e) {
                     StackTraceElement[] stackTrace = e.getStackTrace();
@@ -253,7 +252,8 @@ public class Dashboard extends javax.swing.JFrame {
                     }
                     //CUENTA
                     if (index == 4 && indexSubMenu == 1) {
-
+                        PerfilData subp = new PerfilData(idTipoU, idCuenta, idUs);
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
 
                 } catch (Exception e) {
@@ -305,7 +305,8 @@ public class Dashboard extends javax.swing.JFrame {
 
                     //CUENTA
                     if (index == 2 && indexSubMenu == 1) {
-
+                        PerfilData subp = new PerfilData(idTipoU, idCuenta, idUs);
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                 } catch (Exception e) {
                     System.out.println(e.toString() + " prueba");
