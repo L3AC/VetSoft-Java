@@ -275,9 +275,8 @@ public class mdUser extends JFrame {
         }
     }
 
-    public boolean upPerfil(int idTipoU, int idUs) {
-        String url = "update tbUsuarios SET idTipoUsuario=?,usuario=?,correo=?,telefono=?"
-                + " where idUsuario=?;";
+    /*public boolean upPerfil(int idTipoU, int idUs) {
+        String url = "";
         try {
             if (idTipoU == 1) {
                 url = "update tbUsuarios set Usuario=?, Correo=?, Telefono=? where idUsuario=?\n"
@@ -302,7 +301,7 @@ public class mdUser extends JFrame {
             /*ps.setInt(1, idTipoUs);
             ps.setString(2, usuario);
             ps.setString(3, correo);
-            ps.setString(4, tel);*/
+            ps.setString(4, tel);
             ps.setInt(5, idUs);
             ps.executeUpdate();
             CódigoErrorDSI1 obj = new CódigoErrorDSI1();
@@ -320,6 +319,6 @@ public class mdUser extends JFrame {
             System.out.println(e.toString());
             return false; //DIO ERROR
         }
-    }
+    }*/
 
 }

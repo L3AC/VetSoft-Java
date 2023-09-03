@@ -359,6 +359,30 @@ public class PerfilData extends javax.swing.JPanel {
             }
         }*/
     }//GEN-LAST:event_btnConfirmActionPerformed
+   final void loadAdRe() throws SQLException {
+        /*try {
+            ctUser  ct = new ctUser();
+            ct.idTipoUs = idTipoUs;
+            ct.idUs=idUs;
+
+            ResultSet rs = ct.perfilD();
+            while (rs.next()) {
+                lbMasc.setText("Mascota: " + rs.getString("Animal"));
+                cbServicio.setSelectedItem(rs.getString("Serv"));
+                cbEsp.setSelectedItem(rs.getString("Especialidad"));
+                cbDoc.setSelectedItem(rs.getString("Doctor"));
+                dpFecha.setDate(rs.getDate("Fecha"));
+                String hora = rs.getString("hora") + "";
+                cbHora.setSelectedItem(hora);
+                System.out.println(rs.getString("Hora") + " " + cbHora.getSelectedItem().toString());
+                txtNotaCl.setText(rs.getString("notaDelCliente"));
+                txtNotaD.setText(rs.getString("notaDelDoctor"));
+
+            }
+        } catch (Exception e) {
+            System.err.println(e.toString());
+        }*/
+    }
     final void loadDoc() throws SQLException {
         /*try {
             ctCitas ct = new ctCitas();
@@ -383,30 +407,7 @@ public class PerfilData extends javax.swing.JPanel {
         }*/
     }
 
-    final void loadAdRe() throws SQLException {
-        /*try {
-            ctUser  ct = new ctUser();
-            ct.idTipoUs = idTipoUs;
-            ct.idUs=idUs;
-
-            ResultSet rs = ct.perfilD();
-            while (rs.next()) {
-                lbMasc.setText("Mascota: " + rs.getString("Animal"));
-                cbServicio.setSelectedItem(rs.getString("Serv"));
-                cbEsp.setSelectedItem(rs.getString("Especialidad"));
-                cbDoc.setSelectedItem(rs.getString("Doctor"));
-                dpFecha.setDate(rs.getDate("Fecha"));
-                String hora = rs.getString("hora") + "";
-                cbHora.setSelectedItem(hora);
-                System.out.println(rs.getString("Hora") + " " + cbHora.getSelectedItem().toString());
-                txtNotaCl.setText(rs.getString("notaDelCliente"));
-                txtNotaD.setText(rs.getString("notaDelDoctor"));
-
-            }
-        } catch (Exception e) {
-            System.err.println(e.toString());
-        }*/
-    }
+    
 
     final void loadAsis() throws SQLException {
         /*try {
