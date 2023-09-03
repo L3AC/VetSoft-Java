@@ -106,8 +106,9 @@ public class ctUser {
     public ResultSet loadData() {
         return usu.loadData(idUs);
     }
+
     public ResultSet verifPerfil() throws SQLException {
-        return usu.verifPerfil(idUs,idTipoCuenta);
+        return usu.verifPerfil(idUs, idTipoCuenta);
     }
 
     public ResultSet SelectTipoID() throws SQLException {
@@ -127,10 +128,18 @@ public class ctUser {
     }
 
     public boolean updtUs() {
-        return usu.updateUs(idTipoCuenta, usuario, correo, telefono,idUs);
+        return usu.updateUs(idTipoCuenta, usuario, correo, telefono, idUs);
     }
 
     public boolean deleteUs() {
         return usu.deleteUs(idUs);
     }
+
+    //PERFIL DATA 
+    public ResultSet perfilD() throws SQLException {
+        return usu.perfilData(idTipoUs, idUs);
+    }
+     /*   public boolean upPerfil() {
+        return usu.upPerfil(idTipoCuenta, usuario, correo, telefono, idUs);
+    }*/
 }

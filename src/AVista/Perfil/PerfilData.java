@@ -1,6 +1,7 @@
 package AVista.Perfil;
 
 import AControlador.ctCitas;
+import AControlador.ctUser;
 import Design.Desg;
 import Mensajes.CódigoErrorDSI5;
 import Mensajes.GlassPanePopup;
@@ -16,12 +17,14 @@ public class PerfilData extends javax.swing.JPanel {
 
     private int idTipoUs;
     private int idC;
+    private int idUs;
     Desg dsg = new Desg();
     Map<Integer, String> cbMap = new HashMap<>();
-    
-    public PerfilData(int idTipoUs,int idC) throws SQLException {
-        this.idTipoUs=idTipoUs;
-        this.idC=idC;
+
+    public PerfilData(int idTipoUs, int idC,int idUs) throws SQLException {
+        this.idTipoUs = idTipoUs;
+        this.idC = idC;
+        this.idUs=idUs;
         initComponents();
         txtUser.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
         txtTel.setDocument(new Valida(8, "[0-9]*"));
@@ -35,17 +38,17 @@ public class PerfilData extends javax.swing.JPanel {
         lbMin3.setVisible(false);
         lbMin4.setVisible(false);
         lbMin5.setVisible(false);
-        
-        if(idTipoUs==1){
+
+        if (idTipoUs == 1) {
             loadAdRe();
         }
-        if(idTipoUs==2){
+        if (idTipoUs == 2) {
             loadAdRe();
         }
-        if(idTipoUs==4){
+        if (idTipoUs == 4) {
             loadDoc();
         }
-        if(idTipoUs==5){
+        if (idTipoUs == 5) {
             loadAsis();
         }
     }
@@ -361,12 +364,14 @@ public class PerfilData extends javax.swing.JPanel {
             System.err.println(e.toString());
         }*/
     }
+
     final void loadAdRe() throws SQLException {
         /*try {
-            ctCitas ct = new ctCitas();
-            ct.idCita = idCita;
+            ctUser  ct = new ctUser();
+            ct.idTipoUs = idTipoUs;
+            ct.idUs=idUs;
 
-            ResultSet rs = ct.selectCita();
+            ResultSet rs = ct.perfilD();
             while (rs.next()) {
                 lbMasc.setText("Mascota: " + rs.getString("Animal"));
                 cbServicio.setSelectedItem(rs.getString("Serv"));
@@ -384,6 +389,7 @@ public class PerfilData extends javax.swing.JPanel {
             System.err.println(e.toString());
         }*/
     }
+
     final void loadAsis() throws SQLException {
         /*try {
             ctCitas ct = new ctCitas();

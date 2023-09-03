@@ -18,6 +18,7 @@ import AVista.Mantenimiento.CRUDTipoAnim;
 import AVista.Mantenimiento.CRUDTipoProd;
 import AVista.Mantenimiento.CRUDnivels;
 import AVista.Mantenimiento.CRUDtpserv;
+import AVista.Perfil.PerfilData;
 import AVista.Perfil.Preguntas;
 import AVista.Productos.CRUDProd;
 import AVista.Productos.updateProd;
@@ -54,6 +55,7 @@ public class Dashboard extends javax.swing.JFrame {
     public Dashboard(int idTipoU, int idUs, int idCuenta) {
         this.idTipoU = idTipoU;
         this.idUs = idUs;
+        this.idCuenta=idCuenta;
         ctVariableGlobal.idus = idUs;
         System.out.println("id"+ctVariableGlobal.idus);
         this.idCuenta = idCuenta;
@@ -165,6 +167,10 @@ public class Dashboard extends javax.swing.JFrame {
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     //CUENTA
+                    if (index == 5 && indexSubMenu == 1) {
+                        PerfilData subp = new PerfilData(idTipoU,idCuenta,idUs);
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                    }
                     if (index == 5 && indexSubMenu == 3) {
                         Preguntas subp = new Preguntas(idUs);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
