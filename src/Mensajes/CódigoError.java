@@ -41,6 +41,9 @@ public class CódigoError extends javax.swing.JPanel {
 
         buttonGradient1.setText("buttonGradient1");
 
+        setBackground(new Color(255,255,255,0));
+        setForeground(new Color(255,255,255,0));
+
         panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomLeft(50);
         panelRound1.setRoundBottomRight(50);

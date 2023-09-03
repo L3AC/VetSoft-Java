@@ -5,6 +5,7 @@ import AVista.Animales.CRUDAnimales;
 import AVista.Animales.addMascota;
 import AVista.Usuarios.CRUDusuarios;
 import Design.Desg;
+import Mensajes.CódigoError;
 import Mensajes.CódogpErrorDIFC1;
 import Mensajes.GlassPanePopup;
 import java.awt.event.ActionEvent;
@@ -61,18 +62,18 @@ public class AddVacuna extends javax.swing.JPanel {
     }
 
     final void verifVac() throws SQLException {
-        ctVacunas ct=new ctVacunas();
-        ct.idAnimal=idAnim;
-        ct.idTipoVac=Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-        
-        if(ct.verifVac().next()){
+        ctVacunas ct = new ctVacunas();
+        ct.idAnimal = idAnim;
+        ct.idTipoVac = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+
+        if (ct.verifVac().next()) {
             btnAddM.setVisible(false);
-        }
-        else{
+        } else {
             btnAddM.setVisible(true);
         }
 
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -168,18 +169,18 @@ public class AddVacuna extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddMActionPerformed
-if (tbData.getRowCount() > 0) {
-        try {
-            ctVacunas ct = new ctVacunas();
-            ct.idAnimal = idAnim;
-            ct.idTipoVac = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());;
-            ct.insVac();
-            loadD();
-        } catch (SQLException ex) {
-            Logger.getLogger(AddVacuna.class.getName()).log(Level.SEVERE, null, ex);
-        }
-} else {
-            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+        if (tbData.getRowCount() > 0) {
+            try {
+                ctVacunas ct = new ctVacunas();
+                ct.idAnimal = idAnim;
+                ct.idTipoVac = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());;
+                ct.insVac();
+                loadD();
+            } catch (SQLException ex) {
+                Logger.getLogger(AddVacuna.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
@@ -191,14 +192,14 @@ if (tbData.getRowCount() > 0) {
     }//GEN-LAST:event_btnAddMActionPerformed
 
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
-        try { 
+        try {
             verifVac();
         } catch (SQLException ex) {
             Logger.getLogger(AddVacuna.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_tbDataMouseClicked
 
-    
+
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
         try {
             loadD();

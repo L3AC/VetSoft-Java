@@ -7,6 +7,7 @@ import AVista.CUENTA.updtTipoCuenta;
 import AVista.Clientes.CRUDCliente;
 import AVista.Usuarios.updtUsuario;
 import Design.Desg;
+import Mensajes.CódigoError;
 import Mensajes.CódogpErrorDIFC1;
 import Mensajes.GlassPanePopup;
 import java.sql.ResultSet;
@@ -265,7 +266,7 @@ public class CRUDDoctores extends javax.swing.JPanel {
                 Logger.getLogger(CRUDDoctores.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+           CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
@@ -286,7 +287,7 @@ public class CRUDDoctores extends javax.swing.JPanel {
             Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
         } else {
-            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
@@ -323,7 +324,7 @@ public class CRUDDoctores extends javax.swing.JPanel {
 
         }
          } else {
-            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {

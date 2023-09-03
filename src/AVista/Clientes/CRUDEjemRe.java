@@ -4,6 +4,7 @@ import AControlador.ctCliente;
 import AControlador.ctEjem;
 import AControlador.ctReservFact;
 import Design.Desg;
+import Mensajes.CódigoError;
 import Mensajes.CódogpErrorDIFC1;
 import Mensajes.GlassPanePopup;
 import Tipografias.Fuentes;
@@ -215,7 +216,7 @@ public class CRUDEjemRe extends javax.swing.JPanel {
             }
 
         } else {
-            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {

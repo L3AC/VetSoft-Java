@@ -128,8 +128,6 @@ public class Login extends javax.swing.JFrame {
         panelRound2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
 
         btnIngresar.setText("Ingresar");
-        btnIngresar.setColor1(new java.awt.Color(255, 255, 255));
-        btnIngresar.setColor2(new java.awt.Color(255, 255, 255));
         btnIngresar.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         btnIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,6 +146,7 @@ public class Login extends javax.swing.JFrame {
         });
         panelRound2.add(txtOlvidasteContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, -1, -1));
 
+        txtUser.setBackground(new java.awt.Color(255, 255, 255));
         txtUser.setShadowColor(new java.awt.Color(0, 0, 51));
         txtUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -167,6 +166,7 @@ public class Login extends javax.swing.JFrame {
         });
         panelRound2.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 370, 50));
 
+        txtPass.setBackground(new java.awt.Color(255, 255, 255));
         txtPass.setShadowColor(new java.awt.Color(0, 0, 51));
         txtPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

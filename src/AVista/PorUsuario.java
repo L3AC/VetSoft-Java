@@ -96,7 +96,7 @@ public class PorUsuario extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panelRound2.setBackground(new java.awt.Color(255, 255, 255));
+        panelRound2.setBackground(new java.awt.Color(190, 233, 232));
         panelRound2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BtnRegresar1.setBackground(new java.awt.Color(255, 255, 255));
@@ -114,7 +114,7 @@ public class PorUsuario extends javax.swing.JFrame {
         lbMayor.setText("Recuperación de contraseña por usuario");
         panelRound2.add(lbMayor, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, -1));
 
-        panelRound1.setBackground(new java.awt.Color(202, 233, 255));
+        panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomLeft(50);
         panelRound1.setRoundBottomRight(50);
         panelRound1.setRoundTopLeft(50);
@@ -127,9 +127,11 @@ public class PorUsuario extends javax.swing.JFrame {
         panelRound1.add(lbCod, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 140, -1, 30));
 
         btnVeri.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnVeri.setForeground(new java.awt.Color(0, 0, 0));
         btnVeri.setText("Verificar");
-        btnVeri.setColor1(new java.awt.Color(153, 204, 255));
-        btnVeri.setColor2(new java.awt.Color(153, 204, 255));
+        btnVeri.setColor1(new java.awt.Color(190, 233, 232));
+        btnVeri.setColor2(new java.awt.Color(190, 233, 232));
+        btnVeri.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnVeri.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVeriActionPerformed(evt);
@@ -153,9 +155,11 @@ public class PorUsuario extends javax.swing.JFrame {
         panelRound1.add(lbCod1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, 30));
 
         btnEnviar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnEnviar.setForeground(new java.awt.Color(0, 0, 0));
         btnEnviar.setText("Enviar Correo");
-        btnEnviar.setColor1(new java.awt.Color(153, 204, 255));
-        btnEnviar.setColor2(new java.awt.Color(153, 204, 255));
+        btnEnviar.setColor1(new java.awt.Color(190, 233, 232));
+        btnEnviar.setColor2(new java.awt.Color(190, 233, 232));
+        btnEnviar.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnEnviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEnviarActionPerformed(evt);
@@ -163,16 +167,19 @@ public class PorUsuario extends javax.swing.JFrame {
         });
         panelRound1.add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 110, 30));
 
+        btnCambiar.setForeground(new java.awt.Color(0, 0, 0));
         btnCambiar.setText("Cambiar Contraseña");
-        btnCambiar.setColor1(new java.awt.Color(153, 204, 255));
-        btnCambiar.setColor2(new java.awt.Color(153, 204, 255));
+        btnCambiar.setColor1(new java.awt.Color(190, 233, 232));
+        btnCambiar.setColor2(new java.awt.Color(190, 233, 232));
+        btnCambiar.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnCambiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCambiarActionPerformed(evt);
             }
         });
-        panelRound1.add(btnCambiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 170, 30));
+        panelRound1.add(btnCambiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 260, 180, 30));
 
+        txtUser.setBackground(new java.awt.Color(190, 233, 232));
         txtUser.setShadowColor(new java.awt.Color(0, 0, 51));
         txtUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -186,6 +193,7 @@ public class PorUsuario extends javax.swing.JFrame {
         });
         panelRound1.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 180, -1));
 
+        txtCod.setBackground(new java.awt.Color(190, 233, 232));
         txtCod.setShadowColor(new java.awt.Color(0, 0, 51));
         txtCod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -194,6 +202,7 @@ public class PorUsuario extends javax.swing.JFrame {
         });
         panelRound1.add(txtCod, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 180, -1));
 
+        txtNueva.setBackground(new java.awt.Color(190, 233, 232));
         txtNueva.setShadowColor(new java.awt.Color(0, 0, 51));
         txtNueva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,6 +216,7 @@ public class PorUsuario extends javax.swing.JFrame {
         });
         panelRound1.add(txtNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, 180, -1));
 
+        txtNueva2.setBackground(new java.awt.Color(190, 233, 232));
         txtNueva2.setShadowColor(new java.awt.Color(0, 0, 51));
         txtNueva2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

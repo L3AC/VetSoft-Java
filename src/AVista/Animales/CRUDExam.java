@@ -4,6 +4,7 @@ import AControlador.ctCitas;
 import AControlador.ctCliente;
 import AControlador.ctExam;
 import Design.Desg;
+import Mensajes.CódigoError;
 import Mensajes.CódogpErrorDIFC1;
 import Mensajes.GlassPanePopup;
 import java.awt.event.ActionEvent;
@@ -267,7 +268,7 @@ public class CRUDExam extends javax.swing.JPanel {
 
             }
         } else {
-            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+           CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
@@ -288,7 +289,7 @@ public class CRUDExam extends javax.swing.JPanel {
                 Logger.getLogger(CRUDExam.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
@@ -309,7 +310,7 @@ public class CRUDExam extends javax.swing.JPanel {
                 Logger.getLogger(CRUDExam.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {

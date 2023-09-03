@@ -3,6 +3,7 @@ package AVista.Vacunas;
 import AControlador.ctCliente;
 import AControlador.ctVacunas;
 import Design.Desg;
+import Mensajes.CódigoError;
 import Mensajes.CódogpErrorDIFC1;
 import Mensajes.GlassPanePopup;
 import java.awt.event.ActionEvent;
@@ -223,41 +224,63 @@ public class CRUDTipoVac extends javax.swing.JPanel {
     }//GEN-LAST:event_btnAddMActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        try {
-            ctVacunas ct = new ctVacunas();
-            ct.idTipoVac = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-            ct.nombreVac = txtVacuna.getText().toString();
-            ct.util = txtUso.getText().toString();
-            ct.upTPVac();
-            loadD();
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDTipoVac.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_btnEditarActionPerformed
-
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
-        int opcion = JOptionPane.showOptionDialog(
-                null,
-                "¿Desea eliminar el registro?",
-                "Advertencia",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.WARNING_MESSAGE,
-                null,
-                new Object[]{"Sí", "No"},
-                "No");
-
-        if (opcion == JOptionPane.YES_OPTION) {
-            ctVacunas ct = new ctVacunas();
-            ct.idTipoVac = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-            ct.delTPVac();
+        if (tbData.getRowCount() > 0) {
             try {
+                ctVacunas ct = new ctVacunas();
+                ct.idTipoVac = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                ct.nombreVac = txtVacuna.getText().toString();
+                ct.util = txtUso.getText().toString();
+                ct.upTPVac();
                 loadD();
             } catch (SQLException ex) {
                 Logger.getLogger(CRUDTipoVac.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else if (opcion == JOptionPane.NO_OPTION) {
+        } else {
+            CódigoError obj = new CódigoError();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+        }
+    }//GEN-LAST:event_btnEditarActionPerformed
 
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        if (tbData.getRowCount() > 0) {
+            UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
+            int opcion = JOptionPane.showOptionDialog(
+                    null,
+                    "¿Desea eliminar el registro?",
+                    "Advertencia",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.WARNING_MESSAGE,
+                    null,
+                    new Object[]{"Sí", "No"},
+                    "No");
+
+            if (opcion == JOptionPane.YES_OPTION) {
+                ctVacunas ct = new ctVacunas();
+                ct.idTipoVac = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                ct.delTPVac();
+                try {
+                    loadD();
+                } catch (SQLException ex) {
+                    Logger.getLogger(CRUDTipoVac.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else if (opcion == JOptionPane.NO_OPTION) {
+
+            }
+        } else {
+            CódigoError obj = new CódigoError();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 

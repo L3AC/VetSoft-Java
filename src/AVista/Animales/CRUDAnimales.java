@@ -7,6 +7,7 @@ import AVista.Citas.insertCita;
 import AVista.Vacunas.AddVacuna;
 import AVista.Vacunas.HVacunas;
 import Design.Desg;
+import Mensajes.CódigoError;
 import Mensajes.CódogpErrorDIFC1;
 import Mensajes.GlassPanePopup;
 import Tipografias.Fuentes;
@@ -297,7 +298,7 @@ public class CRUDAnimales extends javax.swing.JPanel {
 
             }
         } else {
-            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+           CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
@@ -327,7 +328,7 @@ public class CRUDAnimales extends javax.swing.JPanel {
                 Logger.getLogger(CRUDAnimales.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+           CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
@@ -347,7 +348,7 @@ public class CRUDAnimales extends javax.swing.JPanel {
                 Logger.getLogger(CRUDAnimales.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
@@ -371,7 +372,7 @@ public class CRUDAnimales extends javax.swing.JPanel {
                 Logger.getLogger(CRUDAnimales.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+           CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
@@ -391,7 +392,7 @@ public class CRUDAnimales extends javax.swing.JPanel {
                 Logger.getLogger(HVacunas.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+           CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
@@ -411,7 +412,7 @@ public class CRUDAnimales extends javax.swing.JPanel {
                 Logger.getLogger(CRUDAnimales.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {

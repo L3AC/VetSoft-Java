@@ -7,6 +7,7 @@ import AControlador.ctReceta;
 import AVista.Animales.CRUDAnimales;
 import AVista.Animales.updtAnimales;
 import Design.Desg;
+import Mensajes.CódigoError;
 import Mensajes.CódogpErrorDIFC1;
 import Mensajes.GlassPanePopup;
 import java.sql.ResultSet;
@@ -328,7 +329,7 @@ public class CRUDCita extends javax.swing.JPanel {
             Logger.getLogger(CRUDAnimales.class.getName()).log(Level.SEVERE, null, ex);
         }
         } else {
-            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+           CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
@@ -365,7 +366,7 @@ public class CRUDCita extends javax.swing.JPanel {
 
             }
         } else {
-            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+           CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
@@ -419,7 +420,7 @@ public class CRUDCita extends javax.swing.JPanel {
 
         }
         } else {
-            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
@@ -463,7 +464,7 @@ public class CRUDCita extends javax.swing.JPanel {
 
         }
          } else {
-            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
@@ -491,7 +492,7 @@ public class CRUDCita extends javax.swing.JPanel {
             Logger.getLogger(CRUDCita.class.getName()).log(Level.SEVERE, null, ex);
         }
          } else {
-            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+           CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {

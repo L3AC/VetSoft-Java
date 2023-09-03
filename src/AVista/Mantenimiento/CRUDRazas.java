@@ -7,7 +7,11 @@ package AVista.Mantenimiento;
 import AControlador.ctRaza;
 import AControlador.ctTipoServ;
 import Design.Desg;
+import Mensajes.CódigoError;
+import Mensajes.GlassPanePopup;
 import Validation.Valida;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -265,7 +269,14 @@ public class CRUDRazas extends javax.swing.JPanel {
 
             }
         } else {
-            JOptionPane.showMessageDialog(null, "No existen registros");
+            CódigoError obj = new CódigoError();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
 
         // TODO add your handling code here:
@@ -296,7 +307,14 @@ public class CRUDRazas extends javax.swing.JPanel {
                 Logger.getLogger(CRUDRazas.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            JOptionPane.showMessageDialog(null, "No existen registros");
+            CódigoError obj = new CódigoError();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
     }//GEN-LAST:event_btnEditarActionPerformed
 

@@ -3,6 +3,7 @@ package AVista.Productos;
 import AControlador.ctEjem;
 import AControlador.ctProd;
 import Design.Desg;
+import Mensajes.CódigoError;
 import Mensajes.CódogpErrorDIFC1;
 import Mensajes.GlassPanePopup;
 import java.awt.event.ActionEvent;
@@ -282,7 +283,7 @@ public class CRUDEjemp extends javax.swing.JPanel {
 
         }
        } else {
-            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {

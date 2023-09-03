@@ -8,6 +8,7 @@ import AControlador.ctProd;
 import AControlador.ctTipoServ;
 import Design.Desg;
 import Design.TextFieldSV;
+import Mensajes.CódigoError;
 import Mensajes.CódogpErrorDIFC1;
 import Mensajes.GlassPanePopup;
 import Validation.Valida;
@@ -317,7 +318,7 @@ public class CRUDTipoProd extends javax.swing.JPanel {
             Logger.getLogger(CRUDTipoProd.class.getName()).log(Level.SEVERE, null, ex);
         }
  } else {
-            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+           CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
@@ -354,7 +355,7 @@ public class CRUDTipoProd extends javax.swing.JPanel {
 
         }
         } else {
-            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+           CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {

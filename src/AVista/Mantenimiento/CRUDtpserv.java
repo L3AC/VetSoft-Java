@@ -10,6 +10,7 @@ import AControlador.ctRaza;
 import AControlador.ctTipoServ;
 import Design.Desg;
 import Design.TextFieldSV;
+import Mensajes.CódigoError;
 import Mensajes.CódogpErrorDIFC1;
 import Mensajes.GlassPanePopup;
 import Validation.Valida;
@@ -135,7 +136,6 @@ public class CRUDtpserv extends javax.swing.JPanel {
         jLabel2.setText("Costo del servicio");
         PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 390, -1, -1));
 
-        txtCosto.setBackground(new java.awt.Color(255, 255, 255));
         txtCosto.setShadowColor(new java.awt.Color(0, 0, 51));
         PCont.add(txtCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 430, 310, -1));
 
@@ -147,7 +147,7 @@ public class CRUDtpserv extends javax.swing.JPanel {
                 btnAgregarActionPerformed(evt);
             }
         });
-        PCont.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 560, 110, 40));
+        PCont.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 560, 110, 40));
 
         btnLimp.setForeground(new java.awt.Color(0, 0, 0));
         btnLimp.setText("Limpiar");
@@ -168,7 +168,7 @@ public class CRUDtpserv extends javax.swing.JPanel {
                 btnEliminarActionPerformed(evt);
             }
         });
-        PCont.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 560, 110, 40));
+        PCont.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 560, 110, 40));
 
         cbNivelS.setForeground(new java.awt.Color(80, 80, 80));
         cbNivelS.setLabeText("");
@@ -179,7 +179,6 @@ public class CRUDtpserv extends javax.swing.JPanel {
         });
         PCont.add(cbNivelS, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 190, 270, 40));
 
-        txtBusq.setBackground(new java.awt.Color(255, 255, 255));
         txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
         txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -198,7 +197,6 @@ public class CRUDtpserv extends javax.swing.JPanel {
         jLabel4.setText("Nombre del servicio");
         PCont.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 270, -1, -1));
 
-        txtServ.setBackground(new java.awt.Color(255, 255, 255));
         txtServ.setShadowColor(new java.awt.Color(0, 0, 51));
         PCont.add(txtServ, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 310, 310, -1));
 
@@ -305,6 +303,7 @@ public class CRUDtpserv extends javax.swing.JPanel {
     }//GEN-LAST:event_btnLimpActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+       if (tbData.getRowCount() > 0) {
         UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
         int opcion = JOptionPane.showOptionDialog(
                 null,
@@ -327,7 +326,17 @@ public class CRUDtpserv extends javax.swing.JPanel {
             }
         } else if (opcion == JOptionPane.NO_OPTION) {
 
+        }  else {
+            CódigoError obj = new CódigoError();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
+       }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void cbNivelSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNivelSActionPerformed
@@ -365,7 +374,7 @@ public class CRUDtpserv extends javax.swing.JPanel {
                 Logger.getLogger(CRUDtpserv.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {

@@ -81,10 +81,10 @@ public class NuevaContra extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
 
-        panelRound2.setBackground(new java.awt.Color(255, 255, 255));
+        panelRound2.setBackground(new java.awt.Color(190, 233, 232));
         panelRound2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panelRound1.setBackground(new java.awt.Color(202, 233, 255));
+        panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomLeft(50);
         panelRound1.setRoundBottomRight(50);
         panelRound1.setRoundTopLeft(50);
@@ -101,9 +101,11 @@ public class NuevaContra extends javax.swing.JFrame {
         panelRound1.add(lbCod, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 180, 30));
 
         btnCambiar.setBorder(null);
+        btnCambiar.setForeground(new java.awt.Color(0, 0, 0));
         btnCambiar.setText("Cambiar Contraseña");
-        btnCambiar.setColor1(new java.awt.Color(153, 204, 255));
-        btnCambiar.setColor2(new java.awt.Color(153, 204, 255));
+        btnCambiar.setColor1(new java.awt.Color(190, 233, 232));
+        btnCambiar.setColor2(new java.awt.Color(190, 233, 232));
+        btnCambiar.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnCambiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCambiarActionPerformed(evt);
@@ -111,6 +113,7 @@ public class NuevaContra extends javax.swing.JFrame {
         });
         panelRound1.add(btnCambiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 210, 40));
 
+        txtNueva.setBackground(new java.awt.Color(190, 233, 232));
         txtNueva.setShadowColor(new java.awt.Color(0, 0, 51));
         txtNueva.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -119,6 +122,7 @@ public class NuevaContra extends javax.swing.JFrame {
         });
         panelRound1.add(txtNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 250, -1));
 
+        txtNueva2.setBackground(new java.awt.Color(190, 233, 232));
         txtNueva2.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtNueva2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 250, -1));
 
@@ -211,9 +215,10 @@ public void act() throws Exception{
         // TODO add your handling code here:
          if(txtNueva.getText().length()>= 3){
             lbUs3.setVisible(false);
+            btnCambiar.setEnabled(true);
         }else {
             lbUs3.setVisible(true);
-
+            btnCambiar.setEnabled(false);
         } 
     }//GEN-LAST:event_txtNuevaKeyTyped
 

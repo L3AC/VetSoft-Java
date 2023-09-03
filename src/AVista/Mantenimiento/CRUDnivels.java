@@ -7,6 +7,10 @@ package AVista.Mantenimiento;
 import AControlador.ctProd;
 import AControlador.ctTipoServ;
 import Design.Desg;
+import Mensajes.CódigoError;
+import Mensajes.GlassPanePopup;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -193,7 +197,14 @@ public class CRUDnivels extends javax.swing.JPanel {
                 Logger.getLogger(CRUDnivels.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            JOptionPane.showMessageDialog(null, "No hay registros");
+            CódigoError obj = new CódigoError();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
 
     }//GEN-LAST:event_btnActActionPerformed

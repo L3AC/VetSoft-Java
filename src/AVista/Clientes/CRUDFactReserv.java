@@ -9,6 +9,7 @@ import AControlador.ctExam;
 import AControlador.ctReservFact;
 import AVista.Animales.CRUDAnimales;
 import Design.Desg;
+import Mensajes.CódigoError;
 import Mensajes.CódogpErrorDIFC1;
 import Mensajes.GlassPanePopup;
 import Tipografias.Fuentes;
@@ -249,7 +250,7 @@ public class CRUDFactReserv extends javax.swing.JPanel {
 
         }
          }  else {
-            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+           CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
@@ -297,7 +298,7 @@ public class CRUDFactReserv extends javax.swing.JPanel {
 
         }
           } else {
-            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+           CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {

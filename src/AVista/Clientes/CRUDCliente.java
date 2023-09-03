@@ -7,6 +7,8 @@ import AControlador.ctDoctores;
 import AVista.Animales.addMascota;
 import Design.Desg;
 import Design.PanelRound;
+import Mensajes.CódigoError;
+import Mensajes.GlassPanePopup;
 import Tipografias.Fuentes;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,6 +19,8 @@ import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 import Validation.Valida;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class CRUDCliente extends javax.swing.JPanel {
 
@@ -31,9 +35,9 @@ public class CRUDCliente extends javax.swing.JPanel {
         this.nUs = nUs;
         initComponents();
         loadD();
-        
+
         tipoFuente = new Fuentes();
-        
+
         jLabel1.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 18));
         txtBusq.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 18));
         tbData.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 18));
@@ -272,47 +276,80 @@ public class CRUDCliente extends javax.swing.JPanel {
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void btnAddMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddMActionPerformed
-        try {
-            addMascota subp = new addMascota(nUs,
-                    Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
-            dsg.ShowPanel(subp, PCont, 1320, 810);
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
+        if (tbData.getRowCount() > 0) {
+            try {
+                addMascota subp = new addMascota(nUs,
+                        Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
+                dsg.ShowPanel(subp, PCont, 1320, 810);
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            CódigoError obj = new CódigoError();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
     }//GEN-LAST:event_btnAddMActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        updtTipoCuenta subp;
-        try {
-            subp = new updtTipoCuenta(nUs, idCl, 3);
-            dsg.ShowPanel(subp, PCont, 1320, 810);
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
+        if (tbData.getRowCount() > 0) {
+            updtTipoCuenta subp;
+            try {
+                subp = new updtTipoCuenta(nUs, idCl, 3);
+                dsg.ShowPanel(subp, PCont, 1320, 810);
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            CódigoError obj = new CódigoError();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
-        int opcion = JOptionPane.showOptionDialog(
-                null,
-                "¿Desea eliminar el registro?",
-                "Advertencia",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.WARNING_MESSAGE,
-                null,
-                new Object[]{"Sí", "No"},
-                "No");
+        if (tbData.getRowCount() > 0) {
+            UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
+            int opcion = JOptionPane.showOptionDialog(
+                    null,
+                    "¿Desea eliminar el registro?",
+                    "Advertencia",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.WARNING_MESSAGE,
+                    null,
+                    new Object[]{"Sí", "No"},
+                    "No");
 
-        if (opcion == JOptionPane.YES_OPTION) {
-            ct.idCliente = idCl;
-            ct.deleteCl();
-            try {
-                loadD();
-            } catch (SQLException ex) {
-                Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
+            if (opcion == JOptionPane.YES_OPTION) {
+                ct.idCliente = idCl;
+                ct.deleteCl();
+                try {
+                    loadD();
+                } catch (SQLException ex) {
+                    Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else if (opcion == JOptionPane.NO_OPTION) {
+
             }
-        } else if (opcion == JOptionPane.NO_OPTION) {
-
+        } else {
+            CódigoError obj = new CódigoError();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
@@ -325,24 +362,45 @@ public class CRUDCliente extends javax.swing.JPanel {
     }//GEN-LAST:event_txtBusqKeyReleased
 
     private void btnReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservasActionPerformed
-        try {
-            CRUDEjemRe subp = new CRUDEjemRe(Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()), nUs);
-            dsg.ShowPanel(subp, PCont, 1320, 810);
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
+        if (tbData.getRowCount() > 0) {
+            try {
+                CRUDEjemRe subp = new CRUDEjemRe(Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()), nUs);
+                dsg.ShowPanel(subp, PCont, 1320, 810);
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            CódigoError obj = new CódigoError();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
     }//GEN-LAST:event_btnReservasActionPerformed
 
     private void btnReservas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservas1ActionPerformed
-        try {
-            CRUDFactReserv subp = new CRUDFactReserv(Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()), nUs);
-            dsg.ShowPanel(subp, PCont, 1320, 810);
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
+        if (tbData.getRowCount() > 0) {
+            try {
+                CRUDFactReserv subp = new CRUDFactReserv(Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()), nUs);
+                dsg.ShowPanel(subp, PCont, 1320, 810);
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            CódigoError obj = new CódigoError();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
-        
-   
-        
+
+
     }//GEN-LAST:event_btnReservas1ActionPerformed
 
 

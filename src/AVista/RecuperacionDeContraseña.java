@@ -66,11 +66,11 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panelRound2.setBackground(new java.awt.Color(255, 255, 255));
+        panelRound2.setBackground(new java.awt.Color(190, 233, 232));
         panelRound2.setForeground(new java.awt.Color(255, 255, 255));
         panelRound2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panelRound1.setBackground(new java.awt.Color(202, 233, 255));
+        panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomLeft(50);
         panelRound1.setRoundBottomRight(50);
         panelRound1.setRoundTopLeft(50);
@@ -82,9 +82,10 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
         jLabel1.setText("Escoja el método de recuperación de Contraseña");
         panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 410, -1));
 
+        btnUsuario.setForeground(new java.awt.Color(0, 0, 0));
         btnUsuario.setText("Por email");
-        btnUsuario.setColor1(new java.awt.Color(153, 204, 255));
-        btnUsuario.setColor2(new java.awt.Color(153, 204, 255));
+        btnUsuario.setColor1(new java.awt.Color(190, 233, 232));
+        btnUsuario.setColor2(new java.awt.Color(190, 233, 232));
         btnUsuario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,9 +94,10 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
         });
         panelRound1.add(btnUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 270, -1));
 
+        btnPreguntas.setForeground(new java.awt.Color(0, 0, 0));
         btnPreguntas.setText("Preguntas de confianza");
-        btnPreguntas.setColor1(new java.awt.Color(153, 204, 255));
-        btnPreguntas.setColor2(new java.awt.Color(153, 204, 255));
+        btnPreguntas.setColor1(new java.awt.Color(190, 233, 232));
+        btnPreguntas.setColor2(new java.awt.Color(190, 233, 232));
         btnPreguntas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnPreguntas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

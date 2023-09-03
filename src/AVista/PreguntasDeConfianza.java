@@ -95,15 +95,15 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        panelRound3.setBackground(new java.awt.Color(255, 255, 255));
+        panelRound3.setBackground(new java.awt.Color(190, 233, 232));
         panelRound3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(27, 73, 101));
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Preguntas de seguridad");
         panelRound3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, -1, -1));
 
-        panelRound4.setBackground(new java.awt.Color(202, 233, 255));
+        panelRound4.setBackground(new java.awt.Color(255, 255, 255));
         panelRound4.setRoundBottomLeft(50);
         panelRound4.setRoundBottomRight(50);
         panelRound4.setRoundTopLeft(50);
@@ -130,9 +130,10 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         jLabel10.setText("3-¿Cúal es tu comida favorita?");
         panelRound4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 160, -1, 30));
 
+        btnVerificar.setForeground(new java.awt.Color(0, 0, 0));
         btnVerificar.setText("Verificar");
-        btnVerificar.setColor1(new java.awt.Color(153, 204, 255));
-        btnVerificar.setColor2(new java.awt.Color(153, 204, 255));
+        btnVerificar.setColor1(new java.awt.Color(190, 233, 232));
+        btnVerificar.setColor2(new java.awt.Color(190, 233, 232));
         btnVerificar.setFont(new java.awt.Font("Microsoft PhagsPa", 0, 14)); // NOI18N
         btnVerificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,9 +142,10 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         });
         panelRound4.add(btnVerificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 100, -1));
 
+        btnEnviar.setForeground(new java.awt.Color(0, 0, 0));
         btnEnviar.setText("Enviar");
-        btnEnviar.setColor1(new java.awt.Color(153, 204, 255));
-        btnEnviar.setColor2(new java.awt.Color(153, 204, 255));
+        btnEnviar.setColor1(new java.awt.Color(190, 233, 232));
+        btnEnviar.setColor2(new java.awt.Color(190, 233, 232));
         btnEnviar.setFont(new java.awt.Font("Microsoft PhagsPa", 0, 14)); // NOI18N
         btnEnviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,6 +154,7 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         });
         panelRound4.add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 280, 110, -1));
 
+        txtUser.setBackground(new java.awt.Color(190, 233, 232));
         txtUser.setShadowColor(new java.awt.Color(0, 0, 51));
         txtUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,6 +168,7 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         });
         panelRound4.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 210, -1));
 
+        txtPregunta1.setBackground(new java.awt.Color(190, 233, 232));
         txtPregunta1.setShadowColor(new java.awt.Color(0, 0, 51));
         txtPregunta1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,6 +182,7 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         });
         panelRound4.add(txtPregunta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 210, -1));
 
+        txtPregunta2.setBackground(new java.awt.Color(190, 233, 232));
         txtPregunta2.setShadowColor(new java.awt.Color(0, 0, 51));
         txtPregunta2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -191,6 +196,7 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         });
         panelRound4.add(txtPregunta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 70, 210, -1));
 
+        txtPregunta3.setBackground(new java.awt.Color(190, 233, 232));
         txtPregunta3.setShadowColor(new java.awt.Color(0, 0, 51));
         txtPregunta3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

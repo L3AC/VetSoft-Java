@@ -110,11 +110,11 @@ public class Registro extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
 
-        panelRound1.setBackground(new java.awt.Color(255, 255, 255));
+        panelRound1.setBackground(new java.awt.Color(190, 233, 232));
         panelRound1.setForeground(new java.awt.Color(255, 255, 255));
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panelRound2.setBackground(new java.awt.Color(202, 233, 255));
+        panelRound2.setBackground(new java.awt.Color(255, 255, 255));
         panelRound2.setForeground(new java.awt.Color(202, 233, 255));
         panelRound2.setRoundBottomLeft(50);
         panelRound2.setRoundBottomRight(50);
@@ -142,9 +142,11 @@ public class Registro extends javax.swing.JFrame {
         jLabel7.setText("Teléfono");
         panelRound2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 70, -1));
 
+        btnRegistrar.setForeground(new java.awt.Color(0, 0, 0));
         btnRegistrar.setText("Registrar");
-        btnRegistrar.setColor1(new java.awt.Color(153, 204, 255));
-        btnRegistrar.setColor2(new java.awt.Color(153, 204, 255));
+        btnRegistrar.setColor1(new java.awt.Color(190, 233, 232));
+        btnRegistrar.setColor2(new java.awt.Color(190, 233, 232));
+        btnRegistrar.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarActionPerformed(evt);
@@ -157,6 +159,7 @@ public class Registro extends javax.swing.JFrame {
         lbFalso.setText("Correo electrónico falso");
         panelRound2.add(lbFalso, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 150, -1));
 
+        txtTeléfono.setBackground(new java.awt.Color(190, 233, 232));
         txtTeléfono.setShadowColor(new java.awt.Color(0, 0, 51));
         txtTeléfono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,6 +173,7 @@ public class Registro extends javax.swing.JFrame {
         });
         panelRound2.add(txtTeléfono, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, 180, -1));
 
+        txtUsuario.setBackground(new java.awt.Color(190, 233, 232));
         txtUsuario.setShadowColor(new java.awt.Color(0, 0, 51));
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,6 +193,7 @@ public class Registro extends javax.swing.JFrame {
         });
         panelRound2.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 210, -1));
 
+        txtCorreo.setBackground(new java.awt.Color(190, 233, 232));
         txtCorreo.setShadowColor(new java.awt.Color(0, 0, 51));
         txtCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -205,6 +210,7 @@ public class Registro extends javax.swing.JFrame {
         });
         panelRound2.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 210, -1));
 
+        txtContra.setBackground(new java.awt.Color(190, 233, 232));
         txtContra.setShadowColor(new java.awt.Color(0, 0, 51));
         txtContra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -218,6 +224,7 @@ public class Registro extends javax.swing.JFrame {
         });
         panelRound2.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 180, -1));
 
+        cbCargo.setBackground(new java.awt.Color(190, 233, 232));
         cbCargo.setForeground(new java.awt.Color(0, 0, 0));
         cbCargo.setLabeText("Nivel de Usuario");
         cbCargo.addActionListener(new java.awt.event.ActionListener() {
