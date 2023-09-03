@@ -7,11 +7,14 @@ import Design.Desg;
 import Mensajes.CódigoErrorDSI5;
 import Mensajes.GlassPanePopup;
 import Validation.Valida;
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import javax.swing.JComboBox;
 import org.apache.commons.validator.EmailValidator;
@@ -42,7 +45,7 @@ public class PerfilData extends javax.swing.JPanel {
         lbMin4.setVisible(false);
         lbDoc1.setVisible(false);
         lbDoc2.setVisible(false);
-        lbFalso.setVisible(false);
+        lbFalso.setVisible(false);btnConfirm.setVisible(false);
 
         lbEsp.setVisible(false);
         cbEsp.setVisible(false);
@@ -64,6 +67,7 @@ public class PerfilData extends javax.swing.JPanel {
             lbDoc1.setVisible(true);
             lbDoc2.setVisible(true);
         }
+        enab(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -330,17 +334,22 @@ public class PerfilData extends javax.swing.JPanel {
             String nombre = rs.getString("Especialidad");
             cb.addItem(nombre);
             mapEsp.put(idTP, nombre);
-
         }
     }
 
-    /*final void enab(boolean tf) {
+    final void enab(boolean tf) {
         List<Component> lista = new ArrayList<>();
-        lista.add(txtResp1);
-        lista.add(txtResp2);
-        lista.add(txtResp3);
+        lista.add(txtUser);
+        lista.add(txtNombre);
+        lista.add(txtApellidos);
+        lista.add(txtDui);
+        lista.add(txtCorreo);
+        lista.add(txtTel);
+        lista.add(dpNaci);
+        lista.add(cbSexo);
+        lista.add(cbEsp);       
         dsg.enable(lista, tf);
-    }*/
+    }
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         /*if (txtNombre.getText().isEmpty() || txtApellidos.getText().isEmpty()
@@ -486,11 +495,11 @@ public class PerfilData extends javax.swing.JPanel {
     private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
         if (btnConfirm.isVisible()) {
             btnAct.setText("Editar");
-            //enab(false);
+            enab(false);
             btnConfirm.setVisible(false);
         } else {
             btnAct.setText("Cancelar");
-            //enab(true);
+            enab(true);
             btnConfirm.setVisible(true);
         }
     }//GEN-LAST:event_btnActActionPerformed
