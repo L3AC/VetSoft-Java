@@ -39,6 +39,7 @@ public class NuevaContra extends javax.swing.JFrame {
         this.idus = idus;
         initComponents();
         GlassPanePopup.install(this);
+        lbUs3.setVisible(false);
         
     }
 
@@ -92,7 +93,7 @@ public class NuevaContra extends javax.swing.JFrame {
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbUs3.setForeground(new java.awt.Color(0, 0, 0));
-        lbUs3.setText("Minimo de digitos 3");
+        lbUs3.setText("Minimo de digitos 8");
         panelRound1.add(lbUs3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, -1, 30));
 
         lbCod.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -116,6 +117,9 @@ public class NuevaContra extends javax.swing.JFrame {
         txtNueva.setBackground(new java.awt.Color(190, 233, 232));
         txtNueva.setShadowColor(new java.awt.Color(0, 0, 51));
         txtNueva.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNuevaKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNuevaKeyTyped(evt);
             }
@@ -134,7 +138,7 @@ public class NuevaContra extends javax.swing.JFrame {
         panelRound2.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 580, 270));
 
         jLabel6.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(27, 73, 101));
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Cambio de contraseña");
         panelRound2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 380, -1));
 
@@ -213,14 +217,18 @@ public void act() throws Exception{
 
     private void txtNuevaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNuevaKeyTyped
         // TODO add your handling code here:
-         if(txtNueva.getText().length()>= 3){
+    }//GEN-LAST:event_txtNuevaKeyTyped
+
+    private void txtNuevaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNuevaKeyReleased
+        // TODO add your handling code here:
+         if(txtNueva.getText().length()>= 8){
             lbUs3.setVisible(false);
             btnCambiar.setEnabled(true);
         }else {
             lbUs3.setVisible(true);
             btnCambiar.setEnabled(false);
         } 
-    }//GEN-LAST:event_txtNuevaKeyTyped
+    }//GEN-LAST:event_txtNuevaKeyReleased
 
     /**
      * @param args the command line arguments

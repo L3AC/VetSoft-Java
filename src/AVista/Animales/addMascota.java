@@ -168,6 +168,9 @@ public class addMascota extends javax.swing.JPanel {
         txtNombre.setForeground(new java.awt.Color(0, 0, 0));
         txtNombre.setShadowColor(new java.awt.Color(0, 0, 51));
         txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNombreKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNombreKeyTyped(evt);
             }
@@ -178,6 +181,9 @@ public class addMascota extends javax.swing.JPanel {
         txtPeso.setForeground(new java.awt.Color(0, 0, 0));
         txtPeso.setShadowColor(new java.awt.Color(0, 0, 51));
         txtPeso.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPesoKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtPesoKeyTyped(evt);
             }
@@ -344,25 +350,35 @@ public class addMascota extends javax.swing.JPanel {
 
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
         // TODO add your handling code here:
-         if(txtNombre.getText().length()>= 2){
+   
+    }//GEN-LAST:event_txtNombreKeyTyped
+
+    private void txtPesoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesoKeyTyped
+        // TODO add your handling code here:
+    
+    }//GEN-LAST:event_txtPesoKeyTyped
+
+    private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
+        // TODO add your handling code here:
+         if(txtNombre.getText().length()>= 3){
             lbMin.setVisible(false);
             btnConfirm.setEnabled(true);
         }else {
             lbMin.setVisible(true);
             btnConfirm.setEnabled(false);
         } 
-    }//GEN-LAST:event_txtNombreKeyTyped
+    }//GEN-LAST:event_txtNombreKeyReleased
 
-    private void txtPesoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesoKeyTyped
+    private void txtPesoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesoKeyReleased
         // TODO add your handling code here:
-        if(txtPeso.getText().length()>= 9){
+        if(txtPeso.getText().length()>= 10){
             lbMin1.setVisible(false); 
              btnConfirm.setEnabled(true);
         }else {
             lbMin1.setVisible(true);
              btnConfirm.setEnabled(false);
         } 
-    }//GEN-LAST:event_txtPesoKeyTyped
+    }//GEN-LAST:event_txtPesoKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

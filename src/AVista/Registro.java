@@ -53,13 +53,13 @@ public class Registro extends javax.swing.JFrame {
         loadCombo(cbCargo);
 
         GlassPanePopup.install(this);
-        
-         /*Este apartado de setFound nos ayuda a poner un tipo de fuente en especifico y el tamaño de la letra*/
+
+        /*Este apartado de setFound nos ayuda a poner un tipo de fuente en especifico y el tamaño de la letra*/
         txtUsuario.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
         txtTeléfono.setDocument(new Valida(8, "[0-9]*"));
         txtContra.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
         setLocationRelativeTo(null);
-        
+
         String iconPath = "src/Imagenes/logoC.png";
         ImageIcon icon = new ImageIcon(iconPath);
         setIconImage(icon.getImage());
@@ -68,7 +68,7 @@ public class Registro extends javax.swing.JFrame {
         lbMin1.setVisible(false);
         lbMinimo2.setVisible(false);
     }
-    
+
 //Esto nos ayudara a que el comboBox cargue los tipos de usuarios disponibles dentro del sistema de escritorio que se pueden registrar
     private void loadCombo(JComboBox cb) throws SQLException {
         ResultSet rs = ctTP.selectUser();
@@ -167,6 +167,9 @@ public class Registro extends javax.swing.JFrame {
             }
         });
         txtTeléfono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTeléfonoKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtTeléfonoKeyTyped(evt);
             }
@@ -218,6 +221,9 @@ public class Registro extends javax.swing.JFrame {
             }
         });
         txtContra.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtContraKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtContraKeyTyped(evt);
             }
@@ -267,7 +273,7 @@ public class Registro extends javax.swing.JFrame {
         panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 680, 270));
 
         Titulo.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
-        Titulo.setForeground(new java.awt.Color(27, 73, 101));
+        Titulo.setForeground(new java.awt.Color(0, 0, 0));
         Titulo.setText("Registro");
         panelRound1.add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
 
@@ -299,37 +305,36 @@ public class Registro extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
     //Cuando se le de al botón registrar se verificaran que todo lo anteriormente mencionado se este validado por ejemplo que los campos no esten vacios entreo otros mas
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
 
-        if (txtUsuario.getText().isEmpty() || txtContra.getText().isEmpty()|| txtTeléfono.getText().isEmpty() || txtCorreo.getText().isEmpty()) {
+        if (txtUsuario.getText().isEmpty() || txtContra.getText().isEmpty() || txtTeléfono.getText().isEmpty() || txtCorreo.getText().isEmpty()) {
             CódigoErrorDSI5 obj = new CódigoErrorDSI5();
-        obj.eventOK(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                GlassPanePopup.closePopupLast();
-            }
-        });
-        GlassPanePopup.showPopup(obj);
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         } else {
             ctUser ctUs = new ctUser();
-        ctUs.idTipoCuenta = dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
+            ctUs.idTipoCuenta = dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
 
-        ctUs.usuario = txtUsuario.getText();
-        try {
-            ctUs.contra = cryp.encrypt(txtContra.getText(), "key");
+            ctUs.usuario = txtUsuario.getText();
+            try {
+                ctUs.contra = cryp.encrypt(txtContra.getText(), "key");
 
-        } catch (Exception ex) {
-            Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        ctUs.correo = txtCorreo.getText();
-        ctUs.telefono = txtTeléfono.getText();
-        ctUs.insertUs();
+            } catch (Exception ex) {
+                Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            ctUs.correo = txtCorreo.getText();
+            ctUs.telefono = txtTeléfono.getText();
+            ctUs.insertUs();
             Login newFrame = new Login();
-        newFrame.setVisible(true);
-        dispose();
+            newFrame.setVisible(true);
+            dispose();
         }
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
@@ -354,24 +359,14 @@ public class Registro extends javax.swing.JFrame {
 
     private void txtUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyTyped
         // TODO add your handling code here:
-         //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros, donde si solo escribe dos numeros le saldra un texfield
-         if(txtUsuario.getText().length()>= 3){
-            lbMinimo2.setVisible(false);
-        }else {
-            lbMinimo2.setVisible(true);
-        } 
+        //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros, donde si solo escribe dos numeros le saldra un texfield
+        
     }//GEN-LAST:event_txtUsuarioKeyTyped
 
     private void txtContraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyTyped
         // TODO add your handling code here:
         //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros, donde si solo escribe dos numeros le saldra un texfield
-        if(txtContra.getText().length()>= 7){
-            lbMin.setVisible(false);
-            btnRegistrar.setEnabled(true);
-        }else {
-            lbMin.setVisible(true);
-            btnRegistrar.setEnabled(false);
-        } 
+    
     }//GEN-LAST:event_txtContraKeyTyped
 
     private void txtCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoKeyTyped
@@ -381,21 +376,15 @@ public class Registro extends javax.swing.JFrame {
     //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros donde si solo escribe dos numeros le saldra un texfield
     private void txtTeléfonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTeléfonoKeyTyped
         // TODO add your handling code here:
-      if(txtTeléfono.getText().length()>= 7){
-            lbMin1.setVisible(false);
-            btnRegistrar.setEnabled(true);
-        }else {
-            lbMin1.setVisible(true);
-            btnRegistrar.setEnabled(false);
-        } 
+
 
     }//GEN-LAST:event_txtTeléfonoKeyTyped
 
-    
+     //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros, donde si solo escribe dos numeros le saldra un texfield
     //Esto nos ayuda a verificar si el correo electronico es verdadero llamando a una libreria anteriormente puesta en el en apartado de librerias donde solamente se manda a llamar para validar
     private void txtCorreoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoKeyReleased
         // TODO add your handling code here:
-        
+
         if (EmailValidator.getInstance().isValid(txtCorreo.getText())) {
             //if(verificar_Email(jTextField1.getText())){    
 
@@ -410,21 +399,16 @@ public class Registro extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtCorreoKeyReleased
 
-    
     //En este apartado validamos si el usuario ya existe en la base de datos y no se vuelva a repetir donde se le mostrar un texfield
     private void txtUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyReleased
         // TODO add your handling code here:
-
-        if(txtUsuario.getText().length()>= 3){
-            lbMinimo2.setVisible(false);
-        btnRegistrar.setEnabled(true);
-        
-        ctUser ctUs = new ctUser();
+       ctUser ctUs = new ctUser();
         ctUs.usuario = txtUsuario.getText().toString();
         try {
-            if (ctUs.verifUs().next()) {
+            if (ctUs.verifUs().next())  {
                 lbDisp.setVisible(true);
                 btnRegistrar.setEnabled(false);
+
             } else {
                 lbDisp.setVisible(false);
                 btnRegistrar.setEnabled(true);
@@ -432,10 +416,14 @@ public class Registro extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        if (txtUsuario.getText().length() >= 4) {
+            lbMinimo2.setVisible(false);
+            btnRegistrar.setEnabled(true);
         } else {
             lbMinimo2.setVisible(true);
             btnRegistrar.setEnabled(false);
-        } 
+        }
     }//GEN-LAST:event_txtUsuarioKeyReleased
 
     private void txtTeléfonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTeléfonoActionPerformed
@@ -444,14 +432,14 @@ public class Registro extends javax.swing.JFrame {
 
     private void txtContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraActionPerformed
         // TODO add your handling code here:
-        
-   
+
+
     }//GEN-LAST:event_txtContraActionPerformed
 
     //Este apartado nos ayudara a volver a la pantalla anterior donde se podra ver por medio de una flecha
     private void btnVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseClicked
         // TODO add your handling code here:
-         Login newFrame = new Login();
+        Login newFrame = new Login();
         newFrame.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVolverMouseClicked
@@ -464,6 +452,31 @@ public class Registro extends javax.swing.JFrame {
     private void lbMin1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lbMin1KeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_lbMin1KeyTyped
+
+     //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros, donde si solo escribe dos numeros le saldra un texfield
+    private void txtContraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyReleased
+        // TODO add your handling code here:
+        if (txtContra.getText().length() >= 8) {
+            lbMin.setVisible(false);
+            btnRegistrar.setEnabled(true);
+
+        } else {
+            lbMin.setVisible(true);
+            btnRegistrar.setEnabled(false);
+        }
+    }//GEN-LAST:event_txtContraKeyReleased
+
+      //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros donde si solo escribe dos numeros le saldra un texfield
+    private void txtTeléfonoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTeléfonoKeyReleased
+        // TODO add your handling code here:
+        if (txtTeléfono.getText().length() >= 8) {
+            lbMin1.setVisible(false);
+            btnRegistrar.setEnabled(true);
+        } else {
+            lbMin1.setVisible(true);
+            btnRegistrar.setEnabled(false);
+        }
+    }//GEN-LAST:event_txtTeléfonoKeyReleased
 
     /**
      * @param args the command line arguments

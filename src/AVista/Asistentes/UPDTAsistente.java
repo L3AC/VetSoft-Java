@@ -32,11 +32,11 @@ public class UPDTAsistente extends javax.swing.JPanel {
         this.idTipoUs = idTipoUs;
         this.idAsis = idAsis;
         initComponents();
-        
+
         txtNombre.setDocument(new Valida(50, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         txtDui.setDocument(new Valida(10, "[0-9]*"));
         txtApellidos.setDocument(new Valida(50, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
-                
+
         Calendar fechaActual = Calendar.getInstance();
         fechaActual.add(Calendar.YEAR, -18);
         dpNaci.setMaxSelectableDate(fechaActual.getTime());
@@ -129,25 +129,31 @@ public class UPDTAsistente extends javax.swing.JPanel {
         lbDoc1.setForeground(new java.awt.Color(0, 0, 0));
         lbDoc1.setText("Doctor a cargo:");
 
-        txtNombre.setBackground(new java.awt.Color(255, 255, 255));
         txtNombre.setShadowColor(new java.awt.Color(0, 0, 51));
         txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNombreKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNombreKeyTyped(evt);
             }
         });
 
-        txtDui.setBackground(new java.awt.Color(255, 255, 255));
         txtDui.setShadowColor(new java.awt.Color(0, 0, 51));
         txtDui.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtDuiKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtDuiKeyTyped(evt);
             }
         });
 
-        txtApellidos.setBackground(new java.awt.Color(255, 255, 255));
         txtApellidos.setShadowColor(new java.awt.Color(0, 0, 51));
         txtApellidos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtApellidosKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtApellidosKeyTyped(evt);
             }
@@ -194,7 +200,6 @@ public class UPDTAsistente extends javax.swing.JPanel {
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Doctor:");
 
-        txtBusq.setBackground(new java.awt.Color(255, 255, 255));
         txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
         txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -392,7 +397,7 @@ public class UPDTAsistente extends javax.swing.JPanel {
 
             ResultSet rs = ct.selectAsis();
             while (rs.next()) {
-                
+
                 txtNombre.setText(rs.getString("Nombre"));
                 txtApellidos.setText(rs.getString("Apellido"));
                 txtDui.setText(rs.getString("DUI"));
@@ -400,7 +405,7 @@ public class UPDTAsistente extends javax.swing.JPanel {
                 cbSexo.setSelectedItem(rs.getString("Sexo"));
                 lbDoc.setText(rs.getString("doc"));
             }
-            
+
         } catch (Exception e) {
             System.err.println(e.toString());
         }
@@ -420,28 +425,28 @@ public class UPDTAsistente extends javax.swing.JPanel {
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
-        if (txtApellidos.getText().isEmpty() || txtDui.getText().isEmpty()|| txtNombre.getText().isEmpty()) {
+        if (txtApellidos.getText().isEmpty() || txtDui.getText().isEmpty() || txtNombre.getText().isEmpty()) {
             CódigoErrorDSI5 obj = new CódigoErrorDSI5();
-        obj.eventOK(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                GlassPanePopup.closePopupLast();
-            }
-        });
-        GlassPanePopup.showPopup(obj);
-        } else{ 
-        SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
-        ctAsistente ct = new ctAsistente();
-        ct.idAsistente = idAsis;
-        ct.idDoctor = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());;
-        ct.nombre = txtNombre.getText();
-        ct.apellido = txtApellidos.getText();
-        ct.dui = txtDui.getText();
-        ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
-        ct.sexo = cbSexo.getSelectedItem().toString();
-        ct.updtAsis();        
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+        } else {
+            SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+            ctAsistente ct = new ctAsistente();
+            ct.idAsistente = idAsis;
+            ct.idDoctor = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());;
+            ct.nombre = txtNombre.getText();
+            ct.apellido = txtApellidos.getText();
+            ct.dui = txtDui.getText();
+            ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
+            ct.sexo = cbSexo.getSelectedItem().toString();
+            ct.updtAsis();
         }
-        
+
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
@@ -458,37 +463,52 @@ public class UPDTAsistente extends javax.swing.JPanel {
 
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
         // TODO add your handling code here:
-        if(txtNombre.getText().length()>= 2){
-            lbMin.setVisible(false);
-            btnConfirm.setEnabled(true);
-        }else {
-            lbMin.setVisible(true);
-            btnConfirm.setEnabled(false);
-        } 
+
     }//GEN-LAST:event_txtNombreKeyTyped
 
     private void txtApellidosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidosKeyTyped
         // TODO add your handling code here:
-        if(txtApellidos.getText().length()>= 9){
-            lbMin.setVisible(false);
-            btnConfirm.setEnabled(true);
-        }else {
-            lbMin.setVisible(true);
-            btnConfirm.setEnabled(false);
-        } 
+
     }//GEN-LAST:event_txtApellidosKeyTyped
 
     private void txtDuiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDuiKeyTyped
         // TODO add your handling code here:
-        
-        if(txtDui.getText().length()>= 9){
+
+
+    }//GEN-LAST:event_txtDuiKeyTyped
+
+    private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
+        // TODO add your handling code here:
+        if (txtNombre.getText().length() >= 3) {
             lbMin.setVisible(false);
             btnConfirm.setEnabled(true);
-        }else {
+        } else {
             lbMin.setVisible(true);
             btnConfirm.setEnabled(false);
-        } 
-    }//GEN-LAST:event_txtDuiKeyTyped
+        }
+    }//GEN-LAST:event_txtNombreKeyReleased
+
+    private void txtApellidosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidosKeyReleased
+        // TODO add your handling code here:
+        if (txtApellidos.getText().length() >= 5) {
+            lbMin.setVisible(false);
+            btnConfirm.setEnabled(true);
+        } else {
+            lbMin.setVisible(true);
+            btnConfirm.setEnabled(false);
+        }
+    }//GEN-LAST:event_txtApellidosKeyReleased
+
+    private void txtDuiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDuiKeyReleased
+        // TODO add your handling code here:
+        if (txtDui.getText().length() >= 10) {
+            lbMin.setVisible(false);
+            btnConfirm.setEnabled(true);
+        } else {
+            lbMin.setVisible(true);
+            btnConfirm.setEnabled(false);
+        }
+    }//GEN-LAST:event_txtDuiKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

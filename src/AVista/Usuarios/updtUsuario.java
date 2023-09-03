@@ -177,6 +177,9 @@ public class updtUsuario extends javax.swing.JPanel {
         txtUsuario.setBackground(new java.awt.Color(190, 233, 232));
         txtUsuario.setShadowColor(new java.awt.Color(0, 0, 51));
         txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtUsuarioKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtUsuarioKeyTyped(evt);
             }
@@ -186,6 +189,9 @@ public class updtUsuario extends javax.swing.JPanel {
         txtTel.setBackground(new java.awt.Color(190, 233, 232));
         txtTel.setShadowColor(new java.awt.Color(0, 0, 51));
         txtTel.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTelKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtTelKeyTyped(evt);
             }
@@ -326,26 +332,50 @@ public class updtUsuario extends javax.swing.JPanel {
 
     private void txtUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyTyped
         // TODO add your handling code here:
-        if(txtUsuario.getText().length()>= 3){
-            lbMin.setVisible(false);
-            btnConfirmar.setEnabled(true);
-        }else {
-            lbMin.setVisible(true);
-            btnConfirmar.setEnabled(false);
-        } 
     }//GEN-LAST:event_txtUsuarioKeyTyped
 
     private void txtTelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelKeyTyped
         // TODO add your handling code here:
         
-        if(txtTel.getText().length()>= 7){
+        
+    }//GEN-LAST:event_txtTelKeyTyped
+
+    private void txtTelKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelKeyReleased
+        // TODO add your handling code here:
+        if(txtTel.getText().length()>= 8){
             lbMin1.setVisible(false);
             btnConfirmar.setEnabled(true);
         }else {
             lbMin1.setVisible(true);
             btnConfirmar.setEnabled(false);
         } 
-    }//GEN-LAST:event_txtTelKeyTyped
+    }//GEN-LAST:event_txtTelKeyReleased
+
+    private void txtUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyReleased
+        // TODO add your handling code here:
+           ctUser ctUs = new ctUser();
+        ctUs.usuario = txtUsuario.getText().toString();
+        try {
+            if (ctUs.verifUs().next())  {
+                lbDisp.setVisible(true);
+                btnConfirmar.setEnabled(false);
+
+            } else {
+                lbDisp.setVisible(false);
+                btnConfirmar.setEnabled(true);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if (txtUsuario.getText().length() >= 4) {
+            lbMin.setVisible(false);
+            btnConfirmar.setEnabled(true);
+        } else {
+            lbMin.setVisible(true);
+            btnConfirmar.setEnabled(false);
+        }
+    }//GEN-LAST:event_txtUsuarioKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

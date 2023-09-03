@@ -128,9 +128,11 @@ public class updateProd extends javax.swing.JPanel {
         jLabel6.setText("Proveedor");
         PCont.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 400, -1, -1));
 
-        txtProv.setBackground(new java.awt.Color(255, 255, 255));
         txtProv.setShadowColor(new java.awt.Color(0, 0, 51));
         txtProv.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtProvKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtProvKeyTyped(evt);
             }
@@ -142,9 +144,11 @@ public class updateProd extends javax.swing.JPanel {
         jLabel7.setText("Precio");
         PCont.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 530, -1, -1));
 
-        txtPrecio.setBackground(new java.awt.Color(255, 255, 255));
         txtPrecio.setShadowColor(new java.awt.Color(0, 0, 51));
         txtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPrecioKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtPrecioKeyTyped(evt);
             }
@@ -161,9 +165,11 @@ public class updateProd extends javax.swing.JPanel {
         });
         PCont.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 680, 140, 50));
 
-        txtProducto.setBackground(new java.awt.Color(255, 255, 255));
         txtProducto.setShadowColor(new java.awt.Color(0, 0, 51));
         txtProducto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtProductoKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtProductoKeyTyped(evt);
             }
@@ -300,39 +306,53 @@ public class updateProd extends javax.swing.JPanel {
 
     private void txtProvKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtProvKeyTyped
         // TODO add your handling code here:
+  
+    }//GEN-LAST:event_txtProvKeyTyped
+
+    private void txtProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtProductoKeyTyped
+        // TODO add your handling code here:
         
-         if(txtProv.getText().length()>= 2){
+       
+    }//GEN-LAST:event_txtProductoKeyTyped
+
+    private void txtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioKeyTyped
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_txtPrecioKeyTyped
+
+    private void txtProvKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtProvKeyReleased
+        // TODO add your handling code here:
+         if(txtProv.getText().length()>= 3){
             lbMin.setVisible(false);
             btnConfirm.setEnabled(true);
         }else {
             lbMin.setVisible(true);
              btnConfirm.setEnabled(false);
         } 
-    }//GEN-LAST:event_txtProvKeyTyped
+    }//GEN-LAST:event_txtProvKeyReleased
 
-    private void txtProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtProductoKeyTyped
+    private void txtProductoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtProductoKeyReleased
         // TODO add your handling code here:
-        
-        if(txtProducto.getText().length()>= 2){
+         if(txtProducto.getText().length()>= 3){
             lbMin1.setVisible(false);
             btnConfirm.setEnabled(true);
         }else {
             lbMin1.setVisible(true);
             btnConfirm.setEnabled(false);
         } 
-    }//GEN-LAST:event_txtProductoKeyTyped
+    }//GEN-LAST:event_txtProductoKeyReleased
 
-    private void txtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioKeyTyped
+    private void txtPrecioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioKeyReleased
         // TODO add your handling code here:
-        
-        if(txtPrecio.getText().length()>= 1){
+        if(txtPrecio.getText().length()>= 2){
             lbMin2.setVisible(false);
             btnConfirm.setEnabled(true);
         }else {
             lbMin2.setVisible(true);
             btnConfirm.setEnabled(false);
         } 
-    }//GEN-LAST:event_txtPrecioKeyTyped
+    }//GEN-LAST:event_txtPrecioKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

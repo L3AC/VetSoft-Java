@@ -155,6 +155,12 @@ public class upReceta extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void txtInsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtInsKeyReleased
+        if(txtIns.getText().length()>= 5){
+            LbMin.setVisible(false);
+        }else {
+            LbMin.setVisible(true);
+            
+        } 
         /*try {
             loadD();
         } catch (SQLException ex) {

@@ -87,7 +87,7 @@ public class updateExam extends javax.swing.JPanel {
 
         PCont.setBackground(new java.awt.Color(190, 233, 232));
 
-        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setBackground(new java.awt.Color(190, 233, 232));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
         btnBack.setBorder(null);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -97,7 +97,7 @@ public class updateExam extends javax.swing.JPanel {
         });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(27, 73, 101));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("EDITAR EXAMEN MÉDICO");
 
         panelRound1.setBackground(new java.awt.Color(204, 255, 255));
@@ -112,7 +112,7 @@ public class updateExam extends javax.swing.JPanel {
         jLabel1.setText("Nota");
         panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 50, 30));
 
-        txtNota.setBackground(new java.awt.Color(190, 233, 232));
+        txtNota.setBackground(new java.awt.Color(255, 255, 255));
         txtNota.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtNota, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 920, 50));
 
@@ -120,7 +120,6 @@ public class updateExam extends javax.swing.JPanel {
         lbImg.setForeground(new java.awt.Color(0, 0, 0));
         panelRound1.add(lbImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 30, 320, 280));
 
-        cbTp.setBackground(new java.awt.Color(190, 233, 232));
         cbTp.setForeground(new java.awt.Color(80, 80, 80));
         cbTp.setLabeText("");
         panelRound1.add(cbTp, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 270, 40));
@@ -139,6 +138,7 @@ public class updateExam extends javax.swing.JPanel {
         lbEsp2.setText("Tipo de servicio");
         panelRound1.add(lbEsp2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 130, -1));
 
+        btnConfirm.setForeground(new java.awt.Color(0, 0, 0));
         btnConfirm.setText("Confirmar");
         btnConfirm.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {

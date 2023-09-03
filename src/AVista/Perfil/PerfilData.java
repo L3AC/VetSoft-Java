@@ -110,6 +110,9 @@ public class PerfilData extends javax.swing.JPanel {
         txtApellidos.setBackground(new java.awt.Color(190, 233, 232));
         txtApellidos.setShadowColor(new java.awt.Color(0, 0, 51));
         txtApellidos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtApellidosKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtApellidosKeyTyped(evt);
             }
@@ -135,6 +138,9 @@ public class PerfilData extends javax.swing.JPanel {
         txtNombre.setBackground(new java.awt.Color(190, 233, 232));
         txtNombre.setShadowColor(new java.awt.Color(0, 0, 51));
         txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNombreKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNombreKeyTyped(evt);
             }
@@ -149,6 +155,9 @@ public class PerfilData extends javax.swing.JPanel {
         txtDui.setBackground(new java.awt.Color(190, 233, 232));
         txtDui.setShadowColor(new java.awt.Color(0, 0, 51));
         txtDui.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtDuiKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtDuiKeyTyped(evt);
             }
@@ -168,6 +177,9 @@ public class PerfilData extends javax.swing.JPanel {
         txtDir.setBackground(new java.awt.Color(190, 233, 232));
         txtDir.setShadowColor(new java.awt.Color(0, 0, 51));
         txtDir.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtDirKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtDirKeyTyped(evt);
             }
@@ -181,6 +193,9 @@ public class PerfilData extends javax.swing.JPanel {
         txtUser.setBackground(new java.awt.Color(190, 233, 232));
         txtUser.setShadowColor(new java.awt.Color(0, 0, 51));
         txtUser.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtUserKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtUserKeyTyped(evt);
             }
@@ -204,6 +219,9 @@ public class PerfilData extends javax.swing.JPanel {
         txtTel.setBackground(new java.awt.Color(190, 233, 232));
         txtTel.setShadowColor(new java.awt.Color(0, 0, 51));
         txtTel.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTelKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtTelKeyTyped(evt);
             }
@@ -224,7 +242,7 @@ public class PerfilData extends javax.swing.JPanel {
         panelRound1.add(lbMin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, 110, 30));
 
         lbMin2.setForeground(new java.awt.Color(0, 0, 0));
-        lbMin2.setText("Minimo de digitos 10");
+        lbMin2.setText("Minimo de digitos 5");
         panelRound1.add(lbMin2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 110, 120, 30));
 
         lbMin3.setForeground(new java.awt.Color(0, 0, 0));
@@ -415,68 +433,32 @@ public class PerfilData extends javax.swing.JPanel {
     }
     private void txtUserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyTyped
         // TODO add your handling code here:
-        if (txtNombre.getText().length() >= 3) {
-            lbMin.setVisible(false);
-            btnConfirm.setEnabled(true);
-        } else {
-            lbMin.setVisible(true);
-            btnConfirm.setEnabled(false);
-        }
+        
     }//GEN-LAST:event_txtUserKeyTyped
 
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
         // TODO add your handling code here:
-        if (txtNombre.getText().length() >= 4) {
-            lbMin1.setVisible(false);
-            btnConfirm.setEnabled(true);
-        } else {
-            lbMin1.setVisible(true);
-            btnConfirm.setEnabled(false);
-        }
+
     }//GEN-LAST:event_txtNombreKeyTyped
 
     private void txtApellidosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidosKeyTyped
         // TODO add your handling code here:
-        if (txtApellidos.getText().length() >= 9) {
-            lbMin2.setVisible(false);
-            btnConfirm.setEnabled(true);
-        } else {
-            lbMin2.setVisible(true);
-            btnConfirm.setEnabled(false);
-        }
+       
     }//GEN-LAST:event_txtApellidosKeyTyped
 
     private void txtDuiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDuiKeyTyped
         // TODO add your handling code here:
-        if (txtDui.getText().length() >= 9) {
-            lbMin3.setVisible(false);
-            btnConfirm.setEnabled(true);
-        } else {
-            lbMin3.setVisible(true);
-            btnConfirm.setEnabled(false);
-        }
+        
     }//GEN-LAST:event_txtDuiKeyTyped
 
     private void txtTelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelKeyTyped
         // TODO add your handling code here:
-        if (txtTel.getText().length() >= 7) {
-            lbMin4.setVisible(false);
-            btnConfirm.setEnabled(true);
-        } else {
-            lbMin4.setVisible(true);
-            btnConfirm.setEnabled(false);
-        }
+        
     }//GEN-LAST:event_txtTelKeyTyped
 
     private void txtDirKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDirKeyTyped
         // TODO add your handling code here:
-        if (txtDir.getText().length() >= 9) {
-            lbMin5.setVisible(false);
-            btnConfirm.setEnabled(true);
-        } else {
-            lbMin5.setVisible(true);
-            btnConfirm.setEnabled(false);
-        }
+        
     }//GEN-LAST:event_txtDirKeyTyped
 
     /*final void enab(boolean tf) {
@@ -501,6 +483,72 @@ public class PerfilData extends javax.swing.JPanel {
     private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCorreoActionPerformed
+
+    private void txtUserKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyReleased
+        // TODO add your handling code here:
+        if (txtNombre.getText().length() >= 4) {
+            lbMin.setVisible(false);
+            btnConfirm.setEnabled(true);
+        } else {
+            lbMin.setVisible(true);
+            btnConfirm.setEnabled(false);
+        }
+    }//GEN-LAST:event_txtUserKeyReleased
+
+    private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
+        // TODO add your handling code here:
+         if (txtNombre.getText().length() >= 5) {
+            lbMin1.setVisible(false);
+            btnConfirm.setEnabled(true);
+        } else {
+            lbMin1.setVisible(true);
+            btnConfirm.setEnabled(false);
+        }
+    }//GEN-LAST:event_txtNombreKeyReleased
+
+    private void txtApellidosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidosKeyReleased
+        // TODO add your handling code here:
+         if (txtApellidos.getText().length() >= 5) {
+            lbMin2.setVisible(false);
+            btnConfirm.setEnabled(true);
+        } else {
+            lbMin2.setVisible(true);
+            btnConfirm.setEnabled(false);
+        }
+    }//GEN-LAST:event_txtApellidosKeyReleased
+
+    private void txtDuiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDuiKeyReleased
+        // TODO add your handling code here:
+        if (txtDui.getText().length() >= 10) {
+            lbMin3.setVisible(false);
+            btnConfirm.setEnabled(true);
+        } else {
+            lbMin3.setVisible(true);
+            btnConfirm.setEnabled(false);
+        }
+    }//GEN-LAST:event_txtDuiKeyReleased
+
+    private void txtTelKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelKeyReleased
+        // TODO add your handling code here:
+        if (txtTel.getText().length() >= 8) {
+            lbMin4.setVisible(false);
+            btnConfirm.setEnabled(true);
+        } else {
+            lbMin4.setVisible(true);
+            btnConfirm.setEnabled(false);
+        }
+    }//GEN-LAST:event_txtTelKeyReleased
+
+    private void txtDirKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDirKeyReleased
+        // TODO add your handling code here:
+        if (txtDir.getText().length() >= 10) {
+            lbMin5.setVisible(false);
+            btnConfirm.setEnabled(true);
+        } else {
+            lbMin5.setVisible(true);
+            btnConfirm.setEnabled(false);
+        }
+    }//GEN-LAST:event_txtDirKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

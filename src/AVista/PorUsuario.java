@@ -57,6 +57,7 @@ public class PorUsuario extends javax.swing.JFrame {
         txtNueva.setEnabled(false);
         txtNueva2.setEnabled(false);
         btnCambiar.setEnabled(false);
+        lbMin.setVisible(false);
 
         /*Este apartado validamos los Jtexfield que no se escriban números o letras con un maximo de digitos*/
         txtUser.setDocument(new Valida(30, "[a-zA-Z]*"));
@@ -81,7 +82,7 @@ public class PorUsuario extends javax.swing.JFrame {
         panelRound1 = new Design.PanelRound();
         lbCod = new javax.swing.JLabel();
         btnVeri = new Design.ButtonGradient();
-        lbUs1 = new javax.swing.JLabel();
+        lbMin = new javax.swing.JLabel();
         lbUs2 = new javax.swing.JLabel();
         lbCod1 = new javax.swing.JLabel();
         btnEnviar = new Design.ButtonGradient();
@@ -90,6 +91,7 @@ public class PorUsuario extends javax.swing.JFrame {
         txtCod = new Design.TextFieldSV();
         txtNueva = new Design.PasswordField();
         txtNueva2 = new Design.PasswordField();
+        lbUs3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -124,7 +126,7 @@ public class PorUsuario extends javax.swing.JFrame {
         lbCod.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbCod.setForeground(new java.awt.Color(0, 0, 0));
         lbCod.setText("Confirmar Contraseña");
-        panelRound1.add(lbCod, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 140, -1, 30));
+        panelRound1.add(lbCod, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, 180, 30));
 
         btnVeri.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         btnVeri.setForeground(new java.awt.Color(0, 0, 0));
@@ -137,12 +139,11 @@ public class PorUsuario extends javax.swing.JFrame {
                 btnVeriActionPerformed(evt);
             }
         });
-        panelRound1.add(btnVeri, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 110, 30));
+        panelRound1.add(btnVeri, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 110, 30));
 
-        lbUs1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lbUs1.setForeground(new java.awt.Color(0, 0, 0));
-        lbUs1.setText("Ingrese su nueva Contraseña");
-        panelRound1.add(lbUs1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, -1, 30));
+        lbMin.setForeground(new java.awt.Color(0, 0, 0));
+        lbMin.setText("Minimo de digitos 8");
+        panelRound1.add(lbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, 110, 30));
 
         lbUs2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbUs2.setForeground(new java.awt.Color(0, 0, 0));
@@ -152,7 +153,7 @@ public class PorUsuario extends javax.swing.JFrame {
         lbCod1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbCod1.setForeground(new java.awt.Color(0, 0, 0));
         lbCod1.setText("Ingrese su código de verificación");
-        panelRound1.add(lbCod1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, 30));
+        panelRound1.add(lbCod1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, 30));
 
         btnEnviar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         btnEnviar.setForeground(new java.awt.Color(0, 0, 0));
@@ -165,7 +166,7 @@ public class PorUsuario extends javax.swing.JFrame {
                 btnEnviarActionPerformed(evt);
             }
         });
-        panelRound1.add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 110, 30));
+        panelRound1.add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 110, 30));
 
         btnCambiar.setForeground(new java.awt.Color(0, 0, 0));
         btnCambiar.setText("Cambiar Contraseña");
@@ -177,7 +178,7 @@ public class PorUsuario extends javax.swing.JFrame {
                 btnCambiarActionPerformed(evt);
             }
         });
-        panelRound1.add(btnCambiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 260, 180, 30));
+        panelRound1.add(btnCambiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 280, 180, 30));
 
         txtUser.setBackground(new java.awt.Color(190, 233, 232));
         txtUser.setShadowColor(new java.awt.Color(0, 0, 51));
@@ -200,7 +201,7 @@ public class PorUsuario extends javax.swing.JFrame {
                 txtCodActionPerformed(evt);
             }
         });
-        panelRound1.add(txtCod, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 180, -1));
+        panelRound1.add(txtCod, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 180, -1));
 
         txtNueva.setBackground(new java.awt.Color(190, 233, 232));
         txtNueva.setShadowColor(new java.awt.Color(0, 0, 51));
@@ -210,6 +211,9 @@ public class PorUsuario extends javax.swing.JFrame {
             }
         });
         txtNueva.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNuevaKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNuevaKeyTyped(evt);
             }
@@ -228,7 +232,12 @@ public class PorUsuario extends javax.swing.JFrame {
                 txtNueva2KeyTyped(evt);
             }
         });
-        panelRound1.add(txtNueva2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 200, 180, -1));
+        panelRound1.add(txtNueva2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 220, 180, -1));
+
+        lbUs3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbUs3.setForeground(new java.awt.Color(0, 0, 0));
+        lbUs3.setText("Ingrese su nueva Contraseña");
+        panelRound1.add(lbUs3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, -1, 30));
 
         panelRound2.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 734, 344));
 
@@ -345,6 +354,18 @@ public class PorUsuario extends javax.swing.JFrame {
         newFrame.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnRegresar1ActionPerformed
+
+    private void txtNuevaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNuevaKeyReleased
+        // TODO add your handling code here:
+         if (txtNueva.getText().length() >= 8) {
+            lbMin.setVisible(false);
+            btnCambiar.setEnabled(true);
+
+        } else {
+            lbMin.setVisible(true);
+            btnCambiar.setEnabled(false);
+        }
+    }//GEN-LAST:event_txtNuevaKeyReleased
     
     public void transparente() {
         
@@ -821,8 +842,9 @@ public class PorUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel lbCod;
     private javax.swing.JLabel lbCod1;
     private javax.swing.JLabel lbMayor;
-    private javax.swing.JLabel lbUs1;
+    private javax.swing.JLabel lbMin;
     private javax.swing.JLabel lbUs2;
+    private javax.swing.JLabel lbUs3;
     private Design.PanelRound panelRound1;
     private Design.PanelRound panelRound2;
     private Design.TextFieldSV txtCod;

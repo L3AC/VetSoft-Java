@@ -49,8 +49,7 @@ public class CREARasistente extends javax.swing.JPanel {
         txtNombre.setDocument(new Valida(50, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         txtDui.setDocument(new Valida(10, "[0-9]*"));
         txtApellidos.setDocument(new Valida(50, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
-        
-                
+
         Calendar fechaActual = Calendar.getInstance();
         fechaActual.add(Calendar.YEAR, -18);
         dpNaci.setMaxSelectableDate(fechaActual.getTime());
@@ -176,31 +175,36 @@ public class CREARasistente extends javax.swing.JPanel {
             }
         });
 
-        txtNombre.setBackground(new java.awt.Color(255, 255, 255));
         txtNombre.setShadowColor(new java.awt.Color(0, 0, 51));
         txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNombreKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNombreKeyTyped(evt);
             }
         });
 
-        txtDui.setBackground(new java.awt.Color(255, 255, 255));
         txtDui.setShadowColor(new java.awt.Color(0, 0, 51));
         txtDui.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtDuiKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtDuiKeyTyped(evt);
             }
         });
 
-        txtApellidos.setBackground(new java.awt.Color(255, 255, 255));
         txtApellidos.setShadowColor(new java.awt.Color(0, 0, 51));
         txtApellidos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtApellidosKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtApellidosKeyTyped(evt);
             }
         });
 
-        txtBusq.setBackground(new java.awt.Color(255, 255, 255));
         txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
 
         panelRound1.setBackground(new java.awt.Color(255, 255, 255));
@@ -401,60 +405,76 @@ public class CREARasistente extends javax.swing.JPanel {
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
 
-        if (txtApellidos.getText().isEmpty() || txtNombre.getText().isEmpty()|| txtDui.getText().isEmpty()) {
+        if (txtApellidos.getText().isEmpty() || txtNombre.getText().isEmpty() || txtDui.getText().isEmpty()) {
             CódigoErrorDSI5 obj = new CódigoErrorDSI5();
-        obj.eventOK(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                GlassPanePopup.closePopupLast();
-            }
-        });
-        GlassPanePopup.showPopup(obj);
-        } else {SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
-        ctAsistente ct = new ctAsistente();
-        ct.idDoctor = idDoc;
-        ct.idUsuario = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-        ct.nombre = txtNombre.getText();
-        ct.apellido = txtApellidos.getText();
-        ct.dui = txtDui.getText();
-        ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
-        ct.sexo = cbSexo.getSelectedItem().toString();
-        ct.insertAsis();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+        } else {
+            SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+            ctAsistente ct = new ctAsistente();
+            ct.idDoctor = idDoc;
+            ct.idUsuario = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+            ct.nombre = txtNombre.getText();
+            ct.apellido = txtApellidos.getText();
+            ct.dui = txtDui.getText();
+            ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
+            ct.sexo = cbSexo.getSelectedItem().toString();
+            ct.insertAsis();
         }
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
         // TODO add your handling code here:
-        if(txtNombre.getText().length()>= 2){
-            lbMin.setVisible(false);
-            btnConfirm.setEnabled(true);
-        }else {
-            lbMin.setVisible(true);
-            btnConfirm.setEnabled(false);
-        } 
+
     }//GEN-LAST:event_txtNombreKeyTyped
 
     private void txtDuiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDuiKeyTyped
         // TODO add your handling code here:
-        if(txtDui.getText().length()>= 9){
-            lbMin2.setVisible(false);
-            btnConfirm.setEnabled(true);
-        }else {
-            lbMin2.setVisible(true);
-            btnConfirm.setEnabled(false);
-        } 
+
     }//GEN-LAST:event_txtDuiKeyTyped
 
     private void txtApellidosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidosKeyTyped
         // TODO add your handling code here:
-        if(txtApellidos.getText().length()>= 4){
+
+    }//GEN-LAST:event_txtApellidosKeyTyped
+
+    private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
+        // TODO add your handling code here:
+        if (txtNombre.getText().length() >= 3) {
+            lbMin.setVisible(false);
+            btnConfirm.setEnabled(true);
+        } else {
+            lbMin.setVisible(true);
+            btnConfirm.setEnabled(false);
+        }
+    }//GEN-LAST:event_txtNombreKeyReleased
+
+    private void txtApellidosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidosKeyReleased
+        // TODO add your handling code here:
+        if (txtApellidos.getText().length() >= 5) {
             lbMin1.setVisible(false);
             btnConfirm.setEnabled(true);
-        }else {
+        } else {
             lbMin1.setVisible(true);
             btnConfirm.setEnabled(false);
-        } 
-    }//GEN-LAST:event_txtApellidosKeyTyped
+        }
+    }//GEN-LAST:event_txtApellidosKeyReleased
+
+    private void txtDuiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDuiKeyReleased
+        // TODO add your handling code here:
+        if (txtDui.getText().length() >= 10) {
+            lbMin2.setVisible(false);
+            btnConfirm.setEnabled(true);
+        } else {
+            lbMin2.setVisible(true);
+            btnConfirm.setEnabled(false);
+        }
+    }//GEN-LAST:event_txtDuiKeyReleased
 
     final void verifPerfil() throws SQLException {
         ctAsistente ctAs = new ctAsistente();

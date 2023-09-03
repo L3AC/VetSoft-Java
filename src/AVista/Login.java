@@ -108,17 +108,17 @@ public class Login extends javax.swing.JFrame {
         panelRound2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         UsuarioL.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
-        UsuarioL.setForeground(new java.awt.Color(27, 73, 101));
+        UsuarioL.setForeground(new java.awt.Color(0, 0, 0));
         UsuarioL.setText("Usuario");
         panelRound2.add(UsuarioL, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
 
         PassL.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
-        PassL.setForeground(new java.awt.Color(27, 73, 101));
+        PassL.setForeground(new java.awt.Color(0, 0, 0));
         PassL.setText("Contraseña");
         panelRound2.add(PassL, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(27, 73, 101));
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Registro");
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -127,6 +127,7 @@ public class Login extends javax.swing.JFrame {
         });
         panelRound2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
 
+        btnIngresar.setForeground(new java.awt.Color(0, 0, 0));
         btnIngresar.setText("Ingresar");
         btnIngresar.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         btnIngresar.addActionListener(new java.awt.event.ActionListener() {
@@ -137,7 +138,7 @@ public class Login extends javax.swing.JFrame {
         panelRound2.add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 140, -1));
 
         txtOlvidasteContra.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        txtOlvidasteContra.setForeground(new java.awt.Color(27, 73, 101));
+        txtOlvidasteContra.setForeground(new java.awt.Color(0, 0, 0));
         txtOlvidasteContra.setText("¿Olvidaste la contraseña?");
         txtOlvidasteContra.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -146,7 +147,6 @@ public class Login extends javax.swing.JFrame {
         });
         panelRound2.add(txtOlvidasteContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, -1, -1));
 
-        txtUser.setBackground(new java.awt.Color(255, 255, 255));
         txtUser.setShadowColor(new java.awt.Color(0, 0, 51));
         txtUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -166,7 +166,6 @@ public class Login extends javax.swing.JFrame {
         });
         panelRound2.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 370, 50));
 
-        txtPass.setBackground(new java.awt.Color(255, 255, 255));
         txtPass.setShadowColor(new java.awt.Color(0, 0, 51));
         txtPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -186,7 +185,7 @@ public class Login extends javax.swing.JFrame {
         panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 550, 290));
 
         Titulo.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
-        Titulo.setForeground(new java.awt.Color(27, 73, 101));
+        Titulo.setForeground(new java.awt.Color(0, 0, 0));
         Titulo.setText("Bienvenido de vuelta");
         panelRound1.add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, -1, -1));
 

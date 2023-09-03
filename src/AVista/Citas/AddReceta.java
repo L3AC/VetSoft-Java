@@ -1,4 +1,3 @@
-
 package AVista.Citas;
 
 import AControlador.ctReceta;
@@ -17,14 +16,14 @@ public class AddReceta extends javax.swing.JPanel {
     private int idCita;
     private int idCuenta;
     Desg dsg = new Desg();
-    public AddReceta(int idTipoUs,int idCuenta,int idCita) {
-        this.idCita=idCita;
-        this.idTipoUs=idTipoUs;
-        this.idCuenta=idCuenta;
+
+    public AddReceta(int idTipoUs, int idCuenta, int idCita) {
+        this.idCita = idCita;
+        this.idTipoUs = idTipoUs;
+        this.idCuenta = idCuenta;
         initComponents();
         lbMin.setVisible(false);
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -106,7 +105,7 @@ public class AddReceta extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         try {
-            CRUDCita subp = new CRUDCita(idTipoUs,idCuenta);
+            CRUDCita subp = new CRUDCita(idTipoUs, idCuenta);
             dsg.ShowPanel(subp, PCont, 1320, 810);
         } catch (SQLException ex) {
             Logger.getLogger(AddReceta.class.getName()).log(Level.SEVERE, null, ex);
@@ -114,37 +113,37 @@ public class AddReceta extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnAgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgActionPerformed
-       if (txtIns.getText().isEmpty()) {
+        if (txtIns.getText().isEmpty()) {
             CódigoErrorDSI5 obj = new CódigoErrorDSI5();
-        obj.eventOK(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                GlassPanePopup.closePopupLast();
-            }
-        });
-        GlassPanePopup.showPopup(obj);
-        }else{
-        ctReceta ct=new ctReceta();
-        ct.idCita=idCita;
-        ct.instruc=txtIns.getText();
-        ct.insRe();
-       }
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+        } else {
+            ctReceta ct = new ctReceta();
+            ct.idCita = idCita;
+            ct.instruc = txtIns.getText();
+            ct.insRe();
+        }
     }//GEN-LAST:event_btnAgActionPerformed
 
     private void txtInsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtInsKeyReleased
-
+        if (txtIns.getText().length() >= 5) {
+            lbMin.setVisible(false);
+            btnAg.setEnabled(true);
+        } else {
+            lbMin.setVisible(true);
+            btnAg.setEnabled(false);
+        }
     }//GEN-LAST:event_txtInsKeyReleased
 
     private void txtInsKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtInsKeyTyped
         // TODO add your handling code here:
-        
-        if(txtIns.getText().length()>= 4){
-            lbMin.setVisible(false);
-            btnAg.setEnabled(true);
-        }else {
-            lbMin.setVisible(true);
-            btnAg.setEnabled(false);
-        } 
+
+
     }//GEN-LAST:event_txtInsKeyTyped
 
 

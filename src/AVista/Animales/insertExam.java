@@ -66,7 +66,7 @@ public class insertExam extends javax.swing.JPanel {
         jLabel1.setText("Nota:");
         panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 50, 30));
 
-        txtNota.setBackground(new java.awt.Color(190, 233, 232));
+        txtNota.setBackground(new java.awt.Color(255, 255, 255));
         txtNota.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtNota, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 920, 50));
 
@@ -74,7 +74,6 @@ public class insertExam extends javax.swing.JPanel {
         lbImg.setForeground(new java.awt.Color(0, 0, 0));
         panelRound1.add(lbImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 40, 320, 280));
 
-        cbTp.setBackground(new java.awt.Color(190, 233, 232));
         cbTp.setForeground(new java.awt.Color(80, 80, 80));
         cbTp.setLabeText("");
         panelRound1.add(cbTp, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 270, 40));
