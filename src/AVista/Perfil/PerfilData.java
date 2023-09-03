@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JComboBox;
+import org.apache.commons.validator.EmailValidator;
 
 public class PerfilData extends javax.swing.JPanel {
 
@@ -34,12 +35,18 @@ public class PerfilData extends javax.swing.JPanel {
         txtDui.setDocument(new Valida(10, "[0-9]*"));
         txtNombre.setDocument(new Valida(50, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         txtApellidos.setDocument(new Valida(50, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
-        lbMin.setVisible(false);lbMin1.setVisible(false);lbMin2.setVisible(false);
-        lbMin3.setVisible(false);lbMin4.setVisible(false);lbDoc1.setVisible(false);
+        lbMin.setVisible(false);
+        lbMin1.setVisible(false);
+        lbMin2.setVisible(false);
+        lbMin3.setVisible(false);
+        lbMin4.setVisible(false);
+        lbDoc1.setVisible(false);
         lbDoc2.setVisible(false);
+        lbFalso.setVisible(false);
 
-        lbEsp.setVisible(false);cbEsp.setVisible(false);
-        
+        lbEsp.setVisible(false);
+        cbEsp.setVisible(false);
+
         if (idTipoUs == 1) {
             loadAdRe();
         }
@@ -48,12 +55,14 @@ public class PerfilData extends javax.swing.JPanel {
         }
         if (idTipoUs == 4) {
             loadDoc();
-            lbEsp.setVisible(true);cbEsp.setVisible(true);
+            lbEsp.setVisible(true);
+            cbEsp.setVisible(true);
             loadCombo(cbEsp);
         }
         if (idTipoUs == 5) {
             loadAsis();
-            lbDoc1.setVisible(true);lbDoc2.setVisible(true);
+            lbDoc1.setVisible(true);
+            lbDoc2.setVisible(true);
         }
     }
 
@@ -201,6 +210,11 @@ public class PerfilData extends javax.swing.JPanel {
                 txtCorreoActionPerformed(evt);
             }
         });
+        txtCorreo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCorreoKeyReleased(evt);
+            }
+        });
         panelRound1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 290, 51));
 
         txtTel.setBackground(new java.awt.Color(190, 233, 232));
@@ -238,7 +252,7 @@ public class PerfilData extends javax.swing.JPanel {
 
         lbFalso.setForeground(new java.awt.Color(0, 0, 0));
         lbFalso.setText("Correo Electronico Falso");
-        panelRound1.add(lbFalso, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 130, 30));
+        panelRound1.add(lbFalso, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 150, 30));
 
         lbMin4.setForeground(new java.awt.Color(0, 0, 0));
         lbMin4.setText("Minimo de digitos 8");
@@ -319,6 +333,7 @@ public class PerfilData extends javax.swing.JPanel {
 
         }
     }
+
     /*final void enab(boolean tf) {
         List<Component> lista = new ArrayList<>();
         lista.add(txtResp1);
@@ -326,7 +341,7 @@ public class PerfilData extends javax.swing.JPanel {
         lista.add(txtResp3);
         dsg.enable(lista, tf);
     }*/
-    
+
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         /*if (txtNombre.getText().isEmpty() || txtApellidos.getText().isEmpty()
             || txtDui.getText().isEmpty() || txtDir.getText().isEmpty()) {
@@ -395,7 +410,7 @@ public class PerfilData extends javax.swing.JPanel {
             }
         } catch (Exception e) {
             System.err.println(e.toString());
-        }  
+        }
     }
 
     final void loadDoc() throws SQLException {
@@ -540,8 +555,23 @@ public class PerfilData extends javax.swing.JPanel {
     }//GEN-LAST:event_txtTelKeyReleased
 
     private void cbEspActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEspActionPerformed
-        
+
     }//GEN-LAST:event_cbEspActionPerformed
+
+    private void txtCorreoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoKeyReleased
+        if (EmailValidator.getInstance().isValid(txtCorreo.getText())) {
+            //if(verificar_Email(jTextField1.getText())){    
+
+            lbFalso.setVisible(false);
+            btnConfirm.setEnabled(true);
+
+        } else {
+
+            lbFalso.setVisible(true);
+            btnConfirm.setEnabled(false);
+
+        }
+    }//GEN-LAST:event_txtCorreoKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
