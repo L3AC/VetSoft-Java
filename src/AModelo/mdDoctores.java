@@ -112,8 +112,9 @@ public class mdDoctores {
     
     //Esto nos ayudara a borrar el registro de algun doctor dentro del sistema
     public boolean deleteDoc(int idD) {
-        String query = "DELETE tbDoctores where idDoc=?;";
+        String query = "DELETE tbDoctores where idDoctor=?;";
         try {
+            System.out.print("IDOCTOR"+idD);
             ps = con.prepareStatement(query);
             ps.setInt(1, idD);
             ps.executeUpdate();
