@@ -116,6 +116,10 @@ public class ctAsistente {
         return md.updtAsis(idAsistente, idDoctor, nombre, apellido, dui, nacimiento, sexo);
     }
 
+    public boolean upAsis2() {
+        return md.upAsis2(idAsistente, nombre, apellido, dui, nacimiento, sexo);
+    }
+
     public boolean deleteAsis() {
         return md.deleteAsis(idAsistente);
     }

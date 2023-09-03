@@ -275,34 +275,17 @@ public class mdUser extends JFrame {
         }
     }
 
-    /*public boolean upPerfil(int idTipoU, int idUs) {
-        String url = "";
+    public boolean upUs2( String usuario, String correo,
+            String tel, int idUs) {
+        String query = "update tbUsuarios SET usuario=?,correo=?,telefono=?"
+                + " where idUsuario=?;";
         try {
-            if (idTipoU == 1) {
-                url = "update tbUsuarios set Usuario=?, Correo=?, Telefono=? where idUsuario=?\n"
-                        + "update tbAdministradores set Nombre=?, Apellido=?, dui=?,Nacimiento=?,Sexo=? where idAdministradores=?";
-            }
-            if (idTipoU == 2) {
-                url = "SELECT * FROM tbRecepcionistas a,tbUsuarios u \n"
-                        + "WHERE a.idUsuario=u.idUsuario and u.idUsuario =?;";
-            }
-            if (idTipoU == 4) {
-                url = "SELECT Usuario,Correo,Telefono,Apellido,Nombre,DUI,Sexo,Nacimiento,e.Especialidad as esp \n"
-                        + "FROM tbDoctores a,tbUsuarios u, tbEspecialidades e\n"
-                        + "WHERE a.idUsuario=u.idUsuario and e.idEspecialidad=a.idEspecialidad and u.idUsuario =?";
-            }
-            if (idTipoU == 5) {
-                url = "SELECT Usuario,Correo,Telefono,a.Apellido as ape,a.Nombre as nom,\n"
-                        + "a.DUI as dui,a.Sexo as sexo,a.Nacimiento as naci,CONCAT(d.Nombre,' ',d.Apellido) as doc \n"
-                        + "FROM tbAsistentes a,tbUsuarios u, tbDoctores d\n"
-                        + "WHERE a.idUsuario=u.idUsuario and d.idDoctor=a.idDoctor and u.idUsuario =?";
-            }
-            ps = con.prepareStatement(url);
-            /*ps.setInt(1, idTipoUs);
-            ps.setString(2, usuario);
-            ps.setString(3, correo);
-            ps.setString(4, tel);
-            ps.setInt(5, idUs);
+
+            ps = con.prepareStatement(query);
+            ps.setString(1, usuario);
+            ps.setString(2, correo);
+            ps.setString(3, tel);
+            ps.setInt(4, idUs);
             ps.executeUpdate();
             CódigoErrorDSI1 obj = new CódigoErrorDSI1();
             obj.eventOK(new ActionListener() {
@@ -319,6 +302,6 @@ public class mdUser extends JFrame {
             System.out.println(e.toString());
             return false; //DIO ERROR
         }
-    }*/
+    }
 
 }

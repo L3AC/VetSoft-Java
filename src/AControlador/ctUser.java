@@ -16,10 +16,8 @@ public class ctUser {
     public String telefono;
     public String codigoVerif;
     public String fechaRegistro;
-    
-    //DATOS DE PERFIL
-    
 
+    //DATOS DE PERFIL
     public int getIdTipoUs() {
         return idTipoUs;
     }
@@ -142,5 +140,9 @@ public class ctUser {
     public ResultSet perfilD() throws SQLException {
         return usu.perfilData(idTipoUs, idUs);
     }
-     
+
+    public boolean upUs2() {
+        return usu.upUs2(usuario, correo, telefono, idUs);
+    }
+
 }

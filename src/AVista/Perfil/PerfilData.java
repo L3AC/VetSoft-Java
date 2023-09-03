@@ -1,7 +1,11 @@
 package AVista.Perfil;
 
+import AControlador.ctAdmin;
+import AControlador.ctAsistente;
 import AControlador.ctCitas;
+import AControlador.ctDoctores;
 import AControlador.ctEsp;
+import AControlador.ctRecep;
 import AControlador.ctUser;
 import Design.Desg;
 import Mensajes.CódigoErrorDSI5;
@@ -12,6 +16,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -353,52 +358,85 @@ public class PerfilData extends javax.swing.JPanel {
     }
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
-        /*if (txtNombre.getText().isEmpty() || txtApellidos.getText().isEmpty()
-            || txtDui.getText().isEmpty() || txtDir.getText().isEmpty()) {
+        if (txtNombre.getText().isEmpty() || txtApellidos.getText().isEmpty()
+                || txtDui.getText().isEmpty() || txtTel.getText().isEmpty()
+        || txtCorreo.getText().isEmpty()){
 
             CódigoErrorDSI5 obj = new CódigoErrorDSI5();
-        obj.eventOK(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                GlassPanePopup.closePopupLast();
-            }
-        });
-        GlassPanePopup.showPopup(obj);
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         } else {
             SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
-            if (nivelRow == 2) {
-                ctRecep ct = new ctRecep();
-                ct.idRecep = idCuenta;
-                ct.nombre = txtNombre.getText();
-                ct.apellido = txtApellidos.getText();
-                ct.dui = txtDui.getText();
-                ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
-                ct.sexo = cbSexo.getSelectedItem().toString();
-                ct.updtRecep();
+            if (idTipoUs == 1) {
+                ctUser ct = new ctUser();
+                ctAdmin ct2=new ctAdmin();
+                ct.idUs=idUs;
+                ct.usuario=txtUser.getText();
+                ct.correo=txtCorreo.getText();
+                ct.telefono=txtTel.getText();
+                ct.upUs2();
+                ct2.nombre=txtNombre.getText();
+                ct2.apellido=txtApellidos.getText();
+                ct2.dui=txtDui.getText();
+                ct2.sexo=cbSexo.getSelectedItem().toString();
+                ct2.nacimiento=dt.format(dpNaci.getCalendar().getTime());
+                ct2.idAdmin=idC;
+                ct2.updAdmin();
             }
-            if (nivelRow == 3) {
-                ctCliente ct = new ctCliente();
-                ct.idCliente = idCuenta;
-                ct.nombre = txtNombre.getText();
-                ct.apellido = txtApellidos.getText();
-                ct.dui = txtDui.getText();
-                ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
-                ct.sexo = cbSexo.getSelectedItem().toString();
-                ct.direccion = txtDir.getText();
-                ct.updtCl();
+            if (idTipoUs == 2) {
+                ctUser ct = new ctUser();
+                ctRecep ct2=new ctRecep();
+                ct.idUs=idUs;
+                ct.usuario=txtUser.getText();
+                ct.correo=txtCorreo.getText();
+                ct.telefono=txtTel.getText();
+                ct.upUs2();
+                ct2.nombre=txtNombre.getText();
+                ct2.apellido=txtApellidos.getText();
+                ct2.dui=txtDui.getText();
+                ct2.sexo=cbSexo.getSelectedItem().toString();
+                ct2.nacimiento=dt.format(dpNaci.getCalendar().getTime());
+                ct2.idRecep=idC;
+                ct2.updtRecep();
             }
-            if (nivelRow == 4) {
-                ctDoctores ct = new ctDoctores();
-                ct.idDoctor = idCuenta;
-                ct.idEsp = dsg.getMap(cbMap, cbEsp.getSelectedItem().toString());
-                ct.nombre = txtNombre.getText();
-                ct.apellido = txtApellidos.getText();
-                ct.dui = txtDui.getText();
-                ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
-                ct.sexo = cbSexo.getSelectedItem().toString();
-                ct.updateDoc();
+            if (idTipoUs == 4) {
+                ctUser ct = new ctUser();
+                ctDoctores ct2=new ctDoctores();
+                ct.idUs=idUs;
+                ct.usuario=txtUser.getText();
+                ct.correo=txtCorreo.getText();
+                ct.telefono=txtTel.getText();
+                ct.upUs2();
+                ct2.nombre=txtNombre.getText();
+                ct2.apellido=txtApellidos.getText();
+                ct2.dui=txtDui.getText();
+                ct2.sexo=cbSexo.getSelectedItem().toString();
+                ct2.nacimiento=dt.format(dpNaci.getCalendar().getTime());
+                ct2.idEsp = dsg.getMap(mapEsp, cbEsp.getSelectedItem().toString());
+                ct2.idDoctor=idC;
+                ct2.updateDoc();
             }
-        }*/
+            if (idTipoUs == 5) {
+                ctUser ct = new ctUser();
+                ctAsistente ct2=new ctAsistente();
+                ct.idUs=idUs;
+                ct.usuario=txtUser.getText();
+                ct.correo=txtCorreo.getText();
+                ct.telefono=txtTel.getText();
+                ct.upUs2();
+                ct2.nombre=txtNombre.getText();
+                ct2.apellido=txtApellidos.getText();
+                ct2.dui=txtDui.getText();
+                ct2.sexo=cbSexo.getSelectedItem().toString();
+                ct2.nacimiento=dt.format(dpNaci.getCalendar().getTime());
+                ct2.upAsis2();
+            }
+        }  
     }//GEN-LAST:event_btnConfirmActionPerformed
     final void loadAdRe() throws SQLException {
         try {
@@ -503,8 +541,9 @@ public class PerfilData extends javax.swing.JPanel {
             btnAct.setText("Cancelar");
             enab(true);
             btnConfirm.setVisible(true);
+        }
     }//GEN-LAST:event_btnActActionPerformed
-    }
+
     private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCorreoActionPerformed
