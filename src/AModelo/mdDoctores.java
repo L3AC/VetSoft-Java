@@ -99,7 +99,6 @@ public class mdDoctores {
             ps.setInt(6, idEsp);
             ps.setInt(7, idC);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Campos actualizados");
             return true;
 
         } catch (SQLException e) {

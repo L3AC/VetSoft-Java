@@ -14,7 +14,7 @@ public class mdAdmin {
 
     public boolean upAdmin(int idC, String nombre, String apellido, String dui, String naci, String sexo) {
         String query = "update tbAdministradores SET nombre=?,apellido=?,DUI=?,nacimiento=?,sexo=? \n"
-                + "where idAdministrador=?;";
+                + "where idAdministradores=?;";
         try {
             ps = con.prepareStatement(query);
             ps.setString(1, nombre);
@@ -24,7 +24,6 @@ public class mdAdmin {
             ps.setString(5, sexo);
             ps.setInt(6, idC);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Campos actualizados");
             return true;
 
         } catch (SQLException e) {

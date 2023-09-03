@@ -143,7 +143,6 @@ public class mdAsistentes {
             ps.setString(5, sexo);
             ps.setInt(6, idC);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Campos actualizados");
             return true;
 
         } catch (SQLException e) {
