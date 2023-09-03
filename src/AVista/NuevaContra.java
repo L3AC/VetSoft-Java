@@ -9,6 +9,7 @@ import AModelo.Crypt;
 import Mensajes.CodigodeerrorDLI1;
 import Mensajes.CódigoErrorDRC4;
 import Mensajes.CódigoErrorDSI4;
+import Mensajes.CódigoErrorDSI5;
 import Mensajes.GlassPanePopup;
 import java.awt.Toolkit;
 import java.sql.Connection;
@@ -34,13 +35,13 @@ public class NuevaContra extends javax.swing.JFrame {
     String mail;
     String codigo;
     Crypt cryp = new Crypt();
-   
+
     public NuevaContra(int idus) {
         this.idus = idus;
         initComponents();
         GlassPanePopup.install(this);
         lbUs3.setVisible(false);
-        
+
     }
 
     public NuevaContra() {
@@ -163,71 +164,80 @@ public class NuevaContra extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-public void act() throws Exception{
-    String cadena = "update tbUsuarios set contraseña=? "
+    public void act() throws Exception {
+        String cadena = "update tbUsuarios set contraseña=? "
                 + "where idUsuario=?;";
-    PreparedStatement ps;
-    
-    try {
+        PreparedStatement ps;
+
+        try {
 
             acceso = con.Conectar();
             ps = acceso.prepareStatement(cadena);
-            ps.setString(1,cryp.encrypt( txtNueva.getText(), "key"));
+            ps.setString(1, cryp.encrypt(txtNueva.getText(), "key"));
             ps.setInt(2, idus);
             ps.executeUpdate();
-         
-        Login newFrame = new Login();
-        newFrame.setVisible(true);
-        this.dispose();
-        
-        CódigoErrorDSI4 obj = new CódigoErrorDSI4();
-        obj.eventOK(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                GlassPanePopup.closePopupLast();
-            }
-        });
-        GlassPanePopup.showPopup(obj);
-        
+
+            Login newFrame = new Login();
+            newFrame.setVisible(true);
+            this.dispose();
+
+            CódigoErrorDSI4 obj = new CódigoErrorDSI4();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.toString());
         }
     }
-    
+
     private void btnCambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarActionPerformed
-               if (txtNueva.getText().equals(txtNueva2.getText())) {
+        if (txtNueva.getText().isEmpty() || txtNueva2.getText().isEmpty()) {
+            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+        } else {
+            if (txtNueva.getText().equals(txtNueva2.getText())) {
                 try {
                     act();
                 } catch (Exception ex) {
                     Logger.getLogger(PorUsuario.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            }
-            else{
-                   CódigoErrorDRC4 obj = new CódigoErrorDRC4();
-        obj.eventOK(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                GlassPanePopup.closePopupLast();
-            }
-        });
-        GlassPanePopup.showPopup(obj);
+            } else {
+                CódigoErrorDRC4 obj = new CódigoErrorDRC4();
+                obj.eventOK(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        GlassPanePopup.closePopupLast();
+                    }
+                });
+                GlassPanePopup.showPopup(obj);
             }        // TODO add your handling code here:
-            
-    }//GEN-LAST:event_btnCambiarActionPerformed
 
+    }//GEN-LAST:event_btnCambiarActionPerformed
+    }
     private void txtNuevaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNuevaKeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNuevaKeyTyped
 
     private void txtNuevaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNuevaKeyReleased
         // TODO add your handling code here:
-         if(txtNueva.getText().length()>= 8){
+        if (txtNueva.getText().length() >= 8) {
             lbUs3.setVisible(false);
             btnCambiar.setEnabled(true);
-        }else {
+        } else {
             lbUs3.setVisible(true);
             btnCambiar.setEnabled(false);
-        } 
+        }
     }//GEN-LAST:event_txtNuevaKeyReleased
 
     /**

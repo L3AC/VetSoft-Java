@@ -3,6 +3,8 @@ package AVista.Usuarios;
 import AControlador.ctTipoUs;
 import AControlador.ctUser;
 import Design.Desg;
+import Mensajes.CódigoErrorDSI5;
+import Mensajes.GlassPanePopup;
 import Tipografias.Fuentes;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,6 +14,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import Validation.Valida;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import org.apache.commons.validator.EmailValidator;
 
 public class updtUsuario extends javax.swing.JPanel {
@@ -29,9 +33,9 @@ public class updtUsuario extends javax.swing.JPanel {
         this.idTipoUs = idTipoUs;
         this.idUs = idUs;
         initComponents();
-        
+
         tipoFuente = new Fuentes();
-        
+
         jLabel2.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 32));
         jLabel9.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 17));
         jLabel6.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 17));
@@ -40,10 +44,7 @@ public class updtUsuario extends javax.swing.JPanel {
         txtUsuario.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 15));
         txtTel.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 15));
         txtCorreo.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 15));
-       
-        
-       
-        
+
         txtUsuario.setDocument(new Valida(30, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         txtCorreo.setDocument(new Valida(50, "[a-zA-Z0-9@._]*"));
         txtTel.setDocument(new Valida(10, "[0-9]*"));
@@ -51,16 +52,15 @@ public class updtUsuario extends javax.swing.JPanel {
         lbMin.setVisible(false);
         lbMin1.setVisible(false);
         lbFalso.setVisible(false);
-        if(idTipoUs==1){
-           
-        }
-        else{
+        if (idTipoUs == 1) {
+
+        } else {
             lbCargo.setVisible(false);
             cbCargo.setVisible(false);
         }
         loadCombo(cbCargo);
         CargarDatos();
-        
+
     }
 
     final void CargarDatos() throws SQLException {
@@ -72,21 +72,23 @@ public class updtUsuario extends javax.swing.JPanel {
                 txtCorreo.setText(rs.getString("correo"));
                 txtTel.setText(rs.getString("telefono"));
                 cbCargo.setSelectedItem(rs.getString("Cargo"));
-                
+
             }
         } catch (Exception e) {
-              System.err.println(e.toString());
+            System.err.println(e.toString());
         }
     }
-    private void loadCombo(JComboBox cb) throws SQLException{
-        ResultSet rs=ctTP.selectTP();
+
+    private void loadCombo(JComboBox cb) throws SQLException {
+        ResultSet rs = ctTP.selectTP();
         while (rs.next()) {
-                int idTP=rs.getInt("idTipoUsuario");
-                String nombre=rs.getString("nivel");
-                cb.addItem(nombre);
-                cbMap.put(idTP, nombre);
-            }
+            int idTP = rs.getInt("idTipoUsuario");
+            String nombre = rs.getString("nivel");
+            cb.addItem(nombre);
+            cbMap.put(idTP, nombre);
+        }
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -299,24 +301,33 @@ public class updtUsuario extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
-
-        ctUser ctUs=new ctUser();
-        if(idTipoUs==1){
-            ctUs.idTipoCuenta=dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
-        }
-        if(idTipoUs==2){
-            ctUs.idTipoCuenta=3;
-        }
-        ctUs.usuario=txtUsuario.getText();
-        ctUs.correo=txtCorreo.getText();
-        ctUs.telefono=txtTel.getText();
-        ctUs.idUs=idUs;
-        ctUs.updtUs();
+        if (txtUsuario.getText().isEmpty() || txtTel.getText().isEmpty() || txtCorreo.getText().isEmpty()) {
+            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+        } else {
+            ctUser ctUs = new ctUser();
+            if (idTipoUs == 1) {
+                ctUs.idTipoCuenta = dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
+            }
+            if (idTipoUs == 2) {
+                ctUs.idTipoCuenta = 3;
+            }
+            ctUs.usuario = txtUsuario.getText();
+            ctUs.correo = txtCorreo.getText();
+            ctUs.telefono = txtTel.getText();
+            ctUs.idUs = idUs;
+            ctUs.updtUs();
     }//GEN-LAST:event_btnConfirmarActionPerformed
-
+    }
     private void txtCorreoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoKeyReleased
         // TODO add your handling code here:
-         if (EmailValidator.getInstance().isValid(txtCorreo.getText())) {
+        if (EmailValidator.getInstance().isValid(txtCorreo.getText())) {
             //if(verificar_Email(jTextField1.getText())){    
 
             lbFalso.setVisible(false);
@@ -336,27 +347,32 @@ public class updtUsuario extends javax.swing.JPanel {
 
     private void txtTelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelKeyTyped
         // TODO add your handling code here:
-        
-        
+
+
     }//GEN-LAST:event_txtTelKeyTyped
 
     private void txtTelKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelKeyReleased
         // TODO add your handling code here:
-        if(txtTel.getText().length()>= 8){
+        if (txtTel.getText().length() >= 8 && txtUsuario.getText().length() >= 4) {
             lbMin1.setVisible(false);
             btnConfirmar.setEnabled(true);
-        }else {
+        } else {
+            if (txtTel.getText().length() >= 8) {
+            lbMin1.setVisible(false);
+            btnConfirmar.setEnabled(true);
+            }
+        else {
             lbMin1.setVisible(true);
             btnConfirmar.setEnabled(false);
-        } 
+        }
     }//GEN-LAST:event_txtTelKeyReleased
-
+    }
     private void txtUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyReleased
         // TODO add your handling code here:
-           ctUser ctUs = new ctUser();
+        ctUser ctUs = new ctUser();
         ctUs.usuario = txtUsuario.getText().toString();
         try {
-            if (ctUs.verifUs().next())  {
+            if (ctUs.verifUs().next()) {
                 lbDisp.setVisible(true);
                 btnConfirmar.setEnabled(false);
 
@@ -367,16 +383,20 @@ public class updtUsuario extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        if (txtUsuario.getText().length() >= 4) {
+
+        if (txtUsuario.getText().length() >= 4 && txtTel.getText().length() >= 8) {
             lbMin.setVisible(false);
             btnConfirmar.setEnabled(true);
         } else {
-            lbMin.setVisible(true);
-            btnConfirmar.setEnabled(false);
-        }
+            if (txtUsuario.getText().length() >= 4) {
+                lbMin.setVisible(false);
+                btnConfirmar.setEnabled(true);
+            } else {
+                lbMin.setVisible(true);
+                btnConfirmar.setEnabled(false);
+            }
     }//GEN-LAST:event_txtUsuarioKeyReleased
-
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;

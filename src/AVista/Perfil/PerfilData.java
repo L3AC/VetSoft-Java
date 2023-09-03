@@ -45,7 +45,8 @@ public class PerfilData extends javax.swing.JPanel {
         lbMin4.setVisible(false);
         lbDoc1.setVisible(false);
         lbDoc2.setVisible(false);
-        lbFalso.setVisible(false);btnConfirm.setVisible(false);
+        lbFalso.setVisible(false);
+        btnConfirm.setVisible(false);
 
         lbEsp.setVisible(false);
         cbEsp.setVisible(false);
@@ -347,7 +348,7 @@ public class PerfilData extends javax.swing.JPanel {
         lista.add(txtTel);
         lista.add(dpNaci);
         lista.add(cbSexo);
-        lista.add(cbEsp);       
+        lista.add(cbEsp);
         dsg.enable(lista, tf);
     }
 
@@ -493,6 +494,7 @@ public class PerfilData extends javax.swing.JPanel {
     }//GEN-LAST:event_txtTelKeyTyped
 
     private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
+
         if (btnConfirm.isVisible()) {
             btnAct.setText("Editar");
             enab(false);
@@ -501,68 +503,87 @@ public class PerfilData extends javax.swing.JPanel {
             btnAct.setText("Cancelar");
             enab(true);
             btnConfirm.setVisible(true);
-        }
     }//GEN-LAST:event_btnActActionPerformed
-
+    }
     private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCorreoActionPerformed
 
     private void txtUserKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyReleased
         // TODO add your handling code here:
-        if (txtNombre.getText().length() >= 4) {
+        if (txtUser.getText().length() >= 4 && txtNombre.getText().length() >= 5 && txtApellidos.getText().length() >= 5 && txtDui.getText().length() >= 10 && txtTel.getText().length() >= 8) {
             lbMin.setVisible(false);
             btnConfirm.setEnabled(true);
         } else {
-            lbMin.setVisible(true);
-            btnConfirm.setEnabled(false);
-        }
+            if (txtUser.getText().length() >= 4) {
+                lbMin.setVisible(false);
+                btnConfirm.setEnabled(true);
+            } else {
+                lbMin.setVisible(true);
+                btnConfirm.setEnabled(false);
+            }
     }//GEN-LAST:event_txtUserKeyReleased
-
+    }
     private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
         // TODO add your handling code here:
-        if (txtNombre.getText().length() >= 5) {
+        if (txtNombre.getText().length() >= 5 && txtUser.getText().length() >= 4 && txtApellidos.getText().length() >= 5 && txtDui.getText().length() >= 10 && txtTel.getText().length() >= 8) {
             lbMin1.setVisible(false);
             btnConfirm.setEnabled(true);
         } else {
-            lbMin1.setVisible(true);
-            btnConfirm.setEnabled(false);
-        }
+            if (txtNombre.getText().length() >= 5) {
+                lbMin1.setVisible(false);
+                btnConfirm.setEnabled(true);
+            } else {
+                lbMin1.setVisible(true);
+                btnConfirm.setEnabled(false);
+            }
     }//GEN-LAST:event_txtNombreKeyReleased
-
+    }
     private void txtApellidosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidosKeyReleased
         // TODO add your handling code here:
-        if (txtApellidos.getText().length() >= 5) {
+        if (txtApellidos.getText().length() >= 5 && txtNombre.getText().length() >= 5 && txtUser.getText().length() >= 4 && txtDui.getText().length() >= 10 && txtTel.getText().length() >= 8) {
             lbMin2.setVisible(false);
             btnConfirm.setEnabled(true);
         } else {
-            lbMin2.setVisible(true);
-            btnConfirm.setEnabled(false);
-        }
+            if (txtApellidos.getText().length() >= 5) {
+                lbMin2.setVisible(false);
+                btnConfirm.setEnabled(true);
+            } else {
+                lbMin2.setVisible(true);
+                btnConfirm.setEnabled(false);
+            }
     }//GEN-LAST:event_txtApellidosKeyReleased
-
+    }
     private void txtDuiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDuiKeyReleased
         // TODO add your handling code here:
-        if (txtDui.getText().length() >= 10) {
+        if (txtDui.getText().length() >= 10 && txtNombre.getText().length() >= 5 && txtUser.getText().length() >= 4 && txtApellidos.getText().length() >= 5 && txtTel.getText().length() >= 8) {
             lbMin3.setVisible(false);
             btnConfirm.setEnabled(true);
         } else {
-            lbMin3.setVisible(true);
-            btnConfirm.setEnabled(false);
-        }
+            if (txtDui.getText().length() >= 10) {
+                lbMin3.setVisible(false);
+                btnConfirm.setEnabled(true);
+            } else {
+                lbMin3.setVisible(true);
+                btnConfirm.setEnabled(false);
+            }
     }//GEN-LAST:event_txtDuiKeyReleased
-
+    }
     private void txtTelKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelKeyReleased
         // TODO add your handling code here:
-        if (txtTel.getText().length() >= 8) {
+        if (txtTel.getText().length() >= 8 && txtNombre.getText().length() >= 5 && txtUser.getText().length() >= 4 && txtApellidos.getText().length() >= 5 && txtDui.getText().length() >= 10) {
             lbMin4.setVisible(false);
             btnConfirm.setEnabled(true);
         } else {
-            lbMin4.setVisible(true);
-            btnConfirm.setEnabled(false);
-        }
+            if (txtTel.getText().length() >= 8) {
+                lbMin4.setVisible(false);
+                btnConfirm.setEnabled(true);
+            } else {
+                lbMin4.setVisible(true);
+                btnConfirm.setEnabled(false);
+            }
     }//GEN-LAST:event_txtTelKeyReleased
-
+    }
     private void cbEspActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEspActionPerformed
 
     }//GEN-LAST:event_cbEspActionPerformed

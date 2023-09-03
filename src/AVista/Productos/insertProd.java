@@ -38,12 +38,12 @@ public class insertProd extends javax.swing.JPanel {
     public insertProd(int idTipoUs) throws SQLException {
         this.idTipoUs = idTipoUs;
         initComponents();
-         loadCombo(cbTipoProd);
-         
-         txtProducto.setDocument(new Valida(300, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ,.]*"));
-         txtProv.setDocument(new Valida(300, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ,.]*"));
-         txtPrecio.setDocument(new Valida(10, "[0-9]*"));
-         lbMin.setVisible(false);
+        loadCombo(cbTipoProd);
+
+        txtProducto.setDocument(new Valida(300, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ,.]*"));
+        txtProv.setDocument(new Valida(300, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ,.]*"));
+        txtPrecio.setDocument(new Valida(10, "[0-9]*"));
+        lbMin.setVisible(false);
         lbMin1.setVisible(false);
         lbMin2.setVisible(false);
     }
@@ -284,31 +284,40 @@ public class insertProd extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        List<TextFieldSV> lista = new ArrayList<>();
-        lista.add(txtProducto);
-        lista.add(txtProv);
-        lista.add(txtPrecio);
-        if ( dsg.areFieldsNotEmpty(lista) && bytesImagen != null) {
-            ctProd ct = new ctProd();
-            ct.idTipoProd = dsg.getMap(cbTP, cbTipoProd.getSelectedItem().toString());
-            ct.producto = txtProducto.getText();
-            ct.proveedor = txtProv.getText();
-            ct.precio = Float.parseFloat(txtPrecio.getText());
-            ct.image=bytesImagen;
-            ct.insProd();
-        }
-        else{
-              CódigoErrorDSI5 obj = new CódigoErrorDSI5();
-        obj.eventOK(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                GlassPanePopup.closePopupLast();
+        if (txtProv.getText().isEmpty() || txtProducto.getText().isEmpty() || txtPrecio.getText().isEmpty()) {
+            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+        } else {
+            List<TextFieldSV> lista = new ArrayList<>();
+            lista.add(txtProducto);
+            lista.add(txtProv);
+            lista.add(txtPrecio);
+            if (dsg.areFieldsNotEmpty(lista) && bytesImagen != null) {
+                ctProd ct = new ctProd();
+                ct.idTipoProd = dsg.getMap(cbTP, cbTipoProd.getSelectedItem().toString());
+                ct.producto = txtProducto.getText();
+                ct.proveedor = txtProv.getText();
+                ct.precio = Float.parseFloat(txtPrecio.getText());
+                ct.image = bytesImagen;
+                ct.insProd();
+            } else {
+                CódigoErrorDSI5 obj = new CódigoErrorDSI5();
+                obj.eventOK(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        GlassPanePopup.closePopupLast();
+                    }
+                });
+                GlassPanePopup.showPopup(obj);
             }
-        });
-        GlassPanePopup.showPopup(obj);
-        }
     }//GEN-LAST:event_btnAgregarActionPerformed
-
+    }
     private void lbImgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbImgMouseClicked
 
         /*Foto subp = new Foto(idTipoUs, 1, bytesImagen, 2);
@@ -348,53 +357,67 @@ public class insertProd extends javax.swing.JPanel {
 
     private void txtProvKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtProvKeyTyped
         // TODO add your handling code here:
-        
-         
+
+
     }//GEN-LAST:event_txtProvKeyTyped
 
     private void txtProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtProductoKeyTyped
         // TODO add your handling code here:
-         
+
     }//GEN-LAST:event_txtProductoKeyTyped
 
     private void txtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioKeyTyped
         // TODO add your handling code here:
-       
+
     }//GEN-LAST:event_txtPrecioKeyTyped
 
     private void txtProvKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtProvKeyReleased
         // TODO add your handling code here:
-        if(txtProv.getText().length()>= 3){
+        if (txtProv.getText().length() >= 3 && txtProducto.getText().length() >= 3 && txtPrecio.getText().length() >= 2) {
             lbMin.setVisible(false);
-             btnAgregar.setEnabled(true);
-        }else {
-            lbMin.setVisible(true);
-            btnAgregar.setEnabled(false);
-        } 
+            btnAgregar.setEnabled(true);
+        } else {
+            if (txtProv.getText().length() >= 3) {
+                lbMin.setVisible(false);
+                btnAgregar.setEnabled(true);
+            } else {
+                lbMin.setVisible(true);
+                btnAgregar.setEnabled(false);
+            }
     }//GEN-LAST:event_txtProvKeyReleased
-
+    }
     private void txtProductoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtProductoKeyReleased
         // TODO add your handling code here:
-        if(txtProducto.getText().length()>= 3){
+        if (txtProducto.getText().length() >= 3 && txtProv.getText().length() >= 3 && txtPrecio.getText().length() >= 2) {
             lbMin1.setVisible(false);
-             btnAgregar.setEnabled(true);
-        }else {
-            lbMin1.setVisible(true);
-             btnAgregar.setEnabled(false);
-        } 
+            btnAgregar.setEnabled(true);
+        } else {
+            if (txtProducto.getText().length() >= 3) {
+                lbMin1.setVisible(false);
+                btnAgregar.setEnabled(true);
+            } else {
+                lbMin1.setVisible(true);
+                btnAgregar.setEnabled(false);
+            }
     }//GEN-LAST:event_txtProductoKeyReleased
-
+    }
     private void txtPrecioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioKeyReleased
         // TODO add your handling code here:
-          if(txtPrecio.getText().length()>= 2){
+        if (txtPrecio.getText().length() >= 2 && txtProducto.getText().length() >= 3 && txtProv.getText().length() >= 3) {
             lbMin2.setVisible(false);
-             btnAgregar.setEnabled(true);
-        }else {
+            btnAgregar.setEnabled(true);
+        } else{
+        if (txtPrecio.getText().length() >= 2){
+        lbMin2.setVisible(false);
+            btnAgregar.setEnabled(true);
+        }
+        
+        else {
             lbMin2.setVisible(true);
-             btnAgregar.setEnabled(false);
-        } 
+            btnAgregar.setEnabled(false);
+        }
     }//GEN-LAST:event_txtPrecioKeyReleased
-
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;

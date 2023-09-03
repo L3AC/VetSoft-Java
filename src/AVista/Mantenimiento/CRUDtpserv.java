@@ -11,6 +11,7 @@ import AControlador.ctTipoServ;
 import Design.Desg;
 import Design.TextFieldSV;
 import Mensajes.CódigoError;
+import Mensajes.CódigoErrorDSI5;
 import Mensajes.CódogpErrorDIFC1;
 import Mensajes.GlassPanePopup;
 import Validation.Valida;
@@ -278,56 +279,8 @@ public class CRUDtpserv extends javax.swing.JPanel {
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        List<TextFieldSV> lista = new ArrayList<>();
-        lista.add(txtCosto);
-        lista.add(txtServ);
-        try {
-            if (dsg.areFieldsNotEmpty(lista)) {//VERIFICAR QUE NO ESTE VACIO
-                ctTipoServ ct = new ctTipoServ();
-                ct.idNivelServ = dsg.getMap(cbMapNPS, cbNivelS.getSelectedItem().toString());;
-                ct.Nombre = txtServ.getText();
-                ct.Costo = Float.parseFloat(txtCosto.getText());
-                ct.insertServ();
-                loadD();
-            } else {
-
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDtpserv.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }//GEN-LAST:event_btnAgregarActionPerformed
-
-    private void btnLimpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpActionPerformed
-        cleanData();
-    }//GEN-LAST:event_btnLimpActionPerformed
-
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-       if (tbData.getRowCount() > 0) {
-        UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
-        int opcion = JOptionPane.showOptionDialog(
-                null,
-                "¿Desea eliminar el registro?",
-                "Advertencia",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.WARNING_MESSAGE,
-                null,
-                new Object[]{"Sí", "No"},
-                "No");
-
-        if (opcion == JOptionPane.YES_OPTION) {
-            try {
-                ctTipoServ ct = new ctTipoServ();
-                ct.idTipoServ = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-                ct.deleteServ();
-                loadD();
-            } catch (SQLException ex) {
-                Logger.getLogger(CRUDtpserv.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else if (opcion == JOptionPane.NO_OPTION) {
-
-        }  else {
-            CódigoError obj = new CódigoError();
+        if (txtCosto.getText().isEmpty() || txtServ.getText().isEmpty()) {
+            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
@@ -335,8 +288,66 @@ public class CRUDtpserv extends javax.swing.JPanel {
                 }
             });
             GlassPanePopup.showPopup(obj);
+        } else {
+            List<TextFieldSV> lista = new ArrayList<>();
+            lista.add(txtCosto);
+            lista.add(txtServ);
+            try {
+                if (dsg.areFieldsNotEmpty(lista)) {//VERIFICAR QUE NO ESTE VACIO
+                    ctTipoServ ct = new ctTipoServ();
+                    ct.idNivelServ = dsg.getMap(cbMapNPS, cbNivelS.getSelectedItem().toString());;
+                    ct.Nombre = txtServ.getText();
+                    ct.Costo = Float.parseFloat(txtCosto.getText());
+                    ct.insertServ();
+                    loadD();
+                } else {
+
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDtpserv.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+    }//GEN-LAST:event_btnAgregarActionPerformed
+    }
+    private void btnLimpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpActionPerformed
+        cleanData();
+    }//GEN-LAST:event_btnLimpActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        if (tbData.getRowCount() > 0) {
+            UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
+            int opcion = JOptionPane.showOptionDialog(
+                    null,
+                    "¿Desea eliminar el registro?",
+                    "Advertencia",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.WARNING_MESSAGE,
+                    null,
+                    new Object[]{"Sí", "No"},
+                    "No");
+
+            if (opcion == JOptionPane.YES_OPTION) {
+                try {
+                    ctTipoServ ct = new ctTipoServ();
+                    ct.idTipoServ = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                    ct.deleteServ();
+                    loadD();
+                } catch (SQLException ex) {
+                    Logger.getLogger(CRUDtpserv.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else if (opcion == JOptionPane.NO_OPTION) {
+
+            } else {
+                CódigoError obj = new CódigoError();
+                obj.eventOK(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        GlassPanePopup.closePopupLast();
+                    }
+                });
+                GlassPanePopup.showPopup(obj);
+            }
         }
-       }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void cbNivelSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNivelSActionPerformed
@@ -354,27 +365,8 @@ public class CRUDtpserv extends javax.swing.JPanel {
     }//GEN-LAST:event_txtBusqKeyReleased
 
     private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
-        if (tbData.getRowCount() > 0) {
-            try {
-                List<TextFieldSV> lista = new ArrayList<>();
-                lista.add(txtCosto);
-                lista.add(txtServ);
-                if (dsg.areFieldsNotEmpty(lista)) {
-                    ctTipoServ ct = new ctTipoServ();
-                    ct.idTipoServ = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-                    ct.idNivelServ = dsg.getMap(cbMapNPS, cbNivelS.getSelectedItem().toString());
-                    ct.Nombre = txtServ.getText();
-                    ct.Costo = Float.parseFloat(txtCosto.getText());
-                    ct.updtServ();
-                    loadD();
-                } else {
-
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(CRUDtpserv.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else {
-            CódigoError obj = new CódigoError();
+        if (txtCosto.getText().isEmpty() || txtServ.getText().isEmpty()) {
+            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
@@ -382,9 +374,38 @@ public class CRUDtpserv extends javax.swing.JPanel {
                 }
             });
             GlassPanePopup.showPopup(obj);
-        }
-    }//GEN-LAST:event_btnActActionPerformed
+        } else {
+            if (tbData.getRowCount() > 0) {
+                try {
+                    List<TextFieldSV> lista = new ArrayList<>();
+                    lista.add(txtCosto);
+                    lista.add(txtServ);
+                    if (dsg.areFieldsNotEmpty(lista)) {
+                        ctTipoServ ct = new ctTipoServ();
+                        ct.idTipoServ = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                        ct.idNivelServ = dsg.getMap(cbMapNPS, cbNivelS.getSelectedItem().toString());
+                        ct.Nombre = txtServ.getText();
+                        ct.Costo = Float.parseFloat(txtCosto.getText());
+                        ct.updtServ();
+                        loadD();
+                    } else {
 
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(CRUDtpserv.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                CódigoError obj = new CódigoError();
+                obj.eventOK(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        GlassPanePopup.closePopupLast();
+                    }
+                });
+                GlassPanePopup.showPopup(obj);
+            }
+    }//GEN-LAST:event_btnActActionPerformed
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;

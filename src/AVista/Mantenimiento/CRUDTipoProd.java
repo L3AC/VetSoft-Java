@@ -9,6 +9,7 @@ import AControlador.ctTipoServ;
 import Design.Desg;
 import Design.TextFieldSV;
 import Mensajes.CódigoError;
+import Mensajes.CódigoErrorDSI5;
 import Mensajes.CódogpErrorDIFC1;
 import Mensajes.GlassPanePopup;
 import Validation.Valida;
@@ -36,7 +37,7 @@ public class CRUDTipoProd extends javax.swing.JPanel {
     DefaultTableModel model;
 
     public CRUDTipoProd(int idTipoUs) throws SQLException {
-        this.idTipoUs=idTipoUs;
+        this.idTipoUs = idTipoUs;
         initComponents();
         loadD();
         setData();
@@ -265,7 +266,7 @@ public class CRUDTipoProd extends javax.swing.JPanel {
             .addComponent(PCont, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-    final void setData() {      
+    final void setData() {
         txtProd.setText(tbData.getValueAt(tbData.getSelectedRow(), 1).toString());
     }
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
@@ -282,43 +283,63 @@ public class CRUDTipoProd extends javax.swing.JPanel {
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        List<TextFieldSV> lista = new ArrayList<>();
-        lista.add(txtProd);
-        try {
-            if (dsg.areFieldsNotEmpty(lista)) {//VERIFICAR QUE NO ESTE VACIO
-                ctProd ct = new ctProd();
-               
-                ct.tipoProd = txtProd.getText();
-                ct.insertTProd();
-                loadD();
-            } else {
-
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDTipoProd.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_btnAgregarActionPerformed
-
-    private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
- if (tbData.getRowCount() > 0) {
-        try {
+        if (txtProd.getText().isEmpty()) {
+            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+        } else {
             List<TextFieldSV> lista = new ArrayList<>();
             lista.add(txtProd);
-           // lista.add(txtServ);
-            if (dsg.areFieldsNotEmpty(lista)) {
-                ctProd ct = new ctProd();
-                ct.idTipoProd = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-                ct.tipoProd = txtProd.getText();
-                ct.updtTProd();
-                loadD();
-            } else {
+            try {
+                if (dsg.areFieldsNotEmpty(lista)) {//VERIFICAR QUE NO ESTE VACIO
+                    ctProd ct = new ctProd();
 
+                    ct.tipoProd = txtProd.getText();
+                    ct.insertTProd();
+                    loadD();
+                } else {
+
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDTipoProd.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDTipoProd.class.getName()).log(Level.SEVERE, null, ex);
-        }
- } else {
-           CódigoError obj = new CódigoError();
+    }//GEN-LAST:event_btnAgregarActionPerformed
+    }
+    private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
+        if (txtProd.getText().isEmpty()) {
+            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+        } else{
+        if (tbData.getRowCount() > 0) {
+            try {
+                List<TextFieldSV> lista = new ArrayList<>();
+                lista.add(txtProd);
+                // lista.add(txtServ);
+                if (dsg.areFieldsNotEmpty(lista)) {
+                    ctProd ct = new ctProd();
+                    ct.idTipoProd = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                    ct.tipoProd = txtProd.getText();
+                    ct.updtTProd();
+                    loadD();
+                } else {
+
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDTipoProd.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
@@ -328,34 +349,34 @@ public class CRUDTipoProd extends javax.swing.JPanel {
             GlassPanePopup.showPopup(obj);
         }
     }//GEN-LAST:event_btnActActionPerformed
-
+    }
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         if (tbData.getRowCount() > 0) {
-        UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
-        int opcion = JOptionPane.showOptionDialog(
-                null,
-                "¿Desea eliminar el registro?",
-                "Advertencia",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.WARNING_MESSAGE,
-                null,
-                new Object[]{"Sí", "No"},
-                "No");
+            UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
+            int opcion = JOptionPane.showOptionDialog(
+                    null,
+                    "¿Desea eliminar el registro?",
+                    "Advertencia",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.WARNING_MESSAGE,
+                    null,
+                    new Object[]{"Sí", "No"},
+                    "No");
 
-        if (opcion == JOptionPane.YES_OPTION) {
-            try {
-                ctProd ct = new ctProd();
-                ct.idTipoProd = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-                ct.deleteTProd();
-                loadD();
-            } catch (SQLException ex) {
-                Logger.getLogger(CRUDTipoProd.class.getName()).log(Level.SEVERE, null, ex);
+            if (opcion == JOptionPane.YES_OPTION) {
+                try {
+                    ctProd ct = new ctProd();
+                    ct.idTipoProd = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                    ct.deleteTProd();
+                    loadD();
+                } catch (SQLException ex) {
+                    Logger.getLogger(CRUDTipoProd.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else if (opcion == JOptionPane.NO_OPTION) {
+
             }
-        } else if (opcion == JOptionPane.NO_OPTION) {
-
-        }
         } else {
-           CódigoError obj = new CódigoError();
+            CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
