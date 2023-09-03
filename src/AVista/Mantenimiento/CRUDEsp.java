@@ -5,6 +5,7 @@ import AControlador.ctTipoServ;
 import AVista.Usuarios.CRUDusuarios;
 import Design.Desg;
 import Mensajes.CódigoError;
+import Mensajes.CódigoErrorDSI5;
 import Mensajes.CódogpErrorDIFC1;
 import Mensajes.GlassPanePopup;
 import java.sql.ResultSet;
@@ -15,6 +16,7 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 import Validation.Valida;
+import static groovy.ui.text.FindReplaceUtility.dispose;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -261,21 +263,7 @@ public class CRUDEsp extends javax.swing.JPanel {
             });
             GlassPanePopup.showPopup(obj);
         } else {
-            ctUser ctUs = new ctUser();
-            ctUs.idTipoCuenta = dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
-
-            ctUs.usuario = txtUsuario.getText();
-            try {
-                ctUs.contra = cryp.encrypt(txtContra.getText(), "key");
-
-            } catch (Exception ex) {
-                Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            ctUs.correo = txtCorreo.getText();
-            ctUs.telefono = txtTeléfono.getText();
-            ctUs.insertUs();
-            Login newFrame = new Login();
-            newFrame.setVisible(true);
+          
             dispose();
         }
                    
