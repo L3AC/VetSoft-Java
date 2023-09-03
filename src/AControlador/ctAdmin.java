@@ -1,9 +1,9 @@
-
 package AControlador;
 
 import AModelo.mdAdmin;
 
 public class ctAdmin {
+
     public int idAdmin;
     public int idUsuario;
     public String nombre;
@@ -67,10 +67,10 @@ public class ctAdmin {
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
-    
-    mdAdmin md=new mdAdmin();
-    
-        public boolean updAdmin() {
+
+    mdAdmin md = new mdAdmin();
+
+    public boolean updAdmin() {
         return md.upAdmin(idAdmin, nombre, apellido, dui, nacimiento, sexo);
     }
 }

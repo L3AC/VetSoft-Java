@@ -258,8 +258,8 @@ public class mdUser extends JFrame {
                         + "WHERE a.idUsuario=u.idUsuario and e.idEspecialidad=a.idEspecialidad and u.idUsuario =?";
             }
             if (idTipoU == 5) {
-                url = "SELECT Usuario,Correo,Telefono,a.Apellido as ape,a.Nombre as nom,\n"
-                        + "a.DUI as dui,a.Sexo as sexo,a.Nacimiento as naci,CONCAT(d.Nombre,' ',d.Apellido) as doc \n"
+                url = "SELECT Usuario,Correo,Telefono,a.Apellido as Apellido,a.Nombre as Nombre,\n"
+                        + "a.DUI as DUI,a.Sexo as sexo,a.Nacimiento as nacimiento,CONCAT(d.Nombre,' ',d.Apellido) as doc \n"
                         + "FROM tbAsistentes a,tbUsuarios u, tbDoctores d\n"
                         + "WHERE a.idUsuario=u.idUsuario and d.idDoctor=a.idDoctor and u.idUsuario =?";
             }
