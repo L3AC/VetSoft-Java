@@ -1,6 +1,7 @@
 package AVista.Perfil;
 
 import AControlador.ctCitas;
+import Design.Desg;
 import Mensajes.CódigoErrorDSI5;
 import Mensajes.GlassPanePopup;
 import Validation.Valida;
@@ -8,11 +9,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class PerfilData extends javax.swing.JPanel {
 
-    public PerfilData() {
-        //this.id
+    private int idTipoUs;
+    private int idC;
+    Desg dsg = new Desg();
+    Map<Integer, String> cbMap = new HashMap<>();
+    
+    public PerfilData(int idTipoUs,int idC) throws SQLException {
+        this.idTipoUs=idTipoUs;
+        this.idC=idC;
         initComponents();
         txtUser.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
         txtTel.setDocument(new Valida(8, "[0-9]*"));
@@ -26,6 +35,19 @@ public class PerfilData extends javax.swing.JPanel {
         lbMin3.setVisible(false);
         lbMin4.setVisible(false);
         lbMin5.setVisible(false);
+        
+        if(idTipoUs==1){
+            loadAdRe();
+        }
+        if(idTipoUs==2){
+            loadAdRe();
+        }
+        if(idTipoUs==4){
+            loadDoc();
+        }
+        if(idTipoUs==5){
+            loadAsis();
+        }
     }
 
     @SuppressWarnings("unchecked")

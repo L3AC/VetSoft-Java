@@ -4,6 +4,7 @@ package AVista.Animales;
 import AControlador.ctAnimales;
 import AControlador.ctEsp;
 import AControlador.ctRaza;
+import AVista.Clientes.CRUDCliente;
 import Design.Desg;
 import Tipografias.Fuentes;
 import java.sql.ResultSet;
@@ -305,7 +306,7 @@ public class addMascota extends javax.swing.JPanel {
     }
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         try {
-            CRUDAnimales subp = new CRUDAnimales(idTipoUs);
+            CRUDCliente subp = new CRUDCliente(idTipoUs);   
             dsg.ShowPanel(subp, PCont, 1320, 810);
         } catch (SQLException ex) {
             Logger.getLogger(addMascota.class.getName()).log(Level.SEVERE, null, ex);
