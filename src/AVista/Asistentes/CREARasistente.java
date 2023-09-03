@@ -445,36 +445,49 @@ public class CREARasistente extends javax.swing.JPanel {
 
     private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
         // TODO add your handling code here:
-        if (txtNombre.getText().length() >= 3) {
+        if (txtNombre.getText().length() >= 3 && txtApellidos.getText().length() >= 5 && txtDui.getText().length() >= 10) {
             lbMin.setVisible(false);
             btnConfirm.setEnabled(true);
         } else {
-            lbMin.setVisible(true);
-            btnConfirm.setEnabled(false);
-        }
+            if (txtNombre.getText().length() >= 3) {
+                lbMin.setVisible(false);
+                btnConfirm.setEnabled(true);
+            } else {
+                lbMin.setVisible(true);
+                btnConfirm.setEnabled(false);
+            }
     }//GEN-LAST:event_txtNombreKeyReleased
-
+    }
     private void txtApellidosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidosKeyReleased
         // TODO add your handling code here:
-        if (txtApellidos.getText().length() >= 5) {
+        if (txtApellidos.getText().length() >= 5 && txtNombre.getText().length() >= 3 && txtDui.getText().length() >= 10) {
             lbMin1.setVisible(false);
             btnConfirm.setEnabled(true);
         } else {
-            lbMin1.setVisible(true);
-            btnConfirm.setEnabled(false);
-        }
+            if (txtApellidos.getText().length() >= 5) {
+                lbMin1.setVisible(false);
+                btnConfirm.setEnabled(true);
+            } else {
+                lbMin1.setVisible(true);
+                btnConfirm.setEnabled(false);
+            }
     }//GEN-LAST:event_txtApellidosKeyReleased
-
+    }
     private void txtDuiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDuiKeyReleased
         // TODO add your handling code here:
-        if (txtDui.getText().length() >= 10) {
+        if (txtDui.getText().length() >= 10 && txtNombre.getText().length() >= 3 && txtApellidos.getText().length() >= 5) {
             lbMin2.setVisible(false);
             btnConfirm.setEnabled(true);
         } else {
-            lbMin2.setVisible(true);
-            btnConfirm.setEnabled(false);
-        }
+            if (txtDui.getText().length() >= 10) {
+                lbMin2.setVisible(false);
+                btnConfirm.setEnabled(true);
+            } else {
+                lbMin2.setVisible(true);
+                btnConfirm.setEnabled(false);
+            }
     }//GEN-LAST:event_txtDuiKeyReleased
+    }
 
     final void verifPerfil() throws SQLException {
         ctAsistente ctAs = new ctAsistente();

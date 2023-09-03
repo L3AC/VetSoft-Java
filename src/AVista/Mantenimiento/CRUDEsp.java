@@ -252,8 +252,7 @@ public class CRUDEsp extends javax.swing.JPanel {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
 
-        
-           if (txtEsp.getText().isEmpty()) {
+        if (txtEsp.getText().isEmpty()) {
             CódigoErrorDSI5 obj = new CódigoErrorDSI5();
             obj.eventOK(new ActionListener() {
                 @Override
@@ -263,38 +262,23 @@ public class CRUDEsp extends javax.swing.JPanel {
             });
             GlassPanePopup.showPopup(obj);
         } else {
-          
-            dispose();
-        }
-                   
-        try {
-            ctEsp ctEs = new ctEsp();
-
-            ctEs.esp = txtEsp.getText();
-            ctEs.idEsp = idEsp;
-            ctEs.insertEsp();
-            loadD();
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDEsp.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-
-    }//GEN-LAST:event_btnAgregarActionPerformed
-
-    private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
-        if (tbData.getRowCount() > 0) {
             try {
                 ctEsp ctEs = new ctEsp();
 
                 ctEs.esp = txtEsp.getText();
                 ctEs.idEsp = idEsp;
-                ctEs.updtEsp();
+                ctEs.insertEsp();
                 loadD();
             } catch (SQLException ex) {
                 Logger.getLogger(CRUDEsp.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else {
-            CódigoError obj = new CódigoError();
+        }
+
+    }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
+        if (txtEsp.getText().isEmpty()) {
+            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
@@ -302,10 +286,31 @@ public class CRUDEsp extends javax.swing.JPanel {
                 }
             });
             GlassPanePopup.showPopup(obj);
-        }
+        } else {
+            if (tbData.getRowCount() > 0) {
+                try {
+                    ctEsp ctEs = new ctEsp();
+
+                    ctEs.esp = txtEsp.getText();
+                    ctEs.idEsp = idEsp;
+                    ctEs.updtEsp();
+                    loadD();
+                } catch (SQLException ex) {
+                    Logger.getLogger(CRUDEsp.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                CódigoError obj = new CódigoError();
+                obj.eventOK(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        GlassPanePopup.closePopupLast();
+                    }
+                });
+                GlassPanePopup.showPopup(obj);
+            }
 
     }//GEN-LAST:event_btnActActionPerformed
-
+    }
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         if (tbData.getRowCount() > 0) {
             UIManager.put("OptionPane.messageDialogTitle", "Confirmación");

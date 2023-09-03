@@ -30,19 +30,17 @@ public class updtAnimales extends javax.swing.JPanel {
     Map<Integer, String> cbMap = new HashMap<>();
     Map<Integer, String> cbMapRa = new HashMap<>();
 
-    
-    
     public updtAnimales(int idAnim) throws SQLException {
         this.idAnim = idAnim;
         initComponents();
-        
+
         txtNombre.setDocument(new Valida(25, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         txtPeso.setDocument(new Valida(30, "[a-zA-Z0-9 .]*"));
         txtPad.setDocument(new Valida(300, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         dpNaci.setMaxSelectableDate(Calendar.getInstance().getTime());
         lbMin.setVisible(false);
         lbMin1.setVisible(false);
-        
+
         loadComboTP(cbTipoA);
         loadComboRaza(cbRaza);
         loadData();
@@ -345,36 +343,44 @@ public class updtAnimales extends javax.swing.JPanel {
 
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
         // TODO add your handling code here:
-       
+
     }//GEN-LAST:event_txtNombreKeyTyped
 
     private void txtPesoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesoKeyTyped
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_txtPesoKeyTyped
 
     private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
         // TODO add your handling code here:
-        if(txtNombre.getText().length()>= 3){
+        if (txtNombre.getText().length() >= 3 && txtPeso.getText().length() >= 10) {
             lbMin.setVisible(false);
-             btnConfirm.setEnabled(true);
-        }else {
-            lbMin.setVisible(true);
-             btnConfirm.setEnabled(false);
-        } 
+            btnConfirm.setEnabled(true);
+        } else {
+            if (txtNombre.getText().length() >= 3) {
+                lbMin.setVisible(false);
+                btnConfirm.setEnabled(true);
+            } else {
+                lbMin.setVisible(true);
+                btnConfirm.setEnabled(false);
+            }
     }//GEN-LAST:event_txtNombreKeyReleased
-
+    }
     private void txtPesoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesoKeyReleased
         // TODO add your handling code here:
-        if(txtNombre.getText().length()>= 9){
+        if (txtPeso.getText().length() >= 10) {
             lbMin1.setVisible(false);
             btnConfirm.setEnabled(true);
-        }else {
-            lbMin1.setVisible(true);
-            btnConfirm.setEnabled(false);
-        } 
+        } else {
+            if (txtPeso.getText().length() >= 10) {
+                lbMin1.setVisible(false);
+                btnConfirm.setEnabled(true);
+            } else {
+                lbMin1.setVisible(true);
+                btnConfirm.setEnabled(false);
+            }
     }//GEN-LAST:event_txtPesoKeyReleased
-
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;

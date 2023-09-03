@@ -8,6 +8,7 @@ import AControlador.ctRaza;
 import AControlador.ctTipoServ;
 import Design.Desg;
 import Mensajes.CódigoError;
+import Mensajes.CódigoErrorDSI5;
 import Mensajes.GlassPanePopup;
 import Validation.Valida;
 import java.awt.event.ActionEvent;
@@ -283,31 +284,8 @@ public class CRUDRazas extends javax.swing.JPanel {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        try {
-            ctRaza ct = new ctRaza();
-            ct.idTipoAnimal = dsg.getMap(cbMapNPS, cbTIpoA.getSelectedItem().toString());
-            ct.nombreRaza = txtNR.getText();
-            ct.insRaza();
-            loadD();
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDRazas.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_btnAgregarActionPerformed
-
-    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        if (model.getRowCount() > 0) {
-            try {
-                ctRaza ct = new ctRaza();
-                ct.idTipoAnimal = dsg.getMap(cbMapNPS, cbTIpoA.getSelectedItem().toString());
-                ct.nombreRaza = txtNR.getText();
-                ct.idRaza = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-                ct.upRaza();
-                loadD();
-            } catch (SQLException ex) {
-                Logger.getLogger(CRUDRazas.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else {
-            CódigoError obj = new CódigoError();
+        if (txtNR.getText().isEmpty()) {
+            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
@@ -315,9 +293,52 @@ public class CRUDRazas extends javax.swing.JPanel {
                 }
             });
             GlassPanePopup.showPopup(obj);
-        }
+        } else {
+            try {
+                ctRaza ct = new ctRaza();
+                ct.idTipoAnimal = dsg.getMap(cbMapNPS, cbTIpoA.getSelectedItem().toString());
+                ct.nombreRaza = txtNR.getText();
+                ct.insRaza();
+                loadD();
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDRazas.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }//GEN-LAST:event_btnAgregarActionPerformed
+    }
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        if (txtNR.getText().isEmpty()) {
+            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+        } else {
+            if (model.getRowCount() > 0) {
+                try {
+                    ctRaza ct = new ctRaza();
+                    ct.idTipoAnimal = dsg.getMap(cbMapNPS, cbTIpoA.getSelectedItem().toString());
+                    ct.nombreRaza = txtNR.getText();
+                    ct.idRaza = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                    ct.upRaza();
+                    loadD();
+                } catch (SQLException ex) {
+                    Logger.getLogger(CRUDRazas.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                CódigoError obj = new CódigoError();
+                obj.eventOK(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        GlassPanePopup.closePopupLast();
+                    }
+                });
+                GlassPanePopup.showPopup(obj);
+            }
     }//GEN-LAST:event_btnEditarActionPerformed
-
+    }
     private void cbTIpoAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTIpoAActionPerformed
         /*// TODO add your handling code here:
         tpUs = dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());

@@ -4,6 +4,7 @@ import AControlador.ctCliente;
 import AControlador.ctVacunas;
 import Design.Desg;
 import Mensajes.CódigoError;
+import Mensajes.CódigoErrorDSI5;
 import Mensajes.CódogpErrorDIFC1;
 import Mensajes.GlassPanePopup;
 import java.awt.event.ActionEvent;
@@ -212,31 +213,8 @@ public class CRUDTipoVac extends javax.swing.JPanel {
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void btnAddMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddMActionPerformed
-        try {
-            ctVacunas ct = new ctVacunas();
-            ct.nombreVac = txtVacuna.getText().toString();
-            ct.util = txtUso.getText().toString();
-            ct.insTPVac();
-            loadD();
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDTipoVac.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_btnAddMActionPerformed
-
-    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        if (tbData.getRowCount() > 0) {
-            try {
-                ctVacunas ct = new ctVacunas();
-                ct.idTipoVac = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-                ct.nombreVac = txtVacuna.getText().toString();
-                ct.util = txtUso.getText().toString();
-                ct.upTPVac();
-                loadD();
-            } catch (SQLException ex) {
-                Logger.getLogger(CRUDTipoVac.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else {
-            CódigoError obj = new CódigoError();
+        if (txtVacuna.getText().isEmpty() || txtUso.getText().isEmpty()) {
+            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
@@ -244,9 +222,52 @@ public class CRUDTipoVac extends javax.swing.JPanel {
                 }
             });
             GlassPanePopup.showPopup(obj);
-        }
+        } else {
+            try {
+                ctVacunas ct = new ctVacunas();
+                ct.nombreVac = txtVacuna.getText().toString();
+                ct.util = txtUso.getText().toString();
+                ct.insTPVac();
+                loadD();
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDTipoVac.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }//GEN-LAST:event_btnAddMActionPerformed
+    }
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        if (txtVacuna.getText().isEmpty() || txtUso.getText().isEmpty()) {
+            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+        } else {
+            if (tbData.getRowCount() > 0) {
+                try {
+                    ctVacunas ct = new ctVacunas();
+                    ct.idTipoVac = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                    ct.nombreVac = txtVacuna.getText().toString();
+                    ct.util = txtUso.getText().toString();
+                    ct.upTPVac();
+                    loadD();
+                } catch (SQLException ex) {
+                    Logger.getLogger(CRUDTipoVac.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                CódigoError obj = new CódigoError();
+                obj.eventOK(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        GlassPanePopup.closePopupLast();
+                    }
+                });
+                GlassPanePopup.showPopup(obj);
+            }
     }//GEN-LAST:event_btnEditarActionPerformed
-
+    }
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         if (tbData.getRowCount() > 0) {
             UIManager.put("OptionPane.messageDialogTitle", "Confirmación");

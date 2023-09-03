@@ -4,6 +4,7 @@ import AControlador.ctEjem;
 import AControlador.ctProd;
 import Design.Desg;
 import Mensajes.CódigoError;
+import Mensajes.CódigoErrorDSI5;
 import Mensajes.CódogpErrorDIFC1;
 import Mensajes.GlassPanePopup;
 import java.awt.event.ActionEvent;
@@ -23,8 +24,8 @@ public class CRUDEjemp extends javax.swing.JPanel {
     Desg dsg = new Desg();
     DefaultTableModel model;
 
-    public CRUDEjemp(int idTipoUs,int idProd) throws SQLException {
-        this.idTipoUs=idTipoUs;
+    public CRUDEjemp(int idTipoUs, int idProd) throws SQLException {
+        this.idTipoUs = idTipoUs;
         this.idProd = idProd;
         initComponents();
         loadD();
@@ -238,51 +239,60 @@ public class CRUDEjemp extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        int cantidad = Integer.parseInt(txtNum.getText());
-        for (int i = 1; i <= cantidad; i++) {
-            try {
-                ctEjem ct = new ctEjem();
-                ct.idProd = idProd;
-                ct.insEjem();
-                loadD();
-            }
-            /* try {
+        if (txtNum.getText().isEmpty()) {
+            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+        } else {
+            int cantidad = Integer.parseInt(txtNum.getText());
+            for (int i = 1; i <= cantidad; i++) {
+                try {
+                    ctEjem ct = new ctEjem();
+                    ct.idProd = idProd;
+                    ct.insEjem();
+                    loadD();
+                } /* try {
             } catch (SQLException ex) {
             Logger.getLogger(CRUDEjemp.class.getName()).log(Level.SEVERE, null, ex);
             }*/ catch (SQLException ex) {
-                Logger.getLogger(CRUDEjemp.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(CRUDEjemp.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
+
         }
-
-
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-       if (tbData.getRowCount() > 0) {
-        UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
-        int opcion = JOptionPane.showOptionDialog(
-                null,
-                "¿Desea eliminar el registro?",
-                "Advertencia",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.WARNING_MESSAGE,
-                null,
-                new Object[]{"Sí", "No"},
-                "No");
+        if (tbData.getRowCount() > 0) {
+            UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
+            int opcion = JOptionPane.showOptionDialog(
+                    null,
+                    "¿Desea eliminar el registro?",
+                    "Advertencia",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.WARNING_MESSAGE,
+                    null,
+                    new Object[]{"Sí", "No"},
+                    "No");
 
-        if (opcion == JOptionPane.YES_OPTION) {
-            try {
-                ctEjem ct = new ctEjem();
-                ct.idEjem = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-                ct.dlEjem();
-                loadD();
-            } catch (SQLException ex) {
-                Logger.getLogger(CRUDEjemp.class.getName()).log(Level.SEVERE, null, ex);
+            if (opcion == JOptionPane.YES_OPTION) {
+                try {
+                    ctEjem ct = new ctEjem();
+                    ct.idEjem = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                    ct.dlEjem();
+                    loadD();
+                } catch (SQLException ex) {
+                    Logger.getLogger(CRUDEjemp.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else if (opcion == JOptionPane.NO_OPTION) {
+
             }
-        } else if (opcion == JOptionPane.NO_OPTION) {
-
-        }
-       } else {
+        } else {
             CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override

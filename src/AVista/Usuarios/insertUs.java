@@ -45,7 +45,7 @@ public class insertUs extends javax.swing.JPanel {
         this.idTipoUs = idTipoUs;
         initComponents();
         tipoFuente = new Fuentes();
-        
+
         jLabel2.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 32));
         jLabel1.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 17));
         jLabel10.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 17));
@@ -56,8 +56,7 @@ public class insertUs extends javax.swing.JPanel {
         txtCorreo.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 15));
         txtContra.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 15));
         lbCargo.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 17));
-        
-        
+
         txtUsuario.setDocument(new Valida(30, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         txtCorreo.setDocument(new Valida(50, "[a-zA-Z0-9@._]*"));
         txtContra.setDocument(new Valida(100, "[a-zA-Z0-9]*"));
@@ -123,6 +122,7 @@ public class insertUs extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("CREAR USUARIO");
 
+        btnBack.setBackground(new java.awt.Color(190, 233, 232));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
         btnBack.setBorder(null);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -325,20 +325,20 @@ public class insertUs extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
-        List<TextFieldSV> lista = new ArrayList<>();
-        lista.add(txtCorreo);
-        lista.add(txtTel);
-        if (txtContra.getText().isEmpty() || cbCargo.getSelectedIndex() == -1||txtCorreo.getText().isEmpty() ||txtTel.getText().isEmpty() ) {
+        if (txtUsuario.getText().isEmpty() || txtContra.getText().isEmpty() || txtTel.getText().isEmpty() || txtCorreo.getText().isEmpty()) {
             CódigoErrorDSI5 obj = new CódigoErrorDSI5();
-        obj.eventOK(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                GlassPanePopup.closePopupLast();
-            }
-        });
-        GlassPanePopup.showPopup(obj);
-        }
-        else{
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+        } else {
+            List<TextFieldSV> lista = new ArrayList<>();
+            lista.add(txtCorreo);
+            lista.add(txtTel);
+
             ctUser ctUs = new ctUser();
             if (idTipoUs == 1) {
                 ctUs.idTipoCuenta = dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
@@ -381,48 +381,57 @@ public class insertUs extends javax.swing.JPanel {
 
     private void txtUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyTyped
         // TODO add your handling code here:
-        
-        
+
+
     }//GEN-LAST:event_txtUsuarioKeyTyped
 
     private void txtContraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyTyped
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_txtContraKeyTyped
 
     private void txtTelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelKeyTyped
         // TODO add your handling code here:
-       
+
     }//GEN-LAST:event_txtTelKeyTyped
 
     private void txtContraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyReleased
         // TODO add your handling code here:
-        if(txtContra.getText().length()>= 8){
+        if (txtContra.getText().length() >= 8 && txtTel.getText().length() >= 8 && txtUsuario.getText().length() >= 4) {
             lbMin1.setVisible(false);
             btnConfirm.setEnabled(true);
-        }else {
-            lbMin1.setVisible(true);
-            btnConfirm.setEnabled(false);
-        } 
+        } else {
+            if (txtContra.getText().length() >= 8) {
+                lbMin1.setVisible(false);
+                btnConfirm.setEnabled(true);
+            } else {
+                lbMin1.setVisible(true);
+                btnConfirm.setEnabled(false);
+            }
     }//GEN-LAST:event_txtContraKeyReleased
-
+    }
     private void txtTelKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelKeyReleased
         // TODO add your handling code here:
-         if(txtTel.getText().length()>= 8){
+        if (txtTel.getText().length() >= 8 && txtContra.getText().length() >= 8 && txtUsuario.getText().length() >= 4) {
             lbMin2.setVisible(false);
             btnConfirm.setEnabled(true);
-        }else {
-            lbMin2.setVisible(true);
-            btnConfirm.setEnabled(false);
-        } 
-    }//GEN-LAST:event_txtTelKeyReleased
+        } else {
+            if (txtTel.getText().length() >= 8) {
+                lbMin2.setVisible(false);
+                btnConfirm.setEnabled(true);
 
+            } else {
+                lbMin2.setVisible(true);
+                btnConfirm.setEnabled(false);
+            }
+    }//GEN-LAST:event_txtTelKeyReleased
+    }
     private void txtUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyReleased
         // TODO add your handling code here:
-         ctUser ctUs = new ctUser();
+        ctUser ctUs = new ctUser();
         ctUs.usuario = txtUsuario.getText().toString();
         try {
-            if (ctUs.verifUs().next())  {
+            if (ctUs.verifUs().next()) {
                 lbDisp.setVisible(true);
                 btnConfirm.setEnabled(false);
 
@@ -433,16 +442,20 @@ public class insertUs extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        if (txtUsuario.getText().length() >= 4) {
+
+        if (txtUsuario.getText().length() >= 4 && txtContra.getText().length() >= 8 && txtTel.getText().length() >= 8) {
             lbMin.setVisible(false);
             btnConfirm.setEnabled(true);
         } else {
-            lbMin.setVisible(true);
-            btnConfirm.setEnabled(false);
-        }
+            if (txtUsuario.getText().length() >= 4) {
+                lbMin.setVisible(false);
+                btnConfirm.setEnabled(true);
+            } else {
+                lbMin.setVisible(true);
+                btnConfirm.setEnabled(false);
+            }
     }//GEN-LAST:event_txtUsuarioKeyReleased
-
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;

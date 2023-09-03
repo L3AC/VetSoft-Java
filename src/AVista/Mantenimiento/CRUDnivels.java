@@ -8,6 +8,7 @@ import AControlador.ctProd;
 import AControlador.ctTipoServ;
 import Design.Desg;
 import Mensajes.CódigoError;
+import Mensajes.CódigoErrorDSI5;
 import Mensajes.GlassPanePopup;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -186,18 +187,8 @@ public class CRUDnivels extends javax.swing.JPanel {
     }//GEN-LAST:event_txtBusqKeyReleased
 
     private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
-        if (tbData.getRowCount() > 0) {
-            try {
-                ctTipoServ ct = new ctTipoServ();
-                ct.idNivelServ = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-                ct.prioridad = txtPriori.getText();
-                ct.upNServ();
-                loadD();
-            } catch (SQLException ex) {
-                Logger.getLogger(CRUDnivels.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else {
-            CódigoError obj = new CódigoError();
+        if (txtPriori.getText().isEmpty()) {
+            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
@@ -205,9 +196,30 @@ public class CRUDnivels extends javax.swing.JPanel {
                 }
             });
             GlassPanePopup.showPopup(obj);
-        }
+        } else {
+            if (tbData.getRowCount() > 0) {
+                try {
+                    ctTipoServ ct = new ctTipoServ();
+                    ct.idNivelServ = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                    ct.prioridad = txtPriori.getText();
+                    ct.upNServ();
+                    loadD();
+                } catch (SQLException ex) {
+                    Logger.getLogger(CRUDnivels.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                CódigoError obj = new CódigoError();
+                obj.eventOK(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        GlassPanePopup.closePopupLast();
+                    }
+                });
+                GlassPanePopup.showPopup(obj);
+            }
 
     }//GEN-LAST:event_btnActActionPerformed
+    }
 
     final void setData() {
         txtPriori.setText(tbData.getValueAt(tbData.getSelectedRow(), 1).toString());

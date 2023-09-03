@@ -4,8 +4,12 @@ import AControlador.ctPreguntas;
 import AModelo.Crypt;
 import Design.Desg;
 import Design.TextFieldSV;
+import Mensajes.CódigoErrorDSI5;
+import Mensajes.GlassPanePopup;
 import Validation.Valida;
 import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -257,25 +261,44 @@ public class Preguntas extends javax.swing.JPanel {
     }
 
     private void btnGuardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardActionPerformed
-
-        try {
-            if (verifExist(1, txtResp1) && verifExist(2, txtResp2) && verifExist(3, txtResp3)) {
-                System.out.println(23);
-                upResp(1, idUs, txtResp1.getText());
-                upResp(2, idUs, txtResp2.getText());
-                upResp(3, idUs, txtResp3.getText());
-            } else {
-                insResp(1, idUs, txtResp1.getText());
-                insResp(2, idUs, txtResp2.getText());
-                insResp(3, idUs, txtResp3.getText());
+        if (txtResp1.getText().isEmpty() || txtResp2.getText().isEmpty() || txtResp3.getText().isEmpty()) {
+            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+        } else {
+            try {
+                if (verifExist(1, txtResp1) && verifExist(2, txtResp2) && verifExist(3, txtResp3)) {
+                    System.out.println(23);
+                    upResp(1, idUs, txtResp1.getText());
+                    upResp(2, idUs, txtResp2.getText());
+                    upResp(3, idUs, txtResp3.getText());
+                } else {
+                    insResp(1, idUs, txtResp1.getText());
+                    insResp(2, idUs, txtResp2.getText());
+                    insResp(3, idUs, txtResp3.getText());
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Preguntas.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(Preguntas.class.getName()).log(Level.SEVERE, null, ex);
-        }
 
     }//GEN-LAST:event_btnGuardActionPerformed
-
+    }
     private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
+        if (txtResp1.getText().isEmpty() || txtResp2.getText().isEmpty() || txtResp3.getText().isEmpty()) {
+            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+        } else {
         if (btnGuard.isVisible()) {
             btnAct.setText("Editar");
             enab(false);
@@ -286,8 +309,8 @@ public class Preguntas extends javax.swing.JPanel {
             btnGuard.setVisible(true);
         }
     }//GEN-LAST:event_btnActActionPerformed
-
-
+        }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
     private Design.ButtonGradient btnAct;

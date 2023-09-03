@@ -6,6 +6,8 @@ import AControlador.ctEsp;
 import AControlador.ctRaza;
 import AVista.Clientes.CRUDCliente;
 import Design.Desg;
+import Mensajes.CódigoErrorDSI5;
+import Mensajes.GlassPanePopup;
 import Tipografias.Fuentes;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,6 +18,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import Validation.Valida;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Calendar;
 
 public class addMascota extends javax.swing.JPanel {
@@ -329,6 +333,16 @@ public class addMascota extends javax.swing.JPanel {
     }//GEN-LAST:event_cbTipoAActionPerformed
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
+         if (txtNombre.getText().isEmpty() || txtPeso.getText().isEmpty()) {
+            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+        } else {
         SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
         ctAnimales ct = new ctAnimales();
         ct.idRaza=dsg.getMap(cbMapRa, cbRaza.getSelectedItem().toString());
@@ -339,7 +353,7 @@ public class addMascota extends javax.swing.JPanel {
         ct.padecimientos=txtPad.getText();
         ct.sexo=cbSexo.getSelectedItem().toString();
         ct.insertAnim();
-        
+         }
         
         
     }//GEN-LAST:event_btnConfirmActionPerformed

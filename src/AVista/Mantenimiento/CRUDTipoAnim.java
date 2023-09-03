@@ -10,6 +10,7 @@ import AControlador.ctTipoServ;
 import Design.Desg;
 import Design.TextFieldSV;
 import Mensajes.CódigoError;
+import Mensajes.CódigoErrorDSI5;
 import Mensajes.CódogpErrorDIFC1;
 import Mensajes.GlassPanePopup;
 import Validation.Valida;
@@ -288,7 +289,7 @@ public class CRUDTipoAnim extends javax.swing.JPanel {
             .addComponent(PCont, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-    final void setData() {      
+    final void setData() {
         txtNP.setText(tbData.getValueAt(tbData.getSelectedRow(), 1).toString());
         txtNC.setText(tbData.getValueAt(tbData.getSelectedRow(), 2).toString());
     }
@@ -311,32 +312,32 @@ public class CRUDTipoAnim extends javax.swing.JPanel {
     }//GEN-LAST:event_btnLimpActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
- if (tbData.getRowCount() > 0) {
-        UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
-        int opcion = JOptionPane.showOptionDialog(
-                null,
-                "¿Desea eliminar el registro?",
-                "Advertencia",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.WARNING_MESSAGE,
-                null,
-                new Object[]{"Sí", "No"},
-                "No");
+        if (tbData.getRowCount() > 0) {
+            UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
+            int opcion = JOptionPane.showOptionDialog(
+                    null,
+                    "¿Desea eliminar el registro?",
+                    "Advertencia",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.WARNING_MESSAGE,
+                    null,
+                    new Object[]{"Sí", "No"},
+                    "No");
 
-        if (opcion == JOptionPane.YES_OPTION) {
-            try {
-                ctTipoAnim ct = new ctTipoAnim();
-                ct.idTipoAnim = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-                ct.deleteTPA(); 
-                loadD();
-            } catch (SQLException ex) {
-                Logger.getLogger(CRUDTipoAnim.class.getName()).log(Level.SEVERE, null, ex);
+            if (opcion == JOptionPane.YES_OPTION) {
+                try {
+                    ctTipoAnim ct = new ctTipoAnim();
+                    ct.idTipoAnim = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                    ct.deleteTPA();
+                    loadD();
+                } catch (SQLException ex) {
+                    Logger.getLogger(CRUDTipoAnim.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else if (opcion == JOptionPane.NO_OPTION) {
+
             }
-        } else if (opcion == JOptionPane.NO_OPTION) {
-
-        }
- } else {
-           CódigoError obj = new CódigoError();
+        } else {
+            CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
@@ -348,26 +349,8 @@ public class CRUDTipoAnim extends javax.swing.JPanel {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
-      if (tbData.getRowCount() > 0) {
-        try {
-            List<TextFieldSV> lista = new ArrayList<>();
-            lista.add(txtNP);
-            lista.add(txtNC);
-            if (dsg.areFieldsNotEmpty(lista)) {
-                ctTipoAnim ct = new ctTipoAnim();
-                ct.idTipoAnim = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-                ct.nPopular = txtNP.getText();
-                ct.nCient = txtNC.getText();
-                ct.updtTPA();
-                loadD();
-            } else {
-
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDTipoAnim.class.getName()).log(Level.SEVERE, null, ex);
-        }
-      } else {
-            CódigoError obj = new CódigoError();
+        if (txtNC.getText().isEmpty() || txtNP.getText().isEmpty()) {
+            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
@@ -375,28 +358,66 @@ public class CRUDTipoAnim extends javax.swing.JPanel {
                 }
             });
             GlassPanePopup.showPopup(obj);
-        }
-    }//GEN-LAST:event_btnActActionPerformed
+        } else {
+            if (tbData.getRowCount() > 0) {
+                try {
+                    List<TextFieldSV> lista = new ArrayList<>();
+                    lista.add(txtNP);
+                    lista.add(txtNC);
+                    if (dsg.areFieldsNotEmpty(lista)) {
+                        ctTipoAnim ct = new ctTipoAnim();
+                        ct.idTipoAnim = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                        ct.nPopular = txtNP.getText();
+                        ct.nCient = txtNC.getText();
+                        ct.updtTPA();
+                        loadD();
+                    } else {
 
-    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        List<TextFieldSV> lista = new ArrayList<>();
-        lista.add(txtNP);
-        lista.add(txtNC);
-        try {
-            if (dsg.areFieldsNotEmpty(lista)) {//VERIFICAR QUE NO ESTE VACIO
-                ctTipoAnim ct = new ctTipoAnim();
-                ct.nPopular = txtNP.getText();
-                ct.nCient = txtNC.getText();
-                ct.insertTPA();
-                loadD();
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(CRUDTipoAnim.class.getName()).log(Level.SEVERE, null, ex);
+                }
             } else {
-
+                CódigoError obj = new CódigoError();
+                obj.eventOK(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        GlassPanePopup.closePopupLast();
+                    }
+                });
+                GlassPanePopup.showPopup(obj);
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDTipoAnim.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_btnAgregarActionPerformed
+    }//GEN-LAST:event_btnActActionPerformed
+    }
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        if (txtNC.getText().isEmpty() || txtNP.getText().isEmpty()) {
+            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+        } else {
+            List<TextFieldSV> lista = new ArrayList<>();
+            lista.add(txtNP);
+            lista.add(txtNC);
+            try {
+                if (dsg.areFieldsNotEmpty(lista)) {//VERIFICAR QUE NO ESTE VACIO
+                    ctTipoAnim ct = new ctTipoAnim();
+                    ct.nPopular = txtNP.getText();
+                    ct.nCient = txtNC.getText();
+                    ct.insertTPA();
+                    loadD();
+                } else {
 
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDTipoAnim.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }//GEN-LAST:event_btnAgregarActionPerformed
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
