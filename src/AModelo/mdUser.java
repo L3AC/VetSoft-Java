@@ -78,7 +78,6 @@ public class mdUser extends JFrame {
             ps.setString(4, correo);
             ps.setString(5, tel);
             ps.executeUpdate();
-            System.out.println("Funciono jejje");
             return true;
 
         } catch (SQLException e) {
@@ -138,6 +137,7 @@ public class mdUser extends JFrame {
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
             System.out.println(e.toString());
+            JOptionPane.showMessageDialog(null,"Necesita eliminar antes la cuenta");
             return false;
         }
     }

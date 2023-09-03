@@ -129,7 +129,7 @@ public class Dashboard extends javax.swing.JFrame {
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     //TIENDA
-                    if (index == 3 && indexSubMenu == 2) {
+                    if (index == 3 && indexSubMenu == 1) {
                         CRUDProd subp = new CRUDProd(idTipoU);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
