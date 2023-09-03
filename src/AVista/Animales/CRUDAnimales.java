@@ -43,6 +43,14 @@ public class CRUDAnimales extends javax.swing.JPanel {
         tbData.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 18));
 
         txtBusq.setDocument(new Valida(50, "[a-zA-Z]*"));
+        btnEmergen.setVisible(false);
+        if(idTipoUs==2){
+            btnEditar.setVisible(false);
+            btnEliminar.setVisible(false);
+            btnAddV.setVisible(false);
+            btnVac.setVisible(false);
+            btnExam.setVisible(false);
+        }
 
     }
 
@@ -97,7 +105,8 @@ public class CRUDAnimales extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
-        PCont.setBackground(new java.awt.Color(202, 233, 255));
+        PCont.setBackground(new java.awt.Color(190, 233, 232));
+        PCont.setFocusCycleRoot(true);
 
         btnEmergen.setText("Emergencia");
         btnEmergen.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
