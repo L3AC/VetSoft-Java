@@ -114,7 +114,6 @@ public class CRUDCliente extends javax.swing.JPanel {
             }
         });
 
-        btnAddM.setForeground(new java.awt.Color(0, 0, 0));
         btnAddM.setText("Agregar mascota");
         btnAddM.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnAddM.addActionListener(new java.awt.event.ActionListener() {
@@ -123,7 +122,6 @@ public class CRUDCliente extends javax.swing.JPanel {
             }
         });
 
-        btnReservas.setForeground(new java.awt.Color(0, 0, 0));
         btnReservas.setText("Reservar Producto");
         btnReservas.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnReservas.addActionListener(new java.awt.event.ActionListener() {
@@ -132,7 +130,6 @@ public class CRUDCliente extends javax.swing.JPanel {
             }
         });
 
-        btnEditar.setForeground(new java.awt.Color(0, 0, 0));
         btnEditar.setText("Editar");
         btnEditar.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -141,7 +138,6 @@ public class CRUDCliente extends javax.swing.JPanel {
             }
         });
 
-        btnEliminar.setForeground(new java.awt.Color(0, 0, 0));
         btnEliminar.setText("Eliminar");
         btnEliminar.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -157,6 +153,7 @@ public class CRUDCliente extends javax.swing.JPanel {
         panelRound1.setRoundTopRight(50);
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tbData.setBackground(new java.awt.Color(255, 255, 255));
         tbData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -187,7 +184,6 @@ public class CRUDCliente extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("VetSoft+");
 
-        btnReservas1.setForeground(new java.awt.Color(0, 0, 0));
         btnReservas1.setText("Compra");
         btnReservas1.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnReservas1.addActionListener(new java.awt.event.ActionListener() {
@@ -218,9 +214,8 @@ public class CRUDCliente extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
-                    .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(btnReservas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnReservas1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE))
+                    .addComponent(btnReservas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnReservas1, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
                     .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnAddM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))

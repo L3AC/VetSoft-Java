@@ -99,7 +99,6 @@ public class CRUDAnimales extends javax.swing.JPanel {
 
         PCont.setBackground(new java.awt.Color(202, 233, 255));
 
-        btnEmergen.setForeground(new java.awt.Color(0, 0, 0));
         btnEmergen.setText("Emergencia");
         btnEmergen.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnEmergen.addActionListener(new java.awt.event.ActionListener() {
@@ -108,7 +107,6 @@ public class CRUDAnimales extends javax.swing.JPanel {
             }
         });
 
-        btnAgendar.setForeground(new java.awt.Color(0, 0, 0));
         btnAgendar.setText("Agendar Cita");
         btnAgendar.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnAgendar.addActionListener(new java.awt.event.ActionListener() {
@@ -117,7 +115,6 @@ public class CRUDAnimales extends javax.swing.JPanel {
             }
         });
 
-        btnExam.setForeground(new java.awt.Color(0, 0, 0));
         btnExam.setText("Examenes");
         btnExam.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnExam.addActionListener(new java.awt.event.ActionListener() {
@@ -126,7 +123,6 @@ public class CRUDAnimales extends javax.swing.JPanel {
             }
         });
 
-        btnEditar.setForeground(new java.awt.Color(0, 0, 0));
         btnEditar.setText("Editar");
         btnEditar.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -135,7 +131,6 @@ public class CRUDAnimales extends javax.swing.JPanel {
             }
         });
 
-        btnEliminar.setForeground(new java.awt.Color(0, 0, 0));
         btnEliminar.setText("Eliminar");
         btnEliminar.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -161,6 +156,7 @@ public class CRUDAnimales extends javax.swing.JPanel {
         panelRound1.setRoundTopRight(50);
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tbData.setBackground(new java.awt.Color(255, 255, 255));
         tbData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -181,7 +177,6 @@ public class CRUDAnimales extends javax.swing.JPanel {
 
         panelRound1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 910, 460));
 
-        btnVac.setForeground(new java.awt.Color(0, 0, 0));
         btnVac.setText("Vacunas");
         btnVac.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnVac.addActionListener(new java.awt.event.ActionListener() {
@@ -194,7 +189,6 @@ public class CRUDAnimales extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Nombre del dueño:");
 
-        btnAddV.setForeground(new java.awt.Color(0, 0, 0));
         btnAddV.setText("Agregar vacuna");
         btnAddV.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnAddV.addActionListener(new java.awt.event.ActionListener() {
