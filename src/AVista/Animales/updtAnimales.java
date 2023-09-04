@@ -367,7 +367,7 @@ public class updtAnimales extends javax.swing.JPanel {
     }
     private void txtPesoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesoKeyReleased
         // TODO add your handling code here:
-        if (txtPeso.getText().length() >= 10) {
+        if (txtPeso.getText().length() >= 10 && txtNombre.getText().length() >= 3) {
             lbMin1.setVisible(false);
             btnConfirm.setEnabled(true);
         } else {

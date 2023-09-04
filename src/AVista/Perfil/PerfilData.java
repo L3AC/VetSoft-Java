@@ -616,7 +616,7 @@ public class PerfilData extends javax.swing.JPanel {
                 lbMin5.setVisible(false);
                 btnConfirm.setEnabled(true);
             } else {
-                if (txtUser.getText().length() >= 4 && lbUs.isVisible() == false) {
+                if (txtUser.getText().length() >= 4) {
                     lbMin5.setVisible(false);
                     btnConfirm.setEnabled(true);
                 } else {

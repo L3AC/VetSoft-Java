@@ -1,4 +1,3 @@
-
 package AVista.Animales;
 
 import AControlador.ctAnimales;
@@ -30,8 +29,6 @@ public class addMascota extends javax.swing.JPanel {
     Map<Integer, String> cbMap = new HashMap<>();
     Fuentes tipoFuente;
     Map<Integer, String> cbMapRa = new HashMap<>();
-    
-    
 
     public addMascota(int idTipoUs, int idCl) throws SQLException {
         this.idTipoUs = idTipoUs;
@@ -40,7 +37,7 @@ public class addMascota extends javax.swing.JPanel {
         loadComboTP(cbTipoA);
         loadComboRaza(cbRaza);
         tipoFuente = new Fuentes();
-        
+
         jLabel1.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 18));
         jLabel2.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 32));
         jLabel6.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 18));
@@ -56,9 +53,7 @@ public class addMascota extends javax.swing.JPanel {
         cbSexo.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 18));
         jLabel1.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 18));
         txtPad.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 18));
-        
-        
-               
+
         txtNombre.setDocument(new Valida(25, "[a-zA-Z ]*"));
         txtPeso.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
         txtPad.setDocument(new Valida(300, "[a-zA-Z0-9 ]*"));
@@ -66,8 +61,6 @@ public class addMascota extends javax.swing.JPanel {
         lbMin.setVisible(false);
         lbMin1.setVisible(false);
     }
-    
-    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -317,7 +310,7 @@ public class addMascota extends javax.swing.JPanel {
     }
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         try {
-            CRUDCliente subp = new CRUDCliente(idTipoUs);   
+            CRUDCliente subp = new CRUDCliente(idTipoUs);
             dsg.ShowPanel(subp, PCont, 1320, 810);
         } catch (SQLException ex) {
             Logger.getLogger(addMascota.class.getName()).log(Level.SEVERE, null, ex);
@@ -334,7 +327,7 @@ public class addMascota extends javax.swing.JPanel {
     }//GEN-LAST:event_cbTipoAActionPerformed
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
-         if (txtNombre.getText().isEmpty() || txtPeso.getText().isEmpty()) {
+        if (txtNombre.getText().isEmpty() || txtPeso.getText().isEmpty()) {
             CódigoErrorDSI5 obj = new CódigoErrorDSI5();
             obj.eventOK(new ActionListener() {
                 @Override
@@ -344,19 +337,19 @@ public class addMascota extends javax.swing.JPanel {
             });
             GlassPanePopup.showPopup(obj);
         } else {
-        SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
-        ctAnimales ct = new ctAnimales();
-        ct.idRaza=dsg.getMap(cbMapRa, cbRaza.getSelectedItem().toString());
-        ct.idCliente=idCl;
-        ct.nombre=txtNombre.getText();
-        ct.peso=txtPeso.getText();
-        ct.edad=dt.format(dpNaci.getCalendar().getTime());
-        ct.padecimientos=txtPad.getText();
-        ct.sexo=cbSexo.getSelectedItem().toString();
-        ct.insertAnim();
-         }
-        
-        
+            SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+            ctAnimales ct = new ctAnimales();
+            ct.idRaza = dsg.getMap(cbMapRa, cbRaza.getSelectedItem().toString());
+            ct.idCliente = idCl;
+            ct.nombre = txtNombre.getText();
+            ct.peso = txtPeso.getText();
+            ct.edad = dt.format(dpNaci.getCalendar().getTime());
+            ct.padecimientos = txtPad.getText();
+            ct.sexo = cbSexo.getSelectedItem().toString();
+            ct.insertAnim();
+        }
+
+
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     private void cbSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSexoActionPerformed
@@ -365,36 +358,46 @@ public class addMascota extends javax.swing.JPanel {
 
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
         // TODO add your handling code here:
-   
+
     }//GEN-LAST:event_txtNombreKeyTyped
 
     private void txtPesoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesoKeyTyped
         // TODO add your handling code here:
-    
+
     }//GEN-LAST:event_txtPesoKeyTyped
 
     private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
         // TODO add your handling code here:
-         if(txtNombre.getText().length()>= 3){
+        if (txtNombre.getText().length() >= 3 && txtPeso.getText().length() >= 10) {
             lbMin.setVisible(false);
             btnConfirm.setEnabled(true);
-        }else {
-            lbMin.setVisible(true);
-            btnConfirm.setEnabled(false);
-        } 
+        } else {
+            if (txtNombre.getText().length() >= 3) {
+                lbMin.setVisible(false);
+                btnConfirm.setEnabled(true);
+            } else {
+                lbMin.setVisible(true);
+                btnConfirm.setEnabled(false);
+            }
     }//GEN-LAST:event_txtNombreKeyReleased
-
+    }
     private void txtPesoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesoKeyReleased
         // TODO add your handling code here:
-        if(txtPeso.getText().length()>= 10){
-            lbMin1.setVisible(false); 
-             btnConfirm.setEnabled(true);
-        }else {
+        if (txtPeso.getText().length() >= 10 && txtNombre.getText().length() >= 3) {
+            lbMin1.setVisible(false);
+            btnConfirm.setEnabled(true);
+        } else {
+            if (txtPeso.getText().length() >= 10){
+            lbMin1.setVisible(false);
+            btnConfirm.setEnabled(true);
+            }
+        else {
             lbMin1.setVisible(true);
-             btnConfirm.setEnabled(false);
-        } 
+            btnConfirm.setEnabled(false);
+        }
+        }
     }//GEN-LAST:event_txtPesoKeyReleased
-
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;

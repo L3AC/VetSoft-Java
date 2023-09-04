@@ -376,15 +376,15 @@ public class insertTipoCuenta extends javax.swing.JPanel {
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         if (txtNombre.getText().isEmpty() || txtApellidos.getText().isEmpty()
                 || txtDui.getText().isEmpty() || txtDir.getText().isEmpty()) {
-            
+
             CódigoErrorDSI5 obj = new CódigoErrorDSI5();
-        obj.eventOK(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                GlassPanePopup.closePopupLast();
-            }
-        });
-        GlassPanePopup.showPopup(obj);
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
 
         } else {
             SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
@@ -431,61 +431,83 @@ public class insertTipoCuenta extends javax.swing.JPanel {
 
     private void txtApellidosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidosKeyTyped
         // TODO add your handling code here:
-         
+
     }//GEN-LAST:event_txtApellidosKeyTyped
 
     private void txtDuiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDuiKeyTyped
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_txtDuiKeyTyped
 
     private void txtDirKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDirKeyTyped
         // TODO add your handling code here:
-       
+
     }//GEN-LAST:event_txtDirKeyTyped
 
     private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
         // TODO add your handling code here:
-         if(txtNombre.getText().length()>= 5){
+        if (txtNombre.getText().length() >= 5 && txtApellidos.getText().length() >= 5 && txtDui.getText().length() >= 10 && txtDir.getText().length() >= 10) {
             lbMin.setVisible(false);
             btnConfirm.setEnabled(true);
-        }else {
-            lbMin.setVisible(true);
-            btnConfirm.setEnabled(false);
-        } 
+        } else {
+            if (txtNombre.getText().length() >= 5) {
+                lbMin.setVisible(false);
+                btnConfirm.setEnabled(true);
+            } else {
+                lbMin.setVisible(true);
+                btnConfirm.setEnabled(false);
+            }
+        }
     }//GEN-LAST:event_txtNombreKeyReleased
 
     private void txtApellidosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidosKeyReleased
         // TODO add your handling code here:
-        if(txtApellidos.getText().length()>= 5){
+        if (txtApellidos.getText().length() >= 5 && txtNombre.getText().length() >= 5 && txtDui.getText().length() >= 10 && txtDir.getText().length() >= 10) {
             lbMin1.setVisible(false);
             btnConfirm.setEnabled(true);
-        }else {
-            lbMin1.setVisible(true);
-            btnConfirm.setEnabled(false);
-        } 
+        } else {
+            if (txtApellidos.getText().length() >= 5) {
+                lbMin1.setVisible(false);
+                btnConfirm.setEnabled(true);
+            } else {
+                lbMin1.setVisible(true);
+                btnConfirm.setEnabled(false);
+            }
+        }
     }//GEN-LAST:event_txtApellidosKeyReleased
 
     private void txtDuiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDuiKeyReleased
         // TODO add your handling code here:
-         if(txtDui.getText().length()>= 10){
+        if (txtDui.getText().length() >= 10 && txtNombre.getText().length() >= 5 && txtApellidos.getText().length() >= 5 && txtDir.getText().length() >= 10) {
             lbMin2.setVisible(false);
             btnConfirm.setEnabled(true);
-        }else {
-            lbMin2.setVisible(true);
-            btnConfirm.setEnabled(false);
-        } 
+        } else {
+            if (txtDui.getText().length() >= 1) {
+                lbMin2.setVisible(false);
+                btnConfirm.setEnabled(true);
+            } else {
+                lbMin2.setVisible(true);
+                btnConfirm.setEnabled(false);
+            }
+        }
     }//GEN-LAST:event_txtDuiKeyReleased
 
     private void txtDirKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDirKeyReleased
         // TODO add your handling code here:
-         if(txtDir.getText().length()>= 10){
+        if (txtDir.getText().length() >= 10 && txtNombre.getText().length() >= 5 && txtApellidos.getText().length() >= 5 && txtDui.getText().length() >= 10) {
             lbMin3.setVisible(false);
             btnConfirm.setEnabled(true);
-        }else {
+        } else {
+            if (txtDir.getText().length() >= 10){
+                lbMin3.setVisible(false);
+            btnConfirm.setEnabled(true);
+            }
+            
+        else {
             lbMin3.setVisible(true);
             btnConfirm.setEnabled(false);
-        } 
+        }
+        }
     }//GEN-LAST:event_txtDirKeyReleased
 
 
