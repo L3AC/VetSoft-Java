@@ -96,7 +96,6 @@ public class CRUDTipoAnim extends javax.swing.JPanel {
         PCont.setBackground(new java.awt.Color(190, 233, 232));
         PCont.setPreferredSize(new java.awt.Dimension(1320, 810));
 
-        txtNC.setBackground(new java.awt.Color(255, 255, 255));
         txtNC.setShadowColor(new java.awt.Color(0, 0, 51));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -107,10 +106,8 @@ public class CRUDTipoAnim extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Nombre popular del animal");
 
-        txtNP.setBackground(new java.awt.Color(255, 255, 255));
         txtNP.setShadowColor(new java.awt.Color(0, 0, 51));
 
-        txtBusq.setBackground(new java.awt.Color(255, 255, 255));
         txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
         txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -155,7 +152,7 @@ public class CRUDTipoAnim extends javax.swing.JPanel {
             }
         });
 
-        panelRound1.setBackground(new java.awt.Color(202, 233, 255));
+        panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomLeft(50);
         panelRound1.setRoundBottomRight(50);
         panelRound1.setRoundTopLeft(50);

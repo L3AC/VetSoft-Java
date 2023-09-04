@@ -130,6 +130,7 @@ public class updtUsuario extends javax.swing.JPanel {
             }
         });
 
+        btnConfirmar.setForeground(new java.awt.Color(0, 0, 0));
         btnConfirmar.setText("Confirmar");
         btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
