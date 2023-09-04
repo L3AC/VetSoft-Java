@@ -133,7 +133,7 @@ public class CRUDusuarios extends javax.swing.JPanel {
         });
 
         btnAddCuenta.setForeground(new java.awt.Color(0, 0, 0));
-        btnAddCuenta.setText("Crerar Cuenta");
+        btnAddCuenta.setText("Crear Cuenta");
         btnAddCuenta.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnAddCuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

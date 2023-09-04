@@ -35,9 +35,8 @@ public class CRUDAnimales extends javax.swing.JPanel {
         this.idTipoUs = idTipoUs;
         initComponents();
         loadD();
-
-        tipoFuente = new Fuentes();
-        
+   /*Este apartado de setFound nos ayuda a poner un tipo de fuente en especifico y el tamaño de la letra*/
+        tipoFuente = new Fuentes();    
         jLabel2.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 18));
         txtBusq.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 18));
         tbData.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 18));
@@ -54,6 +53,7 @@ public class CRUDAnimales extends javax.swing.JPanel {
 
     }
 
+    //Esta nos ayudara para cargar los datos en columna a la tabla 
     final void loadD() throws SQLException {
 
         String[] column = {"idAnimal", "Animal", "Nombre", "Dueño"};
@@ -67,6 +67,7 @@ public class CRUDAnimales extends javax.swing.JPanel {
         }
     }
 
+    //Esto nos ayudara a cargar los datos dentro de la tabla
     final void CargarTabla() throws SQLException {
         while (model.getRowCount() > 0) {
             model.removeRow(0);
@@ -278,10 +279,12 @@ public class CRUDAnimales extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    //Esto nos ayuda a agarrar el Id de la tabla
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
         idAnimal = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
     }//GEN-LAST:event_tbDataMouseClicked
 
+    //Esto nos ayuda a eliminar los datos de una tabla por medio del ID
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         if (tbData.getRowCount() > 0) {
             UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
@@ -320,6 +323,7 @@ public class CRUDAnimales extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    //Esto nos ayuda a buscar lo que necesitamos enla tabla por medio del ID
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
         try {
             loadD();
@@ -329,6 +333,7 @@ public class CRUDAnimales extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtBusqKeyReleased
 
+    //Esto nos ayuda para recoger el Id del animal y podernos mandar a otro crud y poder editar la info
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         if (tbData.getRowCount() > 0) {
             try {
@@ -349,6 +354,7 @@ public class CRUDAnimales extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnEditarActionPerformed
 
+    //Esto nos ayuda a insertar una cita a alguna mascota
     private void btnAgendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgendarActionPerformed
         if (tbData.getRowCount() > 0) {
             try {
