@@ -31,6 +31,8 @@ public class CRUDEjemRe extends javax.swing.JPanel {
         this.idTipoUs = idTipoUs;
         initComponents();
         loadD();
+        
+        //Este apartado nos ayuda a llamar la clase "Fuentes" y poder colocar diferente tipografia, tamaño y estilo a los textos
         tipoFuente = new Fuentes();
         
         jLabel4.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 24));
@@ -187,6 +189,7 @@ public class CRUDEjemRe extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+   //Este apartado nos ayuda a poder cargar los datos de la base 
     final void loadD() throws SQLException {
         String[] column = {"idEjemplar", "Tipo", "Producto", "Precio"};
         model = new DefaultTableModel(null, column);
@@ -197,6 +200,7 @@ public class CRUDEjemRe extends javax.swing.JPanel {
         }
     }
 
+    //Metodo para cargar la tabla y colocar sus componentes como (Nombre de las cabeceras de las columnas)
     final void CargarTabla() throws SQLException {
         while (model.getRowCount() > 0) {
             model.removeRow(0);
@@ -215,6 +219,7 @@ public class CRUDEjemRe extends javax.swing.JPanel {
             System.err.println(e.toString());
         }
     }
+    //Esto nos ayuda a que la flecha para regresar, regrese al CRUDCliente
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
 
         try {
@@ -230,6 +235,7 @@ public class CRUDEjemRe extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBusqActionPerformed
 
+    //Nos ayuda a buscar los datos en la tabla
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
         try {
             loadD();
@@ -238,6 +244,7 @@ public class CRUDEjemRe extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtBusqKeyReleased
 
+    //Nos ayuda a poder reservar un producto de la tabla segun el producto seleccionado
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         if (tbData.getRowCount() > 0) {
             try {

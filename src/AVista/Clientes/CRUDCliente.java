@@ -35,12 +35,15 @@ public class CRUDCliente extends javax.swing.JPanel {
         this.nUs = nUs;
         initComponents();
         loadD();
-
+ 
+        //Este apartado es para cambiar la tipografia con una clase llamada "Fuentes" para cambiar, estilo, tamaño y fuente
         tipoFuente = new Fuentes();
 
         jLabel1.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 18));
         txtBusq.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 18));
         tbData.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 18));
+        
+        //Este apartado es para que cuando el nivel de Usuario sea 4 o 5 (Doctor y Asistente)
         if (nUs == 4 || nUs == 5) {
             btnEditar.setVisible(false);
             btnEliminar.setVisible(false);
@@ -54,7 +57,8 @@ public class CRUDCliente extends javax.swing.JPanel {
         initComponents();
         loadD();
     }
-
+    
+    //Este apartado es para cargar los datos de la base para la tabla
     final void loadD() throws SQLException {
         String[] column = {"idCliente", "Nombre", "Edad", "Sexo"};
         model = new DefaultTableModel(null, column);
@@ -66,6 +70,7 @@ public class CRUDCliente extends javax.swing.JPanel {
         }
     }
 
+    //Esto nos ayuda para cargar la tabla y colocar sus componentes como (Nombre de las cabeceras de las columnas)
     final void CargarTabla() throws SQLException {
         while (model.getRowCount() > 0) {
             model.removeRow(0);
@@ -271,11 +276,13 @@ public class CRUDCliente extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    //Esto nos ayuda que al seleccionar una fila agarre el id de fila seleccionada
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
         int fila = tbData.getSelectedRow();
         idCl = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
     }//GEN-LAST:event_tbDataMouseClicked
 
+    //Esto nos ayuda a agregar una mascota al Cliente
     private void btnAddMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddMActionPerformed
         if (tbData.getRowCount() > 0) {
             try {
@@ -297,6 +304,7 @@ public class CRUDCliente extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnAddMActionPerformed
 
+    //Esto nos ayuda a poder Editar la informacion de un Cliente
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         if (tbData.getRowCount() > 0) {
             updtTipoCuenta subp;
@@ -317,7 +325,8 @@ public class CRUDCliente extends javax.swing.JPanel {
             GlassPanePopup.showPopup(obj);
         }
     }//GEN-LAST:event_btnEditarActionPerformed
-
+  
+    //Esto nos ayuda a Eliminar un cliente
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         if (tbData.getRowCount() > 0) {
             UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
@@ -354,6 +363,7 @@ public class CRUDCliente extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    //Esto nos ayuda a poder realizar busquedas en la tabla
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
         try {
             loadD();
@@ -362,6 +372,7 @@ public class CRUDCliente extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtBusqKeyReleased
 
+    //Esto nos ayuda para darle click y abrir un nuevo formulario y poder reservarle un producto a un cliente
     private void btnReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservasActionPerformed
         if (tbData.getRowCount() > 0) {
             try {
@@ -382,6 +393,7 @@ public class CRUDCliente extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnReservasActionPerformed
 
+    //Esto nos ayuda a pasar al formulario de Compra en el cual podra imprimir luego facturas o eliminar reservas 
     private void btnCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompraActionPerformed
         if (tbData.getRowCount() > 0) {
             try {

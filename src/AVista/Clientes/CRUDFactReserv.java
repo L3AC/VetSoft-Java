@@ -37,6 +37,8 @@ public class CRUDFactReserv extends javax.swing.JPanel {
         this.idTipoUs = idTipoUs;
         initComponents();
         loadD();
+        
+        //Este apartado nos ayuda a poder cambiar la tipografia, estilo y tamaño de los labels
         tipoFuente = new Fuentes();
         
         jLabel4.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 24));
@@ -207,6 +209,7 @@ public class CRUDFactReserv extends javax.swing.JPanel {
             .addComponent(PCont, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+   //Nos ayuda a cargar los datos de la base de datos para meterlos en la tabla
     final void loadD() throws SQLException {
         String[] column = {"idReservaProducto", "idEjemplar", "Tipo", "Producto", "Precio"};
         model = new DefaultTableModel(null, column);
@@ -218,6 +221,7 @@ public class CRUDFactReserv extends javax.swing.JPanel {
         }
     }
 
+    //Nos ayuda a cargar la tabla 
     final void CargarTabla() throws SQLException {
         while (model.getRowCount() > 0) {
             model.removeRow(0);
@@ -239,6 +243,7 @@ public class CRUDFactReserv extends javax.swing.JPanel {
         }
     }
 
+    //Nos ayuda a volver al CRUDCliente
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
 
         try {
@@ -254,6 +259,7 @@ public class CRUDFactReserv extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBusqActionPerformed
 
+    //Nos ayuda a buscar los productos reservados
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
 
         try {
@@ -263,6 +269,7 @@ public class CRUDFactReserv extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtBusqKeyReleased
 
+    //Nos ayuda a eliminar alguna reserva
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
          if (tbData.getRowCount() > 0) {
         UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
@@ -305,6 +312,7 @@ public class CRUDFactReserv extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    //Nos ayuda a imprimir la factura de los productos seleccionados
     private void btnFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFactActionPerformed
           if (tbData.getRowCount() > 0) {
         UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
