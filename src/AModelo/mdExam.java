@@ -12,6 +12,7 @@ public class mdExam {
     PreparedStatement ps;
     ResultSet rs;
 
+    //Esto nos ayuda a cargar los datos de examen
     public ResultSet loadExam(int id1, String n1) {
         String query = "select idExamenClinico,ts.Nombre as Nombre,Nota from tbExamenesClinicos ec,tbTipoServicio ts \n"
                 + "where ec.idTipoServicio=ts.idTipoServicio and ts.Nombre like ? and idAnimal=?";
@@ -28,6 +29,7 @@ public class mdExam {
         }
     }
 
+    //Esto nos ayuda a agarrar el id del examen
     public ResultSet selectExam(int id1) {
         String query = "select idExamenClinico,ec.idTipoServicio as idServ,imagen,ts.Nombre as Serv,Nota from tbExamenesClinicos ec,tbTipoServicio ts \n"
                 + "  where ec.idTipoServicio=ts.idTipoServicio and idExamenClinico=?";
@@ -43,6 +45,7 @@ public class mdExam {
         }
     }
 
+//Esto nos ayuda a insertar cosas en la tabla
     public boolean insExam(int id1, int id2, byte[] img, String n1) {
         String query = "insert tbExamenesClinicos values(?,?,?,?,GETDATE());";
         try {
@@ -63,6 +66,7 @@ public class mdExam {
         }
     }
 
+    //Esto nos ayuda a eliminar 
     public boolean delExam(int id1) {
         String query = "delete tbExamenesClinicos where idExamenClinico=?;";
         try {
@@ -79,6 +83,7 @@ public class mdExam {
         }
     }
 
+    //Esto nos ayuda a actualizar
     public boolean upExam(int id1, byte[] img, String n1, int id2) {
         String query = "UPDATE tbExamenesClinicos set idTipoServicio=?, "
                 + "imagen=?,Nota=? where idExamenClinico=?;";

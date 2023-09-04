@@ -12,6 +12,8 @@ public class mdAdmin {
     ResultSet rs;
     PreparedStatement ps;
 
+    
+    // Esto nos ayuda a actualizar los datos
     public boolean upAdmin(int idC, String nombre, String apellido, String dui, String naci, String sexo) {
         String query = "update tbAdministradores SET nombre=?,apellido=?,DUI=?,nacimiento=?,sexo=? \n"
                 + "where idAdministradores=?;";

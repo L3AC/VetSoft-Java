@@ -12,6 +12,7 @@ public class mdReceta {
     PreparedStatement ps;
     ResultSet rs;
     
+    //Esto nos ayuda a seleccionar la receta por medio del ID
     public ResultSet verifR(int idD) {
         String query = "select * from tbRecetas where idCita=?;";
         try {
@@ -27,6 +28,7 @@ public class mdReceta {
         }
     }
 
+    //Esto nos ayuda a insertar datos
     public boolean insRe(int id1, String n1) {
         String query = "insert into tbRecetas values(?,?,GETDATE());";
         try {
@@ -45,6 +47,7 @@ public class mdReceta {
         }
     }
 
+    //Esto nos ayuda a actualizar datos
     public boolean upRe(String n1, int id1) {
         String query = "update tbRecetas set instrucciones=? where idReceta=?";
         try {
