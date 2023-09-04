@@ -37,7 +37,7 @@ public class addMascota extends javax.swing.JPanel {
         loadComboTP(cbTipoA);
         loadComboRaza(cbRaza);
         tipoFuente = new Fuentes();
-
+//Este apartado nos ayuda a poner un tipo de fuente en especifico y el tamaño de la letra
         jLabel1.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 18));
         jLabel2.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 32));
         jLabel6.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 18));
@@ -54,6 +54,7 @@ public class addMascota extends javax.swing.JPanel {
         jLabel1.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 18));
         txtPad.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 18));
 
+         /*Este apartado de validar los Jtexfield*/
         txtNombre.setDocument(new Valida(25, "[a-zA-Z ]*"));
         txtPeso.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
         txtPad.setDocument(new Valida(300, "[a-zA-Z0-9 ]*"));
@@ -283,6 +284,7 @@ public class addMascota extends javax.swing.JPanel {
             .addComponent(PCont, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+    //Esto nos ayuda a cargar los datos en el combobox
     private void loadComboTP(JComboBox cb) throws SQLException {
         ctRaza ct = new ctRaza();
         ResultSet rs = ct.loadTPanimal();
@@ -295,6 +297,7 @@ public class addMascota extends javax.swing.JPanel {
         cb.setSelectedIndex(0);
     }
 
+    //Esto nos ayuda a cargar los datos en el combobox
     private void loadComboRaza(JComboBox cb) throws SQLException {
         ctRaza ct = new ctRaza();
         cbMapRa.clear();
@@ -308,6 +311,8 @@ public class addMascota extends javax.swing.JPanel {
             cbMapRa.put(idTP, nombre);
         }
     }
+    
+    //Esto nos ayuda a retroceder a la pantalla anterior
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         try {
             CRUDCliente subp = new CRUDCliente(idTipoUs);
@@ -318,6 +323,7 @@ public class addMascota extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnBackActionPerformed
 
+    //Esto nos ayuda a buscar el id del tipo de animal para luego cargar la raza del animal
     private void cbTipoAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTipoAActionPerformed
         try {
             loadComboRaza(cbRaza);
@@ -326,6 +332,7 @@ public class addMascota extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_cbTipoAActionPerformed
 
+    //Esto nos ayuda a confirmar los cambios que se han realizado
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         if (txtNombre.getText().isEmpty() || txtPeso.getText().isEmpty()) {
             CódigoErrorDSI5 obj = new CódigoErrorDSI5();

@@ -32,7 +32,7 @@ public class UPDTAsistente extends javax.swing.JPanel {
         this.idTipoUs = idTipoUs;
         this.idAsis = idAsis;
         initComponents();
-
+/*Este apartado de validar los Jtexfield*/
         txtNombre.setDocument(new Valida(50, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         txtDui.setDocument(new Valida(10, "[0-9]*"));
         txtApellidos.setDocument(new Valida(50, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
@@ -361,6 +361,7 @@ public class UPDTAsistente extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    //Esto nos ayudara a cargar los datos dentro de la tabla y ponerlo en columnas
     final void loadD() throws SQLException {
         String[] column = {"idDoctor", "Especialidad", "Nombre"};
         model = new DefaultTableModel(null, column);
@@ -371,7 +372,7 @@ public class UPDTAsistente extends javax.swing.JPanel {
             idDoc = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
         }
     }
-
+//Esto nos ayudara a cargar los datos dentro de la tabla 
     final void CargarTabla() throws SQLException {
         while (model.getRowCount() > 0) {
             model.removeRow(0);
@@ -389,7 +390,7 @@ public class UPDTAsistente extends javax.swing.JPanel {
 
         }
     }
-
+//Esto nos ayudara a cargar los datos
     final void loadAsis() throws SQLException {
         try {
             ctAsistente ct = new ctAsistente();
@@ -411,6 +412,7 @@ public class UPDTAsistente extends javax.swing.JPanel {
         }
     }
 
+     //Esto nos ayudara a retroceder de crud
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         try {
             CRUDAsistente subp = new CRUDAsistente(idTipoUs);
@@ -419,11 +421,12 @@ public class UPDTAsistente extends javax.swing.JPanel {
             Logger.getLogger(CREARasistente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnBackActionPerformed
-
+    //Es para agarrar el Id
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
         lbDoc.setText(tbData.getValueAt(tbData.getSelectedRow(), 2).toString());
     }//GEN-LAST:event_tbDataMouseClicked
 
+    //Esto nos ayudara a confirmar los cambios 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         if (txtApellidos.getText().isEmpty() || txtDui.getText().isEmpty() || txtNombre.getText().isEmpty()) {
             CódigoErrorDSI5 obj = new CódigoErrorDSI5();
@@ -449,6 +452,7 @@ public class UPDTAsistente extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnConfirmActionPerformed
 
+        //Esto nos ayudara a buscar de manera mas facil algun registro
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
         try {
             loadD();
@@ -476,7 +480,7 @@ public class UPDTAsistente extends javax.swing.JPanel {
 
 
     }//GEN-LAST:event_txtDuiKeyTyped
-
+//Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros, donde si solo escribe dos numeros le saldra un texfield
     private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
         // TODO add your handling code here:
         if (txtNombre.getText().length() >= 3 && txtApellidos.getText().length() >= 5 && txtDui.getText().length() >= 10) {
@@ -492,7 +496,7 @@ public class UPDTAsistente extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_txtNombreKeyReleased
-
+//Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros, donde si solo escribe dos numeros le saldra un texfield
     private void txtApellidosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidosKeyReleased
         // TODO add your handling code here:
         if (txtApellidos.getText().length() >= 5 && txtNombre.getText().length() >= 3 && txtDui.getText().length() >= 10) {
@@ -508,7 +512,7 @@ public class UPDTAsistente extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_txtApellidosKeyReleased
-
+//Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros, donde si solo escribe dos numeros le saldra un texfield
     private void txtDuiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDuiKeyReleased
         // TODO add your handling code here:
         if (txtDui.getText().length() >= 10 && txtNombre.getText().length() >= 3 && txtApellidos.getText().length() >= 5) {

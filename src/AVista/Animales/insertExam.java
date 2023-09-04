@@ -163,6 +163,7 @@ public class insertExam extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    //Esto nos ayuda a retroceder de pantalla
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
 
         try {
@@ -174,6 +175,7 @@ public class insertExam extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnBackActionPerformed
 
+    //Esto nos ayuda a confirmar los daots ingresador
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         ctExam ct=new ctExam();
         ct.idAnim=idAnim;
@@ -184,6 +186,7 @@ public class insertExam extends javax.swing.JPanel {
         
     }//GEN-LAST:event_btnConfirmActionPerformed
 
+    //Esto nos ayuda a buscar las imagenes dentro de la pc 
     private void btnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectActionPerformed
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setDialogTitle("Seleccionar imagen");
@@ -199,7 +202,7 @@ public class insertExam extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_btnSelectActionPerformed
-
+// Esto nos ayuda a cargar la información dentro del combobox
     private void loadComboServ(JComboBox cb) throws SQLException {
         ctTipoServ ct = new ctTipoServ();
         ct.idNivelServ = 3;

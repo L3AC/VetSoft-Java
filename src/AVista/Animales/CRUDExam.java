@@ -186,6 +186,7 @@ public class CRUDExam extends javax.swing.JPanel {
             .addComponent(PCont, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+    //Esto para poder cargar los datos en la tabla por medio del Id
     final void loadD() throws SQLException {
         String[] column = {"idExamenClinico", "Nombre", "Nota"};
         model = new DefaultTableModel(null, column);
@@ -196,6 +197,7 @@ public class CRUDExam extends javax.swing.JPanel {
         }
     }
 
+    //Esto para poder cargar los datos en la tabla
     final void CargarTabla() throws SQLException {
         while (model.getRowCount() > 0) {
             model.removeRow(0);
@@ -219,7 +221,7 @@ public class CRUDExam extends javax.swing.JPanel {
     private void txtBusqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBusqActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBusqActionPerformed
-
+    //Esto nos ayuda a buscar lo que necesitamos enla tabla por medio del ID
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
         try {
             loadD();
@@ -233,6 +235,7 @@ public class CRUDExam extends javax.swing.JPanel {
 
     }//GEN-LAST:event_tbDataMouseClicked
 
+    //Esto nos ayudara a retroceder de crud
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         try {
             CRUDAnimales subp = new CRUDAnimales(idTipoUs);
@@ -241,7 +244,7 @@ public class CRUDExam extends javax.swing.JPanel {
             Logger.getLogger(CRUDExam.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnBackActionPerformed
-
+ //Esto nos ayuda a eliminar los datos de una tabla por medio del ID
     private void btnElimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElimActionPerformed
         if (tbData.getRowCount() > 0) {
             UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
@@ -279,7 +282,7 @@ public class CRUDExam extends javax.swing.JPanel {
         }
 
     }//GEN-LAST:event_btnElimActionPerformed
-
+//Esto nos ayudara a llevarnos al crud de agregar un nuevo examen 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         if (tbData.getRowCount() > 0) {
             try {
@@ -301,6 +304,7 @@ public class CRUDExam extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnAgregarActionPerformed
 
+    //Esto nos llevara al crud de editar para editar el examen
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         if (tbData.getRowCount() > 0) {
             try {

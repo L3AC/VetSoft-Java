@@ -33,7 +33,7 @@ public class updtAnimales extends javax.swing.JPanel {
     public updtAnimales(int idAnim) throws SQLException {
         this.idAnim = idAnim;
         initComponents();
-
+ /*Este apartado de validar los Jtexfield*/
         txtNombre.setDocument(new Valida(25, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         txtPeso.setDocument(new Valida(30, "[a-zA-Z0-9 .]*"));
         txtPad.setDocument(new Valida(300, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
@@ -46,6 +46,7 @@ public class updtAnimales extends javax.swing.JPanel {
         loadData();
     }
 
+    //Esto nos ayudara a cargar los datos dentro del Crud por medio del Id
     final void loadData() throws SQLException {
         try {
             ctAnimales ct = new ctAnimales();
@@ -67,6 +68,7 @@ public class updtAnimales extends javax.swing.JPanel {
         }
     }
 
+    //Esto nos ayudara a cargar los datos dentro del combobox
     private void loadComboTP(JComboBox cb) throws SQLException {
         ctRaza ct = new ctRaza();
         ResultSet rs = ct.loadTPanimal();
@@ -78,7 +80,7 @@ public class updtAnimales extends javax.swing.JPanel {
         }
         cb.setSelectedIndex(0);
     }
-
+    //Esto nos ayudara a cargar los datos dentro del combobox
     private void loadComboRaza(JComboBox cb) throws SQLException {
         ctRaza ct = new ctRaza();
         cbMapRa.clear();
@@ -310,6 +312,7 @@ public class updtAnimales extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    //Esto nos ayudara dependiendo del tipo de animal cargara la raza del animal
     private void cbTipoAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTipoAActionPerformed
         try {
             loadComboRaza(cbRaza);
@@ -318,6 +321,7 @@ public class updtAnimales extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_cbTipoAActionPerformed
 
+    //Esto nos ayudara a retroceder de crud
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         try {
             CRUDAnimales subp = new CRUDAnimales(idTipoUs);
@@ -327,6 +331,7 @@ public class updtAnimales extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnBackActionPerformed
 
+    //Esto nos ayudara a confirmar todos los datos actualizados dentro del crud
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
         ctAnimales ct = new ctAnimales();
@@ -349,7 +354,7 @@ public class updtAnimales extends javax.swing.JPanel {
         // TODO add your handling code here:
 
     }//GEN-LAST:event_txtPesoKeyTyped
-
+  //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros, donde si solo escribe dos numeros le saldra un texfield
     private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
         // TODO add your handling code here:
         if (txtNombre.getText().length() >= 3 && txtPeso.getText().length() >= 10) {
@@ -365,6 +370,7 @@ public class updtAnimales extends javax.swing.JPanel {
             }
     }//GEN-LAST:event_txtNombreKeyReleased
     }
+      //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros, donde si solo escribe dos numeros le saldra un texfield
     private void txtPesoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesoKeyReleased
         // TODO add your handling code here:
         if (txtPeso.getText().length() >= 10 && txtNombre.getText().length() >= 3) {

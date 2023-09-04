@@ -10,6 +10,7 @@ import AControlador.ctUser;
 import AVista.Doctores.CRUDDoctores;
 import AVista.Usuarios.CRUDusuarios;
 import Design.Desg;
+import Mensajes.CódigoError;
 import Mensajes.CódigoErrorDSI5;
 import Mensajes.GlassPanePopup;
 import java.awt.Component;
@@ -45,7 +46,7 @@ public class CREARasistente extends javax.swing.JPanel {
         initComponents();
         loadD();
         lbVerif.setVisible(false);
-
+/*Este apartado de validar los Jtexfield*/
         txtNombre.setDocument(new Valida(50, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         txtDui.setDocument(new Valida(10, "[0-9]*"));
         txtApellidos.setDocument(new Valida(50, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
@@ -59,6 +60,7 @@ public class CREARasistente extends javax.swing.JPanel {
         lbMin2.setVisible(false);
     }
 
+    //Esto nos ayudara a cargar los datos dentro de la tabla por medio del Id y ponerlo en cada columna de la tabla 
     final void loadD() throws SQLException {
         String[] column = {"idUsuario", "Usuario", "Correo", "Telefono"};
         model = new DefaultTableModel(null, column);
@@ -70,6 +72,7 @@ public class CREARasistente extends javax.swing.JPanel {
         }
     }
 
+    //Esto nos ayudara a cargar los datos en la tabla
     final void CargarTabla() throws SQLException {
         while (model.getRowCount() > 0) {
             model.removeRow(0);
@@ -385,7 +388,7 @@ public class CREARasistente extends javax.swing.JPanel {
             .addComponent(PCont, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
+ //Esto nos ayudara a retroceder de crud
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         try {
             CRUDDoctores subp = new CRUDDoctores(idTipoUs);
@@ -395,14 +398,26 @@ public class CREARasistente extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnBackActionPerformed
 
+    //Verificar que el asistente ya tenga un perfil creado
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
+     if (tbData.getRowCount() > 0) {
         try {
             verifPerfil();
         } catch (SQLException ex) {
             Logger.getLogger(CREARasistente.class.getName()).log(Level.SEVERE, null, ex);
         }
+     } else {
+     CódigoError obj = new CódigoError();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+     }
     }//GEN-LAST:event_tbDataMouseClicked
-
+//Esto nos ayudara a confirmar los cambios 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
 
         if (txtApellidos.getText().isEmpty() || txtNombre.getText().isEmpty() || txtDui.getText().isEmpty()) {
@@ -442,7 +457,7 @@ public class CREARasistente extends javax.swing.JPanel {
         // TODO add your handling code here:
 
     }//GEN-LAST:event_txtApellidosKeyTyped
-
+ //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros, donde si solo escribe dos numeros le saldra un texfield
     private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
         // TODO add your handling code here:
         if (txtNombre.getText().length() >= 3 && txtApellidos.getText().length() >= 5 && txtDui.getText().length() >= 10) {
@@ -458,6 +473,7 @@ public class CREARasistente extends javax.swing.JPanel {
             }
     }//GEN-LAST:event_txtNombreKeyReleased
     }
+     //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros, donde si solo escribe dos numeros le saldra un texfield
     private void txtApellidosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidosKeyReleased
         // TODO add your handling code here:
         if (txtApellidos.getText().length() >= 5 && txtNombre.getText().length() >= 3 && txtDui.getText().length() >= 10) {
@@ -473,6 +489,7 @@ public class CREARasistente extends javax.swing.JPanel {
             }
     }//GEN-LAST:event_txtApellidosKeyReleased
     }
+     //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros, donde si solo escribe dos numeros le saldra un texfield
     private void txtDuiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDuiKeyReleased
         // TODO add your handling code here:
         if (txtDui.getText().length() >= 10 && txtNombre.getText().length() >= 3 && txtApellidos.getText().length() >= 5) {
@@ -489,6 +506,7 @@ public class CREARasistente extends javax.swing.JPanel {
     }//GEN-LAST:event_txtDuiKeyReleased
     }
 
+    
     final void verifPerfil() throws SQLException {
         ctAsistente ctAs = new ctAsistente();
         ctAs.idUsuario = idUsAsis = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());

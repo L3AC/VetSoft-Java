@@ -37,6 +37,7 @@ public class updateExam extends javax.swing.JPanel {
         loadData();
     }
 
+    //Esto nos ayuda a cargar los datoa dentro del crud
     final void loadData() {
         try {
             ctExam ct = new ctExam();
@@ -55,6 +56,7 @@ public class updateExam extends javax.swing.JPanel {
         }
     }
     
+    //Esto nos ayudara a cargar los datos dentro del combobox
      private void loadComboServ(JComboBox cb) throws SQLException {
         ctTipoServ ct = new ctTipoServ();
         ct.idNivelServ = 3;
@@ -194,6 +196,7 @@ public class updateExam extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    //Esto nos ayudara a retroceder de curd
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
 
         try {
@@ -204,6 +207,7 @@ public class updateExam extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnBackActionPerformed
 
+    //Esto nos ayudara a poder seleccionar dentro de la Pc una imagen
     private void btnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectActionPerformed
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setDialogTitle("Seleccionar imagen");
@@ -219,7 +223,7 @@ public class updateExam extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_btnSelectActionPerformed
-
+//Esto nos ayudara a confirmar los cambios dentro del crud
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         ctExam ct = new ctExam();
         ct.idAnim = idAnim;

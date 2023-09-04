@@ -47,6 +47,7 @@ public class CRUDAsistente extends javax.swing.JPanel {
         
     }
 
+    //Esto nos ayudara a cargar los datos dentro de la tabla y ponerlo en columnas
     final void loadD() throws SQLException {
         String[] column = {"idAsistente", "Doctor a cargo", "Nombre", "Edad", "Sexo"};
         model = new DefaultTableModel(null, column);
@@ -57,7 +58,7 @@ public class CRUDAsistente extends javax.swing.JPanel {
             idAsis = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
         }
     }
-
+//Esto nos ayudara a cargar los datos dentro de la tabla 
     final void CargarTabla() throws SQLException {
         while (model.getRowCount() > 0) {
             model.removeRow(0);
@@ -216,10 +217,12 @@ public class CRUDAsistente extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    //Es para agarrar el Id
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
         idAsis = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
     }//GEN-LAST:event_tbDataMouseClicked
 
+    //Esto nos llevara al crud de editar
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         if (tbData.getRowCount() > 0){
         UPDTAsistente subp;
@@ -241,6 +244,7 @@ public class CRUDAsistente extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnEditarActionPerformed
 
+    //Esto nos ayudara a borrar algun registro por medio del Id 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         if (tbData.getRowCount() > 0){
         UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
@@ -278,6 +282,7 @@ public class CRUDAsistente extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    //Esto nos ayudara a buscar de manera mas facil algun registro
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
         try {
             loadD();

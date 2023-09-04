@@ -54,7 +54,7 @@ public class Registro extends javax.swing.JFrame {
 
         GlassPanePopup.install(this);
 
-        /*Este apartado de validar los Jtexfield nos ayuda a poner un tipo de fuente en especifico y el tamaño de la letra*/
+        /*Este apartado de validar los Jtexfield*/
         txtUsuario.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
         txtTeléfono.setDocument(new Valida(8, "[0-9]*"));
         txtContra.setDocument(new Valida(30, "[a-zA-Z0-9]*"));

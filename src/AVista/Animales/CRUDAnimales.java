@@ -379,6 +379,7 @@ public class CRUDAnimales extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBusqActionPerformed
 
+    //Esto nos ayuda a mandarnos a otro crud para poder ver los examenes de que tiene el animal
     private void btnExamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExamActionPerformed
         if (tbData.getRowCount() > 0) {
             try {
@@ -399,6 +400,7 @@ public class CRUDAnimales extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnExamActionPerformed
 
+    //Esto nos ayuda a ver la pantalla de vacunas si tiene el animal
     private void btnVacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVacActionPerformed
         if (tbData.getRowCount() > 0) {
             try {
@@ -419,6 +421,7 @@ public class CRUDAnimales extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnVacActionPerformed
 
+    //Esto nos ayuda a añadir una vacuna a algun animal
     private void btnAddVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddVActionPerformed
         if (tbData.getRowCount() > 0) {
             try {
