@@ -46,6 +46,9 @@ public class CRUDCliente extends javax.swing.JPanel {
             btnEliminar.setVisible(false);
             btnReservas.setVisible(false);
         }
+        if(nUs==5){
+            btnCompra.setVisible(false);
+        }
 
     }
 
@@ -99,7 +102,7 @@ public class CRUDCliente extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        btnReservas1 = new Design.ButtonGradient();
+        btnCompra = new Design.ButtonGradient();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
         setVerifyInputWhenFocusTarget(false);
@@ -188,12 +191,12 @@ public class CRUDCliente extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("VetSoft+");
 
-        btnReservas1.setForeground(new java.awt.Color(0, 0, 0));
-        btnReservas1.setText("Compra");
-        btnReservas1.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
-        btnReservas1.addActionListener(new java.awt.event.ActionListener() {
+        btnCompra.setForeground(new java.awt.Color(0, 0, 0));
+        btnCompra.setText("Compra");
+        btnCompra.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
+        btnCompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReservas1ActionPerformed(evt);
+                btnCompraActionPerformed(evt);
             }
         });
 
@@ -220,7 +223,7 @@ public class CRUDCliente extends javax.swing.JPanel {
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
                     .addComponent(btnReservas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnReservas1, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
+                    .addComponent(btnCompra, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
                     .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnAddM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -248,7 +251,7 @@ public class CRUDCliente extends javax.swing.JPanel {
                         .addGap(35, 35, 35)
                         .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(36, 36, 36)
-                        .addComponent(btnReservas1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(232, 232, 232))
@@ -381,7 +384,7 @@ public class CRUDCliente extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnReservasActionPerformed
 
-    private void btnReservas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservas1ActionPerformed
+    private void btnCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompraActionPerformed
         if (tbData.getRowCount() > 0) {
             try {
                 CRUDFactReserv subp = new CRUDFactReserv(Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()), nUs);
@@ -401,16 +404,16 @@ public class CRUDCliente extends javax.swing.JPanel {
         }
 
 
-    }//GEN-LAST:event_btnReservas1ActionPerformed
+    }//GEN-LAST:event_btnCompraActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
     private Design.ButtonGradient btnAddM;
+    private Design.ButtonGradient btnCompra;
     private Design.ButtonGradient btnEditar;
     private Design.ButtonGradient btnEliminar;
     private Design.ButtonGradient btnReservas;
-    private Design.ButtonGradient btnReservas1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

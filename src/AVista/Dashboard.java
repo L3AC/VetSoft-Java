@@ -175,10 +175,10 @@ public class Dashboard extends javax.swing.JFrame {
                         Preguntas subp = new Preguntas(idUs);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
-                       if (index == 5 && indexSubMenu == 2) {
+                    /*   if (index == 5 && indexSubMenu == 2) {
                         CRUDClientesN subp = new CRUDClientesN();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
-                    }
+                    }*/
 
 
                 } catch (NullPointerException e) {
@@ -246,13 +246,17 @@ public class Dashboard extends javax.swing.JFrame {
                     /*if (index == 3 && indexSubMenu == 1) {//RESERVAS
                         
                     }*/
-                    if (index == 4 && indexSubMenu == 2) {//PRODUCTOS
+                    if (index == 3 && indexSubMenu == 1) {//PRODUCTOS
                         CRUDProd subp = new CRUDProd(idTipoU);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     //CUENTA
                     if (index == 4 && indexSubMenu == 1) {
                         PerfilData subp = new PerfilData(idTipoU, idCuenta, idUs);
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                    }
+                    if (index == 4 && indexSubMenu == 3) {
+                        Preguntas subp = new Preguntas(idUs);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
 
@@ -306,6 +310,10 @@ public class Dashboard extends javax.swing.JFrame {
                     //CUENTA
                     if (index == 2 && indexSubMenu == 1) {
                         PerfilData subp = new PerfilData(idTipoU, idCuenta, idUs);
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                    }
+                    if (index == 2 && indexSubMenu == 3) {
+                        Preguntas subp = new Preguntas(idUs);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                 } catch (Exception e) {

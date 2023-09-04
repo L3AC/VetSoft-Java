@@ -45,6 +45,8 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         txtDui.setDocument(new Valida(10, "[0-9]*"));
         txtApellidos.setDocument(new Valida(50, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         txtDir.setDocument(new Valida(300, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ,.]*"));
+        
+        
         if (idTipoUs == 1) {//ADMIN
 
             if (nivelRow != 4) {//IDDOCTOR
@@ -60,6 +62,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
             if (nivelRow != 3) {//IDCLIENTE
                 lbMin3.setVisible(false);
                 txtDir.setVisible(false);
+                lbDirec.setVisible(false);
             } else {
                 loadCl();
             }
@@ -70,6 +73,8 @@ public class updtTipoCuenta extends javax.swing.JPanel {
             cbEsp.setVisible(false);
             lbMin3.setVisible(false);
             txtDir.setVisible(false);
+            lbDirec.setVisible(false);
+            
             loadRecep();
         }
         if (idTipoUs == 2) {
@@ -112,7 +117,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         lbMin2 = new javax.swing.JLabel();
         lbMin1 = new javax.swing.JLabel();
-        lbDir1 = new javax.swing.JLabel();
+        lbDirec = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -251,10 +256,10 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         lbMin1.setText("Minimo de digitos 5");
         panelRound1.add(lbMin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 150, -1));
 
-        lbDir1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lbDir1.setForeground(new java.awt.Color(0, 0, 0));
-        lbDir1.setText("Dirección");
-        panelRound1.add(lbDir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, 150, 30));
+        lbDirec.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbDirec.setForeground(new java.awt.Color(0, 0, 0));
+        lbDirec.setText("Dirección");
+        panelRound1.add(lbDirec, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, 150, 30));
 
         jPanel2.setBackground(new java.awt.Color(190, 233, 232));
 
@@ -577,7 +582,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lbDir1;
+    private javax.swing.JLabel lbDirec;
     private javax.swing.JLabel lbEsp;
     private javax.swing.JLabel lbMin;
     private javax.swing.JLabel lbMin1;

@@ -44,6 +44,7 @@ public class CRUDCita extends javax.swing.JPanel {
         if (idTipoUS == 5) {//ASISTENTE
             btnAceptar.setVisible(false);
             btnEliminar.setVisible(false);
+            btnFact.setVisible(false);
         }
 
     }
