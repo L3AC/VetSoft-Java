@@ -9,6 +9,7 @@ import Design.Desg;
 import Design.TextFieldSV;
 import Mensajes.CódigoErrorDSI5;
 import Mensajes.GlassPanePopup;
+import Validation.Valida;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GraphicsDevice;
@@ -52,6 +53,9 @@ public class updateProd extends javax.swing.JPanel {
         initComponents();
         loadCombo(cbTipoProd);
         loadData();
+        txtProducto.setDocument(new Valida(300, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ,.]*"));
+        txtProv.setDocument(new Valida(300, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ,.]*"));
+        txtPrecio.setDocument(new Valida(10, "[0-9.]*"));
         lbMin.setVisible(false);
         lbMin1.setVisible(false);
         lbMin2.setVisible(false);
