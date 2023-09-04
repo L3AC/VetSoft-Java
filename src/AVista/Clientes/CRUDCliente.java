@@ -45,8 +45,6 @@ public class CRUDCliente extends javax.swing.JPanel {
             btnEditar.setVisible(false);
             btnEliminar.setVisible(false);
             btnReservas.setVisible(false);
-        }
-        if(nUs==5){
             btnCompra.setVisible(false);
         }
 
