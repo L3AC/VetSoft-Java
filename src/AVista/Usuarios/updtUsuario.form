@@ -44,9 +44,9 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                   <Component id="btnBack" min="-2" pref="60" max="-2" attributes="0"/>
-                  <EmptySpace pref="366" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="jLabel2" min="-2" pref="472" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="270" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="268" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel3" min="-2" pref="52" max="-2" attributes="0"/>
@@ -56,12 +56,12 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="257" max="-2" attributes="0"/>
                   <Component id="panelRound1" min="-2" pref="833" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="230" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="btnConfirmar" min="-2" pref="216" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="524" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="528" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -83,15 +83,17 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel2" min="-2" pref="50" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                          <Component id="panelRound1" min="-2" pref="426" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="panelRound1" min="-2" pref="426" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                   <Component id="btnConfirmar" min="-2" pref="53" max="-2" attributes="0"/>
-                  <EmptySpace pref="200" max="32767" attributes="0"/>
+                  <EmptySpace pref="157" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -129,6 +131,9 @@
         </Component>
         <Component class="Design.ButtonGradient" name="btnConfirmar">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Confirmar"/>
           </Properties>
           <Events>

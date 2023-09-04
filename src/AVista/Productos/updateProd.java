@@ -112,7 +112,6 @@ public class updateProd extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
         PCont.setBackground(new java.awt.Color(190, 233, 232));
-        PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cbTipoProd.setForeground(new java.awt.Color(0, 0, 0));
         cbTipoProd.setLabeText("");
@@ -121,12 +120,10 @@ public class updateProd extends javax.swing.JPanel {
                 cbTipoProdActionPerformed(evt);
             }
         });
-        PCont.add(cbTipoProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 430, 180, 40));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Proveedor");
-        PCont.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 400, -1, -1));
 
         txtProv.setShadowColor(new java.awt.Color(0, 0, 51));
         txtProv.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -137,12 +134,10 @@ public class updateProd extends javax.swing.JPanel {
                 txtProvKeyTyped(evt);
             }
         });
-        PCont.add(txtProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 430, 280, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Precio");
-        PCont.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 530, -1, -1));
 
         txtPrecio.setShadowColor(new java.awt.Color(0, 0, 51));
         txtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -153,7 +148,6 @@ public class updateProd extends javax.swing.JPanel {
                 txtPrecioKeyTyped(evt);
             }
         });
-        PCont.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 560, 160, -1));
 
         btnConfirm.setForeground(new java.awt.Color(0, 0, 0));
         btnConfirm.setText("Confirmar");
@@ -163,7 +157,6 @@ public class updateProd extends javax.swing.JPanel {
                 btnConfirmActionPerformed(evt);
             }
         });
-        PCont.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 680, 140, 50));
 
         txtProducto.setShadowColor(new java.awt.Color(0, 0, 51));
         txtProducto.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -174,17 +167,14 @@ public class updateProd extends javax.swing.JPanel {
                 txtProductoKeyTyped(evt);
             }
         });
-        PCont.add(txtProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 560, 300, -1));
 
         lbMin2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lbMin2.setForeground(new java.awt.Color(0, 0, 0));
         lbMin2.setText("Minimo de digitos 2");
-        PCont.add(lbMin2, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 600, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Tipo de producto");
-        PCont.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 400, -1, -1));
 
         btnSelect.setForeground(new java.awt.Color(0, 0, 0));
         btnSelect.setText("Seleccionar foto");
@@ -194,7 +184,6 @@ public class updateProd extends javax.swing.JPanel {
                 btnSelectActionPerformed(evt);
             }
         });
-        PCont.add(btnSelect, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 320, 190, 50));
 
         lbImg.setBackground(new java.awt.Color(204, 204, 204));
         lbImg.setForeground(new java.awt.Color(255, 255, 255));
@@ -203,7 +192,6 @@ public class updateProd extends javax.swing.JPanel {
                 lbImgMouseClicked(evt);
             }
         });
-        PCont.add(lbImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 30, 300, 260));
 
         btnBack.setBackground(new java.awt.Color(190, 233, 232));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
@@ -213,22 +201,105 @@ public class updateProd extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        PCont.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 70, 60));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Nombre del producto");
-        PCont.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 530, -1, -1));
 
         lbMin1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lbMin1.setForeground(new java.awt.Color(0, 0, 0));
         lbMin1.setText("Minimo de digitos 3");
-        PCont.add(lbMin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 600, -1, -1));
 
         lbMin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lbMin.setForeground(new java.awt.Color(0, 0, 0));
         lbMin.setText("Minimo de digitos 3");
-        PCont.add(lbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 470, -1, -1));
+
+        javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
+        PCont.setLayout(PContLayout);
+        PContLayout.setHorizontalGroup(
+            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(370, 370, 370)
+                .addComponent(lbImg, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(560, 560, 560)
+                .addComponent(btnSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(380, 380, 380)
+                .addComponent(jLabel4)
+                .addGap(263, 263, 263)
+                .addComponent(jLabel6))
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(370, 370, 370)
+                .addComponent(cbTipoProd, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(150, 150, 150)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(lbMin))
+                    .addComponent(txtProv, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(370, 370, 370)
+                .addComponent(jLabel8)
+                .addGap(247, 247, 247)
+                .addComponent(jLabel7))
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(320, 320, 320)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(lbMin1))
+                    .addComponent(txtProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(130, 130, 130)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(lbMin2))
+                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(590, 590, 590)
+                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        PContLayout.setVerticalGroup(
+            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbImg, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addComponent(btnSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel6))
+                .addGap(5, 5, 5)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cbTipoProd, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(lbMin))
+                    .addComponent(txtProv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel7))
+                .addGap(5, 5, 5)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbMin1)
+                            .addComponent(lbMin2))))
+                .addGap(64, 64, 64)
+                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

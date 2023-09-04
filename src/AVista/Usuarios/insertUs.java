@@ -242,6 +242,7 @@ public class insertUs extends javax.swing.JPanel {
         lbMin1.setText("Minimo de digitos 8");
         panelRound1.add(lbMin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 110, 110, 30));
 
+        btnConfirm.setForeground(new java.awt.Color(0, 0, 0));
         btnConfirm.setText("Confirmar");
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

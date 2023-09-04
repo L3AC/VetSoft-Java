@@ -11,6 +11,7 @@ public class ctAdmin {
     public String dui;
     public String nacimiento;
     public String sexo;
+    //HOLA
 
     public int getIdAdmin() {
         return idAdmin;

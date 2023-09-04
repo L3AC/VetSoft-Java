@@ -54,7 +54,6 @@ public class HVacunas extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
         PCont.setBackground(new java.awt.Color(190, 233, 232));
-        PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnBack.setBackground(new java.awt.Color(190, 233, 232));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
@@ -64,22 +63,18 @@ public class HVacunas extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        PCont.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 70, 60));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Dosis aplicadas");
-        PCont.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 180, -1, -1));
 
-        txtBusq.setBackground(new java.awt.Color(255, 255, 255));
         txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
         txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtBusqKeyReleased(evt);
             }
         });
-        PCont.add(txtBusq, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 60, 470, 50));
 
         btnCart.setForeground(new java.awt.Color(0, 0, 0));
         btnCart.setText("Reporte");
@@ -89,7 +84,6 @@ public class HVacunas extends javax.swing.JPanel {
                 btnCartActionPerformed(evt);
             }
         });
-        PCont.add(btnCart, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 470, 130, 50));
 
         panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomLeft(50);
@@ -119,8 +113,6 @@ public class HVacunas extends javax.swing.JPanel {
 
         panelRound1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 900, 430));
 
-        PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 970, 495));
-
         btnElim.setForeground(new java.awt.Color(0, 0, 0));
         btnElim.setText("Eliminar");
         btnElim.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
@@ -129,7 +121,6 @@ public class HVacunas extends javax.swing.JPanel {
                 btnElimActionPerformed(evt);
             }
         });
-        PCont.add(btnElim, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 390, 130, 50));
 
         btnAct.setForeground(new java.awt.Color(0, 0, 0));
         btnAct.setText("Actualizar");
@@ -139,22 +130,70 @@ public class HVacunas extends javax.swing.JPanel {
                 btnActActionPerformed(evt);
             }
         });
-        PCont.add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 310, 130, 50));
 
-        txtDosis.setBackground(new java.awt.Color(255, 255, 255));
         txtDosis.setShadowColor(new java.awt.Color(0, 0, 51));
         txtDosis.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtDosisKeyReleased(evt);
             }
         });
-        PCont.add(txtDosis, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 220, 70, 40));
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Nombre de vacuna:");
-        PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, -1, -1));
+
+        javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
+        PCont.setLayout(PContLayout);
+        PContLayout.setHorizontalGroup(
+            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(120, 120, 120)
+                .addComponent(jLabel2)
+                .addGap(24, 24, 24)
+                .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 970, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(txtDosis, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAct, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnElim, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCart, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        PContLayout.setVerticalGroup(
+            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel2))
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(50, 50, 50)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel1)
+                        .addGap(15, 15, 15)
+                        .addComponent(txtDosis, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50)
+                        .addComponent(btnAct, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(btnElim, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(btnCart, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

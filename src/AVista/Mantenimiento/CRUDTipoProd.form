@@ -213,7 +213,7 @@
         <Container class="Design.PanelRound" name="panelRound1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="e9" red="ca" type="rgb"/>
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="roundBottomLeft" type="int" value="50"/>
             <Property name="roundBottomRight" type="int" value="50"/>

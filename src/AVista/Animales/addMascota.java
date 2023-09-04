@@ -219,6 +219,7 @@ public class addMascota extends javax.swing.JPanel {
         lbMin1.setText("Minimo de digitos 10");
         panelRound1.add(lbMin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, 120, 30));
 
+        btnConfirm.setForeground(new java.awt.Color(0, 0, 0));
         btnConfirm.setText("Confirmar");
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
