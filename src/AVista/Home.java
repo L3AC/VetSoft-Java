@@ -43,10 +43,9 @@ public class Home extends javax.swing.JPanel implements Runnable{
         PCont = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        panelRound1 = new Design.PanelRound();
         lblReloj = new javax.swing.JLabel();
 
-        PCont.setBackground(new java.awt.Color(255, 255, 255));
+        PCont.setBackground(new java.awt.Color(190, 233, 232));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Emoji", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(27, 73, 101));
@@ -56,41 +55,35 @@ public class Home extends javax.swing.JPanel implements Runnable{
         jLabel2.setAlignmentX(50.0F);
         jLabel2.setMaximumSize(new java.awt.Dimension(100, 100));
 
-        panelRound1.setBackground(new java.awt.Color(255, 255, 255));
-        panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         lblReloj.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         lblReloj.setForeground(new java.awt.Color(0, 0, 0));
         lblReloj.setText("        jLabel3");
-        panelRound1.add(lblReloj, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 370, 80));
 
         javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
         PCont.setLayout(PContLayout);
         PContLayout.setHorizontalGroup(
             PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PContLayout.createSequentialGroup()
-                .addContainerGap(525, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(525, Short.MAX_VALUE))
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(417, 417, 417)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(PContLayout.createSequentialGroup()
-                .addGap(464, 464, 464)
-                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(503, 503, 503)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblReloj, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(468, Short.MAX_VALUE))
         );
         PContLayout.setVerticalGroup(
             PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PContLayout.createSequentialGroup()
-                .addGap(185, 185, 185)
+                .addGap(48, 48, 48)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblReloj, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(282, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -111,7 +104,6 @@ public class Home extends javax.swing.JPanel implements Runnable{
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblReloj;
-    private Design.PanelRound panelRound1;
     // End of variables declaration//GEN-END:variables
 
     @Override

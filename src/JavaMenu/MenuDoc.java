@@ -33,7 +33,7 @@ public class MenuDoc extends JPanel{
 
 
     private void init() {
-        setBackground(Color.WHITE);
+        setBackground (Color.WHITE);
         setLayout(new BorderLayout());
         JScrollPane scroll = createScroll();
         panelMenu = createPanelMenu();
@@ -100,7 +100,7 @@ public class MenuDoc extends JPanel{
         JLabel label = new JLabel(title);
         label.setBorder(new EmptyBorder(15, 20, 5, 5));
         label.setFont(label.getFont().deriveFont(Font.BOLD));
-        label.setForeground(new Color(170, 170, 170));
+        label.setForeground(new Color(95, 171, 211));
         panelMenu.add(label);
     }
 

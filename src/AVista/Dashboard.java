@@ -357,8 +357,8 @@ public class Dashboard extends javax.swing.JFrame {
         PanelMenu.setForeground(new java.awt.Color(255, 255, 255));
         PanelMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        menuAdmin.setBackground(new java.awt.Color(0, 255, 204));
-        menuAdmin.setForeground(new java.awt.Color(153, 0, 51));
+        menuAdmin.setBackground(new java.awt.Color(95, 171, 211));
+        menuAdmin.setForeground(new java.awt.Color(95, 171, 211));
         menuAdmin.setPreferredSize(new java.awt.Dimension(250, 770));
         PanelMenu.add(menuAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 810));
         PanelMenu.add(menuDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 810));
@@ -366,7 +366,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         body.add(PanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 810));
 
-        PCont.setBackground(new java.awt.Color(187, 180, 187));
+        PCont.setBackground(new java.awt.Color(95, 171, 211));
         PCont.setToolTipText("");
 
         javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
