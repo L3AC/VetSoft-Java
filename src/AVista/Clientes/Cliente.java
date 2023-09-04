@@ -42,10 +42,7 @@ public class Cliente extends javax.swing.JPanel {
     public void setData() throws SQLException {
 
         try {
-            /*ctCliente ccliente = new ctCliente();
-            ccliente.nombre = nombre;
-            ResultSet rs = ccliente.CargarCCI();
-            while (rs.next()) {*/
+        
                 txtNom.setText(nombre);
 
            // }

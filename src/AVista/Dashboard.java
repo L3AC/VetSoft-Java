@@ -174,11 +174,11 @@ public class Dashboard extends javax.swing.JFrame {
                     if (index == 5 && indexSubMenu == 3) {
                         Preguntas subp = new Preguntas(idUs);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
-                    }/*
-                       if (index == 5 && indexSubMenu == 1) {
+                    }
+                       if (index == 5 && indexSubMenu == 2) {
                         CRUDClientesN subp = new CRUDClientesN();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
-                    }*/
+                    }
 
 
                 } catch (NullPointerException e) {

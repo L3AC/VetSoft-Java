@@ -3,9 +3,14 @@ package AVista.Clientes;
 
 import AControlador.ctCliente;
 import Design.PanelCliente;
-;
+import Tipografias.Fuentes;
 import java.awt.BorderLayout;
-import java.awt.event.MouseAdapter;
+;
+import java.awt.event.MouseEvent;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 import java.awt.event.MouseEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,12 +20,17 @@ import javax.swing.SwingUtilities;
 
 
 public class CRUDClientesN extends javax.swing.JPanel {
-
+                 Fuentes tipoFuente;
+               
     //private String nombre;
 
     public CRUDClientesN() throws SQLException {
         initComponents();
         DataProductos();
+         tipoFuente = new Fuentes();
+
+        /*Este apartado de setFont nos ayuda a poner un tipo de fuente en especifico y el tamaño de la letra*/
+        Titulo.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 32));
         //addItem(ccliente);
     }
 
@@ -28,17 +38,13 @@ public class CRUDClientesN extends javax.swing.JPanel {
 
         try {
             ctCliente ccliente = new ctCliente();
-            //ccliente.nombre = nombre;
             ResultSet rs = ccliente.CargarCCI();
             while (rs.next()) {
-                System.out.println("2");
-                //nombre=rs.getString("nombre");
                 addItem(rs.getString("nombre"));
                 
-                System.out.println("3");
+           
             }
         } catch (Exception ex) {
-            System.out.println("    no funciona me mato por que elegi software");
 
         }
     }
@@ -52,6 +58,7 @@ public class CRUDClientesN extends javax.swing.JPanel {
             panelCliente.add(card);
             panelCliente.repaint();
             panelCliente.revalidate();
+
         } catch (Exception ex) {
             System.err.println(ex.toString());
         }
@@ -68,35 +75,58 @@ public class CRUDClientesN extends javax.swing.JPanel {
 
         backGround1 = new Design.BackGround();
         header = new javax.swing.JPanel();
+        Titulo = new javax.swing.JLabel();
         panelCliente = new Design.PanelCliente();
+        buttonGradient1 = new Design.ButtonGradient();
 
         header.setOpaque(false);
+
+        Titulo.setText("Clientes");
 
         javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
         header.setLayout(headerLayout);
         headerLayout.setHorizontalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Titulo)
+                .addGap(622, 622, 622))
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
+                .addContainerGap(44, Short.MAX_VALUE)
+                .addComponent(Titulo)
+                .addGap(40, 40, 40))
         );
+
+        buttonGradient1.setText("Agregar");
+        buttonGradient1.setColor1(new java.awt.Color(51, 51, 51));
+        buttonGradient1.setColor2(new java.awt.Color(51, 51, 51));
 
         javax.swing.GroupLayout backGround1Layout = new javax.swing.GroupLayout(backGround1);
         backGround1.setLayout(backGround1Layout);
         backGround1Layout.setHorizontalGroup(
             backGround1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(panelCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 1320, Short.MAX_VALUE)
+            .addGroup(backGround1Layout.createSequentialGroup()
+                .addComponent(panelCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 907, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(69, 69, 69)
+                .addComponent(buttonGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(84, Short.MAX_VALUE))
         );
         backGround1Layout.setVerticalGroup(
             backGround1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backGround1Layout.createSequentialGroup()
                 .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(panelCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(backGround1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(backGround1Layout.createSequentialGroup()
+                        .addComponent(panelCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(backGround1Layout.createSequentialGroup()
+                        .addGap(107, 107, 107)
+                        .addComponent(buttonGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -113,7 +143,9 @@ public class CRUDClientesN extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Titulo;
     private Design.BackGround backGround1;
+    private Design.ButtonGradient buttonGradient1;
     private javax.swing.JPanel header;
     private Design.PanelCliente panelCliente;
     // End of variables declaration//GEN-END:variables

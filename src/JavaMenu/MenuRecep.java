@@ -34,7 +34,7 @@ public class MenuRecep extends JPanel {
     }
 
     private void init() {
-        setBackground(Color.WHITE);
+        setBackground(Color.BLACK);
         setLayout(new BorderLayout());
         JScrollPane scroll = createScroll();
         panelMenu = createPanelMenu();
