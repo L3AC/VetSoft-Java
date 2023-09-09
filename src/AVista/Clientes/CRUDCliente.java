@@ -35,14 +35,14 @@ public class CRUDCliente extends javax.swing.JPanel {
         this.nUs = nUs;
         initComponents();
         loadD();
- 
+
         //Este apartado es para cambiar la tipografia con una clase llamada "Fuentes" para cambiar, estilo, tamaño y fuente
         tipoFuente = new Fuentes();
 
         jLabel1.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 18));
         txtBusq.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 18));
         tbData.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 18));
-        
+
         //Este apartado es para que cuando el nivel de Usuario sea 4 o 5 (Doctor y Asistente)
         if (nUs == 4 || nUs == 5) {
             btnEditar.setVisible(false);
@@ -57,7 +57,7 @@ public class CRUDCliente extends javax.swing.JPanel {
         initComponents();
         loadD();
     }
-    
+
     //Este apartado es para cargar los datos de la base para la tabla
     final void loadD() throws SQLException {
         String[] column = {"idCliente", "Nombre", "Edad", "Sexo"};
@@ -325,7 +325,7 @@ public class CRUDCliente extends javax.swing.JPanel {
             GlassPanePopup.showPopup(obj);
         }
     }//GEN-LAST:event_btnEditarActionPerformed
-  
+
     //Esto nos ayuda a Eliminar un cliente
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         if (tbData.getRowCount() > 0) {
