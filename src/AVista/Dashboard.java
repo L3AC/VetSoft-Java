@@ -20,6 +20,7 @@ import AVista.Mantenimiento.CRUDnivels;
 import AVista.Mantenimiento.CRUDtpserv;
 import AVista.Perfil.PerfilData;
 import AVista.Perfil.Preguntas;
+import AVista.Perfil.SeguridadC;
 import AVista.Productos.CRUDProd;
 import AVista.Productos.updateProd;
 import AVista.Recepcionista.CRUDRecep;
@@ -171,15 +172,19 @@ public class Dashboard extends javax.swing.JFrame {
                         PerfilData subp = new PerfilData(idTipoU, idCuenta, idUs);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
+                    if (index == 5 && indexSubMenu == 2) {
+                        SeguridadC subp = new SeguridadC(idTipoU, idUs);
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                    }
                     if (index == 5 && indexSubMenu == 3) {
                         Preguntas subp = new Preguntas(idUs);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
-                    /*   if (index == 5 && indexSubMenu == 2) {
-                        CRUDClientesN subp = new CRUDClientesN();
-                        dsg.ShowPanel(subp, PCont, 1320, 810);
-                    }*/
-
+                    if (index == 5 && indexSubMenu == 4) {
+                        Login frame = new Login();
+                        frame.setVisible(true);
+                        dispose();
+                    }
 
                 } catch (NullPointerException e) {
                     StackTraceElement[] stackTrace = e.getStackTrace();
@@ -255,9 +260,18 @@ public class Dashboard extends javax.swing.JFrame {
                         PerfilData subp = new PerfilData(idTipoU, idCuenta, idUs);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
+                    if (index == 4 && indexSubMenu == 2) {
+                        SeguridadC subp = new SeguridadC(idTipoU, idUs);
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                    }
                     if (index == 4 && indexSubMenu == 3) {
                         Preguntas subp = new Preguntas(idUs);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
+                    }
+                    if (index == 4 && indexSubMenu == 4) {
+                        Login frame = new Login();
+                        frame.setVisible(true);
+                        dispose();
                     }
 
                 } catch (Exception e) {
@@ -312,9 +326,18 @@ public class Dashboard extends javax.swing.JFrame {
                         PerfilData subp = new PerfilData(idTipoU, idCuenta, idUs);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
+                    if (index == 2 && indexSubMenu == 2) {
+                        SeguridadC subp = new SeguridadC(idTipoU, idUs);
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                    }
                     if (index == 2 && indexSubMenu == 3) {
                         Preguntas subp = new Preguntas(idUs);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
+                    }
+                    if (index == 2 && indexSubMenu == 4) {
+                        Login frame = new Login();
+                        frame.setVisible(true);
+                        dispose();
                     }
                 } catch (Exception e) {
                     System.out.println(e.toString() + " prueba");

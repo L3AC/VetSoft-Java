@@ -27,7 +27,7 @@ public class mdUser extends JFrame {
 
     //Esto nos ayudara a cargar los datos del usuario
     public ResultSet loadData(int idUs) {//EDITAR INFO
-        String query = "select idUsuario,tu.nivel as 'Cargo',usuario,correo,telefono from tbUsuarios u,\n"
+        String query = "select idUsuario,tu.nivel as 'Cargo',contraseña,usuario,correo,telefono from tbUsuarios u,\n"
                 + "tbTipoUsuario tu where u.idTipoUsuario=tu.idTipoUsuario and idUsuario=?;";
         try {
             ps = con.prepareStatement(query);
@@ -130,6 +130,7 @@ public class mdUser extends JFrame {
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
             System.out.println(e.toString());
+            
             return false; //DIO ERROR
         }
     }

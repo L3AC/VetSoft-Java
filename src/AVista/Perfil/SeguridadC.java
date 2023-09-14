@@ -3,7 +3,11 @@ package AVista.Perfil;
 import AControlador.ctUser;
 import AModelo.Crypt;
 import Design.Desg;
+import Mensajes.CódigoErrorDSI4;
+import Mensajes.GlassPanePopup;
 import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -23,7 +27,7 @@ public class SeguridadC extends javax.swing.JPanel {
 
     public SeguridadC(int idTipoUs, int idUs) throws SQLException {
         this.idTipoUs = idTipoUs;
-        this.idTipoUs = idTipoUs;
+        this.idUs = idUs;
         initComponents();
         mostrar(false);
         txvAdv.setVisible(false);
@@ -64,6 +68,11 @@ public class SeguridadC extends javax.swing.JPanel {
         jPanel1.add(lbNC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 390, 260, -1));
 
         txtNC1.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtNC1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNC1KeyReleased(evt);
+            }
+        });
         jPanel1.add(txtNC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 430, 290, -1));
 
         txvAdv.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -72,6 +81,11 @@ public class SeguridadC extends javax.swing.JPanel {
         jPanel1.add(txvAdv, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 590, 220, -1));
 
         txtNC2.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtNC2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNC2KeyReleased(evt);
+            }
+        });
         jPanel1.add(txtNC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 540, 290, -1));
 
         btnVerif.setForeground(new java.awt.Color(0, 0, 0));
@@ -122,19 +136,18 @@ public class SeguridadC extends javax.swing.JPanel {
         } else {
             try {
                 loadInfo();
-                if (contra == txtContra.getText()) {
-                    mostrar(true);
-                } else {
-                    mostrar(false);
-                    JOptionPane.showMessageDialog(null, "Contraseña incorrecta");
-                }
             } catch (SQLException ex) {
                 Logger.getLogger(SeguridadC.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (Exception ex) {
-                Logger.getLogger(SeguridadC.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            if (txtContra.getText().equals(contra)) {
+                mostrar(true);
+            } else {
+                mostrar(false);
+                JOptionPane.showMessageDialog(null, "Contraseña incorrecta");
             }
 
         }
+
     }//GEN-LAST:event_btnVerifActionPerformed
 
     final void loadInfo() throws SQLException {
@@ -146,7 +159,8 @@ public class SeguridadC extends javax.swing.JPanel {
             while (rs.next()) {
                 user = rs.getString("usuario");
                 contra = cryp.decrypt(rs.getString("contraseña"), "key");
-                System.err.println(contra);
+                System.err.println(contra + "  orig");
+                System.err.println(txtContra.getText() + " contra ");
             }
         } catch (Exception e) {
             System.err.println(e.toString());
@@ -161,18 +175,36 @@ public class SeguridadC extends javax.swing.JPanel {
                 ct.usuario = user;
                 ct.contra = cryp.encrypt(txtNC2.getText(), "key");
                 ct.updtContra();
+                CódigoErrorDSI4 obj = new CódigoErrorDSI4();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+
             } catch (Exception ex) {
-                Logger.getLogger(SeguridadC.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(SeguridadC.class
+                        .getName()).log(Level.SEVERE, null, ex);
             }
         }
 
     }//GEN-LAST:event_btnConfirmActionPerformed
+
+    private void txtNC1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNC1KeyReleased
+        verifContra();
+    }//GEN-LAST:event_txtNC1KeyReleased
+
+    private void txtNC2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNC2KeyReleased
+       verifContra();
+    }//GEN-LAST:event_txtNC2KeyReleased
     public void verifContra() {
         if (!txtNC1.getText().toString().equals(txtNC2.getText().toString())) {
             txvAdv.setVisible(true);
             btnConfirm.setEnabled(false);
         } else {
-            txvAdv.setVisible(true);
+            txvAdv.setVisible(false);
             btnConfirm.setEnabled(true);
         }
     }
