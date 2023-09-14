@@ -132,6 +132,10 @@ public class ctUser {
         return usu.updateUs(idTipoCuenta, usuario, correo, telefono, idUs);
     }
 
+        public boolean updtContra() {
+        return usu.updateContra(contra,usuario);
+    }
+    
     public boolean deleteUs() {
         return usu.deleteUs(idUs);
     }

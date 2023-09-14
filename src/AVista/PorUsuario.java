@@ -113,8 +113,8 @@ public class PorUsuario extends javax.swing.JFrame {
 
         lbMayor.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         lbMayor.setForeground(new java.awt.Color(27, 73, 101));
-        lbMayor.setText("Recuperación de contraseña por usuario");
-        panelRound2.add(lbMayor, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, -1));
+        lbMayor.setText("Recuperación de contraseña por e-mail");
+        panelRound2.add(lbMayor, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, -1, -1));
 
         panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomLeft(50);

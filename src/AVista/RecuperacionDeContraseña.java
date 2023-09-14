@@ -55,7 +55,7 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnUsuario = new Design.ButtonGradient();
         btnPreguntas = new Design.ButtonGradient();
-        btnPreguntas1 = new Design.ButtonGradient();
+        btnSms = new Design.ButtonGradient();
         LBRecup = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -96,7 +96,7 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
         panelRound1.add(btnUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 270, -1));
 
         btnPreguntas.setForeground(new java.awt.Color(0, 0, 0));
-        btnPreguntas.setText("SMS");
+        btnPreguntas.setText("Preguntas de confianza");
         btnPreguntas.setColor1(new java.awt.Color(190, 233, 232));
         btnPreguntas.setColor2(new java.awt.Color(190, 233, 232));
         btnPreguntas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -105,19 +105,19 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
                 btnPreguntasActionPerformed(evt);
             }
         });
-        panelRound1.add(btnPreguntas, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 270, -1));
+        panelRound1.add(btnPreguntas, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 270, -1));
 
-        btnPreguntas1.setForeground(new java.awt.Color(0, 0, 0));
-        btnPreguntas1.setText("Preguntas de confianza");
-        btnPreguntas1.setColor1(new java.awt.Color(190, 233, 232));
-        btnPreguntas1.setColor2(new java.awt.Color(190, 233, 232));
-        btnPreguntas1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnPreguntas1.addActionListener(new java.awt.event.ActionListener() {
+        btnSms.setForeground(new java.awt.Color(0, 0, 0));
+        btnSms.setText("SMS");
+        btnSms.setColor1(new java.awt.Color(190, 233, 232));
+        btnSms.setColor2(new java.awt.Color(190, 233, 232));
+        btnSms.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnSms.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPreguntas1ActionPerformed(evt);
+                btnSmsActionPerformed(evt);
             }
         });
-        panelRound1.add(btnPreguntas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 270, -1));
+        panelRound1.add(btnSms, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 270, -1));
 
         panelRound2.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 530, 231));
 
@@ -183,13 +183,13 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jLabel2MouseClicked
 
-    private void btnPreguntas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreguntas1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPreguntas1ActionPerformed
+    private void btnSmsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSmsActionPerformed
+        enviarSMS newFrame = new enviarSMS();
 
-    /**
-     * @param args the command line arguments
-     */
+        newFrame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnSmsActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -226,7 +226,7 @@ public final class RecuperacionDeContraseña extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LBRecup;
     private Design.ButtonGradient btnPreguntas;
-    private Design.ButtonGradient btnPreguntas1;
+    private Design.ButtonGradient btnSms;
     private Design.ButtonGradient btnUsuario;
     private Design.Desg desg1;
     private javax.swing.JLabel jLabel1;
