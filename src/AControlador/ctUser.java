@@ -8,6 +8,7 @@ public class ctUser {
 
     public int idTipoUs;//NIVEL DE USUARIO QUE INGRESA A LA PANTALLA
     public String nivel;
+    public String code;
     public int idUs;//USUARIO SELECCIONADO DE LA TABLA
     public int idTipoCuenta;//NIVEL DE USUARIO QUE SE LE VA AGREGAR AL REGISTRO
     public String usuario;
@@ -98,6 +99,15 @@ public class ctUser {
         this.idTipoCuenta = idTipoCuenta;
     }
 
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    ////////////////////////////////////////////////
     mdUser usu = new mdUser();
 
     public ResultSet ValidarLogin() throws SQLException {
@@ -132,10 +142,14 @@ public class ctUser {
         return usu.updateUs(idTipoCuenta, usuario, correo, telefono, idUs);
     }
 
-        public boolean updtContra() {
-        return usu.updateContra(contra,usuario);
+    public boolean updtContra() {
+        return usu.updateContra(contra, usuario);
     }
-    
+
+    public boolean updtCode() {
+        return usu.updateCode(code, usuario);
+    }
+
     public boolean deleteUs() {
         return usu.deleteUs(idUs);
     }

@@ -5,6 +5,7 @@
 package AVista;
 
 import AControlador.ctUser;
+import AControlador.sendSMS;
 import AModelo.Conx;
 import AModelo.Crypt;
 import Mensajes.CodigoErrorDRC2;
@@ -287,7 +288,11 @@ public class enviarSMS extends javax.swing.JFrame {
             GlassPanePopup.showPopup(obj);
         } else {
 
-            Encontrar();
+            try {
+                Encontrar();
+            } catch (SQLException ex) {
+                Logger.getLogger(enviarSMS.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
         }
     }//GEN-LAST:event_btnEnviarActionPerformed
@@ -379,52 +384,43 @@ public class enviarSMS extends javax.swing.JFrame {
         }
 
     }
-    public void Encontrar() {
-        
-        String cadena = "select * from tbUsuarios where usuario=? COLLATE SQL_Latin1_General_CP1_CS_AS;";
-        
-        PreparedStatement ps;
-        ResultSet st;
-        
-        try {
-            acceso = con.Conectar();
-            ps = acceso.prepareStatement(cadena, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            ps.setString(1, txtUser.getText());
-            st = ps.executeQuery();
-            st.last();
-            int found = st.getRow();
-            if (found == 1) {
-                tel = st.getString("correo");
-                codigo = GenerC(8);
-                InsertC(codigo);
-                //Em(mail, codigo);
-                txtCod.setEnabled(true);
-                btnVeri.setEnabled(true);
-                txtUser.setEnabled(false);
-                btnCambiar.setEnabled(false);
-                btnEnviar.setEnabled(false);
-            } else {
-                CodigoErrorDRC2 obj = new CodigoErrorDRC2();
-                obj.eventOK(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent ae) {
-                        GlassPanePopup.closePopupLast();
-                    }
-                });
-                GlassPanePopup.showPopup(obj);
-                txtCod.setEnabled(false);
-                btnVeri.setEnabled(false);
-                
-            }
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e.toString());
-        }        
+
+    public void Encontrar() throws SQLException {
+
+        ctUser ct = new ctUser();
+        ct.usuario = txtUser.getText();
+        ResultSet st = ct.verifUs();
+        st.last();
+        int found = st.getRow();
+        if (found == 1) {
+            tel = st.getString("telefono");
+            codigo = GenerC(8);
+            InsertC(codigo);
+            sms(tel, codigo);
+            txtCod.setEnabled(true);
+            btnVeri.setEnabled(true);
+            txtUser.setEnabled(false);
+            btnCambiar.setEnabled(false);
+            btnEnviar.setEnabled(false);
+        } else {
+            CodigoErrorDRC2 obj = new CodigoErrorDRC2();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+            txtCod.setEnabled(false);
+            btnVeri.setEnabled(false);
+        }
     }
+
     public String GenerC(int longi) {
         String num = "0123456789";
         String lmin = "abcdefghijklmnopqrstuvwxyz";
         String lmay = lmin.toUpperCase();
-        
+
         String caract = lmay + num;
         Random cod = new Random();
         String result = "";
@@ -434,19 +430,15 @@ public class enviarSMS extends javax.swing.JFrame {
             result += caracter;
         }
         return result;
-        
+
     }
+
     public void InsertC(String code) {
-        String cadena = "update tbUsuarios set codigoVerif=? "
-                + "where usuario=? COLLATE SQL_Latin1_General_CP1_CS_AS;";
-        
-        PreparedStatement ps;
-        try {
-            acceso = con.Conectar();
-            ps = acceso.prepareStatement(cadena);
-            ps.setString(1, code);
-            ps.setString(2, txtUser.getText());
-            ps.executeUpdate();
+        ctUser ct = new ctUser();
+        ct.code = code;
+        ct.usuario = txtUser.getText();
+        if (ct.updtCode()) {
+
             CódigoDSI10 obj = new CódigoDSI10();
             obj.eventOK(new ActionListener() {
                 @Override
@@ -455,9 +447,14 @@ public class enviarSMS extends javax.swing.JFrame {
                 }
             });
             GlassPanePopup.showPopup(obj);
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e.toString());
+        } else {
+            JOptionPane.showMessageDialog(null, "Error al crear");
         }
+    }
+
+    public void sms(String tel, String clave) {
+        sendSMS sm = new sendSMS();
+        sm.send(tel, clave);
     }
     private void txtNuevaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNuevaKeyTyped
         // TODO add your handling code here:

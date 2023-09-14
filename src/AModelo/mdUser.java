@@ -133,6 +133,23 @@ public class mdUser extends JFrame {
             return false; //DIO ERROR
         }
     }
+     public boolean updateCode(String code,String us) {
+        String query = "update tbUsuarios set codigoVerif=? "
+                + "where usuario=? COLLATE SQL_Latin1_General_CP1_CS_AS;";
+        try {
+
+            ps = con.prepareStatement(query);
+            ps.setString(1, code);
+            ps.setString(2, us);
+            ps.executeUpdate();
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            return false; //DIO ERROR
+        }
+    }
 
     //Esto nos ayudara a eliminar a algun usuario dentro del sistema po medio del id
     public boolean deleteUs(int idD) {
