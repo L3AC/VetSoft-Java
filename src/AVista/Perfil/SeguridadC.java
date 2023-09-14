@@ -1,22 +1,32 @@
-
 package AVista.Perfil;
 
 import AControlador.ctUser;
+import AModelo.Crypt;
 import Design.Desg;
+import java.awt.Component;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class SeguridadC extends javax.swing.JPanel {
+
     private int idTipoUs;
     private int idUs;
     private String contra;
+    private String user;
     Desg dsg = new Desg();
+    Crypt cryp = new Crypt();
 
-    public SeguridadC(int idTipoUs,int idUs) throws SQLException {
-        this.idTipoUs=idTipoUs;
-        this.idTipoUs=idTipoUs;
+    public SeguridadC(int idTipoUs, int idUs) throws SQLException {
+        this.idTipoUs = idTipoUs;
+        this.idTipoUs = idTipoUs;
         initComponents();
-        loadInfo();
+        mostrar(false);
+        txvAdv.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -24,119 +34,75 @@ public class SeguridadC extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        txtProd = new Design.TextFieldSV();
+        txtContra = new Design.TextFieldSV();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        txtProd1 = new Design.TextFieldSV();
-        jLabel4 = new javax.swing.JLabel();
-        txtProd2 = new Design.TextFieldSV();
+        lbNC1 = new javax.swing.JLabel();
+        txtNC1 = new Design.TextFieldSV();
+        txvAdv = new javax.swing.JLabel();
+        txtNC2 = new Design.TextFieldSV();
+        btnVerif = new Design.ButtonGradient();
         btnConfirm = new Design.ButtonGradient();
-        btnConfirm1 = new Design.ButtonGradient();
         jLabel5 = new javax.swing.JLabel();
+        lbNC2 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
         jPanel1.setBackground(new java.awt.Color(190, 233, 232));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtProd.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtContra.setShadowColor(new java.awt.Color(0, 0, 51));
+        jPanel1.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(512, 217, 330, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Ingrese su contraseña actual");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(552, 177, 260, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Ingrese su nueva contraseña");
+        lbNC1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbNC1.setForeground(new java.awt.Color(0, 0, 0));
+        lbNC1.setText("Ingrese su nueva contraseña");
+        jPanel1.add(lbNC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 390, 260, -1));
 
-        txtProd1.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtNC1.setShadowColor(new java.awt.Color(0, 0, 51));
+        jPanel1.add(txtNC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 430, 290, -1));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Digite su contraseña de nuevo");
+        txvAdv.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txvAdv.setForeground(new java.awt.Color(255, 51, 51));
+        txvAdv.setText("Las contraseñas deben coincidir");
+        jPanel1.add(txvAdv, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 590, 220, -1));
 
-        txtProd2.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtNC2.setShadowColor(new java.awt.Color(0, 0, 51));
+        jPanel1.add(txtNC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 540, 290, -1));
+
+        btnVerif.setForeground(new java.awt.Color(0, 0, 0));
+        btnVerif.setText("Verificar");
+        btnVerif.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
+        btnVerif.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerifActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnVerif, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 270, 160, 40));
 
         btnConfirm.setForeground(new java.awt.Color(0, 0, 0));
-        btnConfirm.setText("Verificar");
+        btnConfirm.setText("Cambiar");
         btnConfirm.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfirmActionPerformed(evt);
             }
         });
-
-        btnConfirm1.setForeground(new java.awt.Color(0, 0, 0));
-        btnConfirm1.setText("Cambiar");
-        btnConfirm1.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
-        btnConfirm1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConfirm1ActionPerformed(evt);
-            }
-        });
+        jPanel1.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 670, 160, 40));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(27, 73, 101));
         jLabel5.setText("CAMBIO DE CONTRASEÑA");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, 440, 50));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(460, 460, 460)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(600, 600, 600)
-                        .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(550, 550, 550)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(530, 530, 530)
-                        .addComponent(txtProd1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(540, 540, 540)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(530, 530, 530)
-                        .addComponent(txtProd2, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(590, 590, 590)
-                        .addComponent(btnConfirm1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtProd, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(58, 58, 58)))
-                .addGap(420, 420, 420))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addComponent(jLabel2)
-                .addGap(15, 15, 15)
-                .addComponent(txtProd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
-                .addComponent(jLabel3)
-                .addGap(15, 15, 15)
-                .addComponent(txtProd1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(jLabel4)
-                .addGap(15, 15, 15)
-                .addComponent(txtProd2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addComponent(btnConfirm1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        lbNC2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbNC2.setForeground(new java.awt.Color(0, 0, 0));
+        lbNC2.setText("Digite su contraseña de nuevo");
+        jPanel1.add(lbNC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 500, 260, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -150,76 +116,89 @@ public class SeguridadC extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
-        /*if (txtNombre.getText().isEmpty() || txtApellidos.getText().isEmpty()
-            || txtDui.getText().isEmpty() || txtDir.getText().isEmpty()) {
-
+    private void btnVerifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerifActionPerformed
+        if (txtContra.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Campos vacíos");
         } else {
-            SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
-            if (nivelRow == 2) {
-                ctRecep ct = new ctRecep();
-                ct.idRecep = idCuenta;
-                ct.nombre = txtNombre.getText();
-                ct.apellido = txtApellidos.getText();
-                ct.dui = txtDui.getText();
-                ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
-                ct.sexo = cbSexo.getSelectedItem().toString();
-                ct.updtRecep();
+            try {
+                loadInfo();
+                if (contra == txtContra.getText()) {
+                    mostrar(true);
+                } else {
+                    mostrar(false);
+                    JOptionPane.showMessageDialog(null, "Contraseña incorrecta");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(SeguridadC.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Exception ex) {
+                Logger.getLogger(SeguridadC.class.getName()).log(Level.SEVERE, null, ex);
             }
-            if (nivelRow == 3) {
-                ctCliente ct = new ctCliente();
-                ct.idCliente = idCuenta;
-                ct.nombre = txtNombre.getText();
-                ct.apellido = txtApellidos.getText();
-                ct.dui = txtDui.getText();
-                ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
-                ct.sexo = cbSexo.getSelectedItem().toString();
-                ct.direccion = txtDir.getText();
-                ct.updtCl();
-            }
-            if (nivelRow == 4) {
-                ctDoctores ct = new ctDoctores();
-                ct.idDoctor = idCuenta;
-                ct.idEsp = dsg.getMap(cbMap, cbEsp.getSelectedItem().toString());
-                ct.nombre = txtNombre.getText();
-                ct.apellido = txtApellidos.getText();
-                ct.dui = txtDui.getText();
-                ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
-                ct.sexo = cbSexo.getSelectedItem().toString();
-                ct.updateDoc();
-            }
-        }*/
-    }//GEN-LAST:event_btnConfirmActionPerformed
+
+        }
+    }//GEN-LAST:event_btnVerifActionPerformed
 
     final void loadInfo() throws SQLException {
         try {
-
             ctUser ct = new ctUser();
             ct.idUs = idUs;
             ResultSet rs = ct.loadData();
 
             while (rs.next()) {
-                contra = rs.getString("usuario");
+                user = rs.getString("usuario");
+                contra = cryp.decrypt(rs.getString("contraseña"), "key");
+                System.err.println(contra);
             }
         } catch (Exception e) {
             System.err.println(e.toString());
         }
     }
-    private void btnConfirm1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirm1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnConfirm1ActionPerformed
+    private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
+        if (txtNC1.getText().isEmpty() || txtNC2.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Campos vacíos");
+        } else {
+            try {
+                ctUser ct = new ctUser();
+                ct.usuario = user;
+                ct.contra = cryp.encrypt(txtNC2.getText(), "key");
+                ct.updtContra();
+            } catch (Exception ex) {
+                Logger.getLogger(SeguridadC.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+    }//GEN-LAST:event_btnConfirmActionPerformed
+    public void verifContra() {
+        if (!txtNC1.getText().toString().equals(txtNC2.getText().toString())) {
+            txvAdv.setVisible(true);
+            btnConfirm.setEnabled(false);
+        } else {
+            txvAdv.setVisible(true);
+            btnConfirm.setEnabled(true);
+        }
+    }
+
+    public void mostrar(boolean tf) {
+        List<Component> lista = new ArrayList<>();
+        lista.add(lbNC1);
+        lista.add(lbNC2);
+        lista.add(txtNC1);
+        lista.add(txtNC2);
+        lista.add(btnConfirm);
+        dsg.visib(lista, tf);
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Design.ButtonGradient btnConfirm;
-    private Design.ButtonGradient btnConfirm1;
+    private Design.ButtonGradient btnVerif;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private Design.TextFieldSV txtProd;
-    private Design.TextFieldSV txtProd1;
-    private Design.TextFieldSV txtProd2;
+    private javax.swing.JLabel lbNC1;
+    private javax.swing.JLabel lbNC2;
+    private Design.TextFieldSV txtContra;
+    private Design.TextFieldSV txtNC1;
+    private Design.TextFieldSV txtNC2;
+    private javax.swing.JLabel txvAdv;
     // End of variables declaration//GEN-END:variables
 }
