@@ -43,7 +43,7 @@ public class mdProd extends JFrame {
     //Esto nos ayudara a seleccionar los productos dentro del sistema
     public ResultSet selectProd(int id) {
 
-        String query = "select idProducto,tp.tipo,Nombre,Proveedor,Precio,img "
+        String query = "select idProducto,tp.tipo,Nombre,Proveedor,ROUND(Precio, 2) AS Precio,img "
                 + "from tbProductos p,tbTipoProductos tp "
                 + "where p.idTipoProducto=tp.idTipoProducto and idProducto=?";
         try {

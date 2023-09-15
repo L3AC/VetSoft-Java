@@ -51,11 +51,12 @@ public class updateProd extends javax.swing.JPanel {
         this.idTipoUs = idTipoUs;
         this.idProd = idProd;
         initComponents();
+        txtProducto.setDocument(new Valida(300, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´& ,.]*"));
+        txtProv.setDocument(new Valida(300, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´& ,.]*"));
+        txtPrecio.setDocument(new Valida(10, "[0-9.]*"));
         loadCombo(cbTipoProd);
         loadData();
-        txtProducto.setDocument(new Valida(300, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ,.]*"));
-        txtProv.setDocument(new Valida(300, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ,.]*"));
-        txtPrecio.setDocument(new Valida(10, "[0-9.]*"));
+
         lbMin.setVisible(false);
         lbMin1.setVisible(false);
         lbMin2.setVisible(false);
@@ -419,12 +420,12 @@ public class updateProd extends javax.swing.JPanel {
                 lbMin.setVisible(true);
                 btnConfirm.setEnabled(false);
             }
-    }   
+        }
     }//GEN-LAST:event_txtProvKeyReleased
 
     private void txtProductoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtProductoKeyReleased
         // TODO add your handling code here:
-          if (txtProducto.getText().length() >= 3 && txtProv.getText().length() >= 3 && txtPrecio.getText().length() >= 2) {
+        if (txtProducto.getText().length() >= 3 && txtProv.getText().length() >= 3 && txtPrecio.getText().length() >= 2) {
             lbMin1.setVisible(false);
             btnConfirm.setEnabled(true);
         } else {
@@ -435,7 +436,7 @@ public class updateProd extends javax.swing.JPanel {
                 lbMin1.setVisible(true);
                 btnConfirm.setEnabled(false);
             }
-    }            
+        }
     }//GEN-LAST:event_txtProductoKeyReleased
 
     private void txtPrecioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioKeyReleased
@@ -443,17 +444,15 @@ public class updateProd extends javax.swing.JPanel {
         if (txtPrecio.getText().length() >= 2 && txtProducto.getText().length() >= 3 && txtProv.getText().length() >= 3) {
             lbMin2.setVisible(false);
             btnConfirm.setEnabled(true);
-        } else{
-        if (txtPrecio.getText().length() >= 2){
-        lbMin2.setVisible(false);
-            btnConfirm.setEnabled(true);
+        } else {
+            if (txtPrecio.getText().length() >= 2) {
+                lbMin2.setVisible(false);
+                btnConfirm.setEnabled(true);
+            } else {
+                lbMin2.setVisible(true);
+                btnConfirm.setEnabled(false);
+            }
         }
-        
-        else {
-            lbMin2.setVisible(true);
-            btnConfirm.setEnabled(false);
-        }
-    }        
     }//GEN-LAST:event_txtPrecioKeyReleased
 
 

@@ -40,8 +40,8 @@ public class insertProd extends javax.swing.JPanel {
         initComponents();
         loadCombo(cbTipoProd);
 
-        txtProducto.setDocument(new Valida(300, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ,.]*"));
-        txtProv.setDocument(new Valida(300, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ,.]*"));
+        txtProducto.setDocument(new Valida(300, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´& ,.]*"));
+        txtProv.setDocument(new Valida(300, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´& ,.]*"));
         txtPrecio.setDocument(new Valida(10, "[0-9.]*"));
         lbMin.setVisible(false);
         lbMin1.setVisible(false);
