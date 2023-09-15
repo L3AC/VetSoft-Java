@@ -26,6 +26,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -72,7 +73,9 @@ public class updateProd extends javax.swing.JPanel {
                 cbTipoProd.setSelectedItem(rs.getString("tipo"));
                 txtProducto.setText(rs.getString("nombre"));
                 txtProv.setText(rs.getString("proveedor"));
-                txtPrecio.setText(rs.getString("precio"));
+                DecimalFormat formato = new DecimalFormat("#.##");
+                String precio = formato.format(rs.getFloat("precio"));
+                txtPrecio.setText(precio);
                 bytesImagen = rs.getBytes("img");
                 lbImg.setSize(300, 260);
                 dsg.putImg(lbImg, bytesImagen);
