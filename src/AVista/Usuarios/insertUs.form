@@ -215,7 +215,7 @@
             <Component class="javax.swing.JComboBox" name="cbCargo">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="e9" red="ca" type="rgb"/>
+                  <Color blue="e8" green="e9" red="be" type="rgb"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
@@ -252,7 +252,7 @@
             <Component class="Design.TextFieldSV" name="txtUsuario">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="e9" red="ca" type="rgb"/>
+                  <Color blue="e8" green="e9" red="be" type="rgb"/>
                 </Property>
                 <Property name="shadowColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="0" red="0" type="rgb"/>
@@ -272,7 +272,7 @@
             <Component class="Design.TextFieldSV" name="txtCorreo">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="e9" red="ca" type="rgb"/>
+                  <Color blue="e8" green="e9" red="be" type="rgb"/>
                 </Property>
                 <Property name="shadowColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="0" red="0" type="rgb"/>
@@ -290,7 +290,7 @@
             <Component class="Design.TextFieldSV" name="txtTel">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="e9" red="ca" type="rgb"/>
+                  <Color blue="e8" green="e9" red="be" type="rgb"/>
                 </Property>
                 <Property name="shadowColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="0" red="0" type="rgb"/>
@@ -309,7 +309,7 @@
             <Component class="Design.PasswordField" name="txtContra">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="e9" red="ca" type="rgb"/>
+                  <Color blue="e8" green="e9" red="be" type="rgb"/>
                 </Property>
                 <Property name="shadowColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="0" red="0" type="rgb"/>

@@ -162,7 +162,7 @@ public class insertUs extends javax.swing.JPanel {
         jLabel1.setText("Contraseña");
         panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 30, 150, 30));
 
-        cbCargo.setBackground(new java.awt.Color(202, 233, 255));
+        cbCargo.setBackground(new java.awt.Color(190, 233, 232));
         cbCargo.setForeground(new java.awt.Color(51, 51, 51));
         cbCargo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,7 +175,7 @@ public class insertUs extends javax.swing.JPanel {
         lbDisp.setText("Usuario no disponible");
         panelRound1.add(lbDisp, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 190, 30));
 
-        txtUsuario.setBackground(new java.awt.Color(202, 233, 255));
+        txtUsuario.setBackground(new java.awt.Color(190, 233, 232));
         txtUsuario.setShadowColor(new java.awt.Color(0, 0, 51));
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -192,7 +192,7 @@ public class insertUs extends javax.swing.JPanel {
         });
         panelRound1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 240, 50));
 
-        txtCorreo.setBackground(new java.awt.Color(202, 233, 255));
+        txtCorreo.setBackground(new java.awt.Color(190, 233, 232));
         txtCorreo.setShadowColor(new java.awt.Color(0, 0, 51));
         txtCorreo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -201,7 +201,7 @@ public class insertUs extends javax.swing.JPanel {
         });
         panelRound1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 240, 50));
 
-        txtTel.setBackground(new java.awt.Color(202, 233, 255));
+        txtTel.setBackground(new java.awt.Color(190, 233, 232));
         txtTel.setShadowColor(new java.awt.Color(0, 0, 51));
         txtTel.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -213,7 +213,7 @@ public class insertUs extends javax.swing.JPanel {
         });
         panelRound1.add(txtTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 230, 290, 50));
 
-        txtContra.setBackground(new java.awt.Color(202, 233, 255));
+        txtContra.setBackground(new java.awt.Color(190, 233, 232));
         txtContra.setShadowColor(new java.awt.Color(0, 0, 51));
         txtContra.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
