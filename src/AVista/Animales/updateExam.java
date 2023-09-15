@@ -102,7 +102,7 @@ public class updateExam extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("EDITAR EXAMEN MÉDICO");
 
-        panelRound1.setBackground(new java.awt.Color(204, 255, 255));
+        panelRound1.setBackground(new java.awt.Color(190, 233, 232));
         panelRound1.setRoundBottomLeft(50);
         panelRound1.setRoundBottomRight(50);
         panelRound1.setRoundTopLeft(50);
@@ -114,7 +114,6 @@ public class updateExam extends javax.swing.JPanel {
         jLabel1.setText("Nota");
         panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 50, 30));
 
-        txtNota.setBackground(new java.awt.Color(255, 255, 255));
         txtNota.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtNota, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 920, 50));
 

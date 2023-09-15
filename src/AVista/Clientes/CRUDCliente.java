@@ -110,7 +110,7 @@ public class CRUDCliente extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1320, 810));
         setVerifyInputWhenFocusTarget(false);
 
-        PCont.setBackground(new java.awt.Color(202, 233, 255));
+        PCont.setBackground(new java.awt.Color(190, 233, 232));
         PCont.setForeground(new java.awt.Color(255, 255, 255));
 
         txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));

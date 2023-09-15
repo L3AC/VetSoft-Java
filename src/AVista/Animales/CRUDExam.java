@@ -48,7 +48,7 @@ public class CRUDExam extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
-        PCont.setBackground(new java.awt.Color(202, 233, 255));
+        PCont.setBackground(new java.awt.Color(190, 233, 232));
 
         txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
         txtBusq.addActionListener(new java.awt.event.ActionListener() {

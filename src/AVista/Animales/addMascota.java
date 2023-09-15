@@ -93,7 +93,7 @@ public class addMascota extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
-        PCont.setBackground(new java.awt.Color(202, 233, 255));
+        PCont.setBackground(new java.awt.Color(190, 233, 232));
 
         btnBack.setBackground(new java.awt.Color(202, 233, 255));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
@@ -115,7 +115,7 @@ public class addMascota extends javax.swing.JPanel {
         panelRound1.setRoundTopRight(50);
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        cbSexo.setBackground(new java.awt.Color(202, 233, 255));
+        cbSexo.setBackground(new java.awt.Color(190, 233, 232));
         cbSexo.setForeground(new java.awt.Color(0, 0, 0));
         cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hembra", "Macho" }));
         cbSexo.addActionListener(new java.awt.event.ActionListener() {
@@ -130,7 +130,7 @@ public class addMascota extends javax.swing.JPanel {
         jLabel6.setText("Sexo");
         panelRound1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, 80, 30));
 
-        cbRaza.setBackground(new java.awt.Color(202, 233, 255));
+        cbRaza.setBackground(new java.awt.Color(190, 233, 232));
         panelRound1.add(cbRaza, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, 240, 40));
 
         lbEsp.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -138,7 +138,7 @@ public class addMascota extends javax.swing.JPanel {
         lbEsp.setText("Raza");
         panelRound1.add(lbEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 70, -1));
 
-        cbTipoA.setBackground(new java.awt.Color(202, 233, 255));
+        cbTipoA.setBackground(new java.awt.Color(190, 233, 232));
         cbTipoA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbTipoAActionPerformed(evt);
@@ -156,14 +156,14 @@ public class addMascota extends javax.swing.JPanel {
         jLabel9.setText("Nacimiento (Aproximado)");
         panelRound1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 250, 30));
 
-        dpNaci.setBackground(new java.awt.Color(202, 233, 255));
+        dpNaci.setBackground(new java.awt.Color(190, 233, 232));
         panelRound1.add(dpNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 220, 40));
 
         lbMin.setForeground(new java.awt.Color(0, 0, 0));
         lbMin.setText("Minimo de digitos 3");
         panelRound1.add(lbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 110, 30));
 
-        txtNombre.setBackground(new java.awt.Color(202, 233, 255));
+        txtNombre.setBackground(new java.awt.Color(190, 233, 232));
         txtNombre.setForeground(new java.awt.Color(0, 0, 0));
         txtNombre.setShadowColor(new java.awt.Color(0, 0, 51));
         txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -176,7 +176,7 @@ public class addMascota extends javax.swing.JPanel {
         });
         panelRound1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 250, 50));
 
-        txtPeso.setBackground(new java.awt.Color(202, 233, 255));
+        txtPeso.setBackground(new java.awt.Color(190, 233, 232));
         txtPeso.setForeground(new java.awt.Color(0, 0, 0));
         txtPeso.setShadowColor(new java.awt.Color(0, 0, 51));
         txtPeso.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -199,7 +199,7 @@ public class addMascota extends javax.swing.JPanel {
         jLabel3.setText("Padecimientos");
         panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, 160, 30));
 
-        txtPad.setBackground(new java.awt.Color(202, 233, 255));
+        txtPad.setBackground(new java.awt.Color(190, 233, 232));
         txtPad.setForeground(new java.awt.Color(0, 0, 0));
         txtPad.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtPad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 710, 50));
