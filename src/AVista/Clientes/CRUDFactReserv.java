@@ -64,7 +64,7 @@ public class CRUDFactReserv extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
-        PCont.setBackground(new java.awt.Color(202, 233, 255));
+        PCont.setBackground(new java.awt.Color(190, 233, 232));
 
         btnBack.setBackground(new java.awt.Color(202, 233, 255));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
