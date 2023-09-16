@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package ModoOscuro;
+import Design.TextFieldSV;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -42,7 +43,9 @@ public class Modo {
             frame.getContentPane().setBackground(Color.DARK_GRAY);
             UIManager.put("Panel.background", Color.DARK_GRAY);
             UIManager.put("Button.background", Color.GRAY);
-            UIManager.put("Button.foreground", Color.WHITE);
+            UIManager.put("Button.foreground", Color.WHITE);   
+            UIManager.put("ButtonGradient.BackGround", Color.WHITE);
+            
         } else {
             // Configuración de colores para el modo claro
             frame.getContentPane().setBackground(Color.WHITE);

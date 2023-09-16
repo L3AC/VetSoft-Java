@@ -49,7 +49,6 @@ public class TextFieldSV extends JTextField {
         setBorder(new EmptyBorder(10, 12, 15, 12));
         setBackground(new Color(255, 255, 255));
     }
-
     @Override
     protected void paintComponent(Graphics grphcs) {
         Graphics2D g2 = (Graphics2D) grphcs.create();

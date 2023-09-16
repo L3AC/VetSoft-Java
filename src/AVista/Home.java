@@ -20,8 +20,11 @@ import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.extras.FlatAnimatedLafChange;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 import com.formdev.flatlaf.themes.FlatMacLightLaf;
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.util.*;
+import javax.swing.UIDefaults;
+import javax.swing.UIManager;
 
 /**
  *
@@ -140,13 +143,13 @@ public class Home extends javax.swing.JPanel implements Runnable{
 
     private void buttonGradient1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGradient1ActionPerformed
         // TODO add your handling code here:
-        if (!FlatLaf.isLafDark()) {
+        /*if (!FlatLaf.isLafDark()) {
             EventQueue.invokeLater(() -> {
                 FlatAnimatedLafChange.showSnapshot();
                 FlatMacDarkLaf.setup();
                 FlatLaf.updateUI();
                 FlatAnimatedLafChange.hideSnapshotWithAnimation();
-            });
+            });     
         } else {
             EventQueue.invokeLater(() -> {
                 FlatAnimatedLafChange.showSnapshot();
@@ -154,7 +157,8 @@ public class Home extends javax.swing.JPanel implements Runnable{
                 FlatLaf.updateUI();
                 FlatAnimatedLafChange.hideSnapshotWithAnimation();
             });
-        }
+        }*/
+        
         
     }//GEN-LAST:event_buttonGradient1ActionPerformed
 
