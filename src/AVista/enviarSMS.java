@@ -9,10 +9,12 @@ import AControlador.sendSMS;
 import AModelo.Conx;
 import AModelo.Crypt;
 import Mensajes.CodigoErrorDRC2;
+import Mensajes.CodigoErrorDRC3;
 import Mensajes.CódigoDSI10;
 import Mensajes.CódigoErrorDRC4;
 import Mensajes.CódigoErrorDSI4;
 import Mensajes.CódigoErrorDSI5;
+import Mensajes.CódigoErrorDSI6;
 import Mensajes.GlassPanePopup;
 import Validation.Valida;
 import java.awt.Color;
@@ -143,7 +145,7 @@ public class enviarSMS extends javax.swing.JFrame {
         panelRound1.add(lbCod1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, 30));
 
         btnEnviar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        btnEnviar.setText("Enviar Correo");
+        btnEnviar.setText("Enviar SMS");
         btnEnviar.setColor1(new java.awt.Color(190, 233, 232));
         btnEnviar.setColor2(new java.awt.Color(190, 233, 232));
         btnEnviar.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
@@ -271,7 +273,7 @@ public class enviarSMS extends javax.swing.JFrame {
             });
             GlassPanePopup.showPopup(obj);
         } else {
-            //EncCod(txtUser.getText());
+            EncCod(txtUser.getText());
         }
     }//GEN-LAST:event_btnVeriActionPerformed
 
@@ -390,29 +392,33 @@ public class enviarSMS extends javax.swing.JFrame {
         ctUser ct = new ctUser();
         ct.usuario = txtUser.getText();
         ResultSet st = ct.verifUs();
-        st.last();
-        int found = st.getRow();
-        if (found == 1) {
-            tel = st.getString("telefono");
-            codigo = GenerC(8);
-            InsertC(codigo);
-            sms(tel, codigo);
-            txtCod.setEnabled(true);
-            btnVeri.setEnabled(true);
-            txtUser.setEnabled(false);
-            btnCambiar.setEnabled(false);
-            btnEnviar.setEnabled(false);
-        } else {
-            CodigoErrorDRC2 obj = new CodigoErrorDRC2();
-            obj.eventOK(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent ae) {
-                    GlassPanePopup.closePopupLast();
-                }
-            });
-            GlassPanePopup.showPopup(obj);
-            txtCod.setEnabled(false);
-            btnVeri.setEnabled(false);
+        try {
+            st.next();
+            int found = st.getRow();
+            if (found == 1) {
+                tel = st.getString("telefono");
+                codigo = GenerC(8);
+                InsertC(codigo);
+                sms(tel, codigo);
+                txtCod.setEnabled(true);
+                btnVeri.setEnabled(true);
+                txtUser.setEnabled(false);
+                btnCambiar.setEnabled(false);
+                btnEnviar.setEnabled(false);
+            } else {
+                CodigoErrorDRC2 obj = new CodigoErrorDRC2();
+                obj.eventOK(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        GlassPanePopup.closePopupLast();
+                    }
+                });
+                GlassPanePopup.showPopup(obj);
+                txtCod.setEnabled(false);
+                btnVeri.setEnabled(false);
+            }
+        } catch (Exception e) {
+            System.err.println(e.toString());
         }
     }
 
@@ -449,6 +455,61 @@ public class enviarSMS extends javax.swing.JFrame {
             GlassPanePopup.showPopup(obj);
         } else {
             JOptionPane.showMessageDialog(null, "Error al crear");
+        }
+    }
+    public void EncCod(String user) {
+        try {
+            ctUser ct=new ctUser();
+            ct.usuario=user;
+            ResultSet st =ct.verifUs();
+            st.next();
+            int found = st.getRow();
+            if (found == 1) {
+                String cod = st.getString("codigoVerif");
+                if (cod.equals(txtCod.getText())) {
+                    CódigoErrorDSI6 obj = new CódigoErrorDSI6();
+                    obj.eventOK(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent ae) {
+                            GlassPanePopup.closePopupLast();
+                        }
+                    });
+                    GlassPanePopup.showPopup(obj);
+                    txtNueva.setEnabled(true);
+                    txtNueva2.setEnabled(true);
+                    btnCambiar.setEnabled(true);
+                    txtUser.setEnabled(false);
+                    btnEnviar.setEnabled(false);
+                    btnVeri.setEnabled(false);
+                    txtCod.setEnabled(false);
+                } else {
+                    CodigoErrorDRC3 obj = new CodigoErrorDRC3();
+                    obj.eventOK(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent ae) {
+                            GlassPanePopup.closePopupLast();
+                        }
+                    });
+                    GlassPanePopup.showPopup(obj);
+                    txtNueva.setEnabled(false);
+                    txtNueva2.setEnabled(false);
+                    btnCambiar.setEnabled(false);
+                }
+                
+            } else {
+                CodigoErrorDRC2 obj = new CodigoErrorDRC2();
+                obj.eventOK(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        GlassPanePopup.closePopupLast();
+                    }
+                });
+                GlassPanePopup.showPopup(obj);
+                
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+            //System.out.println(e.toString());
         }
     }
 
