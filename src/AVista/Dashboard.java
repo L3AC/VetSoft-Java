@@ -6,6 +6,7 @@ import AVista.Asistentes.CRUDAsistente;
 import AVista.Citas.CRUDCita;
 import AVista.Clientes.CRUDCliente;
 import AVista.CUENTA.insertTipoCuenta;
+import AVista.Clientes.CRUDClientesN;
 import AVista.Doctores.CRUDDoctores;
 import java.awt.Component;
 import AVista.Clientes.CRUDClientesN;
@@ -103,7 +104,7 @@ public class Dashboard extends javax.swing.JFrame {
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     if (index == 1 && indexSubMenu == 2) {//CLIENTES
-                        CRUDCliente subp = new CRUDCliente(idTipoU);
+                        CRUDClientesN subp = new CRUDClientesN();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
 
                     }

@@ -3,9 +3,20 @@ package AVista.Clientes;
 
 import AControlador.ctCliente;
 import Design.PanelCliente;
+import SwingScroll.ScrollBar;
 import Tipografias.Fuentes;
 import java.awt.BorderLayout;
 ;
+import java.awt.event.MouseEvent;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+import java.awt.event.MouseEvent;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 import java.awt.event.MouseEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,10 +33,12 @@ import javax.swing.SwingUtilities;
 public class CRUDClientesN extends javax.swing.JPanel {
                  Fuentes tipoFuente;
                
+           
     //private String nombre;
 
     public CRUDClientesN() throws SQLException {
         initComponents();
+        scroll.setVerticalScrollBar(new ScrollBar());
         DataProductos();
          tipoFuente = new Fuentes();
 
@@ -54,7 +67,7 @@ public class CRUDClientesN extends javax.swing.JPanel {
         try {
             Cliente card = new Cliente(nombre);
             card.setData();
-            card.setSize(341, 152);
+            card.setSize(335, 173);
             panelCliente.add(card);
             panelCliente.repaint();
             panelCliente.revalidate();
@@ -73,11 +86,15 @@ public class CRUDClientesN extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jCheckBox1 = new javax.swing.JCheckBox();
         backGround1 = new Design.BackGround();
         header = new javax.swing.JPanel();
         Titulo = new javax.swing.JLabel();
-        panelCliente = new Design.PanelCliente();
         buttonGradient1 = new Design.ButtonGradient();
+        scroll = new javax.swing.JScrollPane();
+        panelCliente = new Design.PanelCliente();
+
+        jCheckBox1.setText("jCheckBox1");
 
         header.setOpaque(false);
 
@@ -88,7 +105,7 @@ public class CRUDClientesN extends javax.swing.JPanel {
         headerLayout.setHorizontalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(496, Short.MAX_VALUE)
                 .addComponent(Titulo)
                 .addGap(622, 622, 622))
         );
@@ -100,9 +117,13 @@ public class CRUDClientesN extends javax.swing.JPanel {
                 .addGap(40, 40, 40))
         );
 
+        buttonGradient1.setBackground(new java.awt.Color(202, 233, 255));
         buttonGradient1.setText("Agregar");
-        buttonGradient1.setColor1(new java.awt.Color(51, 51, 51));
-        buttonGradient1.setColor2(new java.awt.Color(51, 51, 51));
+        buttonGradient1.setColor1(new java.awt.Color(202, 233, 255));
+        buttonGradient1.setColor2(new java.awt.Color(202, 233, 255));
+
+        scroll.setBorder(null);
+        scroll.setViewportView(panelCliente);
 
         javax.swing.GroupLayout backGround1Layout = new javax.swing.GroupLayout(backGround1);
         backGround1.setLayout(backGround1Layout);
@@ -110,23 +131,22 @@ public class CRUDClientesN extends javax.swing.JPanel {
             backGround1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(backGround1Layout.createSequentialGroup()
-                .addComponent(panelCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 907, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(69, 69, 69)
-                .addComponent(buttonGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addComponent(scroll)
+                .addContainerGap())
+            .addGroup(backGround1Layout.createSequentialGroup()
+                .addGap(451, 451, 451)
+                .addComponent(buttonGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         backGround1Layout.setVerticalGroup(
             backGround1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backGround1Layout.createSequentialGroup()
                 .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(backGround1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(backGround1Layout.createSequentialGroup()
-                        .addComponent(panelCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(backGround1Layout.createSequentialGroup()
-                        .addGap(107, 107, 107)
-                        .addComponent(buttonGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scroll, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(buttonGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -147,6 +167,8 @@ public class CRUDClientesN extends javax.swing.JPanel {
     private Design.BackGround backGround1;
     private Design.ButtonGradient buttonGradient1;
     private javax.swing.JPanel header;
+    private javax.swing.JCheckBox jCheckBox1;
     private Design.PanelCliente panelCliente;
+    private javax.swing.JScrollPane scroll;
     // End of variables declaration//GEN-END:variables
 }

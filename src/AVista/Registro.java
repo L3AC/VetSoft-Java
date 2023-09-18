@@ -276,7 +276,7 @@ public class Registro extends javax.swing.JFrame {
         lbMinimo2.setText("Minimo de digitos 4");
         panelRound2.add(lbMinimo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 150, -1));
 
-        panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 680, 270));
+        panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 680, 270));
 
         Titulo.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
         Titulo.setForeground(new java.awt.Color(0, 0, 0));
