@@ -83,8 +83,12 @@ public class CRUDClientesN extends javax.swing.JPanel {
             @Override
             public void mouseClicked(MouseEvent me) {
                 if (SwingUtilities.isLeftMouseButton(me)) {
-                    InfoCliente subp = new InfoCliente();
-                    dsg.ShowPanel(subp, PCont, 1320, 810);
+                    try {
+                        InfoCliente subp = new InfoCliente();
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(CRUDClientesN.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 } else {
                     CódigoError obj = new CódigoError();
                     obj.eventOK(new ActionListener() {

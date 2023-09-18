@@ -115,7 +115,7 @@ public class Cliente extends javax.swing.JPanel {
         txtNom.setForeground(new java.awt.Color(27, 73, 101));
         txtNom.setText("Nombre");
         PanelC.add(txtNom);
-        txtNom.setBounds(130, 50, 140, 40);
+        txtNom.setBounds(130, 40, 140, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

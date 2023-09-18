@@ -4,19 +4,41 @@
  */
 package AVista.Clientes;
 
+import AControlador.ctCliente;
+import Design.Desg;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
- * @author godna
+ * @author Fer
  */
 public class InfoCliente extends javax.swing.JPanel {
 
-    /**
-     * Creates new form InfoCliente
-     */
-    public InfoCliente() {
+        Desg dsg = new Desg();
+        ctCliente ct= new ctCliente();
+        private String nombre;
+        
+    public InfoCliente() throws SQLException {
         initComponents();
+        CargarDatos();
     }
 
+       final void CargarDatos() throws SQLException {
+        try {
+            ct.nombre = nombre;
+            ResultSet rs = ct.CargarD();
+            while (rs.next()) {
+                txtNom.setText(rs.getString("nombre"));
+                txtApellid.setText(rs.getString("apellido"));
+                txtDUI.setText(rs.getString("DUI"));
+                txtDireccion.setText(rs.getString("Direccion"));
+                txtSexo.setText(rs.getString("Sexo"));
+            }
+        } catch (Exception e) {
+            System.err.println(e.toString());
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

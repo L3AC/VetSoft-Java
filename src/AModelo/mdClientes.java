@@ -26,6 +26,20 @@ public class mdClientes {
             return null; //DIO ERROR
         }
     }
+    public ResultSet cargarD(String nombre){
+        String query = "SELECT Nombre, Apellido, DUI, Sexo, Direccion FROM tbClientes;";
+        try{
+            ps = con.prepareStatement(query);
+            ps.setString(0,"%"+nombre+"%");
+            rs = ps.executeQuery();
+            return rs;
+        } catch (SQLException e ){
+            e.printStackTrace();
+              System.out.println(e.toString());
+              JOptionPane.showMessageDialog(null, "Error");
+              return null;
+        }
+    }
     //Aqui se seleccionara el cliente por medio de su Id dentro de la base de datos
         public ResultSet selectCl(int idD) {
         String query = "select * from tbClientes where idCliente=?;";
