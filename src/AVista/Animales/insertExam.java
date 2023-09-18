@@ -71,6 +71,11 @@ public class insertExam extends javax.swing.JPanel {
 
         lbImg.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbImg.setForeground(new java.awt.Color(0, 0, 0));
+        lbImg.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbImgMouseClicked(evt);
+            }
+        });
         panelRound1.add(lbImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 40, 320, 280));
 
         cbTp.setForeground(new java.awt.Color(80, 80, 80));
@@ -201,6 +206,10 @@ public class insertExam extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_btnSelectActionPerformed
+
+    private void lbImgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbImgMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lbImgMouseClicked
 // Esto nos ayuda a cargar la información dentro del combobox
     private void loadComboServ(JComboBox cb) throws SQLException {
         ctTipoServ ct = new ctTipoServ();

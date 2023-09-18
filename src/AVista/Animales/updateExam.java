@@ -119,6 +119,11 @@ public class updateExam extends javax.swing.JPanel {
 
         lbImg.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbImg.setForeground(new java.awt.Color(0, 0, 0));
+        lbImg.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbImgMouseClicked(evt);
+            }
+        });
         panelRound1.add(lbImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 30, 320, 280));
 
         cbTp.setForeground(new java.awt.Color(80, 80, 80));
@@ -232,6 +237,11 @@ public class updateExam extends javax.swing.JPanel {
         ct.upExam();
 
     }//GEN-LAST:event_btnConfirmActionPerformed
+
+    private void lbImgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbImgMouseClicked
+        /*CRUDExam subp = new CRUDExam(idAnim, idTipoUs);
+            dsg.ShowPanel(subp, PCont, 1320, 810);*/
+    }//GEN-LAST:event_lbImgMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
