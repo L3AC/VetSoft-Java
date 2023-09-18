@@ -114,6 +114,11 @@ public class CRUDCliente extends javax.swing.JPanel {
         PCont.setForeground(new java.awt.Color(255, 255, 255));
 
         txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtBusq.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBusqActionPerformed(evt);
+            }
+        });
         txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtBusqKeyReleased(evt);
@@ -415,6 +420,10 @@ public class CRUDCliente extends javax.swing.JPanel {
 
 
     }//GEN-LAST:event_btnCompraActionPerformed
+
+    private void txtBusqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBusqActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBusqActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

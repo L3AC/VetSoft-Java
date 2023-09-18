@@ -5,10 +5,14 @@
 package AVista.Clientes;
 
 import AControlador.ctCliente;
+import AVista.RecuperacionDeContraseña;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -37,7 +41,16 @@ public class Cliente extends javax.swing.JPanel {
         initComponents();
         setData();
         setOpaque(false);
+        setCursor(new Cursor(Cursor.HAND_CURSOR));
+        
+         PanelC.addMouseListener(new MouseAdapter() {
+        public void mouseClicked(MouseEvent e) {
+        
+        }
+    });
     }
+    
+    
 
     public void setData() throws SQLException {
 
@@ -63,6 +76,8 @@ public class Cliente extends javax.swing.JPanel {
         g2.dispose();
         super.paint(graphics);
     }
+    
+ 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -73,41 +88,53 @@ public class Cliente extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pictureBox2 = new Design.PictureBox();
+        PanelC = new Design.PictureBox();
         pic = new Design.PictureBox();
         txtNom = new javax.swing.JLabel();
 
         setBackground(new Color(255,255,255,0));
         setForeground(new Color(255,255,255,0));
+        setName("ClienteP"); // NOI18N
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
-        pictureBox2.setImage(new javax.swing.ImageIcon(getClass().getResource("/AVista/Clientes/Cliente5.png"))); // NOI18N
+        PanelC.setImage(new javax.swing.ImageIcon(getClass().getResource("/AVista/Clientes/Cliente5.png"))); // NOI18N
 
         pic.setImage(new javax.swing.ImageIcon(getClass().getResource("/AVista/Clientes/ClienteI.png"))); // NOI18N
-        pictureBox2.add(pic);
-        pic.setBounds(40, 40, 70, 90);
+        PanelC.add(pic);
+        pic.setBounds(40, 20, 70, 90);
 
+        txtNom.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtNom.setForeground(new java.awt.Color(27, 73, 101));
         txtNom.setText("Nombre");
-        pictureBox2.add(txtNom);
-        txtNom.setBounds(190, 70, 80, 40);
+        PanelC.add(txtNom);
+        txtNom.setBounds(130, 50, 80, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pictureBox2, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(PanelC, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(pictureBox2, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(PanelC, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+    
+    }//GEN-LAST:event_formMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private Design.PictureBox PanelC;
     private Design.PictureBox pic;
-    private Design.PictureBox pictureBox2;
     private javax.swing.JLabel txtNom;
     // End of variables declaration//GEN-END:variables
 }

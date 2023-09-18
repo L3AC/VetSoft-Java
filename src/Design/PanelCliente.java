@@ -10,7 +10,9 @@ import javax.swing.JPanel;
 public class PanelCliente extends JPanel  {
     
     public PanelCliente(){
-        setBackground(Color.WHITE);
+        
+        Color b = new Color(190,233,232);
+        setBackground(b);
         setLayout(new  WrapLayout(WrapLayout.LEFT,10,10));
     }
 }

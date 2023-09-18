@@ -6,7 +6,67 @@ import Design.PanelCliente;
 import SwingScroll.ScrollBar;
 import Tipografias.Fuentes;
 import java.awt.BorderLayout;
-;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+import java.awt.event.MouseEvent;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+import java.awt.event.MouseEvent;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+import java.awt.event.MouseEvent;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+import java.awt.event.MouseEvent;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+import java.awt.event.MouseEvent;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+import java.awt.event.MouseEvent;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+import java.awt.event.MouseEvent;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+import java.awt.event.MouseEvent;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+import java.awt.event.MouseEvent;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+import java.awt.event.MouseEvent;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+import java.awt.event.MouseEvent;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 import java.awt.event.MouseEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -32,8 +92,9 @@ import javax.swing.SwingUtilities;
 
 public class CRUDClientesN extends javax.swing.JPanel {
                  Fuentes tipoFuente;
-               
-           
+
+   
+
     //private String nombre;
 
     public CRUDClientesN() throws SQLException {
@@ -67,10 +128,19 @@ public class CRUDClientesN extends javax.swing.JPanel {
         try {
             Cliente card = new Cliente(nombre);
             card.setData();
-            card.setSize(335, 173);
+            card.setSize(298, 142);
             panelCliente.add(card);
             panelCliente.repaint();
             panelCliente.revalidate();
+            
+            card.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mousePressed(MouseEvent me){
+                    if(SwingUtilities.isLeftMouseButton(me)){
+                        System.out.println((nombre));
+                    }
+                }
+            });
 
         } catch (Exception ex) {
             System.err.println(ex.toString());
@@ -87,18 +157,35 @@ public class CRUDClientesN extends javax.swing.JPanel {
     private void initComponents() {
 
         jCheckBox1 = new javax.swing.JCheckBox();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         backGround1 = new Design.BackGround();
         header = new javax.swing.JPanel();
         Titulo = new javax.swing.JLabel();
+        textFieldSV1 = new Design.TextFieldSV();
         buttonGradient1 = new Design.ButtonGradient();
         scroll = new javax.swing.JScrollPane();
         panelCliente = new Design.PanelCliente();
 
         jCheckBox1.setText("jCheckBox1");
 
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        backGround1.setBackground(new java.awt.Color(190, 233, 232));
+        backGround1.setForeground(new java.awt.Color(190, 233, 232));
+
+        header.setBackground(new java.awt.Color(190, 233, 232));
         header.setOpaque(false);
 
         Titulo.setText("Clientes");
+
+        textFieldSV1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                textFieldSV1KeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
         header.setLayout(headerLayout);
@@ -107,14 +194,18 @@ public class CRUDClientesN extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
                 .addContainerGap(496, Short.MAX_VALUE)
                 .addComponent(Titulo)
-                .addGap(622, 622, 622))
+                .addGap(337, 337, 337)
+                .addComponent(textFieldSV1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48))
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
                 .addContainerGap(44, Short.MAX_VALUE)
-                .addComponent(Titulo)
-                .addGap(40, 40, 40))
+                .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Titulo)
+                    .addComponent(textFieldSV1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25))
         );
 
         buttonGradient1.setBackground(new java.awt.Color(202, 233, 255));
@@ -123,6 +214,8 @@ public class CRUDClientesN extends javax.swing.JPanel {
         buttonGradient1.setColor2(new java.awt.Color(202, 233, 255));
 
         scroll.setBorder(null);
+
+        panelCliente.setBackground(new java.awt.Color(190, 233, 232));
         scroll.setViewportView(panelCliente);
 
         javax.swing.GroupLayout backGround1Layout = new javax.swing.GroupLayout(backGround1);
@@ -143,7 +236,7 @@ public class CRUDClientesN extends javax.swing.JPanel {
             .addGroup(backGround1Layout.createSequentialGroup()
                 .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scroll, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
+                .addComponent(scroll, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(buttonGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
@@ -161,6 +254,10 @@ public class CRUDClientesN extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void textFieldSV1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textFieldSV1KeyReleased
+         
+    }//GEN-LAST:event_textFieldSV1KeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Titulo;
@@ -168,7 +265,10 @@ public class CRUDClientesN extends javax.swing.JPanel {
     private Design.ButtonGradient buttonGradient1;
     private javax.swing.JPanel header;
     private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private Design.PanelCliente panelCliente;
     private javax.swing.JScrollPane scroll;
+    private Design.TextFieldSV textFieldSV1;
     // End of variables declaration//GEN-END:variables
 }
