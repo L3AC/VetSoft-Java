@@ -6,6 +6,7 @@ package AVista.Clientes;
 
 import AControlador.ctCliente;
 import AVista.RecuperacionDeContraseña;
+import Design.Desg;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Graphics;
@@ -22,9 +23,11 @@ import java.sql.SQLException;
  */
 public class Cliente extends javax.swing.JPanel {
 
+ 
     
     private String nombre;
-
+    private String apellido;
+  Desg dsg = new Desg();
     public boolean isSelected() {
         return selected;
     }
@@ -43,11 +46,10 @@ public class Cliente extends javax.swing.JPanel {
         setOpaque(false);
         setCursor(new Cursor(Cursor.HAND_CURSOR));
         
-         PanelC.addMouseListener(new MouseAdapter() {
-        public void mouseClicked(MouseEvent e) {
         
-        }
-    });
+            
+        
+    
     }
     
     
@@ -57,6 +59,8 @@ public class Cliente extends javax.swing.JPanel {
         try {
         
                 txtNom.setText(nombre);
+
+                
 
            // }
         } catch (Exception e) {
@@ -111,7 +115,7 @@ public class Cliente extends javax.swing.JPanel {
         txtNom.setForeground(new java.awt.Color(27, 73, 101));
         txtNom.setText("Nombre");
         PanelC.add(txtNom);
-        txtNom.setBounds(130, 50, 80, 40);
+        txtNom.setBounds(130, 50, 140, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

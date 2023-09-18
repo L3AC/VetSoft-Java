@@ -111,7 +111,7 @@ public class mdClientes {
     
     
  public ResultSet mostrarClientes() {
-        String query = "SELECT nombre FROM tbClientes";
+        String query = "SELECT Nombre FROM tbClientes;";
         try {
             ps = con.prepareStatement(query);   
             rs = ps.executeQuery();
@@ -123,5 +123,7 @@ public class mdClientes {
             return null; //DIO ERROR
         }
     }
+ 
+
     }
 

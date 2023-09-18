@@ -2,89 +2,27 @@
 package AVista.Clientes;
 
 import AControlador.ctCliente;
+import AModelo.Conx;
+import AVista.CUENTA.insertTipoCuenta;
 import Design.PanelCliente;
+import AVista.Clientes.Cliente;
+import AVista.Usuarios.CRUDusuarios;
+import Design.Desg;
+import EventsCliente.Events;
+import Mensajes.CódigoError;
+import Mensajes.GlassPanePopup;
 import SwingScroll.ScrollBar;
 import Tipografias.Fuentes;
 import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
-import java.awt.event.MouseEvent;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
-import java.awt.event.MouseEvent;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
-import java.awt.event.MouseEvent;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
-import java.awt.event.MouseEvent;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
-import java.awt.event.MouseEvent;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
-import java.awt.event.MouseEvent;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
-import java.awt.event.MouseEvent;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
-import java.awt.event.MouseEvent;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
-import java.awt.event.MouseEvent;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
-import java.awt.event.MouseEvent;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
-import java.awt.event.MouseEvent;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
-import java.awt.event.MouseEvent;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
-import java.awt.event.MouseEvent;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
-import java.awt.event.MouseEvent;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
-import java.awt.event.MouseEvent;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
@@ -92,11 +30,13 @@ import javax.swing.SwingUtilities;
 
 public class CRUDClientesN extends javax.swing.JPanel {
                  Fuentes tipoFuente;
-
-   
+                 Desg dsg = new Desg();
 
     //private String nombre;
 
+         
+
+           
     public CRUDClientesN() throws SQLException {
         initComponents();
         scroll.setVerticalScrollBar(new ScrollBar());
@@ -105,16 +45,20 @@ public class CRUDClientesN extends javax.swing.JPanel {
 
         /*Este apartado de setFont nos ayuda a poner un tipo de fuente en especifico y el tamaño de la letra*/
         Titulo.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 32));
-        //addItem(ccliente);
+
     }
 
+    
     public final void DataProductos() throws SQLException {
 
+        
+      
         try {
             ctCliente ccliente = new ctCliente();
             ResultSet rs = ccliente.CargarCCI();
             while (rs.next()) {
                 addItem(rs.getString("nombre"));
+    
                 
            
             }
@@ -133,19 +77,31 @@ public class CRUDClientesN extends javax.swing.JPanel {
             panelCliente.repaint();
             panelCliente.revalidate();
             
+            
+            
             card.addMouseListener(new MouseAdapter() {
-                @Override
-                public void mousePressed(MouseEvent me){
-                    if(SwingUtilities.isLeftMouseButton(me)){
-                        System.out.println((nombre));
-                    }
+            @Override
+            public void mouseClicked(MouseEvent me) {
+                if (SwingUtilities.isLeftMouseButton(me)) {
+                    InfoCliente subp = new InfoCliente();
+                    dsg.ShowPanel(subp, PCont, 1320, 810);
+                } else {
+                    CódigoError obj = new CódigoError();
+                    obj.eventOK(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent ae) {
+                            GlassPanePopup.closePopupLast();
+                        }
+                    });
+                    GlassPanePopup.showPopup(obj);
                 }
-            });
-
-        } catch (Exception ex) {
-            System.err.println(ex.toString());
-        }
+            }
+        });
+    } catch (SQLException ex) {
+        Logger.getLogger(CRUDusuarios.class.getName()).log(Level.SEVERE, null, ex);
     }
+}
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -159,10 +115,10 @@ public class CRUDClientesN extends javax.swing.JPanel {
         jCheckBox1 = new javax.swing.JCheckBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        backGround1 = new Design.BackGround();
+        PCont = new Design.BackGround();
         header = new javax.swing.JPanel();
         Titulo = new javax.swing.JLabel();
-        textFieldSV1 = new Design.TextFieldSV();
+        txtBusq = new Design.TextFieldSV();
         buttonGradient1 = new Design.ButtonGradient();
         scroll = new javax.swing.JScrollPane();
         panelCliente = new Design.PanelCliente();
@@ -173,17 +129,17 @@ public class CRUDClientesN extends javax.swing.JPanel {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        backGround1.setBackground(new java.awt.Color(190, 233, 232));
-        backGround1.setForeground(new java.awt.Color(190, 233, 232));
+        PCont.setBackground(new java.awt.Color(190, 233, 232));
+        PCont.setForeground(new java.awt.Color(190, 233, 232));
 
         header.setBackground(new java.awt.Color(190, 233, 232));
         header.setOpaque(false);
 
         Titulo.setText("Clientes");
 
-        textFieldSV1.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                textFieldSV1KeyReleased(evt);
+                txtBusqKeyReleased(evt);
             }
         });
 
@@ -195,7 +151,7 @@ public class CRUDClientesN extends javax.swing.JPanel {
                 .addContainerGap(496, Short.MAX_VALUE)
                 .addComponent(Titulo)
                 .addGap(337, 337, 337)
-                .addComponent(textFieldSV1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48))
         );
         headerLayout.setVerticalGroup(
@@ -204,7 +160,7 @@ public class CRUDClientesN extends javax.swing.JPanel {
                 .addContainerGap(44, Short.MAX_VALUE)
                 .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Titulo)
-                    .addComponent(textFieldSV1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25))
         );
 
@@ -218,22 +174,22 @@ public class CRUDClientesN extends javax.swing.JPanel {
         panelCliente.setBackground(new java.awt.Color(190, 233, 232));
         scroll.setViewportView(panelCliente);
 
-        javax.swing.GroupLayout backGround1Layout = new javax.swing.GroupLayout(backGround1);
-        backGround1.setLayout(backGround1Layout);
-        backGround1Layout.setHorizontalGroup(
-            backGround1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
+        PCont.setLayout(PContLayout);
+        PContLayout.setHorizontalGroup(
+            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(backGround1Layout.createSequentialGroup()
+            .addGroup(PContLayout.createSequentialGroup()
                 .addComponent(scroll)
                 .addContainerGap())
-            .addGroup(backGround1Layout.createSequentialGroup()
+            .addGroup(PContLayout.createSequentialGroup()
                 .addGap(451, 451, 451)
                 .addComponent(buttonGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        backGround1Layout.setVerticalGroup(
-            backGround1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(backGround1Layout.createSequentialGroup()
+        PContLayout.setVerticalGroup(
+            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PContLayout.createSequentialGroup()
                 .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(scroll, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
@@ -246,22 +202,28 @@ public class CRUDClientesN extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(backGround1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PCont, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(backGround1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PCont, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textFieldSV1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textFieldSV1KeyReleased
-         
-    }//GEN-LAST:event_textFieldSV1KeyReleased
+    private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
+
+
+    // Asegúrate de volver a validar y repintar el panel contenedor
+    panelCliente.revalidate();
+    panelCliente.repaint();
+
+        
+    }//GEN-LAST:event_txtBusqKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private Design.BackGround PCont;
     private javax.swing.JLabel Titulo;
-    private Design.BackGround backGround1;
     private Design.ButtonGradient buttonGradient1;
     private javax.swing.JPanel header;
     private javax.swing.JCheckBox jCheckBox1;
@@ -269,6 +231,6 @@ public class CRUDClientesN extends javax.swing.JPanel {
     private javax.swing.JTextArea jTextArea1;
     private Design.PanelCliente panelCliente;
     private javax.swing.JScrollPane scroll;
-    private Design.TextFieldSV textFieldSV1;
+    private Design.TextFieldSV txtBusq;
     // End of variables declaration//GEN-END:variables
 }

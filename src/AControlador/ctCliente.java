@@ -105,5 +105,6 @@ public class ctCliente {
     public ResultSet CargarCCI(){
         return cl.mostrarClientes();
     }
+ 
 
 }
