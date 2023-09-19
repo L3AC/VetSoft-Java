@@ -57,9 +57,8 @@ public class CRUDClientesN extends javax.swing.JPanel {
             ctCliente ccliente = new ctCliente();
             ResultSet rs = ccliente.CargarCCI();
             while (rs.next()) {
-                addItem(rs.getString("nombre"));
-    
-                
+                addItem(rs.getInt("idCliente"),rs.getString("nombre"),
+                        rs.getString("apellido"));             
            
             }
         } catch (Exception ex) {
@@ -68,9 +67,9 @@ public class CRUDClientesN extends javax.swing.JPanel {
     }
 
     //Metodo para agregar la carta
-    public void addItem(String nombre) throws SQLException {
+    public void addItem(int id,String nombre,String apell) throws SQLException {
         try {
-            Cliente card = new Cliente(nombre);
+            Cliente card = new Cliente(id,nombre,apell);
             card.setData();
             card.setSize(298, 142);
             panelCliente.add(card);

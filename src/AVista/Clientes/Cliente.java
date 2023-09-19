@@ -22,52 +22,45 @@ import java.sql.SQLException;
  * @author godna
  */
 public class Cliente extends javax.swing.JPanel {
-
- 
     
     private String nombre;
     private String apellido;
-  Desg dsg = new Desg();
+    private int idCl;
+    Desg dsg = new Desg();
+    
     public boolean isSelected() {
         return selected;
     }
-
+    
     public void setSelected(boolean selected) {
         this.selected = selected;
         repaint();
     }
-
+    
     private boolean selected;
-
-    public Cliente(String nombre) throws SQLException {
-        this.nombre=nombre;
+    
+    public Cliente(int id, String nombre, String apell) throws SQLException {
+        this.idCl = id;
+        this.nombre = nombre;
+        this.apellido = apell;
         initComponents();
-        setData();
+        id();
         setOpaque(false);
         setCursor(new Cursor(Cursor.HAND_CURSOR));
-        
-        
-            
-        
-    
     }
     
-    
-
     public void setData() throws SQLException {
-
-        try {
         
-                txtNom.setText(nombre);
-
-                
-
-           // }
+        try {
+            txtApell.setText(apellido);
+            txtID.setText(String.valueOf(idCl));
+            txtNom.setText(nombre);
+            // }
         } catch (Exception e) {
             System.err.println(e.toString());
         }
     }
-
+    
     @Override
     public void paint(Graphics graphics) {
         Graphics2D g2 = (Graphics2D) graphics.create();
@@ -80,8 +73,6 @@ public class Cliente extends javax.swing.JPanel {
         g2.dispose();
         super.paint(graphics);
     }
-    
- 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -95,6 +86,8 @@ public class Cliente extends javax.swing.JPanel {
         PanelC = new Design.PictureBox();
         pic = new Design.PictureBox();
         txtNom = new javax.swing.JLabel();
+        txtID = new javax.swing.JLabel();
+        txtApell = new javax.swing.JLabel();
 
         setBackground(new Color(255,255,255,0));
         setForeground(new Color(255,255,255,0));
@@ -115,7 +108,19 @@ public class Cliente extends javax.swing.JPanel {
         txtNom.setForeground(new java.awt.Color(27, 73, 101));
         txtNom.setText("Nombre");
         PanelC.add(txtNom);
-        txtNom.setBounds(130, 40, 140, 40);
+        txtNom.setBounds(130, 10, 140, 40);
+
+        txtID.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtID.setForeground(new java.awt.Color(27, 73, 101));
+        txtID.setText("id");
+        PanelC.add(txtID);
+        txtID.setBounds(130, 90, 140, 40);
+
+        txtApell.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtApell.setForeground(new java.awt.Color(27, 73, 101));
+        txtApell.setText("Apellidos");
+        PanelC.add(txtApell);
+        txtApell.setBounds(130, 50, 140, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -132,13 +137,15 @@ public class Cliente extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
-    
+        
     }//GEN-LAST:event_formMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Design.PictureBox PanelC;
     private Design.PictureBox pic;
+    private javax.swing.JLabel txtApell;
+    private javax.swing.JLabel txtID;
     private javax.swing.JLabel txtNom;
     // End of variables declaration//GEN-END:variables
 }
