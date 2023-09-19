@@ -125,7 +125,7 @@ public class mdClientes {
     
     
  public ResultSet mostrarClientes() {
-        String query = "SELECT Nombre FROM tbClientes;";
+        String query = "SELECT Nombre, Apellido FROM tbClientes;";
         try {
             ps = con.prepareStatement(query);   
             rs = ps.executeQuery();

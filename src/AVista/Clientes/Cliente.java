@@ -39,8 +39,9 @@ public class Cliente extends javax.swing.JPanel {
 
     private boolean selected;
 
-    public Cliente(String nombre) throws SQLException {
+    public Cliente(String nombre, String apellido) throws SQLException {
         this.nombre=nombre;
+        this.apellido=apellido;
         initComponents();
         setData();
         setOpaque(false);
@@ -58,7 +59,8 @@ public class Cliente extends javax.swing.JPanel {
 
         try {
         
-                txtNom.setText(nombre);
+                txtApellido.setText(nombre);
+                txtNom.setText(apellido);
 
                 
 
@@ -94,6 +96,7 @@ public class Cliente extends javax.swing.JPanel {
 
         PanelC = new Design.PictureBox();
         pic = new Design.PictureBox();
+        txtApellido = new javax.swing.JLabel();
         txtNom = new javax.swing.JLabel();
 
         setBackground(new Color(255,255,255,0));
@@ -111,11 +114,17 @@ public class Cliente extends javax.swing.JPanel {
         PanelC.add(pic);
         pic.setBounds(40, 20, 70, 90);
 
+        txtApellido.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtApellido.setForeground(new java.awt.Color(27, 73, 101));
+        txtApellido.setText("Apellido");
+        PanelC.add(txtApellido);
+        txtApellido.setBounds(130, 80, 140, 40);
+
         txtNom.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtNom.setForeground(new java.awt.Color(27, 73, 101));
         txtNom.setText("Nombre");
         PanelC.add(txtNom);
-        txtNom.setBounds(130, 40, 140, 40);
+        txtNom.setBounds(130, 30, 140, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -139,6 +148,7 @@ public class Cliente extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Design.PictureBox PanelC;
     private Design.PictureBox pic;
+    private javax.swing.JLabel txtApellido;
     private javax.swing.JLabel txtNom;
     // End of variables declaration//GEN-END:variables
 }
