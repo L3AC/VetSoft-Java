@@ -85,6 +85,7 @@ public class Cliente extends javax.swing.JPanel {
 
         PanelC = new Design.PictureBox();
         pic = new Design.PictureBox();
+        txtApellido = new javax.swing.JLabel();
         txtNom = new javax.swing.JLabel();
         txtID = new javax.swing.JLabel();
         txtApell = new javax.swing.JLabel();
@@ -103,6 +104,12 @@ public class Cliente extends javax.swing.JPanel {
         pic.setImage(new javax.swing.ImageIcon(getClass().getResource("/AVista/Clientes/ClienteI.png"))); // NOI18N
         PanelC.add(pic);
         pic.setBounds(40, 20, 70, 90);
+
+        txtApellido.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtApellido.setForeground(new java.awt.Color(27, 73, 101));
+        txtApellido.setText("Apellido");
+        PanelC.add(txtApellido);
+        txtApellido.setBounds(130, 80, 140, 40);
 
         txtNom.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtNom.setForeground(new java.awt.Color(27, 73, 101));

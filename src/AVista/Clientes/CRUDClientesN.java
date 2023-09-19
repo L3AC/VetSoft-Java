@@ -59,6 +59,7 @@ public class CRUDClientesN extends javax.swing.JPanel {
             while (rs.next()) {
                 addItem(rs.getInt("idCliente"),rs.getString("nombre"),
                         rs.getString("apellido"));             
+
            
             }
         } catch (Exception ex) {
