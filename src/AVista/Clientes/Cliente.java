@@ -44,7 +44,7 @@ public class Cliente extends javax.swing.JPanel {
         this.nombre = nombre;
         this.apellido = apell;
         initComponents();
-        id();
+        setData();
         setOpaque(false);
         setCursor(new Cursor(Cursor.HAND_CURSOR));
     }
