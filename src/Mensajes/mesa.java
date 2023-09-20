@@ -15,12 +15,12 @@ import java.awt.geom.RoundRectangle2D;
  *
  * @author Gerson
  */
-public class Campos extends javax.swing.JPanel {
+public class mesa extends javax.swing.JPanel {
 
     /**
-     * Creates new form Campos
+     * Creates new form mesa
      */
-    public Campos() {
+    public mesa() {
         initComponents();
         txt.setBackground(new Color(0, 0, 0, 0));
         txt.setOpaque(false);
@@ -42,7 +42,6 @@ public class Campos extends javax.swing.JPanel {
     public void eventOK(ActionListener event) {
         cmdOk.addActionListener(event);
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -66,17 +65,14 @@ public class Campos extends javax.swing.JPanel {
         panelRound1.setRoundBottomRight(50);
         panelRound1.setRoundTopLeft(50);
         panelRound1.setRoundTopRight(50);
-        panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Mensaje");
-        panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         txt.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         txt.setForeground(new java.awt.Color(133, 133, 133));
-        txt.setText("\"Campos Ingresados\"");
-        panelRound1.add(txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, -1, -1));
+        txt.setText("“Necesita eliminar antes la cuenta\"");
 
         cmdOk.setBackground(new java.awt.Color(95, 171, 211));
         cmdOk.setBorder(null);
@@ -85,28 +81,51 @@ public class Campos extends javax.swing.JPanel {
         cmdOk.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         cmdOk.setMaximumSize(new java.awt.Dimension(29, 34));
         cmdOk.setMinimumSize(new java.awt.Dimension(29, 34));
-        cmdOk.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdOkActionPerformed(evt);
-            }
-        });
-        panelRound1.add(cmdOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 70, 30));
+
+        javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
+        panelRound1.setLayout(panelRound1Layout);
+        panelRound1Layout.setHorizontalGroup(
+            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
+                .addContainerGap(75, Short.MAX_VALUE)
+                .addComponent(txt)
+                .addGap(60, 60, 60))
+            .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelRound1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel1)
+                        .addGroup(panelRound1Layout.createSequentialGroup()
+                            .addGap(290, 290, 290)
+                            .addComponent(cmdOk, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        panelRound1Layout.setVerticalGroup(
+            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addComponent(txt)
+                .addContainerGap(68, Short.MAX_VALUE))
+            .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelRound1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel1)
+                    .addGap(66, 66, 66)
+                    .addComponent(cmdOk, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
+            .addComponent(panelRound1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+            .addComponent(panelRound1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void cmdOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdOkActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmdOkActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

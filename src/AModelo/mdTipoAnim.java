@@ -5,6 +5,7 @@
 package AModelo;
 
 import Mensajes.Campos;
+import Mensajes.CódigoDeErrorDLI2;
 import Mensajes.CódigoErrorDSI1;
 import Mensajes.CódigoErrorDSI3;
 import Mensajes.GlassPanePopup;
@@ -39,7 +40,14 @@ public class mdTipoAnim {
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
             System.out.println(e.toString());
-            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            CódigoDeErrorDLI2 obj = new CódigoDeErrorDLI2();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
             return null; //DIO ERROR
         }
     }
@@ -56,7 +64,14 @@ public class mdTipoAnim {
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
             System.out.println(e.toString());
-            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            CódigoDeErrorDLI2 obj = new CódigoDeErrorDLI2();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
             return null; //DIO ERROR
         }
     }
@@ -83,7 +98,14 @@ public class mdTipoAnim {
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
             System.out.println(e.toString());
-            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            CódigoDeErrorDLI2 obj = new CódigoDeErrorDLI2();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
             return false; //DIO ERROR
         }
     }
@@ -111,7 +133,14 @@ public class mdTipoAnim {
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
             System.out.println(e.toString());
-            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            CódigoDeErrorDLI2 obj = new CódigoDeErrorDLI2();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
             return false; //DIO ERROR
         }
     }
@@ -135,7 +164,14 @@ public class mdTipoAnim {
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
             System.out.println(e.toString());
-            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            CódigoDeErrorDLI2 obj = new CódigoDeErrorDLI2();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
             return false;
         }
     }

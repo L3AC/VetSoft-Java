@@ -15,12 +15,12 @@ import java.awt.geom.RoundRectangle2D;
  *
  * @author Gerson
  */
-public class Campos extends javax.swing.JPanel {
+public class act extends javax.swing.JPanel {
 
     /**
-     * Creates new form Campos
+     * Creates new form act
      */
-    public Campos() {
+    public act() {
         initComponents();
         txt.setBackground(new Color(0, 0, 0, 0));
         txt.setOpaque(false);
@@ -53,9 +53,9 @@ public class Campos extends javax.swing.JPanel {
     private void initComponents() {
 
         panelRound1 = new Design.PanelRound();
-        jLabel1 = new javax.swing.JLabel();
         txt = new javax.swing.JLabel();
         cmdOk = new Mensajes.Boton();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new Color(255,255,255,0));
         setForeground(new Color(255,255,255,0));
@@ -68,15 +68,10 @@ public class Campos extends javax.swing.JPanel {
         panelRound1.setRoundTopRight(50);
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Mensaje");
-        panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
-
         txt.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         txt.setForeground(new java.awt.Color(133, 133, 133));
-        txt.setText("\"Campos Ingresados\"");
-        panelRound1.add(txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, -1, -1));
+        txt.setText("“Registro Actualizado\"");
+        panelRound1.add(txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 180, -1));
 
         cmdOk.setBackground(new java.awt.Color(95, 171, 211));
         cmdOk.setBorder(null);
@@ -85,28 +80,24 @@ public class Campos extends javax.swing.JPanel {
         cmdOk.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         cmdOk.setMaximumSize(new java.awt.Dimension(29, 34));
         cmdOk.setMinimumSize(new java.awt.Dimension(29, 34));
-        cmdOk.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdOkActionPerformed(evt);
-            }
-        });
         panelRound1.add(cmdOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 70, 30));
+
+        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Mensaje");
+        panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
+            .addComponent(panelRound1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+            .addComponent(panelRound1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void cmdOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdOkActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmdOkActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

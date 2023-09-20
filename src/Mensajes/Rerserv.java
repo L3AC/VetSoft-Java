@@ -15,12 +15,12 @@ import java.awt.geom.RoundRectangle2D;
  *
  * @author Gerson
  */
-public class Campos extends javax.swing.JPanel {
+public class Rerserv extends javax.swing.JPanel {
 
     /**
-     * Creates new form Campos
+     * Creates new form Rerserv
      */
-    public Campos() {
+    public Rerserv() {
         initComponents();
         txt.setBackground(new Color(0, 0, 0, 0));
         txt.setOpaque(false);
@@ -42,7 +42,6 @@ public class Campos extends javax.swing.JPanel {
     public void eventOK(ActionListener event) {
         cmdOk.addActionListener(event);
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -53,8 +52,8 @@ public class Campos extends javax.swing.JPanel {
     private void initComponents() {
 
         panelRound1 = new Design.PanelRound();
-        jLabel1 = new javax.swing.JLabel();
         txt = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         cmdOk = new Mensajes.Boton();
 
         setBackground(new Color(255,255,255,0));
@@ -68,15 +67,15 @@ public class Campos extends javax.swing.JPanel {
         panelRound1.setRoundTopRight(50);
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        txt.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        txt.setForeground(new java.awt.Color(133, 133, 133));
+        txt.setText("\"Reservado\"");
+        panelRound1.add(txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, -1, -1));
+
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Mensaje");
         panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
-
-        txt.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        txt.setForeground(new java.awt.Color(133, 133, 133));
-        txt.setText("\"Campos Ingresados\"");
-        panelRound1.add(txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, -1, -1));
 
         cmdOk.setBackground(new java.awt.Color(95, 171, 211));
         cmdOk.setBorder(null);
@@ -96,11 +95,11 @@ public class Campos extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
+            .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+            .addComponent(panelRound1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

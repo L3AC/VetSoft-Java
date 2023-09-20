@@ -1,5 +1,6 @@
 package AModelo;
 
+import Mensajes.CódigoDeErrorDLI2;
 import Mensajes.CódigoErrorDAM1;
 import Mensajes.CódigoErrorDSI1;
 import Mensajes.CódigoErrorDSI3;
@@ -28,7 +29,14 @@ public class mdClientes {
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
             System.out.println(e.toString());
-            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            CódigoDeErrorDLI2 obj = new CódigoDeErrorDLI2();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
             return null; //DIO ERROR
         }
     }
@@ -44,7 +52,14 @@ ps.setString(2, "%" + apellido + "%"); // Configurar el segundo parámetro
         } catch (SQLException e ){
             e.printStackTrace();
               System.out.println(e.toString());
-              JOptionPane.showMessageDialog(null, "Error");
+              CódigoDeErrorDLI2 obj = new CódigoDeErrorDLI2();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
               return null;
         }
     }
@@ -59,7 +74,14 @@ ps.setString(2, "%" + apellido + "%"); // Configurar el segundo parámetro
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
             System.out.println(e.toString());
-            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            CódigoDeErrorDLI2 obj = new CódigoDeErrorDLI2();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
             return null; //DIO ERROR
         }
     }
@@ -83,7 +105,14 @@ ps.setString(2, "%" + apellido + "%"); // Configurar el segundo parámetro
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
             System.out.println(e.toString());
-            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            CódigoDeErrorDLI2 obj = new CódigoDeErrorDLI2();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
             return false;
         }
     }
@@ -116,7 +145,14 @@ ps.setString(2, "%" + apellido + "%"); // Configurar el segundo parámetro
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
             System.out.println(e.toString());
-            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+           CódigoDeErrorDLI2 obj = new CódigoDeErrorDLI2();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
             return false; //DIO ERROR
         }
     }
@@ -147,7 +183,14 @@ ps.setString(2, "%" + apellido + "%"); // Configurar el segundo parámetro
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
             System.out.println(e.toString());
-            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            CódigoDeErrorDLI2 obj = new CódigoDeErrorDLI2();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
             return false; //DIO ERROR
         }
     }
@@ -162,7 +205,14 @@ ps.setString(2, "%" + apellido + "%"); // Configurar el segundo parámetro
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
             System.out.println(e.toString());
-            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            CódigoDeErrorDLI2 obj = new CódigoDeErrorDLI2();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
             return null; //DIO ERROR
         }
     }

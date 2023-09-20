@@ -34,8 +34,12 @@ protected void paintComponent(Graphics grphcs) {
         super.paintComponent(grphcs);
     }
     
-    public void EventOK(ActionListener event){
+    public void EventErrorLI1(ActionListener event){
     boton1.addActionListener(event);
+    }
+    
+    public void eventOK(ActionListener event) {
+        boton1.addActionListener(event);
     }
 
     /**

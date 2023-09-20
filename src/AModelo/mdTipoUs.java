@@ -4,6 +4,10 @@
  */
 package AModelo;
 
+import Mensajes.CódigoDeErrorDLI2;
+import Mensajes.GlassPanePopup;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,7 +29,15 @@ public class mdTipoUs {
             return rs;
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e.toString());
+            System.out.println(e.toString());
+            CódigoDeErrorDLI2 obj = new CódigoDeErrorDLI2();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
             return null;
         }
     }
@@ -40,7 +52,15 @@ public class mdTipoUs {
             return rs;
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e.toString());
+             System.out.println(e.toString());
+            CódigoDeErrorDLI2 obj = new CódigoDeErrorDLI2();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
             return null;
         }
     }

@@ -46,6 +46,9 @@ public class CódigoErrorDSI11 extends javax.swing.JPanel {
         txt = new javax.swing.JLabel();
         cmdOk = new Mensajes.Boton();
 
+        setBackground(new Color(255,255,255,0));
+        setForeground(new Color(255,255,255,0));
+
         jPanel2.setBackground(new Color(255,255,255,0));
         jPanel2.setForeground(new Color(255,255,255,0));
 
