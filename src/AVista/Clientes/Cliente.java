@@ -7,6 +7,7 @@ package AVista.Clientes;
 import AControlador.ctCliente;
 import AVista.RecuperacionDeContraseña;
 import Design.Desg;
+import Design.PanelCliente;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Graphics;
@@ -26,6 +27,20 @@ public class Cliente extends javax.swing.JPanel {
     private String nombre;
     private String apellido;
     private int idCl;
+    
+
+ 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+  
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+    public void setIdCl(int idCl) {
+        this.idCl = idCl;
+    }
     Desg dsg = new Desg();
     
     public boolean isSelected() {
@@ -39,10 +54,13 @@ public class Cliente extends javax.swing.JPanel {
     
     private boolean selected;
     
+    
+    
     public Cliente(int id, String nombre, String apell) throws SQLException {
         this.idCl = id;
         this.nombre = nombre;
         this.apellido = apell;
+        
         initComponents();
         setData();
         setOpaque(false);
@@ -50,12 +68,12 @@ public class Cliente extends javax.swing.JPanel {
     }
     
     public void setData() throws SQLException {
-        
+       
         try {
             txtApell.setText(apellido);
             txtID.setText(String.valueOf(idCl));
             txtNom.setText(nombre);
-            // }
+            txtID.setVisible(false);         
         } catch (Exception e) {
             System.err.println(e.toString());
         }
@@ -136,6 +154,7 @@ public class Cliente extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
         
     }//GEN-LAST:event_formMouseClicked

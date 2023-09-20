@@ -176,6 +176,11 @@ public class insertTipoCuenta extends javax.swing.JPanel {
 
         txtNombre.setBackground(new java.awt.Color(190, 233, 232));
         txtNombre.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
         txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtNombreKeyReleased(evt);
@@ -503,13 +508,16 @@ public class insertTipoCuenta extends javax.swing.JPanel {
                 lbMin3.setVisible(false);
             btnConfirm.setEnabled(true);
             }
-            
         else {
             lbMin3.setVisible(true);
             btnConfirm.setEnabled(false);
         }
         }
     }//GEN-LAST:event_txtDirKeyReleased
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

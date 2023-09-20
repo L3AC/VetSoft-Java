@@ -106,7 +106,7 @@ public class ctCliente {
         return cl.mostrarClientes();
     }
  public ResultSet CargarD(){
-     return cl.cargarD(nombre);
+     return cl.cargarD(nombre, apellido, idCliente);
  }
 
 }

@@ -6,6 +6,7 @@ import AModelo.Conx;
 import AVista.CUENTA.insertTipoCuenta;
 import Design.PanelCliente;
 import AVista.Clientes.Cliente;
+import AVista.Clientes.CRUDClientesN;
 import AVista.Usuarios.CRUDusuarios;
 import Design.Desg;
 import EventsCliente.Events;
@@ -13,6 +14,7 @@ import Mensajes.CódigoError;
 import Mensajes.GlassPanePopup;
 import SwingScroll.ScrollBar;
 import Tipografias.Fuentes;
+import static com.sun.org.omg.CORBA.ValueMemberHelper.id;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
@@ -25,14 +27,17 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+import static jdk.nashorn.internal.runtime.Debug.id;
 
 
 
 public class CRUDClientesN extends javax.swing.JPanel {
                  Fuentes tipoFuente;
                  Desg dsg = new Desg();
+                 Cliente c;
 
     //private String nombre;
+
 
          
 
@@ -45,22 +50,22 @@ public class CRUDClientesN extends javax.swing.JPanel {
 
         /*Este apartado de setFont nos ayuda a poner un tipo de fuente en especifico y el tamaño de la letra*/
         Titulo.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 32));
+        
+       
 
-    }
+   }
+    
 
     
-    public final void DataProductos() throws SQLException {
-
-        
+    public final void DataProductos() throws SQLException { 
       
         try {
             ctCliente ccliente = new ctCliente();
             ResultSet rs = ccliente.CargarCCI();
+            
             while (rs.next()) {
                 addItem(rs.getInt("idCliente"),rs.getString("nombre"),
-                        rs.getString("apellido"));             
-
-           
+                        rs.getString("apellido"));                    
             }
         } catch (Exception ex) {
 
@@ -76,31 +81,8 @@ public class CRUDClientesN extends javax.swing.JPanel {
             panelCliente.add(card);
             panelCliente.repaint();
             panelCliente.revalidate();
-            
-            
-            
-            card.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent me) {
-                if (SwingUtilities.isLeftMouseButton(me)) {
-                    try {
-                        InfoCliente subp = new InfoCliente();
-                        dsg.ShowPanel(subp, PCont, 1320, 810);
-                    } catch (SQLException ex) {
-                        Logger.getLogger(CRUDClientesN.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                } else {
-                    CódigoError obj = new CódigoError();
-                    obj.eventOK(new ActionListener() {
-                        @Override
-                        public void actionPerformed(ActionEvent ae) {
-                            GlassPanePopup.closePopupLast();
-                        }
-                    });
-                    GlassPanePopup.showPopup(obj);
-                }
-            }
-        });
+        
+       
     } catch (SQLException ex) {
         Logger.getLogger(CRUDusuarios.class.getName()).log(Level.SEVERE, null, ex);
     }
@@ -215,11 +197,6 @@ public class CRUDClientesN extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
-
-
-    // Asegúrate de volver a validar y repintar el panel contenedor
-    panelCliente.revalidate();
-    panelCliente.repaint();
 
         
     }//GEN-LAST:event_txtBusqKeyReleased

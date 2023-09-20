@@ -5,6 +5,7 @@
 package EventsCliente;
 
 import AModelo.mdClientes;
+import AVista.Clientes.Cliente;
 import java.awt.Component;
 
 /**
@@ -12,5 +13,5 @@ import java.awt.Component;
  * @author godna
  */
 public interface Events {
-    public void ClickClientes(Component com);
+    public void ClickClientes(Cliente cliente);
 }

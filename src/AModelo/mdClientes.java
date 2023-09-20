@@ -26,11 +26,13 @@ public class mdClientes {
             return null; //DIO ERROR
         }
     }
-    public ResultSet cargarD(String nombre){
-        String query = "SELECT Nombre, Apellido, DUI, Sexo, Direccion FROM tbClientes;";
+    public ResultSet cargarD(String nombre, String apellido, int idCliente){
+        String query = "SELECT Nombre, Apellido, DUI, Nacimiento, Sexo, Direccion FROM tbClientes WHERE Nombre LIKE ? OR Apellido LIKE ? OR idCliente LIKE ?;";
         try{
             ps = con.prepareStatement(query);
-            ps.setString(0,"%"+nombre+"%");
+            ps.setString(1, "%" + nombre + "%"); // Configurar el primer parámetro
+ps.setString(2, "%" + apellido + "%"); // Configurar el segundo parámetro
+   ps.setInt(3, idCliente); // Configurar el tercer parámetro
             rs = ps.executeQuery();
             return rs;
         } catch (SQLException e ){
