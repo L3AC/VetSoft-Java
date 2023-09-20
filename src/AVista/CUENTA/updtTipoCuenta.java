@@ -45,8 +45,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         txtDui.setDocument(new Valida(10, "[0-9]*"));
         txtApellidos.setDocument(new Valida(50, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         txtDir.setDocument(new Valida(300, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ,.]*"));
-        
-        
+
         if (idTipoUs == 1) {//ADMIN
 
             if (nivelRow != 4) {//IDDOCTOR
@@ -74,7 +73,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
             lbMin3.setVisible(false);
             txtDir.setVisible(false);
             lbDirec.setVisible(false);
-            
+
             loadRecep();
         }
         if (idTipoUs == 2) {
@@ -434,49 +433,65 @@ public class updtTipoCuenta extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
-        if (txtNombre.getText().isEmpty() || txtApellidos.getText().isEmpty()
-                || txtDui.getText().isEmpty() || txtDir.getText().isEmpty()) {
-            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
-            obj.eventOK(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent ae) {
-                    GlassPanePopup.closePopupLast();
+        SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+
+        if (nivelRow == 3) {
+            if (txtNombre.getText().isEmpty() || txtApellidos.getText().isEmpty()
+                    || txtDui.getText().isEmpty() || txtDir.getText().isEmpty()) {
+                CódigoErrorDSI5 obj = new CódigoErrorDSI5();
+                obj.eventOK(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        GlassPanePopup.closePopupLast();
+                    }
+                });
+                GlassPanePopup.showPopup(obj);
+            } else {
+                if (nivelRow == 3) {
+                    ctCliente ct = new ctCliente();
+                    ct.idCliente = idCuenta;
+                    ct.nombre = txtNombre.getText();
+                    ct.apellido = txtApellidos.getText();
+                    ct.dui = txtDui.getText();
+                    ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
+                    ct.sexo = cbSexo.getSelectedItem().toString();
+                    ct.direccion = txtDir.getText();
+                    ct.updtCl();
                 }
-            });
-            GlassPanePopup.showPopup(obj);
+            }
         } else {
-            SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
-            if (nivelRow == 2) {
-                ctRecep ct = new ctRecep();
-                ct.idRecep = idCuenta;
-                ct.nombre = txtNombre.getText();
-                ct.apellido = txtApellidos.getText();
-                ct.dui = txtDui.getText();
-                ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
-                ct.sexo = cbSexo.getSelectedItem().toString();
-                ct.updtRecep();
-            }
-            if (nivelRow == 3) {
-                ctCliente ct = new ctCliente();
-                ct.idCliente = idCuenta;
-                ct.nombre = txtNombre.getText();
-                ct.apellido = txtApellidos.getText();
-                ct.dui = txtDui.getText();
-                ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
-                ct.sexo = cbSexo.getSelectedItem().toString();
-                ct.direccion = txtDir.getText();
-                ct.updtCl();
-            }
-            if (nivelRow == 4) {
-                ctDoctores ct = new ctDoctores();
-                ct.idDoctor = idCuenta;
-                ct.idEsp = dsg.getMap(cbMap, cbEsp.getSelectedItem().toString());
-                ct.nombre = txtNombre.getText();
-                ct.apellido = txtApellidos.getText();
-                ct.dui = txtDui.getText();
-                ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
-                ct.sexo = cbSexo.getSelectedItem().toString();
-                ct.updateDoc();
+            if (txtNombre.getText().isEmpty() || txtApellidos.getText().isEmpty()
+                    || txtDui.getText().isEmpty() ) {
+                CódigoErrorDSI5 obj = new CódigoErrorDSI5();
+                obj.eventOK(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        GlassPanePopup.closePopupLast();
+                    }
+                });
+                GlassPanePopup.showPopup(obj);
+            } else {
+                if (nivelRow == 2) {
+                    ctRecep ct = new ctRecep();
+                    ct.idRecep = idCuenta;
+                    ct.nombre = txtNombre.getText();
+                    ct.apellido = txtApellidos.getText();
+                    ct.dui = txtDui.getText();
+                    ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
+                    ct.sexo = cbSexo.getSelectedItem().toString();
+                    ct.updtRecep();
+                }
+                if (nivelRow == 4) {
+                    ctDoctores ct = new ctDoctores();
+                    ct.idDoctor = idCuenta;
+                    ct.idEsp = dsg.getMap(cbMap, cbEsp.getSelectedItem().toString());
+                    ct.nombre = txtNombre.getText();
+                    ct.apellido = txtApellidos.getText();
+                    ct.dui = txtDui.getText();
+                    ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
+                    ct.sexo = cbSexo.getSelectedItem().toString();
+                    ct.updateDoc();
+                }
             }
         }
     }//GEN-LAST:event_btnConfirmActionPerformed

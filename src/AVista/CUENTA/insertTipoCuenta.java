@@ -44,7 +44,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         this.nivelRow = nivelRow;
         initComponents();
         ((JTextField) dpNaci.getDateEditor().getUiComponent()).setEditable(false);
-/*Este apartado de validar los Jtexfield*/
+        /*Este apartado de validar los Jtexfield*/
         txtNombre.setDocument(new Valida(50, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         txtDui.setDocument(new Valida(10, "[0-9]*"));
         txtApellidos.setDocument(new Valida(50, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
@@ -60,6 +60,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
             }
             if (nivelRow != 3) {
                 lbMin3.setVisible(false);
+                lbDir1.setVisible(false);
                 txtDir.setVisible(false);
             } else {
 
@@ -380,53 +381,70 @@ public class insertTipoCuenta extends javax.swing.JPanel {
     }//GEN-LAST:event_cbEspActionPerformed
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
-        if (txtNombre.getText().isEmpty() || txtApellidos.getText().isEmpty()
-                || txtDui.getText().isEmpty() || txtDir.getText().isEmpty()) {
+        SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
 
-            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
-            obj.eventOK(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent ae) {
-                    GlassPanePopup.closePopupLast();
+        if (nivelRow == 3) {//ES CLIENTE
+            if (txtNombre.getText().isEmpty() || txtApellidos.getText().isEmpty()
+                    || txtDui.getText().isEmpty() || txtDir.getText().isEmpty()) {
+                CódigoErrorDSI5 obj = new CódigoErrorDSI5();
+                obj.eventOK(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        GlassPanePopup.closePopupLast();
+                    }
+                });
+                GlassPanePopup.showPopup(obj);
+            } else {
+                if (nivelRow == 3) {
+                    ctCliente ct = new ctCliente();
+                    ct.idUsuario = idUs;
+                    ct.nombre = txtNombre.getText();
+                    ct.apellido = txtApellidos.getText();
+                    ct.dui = txtDui.getText();
+                    ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
+                    ct.sexo = cbSexo.getSelectedItem().toString();
+                    ct.direccion = txtDir.getText();
+                    ct.insertCl();
                 }
-            });
-            GlassPanePopup.showPopup(obj);
-
+            }
         } else {
-            SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+            //ES DOCTOR O RECEPCIONISTA
+            if (txtNombre.getText().isEmpty() || txtApellidos.getText().isEmpty()
+                    || txtDui.getText().isEmpty()) {
 
-            if (nivelRow == 2) {
-                ctRecep ct = new ctRecep();
-                ct.idUsuario = idUs;
-                ct.nombre = txtNombre.getText();
-                ct.apellido = txtApellidos.getText();
-                ct.dui = txtDui.getText();
-                ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
-                System.out.println(dt.format(dpNaci.getCalendar().getTime()));
-                ct.sexo = cbSexo.getSelectedItem().toString();
-                ct.insertRe();
-            }
-            if (nivelRow == 3) {
-                ctCliente ct = new ctCliente();
-                ct.idUsuario = idUs;
-                ct.nombre = txtNombre.getText();
-                ct.apellido = txtApellidos.getText();
-                ct.dui = txtDui.getText();
-                ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
-                ct.sexo = cbSexo.getSelectedItem().toString();
-                ct.direccion = txtDir.getText();
-                ct.insertCl();
-            }
-            if (nivelRow == 4) {
-                ctDoctores ct = new ctDoctores();
-                ct.idUsuario = idUs;
-                ct.idEsp = dsg.getMap(cbMap, cbEsp.getSelectedItem().toString());
-                ct.nombre = txtNombre.getText();
-                ct.apellido = txtApellidos.getText();
-                ct.dui = txtDui.getText();
-                ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
-                ct.sexo = cbSexo.getSelectedItem().toString();
-                ct.insertDoc();
+                CódigoErrorDSI5 obj = new CódigoErrorDSI5();
+                obj.eventOK(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        GlassPanePopup.closePopupLast();
+                    }
+                });
+                GlassPanePopup.showPopup(obj);
+
+            } else {
+
+                if (nivelRow == 2) {
+                    ctRecep ct = new ctRecep();
+                    ct.idUsuario = idUs;
+                    ct.nombre = txtNombre.getText();
+                    ct.apellido = txtApellidos.getText();
+                    ct.dui = txtDui.getText();
+                    ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
+                    System.out.println(dt.format(dpNaci.getCalendar().getTime()));
+                    ct.sexo = cbSexo.getSelectedItem().toString();
+                    ct.insertRe();
+                }
+                if (nivelRow == 4) {
+                    ctDoctores ct = new ctDoctores();
+                    ct.idUsuario = idUs;
+                    ct.idEsp = dsg.getMap(cbMap, cbEsp.getSelectedItem().toString());
+                    ct.nombre = txtNombre.getText();
+                    ct.apellido = txtApellidos.getText();
+                    ct.dui = txtDui.getText();
+                    ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
+                    ct.sexo = cbSexo.getSelectedItem().toString();
+                    ct.insertDoc();
+                }
             }
         }
     }//GEN-LAST:event_btnConfirmActionPerformed
@@ -504,14 +522,13 @@ public class insertTipoCuenta extends javax.swing.JPanel {
             lbMin3.setVisible(false);
             btnConfirm.setEnabled(true);
         } else {
-            if (txtDir.getText().length() >= 10){
+            if (txtDir.getText().length() >= 10) {
                 lbMin3.setVisible(false);
-            btnConfirm.setEnabled(true);
+                btnConfirm.setEnabled(true);
+            } else {
+                lbMin3.setVisible(true);
+                btnConfirm.setEnabled(false);
             }
-        else {
-            lbMin3.setVisible(true);
-            btnConfirm.setEnabled(false);
-        }
         }
     }//GEN-LAST:event_txtDirKeyReleased
 

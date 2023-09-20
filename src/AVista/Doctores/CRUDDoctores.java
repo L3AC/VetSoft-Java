@@ -256,17 +256,15 @@ public class CRUDDoctores extends javax.swing.JPanel {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         if (tbData.getRowCount() > 0) {
-            int fila = tbData.getSelectedRow();
-            idDoc = Integer.parseInt(tbData.getValueAt(fila, 0).toString());
             CREARasistente subp;
             try {
-                subp = new CREARasistente(idDoc);
+                subp = new CREARasistente(Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
                 dsg.ShowPanel(subp, PCont, 1320, 810);
             } catch (SQLException ex) {
                 Logger.getLogger(CRUDDoctores.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-           CódigoError obj = new CódigoError();
+            CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
@@ -279,13 +277,16 @@ public class CRUDDoctores extends javax.swing.JPanel {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         if (tbData.getRowCount() > 0) {
-        updtTipoCuenta subp;
-        try {
-            subp = new updtTipoCuenta(idTipoUs, idDoc, 4);
-            dsg.ShowPanel(subp, PCont, 1320, 810);
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            updtTipoCuenta subp;
+            
+            try {
+                subp = new updtTipoCuenta(idTipoUs,
+                        Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()), 4);
+                dsg.ShowPanel(subp, PCont, 1320, 810);
+                System.err.println(idTipoUs+"      "+idDoc);
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } else {
             CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
@@ -299,31 +300,31 @@ public class CRUDDoctores extends javax.swing.JPanel {
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-         if (tbData.getRowCount() > 0) {
-        UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
-        int opcion = JOptionPane.showOptionDialog(
-                null,
-                "¿Desea eliminar el registro?",
-                "Advertencia",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.WARNING_MESSAGE,
-                null,
-                new Object[]{"Sí", "No"},
-                "No");
+        if (tbData.getRowCount() > 0) {
+            UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
+            int opcion = JOptionPane.showOptionDialog(
+                    null,
+                    "¿Desea eliminar el registro?",
+                    "Advertencia",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.WARNING_MESSAGE,
+                    null,
+                    new Object[]{"Sí", "No"},
+                    "No");
 
-        if (opcion == JOptionPane.YES_OPTION) {
-            try {
-                ctDoctores ct = new ctDoctores();
-                ct.idDoctor = idDoc;
-                ct.deleteDoc();
-                loadD();
-            } catch (SQLException ex) {
-                Logger.getLogger(CRUDDoctores.class.getName()).log(Level.SEVERE, null, ex);
+            if (opcion == JOptionPane.YES_OPTION) {
+                try {
+                    ctDoctores ct = new ctDoctores();
+                    ct.idDoctor = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                    ct.deleteDoc();
+                    loadD();
+                } catch (SQLException ex) {
+                    Logger.getLogger(CRUDDoctores.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else if (opcion == JOptionPane.NO_OPTION) {
+
             }
-        } else if (opcion == JOptionPane.NO_OPTION) {
-
-        }
-         } else {
+        } else {
             CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
