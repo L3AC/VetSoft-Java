@@ -44,7 +44,7 @@ public class ItemMenu extends JButton{
     private void init() {
         setContentAreaFilled(false);
         setHorizontalAlignment(JButton.LEFT);
-        setForeground(new Color(95, 171, 211));
+        setForeground(new Color(0, 0, 0));
         if (mainMenu) {
             setBorder(new EmptyBorder(0, 20, 0, 0));
         } else {
@@ -64,7 +64,7 @@ public class ItemMenu extends JButton{
             @Override
             public void mouseExited(MouseEvent e) {
                 if (!isSelected()) {
-                    setForeground(new Color(95, 171, 211));
+                    setForeground(new Color(0, 0, 0));
                     setGoogleIcon(icon);
                 }
                 if (!mainMenu) {
@@ -104,7 +104,7 @@ public class ItemMenu extends JButton{
         if (!mainMenu) {
             Graphics2D g2 = (Graphics2D) g.create();
             g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-            g2.setColor(new Color(95, 171, 211));
+            g2.setColor(new Color(0, 0, 0));
             int height = getHeight();
             int size = 6;
             int y = (height - size) / 2;
@@ -141,7 +141,7 @@ public class ItemMenu extends JButton{
             setForeground(mainColor);
         } else {
             alpha = 0;
-            setForeground(new Color(95, 171, 211));
+            setForeground(new Color(0, 0, 0));
         }
         setGoogleIcon(icon);
     }

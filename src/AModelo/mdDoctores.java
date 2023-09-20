@@ -1,4 +1,10 @@
 package AModelo;
+import Mensajes.Campos;
+import Mensajes.CódigoErrorDAM1;
+import Mensajes.CódigoErrorDSI3;
+import Mensajes.GlassPanePopup;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.*;
 import javax.swing.JOptionPane;
 public class mdDoctores {
@@ -73,7 +79,14 @@ public class mdDoctores {
             ps.setString(6, naci);
             ps.setString(7, sexo);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Campos ingresados");
+            Campos obj = new Campos();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
             return true;
 
         } catch (SQLException e) {
@@ -117,7 +130,14 @@ public class mdDoctores {
             ps = con.prepareStatement(query);
             ps.setInt(1, idD);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Registro eliminado");
+            CódigoErrorDSI3 obj = new CódigoErrorDSI3();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
             return true;
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException

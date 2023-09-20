@@ -1,5 +1,11 @@
 package AModelo;
 
+import Mensajes.Campos;
+import Mensajes.CódigoErrorDSI1;
+import Mensajes.CódigoErrorDSI3;
+import Mensajes.GlassPanePopup;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
@@ -94,7 +100,14 @@ public class mdAsistentes {
             ps.setString(6, naci);
             ps.setString(7, sexo);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Campos ingresados");
+            Campos obj = new Campos();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
             return true;
 
         } catch (SQLException e) {
@@ -120,7 +133,14 @@ public class mdAsistentes {
             ps.setString(6, sexo);
             ps.setInt(7, idC);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Campos actualizados");
+            CódigoErrorDSI1 obj = new CódigoErrorDSI1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
             return true;
 
         } catch (SQLException e) {
@@ -160,7 +180,14 @@ public class mdAsistentes {
             ps = con.prepareStatement(query);
             ps.setInt(1, idD);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Registro eliminado");
+            CódigoErrorDSI3 obj = new CódigoErrorDSI3();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
             return true;
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException

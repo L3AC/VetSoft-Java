@@ -11,6 +11,7 @@ import AVista.Usuarios.insertUs;
 import Design.Desg;
 import Mensajes.CodigoDeErrorDLI3;
 import Mensajes.CódigoErrorDSI2;
+import Mensajes.CódigoErrorDSI3;
 import Mensajes.CódigoErrorDSI5;
 import Mensajes.GlassPanePopup;
 import Validation.Valida;
@@ -341,6 +342,14 @@ public class Registro extends javax.swing.JFrame {
             Login newFrame = new Login();
             newFrame.setVisible(true);
             dispose();
+             CódigoErrorDSI2 obj = new CódigoErrorDSI2();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
     }//GEN-LAST:event_btnRegistrarActionPerformed
 

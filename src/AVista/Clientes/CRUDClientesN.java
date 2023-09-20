@@ -14,7 +14,7 @@ import Mensajes.CódigoError;
 import Mensajes.GlassPanePopup;
 import SwingScroll.ScrollBar;
 import Tipografias.Fuentes;
-import static com.sun.org.omg.CORBA.ValueMemberHelper.id;
+//import static com.sun.org.omg.CORBA.ValueMemberHelper.id;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
@@ -27,7 +27,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
-import static jdk.nashorn.internal.runtime.Debug.id;
+//import static jdk.nashorn.internal.runtime.Debug.id;
 
 
 

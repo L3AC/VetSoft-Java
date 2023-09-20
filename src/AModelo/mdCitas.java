@@ -28,7 +28,7 @@ public class mdCitas {
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
             System.out.println(e.toString());
-            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            JOptionPane.showMessageDialog(null, "Error al ejecutar 1");
             return null; //DIO ERROR
         }
     }
@@ -53,7 +53,7 @@ public class mdCitas {
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
             System.out.println(e.toString());
-            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            JOptionPane.showMessageDialog(null, "Error al ejecutar 2");
             return null; //DIO ERROR
         }
     }
@@ -73,7 +73,7 @@ public class mdCitas {
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
             System.out.println(e.toString());
-            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            JOptionPane.showMessageDialog(null, "Error al ejecutar 3");
             return null; //DIO ERROR
         }
     }
@@ -193,7 +193,7 @@ public class mdCitas {
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
             System.out.println(e.toString());
-            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            JOptionPane.showMessageDialog(null, "Error al ejecutar 5");
             return null; //DIO ERROR
         }
     }
@@ -209,7 +209,7 @@ public class mdCitas {
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
             System.out.println(e.toString());
-            JOptionPane.showMessageDialog(null, "Error al ejecutar");
+            JOptionPane.showMessageDialog(null, "Error al ejecutar 6");
             return null; //DIO ERROR
         }
     }

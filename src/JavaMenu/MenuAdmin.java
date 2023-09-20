@@ -111,7 +111,7 @@ public class MenuAdmin extends JPanel{
         JLabel label = new JLabel(title);//label.getFont().deriveFont(Font.BOLD)
         label.setBorder(new EmptyBorder(15, 20, 5, 5));
         label.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 13));
-        label.setForeground(new Color(95, 171, 211));
+        label.setForeground(new Color(0, 0, 0, 0));
         panelMenu.add(label);
     }
 

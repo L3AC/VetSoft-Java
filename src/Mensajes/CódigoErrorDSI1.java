@@ -80,8 +80,8 @@ public class CódigoErrorDSI1 extends javax.swing.JPanel {
 
         txt.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         txt.setForeground(new java.awt.Color(133, 133, 133));
-        txt.setText("“Campos Actualizado”");
-        panelRound1.add(txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 60, 180, -1));
+        txt.setText("“Campos Actualizados”");
+        panelRound1.add(txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 60, 190, -1));
 
         cmdOk.setBackground(new java.awt.Color(95, 171, 211));
         cmdOk.setBorder(null);

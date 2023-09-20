@@ -1,5 +1,11 @@
 package AModelo;
 
+import Mensajes.Campos;
+import Mensajes.CódigoErrorDSI1;
+import Mensajes.CódigoErrorDSI3;
+import Mensajes.GlassPanePopup;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -54,7 +60,14 @@ public class mdPreguntas {
             ps.setString(2, resp);
             ps.setInt(3, idUs);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Campos ingresados");
+             Campos obj = new Campos();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
             return true;
 
         } catch (SQLException e) {
@@ -75,7 +88,14 @@ public class mdPreguntas {
             ps.setInt(2, idUs);
             ps.setInt(3, idP);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Campos actualizados");
+             CódigoErrorDSI1 obj = new CódigoErrorDSI1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
             return true;
 
         } catch (SQLException e) {
@@ -106,7 +126,14 @@ public class mdPreguntas {
             ps.setString(1, n1);
             ps.setInt(2, idP);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Campos actualizados");
+             CódigoErrorDSI1 obj = new CódigoErrorDSI1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
             return true;
 
         } catch (SQLException e) {

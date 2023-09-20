@@ -100,7 +100,7 @@ public class MenuDoc extends JPanel{
         JLabel label = new JLabel(title);
         label.setBorder(new EmptyBorder(15, 20, 5, 5));
         label.setFont(label.getFont().deriveFont(Font.BOLD));
-        label.setForeground(new Color(95, 171, 211));
+        label.setForeground(new Color(0, 0, 0, 01));
         panelMenu.add(label);
     }
 

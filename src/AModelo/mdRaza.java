@@ -4,6 +4,12 @@
  */
 package AModelo;
 
+import Mensajes.Campos;
+import Mensajes.CódigoErrorDSI1;
+import Mensajes.CódigoErrorDSI3;
+import Mensajes.GlassPanePopup;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -83,7 +89,14 @@ public class mdRaza {
             ps = con.prepareStatement(query);
             ps.setInt(1, idE);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Registro eliminado");
+             CódigoErrorDSI3 obj = new CódigoErrorDSI3();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
             return true;
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
@@ -102,7 +115,14 @@ public class mdRaza {
             ps.setInt(1, idEsp);
             ps.setString(2, Especialidad);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Campos ingresados");
+             Campos obj = new Campos();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
             return true;
 
         } catch (SQLException e) {
@@ -122,7 +142,14 @@ public class mdRaza {
             ps.setString(1, Esp);
             ps.setInt(2, idEsp);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Campos actualizados");
+             CódigoErrorDSI1 obj = new CódigoErrorDSI1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
             return true;
 
         } catch (SQLException e) {
@@ -140,7 +167,14 @@ public class mdRaza {
             ps = con.prepareStatement(query);
             ps.setInt(1, idRaza);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Registro eliminado");
+             CódigoErrorDSI3 obj = new CódigoErrorDSI3();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
             return true;
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
@@ -159,7 +193,14 @@ public class mdRaza {
             ps.setString(2, n1);
             ps.setInt(3, id2);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Campos actualizados");
+             CódigoErrorDSI1 obj = new CódigoErrorDSI1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
             return true;
 
         } catch (SQLException e) {
@@ -178,7 +219,14 @@ public class mdRaza {
             ps.setInt(1, id1);
             ps.setString(2, n1);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Campos ingresados");
+             Campos obj = new Campos();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
             return true;
 
         } catch (SQLException e) {

@@ -1,5 +1,11 @@
 package AModelo;
 
+import Mensajes.CódigoErrorDAM1;
+import Mensajes.CódigoErrorDSI1;
+import Mensajes.CódigoErrorDSI3;
+import Mensajes.GlassPanePopup;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
@@ -65,7 +71,14 @@ ps.setString(2, "%" + apellido + "%"); // Configurar el segundo parámetro
             ps = con.prepareStatement(query);
             ps.setInt(1, idD);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Registro eliminado");
+            CódigoErrorDSI3 obj = new CódigoErrorDSI3();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
             return true;
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
@@ -90,7 +103,14 @@ ps.setString(2, "%" + apellido + "%"); // Configurar el segundo parámetro
             ps.setString(6, sexo);
             ps.setString(7, direccion);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Campos ingresados");
+            CódigoErrorDAM1 obj = new CódigoErrorDAM1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
             return true;
 
         } catch (SQLException e) {
@@ -114,7 +134,14 @@ ps.setString(2, "%" + apellido + "%"); // Configurar el segundo parámetro
             ps.setString(5, sexo);
             ps.setInt(6, idCl);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Campos actualizados");
+            CódigoErrorDSI1 obj = new CódigoErrorDSI1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
             return true;
 
         } catch (SQLException e) {

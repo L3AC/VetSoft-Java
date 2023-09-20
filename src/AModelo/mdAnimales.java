@@ -1,5 +1,11 @@
 package AModelo;
 
+import Mensajes.Campos;
+import Mensajes.CodigodeerrorDLI1;
+import Mensajes.CódigoErrorDSI1;
+import Mensajes.GlassPanePopup;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
@@ -9,7 +15,7 @@ public class mdAnimales {
     ResultSet rs;
     PreparedStatement ps;
 
-/*Esto nos ayuda a cargar la mascota que esta 
+    /*Esto nos ayuda a cargar la mascota que esta 
 que esta registrado dentro de la base de datos con su nombre, nombre popular, la raza, el dueño, tipo de animal entre otras*/
     public ResultSet cargarAnim(String nombre) {
         String query = "select idAnimal,nombrePopular as 'Animal',a.nombre as 'Nombre',CONCAT(c.nombre,' ',c.apellido) as 'Dueño'\n"
@@ -76,7 +82,14 @@ que esta registrado dentro de la base de datos con su nombre, nombre popular, la
             ps.setString(6, edad);
             ps.setString(7, sexo);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Campos ingresados");
+            Campos obj = new Campos();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
             return true;
 
         } catch (SQLException e) {
@@ -103,7 +116,14 @@ que esta registrado dentro de la base de datos con su nombre, nombre popular, la
             ps.setInt(7, idA);
 
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Campos actualizados");
+            CódigoErrorDSI1 obj = new CódigoErrorDSI1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
             return true;
 
         } catch (SQLException e) {

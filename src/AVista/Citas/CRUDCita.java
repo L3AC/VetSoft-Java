@@ -233,7 +233,7 @@ public class CRUDCita extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
     final void loadD() throws SQLException {
         String[] column = {"idCita", "idAnimal", "idNivelS", "Estado", "Fecha", "Mascota", "Dueño",
-             "Doctor"};
+            "Doctor"};
         model = new DefaultTableModel(null, column);
         dsg.ColumnHide(model, tbData, 0, 8);
         dsg.ColumnHide(model, tbData, 1, 8);
@@ -297,40 +297,46 @@ public class CRUDCita extends javax.swing.JPanel {
     }
 
     private void estate() throws SQLException {
-        ctCitas ct = new ctCitas();
-        ct.idCita = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-        ResultSet rs = ct.verifEstate();
-        if (rs.next()) {
-            btnAceptar.setVisible(true);
-        } else {
-            btnAceptar.setVisible(false);
+        if (tbData.getRowCount() > 0) {
+            ctCitas ct = new ctCitas();
+            ct.idCita = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+            ResultSet rs = ct.verifEstate();
+            if (rs.next()) {
+                btnAceptar.setVisible(true);
+            } else {
+                btnAceptar.setVisible(false);
+            }
         }
     }
 
     private boolean verifR() throws SQLException {
-        ctReceta ct = new ctReceta();
-        ct.idCita = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-        ResultSet rs = ct.verifR();
-        if (rs.next()) {
-            return true;//se encontro registro
-        } else {
-            return false;//no se encontro
+        if (tbData.getRowCount() > 0) {
+            ctReceta ct = new ctReceta();
+            ct.idCita = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+            ResultSet rs = ct.verifR();
+
+            if (rs.next()) {
+                return true;//se encontro registro
+            } else {
+                return false;//no se encontro
+            }
         }
+        return false;
     }
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         if (tbData.getRowCount() > 0) {
-        try {
-            updtCita subp = new updtCita(idTipoUs,
-                    Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()),
-                    idCuenta,
-                    Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 2).toString()));
-            dsg.ShowPanel(subp, PCont, 1320, 810);
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDAnimales.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            try {
+                updtCita subp = new updtCita(idTipoUs,
+                        Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()),
+                        idCuenta,
+                        Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 2).toString()));
+                dsg.ShowPanel(subp, PCont, 1320, 810);
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDAnimales.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } else {
-           CódigoError obj = new CódigoError();
+            CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
@@ -367,7 +373,7 @@ public class CRUDCita extends javax.swing.JPanel {
 
             }
         } else {
-           CódigoError obj = new CódigoError();
+            CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
@@ -388,38 +394,40 @@ public class CRUDCita extends javax.swing.JPanel {
     }//GEN-LAST:event_txtBusqKeyReleased
 
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
-        try {
-            estate();
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDCita.class.getName()).log(Level.SEVERE, null, ex);
+        if (tbData.getRowCount() > 0) {
+            try {
+                estate();
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDCita.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         if (tbData.getRowCount() > 0) {
-        UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
-        int opcion = JOptionPane.showOptionDialog(
-                null,
-                "¿Desea confirmar cita?",
-                "Confirmar",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.WARNING_MESSAGE,
-                null,
-                new Object[]{"Sí", "No"},
-                "No");
+            UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
+            int opcion = JOptionPane.showOptionDialog(
+                    null,
+                    "¿Desea confirmar cita?",
+                    "Confirmar",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.WARNING_MESSAGE,
+                    null,
+                    new Object[]{"Sí", "No"},
+                    "No");
 
-        if (opcion == JOptionPane.YES_OPTION) {
-            ctCitas ct = new ctCitas();
-            ct.idCita = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-            ct.aceptCita();
-            try {
-                loadD();
-            } catch (SQLException ex) {
-                Logger.getLogger(CRUDAnimales.class.getName()).log(Level.SEVERE, null, ex);
+            if (opcion == JOptionPane.YES_OPTION) {
+                ctCitas ct = new ctCitas();
+                ct.idCita = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                ct.aceptCita();
+                try {
+                    loadD();
+                } catch (SQLException ex) {
+                    Logger.getLogger(CRUDAnimales.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else if (opcion == JOptionPane.NO_OPTION) {
+
             }
-        } else if (opcion == JOptionPane.NO_OPTION) {
-
-        }
         } else {
             CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
@@ -433,38 +441,38 @@ public class CRUDCita extends javax.swing.JPanel {
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFactActionPerformed
-         if (tbData.getRowCount() > 0) {
-        UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
-        int opcion = JOptionPane.showOptionDialog(
-                null,
-                "Al hacer la factura, la cita se inhabilitara,\\"
-                + " ¿Está seguro de realizarlo?",
-                "Confirmar",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.WARNING_MESSAGE,
-                null,
-                new Object[]{"Sí", "No"},
-                "No");
+        if (tbData.getRowCount() > 0) {
+            UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
+            int opcion = JOptionPane.showOptionDialog(
+                    null,
+                    "Al hacer la factura, la cita se inhabilitara,\\"
+                    + " ¿Está seguro de realizarlo?",
+                    "Confirmar",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.WARNING_MESSAGE,
+                    null,
+                    new Object[]{"Sí", "No"},
+                    "No");
 
-        if (opcion == JOptionPane.YES_OPTION) {
-            try {
+            if (opcion == JOptionPane.YES_OPTION) {
+                try {
 
-                ctCitas ct = new ctCitas();
-                ct.idCita = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-                ct.estado = "Inactiva";
-                ct.stateCita();
-                HashMap<String, Object> param = new HashMap<>();
-                param.put("idCita", Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
-                dsg.reportS("Reporte", "src/AVista/Citas/Cita.jasper", param);
-                loadD();
-            } catch (SQLException ex) {
-                Logger.getLogger(CRUDCita.class.getName()).log(Level.SEVERE, null, ex);
+                    ctCitas ct = new ctCitas();
+                    ct.idCita = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                    ct.estado = "Inactiva";
+                    ct.stateCita();
+                    HashMap<String, Object> param = new HashMap<>();
+                    param.put("idCita", Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
+                    dsg.reportS("Reporte", "src/AVista/Citas/Cita.jasper", param);
+                    loadD();
+                } catch (SQLException ex) {
+                    Logger.getLogger(CRUDCita.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            } else if (opcion == JOptionPane.NO_OPTION) {
+
             }
-
-        } else if (opcion == JOptionPane.NO_OPTION) {
-
-        }
-         } else {
+        } else {
             CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
@@ -478,22 +486,22 @@ public class CRUDCita extends javax.swing.JPanel {
     }//GEN-LAST:event_btnFactActionPerformed
 
     private void btnRecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecActionPerformed
-         if (tbData.getRowCount() > 0) {
-        try {
-            if (verifR() == true) {
-                upReceta subp = new upReceta(idTipoUs, idCuenta,
-                        Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
-                dsg.ShowPanel(subp, PCont, 1320, 810);
-            } else {
-                AddReceta subp = new AddReceta(idTipoUs, idCuenta,
-                        Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
-                dsg.ShowPanel(subp, PCont, 1320, 810);
+        if (tbData.getRowCount() > 0) {
+            try {
+                if (verifR() == true) {
+                    upReceta subp = new upReceta(idTipoUs, idCuenta,
+                            Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
+                    dsg.ShowPanel(subp, PCont, 1320, 810);
+                } else {
+                    AddReceta subp = new AddReceta(idTipoUs, idCuenta,
+                            Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
+                    dsg.ShowPanel(subp, PCont, 1320, 810);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDCita.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDCita.class.getName()).log(Level.SEVERE, null, ex);
-        }
-         } else {
-           CódigoError obj = new CódigoError();
+        } else {
+            CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
