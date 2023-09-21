@@ -1,4 +1,3 @@
-
 package AVista.Citas;
 
 import AControlador.ctCitas;
@@ -32,12 +31,15 @@ public class updtCita extends javax.swing.JPanel {
     Map<Integer, String> cbDoct = new HashMap<>();
     SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
 
-    public updtCita(int idTipoUs, int idCita, int idCuenta,int idNivelServ) throws SQLException {
+    public updtCita(int idTipoUs, int idCita, int idCuenta, int idNivelServ) throws SQLException {
         this.idTipoUs = idTipoUs;
         this.idCita = idCita;
         this.idCuenta = idCuenta;
-        this.idNivelServ=idNivelServ;
+        this.idNivelServ = idNivelServ;
         initComponents();
+        txtNotaCl.setDocument(new Valida(200, "[a-zA-Z0-9 ]*"));
+        txtNotaD.setDocument(new Valida(200, "[a-zA-Z0-9 ]*"));
+        loadData();
         loadComboServ(cbServicio);
         loadComboEsp(cbEsp);
         loadComboDoc(cbDoc);
@@ -45,15 +47,13 @@ public class updtCita extends javax.swing.JPanel {
 
         btnConfirm.setVisible(false);
         enab(false);
-        
-        txtNotaCl.setDocument(new Valida(200, "[a-zA-Z0-9 ]*"));
-        txtNotaD.setDocument(new Valida(200, "[a-zA-Z0-9 ]*"));
+
         Calendar today = Calendar.getInstance();
         today.add(Calendar.DAY_OF_MONTH, 1);
-        
+
         dpFecha.setDate(today.getTime());
         dpFecha.setMinSelectableDate(today.getTime());
-        loadData();
+
     }
 
     @SuppressWarnings("unchecked")
@@ -293,7 +293,7 @@ public class updtCita extends javax.swing.JPanel {
 
     private void loadComboServ(JComboBox cb) throws SQLException {
         ctTipoServ ct = new ctTipoServ();
-        ct.idNivelServ=idNivelServ;
+        ct.idNivelServ = idNivelServ;
         ResultSet rs = ct.comboServ();
         while (rs.next()) {
             int idTP = rs.getInt("idTipoServicio");
@@ -340,17 +340,17 @@ public class updtCita extends javax.swing.JPanel {
 
             ResultSet rs = ct.selectCita();
             while (rs.next()) {
-                lbMasc.setText("Mascota: "+rs.getString("Animal"));
+                lbMasc.setText("Mascota: " + rs.getString("Animal"));
                 cbServicio.setSelectedItem(rs.getString("Serv"));
                 cbEsp.setSelectedItem(rs.getString("Especialidad"));
                 cbDoc.setSelectedItem(rs.getString("Doctor"));
                 dpFecha.setDate(rs.getDate("Fecha"));
-                String hora=rs.getString("hora")+"";
+                String hora = rs.getString("hora") + "";
                 cbHora.setSelectedItem(hora);
-                System.out.println(rs.getString("Hora")+" "+cbHora.getSelectedItem().toString());
+                System.out.println(rs.getString("Hora") + " " + cbHora.getSelectedItem().toString());
                 txtNotaCl.setText(rs.getString("notaDelCliente"));
                 txtNotaD.setText(rs.getString("notaDelDoctor"));
-                
+
             }
         } catch (Exception e) {
             System.err.println(e.toString());
@@ -368,12 +368,13 @@ public class updtCita extends javax.swing.JPanel {
 
     private void dispo() throws SQLException {
         ctCitas ct = new ctCitas();
-        if (cbDoct.isEmpty()) {
+        String fech = dt.format(dpFecha.getCalendar().getTime());
+        if (cbDoct.isEmpty() || fech.isEmpty()) {
 
         } else {
             ct.idDoctor = dsg.getMap(cbDoct, cbDoc.getSelectedItem().toString());
-                    ct.fecha = dt.format(dpFecha.getCalendar().getTime());
-        ct.hora = cbHora.getSelectedItem().toString();
+            ct.fecha = dt.format(dpFecha.getCalendar().getTime());
+            ct.hora = cbHora.getSelectedItem().toString();
             ResultSet rs = ct.verifDispo();
             if (rs.next()) {
                 lbDispo.setText("No disponible");
