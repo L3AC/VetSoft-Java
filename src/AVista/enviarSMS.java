@@ -27,6 +27,7 @@ import java.sql.SQLException;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class enviarSMS extends javax.swing.JFrame {
@@ -55,6 +56,11 @@ public class enviarSMS extends javax.swing.JFrame {
         txtCod.setDocument(new Valida(20, "[a-zA-Z0-9]*"));
         txtNueva.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
         txtNueva2.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
+
+        String iconPath = "src/Imagenes/logoC.png";
+        ImageIcon icon = new ImageIcon(iconPath);
+        setIconImage(icon.getImage());
+        setTitle("VetSoft");
     }
 
     public void transparente() {
@@ -457,11 +463,12 @@ public class enviarSMS extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error al crear");
         }
     }
+
     public void EncCod(String user) {
         try {
-            ctUser ct=new ctUser();
-            ct.usuario=user;
-            ResultSet st =ct.verifUs();
+            ctUser ct = new ctUser();
+            ct.usuario = user;
+            ResultSet st = ct.verifUs();
             st.next();
             int found = st.getRow();
             if (found == 1) {
@@ -495,7 +502,7 @@ public class enviarSMS extends javax.swing.JFrame {
                     txtNueva2.setEnabled(false);
                     btnCambiar.setEnabled(false);
                 }
-                
+
             } else {
                 CodigoErrorDRC2 obj = new CodigoErrorDRC2();
                 obj.eventOK(new ActionListener() {
@@ -505,7 +512,7 @@ public class enviarSMS extends javax.swing.JFrame {
                     }
                 });
                 GlassPanePopup.showPopup(obj);
-                
+
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.toString());
@@ -515,7 +522,7 @@ public class enviarSMS extends javax.swing.JFrame {
 
     public void sms(String tel, String clave) {
         //sendSMS sm = new sendSMS();
-       // sm.send(tel, clave);
+        // sm.send(tel, clave);
     }
     private void txtNuevaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNuevaKeyTyped
         // TODO add your handling code here:

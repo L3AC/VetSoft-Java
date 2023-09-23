@@ -37,6 +37,7 @@ import javax.swing.JOptionPane;
 import Validation.Valida;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 
 public class PorUsuario extends javax.swing.JFrame {
     
@@ -64,6 +65,11 @@ public class PorUsuario extends javax.swing.JFrame {
         txtCod.setDocument(new Valida(20, "[a-zA-Z0-9]*"));
         txtNueva.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
         txtNueva2.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
+        
+                String iconPath = "src/Imagenes/logoC.png";
+        ImageIcon icon = new ImageIcon(iconPath);
+        setIconImage(icon.getImage());
+                setTitle("VetSoft");
         
     }
 
