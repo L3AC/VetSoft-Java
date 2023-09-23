@@ -43,7 +43,7 @@ public class mdAsistentes {
         }
     }
 
-    //Aqui se verificara si existe el el asistente con usuario dentro de la base de datos para poder cargarlo en el sistema
+    //Aqui se verificara si existe el asistente con usuario dentro de la base de datos para poder cargarlo en el sistema
     public ResultSet verifPerfil(int idUs) {//TABLA
         String query = "select u.usuario from tbUsuarios u, tbAsistentes c "
                 + "where u.idUsuario=c.idUsuario and u.idUsuario=?;";
@@ -67,6 +67,8 @@ public class mdAsistentes {
             return null; //DIO ERROR
         }
     }
+    
+    //Es para hacer contacto con la base de datos
     public ResultSet usAsis(String nombre) {//TABLA
         String query = "select * from tbUsuarios where idTipoUsuario=5 and usuario like ?;";
         try {
@@ -90,7 +92,7 @@ public class mdAsistentes {
         }
     }
 
-    
+    //Cuando el usuario seleciona un asistente se le muestra los datos de la bd que estan escritos
     public ResultSet selectAsis(int idD) {
         String query = "select a.Nombre, a.Apellido,a.DUI,a.Nacimiento,a.Sexo,CONCAT(d.nombre,' ',d.Apellido) as 'doc'\n" +
         "from tbAsistentes a, tbDoctores d where a.idDoctor=d.idDoctor and idAsistente=?;";
@@ -193,6 +195,8 @@ public class mdAsistentes {
             return false; //DIO ERROR
         }
     }
+    
+    //Para que el usuario pueda actualizar un asistente en el sistema y en la base de datos
     public boolean upAsis2(int idC,  String nombre, String apellido,
             String dui, String naci, String sexo) {
         String query = "update tbAsistentes SET  nombre=?,apellido=?,DUI=?,nacimiento=?,sexo=? \n"

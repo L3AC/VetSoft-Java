@@ -226,6 +226,7 @@ public class mdTipoServ {
         }
     }
 
+    //Trae datos de la tabla en bd llamada "tbNivelServicio"
     public ResultSet comboPrior() {//TABLA
         String query = "select * from tbNivelServicio";
         try {
@@ -273,6 +274,7 @@ public class mdTipoServ {
         }
     }
 
+    //Para actualizar en el sistema y en bd datos de la tabla "tbNivelServicio"
     public boolean upNServ(int id1, String n1) {
         String query = "update tbNivelServicio set Prioridad=? where idNivelServicio=?;";
         try {

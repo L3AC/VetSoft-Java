@@ -159,6 +159,8 @@ public class mdVacunas {
             return null;
         }
     }
+    
+    //Para que al usuario le carguen los datos desde la base de datos
     public ResultSet cargarV(int id1) {
         String query = "select * from tbVacunaciones where idVacunacion=?;";
         try {
@@ -181,6 +183,7 @@ public class mdVacunas {
         }
     }
 
+    //Verifica si hay vacunación para algún animal en especifico
     public ResultSet verifVac(int id1, int id2) {
         String query = "select * from tbVacunaciones where idAnimal=? and idTipoVacuna=?";
         try {
@@ -204,6 +207,7 @@ public class mdVacunas {
         }
     }
 
+    //Para insertar la vacunación que se le haya hecho a algún animal 
     public boolean insVac(int id1, int id2,int ds1) {
         String query = "insert into tbVacunaciones(idAnimal,idTipoVacuna,dosis,fecharegistro)"
                 + " values(?,?,?,getdate());";
@@ -237,6 +241,7 @@ public class mdVacunas {
             return false; //DIO ERROR
         }
     }
+    //Para actualiar vacunaciones en la base de datos y en el sistema
     public boolean upVac(int id1, int id2) {
         String query = "update tbVacunaciones set dosis=? where idVacunacion=?;";
         try {
@@ -269,6 +274,7 @@ public class mdVacunas {
         }
     }
 
+    //Para eliminar vacunaciones en la base de datos y en el sistema
     public boolean delVac(int id1) {
         String query = "DELETE tbVacunaciones where idVacunacion=?;";
         try {

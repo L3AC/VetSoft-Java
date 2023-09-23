@@ -47,6 +47,7 @@ public class mdReservFact {
         }
     }
 
+    //Esto es para que el usuario pueda seleccionar cualquier fila
     public ResultSet selecR(int idCl) {
 
         String query = "select * from tbReservaProductos where idCliente=?";

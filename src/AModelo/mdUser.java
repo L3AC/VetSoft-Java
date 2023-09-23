@@ -152,6 +152,8 @@ public class mdUser extends JFrame {
             return false; //DIO ERROR
         }
     }
+    
+    //Para que el usuario pueda actualizar su contraseña dentro del sistema y dentro de la base de datos
      public boolean updateContra(String contra,String us) {
         String query = "update tbUsuarios SET contraseña=?  where usuario=? COLLATE SQL_Latin1_General_CP1_CS_AS;";
         try {
@@ -176,6 +178,8 @@ public class mdUser extends JFrame {
             return false; //DIO ERROR
         }
     }
+     
+     //Actualiza un código de verificación para un usuario específico en la tabla "tbUsuarios"
      public boolean updateCode(String code,String us) {
         String query = "update tbUsuarios set codigoVerif=? "
                 + "where usuario=? COLLATE SQL_Latin1_General_CP1_CS_AS;";
@@ -406,6 +410,7 @@ public class mdUser extends JFrame {
         }
     }
 
+    //Para que el usuario pueda actualizar los campos que están a continuación escritos
     public boolean upUs2( String usuario, String correo,
             String tel, int idUs) {
         String query = "update tbUsuarios SET usuario=?,correo=?,telefono=?"
