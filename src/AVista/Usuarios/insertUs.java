@@ -8,6 +8,7 @@ import AControlador.ctEsp;
 import AControlador.ctTipoUs;
 import AControlador.ctUser;
 import AModelo.Crypt;
+import AVista.Login;
 import Design.Desg;
 import Design.TextFieldSV;
 import Mensajes.CódigoErrorDSI2;
@@ -28,6 +29,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.validator.EmailValidator;
+import AVista.Usuarios.CRUDusuarios;
 
 /**
  *
@@ -367,7 +369,6 @@ public class insertUs extends javax.swing.JPanel {
                 }
             });
             GlassPanePopup.showPopup(obj);
-            dispose();
         }
     }//GEN-LAST:event_btnConfirmActionPerformed
 

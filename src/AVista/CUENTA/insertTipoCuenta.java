@@ -13,6 +13,7 @@ import AControlador.ctUser;
 import AVista.Usuarios.CRUDusuarios;
 import AVista.Usuarios.insertUs;
 import Design.Desg;
+import Mensajes.CódigoErrorDSI2;
 import Mensajes.CódigoErrorDSI5;
 import Mensajes.GlassPanePopup;
 import java.sql.ResultSet;
@@ -405,6 +406,14 @@ public class insertTipoCuenta extends javax.swing.JPanel {
                     ct.sexo = cbSexo.getSelectedItem().toString();
                     ct.direccion = txtDir.getText();
                     ct.insertCl();
+                    CódigoErrorDSI2 obj = new CódigoErrorDSI2();
+                    obj.eventOK(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent ae) {
+                            GlassPanePopup.closePopupLast();
+                        }
+                    });
+                    GlassPanePopup.showPopup(obj);
                 }
             }
         } else {
@@ -433,6 +442,14 @@ public class insertTipoCuenta extends javax.swing.JPanel {
                     System.out.println(dt.format(dpNaci.getCalendar().getTime()));
                     ct.sexo = cbSexo.getSelectedItem().toString();
                     ct.insertRe();
+                    CódigoErrorDSI2 obj = new CódigoErrorDSI2();
+                    obj.eventOK(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent ae) {
+                            GlassPanePopup.closePopupLast();
+                        }
+                    });
+                    GlassPanePopup.showPopup(obj);
                 }
                 if (nivelRow == 4) {
                     ctDoctores ct = new ctDoctores();
@@ -444,6 +461,14 @@ public class insertTipoCuenta extends javax.swing.JPanel {
                     ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
                     ct.sexo = cbSexo.getSelectedItem().toString();
                     ct.insertDoc();
+                    CódigoErrorDSI2 obj = new CódigoErrorDSI2();
+                    obj.eventOK(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent ae) {
+                            GlassPanePopup.closePopupLast();
+                        }
+                    });
+                    GlassPanePopup.showPopup(obj);
                 }
             }
         }

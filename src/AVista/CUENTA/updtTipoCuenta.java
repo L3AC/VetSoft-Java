@@ -9,6 +9,8 @@ import AVista.Clientes.CRUDCliente;
 import AVista.Doctores.CRUDDoctores;
 import AVista.Recepcionista.CRUDRecep;
 import Design.Desg;
+import Mensajes.Campos;
+import Mensajes.CódigoErrorDSI2;
 import Mensajes.CódigoErrorDSI5;
 import Mensajes.GlassPanePopup;
 import java.sql.ResultSet;
@@ -457,11 +459,19 @@ public class updtTipoCuenta extends javax.swing.JPanel {
                     ct.sexo = cbSexo.getSelectedItem().toString();
                     ct.direccion = txtDir.getText();
                     ct.updtCl();
+                    Campos obj = new Campos();
+                    obj.eventOK(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent ae) {
+                            GlassPanePopup.closePopupLast();
+                        }
+                    });
+                    GlassPanePopup.showPopup(obj);
                 }
             }
         } else {
             if (txtNombre.getText().isEmpty() || txtApellidos.getText().isEmpty()
-                    || txtDui.getText().isEmpty() ) {
+                    || txtDui.getText().isEmpty()) {
                 CódigoErrorDSI5 obj = new CódigoErrorDSI5();
                 obj.eventOK(new ActionListener() {
                     @Override
@@ -480,6 +490,14 @@ public class updtTipoCuenta extends javax.swing.JPanel {
                     ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
                     ct.sexo = cbSexo.getSelectedItem().toString();
                     ct.updtRecep();
+                    Campos obj = new Campos();
+                    obj.eventOK(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent ae) {
+                            GlassPanePopup.closePopupLast();
+                        }
+                    });
+                    GlassPanePopup.showPopup(obj);
                 }
                 if (nivelRow == 4) {
                     ctDoctores ct = new ctDoctores();
@@ -491,6 +509,14 @@ public class updtTipoCuenta extends javax.swing.JPanel {
                     ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
                     ct.sexo = cbSexo.getSelectedItem().toString();
                     ct.updateDoc();
+                    Campos obj = new Campos();
+                    obj.eventOK(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent ae) {
+                            GlassPanePopup.closePopupLast();
+                        }
+                    });
+                    GlassPanePopup.showPopup(obj);
                 }
             }
         }

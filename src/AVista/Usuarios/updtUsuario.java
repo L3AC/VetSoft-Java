@@ -3,6 +3,8 @@ package AVista.Usuarios;
 import AControlador.ctTipoUs;
 import AControlador.ctUser;
 import Design.Desg;
+import Mensajes.Campos;
+import Mensajes.CódigoErrorDSI2;
 import Mensajes.CódigoErrorDSI5;
 import Mensajes.GlassPanePopup;
 import Tipografias.Fuentes;
@@ -327,6 +329,14 @@ public class updtUsuario extends javax.swing.JPanel {
             ctUs.telefono = txtTel.getText();
             ctUs.idUs = idUs;
             ctUs.updtUs();
+             Campos obj = new Campos();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
     }//GEN-LAST:event_btnConfirmarActionPerformed
     }
     private void txtCorreoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoKeyReleased
