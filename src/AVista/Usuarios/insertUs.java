@@ -10,6 +10,7 @@ import AControlador.ctUser;
 import AModelo.Crypt;
 import Design.Desg;
 import Design.TextFieldSV;
+import Mensajes.CódigoErrorDSI2;
 import Mensajes.CódigoErrorDSI5;
 import Mensajes.GlassPanePopup;
 import Tipografias.Fuentes;
@@ -358,7 +359,7 @@ public class insertUs extends javax.swing.JPanel {
             ctUs.correo = txtCorreo.getText();
             ctUs.telefono = txtTel.getText();
             ctUs.insertUs();
-            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
+            CódigoErrorDSI2 obj = new CódigoErrorDSI2();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
@@ -366,6 +367,7 @@ public class insertUs extends javax.swing.JPanel {
                 }
             });
             GlassPanePopup.showPopup(obj);
+            dispose();
         }
     }//GEN-LAST:event_btnConfirmActionPerformed
 
