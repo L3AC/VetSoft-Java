@@ -158,9 +158,9 @@ ps.setString(2, "%" + apellido + "%"); // Configurar el segundo parámetro
     }
 
     //Esto nos ayudara a actualizar algun campo dentro de la información del cliente
-    public boolean updateCl(int idCl, String nombre, String apellido, String dui, String naci, String sexo) {
+    public boolean updateCl(int idCl, String nombre, String apellido, String dui, String naci, String sexo,String dir) {
         String query = "update tbClientes SET nombre=?,apellido=?,DUI=?,nacimiento=?,sexo=? \n" +
-        "where idCliente=?;";
+        ", direccion=? where idCliente=?;";
         try {
             ps = con.prepareStatement(query);
             ps.setString(1, nombre);
@@ -168,7 +168,8 @@ ps.setString(2, "%" + apellido + "%"); // Configurar el segundo parámetro
             ps.setString(3, dui);
             ps.setString(4, naci);
             ps.setString(5, sexo);
-            ps.setInt(6, idCl);
+            ps.setString(6, dir);
+            ps.setInt(7, idCl);
             ps.executeUpdate();
             CódigoErrorDSI1 obj = new CódigoErrorDSI1();
             obj.eventOK(new ActionListener() {

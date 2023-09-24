@@ -461,6 +461,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
                     ct.sexo = cbSexo.getSelectedItem().toString();
                     ct.direccion = txtDir.getText();
                     ct.updtCl();
+                    
                     CRUDCliente subp;
                     try {
                         subp = new CRUDCliente(idTipoUs);
@@ -468,14 +469,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
                     } catch (SQLException ex) {
                         Logger.getLogger(updtTipoCuenta.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                    Campos obj = new Campos();
-                    obj.eventOK(new ActionListener() {
-                        @Override
-                        public void actionPerformed(ActionEvent ae) {
-                            GlassPanePopup.closePopupLast();
-                        }
-                    });
-                    GlassPanePopup.showPopup(obj);
+                   
                 }
             }
         } else {

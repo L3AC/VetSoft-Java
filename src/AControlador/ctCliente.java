@@ -96,7 +96,7 @@ public class ctCliente {
     }
 
     public boolean updtCl() {
-        return cl.updateCl(idCliente, nombre, apellido, dui, nacimiento, sexo);
+        return cl.updateCl(idCliente, nombre, apellido, dui, nacimiento, sexo,direccion);
     }
 
     public boolean deleteCl() {
