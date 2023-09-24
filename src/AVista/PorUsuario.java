@@ -98,6 +98,8 @@ public class PorUsuario extends javax.swing.JFrame {
         txtNueva = new Design.PasswordField();
         txtNueva2 = new Design.PasswordField();
         lbUs3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        VetSoft2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -120,7 +122,7 @@ public class PorUsuario extends javax.swing.JFrame {
         lbMayor.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         lbMayor.setForeground(new java.awt.Color(27, 73, 101));
         lbMayor.setText("Recuperación de contraseña por e-mail");
-        panelRound2.add(lbMayor, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, -1, -1));
+        panelRound2.add(lbMayor, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, -1, -1));
 
         panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomLeft(50);
@@ -135,6 +137,7 @@ public class PorUsuario extends javax.swing.JFrame {
         panelRound1.add(lbCod, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, 180, 30));
 
         btnVeri.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnVeri.setForeground(new java.awt.Color(0, 0, 0));
         btnVeri.setText("Verificar");
         btnVeri.setColor1(new java.awt.Color(190, 233, 232));
         btnVeri.setColor2(new java.awt.Color(190, 233, 232));
@@ -161,6 +164,7 @@ public class PorUsuario extends javax.swing.JFrame {
         panelRound1.add(lbCod1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, 30));
 
         btnEnviar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnEnviar.setForeground(new java.awt.Color(0, 0, 0));
         btnEnviar.setText("Enviar Correo");
         btnEnviar.setColor1(new java.awt.Color(190, 233, 232));
         btnEnviar.setColor2(new java.awt.Color(190, 233, 232));
@@ -172,6 +176,7 @@ public class PorUsuario extends javax.swing.JFrame {
         });
         panelRound1.add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 110, 30));
 
+        btnCambiar.setForeground(new java.awt.Color(0, 0, 0));
         btnCambiar.setText("Cambiar Contraseña");
         btnCambiar.setColor1(new java.awt.Color(190, 233, 232));
         btnCambiar.setColor2(new java.awt.Color(190, 233, 232));
@@ -242,9 +247,15 @@ public class PorUsuario extends javax.swing.JFrame {
         lbUs3.setText("Ingrese su nueva Contraseña");
         panelRound1.add(lbUs3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, -1, 30));
 
-        panelRound2.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 734, 344));
+        panelRound2.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 734, 330));
 
-        getContentPane().add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 430));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clinica 64px.png"))); // NOI18N
+        panelRound2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 10, -1, -1));
+
+        VetSoft2.setText("VetSoft+");
+        panelRound2.add(VetSoft2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 80, 50, -1));
+
+        getContentPane().add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 460));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -839,9 +850,11 @@ public class PorUsuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnRegresar1;
+    private javax.swing.JLabel VetSoft2;
     private Design.ButtonGradient btnCambiar;
     private Design.ButtonGradient btnEnviar;
     private Design.ButtonGradient btnVeri;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lbCod;
     private javax.swing.JLabel lbCod1;
     private javax.swing.JLabel lbMayor;
