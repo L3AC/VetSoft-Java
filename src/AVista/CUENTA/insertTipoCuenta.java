@@ -386,7 +386,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
 
         if (nivelRow == 3) {//ES CLIENTE
             if (txtNombre.getText().isEmpty() || txtApellidos.getText().isEmpty()
-                    || txtDui.getText().isEmpty() || txtDir.getText().isEmpty()) {
+                    || txtDui.getText().isEmpty() || txtDir.getText().isEmpty()||dpNaci.getDate()==null) {
                 CódigoErrorDSI5 obj = new CódigoErrorDSI5();
                 obj.eventOK(new ActionListener() {
                     @Override
@@ -417,7 +417,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         } else {
             //ES DOCTOR O RECEPCIONISTA
             if (txtNombre.getText().isEmpty() || txtApellidos.getText().isEmpty()
-                    || txtDui.getText().isEmpty()) {
+                    || txtDui.getText().isEmpty()||dpNaci.getDate()==null) {
 
                 CódigoErrorDSI5 obj = new CódigoErrorDSI5();
                 obj.eventOK(new ActionListener() {
