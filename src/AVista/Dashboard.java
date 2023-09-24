@@ -104,7 +104,7 @@ public class Dashboard extends javax.swing.JFrame {
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     if (index == 1 && indexSubMenu == 2) {//CLIENTES
-                        CRUDCliente subp = new CRUDCliente();
+                        CRUDCliente subp = new CRUDCliente(idTipoU);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
 
                     }

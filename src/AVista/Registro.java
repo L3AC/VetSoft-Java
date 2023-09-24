@@ -419,6 +419,7 @@ public class Registro extends javax.swing.JFrame {
         // TODO add your handling code here:
         ctUser ctUs = new ctUser();
         ctUs.usuario = txtUsuario.getText().toString();
+        
         try {
             if (ctUs.verifUs().next()) {
                 lbDisp.setVisible(true);

@@ -314,7 +314,8 @@ public class CRUDCliente extends javax.swing.JPanel {
         if (tbData.getRowCount() > 0) {
             updtTipoCuenta subp;
             try {
-                subp = new updtTipoCuenta(nUs, idCl, 3);
+                subp = new updtTipoCuenta(nUs, Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()), 3);
+                System.out.print(Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
                 dsg.ShowPanel(subp, PCont, 1320, 810);
             } catch (SQLException ex) {
                 Logger.getLogger(CRUDCliente.class.getName()).log(Level.SEVERE, null, ex);

@@ -39,10 +39,10 @@ public class updtTipoCuenta extends javax.swing.JPanel {
     public updtTipoCuenta(int idTipoUs, int idCuenta, int nivelRow) throws SQLException {
         initComponents();
         this.idTipoUs = idTipoUs;
+        
         this.idCuenta = idCuenta;
         this.nivelRow = nivelRow;
         initComponents();
-
         txtNombre.setDocument(new Valida(50, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         txtDui.setDocument(new Valida(10, "[0-9]*"));
         txtApellidos.setDocument(new Valida(50, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
@@ -66,6 +66,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
                 lbDirec.setVisible(false);
             } else {
                 loadCl();
+
             }
 
         }
@@ -90,6 +91,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
         lbMin1.setVisible(false);
         lbMin2.setVisible(false);
         lbMin3.setVisible(false);
+
     }
 
     @SuppressWarnings("unchecked")
