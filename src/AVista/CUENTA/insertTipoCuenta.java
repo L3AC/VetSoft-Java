@@ -489,7 +489,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
 
     private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
         // TODO add your handling code here:
-        if (txtNombre.getText().length() >= 5 && txtApellidos.getText().length() >= 5 && txtDui.getText().length() >= 10 && txtDir.getText().length() >= 10) {
+        if (txtNombre.getText().length() >= 5 && txtApellidos.getText().length() >= 5 && txtDui.getText().length() >= 10 && txtDir.getText().length() >= 10 && dpNaci.getDate()==null) {
             lbMin.setVisible(false);
             btnConfirm.setEnabled(true);
         } else {
@@ -505,7 +505,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
 
     private void txtApellidosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidosKeyReleased
         // TODO add your handling code here:
-        if (txtApellidos.getText().length() >= 5 && txtNombre.getText().length() >= 5 && txtDui.getText().length() >= 10 && txtDir.getText().length() >= 10) {
+        if (txtApellidos.getText().length() >= 5 && txtNombre.getText().length() >= 5 && txtDui.getText().length() >= 10 && txtDir.getText().length() >= 10 && dpNaci.getDate()==null) {
             lbMin1.setVisible(false);
             btnConfirm.setEnabled(true);
         } else {
@@ -521,7 +521,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
 
     private void txtDuiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDuiKeyReleased
         // TODO add your handling code here:
-        if (txtDui.getText().length() >= 10 && txtNombre.getText().length() >= 5 && txtApellidos.getText().length() >= 5 && txtDir.getText().length() >= 10) {
+        if (txtDui.getText().length() >= 10 && txtNombre.getText().length() >= 5 && txtApellidos.getText().length() >= 5 && txtDir.getText().length() >= 10 && dpNaci.getDate()==null) {
             lbMin2.setVisible(false);
             btnConfirm.setEnabled(true);
         } else {
@@ -537,7 +537,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
 
     private void txtDirKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDirKeyReleased
         // TODO add your handling code here:
-        if (txtDir.getText().length() >= 10 && txtNombre.getText().length() >= 5 && txtApellidos.getText().length() >= 5 && txtDui.getText().length() >= 10) {
+        if (txtDir.getText().length() >= 10 && txtNombre.getText().length() >= 5 && txtApellidos.getText().length() >= 5 && txtDui.getText().length() >= 10 && dpNaci.getDate()==null) {
             lbMin3.setVisible(false);
             btnConfirm.setEnabled(true);
         } else {

@@ -400,7 +400,7 @@ public class PerfilData extends javax.swing.JPanel {
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         if (txtNombre.getText().isEmpty() || txtApellidos.getText().isEmpty()
                 || txtDui.getText().isEmpty() || txtTel.getText().isEmpty()
-                || txtCorreo.getText().isEmpty()) {
+                || txtCorreo.getText().isEmpty() || dpNaci.getDate()==null) {
 
             CódigoErrorDSI5 obj = new CódigoErrorDSI5();
             obj.eventOK(new ActionListener() {
@@ -611,7 +611,7 @@ public class PerfilData extends javax.swing.JPanel {
             }
             if (txtUser.getText().length() >= 4 && txtNombre.getText().length() >= 5
                     && txtApellidos.getText().length() >= 5 && txtDui.getText().length() >= 10
-                    && txtTel.getText().length() >= 8) {
+                    && txtTel.getText().length() >= 8 && dpNaci.getDate()==null) {
 
                 lbMin5.setVisible(false);
                 btnConfirm.setEnabled(true);
@@ -636,7 +636,7 @@ public class PerfilData extends javax.swing.JPanel {
     }
     private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
         // TODO add your handling code here:
-        if (txtNombre.getText().length() >= 5 && txtUser.getText().length() >= 4 && txtApellidos.getText().length() >= 5 && txtDui.getText().length() >= 10 && txtTel.getText().length() >= 8) {
+        if (txtNombre.getText().length() >= 5 && txtUser.getText().length() >= 4 && txtApellidos.getText().length() >= 5 && txtDui.getText().length() >= 10 && txtTel.getText().length() >= 8 && dpNaci.getDate()==null) {
             lbMin1.setVisible(false);
             btnConfirm.setEnabled(true);
         } else {
@@ -651,7 +651,7 @@ public class PerfilData extends javax.swing.JPanel {
     }
     private void txtApellidosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidosKeyReleased
         // TODO add your handling code here:
-        if (txtApellidos.getText().length() >= 5 && txtNombre.getText().length() >= 5 && txtUser.getText().length() >= 4 && txtDui.getText().length() >= 10 && txtTel.getText().length() >= 8) {
+        if (txtApellidos.getText().length() >= 5 && txtNombre.getText().length() >= 5 && txtUser.getText().length() >= 4 && txtDui.getText().length() >= 10 && txtTel.getText().length() >= 8 && dpNaci.getDate()==null) {
             lbMin2.setVisible(false);
             btnConfirm.setEnabled(true);
         } else {
@@ -666,7 +666,7 @@ public class PerfilData extends javax.swing.JPanel {
     }
     private void txtDuiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDuiKeyReleased
         // TODO add your handling code here:
-        if (txtDui.getText().length() >= 10 && txtNombre.getText().length() >= 5 && txtUser.getText().length() >= 4 && txtApellidos.getText().length() >= 5 && txtTel.getText().length() >= 8) {
+        if (txtDui.getText().length() >= 10 && txtNombre.getText().length() >= 5 && txtUser.getText().length() >= 4 && txtApellidos.getText().length() >= 5 && txtTel.getText().length() >= 8 && dpNaci.getDate()==null) {
             lbMin3.setVisible(false);
             btnConfirm.setEnabled(true);
         } else {
@@ -681,7 +681,7 @@ public class PerfilData extends javax.swing.JPanel {
     }
     private void txtTelKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelKeyReleased
         // TODO add your handling code here:
-        if (txtTel.getText().length() >= 8 && txtNombre.getText().length() >= 5 && txtUser.getText().length() >= 4 && txtApellidos.getText().length() >= 5 && txtDui.getText().length() >= 10) {
+        if (txtTel.getText().length() >= 8 && txtNombre.getText().length() >= 5 && txtUser.getText().length() >= 4 && txtApellidos.getText().length() >= 5 && txtDui.getText().length() >= 10 && dpNaci.getDate()==null) {
             lbMin4.setVisible(false);
             btnConfirm.setEnabled(true);
         } else {
