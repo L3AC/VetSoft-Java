@@ -21,6 +21,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import Validation.Valida;
+import static groovy.ui.text.FindReplaceUtility.dispose;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -357,6 +358,7 @@ public class insertUs extends javax.swing.JPanel {
             ctUs.correo = txtCorreo.getText();
             ctUs.telefono = txtTel.getText();
             ctUs.insertUs();
+            dispose();
         }
     }//GEN-LAST:event_btnConfirmActionPerformed
 
