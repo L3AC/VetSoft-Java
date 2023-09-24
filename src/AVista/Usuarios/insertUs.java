@@ -358,7 +358,14 @@ public class insertUs extends javax.swing.JPanel {
             ctUs.correo = txtCorreo.getText();
             ctUs.telefono = txtTel.getText();
             ctUs.insertUs();
-            dispose();
+            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
     }//GEN-LAST:event_btnConfirmActionPerformed
 
