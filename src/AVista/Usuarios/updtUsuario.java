@@ -329,14 +329,12 @@ public class updtUsuario extends javax.swing.JPanel {
             ctUs.telefono = txtTel.getText();
             ctUs.idUs = idUs;
             ctUs.updtUs();
-             Campos obj = new Campos();
-            obj.eventOK(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent ae) {
-                    GlassPanePopup.closePopupLast();
-                }
-            });
-            GlassPanePopup.showPopup(obj);
+            try {
+                CRUDusuarios subp = new CRUDusuarios(idTipoUs);
+                dsg.ShowPanel(subp, PCont, 1320, 810);
+            } catch (SQLException ex) {
+                Logger.getLogger(updtUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }//GEN-LAST:event_btnConfirmarActionPerformed
     }
     private void txtCorreoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoKeyReleased
@@ -372,13 +370,12 @@ public class updtUsuario extends javax.swing.JPanel {
             btnConfirmar.setEnabled(true);
         } else {
             if (txtTel.getText().length() >= 8) {
-            lbMin1.setVisible(false);
-            btnConfirmar.setEnabled(true);
+                lbMin1.setVisible(false);
+                btnConfirmar.setEnabled(true);
+            } else {
+                lbMin1.setVisible(true);
+                btnConfirmar.setEnabled(false);
             }
-        else {
-            lbMin1.setVisible(true);
-            btnConfirmar.setEnabled(false);
-        }
     }//GEN-LAST:event_txtTelKeyReleased
     }
     private void txtUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyReleased

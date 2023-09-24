@@ -75,42 +75,7 @@ public class mdPreguntas {
             ps.setString(2, resp);
             ps.setInt(3, idUs);
             ps.executeUpdate();
-             Campos obj = new Campos();
-            obj.eventOK(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent ae) {
-                    GlassPanePopup.closePopupLast();
-                }
-            });
-            GlassPanePopup.showPopup(obj);
-            return true;
-
-        } catch (SQLException e) {
-            e.printStackTrace(); // Manejo de la excepción SQLException
-            System.out.println(e.toString());
-           CódigoDeErrorDLI2 obj = new CódigoDeErrorDLI2();
-            obj.eventOK(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent ae) {
-                    GlassPanePopup.closePopupLast();
-                }
-            });
-            GlassPanePopup.showPopup(obj);
-            return false; //DIO ERROR
-        }
-    }
-
-    //Esto nos ayudara a actualizar las respuesta a las preguntas del usuario dentro del sistema
-    public boolean updateResp( int idP,int idUs, String resp) {
-        String query = "update tbPreguntasUsuarios set respuesta=? "
-                + "where idUsuario=? and idPregunta=?;";
-        try {
-            ps = con.prepareStatement(query);
-            ps.setString(1, resp);
-            ps.setInt(2, idUs);
-            ps.setInt(3, idP);
-            ps.executeUpdate();
-             CódigoErrorDSI1 obj = new CódigoErrorDSI1();
+            Campos obj = new Campos();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
@@ -134,8 +99,36 @@ public class mdPreguntas {
             return false; //DIO ERROR
         }
     }
+
+    //Esto nos ayudara a actualizar las respuesta a las preguntas del usuario dentro del sistema
+    public boolean updateResp(int idP, int idUs, String resp) {
+        String query = "update tbPreguntasUsuarios set respuesta=? "
+                + "where idUsuario=? and idPregunta=?;";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setString(1, resp);
+            ps.setInt(2, idUs);
+            ps.setInt(3, idP);
+            ps.executeUpdate();
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            CódigoDeErrorDLI2 obj = new CódigoDeErrorDLI2();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+            return false; //DIO ERROR
+        }
+    }
+
     //TABLA PREGUNTAS
-     public ResultSet loadNPreg(String n1) {
+    public ResultSet loadNPreg(String n1) {
         String query = "select * from tbPreguntas where enunciado like ?;";
         try {
             ps = con.prepareStatement(query);
@@ -148,14 +141,15 @@ public class mdPreguntas {
             return null;
         }
     }
-     public boolean upNPreg( int idP,String n1) {
+
+    public boolean upNPreg(int idP, String n1) {
         String query = "update tbPreguntas set enunciado=? where idPregunta=?;";
         try {
             ps = con.prepareStatement(query);
             ps.setString(1, n1);
             ps.setInt(2, idP);
             ps.executeUpdate();
-             CódigoErrorDSI1 obj = new CódigoErrorDSI1();
+            CódigoErrorDSI1 obj = new CódigoErrorDSI1();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {

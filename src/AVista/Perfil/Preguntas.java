@@ -4,6 +4,7 @@ import AControlador.ctPreguntas;
 import AModelo.Crypt;
 import Design.Desg;
 import Design.TextFieldSV;
+import Mensajes.CódigoErrorDSI1;
 import Mensajes.CódigoErrorDSI5;
 import Mensajes.GlassPanePopup;
 import Validation.Valida;
@@ -308,7 +309,15 @@ public class Preguntas extends javax.swing.JPanel {
             } catch (SQLException ex) {
                 Logger.getLogger(Preguntas.class.getName()).log(Level.SEVERE, null, ex);
             }
-
+           
+            CódigoErrorDSI1 obj = new CódigoErrorDSI1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
     }//GEN-LAST:event_btnGuardActionPerformed
     }
     private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
@@ -322,18 +331,18 @@ public class Preguntas extends javax.swing.JPanel {
             });
             GlassPanePopup.showPopup(obj);
         } else {
-        if (btnGuard.isVisible()) {
-            btnAct.setText("Editar");
-            enab(false);
-            btnGuard.setVisible(false);
-        } else {
-            btnAct.setText("Cancelar");
-            enab(true);
-            btnGuard.setVisible(true);
-        }
+            if (btnGuard.isVisible()) {
+                btnAct.setText("Editar");
+                enab(false);
+                btnGuard.setVisible(false);
+            } else {
+                btnAct.setText("Cancelar");
+                enab(true);
+                btnGuard.setVisible(true);
+            }
     }//GEN-LAST:event_btnActActionPerformed
-        }
-    
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
     private Design.ButtonGradient btnAct;

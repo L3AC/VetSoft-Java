@@ -369,6 +369,12 @@ public class insertUs extends javax.swing.JPanel {
                 }
             });
             GlassPanePopup.showPopup(obj);
+            try {
+                CRUDusuarios subp = new CRUDusuarios(idTipoUs);
+                dsg.ShowPanel(subp, PCont, 1320, 810);
+            } catch (SQLException ex) {
+                Logger.getLogger(updtUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_btnConfirmActionPerformed
 

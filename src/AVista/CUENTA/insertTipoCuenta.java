@@ -406,14 +406,12 @@ public class insertTipoCuenta extends javax.swing.JPanel {
                     ct.sexo = cbSexo.getSelectedItem().toString();
                     ct.direccion = txtDir.getText();
                     ct.insertCl();
-                    CódigoErrorDSI2 obj = new CódigoErrorDSI2();
-                    obj.eventOK(new ActionListener() {
-                        @Override
-                        public void actionPerformed(ActionEvent ae) {
-                            GlassPanePopup.closePopupLast();
-                        }
-                    });
-                    GlassPanePopup.showPopup(obj);
+                    try {
+                        CRUDusuarios subp = new CRUDusuarios(idTipoUs);
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(insertTipoCuenta.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
             }
         } else {
@@ -442,14 +440,12 @@ public class insertTipoCuenta extends javax.swing.JPanel {
                     System.out.println(dt.format(dpNaci.getCalendar().getTime()));
                     ct.sexo = cbSexo.getSelectedItem().toString();
                     ct.insertRe();
-                    CódigoErrorDSI2 obj = new CódigoErrorDSI2();
-                    obj.eventOK(new ActionListener() {
-                        @Override
-                        public void actionPerformed(ActionEvent ae) {
-                            GlassPanePopup.closePopupLast();
-                        }
-                    });
-                    GlassPanePopup.showPopup(obj);
+                    try {
+                        CRUDusuarios subp = new CRUDusuarios(idTipoUs);
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(insertTipoCuenta.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
                 if (nivelRow == 4) {
                     ctDoctores ct = new ctDoctores();
@@ -461,14 +457,12 @@ public class insertTipoCuenta extends javax.swing.JPanel {
                     ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
                     ct.sexo = cbSexo.getSelectedItem().toString();
                     ct.insertDoc();
-                    CódigoErrorDSI2 obj = new CódigoErrorDSI2();
-                    obj.eventOK(new ActionListener() {
-                        @Override
-                        public void actionPerformed(ActionEvent ae) {
-                            GlassPanePopup.closePopupLast();
-                        }
-                    });
-                    GlassPanePopup.showPopup(obj);
+                    try {
+                        CRUDusuarios subp = new CRUDusuarios(idTipoUs);
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(insertTipoCuenta.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
             }
         }

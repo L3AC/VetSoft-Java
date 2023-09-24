@@ -39,7 +39,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
     public updtTipoCuenta(int idTipoUs, int idCuenta, int nivelRow) throws SQLException {
         initComponents();
         this.idTipoUs = idTipoUs;
-        
+
         this.idCuenta = idCuenta;
         this.nivelRow = nivelRow;
         initComponents();
@@ -461,6 +461,13 @@ public class updtTipoCuenta extends javax.swing.JPanel {
                     ct.sexo = cbSexo.getSelectedItem().toString();
                     ct.direccion = txtDir.getText();
                     ct.updtCl();
+                    CRUDCliente subp;
+                    try {
+                        subp = new CRUDCliente(idTipoUs);
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(updtTipoCuenta.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     Campos obj = new Campos();
                     obj.eventOK(new ActionListener() {
                         @Override
@@ -492,14 +499,14 @@ public class updtTipoCuenta extends javax.swing.JPanel {
                     ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
                     ct.sexo = cbSexo.getSelectedItem().toString();
                     ct.updtRecep();
-                    Campos obj = new Campos();
-                    obj.eventOK(new ActionListener() {
-                        @Override
-                        public void actionPerformed(ActionEvent ae) {
-                            GlassPanePopup.closePopupLast();
-                        }
-                    });
-                    GlassPanePopup.showPopup(obj);
+                    CRUDRecep subp;
+                    try {
+                        subp = new CRUDRecep();
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(updtTipoCuenta.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    
                 }
                 if (nivelRow == 4) {
                     ctDoctores ct = new ctDoctores();
@@ -511,6 +518,13 @@ public class updtTipoCuenta extends javax.swing.JPanel {
                     ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
                     ct.sexo = cbSexo.getSelectedItem().toString();
                     ct.updateDoc();
+                    CRUDDoctores subp;
+                    try {
+                        subp = new CRUDDoctores(idTipoUs);
+                        dsg.ShowPanel(subp, PCont, 1320, 810);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(updtTipoCuenta.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     Campos obj = new Campos();
                     obj.eventOK(new ActionListener() {
                         @Override
