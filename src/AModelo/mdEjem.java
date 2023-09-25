@@ -84,14 +84,6 @@ public class mdEjem {
             ps = con.prepareStatement(query);
             ps.setInt(1, id);
             ps.executeUpdate();
-             Campos obj = new Campos();
-            obj.eventOK(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent ae) {
-                    GlassPanePopup.closePopupLast();
-                }
-            });
-            GlassPanePopup.showPopup(obj);
             return true;
 
         } catch (SQLException e) {

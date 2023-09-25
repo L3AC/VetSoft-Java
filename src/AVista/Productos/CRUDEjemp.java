@@ -3,6 +3,7 @@ package AVista.Productos;
 import AControlador.ctEjem;
 import AControlador.ctProd;
 import Design.Desg;
+import Mensajes.Campos;
 import Mensajes.CódigoError;
 import Mensajes.CódigoErrorDSI5;
 import Mensajes.CódogpErrorDIFC1;
@@ -263,7 +264,14 @@ public class CRUDEjemp extends javax.swing.JPanel {
                     Logger.getLogger(CRUDEjemp.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-
+           Campos obj = new Campos();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
         }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
