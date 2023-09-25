@@ -39,9 +39,9 @@ public class updtTipoCuenta extends javax.swing.JPanel {
     public updtTipoCuenta(int idTipoUs, int idCuenta, int nivelRow) throws SQLException {
         initComponents();
         this.idTipoUs = idTipoUs;
-
         this.idCuenta = idCuenta;
         this.nivelRow = nivelRow;
+        
         initComponents();
         txtNombre.setDocument(new Valida(50, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         txtDui.setDocument(new Valida(10, "[0-9]*"));
@@ -76,8 +76,15 @@ public class updtTipoCuenta extends javax.swing.JPanel {
             lbMin3.setVisible(false);
             txtDir.setVisible(false);
             lbDirec.setVisible(false);
-
             loadRecep();
+        }
+        if (nivelRow == 3) {//IDCL
+            lbEsp.setVisible(false);
+            cbEsp.setVisible(false);
+            /*lbMin3.setVisible(false);
+            txtDir.setVisible(false);
+            lbDirec.setVisible(false);*/
+            loadCl();
         }
         if (idTipoUs == 2) {
             lbEsp.setVisible(false);
@@ -377,6 +384,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
                 cbEsp.setSelectedItem(rs.getString("Especialidad"));
                 cbSexo.setSelectedItem(rs.getString("sexo"));
             }
+            
         } catch (Exception e) {
             System.err.println(e.toString());
         }
@@ -394,6 +402,7 @@ public class updtTipoCuenta extends javax.swing.JPanel {
                 dpNaci.setDate(rs.getDate("nacimiento"));
                 txtDir.setText(rs.getString("direccion"));
                 cbSexo.setSelectedItem(rs.getString("sexo"));
+                
             }
         } catch (Exception e) {
             System.err.println(e.toString());
