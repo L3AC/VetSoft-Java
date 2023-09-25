@@ -162,7 +162,17 @@ public class AddReceta extends javax.swing.JPanel {
             ctReceta ct = new ctReceta();
             ct.idCita = idCita;
             ct.instruc = txtIns.getText();
-            ct.insRe();
+            if(ct.insRe()){
+                try {
+                    CRUDCita subp = new CRUDCita(idTipoUs, idCuenta);
+                    dsg.ShowPanel(subp, PCont, 1320, 810);
+                } catch (SQLException ex) {
+                    Logger.getLogger(AddReceta.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            else{
+                
+            }
         }
     }//GEN-LAST:event_btnAgActionPerformed
 
