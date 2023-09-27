@@ -34,8 +34,8 @@ public class CRUDCliente extends javax.swing.JPanel {
 
     public CRUDCliente(int nUs) throws SQLException {
         this.nUs = nUs;
-         jScrollPane1.setVerticalScrollBar(new ScrollBar());
         initComponents();
+                 jScrollPane1.setVerticalScrollBar(new ScrollBar());
         loadD();
 
         //Este apartado es para cambiar la tipografia con una clase llamada "Fuentes" para cambiar, estilo, tamaño y fuente

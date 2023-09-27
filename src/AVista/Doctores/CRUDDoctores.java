@@ -33,8 +33,8 @@ public class CRUDDoctores extends javax.swing.JPanel {
 
     public CRUDDoctores(int idTipoUs) throws SQLException {
         this.idTipoUs = idTipoUs;
-         jScrollPane1.setVerticalScrollBar(new ScrollBar());
         initComponents();
+                 jScrollPane1.setVerticalScrollBar(new ScrollBar());
         loadD();
         if (idTipoUs == 1) {//ADMIN
 

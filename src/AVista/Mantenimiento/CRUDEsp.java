@@ -31,8 +31,8 @@ public class CRUDEsp extends javax.swing.JPanel {
 
     public CRUDEsp(int nUs) throws SQLException {
         this.nUs = nUs;
-         jScrollPane1.setVerticalScrollBar(new ScrollBar());
         initComponents();
+                 jScrollPane1.setVerticalScrollBar(new ScrollBar());
         loadD();
 
         txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));

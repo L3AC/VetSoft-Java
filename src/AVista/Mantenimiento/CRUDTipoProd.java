@@ -39,8 +39,8 @@ public class CRUDTipoProd extends javax.swing.JPanel {
 
     public CRUDTipoProd(int idTipoUs) throws SQLException {
         this.idTipoUs = idTipoUs;
-         jScrollPane1.setVerticalScrollBar(new ScrollBar());
         initComponents();
+                 jScrollPane1.setVerticalScrollBar(new ScrollBar());
         loadD();
         setData();
         txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));

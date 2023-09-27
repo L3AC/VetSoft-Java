@@ -43,8 +43,8 @@ public class CRUDtpserv extends javax.swing.JPanel {
 
     public CRUDtpserv(int idTipoUs) throws SQLException {
         this.idTipoUs = idTipoUs;
-         jScrollPane1.setVerticalScrollBar(new ScrollBar());
         initComponents();
+          jScrollPane1.setVerticalScrollBar(new ScrollBar());
         txtServ.setDocument(new Valida(50, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         txtCosto.setDocument(new Valida(50, "[0-9.]*"));
         loadD();

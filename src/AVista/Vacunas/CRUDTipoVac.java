@@ -27,8 +27,8 @@ public class CRUDTipoVac extends javax.swing.JPanel {
 
     public CRUDTipoVac(int idUs) throws SQLException {
         this.idUs = idUs;
-         jScrollPane1.setVerticalScrollBar(new ScrollBar());
         initComponents();
+        jScrollPane1.setVerticalScrollBar(new ScrollBar());
         loadD();
 
     }

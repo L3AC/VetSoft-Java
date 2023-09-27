@@ -37,8 +37,8 @@ public class CRUDRazas extends javax.swing.JPanel {
     Map<Integer, String> cbMapNPS = new HashMap<>();
 
     public CRUDRazas() throws SQLException {
-         jScrollPane1.setVerticalScrollBar(new ScrollBar());
         initComponents();
+                 jScrollPane1.setVerticalScrollBar(new ScrollBar());
         loadD();
         txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         loadCombo(cbTIpoA);

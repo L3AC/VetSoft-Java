@@ -12,6 +12,7 @@ import Design.Desg;
 import Mensajes.CódigoError;
 import Mensajes.CódogpErrorDIFC1;
 import Mensajes.GlassPanePopup;
+import SwingScroll.ScrollBar;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -36,6 +37,7 @@ public class CRUDRecep extends javax.swing.JPanel {
 
     public CRUDRecep() throws SQLException {
         initComponents();
+       jScrollPane1.setVerticalScrollBar(new ScrollBar()); 
         loadD();
 
         txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));

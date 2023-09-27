@@ -33,8 +33,8 @@ public class CRUDnivels extends javax.swing.JPanel {
     DefaultTableModel model;
 
     public CRUDnivels() throws SQLException {
-         jScrollPane1.setVerticalScrollBar(new ScrollBar());
         initComponents();
+                 jScrollPane1.setVerticalScrollBar(new ScrollBar());
         loadD();
         if (tbData.getRowCount() > 0) {
             setData();

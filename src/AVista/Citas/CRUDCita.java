@@ -34,8 +34,8 @@ public class CRUDCita extends javax.swing.JPanel {
     public CRUDCita(int idTipoUS, int idCuenta) throws SQLException {
         this.idTipoUs = idTipoUS;
         this.idCuenta = idCuenta;
-         jScrollPane2.setVerticalScrollBar(new ScrollBar());
         initComponents();
+                 jScrollPane2.setVerticalScrollBar(new ScrollBar());
         loadD();
 
         if (idTipoUS == 4 || idTipoUS == 1) {//DOCTOR Y ADMIN

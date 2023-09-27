@@ -30,8 +30,8 @@ public class CRUDEjemRe extends javax.swing.JPanel {
     public CRUDEjemRe(int idCl, int idTipoUs) throws SQLException {
         this.idCl = idCl;
         this.idTipoUs = idTipoUs;
-         jScrollPane1.setVerticalScrollBar(new ScrollBar());
         initComponents();
+                 jScrollPane1.setVerticalScrollBar(new ScrollBar());
         loadD();
         
         //Este apartado nos ayuda a llamar la clase "Fuentes" y poder colocar diferente tipografia, tamaño y estilo a los textos

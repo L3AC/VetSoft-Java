@@ -29,8 +29,8 @@ public class CRUDEjemp extends javax.swing.JPanel {
     public CRUDEjemp(int idTipoUs, int idProd) throws SQLException {
         this.idTipoUs = idTipoUs;
         this.idProd = idProd;
-         jScrollPane1.setVerticalScrollBar(new ScrollBar());
         initComponents();
+          jScrollPane1.setVerticalScrollBar(new ScrollBar());
         loadD();
         disBtn();
     }

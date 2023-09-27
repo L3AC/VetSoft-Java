@@ -28,8 +28,8 @@ public class CRUDProd extends javax.swing.JPanel {
 
     public CRUDProd(int idTipoUs) throws SQLException {
         this.idTipoUs = idTipoUs;
-         jScrollPane1.setVerticalScrollBar(new ScrollBar());
         initComponents();
+          jScrollPane1.setVerticalScrollBar(new ScrollBar());
         loadD();
     }
 

@@ -28,8 +28,8 @@ public class CRUDExam extends javax.swing.JPanel {
     public CRUDExam(int idAnim, int idTipoUs) throws SQLException {
         this.idTipoUs = idTipoUs;
         this.idAnim = idAnim;
-         jScrollPane1.setVerticalScrollBar(new ScrollBar());
         initComponents();
+                 jScrollPane1.setVerticalScrollBar(new ScrollBar());
         loadD();
     }
 

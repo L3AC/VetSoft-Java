@@ -36,8 +36,8 @@ public class CRUDFactReserv extends javax.swing.JPanel {
     public CRUDFactReserv(int idCl, int idTipoUs) throws SQLException {
         this.idCl = idCl;
         this.idTipoUs = idTipoUs;
-         jScrollPane1.setVerticalScrollBar(new ScrollBar());
         initComponents();
+                 jScrollPane1.setVerticalScrollBar(new ScrollBar());
         loadD();
         
         //Este apartado nos ayuda a poder cambiar la tipografia, estilo y tamaño de los labels

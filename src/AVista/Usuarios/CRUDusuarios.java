@@ -41,9 +41,9 @@ public class CRUDusuarios extends javax.swing.JPanel {
     Fuentes tipoFuente;
 
     public CRUDusuarios(int idTipoUs) throws SQLException {
-        this.idTipoUs = idTipoUs;
-         jScrollPane1.setVerticalScrollBar(new ScrollBar());
+        this.idTipoUs = idTipoUs;    
         initComponents();
+          jScrollPane1.setVerticalScrollBar(new ScrollBar());
         loadD();
         tipoFuente = new Fuentes();
         
