@@ -12,6 +12,7 @@ import Design.Desg;
 import Mensajes.CódigoError;
 import Mensajes.CódogpErrorDIFC1;
 import Mensajes.GlassPanePopup;
+import SwingScroll.ScrollBar;
 import Tipografias.Fuentes;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -35,6 +36,7 @@ public class CRUDFactReserv extends javax.swing.JPanel {
     public CRUDFactReserv(int idCl, int idTipoUs) throws SQLException {
         this.idCl = idCl;
         this.idTipoUs = idTipoUs;
+         jScrollPane1.setVerticalScrollBar(new ScrollBar());
         initComponents();
         loadD();
         

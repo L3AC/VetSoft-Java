@@ -9,6 +9,7 @@ import AControlador.ctTipoServ;
 import Design.Desg;
 import Mensajes.CódigoError;
 import Mensajes.GlassPanePopup;
+import SwingScroll.ScrollBar;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
@@ -27,6 +28,7 @@ public class CRUDPregN extends javax.swing.JPanel {
 
     public CRUDPregN() throws SQLException {
         initComponents();
+         jScrollPane1.setVerticalScrollBar(new ScrollBar());
         loadD();
         if(tbData.getRowCount()>0){
             setData();

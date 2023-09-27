@@ -7,6 +7,7 @@ import Design.Desg;
 import Mensajes.CódigoError;
 import Mensajes.CódogpErrorDIFC1;
 import Mensajes.GlassPanePopup;
+import SwingScroll.ScrollBar;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
@@ -27,6 +28,7 @@ public class CRUDExam extends javax.swing.JPanel {
     public CRUDExam(int idAnim, int idTipoUs) throws SQLException {
         this.idTipoUs = idTipoUs;
         this.idAnim = idAnim;
+         jScrollPane1.setVerticalScrollBar(new ScrollBar());
         initComponents();
         loadD();
     }

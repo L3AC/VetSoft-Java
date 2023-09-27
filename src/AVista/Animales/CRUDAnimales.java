@@ -10,6 +10,7 @@ import Design.Desg;
 import Mensajes.CódigoError;
 import Mensajes.CódogpErrorDIFC1;
 import Mensajes.GlassPanePopup;
+import SwingScroll.ScrollBar;
 import Tipografias.Fuentes;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -33,6 +34,7 @@ public class CRUDAnimales extends javax.swing.JPanel {
 
     public CRUDAnimales(int idTipoUs) throws SQLException {
         this.idTipoUs = idTipoUs;
+         jScrollPane1.setVerticalScrollBar(new ScrollBar());
         initComponents();
         loadD();
    /*Este apartado de setFound nos ayuda a poner un tipo de fuente en especifico y el tamaño de la letra*/

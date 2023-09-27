@@ -10,6 +10,7 @@ import Design.Desg;
 import Mensajes.CódigoError;
 import Mensajes.CódigoErrorDSI5;
 import Mensajes.GlassPanePopup;
+import SwingScroll.ScrollBar;
 import Validation.Valida;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -36,6 +37,7 @@ public class CRUDRazas extends javax.swing.JPanel {
     Map<Integer, String> cbMapNPS = new HashMap<>();
 
     public CRUDRazas() throws SQLException {
+         jScrollPane1.setVerticalScrollBar(new ScrollBar());
         initComponents();
         loadD();
         txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
