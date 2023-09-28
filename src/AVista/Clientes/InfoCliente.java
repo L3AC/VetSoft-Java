@@ -5,6 +5,7 @@
 package AVista.Clientes;
 
 import AControlador.ctCliente;
+import AControlador.ctUser;
 import Design.Desg;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,11 +18,13 @@ public class InfoCliente extends javax.swing.JPanel {
 
         Desg dsg = new Desg();
         ctCliente ct= new ctCliente();
+         private int idCl;
         private String nombre;
         
-    public InfoCliente() throws SQLException {
+    public InfoCliente(int idCl) throws SQLException {
         initComponents();
-        CargarDatos();
+        loadCl();
+        //argarDatos();
     }
 
        final void CargarDatos() throws SQLException {
@@ -39,6 +42,26 @@ public class InfoCliente extends javax.swing.JPanel {
             System.err.println(e.toString());
         }
     }
+        final void loadCl() throws SQLException {
+        try {
+
+            ctCliente ct = new ctCliente();
+             ct.idCliente = idCl;
+            ResultSet rs = ct.selectCl();
+
+            while (rs.next()) {
+                txtNom.setText(rs.getString("nombre"));
+                txtNacimiento.setText(rs.getString("Nacimiento"));
+                txtApellid.setText(rs.getString("Apellido"));
+                txtDUI.setText(rs.getString("DUI"));
+                txtSexo.setText(rs.getString("sexo"));
+                txtDireccion.setText(rs.getString("direccion"));
+            }
+        } catch (Exception e) {
+            System.err.println(e.toString());
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

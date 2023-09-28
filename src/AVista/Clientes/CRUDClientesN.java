@@ -35,6 +35,7 @@ public class CRUDClientesN extends javax.swing.JPanel {
                  Fuentes tipoFuente;
                  Desg dsg = new Desg();
                  Cliente c;
+                    private int idCl;
 
     //private String nombre;
 
@@ -82,6 +83,7 @@ public class CRUDClientesN extends javax.swing.JPanel {
             panelCliente.repaint();
             panelCliente.revalidate();
         
+           
        
     } catch (SQLException ex) {
         Logger.getLogger(CRUDusuarios.class.getName()).log(Level.SEVERE, null, ex);

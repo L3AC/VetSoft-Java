@@ -5,6 +5,7 @@
 package AVista.Clientes;
 
 import AControlador.ctCliente;
+import AModelo.mdClientes;
 import AVista.RecuperacionDeContraseña;
 import Design.Desg;
 import Design.PanelCliente;
@@ -17,6 +18,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -24,12 +27,47 @@ import java.sql.SQLException;
  */
 public class Cliente extends javax.swing.JPanel {
     
-    private String nombre;
-    private String apellido;
-    private int idCl;
-    
-
+    public String nombre;
+    public String apellido;
+    public int idCl;
+    public String dui;
+    public String nacimiento;
+    public String sexo;
+    public String direccion;
  
+
+    public String getDui() {
+        return dui;
+    }
+
+    public void setDui(String dui) {
+        this.dui = dui;
+    }
+
+    public String getNacimiento() {
+        return nacimiento;
+    }
+
+    public void setNacimiento(String nacimiento) {
+        this.nacimiento = nacimiento;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+    
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -61,6 +99,7 @@ public class Cliente extends javax.swing.JPanel {
         this.nombre = nombre;
         this.apellido = apell;
         
+        
         initComponents();
         setData();
         setOpaque(false);
@@ -77,6 +116,37 @@ public class Cliente extends javax.swing.JPanel {
         } catch (Exception e) {
             System.err.println(e.toString());
         }
+    }
+    
+    public void DataC(int id) throws SQLException{
+        try{
+            ctCliente ct = new ctCliente();
+            ct.idCliente = idCl;
+            ResultSet rs = ct.selectCl();
+            while (rs.next()) {
+                int idCl = rs.getInt("idCliente");
+                String nombreCliente = rs.getString("nombre");
+                String apell  = rs.getString("apellido");
+                String sexo = rs.getString("sexo");
+                String dui = rs.getString("DUI");
+                String naci = rs.getString("nacimiento");
+                String dire = rs.getString("direccion");
+                
+                 System.out.println("ID: " + idCl);
+            System.out.println("Nombre: " + nombreCliente);
+                        System.out.println("Apellido:"+ apell);
+                                    System.out.println("Sexo: " + sexo);
+                                                System.out.println("DUI: " + dui);
+                                                            System.out.println("Nacimiento: " + naci);
+                                                                        System.out.println("Direccion: " + dire);
+                                                            
+            }
+            
+        }catch (Exception e) {
+            System.err.println(e.toString());
+        }
+        
+        
     }
     
     @Override
@@ -101,11 +171,23 @@ public class Cliente extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        PanelC = new Design.PictureBox();
+        PCont = new javax.swing.JPanel();
+        Pic = new Design.PictureBox();
         pic = new Design.PictureBox();
         txtNom = new javax.swing.JLabel();
         txtID = new javax.swing.JLabel();
         txtApell = new javax.swing.JLabel();
+
+        javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
+        PCont.setLayout(PContLayout);
+        PContLayout.setHorizontalGroup(
+            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        PContLayout.setVerticalGroup(
+            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
         setBackground(new Color(255,255,255,0));
         setForeground(new Color(255,255,255,0));
@@ -116,28 +198,28 @@ public class Cliente extends javax.swing.JPanel {
             }
         });
 
-        PanelC.setImage(new javax.swing.ImageIcon(getClass().getResource("/AVista/Clientes/Cliente5.png"))); // NOI18N
+        Pic.setImage(new javax.swing.ImageIcon(getClass().getResource("/AVista/Clientes/Cliente5.png"))); // NOI18N
 
         pic.setImage(new javax.swing.ImageIcon(getClass().getResource("/AVista/Clientes/ClienteI.png"))); // NOI18N
-        PanelC.add(pic);
+        Pic.add(pic);
         pic.setBounds(40, 20, 70, 90);
 
         txtNom.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtNom.setForeground(new java.awt.Color(27, 73, 101));
         txtNom.setText("Nombre");
-        PanelC.add(txtNom);
+        Pic.add(txtNom);
         txtNom.setBounds(130, 10, 140, 40);
 
         txtID.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtID.setForeground(new java.awt.Color(27, 73, 101));
         txtID.setText("id");
-        PanelC.add(txtID);
+        Pic.add(txtID);
         txtID.setBounds(130, 90, 140, 40);
 
         txtApell.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtApell.setForeground(new java.awt.Color(27, 73, 101));
         txtApell.setText("Apellidos");
-        PanelC.add(txtApell);
+        Pic.add(txtApell);
         txtApell.setBounds(130, 50, 140, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -145,23 +227,33 @@ public class Cliente extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(PanelC, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
+                .addComponent(Pic, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelC, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+            .addComponent(Pic, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
     
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+     
+            try {
+                DataC(idCl);            
+                InfoCliente subp = new InfoCliente(idCl);
+            dsg.ShowPanel(subp, PCont, 1320, 810);
+            } catch (SQLException ex) {
+                Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           
         
     }//GEN-LAST:event_formMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Design.PictureBox PanelC;
+    private javax.swing.JPanel PCont;
+    private Design.PictureBox Pic;
     private Design.PictureBox pic;
     private javax.swing.JLabel txtApell;
     private javax.swing.JLabel txtID;
