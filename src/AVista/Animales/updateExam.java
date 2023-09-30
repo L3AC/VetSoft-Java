@@ -4,6 +4,8 @@ import AControlador.ctExam;
 import AControlador.ctProd;
 import AControlador.ctTipoServ;
 import Design.Desg;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.sql.ResultSet;
@@ -12,6 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.UIManager;
@@ -30,7 +33,7 @@ public class updateExam extends javax.swing.JPanel {
     DefaultTableModel model;
     Map<Integer, String> cbServ = new HashMap<>();
 
-    public updateExam(int idAnim, int idTipoUs, int idExam) throws SQLException,SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
+    public updateExam(int idAnim, int idTipoUs, int idExam) throws SQLException, SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
         this.idTipoUs = idTipoUs;
         this.idAnim = idAnim;
         this.idExam = idExam;
@@ -38,13 +41,14 @@ public class updateExam extends javax.swing.JPanel {
         loadComboServ(cbTp);
         loadData();
         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        dsg.setImageBtn(btnDes, "C:\\VetSoft-Java\\VetSoft-Java\\src\\Imagenes\\descar.png", 40, 40);
     }
 
     //Esto nos ayuda a cargar los datoa dentro del crud
     final void loadData() {
         try {
             ctExam ct = new ctExam();
-            ct.idExam= idExam;
+            ct.idExam = idExam;
 
             ResultSet rs = ct.selectExam();
             while (rs.next()) {
@@ -58,9 +62,9 @@ public class updateExam extends javax.swing.JPanel {
             System.err.println(e.toString());
         }
     }
-    
+
     //Esto nos ayudara a cargar los datos dentro del combobox
-     private void loadComboServ(JComboBox cb) throws SQLException {
+    private void loadComboServ(JComboBox cb) throws SQLException {
         ctTipoServ ct = new ctTipoServ();
         ct.idNivelServ = 3;
         ResultSet rs = ct.comboServ();
@@ -72,6 +76,7 @@ public class updateExam extends javax.swing.JPanel {
         }
         cb.setSelectedIndex(0);
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -84,13 +89,15 @@ public class updateExam extends javax.swing.JPanel {
         txtNota = new Design.TextFieldSV();
         lbImg = new javax.swing.JLabel();
         cbTp = new Design.Combobox();
-        btnSelect = new Design.ButtonGradient();
         lbEsp2 = new javax.swing.JLabel();
+        btnSelect = new Design.ButtonGradient();
+        btnDes = new javax.swing.JButton();
         btnConfirm = new Design.ButtonGradient();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
         PCont.setBackground(new java.awt.Color(190, 233, 232));
+        PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnBack.setBackground(new java.awt.Color(190, 233, 232));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
@@ -100,10 +107,12 @@ public class updateExam extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
+        PCont.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 80, 70));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("EDITAR EXAMEN MÉDICO");
+        PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, -1, -1));
 
         panelRound1.setBackground(new java.awt.Color(190, 233, 232));
         panelRound1.setRoundBottomLeft(50);
@@ -127,11 +136,16 @@ public class updateExam extends javax.swing.JPanel {
                 lbImgMouseClicked(evt);
             }
         });
-        panelRound1.add(lbImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 30, 320, 280));
+        panelRound1.add(lbImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, 320, 280));
 
         cbTp.setForeground(new java.awt.Color(80, 80, 80));
         cbTp.setLabeText("");
         panelRound1.add(cbTp, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 270, 40));
+
+        lbEsp2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbEsp2.setForeground(new java.awt.Color(0, 0, 0));
+        lbEsp2.setText("Tipo de servicio");
+        panelRound1.add(lbEsp2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 130, -1));
 
         btnSelect.setForeground(new java.awt.Color(0, 0, 0));
         btnSelect.setText("Seleccionar foto");
@@ -140,12 +154,19 @@ public class updateExam extends javax.swing.JPanel {
                 btnSelectActionPerformed(evt);
             }
         });
-        panelRound1.add(btnSelect, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, 180, 40));
+        panelRound1.add(btnSelect, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 150, 180, 40));
 
-        lbEsp2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lbEsp2.setForeground(new java.awt.Color(0, 0, 0));
-        lbEsp2.setText("Tipo de servicio");
-        panelRound1.add(lbEsp2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 130, -1));
+        btnDes.setBackground(new java.awt.Color(190, 233, 232));
+        btnDes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/eye.png"))); // NOI18N
+        btnDes.setBorder(null);
+        btnDes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDesActionPerformed(evt);
+            }
+        });
+        panelRound1.add(btnDes, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 230, 40, 40));
+
+        PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 1130, 440));
 
         btnConfirm.setForeground(new java.awt.Color(0, 0, 0));
         btnConfirm.setText("Confirmar");
@@ -155,41 +176,7 @@ public class updateExam extends javax.swing.JPanel {
                 btnConfirmActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
-        PCont.setLayout(PContLayout);
-        PContLayout.setHorizontalGroup(
-            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(340, 340, 340)
-                        .addComponent(jLabel2))
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(170, 170, 170)
-                        .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 980, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(590, 590, 590)
-                        .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(170, 170, 170))
-        );
-        PContLayout.setVerticalGroup(
-            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel2)))
-                .addGap(50, 50, 50)
-                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        PCont.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 640, 160, 54));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -246,11 +233,37 @@ public class updateExam extends javax.swing.JPanel {
             dsg.ShowPanel(subp, PCont, 1320, 810);*/
     }//GEN-LAST:event_lbImgMouseClicked
 
+    private void btnDesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesActionPerformed
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Guardar Imagen");
+        int userSelection = fileChooser.showSaveDialog(this);
+
+        if (userSelection == JFileChooser.APPROVE_OPTION) {
+            File fileToSave = fileChooser.getSelectedFile();
+            String filePath = fileToSave.getAbsolutePath();
+            if (!filePath.endsWith(".png")) {
+                fileToSave = new File(filePath + ".png");
+            }
+
+            try {
+                ByteArrayInputStream bais = new ByteArrayInputStream(bImg);
+                BufferedImage image = ImageIO.read(bais);
+
+                ImageIO.write(image, "png", fileToSave);
+                System.out.println("Imagen guardada con éxito en: " + fileToSave.getAbsolutePath());
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+
+    }//GEN-LAST:event_btnDesActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
     private javax.swing.JButton btnBack;
     private Design.ButtonGradient btnConfirm;
+    private javax.swing.JButton btnDes;
     private Design.ButtonGradient btnSelect;
     private Design.Combobox cbTp;
     private javax.swing.JLabel jLabel1;
