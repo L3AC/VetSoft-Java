@@ -27,6 +27,7 @@ import Mensajes.GlassPanePopup;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 import javax.mail.Message;
@@ -57,11 +58,11 @@ public class Login extends javax.swing.JFrame {
         VetSoft.setFont(tipoFuente.fuente(tipoFuente.COM, 1, 11));
         UsuarioL.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 25));
         PassL.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 22));
-        
+
         /*Este apartado validamos los Jtexfield que no se escriban números o letras con un maximo de digitos*/
         txtUser.setDocument(new Valida(30, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         txtPass.setDocument(new Valida(30, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
-        
+
         setLocationRelativeTo(null);
         String iconPath = "src/Imagenes/logoC.png";
         ImageIcon icon = new ImageIcon(iconPath);
@@ -178,6 +179,9 @@ public class Login extends javax.swing.JFrame {
             }
         });
         txtPass.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtPassKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtPassKeyReleased(evt);
             }
@@ -221,11 +225,10 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-/*Cuando se le de clic al botón ingresar lo que alla escrito el empleado en los texfiel de Usuario y contraseña se hara un reconocimiento de si el empleado existe
+    /*Cuando se le de clic al botón ingresar lo que alla escrito el empleado en los texfiel de Usuario y contraseña se hara un reconocimiento de si el empleado existe
     o no, si el usuario existe lo dejara entrar si el usuario no existe no lo dejara entrar al sistema
-    */
-    
-    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+     */
+    private void Log() {
         try {
             List<TextFieldSV> lista = new ArrayList<>();
             List<PasswordField> lista1 = new ArrayList<>();
@@ -271,9 +274,13 @@ public class Login extends javax.swing.JFrame {
         } catch (Exception ex) {
             System.out.println(ex.toString());
         }
+    }
+
+    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+        Log();
     }//GEN-LAST:event_btnIngresarActionPerformed
 
-    
+
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         try {
             Registro newFrame = new Registro();
@@ -285,9 +292,9 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void txtUserKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyPressed
-        // TODO add your handling code here:
-
-
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            Log();
+        }
     }//GEN-LAST:event_txtUserKeyPressed
 
     private void txtUserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyTyped
@@ -334,7 +341,14 @@ public class Login extends javax.swing.JFrame {
             txtPass.setEchoChar('\0');
         }
     }//GEN-LAST:event_btnLookActionPerformed
-    
+
+    private void txtPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            Log();
+        }
+
+    }//GEN-LAST:event_txtPassKeyPressed
+
     /*Esta función nos ayuda a obtener y reconocer el Id del usuario que esta en la base de datos y poder ingresar al sistem*/
     public void SelectID() throws SQLException {
         try {
