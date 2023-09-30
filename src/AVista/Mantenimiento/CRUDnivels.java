@@ -10,6 +10,7 @@ import Design.Desg;
 import Mensajes.CódigoError;
 import Mensajes.CódigoErrorDSI5;
 import Mensajes.GlassPanePopup;
+import SwingScroll.ScrollBar;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
@@ -33,6 +34,7 @@ public class CRUDnivels extends javax.swing.JPanel {
 
     public CRUDnivels() throws SQLException {
         initComponents();
+                 jScrollPane1.setVerticalScrollBar(new ScrollBar());
         loadD();
         if (tbData.getRowCount() > 0) {
             setData();

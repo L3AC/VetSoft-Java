@@ -10,6 +10,7 @@ import Design.Desg;
 import Mensajes.CódigoError;
 import Mensajes.CódogpErrorDIFC1;
 import Mensajes.GlassPanePopup;
+import SwingScroll.ScrollBar;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -33,6 +34,7 @@ public class CRUDDoctores extends javax.swing.JPanel {
     public CRUDDoctores(int idTipoUs) throws SQLException {
         this.idTipoUs = idTipoUs;
         initComponents();
+                 jScrollPane1.setVerticalScrollBar(new ScrollBar());
         loadD();
         if (idTipoUs == 1) {//ADMIN
 

@@ -10,6 +10,7 @@ import Design.Desg;
 import Mensajes.CódigoError;
 import Mensajes.CódogpErrorDIFC1;
 import Mensajes.GlassPanePopup;
+import SwingScroll.ScrollBar;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -34,6 +35,7 @@ public class CRUDCita extends javax.swing.JPanel {
         this.idTipoUs = idTipoUS;
         this.idCuenta = idCuenta;
         initComponents();
+                 jScrollPane2.setVerticalScrollBar(new ScrollBar());
         loadD();
 
         if (idTipoUS == 4 || idTipoUS == 1) {//DOCTOR Y ADMIN

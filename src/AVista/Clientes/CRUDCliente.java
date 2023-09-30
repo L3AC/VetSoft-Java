@@ -9,6 +9,7 @@ import Design.Desg;
 import Design.PanelRound;
 import Mensajes.CódigoError;
 import Mensajes.GlassPanePopup;
+import SwingScroll.ScrollBar;
 import Tipografias.Fuentes;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -34,6 +35,7 @@ public class CRUDCliente extends javax.swing.JPanel {
     public CRUDCliente(int nUs) throws SQLException {
         this.nUs = nUs;
         initComponents();
+                 jScrollPane1.setVerticalScrollBar(new ScrollBar());
         loadD();
 
         //Este apartado es para cambiar la tipografia con una clase llamada "Fuentes" para cambiar, estilo, tamaño y fuente

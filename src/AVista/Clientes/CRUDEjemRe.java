@@ -7,6 +7,7 @@ import Design.Desg;
 import Mensajes.CódigoError;
 import Mensajes.CódogpErrorDIFC1;
 import Mensajes.GlassPanePopup;
+import SwingScroll.ScrollBar;
 import Tipografias.Fuentes;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -30,6 +31,7 @@ public class CRUDEjemRe extends javax.swing.JPanel {
         this.idCl = idCl;
         this.idTipoUs = idTipoUs;
         initComponents();
+                 jScrollPane1.setVerticalScrollBar(new ScrollBar());
         loadD();
         
         //Este apartado nos ayuda a llamar la clase "Fuentes" y poder colocar diferente tipografia, tamaño y estilo a los textos

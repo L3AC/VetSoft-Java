@@ -7,6 +7,7 @@ import Mensajes.CódigoError;
 import Mensajes.CódigoErrorDSI5;
 import Mensajes.CódogpErrorDIFC1;
 import Mensajes.GlassPanePopup;
+import SwingScroll.ScrollBar;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
@@ -27,6 +28,7 @@ public class CRUDTipoVac extends javax.swing.JPanel {
     public CRUDTipoVac(int idUs) throws SQLException {
         this.idUs = idUs;
         initComponents();
+        jScrollPane1.setVerticalScrollBar(new ScrollBar());
         loadD();
 
     }

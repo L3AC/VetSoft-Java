@@ -13,6 +13,7 @@ import Mensajes.CódigoError;
 import Mensajes.CódigoErrorDSI5;
 import Mensajes.CódogpErrorDIFC1;
 import Mensajes.GlassPanePopup;
+import SwingScroll.ScrollBar;
 import Validation.Valida;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -38,6 +39,7 @@ public class CRUDTipoAnim extends javax.swing.JPanel {
     public CRUDTipoAnim(int idTipoUs) throws SQLException {
         this.idTipoUs = idTipoUs;
         initComponents();
+                 jScrollPane1.setVerticalScrollBar(new ScrollBar());
         loadD();
         txtNC.setDocument(new Valida(50, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         txtNP.setDocument(new Valida(50, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
