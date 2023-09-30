@@ -147,6 +147,7 @@ public class Login extends javax.swing.JFrame {
         });
         panelRound2.add(txtOlvidasteContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, -1, -1));
 
+        txtUser.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtUser.setShadowColor(new java.awt.Color(0, 0, 51));
         txtUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -166,6 +167,7 @@ public class Login extends javax.swing.JFrame {
         });
         panelRound2.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 370, 50));
 
+        txtPass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtPass.setShadowColor(new java.awt.Color(0, 0, 51));
         txtPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

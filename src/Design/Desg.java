@@ -43,9 +43,9 @@ public class Desg {
 
     Connection con = Conx.Conectar();
 
-    public void setImageBtn(JButton elm, String root) {
+    public void setImageBtn(JButton elm, String root,int w,int h) {
         ImageIcon image = new ImageIcon(root);
-        Icon icon = new ImageIcon(image.getImage().getScaledInstance(elm.getWidth(), elm.getHeight(), Image.SCALE_DEFAULT));
+        Icon icon = new ImageIcon(image.getImage().getScaledInstance(w, h, Image.SCALE_DEFAULT));
         elm.setIcon(icon);
         elm.repaint();
     }
