@@ -21,7 +21,7 @@ public class sendSMS {
         Message message = Message.creator(
                 new PhoneNumber("+503" + tel),
                 new PhoneNumber(TWILIO_PHONE_NUMBER),
-                "Tu código de recuperación es " + code
+                "Su código de recuperación es " + code
         ).create();
         System.out.println(message.getSid());
         }
