@@ -38,6 +38,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class updateProd extends javax.swing.JPanel {
@@ -48,7 +50,7 @@ public class updateProd extends javax.swing.JPanel {
     Desg dsg = new Desg();
     Map<Integer, String> cbTP = new HashMap<>();
 
-    public updateProd(int idTipoUs, int idProd) throws SQLException {
+    public updateProd(int idTipoUs, int idProd) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
         this.idTipoUs = idTipoUs;
         this.idProd = idProd;
         initComponents();
@@ -61,6 +63,7 @@ public class updateProd extends javax.swing.JPanel {
         lbMin.setVisible(false);
         lbMin1.setVisible(false);
         lbMin2.setVisible(false);
+        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
     }
 
     final void loadData() {

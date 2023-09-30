@@ -25,6 +25,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
@@ -35,7 +36,7 @@ public class insertProd extends javax.swing.JPanel {
     Desg dsg = new Desg();
     Map<Integer, String> cbTP = new HashMap<>();
 
-    public insertProd(int idTipoUs) throws SQLException {
+    public insertProd(int idTipoUs) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
         this.idTipoUs = idTipoUs;
         initComponents();
         loadCombo(cbTipoProd);
@@ -46,6 +47,8 @@ public class insertProd extends javax.swing.JPanel {
         lbMin.setVisible(false);
         lbMin1.setVisible(false);
         lbMin2.setVisible(false);
+
+        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
     }
 
     private void loadCombo(JComboBox cb) throws SQLException {
@@ -325,6 +328,7 @@ public class insertProd extends javax.swing.JPanel {
     }//GEN-LAST:event_lbImgMouseClicked
 
     private void btnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectActionPerformed
+
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setDialogTitle("Seleccionar imagen");
         fileChooser.setFileFilter(new FileNameExtensionFilter("Imágenes", "jpg", "jpeg", "png", "gif"));
@@ -406,16 +410,14 @@ public class insertProd extends javax.swing.JPanel {
         if (txtPrecio.getText().length() >= 2 && txtProducto.getText().length() >= 3 && txtProv.getText().length() >= 3) {
             lbMin2.setVisible(false);
             btnAgregar.setEnabled(true);
-        } else{
-        if (txtPrecio.getText().length() >= 2){
-        lbMin2.setVisible(false);
-            btnAgregar.setEnabled(true);
-        }
-        
-        else {
-            lbMin2.setVisible(true);
-            btnAgregar.setEnabled(false);
-        }
+        } else {
+            if (txtPrecio.getText().length() >= 2) {
+                lbMin2.setVisible(false);
+                btnAgregar.setEnabled(true);
+            } else {
+                lbMin2.setVisible(true);
+                btnAgregar.setEnabled(false);
+            }
     }//GEN-LAST:event_txtPrecioKeyReleased
     }
 
