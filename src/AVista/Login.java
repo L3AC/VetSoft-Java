@@ -66,6 +66,8 @@ public class Login extends javax.swing.JFrame {
         String iconPath = "src/Imagenes/logoC.png";
         ImageIcon icon = new ImageIcon(iconPath);
         setIconImage(icon.getImage());
+        dsg.setImageBtn(btnLook, "C:\\VetSoft-Java\\VetSoft-Java\\src\\Imagenes\\eye.png", 40, 40);
+        txtPass.setEchoChar('●');
 
     }
 
@@ -84,6 +86,7 @@ public class Login extends javax.swing.JFrame {
         txtOlvidasteContra = new javax.swing.JLabel();
         txtUser = new Design.TextFieldSV();
         txtPass = new Design.PasswordField();
+        btnLook = new javax.swing.JButton();
         Titulo = new javax.swing.JLabel();
         VetSoft = new javax.swing.JLabel();
 
@@ -95,10 +98,10 @@ public class Login extends javax.swing.JFrame {
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LogIn IMG1X.png"))); // NOI18N
-        panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 400));
+        panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 410));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clinica .png"))); // NOI18N
-        panelRound1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 10, 70, 70));
+        panelRound1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 10, 70, 70));
 
         panelRound2.setBackground(new java.awt.Color(133, 183, 212));
         panelRound2.setRoundBottomLeft(50);
@@ -115,7 +118,7 @@ public class Login extends javax.swing.JFrame {
         PassL.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         PassL.setForeground(new java.awt.Color(0, 0, 0));
         PassL.setText("Contraseña");
-        panelRound2.add(PassL, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, -1, -1));
+        panelRound2.add(PassL, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
@@ -125,7 +128,7 @@ public class Login extends javax.swing.JFrame {
                 jLabel6MouseClicked(evt);
             }
         });
-        panelRound2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
+        panelRound2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
 
         btnIngresar.setForeground(new java.awt.Color(0, 0, 0));
         btnIngresar.setText("Ingresar");
@@ -135,7 +138,7 @@ public class Login extends javax.swing.JFrame {
                 btnIngresarActionPerformed(evt);
             }
         });
-        panelRound2.add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 140, -1));
+        panelRound2.add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 140, 40));
 
         txtOlvidasteContra.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         txtOlvidasteContra.setForeground(new java.awt.Color(0, 0, 0));
@@ -145,7 +148,7 @@ public class Login extends javax.swing.JFrame {
                 txtOlvidasteContraMouseClicked(evt);
             }
         });
-        panelRound2.add(txtOlvidasteContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, -1, -1));
+        panelRound2.add(txtOlvidasteContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, -1, -1));
 
         txtUser.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtUser.setShadowColor(new java.awt.Color(0, 0, 51));
@@ -182,23 +185,33 @@ public class Login extends javax.swing.JFrame {
                 txtPassKeyTyped(evt);
             }
         });
-        panelRound2.add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 370, 50));
+        panelRound2.add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 370, 50));
 
-        panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 550, 290));
+        btnLook.setBackground(new java.awt.Color(133, 183, 212));
+        btnLook.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/eye.png"))); // NOI18N
+        btnLook.setBorder(null);
+        btnLook.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLookActionPerformed(evt);
+            }
+        });
+        panelRound2.add(btnLook, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 150, 40, 40));
+
+        panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 600, 300));
 
         Titulo.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
         Titulo.setForeground(new java.awt.Color(0, 0, 0));
         Titulo.setText("Bienvenido de vuelta");
-        panelRound1.add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, -1, -1));
+        panelRound1.add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, -1));
 
         VetSoft.setText("VetSoft+");
-        panelRound1.add(VetSoft, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 80, 60, -1));
+        panelRound1.add(VetSoft, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 80, 60, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, 941, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -313,6 +326,14 @@ public class Login extends javax.swing.JFrame {
     private void txtPassKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassKeyReleased
         //vali.minL(txtPass, btnIngresar, 5);
     }//GEN-LAST:event_txtPassKeyReleased
+
+    private void btnLookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLookActionPerformed
+        if (txtPass.getEchoChar() == 0) {
+            txtPass.setEchoChar('●');
+        } else {
+            txtPass.setEchoChar('\0');
+        }
+    }//GEN-LAST:event_btnLookActionPerformed
     
     /*Esta función nos ayuda a obtener y reconocer el Id del usuario que esta en la base de datos y poder ingresar al sistem*/
     public void SelectID() throws SQLException {
@@ -372,6 +393,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel UsuarioL;
     private javax.swing.JLabel VetSoft;
     private Design.ButtonGradient btnIngresar;
+    private javax.swing.JButton btnLook;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;

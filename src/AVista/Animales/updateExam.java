@@ -14,6 +14,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
@@ -28,13 +30,14 @@ public class updateExam extends javax.swing.JPanel {
     DefaultTableModel model;
     Map<Integer, String> cbServ = new HashMap<>();
 
-    public updateExam(int idAnim, int idTipoUs, int idExam) throws SQLException {
+    public updateExam(int idAnim, int idTipoUs, int idExam) throws SQLException,SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
         this.idTipoUs = idTipoUs;
         this.idAnim = idAnim;
         this.idExam = idExam;
         initComponents();
         loadComboServ(cbTp);
         loadData();
+        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
     }
 
     //Esto nos ayuda a cargar los datoa dentro del crud

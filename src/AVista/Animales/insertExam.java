@@ -14,6 +14,8 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
@@ -27,11 +29,12 @@ public class insertExam extends javax.swing.JPanel {
     DefaultTableModel model;
     Map<Integer, String> cbServ = new HashMap<>();
 
-    public insertExam(int idAnim, int idTipoUs) throws SQLException {
+    public insertExam(int idAnim, int idTipoUs) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
         this.idTipoUs = idTipoUs;
         this.idAnim = idAnim;
         initComponents();
         loadComboServ(cbTp);
+        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
     }
 
     @SuppressWarnings("unchecked")

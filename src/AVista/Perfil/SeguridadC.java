@@ -31,8 +31,11 @@ public class SeguridadC extends javax.swing.JPanel {
         initComponents();
         mostrar(false);
         txvAdv.setVisible(false);
-        dsg.setImageBtn(btnLook, "C:\\VetSoft-Java\\VetSoft-Java\\src\\Imagenes\\eye.png",40,40);
-        dsg.setImageBtn(btnLook2, "C:\\VetSoft-Java\\VetSoft-Java\\src\\Imagenes\\eye.png",40,40);
+        dsg.setImageBtn(btnLook, "C:\\VetSoft-Java\\VetSoft-Java\\src\\Imagenes\\eye.png", 40, 40);
+        dsg.setImageBtn(btnLook2, "C:\\VetSoft-Java\\VetSoft-Java\\src\\Imagenes\\eye.png", 40, 40);
+        txtContraA.setEchoChar('●');
+        txtNC1.setEchoChar('●');
+        txtNC2.setEchoChar('●');
     }
 
     @SuppressWarnings("unchecked")
@@ -40,28 +43,23 @@ public class SeguridadC extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        txtContra = new Design.TextFieldSV();
         jLabel2 = new javax.swing.JLabel();
         lbNC1 = new javax.swing.JLabel();
-        txtNC1 = new Design.TextFieldSV();
         txvAdv = new javax.swing.JLabel();
-        txtNC2 = new Design.TextFieldSV();
         btnVerif = new Design.ButtonGradient();
         btnConfirm = new Design.ButtonGradient();
         jLabel5 = new javax.swing.JLabel();
         lbNC2 = new javax.swing.JLabel();
         btnLook2 = new javax.swing.JButton();
         btnLook = new javax.swing.JButton();
+        txtNC1 = new Design.PasswordField();
+        txtContraA = new Design.PasswordField();
+        txtNC2 = new Design.PasswordField();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
         jPanel1.setBackground(new java.awt.Color(190, 233, 232));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        txtContra.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtContra.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtContra.setShadowColor(new java.awt.Color(0, 0, 51));
-        jPanel1.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 210, 350, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -73,30 +71,10 @@ public class SeguridadC extends javax.swing.JPanel {
         lbNC1.setText("Ingrese su nueva contraseña");
         jPanel1.add(lbNC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 390, 260, -1));
 
-        txtNC1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtNC1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtNC1.setShadowColor(new java.awt.Color(0, 0, 51));
-        txtNC1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtNC1KeyReleased(evt);
-            }
-        });
-        jPanel1.add(txtNC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 430, 350, -1));
-
         txvAdv.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txvAdv.setForeground(new java.awt.Color(255, 51, 51));
         txvAdv.setText("Las contraseñas deben coincidir");
         jPanel1.add(txvAdv, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 590, 220, -1));
-
-        txtNC2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtNC2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtNC2.setShadowColor(new java.awt.Color(0, 0, 51));
-        txtNC2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtNC2KeyReleased(evt);
-            }
-        });
-        jPanel1.add(txtNC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 540, 350, -1));
 
         btnVerif.setForeground(new java.awt.Color(0, 0, 0));
         btnVerif.setText("Verificar");
@@ -106,7 +84,7 @@ public class SeguridadC extends javax.swing.JPanel {
                 btnVerifActionPerformed(evt);
             }
         });
-        jPanel1.add(btnVerif, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 270, 160, 40));
+        jPanel1.add(btnVerif, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 280, 160, 40));
 
         btnConfirm.setForeground(new java.awt.Color(0, 0, 0));
         btnConfirm.setText("Cambiar");
@@ -146,7 +124,58 @@ public class SeguridadC extends javax.swing.JPanel {
                 btnLookActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLook, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 210, 40, 40));
+        jPanel1.add(btnLook, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 220, 40, 40));
+
+        txtNC1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtNC1.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtNC1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNC1ActionPerformed(evt);
+            }
+        });
+        txtNC1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNC1KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNC1KeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtNC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 430, 350, 50));
+
+        txtContraA.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtContraA.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtContraA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtContraAActionPerformed(evt);
+            }
+        });
+        txtContraA.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtContraAKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtContraAKeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtContraA, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 220, 350, 50));
+
+        txtNC2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtNC2.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtNC2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNC2ActionPerformed(evt);
+            }
+        });
+        txtNC2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNC2KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNC2KeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtNC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 540, 350, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -161,7 +190,7 @@ public class SeguridadC extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVerifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerifActionPerformed
-        if (txtContra.getText().isEmpty()) {
+        if (txtContraA.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Campos vacíos");
         } else {
             try {
@@ -169,7 +198,7 @@ public class SeguridadC extends javax.swing.JPanel {
             } catch (SQLException ex) {
                 Logger.getLogger(SeguridadC.class.getName()).log(Level.SEVERE, null, ex);
             }
-            if (txtContra.getText().equals(contra)) {
+            if (txtContraA.getText().equals(contra)) {
                 mostrar(true);
             } else {
                 mostrar(false);
@@ -190,7 +219,7 @@ public class SeguridadC extends javax.swing.JPanel {
                 user = rs.getString("usuario");
                 contra = cryp.decrypt(rs.getString("contraseña"), "key");
                 System.err.println(contra + "  orig");
-                System.err.println(txtContra.getText() + " contra ");
+                System.err.println(txtContraA.getText() + " contra ");
             }
         } catch (Exception e) {
             System.err.println(e.toString());
@@ -206,13 +235,13 @@ public class SeguridadC extends javax.swing.JPanel {
                 ct.contra = cryp.encrypt(txtNC2.getText(), "key");
                 ct.updtContra();
                 CódigoErrorDSI4 obj = new CódigoErrorDSI4();
-            obj.eventOK(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent ae) {
-                    GlassPanePopup.closePopupLast();
-                }
-            });
-            GlassPanePopup.showPopup(obj);
+                obj.eventOK(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        GlassPanePopup.closePopupLast();
+                    }
+                });
+                GlassPanePopup.showPopup(obj);
 
             } catch (Exception ex) {
                 Logger.getLogger(SeguridadC.class
@@ -222,21 +251,61 @@ public class SeguridadC extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnConfirmActionPerformed
 
-    private void txtNC1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNC1KeyReleased
-        verifContra();
-    }//GEN-LAST:event_txtNC1KeyReleased
-
-    private void txtNC2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNC2KeyReleased
-       verifContra();
-    }//GEN-LAST:event_txtNC2KeyReleased
-
     private void btnLook2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLook2ActionPerformed
-        
+        if (txtNC1.getEchoChar() == 0 && txtNC2.getEchoChar() == 0) {
+            txtNC1.setEchoChar('●');
+            txtNC2.setEchoChar('●');
+        } else {
+            txtNC1.setEchoChar('\0');
+            txtNC2.setEchoChar('\0');
+        }
     }//GEN-LAST:event_btnLook2ActionPerformed
 
     private void btnLookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLookActionPerformed
-        // TODO add your handling code here:
+        if (txtContraA.getEchoChar() == 0) {
+            txtContraA.setEchoChar('●');
+        } else {
+            txtContraA.setEchoChar('\0');
+        }
+
     }//GEN-LAST:event_btnLookActionPerformed
+
+    private void txtNC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNC1ActionPerformed
+
+        //
+    }//GEN-LAST:event_txtNC1ActionPerformed
+
+    private void txtNC1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNC1KeyReleased
+        //vali.minL(txtPass, btnIngresar, 5);
+    }//GEN-LAST:event_txtNC1KeyReleased
+
+    private void txtNC1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNC1KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNC1KeyTyped
+
+    private void txtContraAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraAActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContraAActionPerformed
+
+    private void txtContraAKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraAKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContraAKeyReleased
+
+    private void txtContraAKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraAKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContraAKeyTyped
+
+    private void txtNC2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNC2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNC2ActionPerformed
+
+    private void txtNC2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNC2KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNC2KeyReleased
+
+    private void txtNC2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNC2KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNC2KeyTyped
     public void verifContra() {
         if (!txtNC1.getText().toString().equals(txtNC2.getText().toString())) {
             txvAdv.setVisible(true);
@@ -254,6 +323,7 @@ public class SeguridadC extends javax.swing.JPanel {
         lista.add(txtNC1);
         lista.add(txtNC2);
         lista.add(btnConfirm);
+        lista.add(btnLook2);
         dsg.visib(lista, tf);
     }
 
@@ -268,9 +338,9 @@ public class SeguridadC extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbNC1;
     private javax.swing.JLabel lbNC2;
-    private Design.TextFieldSV txtContra;
-    private Design.TextFieldSV txtNC1;
-    private Design.TextFieldSV txtNC2;
+    private Design.PasswordField txtContraA;
+    private Design.PasswordField txtNC1;
+    private Design.PasswordField txtNC2;
     private javax.swing.JLabel txvAdv;
     // End of variables declaration//GEN-END:variables
 }
