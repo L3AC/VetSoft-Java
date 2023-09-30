@@ -5,6 +5,7 @@
 package AVista;
 
 import AControlador.ctUser;
+import AControlador.sendSMS;
 //import AControlador.sendSMS;
 import AModelo.Conx;
 import AModelo.Crypt;
@@ -529,8 +530,8 @@ public class enviarSMS extends javax.swing.JFrame {
     }
 
     public void sms(String tel, String clave) {
-        //sendSMS sm = new sendSMS();
-        // sm.send(tel, clave);
+        sendSMS sm = new sendSMS();
+        sm.send(tel, clave);
     }
     private void txtNuevaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNuevaKeyTyped
         // TODO add your handling code here:

@@ -1,4 +1,4 @@
-/*
+
 package AControlador;
 
 import com.twilio.Twilio;
@@ -9,7 +9,7 @@ import com.twilio.type.PhoneNumber;
 
 public class sendSMS {
     public static final String ACCOUNT_SID = "ACfb0b56fe70356e0a7d5445a49cbb233b";
-    public static final String AUTH_TOKEN = "cbfab1e29c4c104213f8ebdd6cd915b4";
+    public static final String AUTH_TOKEN = "77bb0b84e1bb359f04054d7ad2238c23";
     public static final String TWILIO_PHONE_NUMBER = "+16067140725";
 
     public void send(String tel,String code) {
@@ -31,4 +31,3 @@ public class sendSMS {
     }
    
 }
-*/
