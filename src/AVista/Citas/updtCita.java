@@ -39,7 +39,7 @@ public class updtCita extends javax.swing.JPanel {
         initComponents();
         txtNotaCl.setDocument(new Valida(200, "[a-zA-Z0-9 ]*"));
         txtNotaD.setDocument(new Valida(200, "[a-zA-Z0-9 ]*"));
-                Calendar today = Calendar.getInstance();
+        Calendar today = Calendar.getInstance();
         today.add(Calendar.DAY_OF_MONTH, 1);
 
         dpFecha.setDate(today.getTime());
@@ -376,12 +376,19 @@ public class updtCita extends javax.swing.JPanel {
             ct.fecha = dt.format(dpFecha.getCalendar().getTime());
             ct.hora = cbHora.getSelectedItem().toString();
             ResultSet rs = ct.verifDispo();
-            if (rs.next()) {
-                lbDispo.setText("No disponible");
-                btnConfirm.setEnabled(false);
-            } else {
+            if (idCuenta == dsg.getMap(cbDoct, cbDoc.getSelectedItem().toString()))//VERIFICAR QUE LA CITA ESTE AL MISMO DOC
+            {
                 lbDispo.setText("Disponible");
                 btnConfirm.setEnabled(true);
+            } else {
+                if (rs.next()) {
+                    lbDispo.setText("No disponible");
+                    btnConfirm.setEnabled(false);
+                } else {
+                    lbDispo.setText("Disponible");
+                    btnConfirm.setEnabled(true);
+                }
+
             }
         }
 
