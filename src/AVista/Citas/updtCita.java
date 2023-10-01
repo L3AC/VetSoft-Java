@@ -39,20 +39,20 @@ public class updtCita extends javax.swing.JPanel {
         initComponents();
         txtNotaCl.setDocument(new Valida(200, "[a-zA-Z0-9 ]*"));
         txtNotaD.setDocument(new Valida(200, "[a-zA-Z0-9 ]*"));
-        loadData();
-        loadComboServ(cbServicio);
-        loadComboEsp(cbEsp);
-        loadComboDoc(cbDoc);
-        precio();
-
-        btnConfirm.setVisible(false);
-        enab(false);
-
-        Calendar today = Calendar.getInstance();
+                Calendar today = Calendar.getInstance();
         today.add(Calendar.DAY_OF_MONTH, 1);
 
         dpFecha.setDate(today.getTime());
         dpFecha.setMinSelectableDate(today.getTime());
+
+        loadComboServ(cbServicio);
+        loadComboEsp(cbEsp);
+        loadComboDoc(cbDoc);
+        loadData();
+        precio();
+
+        btnConfirm.setVisible(false);
+        enab(false);
 
     }
 

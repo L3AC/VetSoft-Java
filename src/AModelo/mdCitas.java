@@ -92,6 +92,7 @@ public class mdCitas {
             ps.setInt(1, idC);
             rs = ps.executeQuery();
             return rs;
+            
         } catch (SQLException e) {
             e.printStackTrace(); // Manejo de la excepción SQLException
             System.out.println(e.toString());

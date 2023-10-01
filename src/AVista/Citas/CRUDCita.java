@@ -262,6 +262,7 @@ public class CRUDCita extends javax.swing.JPanel {
         try {
             ctCitas ctD = new ctCitas();
             ctD.idDoctor = idCuenta;
+            System.err.println("IDOCTOR "+idCuenta);
             ctD.cliente = txtBusq.getText().toString();
             ResultSet rs = ctD.citaDoc();
             //System.err.println(txtBusq.getText().toString());
