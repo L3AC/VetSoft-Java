@@ -73,7 +73,7 @@ public class updtCita extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         txtNotaCl = new Design.TextFieldSV();
         txtNotaD = new Design.TextFieldSV();
-        lbEsp2 = new javax.swing.JLabel();
+        lbDoc = new javax.swing.JLabel();
         lbCosto = new javax.swing.JLabel();
         cbServicio = new javax.swing.JComboBox<>();
         cbEsp = new javax.swing.JComboBox<>();
@@ -149,10 +149,10 @@ public class updtCita extends javax.swing.JPanel {
         txtNotaD.setShadowColor(new java.awt.Color(0, 0, 51));
         panelRound1.add(txtNotaD, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, 920, 50));
 
-        lbEsp2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lbEsp2.setForeground(new java.awt.Color(0, 0, 0));
-        lbEsp2.setText("Doctor");
-        panelRound1.add(lbEsp2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 40, 70, -1));
+        lbDoc.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbDoc.setForeground(new java.awt.Color(0, 0, 0));
+        lbDoc.setText("Doctor");
+        panelRound1.add(lbDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 40, 70, -1));
 
         lbCosto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbCosto.setForeground(new java.awt.Color(0, 0, 0));
@@ -376,20 +376,23 @@ public class updtCita extends javax.swing.JPanel {
             ct.fecha = dt.format(dpFecha.getCalendar().getTime());
             ct.hora = cbHora.getSelectedItem().toString();
             ResultSet rs = ct.verifDispo();
-            if (idCuenta == dsg.getMap(cbDoct, cbDoc.getSelectedItem().toString()))//VERIFICAR QUE LA CITA ESTE AL MISMO DOC
-            {
-                lbDispo.setText("Disponible");
-                btnConfirm.setEnabled(true);
-            } else {
-                if (rs.next()) {
-                    lbDispo.setText("No disponible");
-                    btnConfirm.setEnabled(false);
-                } else {
+
+            if (rs.next()) {
+                System.err.println(rs.getInt("idCita"));
+                if (idCita==rs.getInt("idCita"))//VERIFICAR QUE LA CITA ESTE AL MISMO DOC
+                {
                     lbDispo.setText("Disponible");
                     btnConfirm.setEnabled(true);
-                }
+                } else {
 
+                    lbDispo.setText("No disponible");
+                    btnConfirm.setEnabled(false);
+                }
+            } else {
+                lbDispo.setText("Disponible");
+                btnConfirm.setEnabled(true);
             }
+
         }
 
     }
@@ -492,8 +495,8 @@ public class updtCita extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lbCosto;
     private javax.swing.JLabel lbDispo;
+    private javax.swing.JLabel lbDoc;
     private javax.swing.JLabel lbEsp;
-    private javax.swing.JLabel lbEsp2;
     private javax.swing.JLabel lbEsp3;
     private javax.swing.JLabel lbMasc;
     private javax.swing.JLabel lbTitulo;
