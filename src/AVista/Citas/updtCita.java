@@ -55,7 +55,9 @@ public class updtCita extends javax.swing.JPanel {
 
         btnConfirm.setVisible(false);
         enab(false);
-
+        if(idTipoUs==5){
+            btnEditar.setText("Ver");
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -409,7 +411,6 @@ public class updtCita extends javax.swing.JPanel {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         if (idTipoUs == 5) {
-            btnEditar.setText("Ver");
             if (btnEditar.getText().equals("Ver")) {
                 btnEditar.setText("Cancelar");
                 enab(true);
