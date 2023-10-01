@@ -36,7 +36,7 @@ public class insertProd extends javax.swing.JPanel {
     Desg dsg = new Desg();
     Map<Integer, String> cbTP = new HashMap<>();
 
-    public insertProd(int idTipoUs) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
+    public insertProd(int idTipoUs) throws SQLException {
         this.idTipoUs = idTipoUs;
         initComponents();
         loadCombo(cbTipoProd);
@@ -48,7 +48,17 @@ public class insertProd extends javax.swing.JPanel {
         lbMin1.setVisible(false);
         lbMin2.setVisible(false);
 
-        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(insertProd.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(insertProd.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(insertProd.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(insertProd.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     private void loadCombo(JComboBox cb) throws SQLException {

@@ -83,7 +83,7 @@ public class mdCitas {
     //Esto ayudara a seleccionar la cita y poder cargarlo en otros campos dentro del sistema
     public ResultSet selectCita(int idC) {
         String query = "SET LANGUAGE spanish\n"
-                + "select a.Nombre as 'Animal',tp.Nombre as 'Serv',e.Especialidad,CONCAT(d.Nombre,' ',d.Apellido) as 'Doctor',\n"
+                + "select c.idCita as idCita,a.Nombre as 'Animal',tp.Nombre as 'Serv',e.Especialidad,CONCAT(d.Nombre,' ',d.Apellido) as 'Doctor',\n"
                 + "notaDelCliente,notaDelDoctor,c.fecha as 'Fecha',CONVERT(VARCHAR,hora, 108) as 'hora' from tbAnimales a,tbCitas c,tbTipoServicio tp,tbDoctores d,tbEspecialidades e\n"
                 + "where c.idDoctor=d.idDoctor and c.idTipoServicio=tp.idTipoServicio and a.idAnimal=c.idAnimal and e.idEspecialidad=d.idEspecialidad\n"
                 + "and idCita=?;";
@@ -282,12 +282,16 @@ public class mdCitas {
 
     //Esto nos ayudara a verificar la disponibilidad de la cita por ejemplo la fecha o si el doctor esta disponible 
     public ResultSet verifDisp(int idD, String fecha, String hora) {
-        String query = "select * from tbCitas c where idDoctor=? and fecha=? and hora=? and estado='Pendiente';";
+        String query = "select * from tbCitas c where idDoctor=? and fecha=? and hora=? and estado='Pendiente' or \n" +
+"idDoctor=? and fecha=? and hora=? and estado='Aceptada';";
         try {
             ps = con.prepareStatement(query);
             ps.setInt(1, idD);
             ps.setString(2, fecha);
             ps.setString(3, hora);
+            ps.setInt(4, idD);
+            ps.setString(5, fecha);
+            ps.setString(6, hora);
             rs = ps.executeQuery();
             return rs;
         } catch (SQLException e) {

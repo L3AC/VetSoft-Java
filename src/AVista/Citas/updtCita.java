@@ -18,6 +18,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import Validation.Valida;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class updtCita extends javax.swing.JPanel {
 
@@ -379,7 +381,7 @@ public class updtCita extends javax.swing.JPanel {
 
             if (rs.next()) {
                 System.err.println(rs.getInt("idCita"));
-                if (idCita==rs.getInt("idCita"))//VERIFICAR QUE LA CITA ESTE AL MISMO DOC
+                if (idCita == rs.getInt("idCita"))//VERIFICAR QUE LA CITA ESTE AL MISMO DOC
                 {
                     lbDispo.setText("Disponible");
                     btnConfirm.setEnabled(true);
@@ -406,16 +408,27 @@ public class updtCita extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-
-        if (btnConfirm.isVisible()) {
-            btnEditar.setText("Editar");
-            enab(false);
-            btnConfirm.setVisible(false);
+        if (idTipoUs == 5) {
+            btnEditar.setText("Ver");
+            if (btnEditar.getText().equals("Ver")) {
+                btnEditar.setText("Cancelar");
+                enab(true);
+            } else {
+                btnEditar.setText("Ver");
+                enab(false);
+            }
         } else {
-            btnEditar.setText("Cancelar");
-            enab(true);
-            btnConfirm.setVisible(true);
+            if (btnConfirm.isVisible()) {
+                btnEditar.setText("Editar");
+                enab(false);
+                btnConfirm.setVisible(false);
+            } else {
+                btnEditar.setText("Cancelar");
+                enab(true);
+                btnConfirm.setVisible(true);
+            }
         }
+
     }//GEN-LAST:event_btnEditarActionPerformed
     final void enab(boolean tf) {
         List<Component> lista = new ArrayList<>();
@@ -427,8 +440,8 @@ public class updtCita extends javax.swing.JPanel {
         lista.add(txtNotaCl);
         lista.add(txtNotaD);
         dsg.enable(lista, tf);
-
     }
+
     private void cbServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbServicioActionPerformed
         try {
             precio();

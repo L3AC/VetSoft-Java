@@ -50,7 +50,7 @@ public class updateProd extends javax.swing.JPanel {
     Desg dsg = new Desg();
     Map<Integer, String> cbTP = new HashMap<>();
 
-    public updateProd(int idTipoUs, int idProd) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
+    public updateProd(int idTipoUs, int idProd) throws SQLException {
         this.idTipoUs = idTipoUs;
         this.idProd = idProd;
         initComponents();
@@ -63,7 +63,17 @@ public class updateProd extends javax.swing.JPanel {
         lbMin.setVisible(false);
         lbMin1.setVisible(false);
         lbMin2.setVisible(false);
-        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(updateProd.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(updateProd.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(updateProd.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(updateProd.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     final void loadData() {

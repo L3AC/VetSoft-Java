@@ -4,6 +4,8 @@ import AModelo.Conx;
 import AVista.Productos.updateProd;
 import java.awt.*;
 import java.awt.Image;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -43,7 +45,7 @@ public class Desg {
 
     Connection con = Conx.Conectar();
 
-    public void setImageBtn(JButton elm, String root,int w,int h) {
+    public void setImageBtn(JButton elm, String root, int w, int h) {
         ImageIcon image = new ImageIcon(root);
         Icon icon = new ImageIcon(image.getImage().getScaledInstance(w, h, Image.SCALE_DEFAULT));
         elm.setIcon(icon);
@@ -102,6 +104,7 @@ public class Desg {
             component.setEnabled(tf);
         }
     }
+
 
     public boolean areFieldsNotEmpty(java.util.List<TextFieldSV> editTextList) {
         for (TextFieldSV editText : editTextList) {

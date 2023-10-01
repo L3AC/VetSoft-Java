@@ -29,12 +29,27 @@ public class insertExam extends javax.swing.JPanel {
     DefaultTableModel model;
     Map<Integer, String> cbServ = new HashMap<>();
 
-    public insertExam(int idAnim, int idTipoUs) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
+    public insertExam(int idAnim, int idTipoUs)  {
         this.idTipoUs = idTipoUs;
         this.idAnim = idAnim;
         initComponents();
-        loadComboServ(cbTp);
-        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        //TRHOWS
+        try {
+            loadComboServ(cbTp);
+        } catch (SQLException ex) {
+            Logger.getLogger(insertExam.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(insertExam.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(insertExam.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(insertExam.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(insertExam.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @SuppressWarnings("unchecked")

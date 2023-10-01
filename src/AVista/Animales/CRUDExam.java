@@ -29,7 +29,7 @@ public class CRUDExam extends javax.swing.JPanel {
         this.idTipoUs = idTipoUs;
         this.idAnim = idAnim;
         initComponents();
-                 jScrollPane1.setVerticalScrollBar(new ScrollBar());
+        jScrollPane1.setVerticalScrollBar(new ScrollBar());
         loadD();
     }
 
@@ -189,6 +189,7 @@ public class CRUDExam extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
     //Esto para poder cargar los datos en la tabla por medio del Id
+
     final void loadD() throws SQLException {
         String[] column = {"idExamenClinico", "Nombre", "Nota"};
         model = new DefaultTableModel(null, column);
@@ -246,7 +247,7 @@ public class CRUDExam extends javax.swing.JPanel {
             Logger.getLogger(CRUDExam.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnBackActionPerformed
- //Esto nos ayuda a eliminar los datos de una tabla por medio del ID
+    //Esto nos ayuda a eliminar los datos de una tabla por medio del ID
     private void btnElimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElimActionPerformed
         if (tbData.getRowCount() > 0) {
             UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
@@ -273,7 +274,7 @@ public class CRUDExam extends javax.swing.JPanel {
 
             }
         } else {
-           CódigoError obj = new CódigoError();
+            CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
@@ -287,12 +288,9 @@ public class CRUDExam extends javax.swing.JPanel {
 //Esto nos ayudara a llevarnos al crud de agregar un nuevo examen 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         if (tbData.getRowCount() > 0) {
-            try {
-                insertExam subp = new insertExam(idAnim, idTipoUs);
-                dsg.ShowPanel(subp, PCont, 1320, 810);
-            } catch (SQLException ex) {
-                Logger.getLogger(CRUDExam.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            insertExam subp = new insertExam(idAnim, idTipoUs);
+            dsg.ShowPanel(subp, PCont, 1320, 810);
+
         } else {
             CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
@@ -309,12 +307,9 @@ public class CRUDExam extends javax.swing.JPanel {
     //Esto nos llevara al crud de editar para editar el examen
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         if (tbData.getRowCount() > 0) {
-            try {
-                updateExam subp = new updateExam(idAnim, idTipoUs, Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
-                dsg.ShowPanel(subp, PCont, 1320, 810);
-            } catch (SQLException ex) {
-                Logger.getLogger(CRUDExam.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            updateExam subp = new updateExam(idAnim, idTipoUs, Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString()));
+            dsg.ShowPanel(subp, PCont, 1320, 810);
+
         } else {
             CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {

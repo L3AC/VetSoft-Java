@@ -33,14 +33,30 @@ public class updateExam extends javax.swing.JPanel {
     DefaultTableModel model;
     Map<Integer, String> cbServ = new HashMap<>();
 
-    public updateExam(int idAnim, int idTipoUs, int idExam) throws SQLException, SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
+    public updateExam(int idAnim, int idTipoUs, int idExam)  {
         this.idTipoUs = idTipoUs;
         this.idAnim = idAnim;
         this.idExam = idExam;
         initComponents();
-        loadComboServ(cbTp);
+        //TRHOWS
+        try {
+            loadComboServ(cbTp);
+        } catch (SQLException ex) {
+            Logger.getLogger(updateExam.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //CARGAR INFO
         loadData();
-        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(updateExam.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(updateExam.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(updateExam.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(updateExam.class.getName()).log(Level.SEVERE, null, ex);
+        }
         dsg.setImageBtn(btnDes, "C:\\VetSoft-Java\\VetSoft-Java\\src\\Imagenes\\descar.png", 40, 40);
     }
 
