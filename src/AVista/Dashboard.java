@@ -137,7 +137,7 @@ public class Dashboard extends javax.swing.JFrame {
                     }
                     //MANTENIMIENTO
                     if (index == 4 && indexSubMenu == 1) {
-                        CRUDEsp subp = new CRUDEsp();
+                        CRUDEsp subp = new CRUDEsp(idTipoU);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
                     if (index == 4 && indexSubMenu == 2) {

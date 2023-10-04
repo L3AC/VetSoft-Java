@@ -30,7 +30,9 @@ public class CRUDTipoVac extends javax.swing.JPanel {
         initComponents();
         jScrollPane1.setVerticalScrollBar(new ScrollBar());
         loadD();
-
+        if (tbData.getRowCount() > 0) {
+            setData();
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -246,8 +248,7 @@ public class CRUDTipoVac extends javax.swing.JPanel {
 
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
         if (tbData.getRowCount() > 0) {
-            txtVacuna.setText(tbData.getValueAt(tbData.getSelectedRow(), 1).toString());
-            txtUso.setText(tbData.getValueAt(tbData.getSelectedRow(), 2).toString());
+            setData();
         } else {
             CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
             obj.eventOK(new ActionListener() {
@@ -260,6 +261,10 @@ public class CRUDTipoVac extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_tbDataMouseClicked
 
+    final void setData() {
+        txtVacuna.setText(tbData.getValueAt(tbData.getSelectedRow(), 1).toString());
+        txtUso.setText(tbData.getValueAt(tbData.getSelectedRow(), 2).toString());
+    }
     private void btnAddMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddMActionPerformed
         if (txtVacuna.getText().isEmpty() || txtUso.getText().isEmpty()) {
             CódigoErrorDSI5 obj = new CódigoErrorDSI5();

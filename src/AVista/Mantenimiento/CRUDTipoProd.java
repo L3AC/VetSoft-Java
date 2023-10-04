@@ -26,10 +26,6 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author LEAC2
- */
 public class CRUDTipoProd extends javax.swing.JPanel {
 
     private int idTipoUs;
@@ -40,13 +36,18 @@ public class CRUDTipoProd extends javax.swing.JPanel {
     public CRUDTipoProd(int idTipoUs) throws SQLException {
         this.idTipoUs = idTipoUs;
         initComponents();
-                 jScrollPane1.setVerticalScrollBar(new ScrollBar());
+        jScrollPane1.setVerticalScrollBar(new ScrollBar());
         loadD();
-        setData();
+
         txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         txtProd.setDocument(new Valida(100, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
+            if (tbData.getRowCount() > 0) {
+            setData();
+        }
     }
-
+    private void setData() {
+        txtProd.setText(tbData.getValueAt(tbData.getSelectedRow(), 1).toString());
+    }
     final void loadD() throws SQLException {
         String[] column = {"idTipoProducto", "Tipo de producto"};
         model = new DefaultTableModel(null, column);
@@ -86,13 +87,14 @@ public class CRUDTipoProd extends javax.swing.JPanel {
         btnAgregar = new Design.ButtonGradient();
         btnAct = new Design.ButtonGradient();
         btnEliminar = new Design.ButtonGradient();
-        btnLimp = new Design.ButtonGradient();
         jLabel1 = new javax.swing.JLabel();
         panelRound1 = new Design.PanelRound();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbData = new SwingTable.Table();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+
+        setPreferredSize(new java.awt.Dimension(1320, 810));
 
         PCont.setBackground(new java.awt.Color(190, 233, 232));
 
@@ -134,15 +136,6 @@ public class CRUDTipoProd extends javax.swing.JPanel {
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
-            }
-        });
-
-        btnLimp.setForeground(new java.awt.Color(0, 0, 0));
-        btnLimp.setText("Limpiar");
-        btnLimp.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
-        btnLimp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpActionPerformed(evt);
             }
         });
 
@@ -220,9 +213,7 @@ public class CRUDTipoProd extends javax.swing.JPanel {
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
                         .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(126, 126, 126)
-                        .addComponent(btnLimp, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(269, 269, 269))
+                        .addGap(576, 576, 576))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PContLayout.createSequentialGroup()
                         .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel4)
@@ -239,8 +230,7 @@ public class CRUDTipoProd extends javax.swing.JPanel {
                 .addGap(2, 2, 2)
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLimp, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PContLayout.createSequentialGroup()
@@ -266,9 +256,7 @@ public class CRUDTipoProd extends javax.swing.JPanel {
             .addComponent(PCont, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-    final void setData() {
-        txtProd.setText(tbData.getValueAt(tbData.getSelectedRow(), 1).toString());
-    }
+
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
         try {
             loadD();
@@ -279,7 +267,18 @@ public class CRUDTipoProd extends javax.swing.JPanel {
     }//GEN-LAST:event_txtBusqKeyReleased
 
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
-        setData();
+        if (tbData.getRowCount() > 0) {
+            setData();
+        } else {
+            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+        }
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
@@ -320,34 +319,34 @@ public class CRUDTipoProd extends javax.swing.JPanel {
                 }
             });
             GlassPanePopup.showPopup(obj);
-        } else{
-        if (tbData.getRowCount() > 0) {
-            try {
-                List<TextFieldSV> lista = new ArrayList<>();
-                lista.add(txtProd);
-                // lista.add(txtServ);
-                if (dsg.areFieldsNotEmpty(lista)) {
-                    ctProd ct = new ctProd();
-                    ct.idTipoProd = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-                    ct.tipoProd = txtProd.getText();
-                    ct.updtTProd();
-                    loadD();
-                } else {
-
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(CRUDTipoProd.class.getName()).log(Level.SEVERE, null, ex);
-            }
         } else {
-            CódigoError obj = new CódigoError();
-            obj.eventOK(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent ae) {
-                    GlassPanePopup.closePopupLast();
+            if (tbData.getRowCount() > 0) {
+                try {
+                    List<TextFieldSV> lista = new ArrayList<>();
+                    lista.add(txtProd);
+                    // lista.add(txtServ);
+                    if (dsg.areFieldsNotEmpty(lista)) {
+                        ctProd ct = new ctProd();
+                        ct.idTipoProd = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                        ct.tipoProd = txtProd.getText();
+                        ct.updtTProd();
+                        loadD();
+                    } else {
+
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(CRUDTipoProd.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            });
-            GlassPanePopup.showPopup(obj);
-        }
+            } else {
+                CódigoError obj = new CódigoError();
+                obj.eventOK(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        GlassPanePopup.closePopupLast();
+                    }
+                });
+                GlassPanePopup.showPopup(obj);
+            }
     }//GEN-LAST:event_btnActActionPerformed
     }
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -387,17 +386,12 @@ public class CRUDTipoProd extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void btnLimpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpActionPerformed
-        txtProd.setText(null);
-    }//GEN-LAST:event_btnLimpActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
     private Design.ButtonGradient btnAct;
     private Design.ButtonGradient btnAgregar;
     private Design.ButtonGradient btnEliminar;
-    private Design.ButtonGradient btnLimp;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

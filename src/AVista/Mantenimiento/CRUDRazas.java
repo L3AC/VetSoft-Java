@@ -25,10 +25,6 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author godna
- */
 public class CRUDRazas extends javax.swing.JPanel {
 
     private int idRaza;

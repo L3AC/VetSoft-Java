@@ -32,17 +32,14 @@ public class CRUDEsp extends javax.swing.JPanel {
     public CRUDEsp(int nUs) throws SQLException {
         this.nUs = nUs;
         initComponents();
-                 jScrollPane1.setVerticalScrollBar(new ScrollBar());
+        jScrollPane1.setVerticalScrollBar(new ScrollBar());
         loadD();
-
         txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
+        if (tbData.getRowCount() > 0) {
+            setData();
+        }
     }
 
-    public CRUDEsp() throws SQLException {
-        initComponents();
-        loadD();
-        txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9 ]*"));
-    }
 
     final void loadD() throws SQLException {
         String[] column = {"idEspecialidad", "Especialidad"};
@@ -247,11 +244,24 @@ public class CRUDEsp extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
-
-        idEsp = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
-        txtEsp.setText(tbData.getValueAt(tbData.getSelectedRow(), 1).toString());
+        if (tbData.getRowCount() > 0) {
+            setData();
+        } else {
+            CódogpErrorDIFC1 obj = new CódogpErrorDIFC1();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+        }
     }//GEN-LAST:event_tbDataMouseClicked
 
+    private void setData() {
+        idEsp = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+        txtEsp.setText(tbData.getValueAt(tbData.getSelectedRow(), 1).toString());
+    }
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
 
         if (txtEsp.getText().isEmpty()) {
