@@ -39,9 +39,9 @@
               </Group>
           </Group>
           <Group type="102" attributes="0">
-              <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
-              <Component id="panelRound1" min="-2" pref="810" max="-2" attributes="0"/>
               <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
+              <Component id="panelRound1" min="-2" pref="810" max="-2" attributes="0"/>
+              <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <Component id="txtEsp" min="-2" pref="310" max="-2" attributes="0"/>
@@ -75,10 +75,11 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="49" pref="49" max="-2" attributes="0"/>
+              <EmptySpace min="39" pref="39" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="panelRound1" min="-2" pref="410" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
+                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="8" pref="8" max="-2" attributes="0"/>
                       <Component id="txtEsp" min="-2" max="-2" attributes="0"/>
