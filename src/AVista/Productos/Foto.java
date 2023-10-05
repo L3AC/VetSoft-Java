@@ -1,5 +1,6 @@
 package AVista.Productos;
 
+import AVista.Animales.updateExam;
 import AVista.Clientes.CRUDCliente;
 import Design.Desg;
 import java.sql.SQLException;
@@ -10,27 +11,33 @@ public class Foto extends javax.swing.JPanel {
 
     private int idTipoUs;
     private int idProd;
+    private int idAnim;
+    private int idExam;
     private int window;
     private byte[] bytesImagen;
     Desg dsg = new Desg();
 
-    public Foto(int idTipoUs, byte[] bytesImagen, int window) {
+    //PRODUCTOS
+    public Foto(int idTipoUs, int idP, byte[] bytesImagen, int window) {
         this.window = window;
         this.idTipoUs = idTipoUs;
+        this.idProd = idP;
         this.bytesImagen = bytesImagen;
         initComponents();
+        lbImg.setSize(760, 760);
         dsg.putImg(lbImg, bytesImagen);
     }
 
-    public Foto(int idTipoUs, int idProd, byte[] bytesImagen, int window) {
+    //EXAMENES
+    public Foto(int idA, int idTipoUs, int idExam, byte[] bytesImagen, int window) {
         this.window = window;
         this.idTipoUs = idTipoUs;
-        this.idProd = idProd;
+        this.idAnim = idA;
+        this.idExam = idExam;
         this.bytesImagen = bytesImagen;
         initComponents();
-        dsg.Showfoto(lbImg, PCont, 800, 800);
+        lbImg.setSize(760, 760);
         dsg.putImg(lbImg, bytesImagen);
-
     }
 
     @SuppressWarnings("unchecked")
@@ -56,16 +63,16 @@ public class Foto extends javax.swing.JPanel {
         PContLayout.setHorizontalGroup(
             PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PContLayout.createSequentialGroup()
-                .addGap(223, 223, 223)
-                .addComponent(lbImg, javax.swing.GroupLayout.PREFERRED_SIZE, 780, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(317, Short.MAX_VALUE))
+                .addGap(275, 275, 275)
+                .addComponent(lbImg, javax.swing.GroupLayout.PREFERRED_SIZE, 760, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(285, Short.MAX_VALUE))
         );
         PContLayout.setVerticalGroup(
             PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(lbImg, javax.swing.GroupLayout.PREFERRED_SIZE, 745, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PContLayout.createSequentialGroup()
+                .addContainerGap(27, Short.MAX_VALUE)
+                .addComponent(lbImg, javax.swing.GroupLayout.PREFERRED_SIZE, 760, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -82,16 +89,16 @@ public class Foto extends javax.swing.JPanel {
 
     private void lbImgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbImgMouseClicked
         if (window == 1) {
-            /*insertProd subp = new insertProd(idTipoU);
-            dsg.ShowPanel(subp, PCont, 1320, 810);*/
-        }
-        if (window == 2) {
             try {
                 updateProd subp = new updateProd(idTipoUs, idProd);
                 dsg.ShowPanel(subp, PCont, 1320, 810);
             } catch (SQLException ex) {
                 Logger.getLogger(Foto.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }
+        if (window == 2) {
+            updateExam subp = new updateExam(idAnim, idTipoUs, idExam);
+            dsg.ShowPanel(subp, PCont, 1320, 810);
         }
 
     }//GEN-LAST:event_lbImgMouseClicked

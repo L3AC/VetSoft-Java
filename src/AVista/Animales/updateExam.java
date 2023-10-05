@@ -3,6 +3,7 @@ package AVista.Animales;
 import AControlador.ctExam;
 import AControlador.ctProd;
 import AControlador.ctTipoServ;
+import AVista.Productos.Foto;
 import Design.Desg;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
@@ -33,7 +34,7 @@ public class updateExam extends javax.swing.JPanel {
     DefaultTableModel model;
     Map<Integer, String> cbServ = new HashMap<>();
 
-    public updateExam(int idAnim, int idTipoUs, int idExam)  {
+    public updateExam(int idAnim, int idTipoUs, int idExam) {
         this.idTipoUs = idTipoUs;
         this.idAnim = idAnim;
         this.idExam = idExam;
@@ -113,7 +114,6 @@ public class updateExam extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
         PCont.setBackground(new java.awt.Color(190, 233, 232));
-        PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnBack.setBackground(new java.awt.Color(190, 233, 232));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
@@ -123,12 +123,10 @@ public class updateExam extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        PCont.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 80, 70));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("EDITAR EXAMEN MÉDICO");
-        PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, -1, -1));
 
         panelRound1.setBackground(new java.awt.Color(190, 233, 232));
         panelRound1.setRoundBottomLeft(50);
@@ -182,8 +180,6 @@ public class updateExam extends javax.swing.JPanel {
         });
         panelRound1.add(btnDes, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 230, 40, 40));
 
-        PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 1130, 440));
-
         btnConfirm.setForeground(new java.awt.Color(0, 0, 0));
         btnConfirm.setText("Confirmar");
         btnConfirm.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
@@ -192,7 +188,37 @@ public class updateExam extends javax.swing.JPanel {
                 btnConfirmActionPerformed(evt);
             }
         });
-        PCont.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 640, 160, 54));
+
+        javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
+        PCont.setLayout(PContLayout);
+        PContLayout.setHorizontalGroup(
+            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(340, 340, 340)
+                .addComponent(jLabel2))
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(170, 170, 170)
+                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 1130, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(590, 590, 590)
+                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        PContLayout.setVerticalGroup(
+            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel2)))
+                .addGap(50, 50, 50)
+                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -245,8 +271,12 @@ public class updateExam extends javax.swing.JPanel {
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     private void lbImgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbImgMouseClicked
-        /*CRUDExam subp = new CRUDExam(idAnim, idTipoUs);
-            dsg.ShowPanel(subp, PCont, 1320, 810);*/
+        if (bImg == null) {
+
+        } else {
+            Foto subp = new Foto(idAnim, idTipoUs,idExam, bImg, 2);
+            dsg.ShowPanel(subp, PCont, 1320, 810);
+        }
     }//GEN-LAST:event_lbImgMouseClicked
 
     private void btnDesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesActionPerformed

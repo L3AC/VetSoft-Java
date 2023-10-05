@@ -50,7 +50,7 @@ public class updateProd extends javax.swing.JPanel {
     Desg dsg = new Desg();
     Map<Integer, String> cbTP = new HashMap<>();
 
-    public updateProd(int idTipoUs, int idProd) throws SQLException {
+    public updateProd(int idTipoUs, int idProd) throws SQLException {//NORMAL
         this.idTipoUs = idTipoUs;
         this.idProd = idProd;
         initComponents();
@@ -75,6 +75,7 @@ public class updateProd extends javax.swing.JPanel {
             Logger.getLogger(updateProd.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
 
     final void loadData() {
         try {
@@ -393,8 +394,14 @@ public class updateProd extends javax.swing.JPanel {
 
     private void lbImgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbImgMouseClicked
 
-        Foto subp = new Foto(idTipoUs, 1, bytesImagen, 2);
-        dsg.ShowPanel(subp, PCont, 1320, 810);
+        if (bytesImagen==null) {
+            
+        }
+        else{
+            Foto subp = new Foto(idTipoUs, idProd, bytesImagen, 1);
+            dsg.ShowPanel(subp, PCont, 1320, 810);
+        }
+
     }//GEN-LAST:event_lbImgMouseClicked
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
