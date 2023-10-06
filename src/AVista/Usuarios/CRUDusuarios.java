@@ -41,20 +41,19 @@ public class CRUDusuarios extends javax.swing.JPanel {
     Fuentes tipoFuente;
 
     public CRUDusuarios(int idTipoUs) throws SQLException {
-        this.idTipoUs = idTipoUs;    
+        this.idTipoUs = idTipoUs;
         initComponents();
-          jScrollPane1.setVerticalScrollBar(new ScrollBar());
+        jScrollPane1.setVerticalScrollBar(new ScrollBar());
         loadD();
         tipoFuente = new Fuentes();
-        
+
         jLabel1.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 18));
-        jLabel3.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 13));
         tbData.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 13));
         btnEliminar.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 14));
         btnEditar.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 14));
         btnInsert.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 14));
         btnAddCuenta.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 14));
-        
+
         if (tbData.getRowCount() > 0) {
             verifPerfil();
         }
@@ -110,17 +109,18 @@ public class CRUDusuarios extends javax.swing.JPanel {
         panelRound1 = new Design.PanelRound();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbData = new SwingTable.Table();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        btnTok = new Design.ButtonGradient();
 
         setPreferredSize(new java.awt.Dimension(1320, 810));
 
         PCont.setBackground(new java.awt.Color(190, 233, 232));
         PCont.setPreferredSize(new java.awt.Dimension(1320, 810));
+        PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Nombre del usuario:");
+        PCont.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 76, 200, -1));
 
         txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
         txtBusq.addActionListener(new java.awt.event.ActionListener() {
@@ -133,6 +133,7 @@ public class CRUDusuarios extends javax.swing.JPanel {
                 txtBusqKeyReleased(evt);
             }
         });
+        PCont.add(txtBusq, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 69, 700, 50));
 
         btnAddCuenta.setForeground(new java.awt.Color(0, 0, 0));
         btnAddCuenta.setText("Crear Cuenta");
@@ -142,6 +143,7 @@ public class CRUDusuarios extends javax.swing.JPanel {
                 btnAddCuentaActionPerformed(evt);
             }
         });
+        PCont.add(btnAddCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 480, 160, 53));
 
         btnInsert.setForeground(new java.awt.Color(0, 0, 0));
         btnInsert.setText("Crear Usuario");
@@ -151,6 +153,7 @@ public class CRUDusuarios extends javax.swing.JPanel {
                 btnInsertActionPerformed(evt);
             }
         });
+        PCont.add(btnInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 400, 160, 52));
 
         btnEditar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         btnEditar.setForeground(new java.awt.Color(0, 0, 0));
@@ -161,6 +164,7 @@ public class CRUDusuarios extends javax.swing.JPanel {
                 btnEditarActionPerformed(evt);
             }
         });
+        PCont.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1122, 226, 160, 53));
 
         btnEliminar.setForeground(new java.awt.Color(0, 0, 0));
         btnEliminar.setText("Eliminar");
@@ -170,6 +174,7 @@ public class CRUDusuarios extends javax.swing.JPanel {
                 btnEliminarActionPerformed(evt);
             }
         });
+        PCont.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1122, 315, 160, 52));
 
         panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomLeft(50);
@@ -200,64 +205,17 @@ public class CRUDusuarios extends javax.swing.JPanel {
 
         panelRound1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 1010, 410));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clinica 64px.png"))); // NOI18N
+        PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 157, 1067, 460));
 
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("VetSoft+");
-
-        javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
-        PCont.setLayout(PContLayout);
-        PContLayout.setHorizontalGroup(
-            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(260, 260, 260)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))))
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 1067, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAddCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
-        PContLayout.setVerticalGroup(
-            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(jLabel1))
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(38, 38, 38)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(btnInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(btnAddCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
+        btnTok.setForeground(new java.awt.Color(0, 0, 0));
+        btnTok.setText("Crear token");
+        btnTok.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
+        btnTok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTokActionPerformed(evt);
+            }
+        });
+        PCont.add(btnTok, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 60, 160, 52));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -304,14 +262,14 @@ public class CRUDusuarios extends javax.swing.JPanel {
 
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
         if (tbData.getRowCount() > 0) {
-        insertUs subp;
-        try {
-            subp = new insertUs(idTipoUs);
-            dsg.ShowPanel(subp, PCont, 1320, 810);
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDusuarios.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+            insertUs subp;
+            try {
+                subp = new insertUs(idTipoUs);
+                dsg.ShowPanel(subp, PCont, 1320, 810);
+            } catch (SQLException ex) {
+                Logger.getLogger(CRUDusuarios.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
         } else {
             CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
@@ -326,15 +284,15 @@ public class CRUDusuarios extends javax.swing.JPanel {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         if (tbData.getRowCount() > 0) {
-            updtUsuario subp;
+
             try {
-                subp = new updtUsuario(idTipoUs, idUsRow);
+                updtUsuario subp = new updtUsuario(idTipoUs, idUsRow);
                 dsg.ShowPanel(subp, PCont, 1320, 810);
             } catch (SQLException ex) {
                 Logger.getLogger(CRUDusuarios.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-             CódigoError obj = new CódigoError();
+            CódigoError obj = new CódigoError();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
@@ -392,8 +350,17 @@ public class CRUDusuarios extends javax.swing.JPanel {
     }//GEN-LAST:event_txtBusqKeyReleased
 
     private void txtBusqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBusqActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_txtBusqActionPerformed
+
+    private void btnTokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTokActionPerformed
+        try {
+            updtUsuario subp = new updtUsuario(idTipoUs, idUsRow);
+            dsg.ShowPanel(subp, PCont, 1320, 810);
+        } catch (SQLException ex) {
+            Logger.getLogger(CRUDusuarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnTokActionPerformed
     final void verifPerfil() {
         idUsRow = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
         nivelRow = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 1).toString());
@@ -423,9 +390,8 @@ public class CRUDusuarios extends javax.swing.JPanel {
     private Design.ButtonGradient btnEditar;
     private Design.ButtonGradient btnEliminar;
     private Design.ButtonGradient btnInsert;
+    private Design.ButtonGradient btnTok;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private Design.PanelRound panelRound1;
     private SwingTable.Table tbData;

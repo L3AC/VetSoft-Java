@@ -260,6 +260,28 @@ public class mdUser extends JFrame {
             return null; //DIO ERROR
         }
     }
+    public ResultSet duiPre(String dui) throws SQLException {
+        String url = "select * from preRegistros where DUI=?;";
+        try {
+            ps = con.prepareStatement(url);
+            ps.setString(1, dui);
+            rs = ps.executeQuery();
+            return rs;
+
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            CódigoDeErrorDLI2 obj = new CódigoDeErrorDLI2();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+            return null; //DIO ERROR
+        }
+    }
 
     //Esto nos ayudara a seleccionar el tipo de usuario
     public ResultSet SelectTipoUs(String usuario, String passw) throws SQLException {

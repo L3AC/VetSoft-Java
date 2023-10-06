@@ -8,6 +8,7 @@ public class ctUser {
 
     public int idTipoUs;//NIVEL DE USUARIO QUE INGRESA A LA PANTALLA
     public String nivel;
+    public String dui;
     public String code;
     public int idUs;//USUARIO SELECCIONADO DE LA TABLA
     public int idTipoCuenta;//NIVEL DE USUARIO QUE SE LE VA AGREGAR AL REGISTRO
@@ -128,6 +129,10 @@ public class ctUser {
 
     public ResultSet verifUs() throws SQLException {
         return usu.verifUs(usuario);
+    }
+
+    public ResultSet duiPre() throws SQLException {
+        return usu.duiPre(dui);
     }
 
     public ResultSet cargarUs() {
