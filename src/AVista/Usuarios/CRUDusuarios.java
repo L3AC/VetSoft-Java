@@ -54,6 +54,8 @@ public class CRUDusuarios extends javax.swing.JPanel {
         btnInsert.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 14));
         btnAddCuenta.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 14));
 
+        btnAddCuenta.setVisible(false);
+        btnInsert.setVisible(false);
         if (tbData.getRowCount() > 0) {
             verifPerfil();
         }
@@ -118,12 +120,10 @@ public class CRUDusuarios extends javax.swing.JPanel {
 
         PCont.setBackground(new java.awt.Color(190, 233, 232));
         PCont.setPreferredSize(new java.awt.Dimension(1320, 810));
-        PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Nombre del usuario:");
-        PCont.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 76, 200, -1));
 
         txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
         txtBusq.addActionListener(new java.awt.event.ActionListener() {
@@ -136,7 +136,6 @@ public class CRUDusuarios extends javax.swing.JPanel {
                 txtBusqKeyReleased(evt);
             }
         });
-        PCont.add(txtBusq, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 69, 700, 50));
 
         btnAddCuenta.setForeground(new java.awt.Color(0, 0, 0));
         btnAddCuenta.setText("Crear Cuenta");
@@ -146,7 +145,6 @@ public class CRUDusuarios extends javax.swing.JPanel {
                 btnAddCuentaActionPerformed(evt);
             }
         });
-        PCont.add(btnAddCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 480, 160, 53));
 
         btnInsert.setForeground(new java.awt.Color(0, 0, 0));
         btnInsert.setText("Crear Usuario");
@@ -156,7 +154,6 @@ public class CRUDusuarios extends javax.swing.JPanel {
                 btnInsertActionPerformed(evt);
             }
         });
-        PCont.add(btnInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 400, 160, 52));
 
         btnEditar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         btnEditar.setForeground(new java.awt.Color(0, 0, 0));
@@ -167,7 +164,6 @@ public class CRUDusuarios extends javax.swing.JPanel {
                 btnEditarActionPerformed(evt);
             }
         });
-        PCont.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1122, 226, 160, 53));
 
         btnEliminar.setForeground(new java.awt.Color(0, 0, 0));
         btnEliminar.setText("Eliminar");
@@ -177,7 +173,6 @@ public class CRUDusuarios extends javax.swing.JPanel {
                 btnEliminarActionPerformed(evt);
             }
         });
-        PCont.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1122, 315, 160, 52));
 
         panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomLeft(50);
@@ -208,8 +203,6 @@ public class CRUDusuarios extends javax.swing.JPanel {
 
         panelRound1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 1010, 410));
 
-        PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 157, 1067, 460));
-
         btnTok.setForeground(new java.awt.Color(0, 0, 0));
         btnTok.setText("Crear token");
         btnTok.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
@@ -218,7 +211,56 @@ public class CRUDusuarios extends javax.swing.JPanel {
                 btnTokActionPerformed(evt);
             }
         });
-        PCont.add(btnTok, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 60, 160, 52));
+
+        javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
+        PCont.setLayout(PContLayout);
+        PContLayout.setHorizontalGroup(
+            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(149, 149, 149)
+                .addComponent(btnTok, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 1067, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+        );
+        PContLayout.setVerticalGroup(
+            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel1))
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnTok, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(btnInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(btnAddCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
