@@ -394,6 +394,11 @@ public class crearTok extends javax.swing.JPanel {
             lbDoc.setVisible(true);
             tbData.setVisible(true);
             txtBusq.setVisible(true);
+            try {
+                loadD();
+            } catch (SQLException ex) {
+                Logger.getLogger(crearTok.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } else {
             lbDoc.setVisible(false);
             tbData.setVisible(false);
