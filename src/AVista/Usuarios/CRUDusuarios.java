@@ -57,6 +57,9 @@ public class CRUDusuarios extends javax.swing.JPanel {
         if (tbData.getRowCount() > 0) {
             verifPerfil();
         }
+        if(idTipoUs!=1){
+            btnTok.setVisible(false);
+        }
         txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
     }
 
@@ -355,7 +358,7 @@ public class CRUDusuarios extends javax.swing.JPanel {
 
     private void btnTokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTokActionPerformed
         try {
-            updtUsuario subp = new updtUsuario(idTipoUs, idUsRow);
+            crearTok subp = new crearTok(idTipoUs);
             dsg.ShowPanel(subp, PCont, 1320, 810);
         } catch (SQLException ex) {
             Logger.getLogger(CRUDusuarios.class.getName()).log(Level.SEVERE, null, ex);

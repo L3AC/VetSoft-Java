@@ -6,6 +6,7 @@ import AControlador.ctTipoUs;
 import AControlador.ctUser;
 import Design.Desg;
 import Mensajes.CódigoErrorDSI11;
+import Mensajes.CódigoErrorDSI5;
 import Mensajes.GlassPanePopup;
 import Validation.Valida;
 import java.awt.event.ActionEvent;
@@ -75,12 +76,10 @@ public class crearTok extends javax.swing.JPanel {
 
         PCont.setBackground(new java.awt.Color(190, 233, 232));
         PCont.setPreferredSize(new java.awt.Dimension(1320, 810));
-        PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbDoc.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbDoc.setForeground(new java.awt.Color(0, 0, 0));
         lbDoc.setText("Doctor");
-        PCont.add(lbDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 170, 70, -1));
 
         btnTok.setForeground(new java.awt.Color(0, 0, 0));
         btnTok.setText("Enviar token");
@@ -90,7 +89,6 @@ public class crearTok extends javax.swing.JPanel {
                 btnTokActionPerformed(evt);
             }
         });
-        PCont.add(btnTok, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 580, 160, 52));
 
         txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
         txtBusq.addActionListener(new java.awt.event.ActionListener() {
@@ -103,7 +101,6 @@ public class crearTok extends javax.swing.JPanel {
                 txtBusqKeyReleased(evt);
             }
         });
-        PCont.add(txtBusq, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 160, 280, 40));
 
         txtCorreo.setShadowColor(new java.awt.Color(0, 0, 51));
         txtCorreo.addActionListener(new java.awt.event.ActionListener() {
@@ -116,22 +113,18 @@ public class crearTok extends javax.swing.JPanel {
                 txtCorreoKeyReleased(evt);
             }
         });
-        PCont.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, 280, 40));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("DUI");
-        PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, 40, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Correo electrónico");
-        PCont.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, 170, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Nivel usuario");
-        PCont.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 400, 120, -1));
 
         cbCargo.setForeground(new java.awt.Color(0, 0, 0));
         cbCargo.setLabeText("Nivel de Usuario");
@@ -140,7 +133,6 @@ public class crearTok extends javax.swing.JPanel {
                 cbCargoActionPerformed(evt);
             }
         });
-        PCont.add(cbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 390, 190, 40));
 
         tbData.setBackground(new java.awt.Color(255, 255, 255));
         tbData.setModel(new javax.swing.table.DefaultTableModel(
@@ -161,8 +153,6 @@ public class crearTok extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tbData);
 
-        PCont.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 220, 560, 310));
-
         txtDui.setShadowColor(new java.awt.Color(0, 0, 51));
         txtDui.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -174,7 +164,6 @@ public class crearTok extends javax.swing.JPanel {
                 txtDuiKeyReleased(evt);
             }
         });
-        PCont.add(txtDui, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 200, 280, 40));
 
         btnBack.setBackground(new java.awt.Color(190, 233, 232));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
@@ -184,20 +173,96 @@ public class crearTok extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        PCont.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 80, 60));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("CREAR TOKEN");
-        PCont.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 60, -1, -1));
 
         lbFalso.setForeground(new java.awt.Color(0, 0, 0));
         lbFalso.setText("Correo electronico falso");
-        PCont.add(lbFalso, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, 140, 30));
 
         lbDui.setForeground(new java.awt.Color(0, 0, 0));
         lbDui.setText("Ya esta relacionado con una cuenta");
-        PCont.add(lbDui, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 190, 30));
+
+        javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
+        PCont.setLayout(PContLayout);
+        PContLayout.setHorizontalGroup(
+            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(360, 360, 360)
+                .addComponent(jLabel5))
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(360, 360, 360)
+                .addComponent(lbDui, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(210, 210, 210)
+                .addComponent(lbDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtDui, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(130, 130, 130)
+                        .addComponent(lbFalso, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(cbCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(140, 140, 140)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(550, 550, 550)
+                .addComponent(btnTok, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        PContLayout.setVerticalGroup(
+            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel5)))
+                .addGap(50, 50, 50)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbDui, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbDoc))))
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(75, 75, 75)
+                        .addComponent(jLabel3)
+                        .addGap(75, 75, 75)
+                        .addComponent(jLabel4))
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addComponent(txtDui, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50)
+                        .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(lbFalso, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(cbCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(50, 50, 50)
+                .addComponent(btnTok, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -252,7 +317,6 @@ public class crearTok extends javax.swing.JPanel {
     }
     private void txtCorreoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoKeyReleased
         if (EmailValidator.getInstance().isValid(txtCorreo.getText())) {
-            //if(verificar_Email(jTextField1.getText())){    
 
             lbFalso.setVisible(false);
             btnTok.setEnabled(true);
@@ -270,7 +334,11 @@ public class crearTok extends javax.swing.JPanel {
     }//GEN-LAST:event_txtCorreoActionPerformed
 
     private void txtBusqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyReleased
-        // TODO add your handling code here:
+        try {
+            loadD();
+        } catch (SQLException ex) {
+            Logger.getLogger(crearTok.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_txtBusqKeyReleased
 
     private void txtBusqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBusqActionPerformed
@@ -278,25 +346,38 @@ public class crearTok extends javax.swing.JPanel {
     }//GEN-LAST:event_txtBusqActionPerformed
 
     private void btnTokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTokActionPerformed
-        ctPreRegistro ct=new ctPreRegistro();             
-        String token =GenerC(10); 
-        
-        ct.idNivelUs=dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
-        ct.dui=txtDui.getText(); 
-        ct.token=token;
-        if(dsg.getMap(cbMap, cbCargo.getSelectedItem().toString())==5){
-            ct.idDoc=Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+        if (txtDui.getText().isEmpty()) {
+            CódigoErrorDSI5 obj = new CódigoErrorDSI5();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+        } else {
+            ctPreRegistro ct = new ctPreRegistro();
+            String token = GenerC(10);
+
+            ct.idNivelUs = dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
+            ct.dui = txtDui.getText();
+            ct.token = token;
+            if (dsg.getMap(cbMap, cbCargo.getSelectedItem().toString()) == 5) {
+                ct.idDoc = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+            } else {
+                ct.idDoc = 0;
+            }
+
+            if (ct.insertT()) {//SI SE PUEDE REGISTRAR
+                Em(txtCorreo.getText(), token);
+            }
         }
-        else{
-            ct.idDoc=0;
-        }
-        ct.insertT();
-        Em(txtCorreo.getText(),token);
+
     }//GEN-LAST:event_btnTokActionPerformed
     public String GenerC(int longi) {
         String num = "0123456789";
         String lmin = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        
+
         String caract = lmin + num;
         Random cod = new Random();
         String result = "";
@@ -306,7 +387,7 @@ public class crearTok extends javax.swing.JPanel {
             result += caracter;
         }
         return result;
-        
+
     }
     private void cbCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCargoActionPerformed
         if (dsg.getMap(cbMap, cbCargo.getSelectedItem().toString()) == 5) {//SI ES ASISTENTE
