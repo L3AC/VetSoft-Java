@@ -1,9 +1,16 @@
 package AVista;
 
+import AControlador.ctPreRegistro;
+import Mensajes.CódigoErrorDSI2;
 import Mensajes.CódigoErrorDSI5;
 import Mensajes.GlassPanePopup;
+import Validation.Valida;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
 public class verifToken extends javax.swing.JFrame {
@@ -15,6 +22,9 @@ public class verifToken extends javax.swing.JFrame {
         ImageIcon icon = new ImageIcon(iconPath);
         setIconImage(icon.getImage());
         setTitle("VetSoft");
+        setLocationRelativeTo(null);
+        txtDui.setDocument(new Valida(10, "[0-9]*"));
+        txtToken.setDocument(new Valida(10, "[a-zA-Z0-9]*"));
     }
 
     @SuppressWarnings("unchecked")
@@ -34,6 +44,7 @@ public class verifToken extends javax.swing.JFrame {
         btnVolver = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         panelRound1.setBackground(new java.awt.Color(190, 233, 232));
         panelRound1.setForeground(new java.awt.Color(255, 255, 255));
@@ -87,7 +98,7 @@ public class verifToken extends javax.swing.JFrame {
                 txtDuiKeyTyped(evt);
             }
         });
-        panelRound2.add(txtDui, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 240, 40));
+        panelRound2.add(txtDui, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 240, 40));
 
         txtToken.setBackground(new java.awt.Color(190, 233, 232));
         txtToken.setShadowColor(new java.awt.Color(0, 0, 51));
@@ -112,7 +123,7 @@ public class verifToken extends javax.swing.JFrame {
         lbMin.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbMin.setForeground(new java.awt.Color(0, 0, 0));
         lbMin.setText("10 carácteres mínimos");
-        panelRound2.add(lbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, 150, -1));
+        panelRound2.add(lbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 150, -1));
 
         lbMinimo2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbMinimo2.setForeground(new java.awt.Color(0, 0, 0));
@@ -152,7 +163,7 @@ public class verifToken extends javax.swing.JFrame {
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
 
-        if (txtDui.getText().isEmpty() || txtToken.getText().isEmpty() ) {
+        if (txtDui.getText().isEmpty() || txtToken.getText().isEmpty()) {
             CódigoErrorDSI5 obj = new CódigoErrorDSI5();
             obj.eventOK(new ActionListener() {
                 @Override
@@ -162,30 +173,24 @@ public class verifToken extends javax.swing.JFrame {
             });
             GlassPanePopup.showPopup(obj);
         } else {
-            /*ctUser ctUs = new ctUser();
-            ctUs.idTipoCuenta = dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
-
-            ctUs.usuario = txtDui.getText();
             try {
-                ctUs.contra = cryp.encrypt(txtToken.getText(), "key");
+                ctPreRegistro ct = new ctPreRegistro();
+                ct.dui = txtDui.getText();
+                ct.token = txtToken.getText();
+                ResultSet rs = ct.verifT();
+                if (rs.next()) {
 
-            } catch (Exception ex) {
-                Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            ctUs.correo = txtCorreo.getText();
-            ctUs.telefono = txtTeléfono.getText();
-            ctUs.insertUs();
-            Login newFrame = new Login();
-            newFrame.setVisible(true);
-            dispose();
-            CódigoErrorDSI2 obj = new CódigoErrorDSI2();
-            obj.eventOK(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent ae) {
-                    GlassPanePopup.closePopupLast();
+                    Registro newFrame = new Registro(rs.getInt("idNivelUs"),
+                            rs.getInt("idDoc"));
+                    newFrame.setVisible(true);
+                    dispose();
+                } else {
+                    //MENSAJE DE QUE LAS CREDENCIALES SON INCORRECTAS
                 }
-            });
-            GlassPanePopup.showPopup(obj);*/
+
+            } catch (SQLException ex) {
+                Logger.getLogger(verifToken.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
@@ -198,7 +203,7 @@ public class verifToken extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDuiKeyPressed
 
     private void txtDuiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDuiKeyReleased
-        
+
         if (txtDui.getText().length() >= 10 && txtToken.getText().length() >= 10) {
             lbMinimo2.setVisible(false);
             btnConfirmar.setEnabled(true);

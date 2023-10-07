@@ -16,7 +16,7 @@ public class mdPreRegistro {
     PreparedStatement ps;
     ResultSet rs;
 
-    public boolean insertT(int idTipoC, String token,String dui, int idD) {
+    public boolean insertT(int idTipoC, String token, String dui, int idD) {
         String query = "insert into tbPreRegistros values(?,?,?,?);";
         try {
 
@@ -41,6 +41,32 @@ public class mdPreRegistro {
             });
             GlassPanePopup.showPopup(obj);
             return false; //DIO ERROR
+        }
+    }
+
+    public ResultSet verifT(String dui, String token) throws SQLException {
+        try {
+            String url = "select * from tbPreRegistros where DUI=? and token=? \n"
+                    + "COLLATE SQL_Latin1_General_CP1_CS_AS;";
+
+            ps = con.prepareStatement(url);
+            ps.setString(1, dui);
+            ps.setString(2, token);
+            rs = ps.executeQuery();
+            return rs;
+
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+            CódigoDeErrorDLI2 obj = new CódigoDeErrorDLI2();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+            return null; //DIO ERROR
         }
     }
 }

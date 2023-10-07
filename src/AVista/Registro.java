@@ -40,13 +40,20 @@ import org.apache.commons.validator.EmailValidator;
 public class Registro extends javax.swing.JFrame {
 
     private int idTipoUs;
+    private int idDoc;
     private int tpUs;
     Crypt cryp = new Crypt();
     ctTipoUs ctTP = new ctTipoUs();
     Desg dsg = new Desg();
     Map<Integer, String> cbMap = new HashMap<>();
 
-    public Registro() throws SQLException {
+    public Registro() {
+
+    }
+
+    public Registro(int idTipoUs, int idDoc) throws SQLException {
+        this.idTipoUs = idTipoUs;
+        this.idDoc = idDoc;
         GlassPanePopup.install(this);
         initComponents();
         lbDisp.setVisible(false);
@@ -68,6 +75,11 @@ public class Registro extends javax.swing.JFrame {
         lbMin.setVisible(false);
         lbMin1.setVisible(false);
         lbMinimo2.setVisible(false);
+        
+        if (idTipoUs == 2) {//RECEPCIONISTA
+            
+        }
+        
     }
 
 //Esto nos ayudara a que el comboBox cargue los tipos de usuarios disponibles dentro del sistema de escritorio que se pueden registrar
@@ -153,7 +165,7 @@ public class Registro extends javax.swing.JFrame {
                 btnRegistrarActionPerformed(evt);
             }
         });
-        panelRound2.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 220, 120, 30));
+        panelRound2.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 310, 120, 50));
 
         lbFalso.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbFalso.setForeground(new java.awt.Color(0, 0, 0));
@@ -245,7 +257,7 @@ public class Registro extends javax.swing.JFrame {
                 cbCargoActionPerformed(evt);
             }
         });
-        panelRound2.add(cbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 102, 160, 40));
+        panelRound2.add(cbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 60, 160, 40));
 
         lbDisp.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbDisp.setForeground(new java.awt.Color(0, 0, 0));
@@ -277,7 +289,7 @@ public class Registro extends javax.swing.JFrame {
         lbMinimo2.setText("Minimo de digitos 4");
         panelRound2.add(lbMinimo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 150, -1));
 
-        panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 680, 270));
+        panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 1030, 460));
 
         Titulo.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
         Titulo.setForeground(new java.awt.Color(0, 0, 0));
@@ -302,13 +314,11 @@ public class Registro extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 711, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(panelRound1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1081, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
+            .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, 598, Short.MAX_VALUE)
         );
 
         pack();
@@ -316,7 +326,6 @@ public class Registro extends javax.swing.JFrame {
 
     //Cuando se le de al botón registrar se verificaran que todo lo anteriormente mencionado se este validado por ejemplo que los campos no esten vacios entreo otros mas
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-    
 
         if (txtUsuario.getText().isEmpty() || txtContra.getText().isEmpty() || txtTeléfono.getText().isEmpty() || txtCorreo.getText().isEmpty()) {
             CódigoErrorDSI5 obj = new CódigoErrorDSI5();
@@ -344,7 +353,7 @@ public class Registro extends javax.swing.JFrame {
             Login newFrame = new Login();
             newFrame.setVisible(true);
             dispose();
-             CódigoErrorDSI2 obj = new CódigoErrorDSI2();
+            CódigoErrorDSI2 obj = new CódigoErrorDSI2();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
@@ -421,7 +430,7 @@ public class Registro extends javax.swing.JFrame {
         // TODO add your handling code here:
         ctUser ctUs = new ctUser();
         ctUs.usuario = txtUsuario.getText().toString();
-        
+
         try {
             if (ctUs.verifUs().next()) {
                 lbDisp.setVisible(true);
@@ -439,11 +448,10 @@ public class Registro extends javax.swing.JFrame {
             lbMinimo2.setVisible(false);
             btnRegistrar.setEnabled(true);
         } else {
-            if(txtUsuario.getText().length()>= 4){
+            if (txtUsuario.getText().length() >= 4) {
                 lbMinimo2.setVisible(false);
                 btnRegistrar.setEnabled(false);
-            }
-            else{
+            } else {
                 lbMinimo2.setVisible(true);
                 btnRegistrar.setEnabled(false);
             }
@@ -481,19 +489,18 @@ public class Registro extends javax.swing.JFrame {
     private void txtContraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyReleased
         // TODO add your handling code here:
         if (txtContra.getText().length() >= 8 && txtTeléfono.getText().length() >= 8 && txtUsuario.getText().length() >= 4) {
-             lbMin.setVisible(false);
+            lbMin.setVisible(false);
             btnRegistrar.setEnabled(true);
 
         } else {
-            if(txtContra.getText().length()>= 8){
+            if (txtContra.getText().length() >= 8) {
                 lbMin.setVisible(false);
                 btnRegistrar.setEnabled(false);
-            }
-            else{
+            } else {
                 lbMin.setVisible(true);
                 btnRegistrar.setEnabled(false);
             }
-            
+
         }
     }//GEN-LAST:event_txtContraKeyReleased
 
@@ -504,11 +511,10 @@ public class Registro extends javax.swing.JFrame {
             lbMin1.setVisible(false);
             btnRegistrar.setEnabled(true);
         } else {
-             if(txtTeléfono.getText().length()>= 8){
+            if (txtTeléfono.getText().length() >= 8) {
                 lbMin1.setVisible(false);
                 btnRegistrar.setEnabled(false);
-            }
-            else{
+            } else {
                 lbMin1.setVisible(true);
                 btnRegistrar.setEnabled(false);
             }
@@ -554,11 +560,7 @@ public class Registro extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                try {
-                    new Registro().setVisible(true);
-                } catch (SQLException ex) {
-                    Logger.getLogger(Registro.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                new Registro().setVisible(true);
             }
         });
     }

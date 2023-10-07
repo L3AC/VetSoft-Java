@@ -1,6 +1,8 @@
 package AControlador;
 
 import AModelo.mdPreRegistro;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class ctPreRegistro {
 
@@ -54,5 +56,9 @@ public class ctPreRegistro {
 
     public boolean insertT() {
         return md.insertT(idNivelUs, token, dui, idDoc);
+    }
+
+    public ResultSet verifT() throws SQLException {
+        return md.verifT(dui,token);
     }
 }
