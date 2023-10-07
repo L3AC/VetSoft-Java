@@ -46,11 +46,12 @@ public class crearTok extends javax.swing.JPanel {
         lbDui.setVisible(false);
         lbFalso.setVisible(false);
         lbDoc.setVisible(false);
+        panelRound1.setVisible(false);
         tbData.setVisible(false);
         txtBusq.setVisible(false);
         loadCombo(cbCargo);
-        txtCorreo.setDocument(new Valida(50, "[a-zA-Z0-9@._]*"));
-
+        txtCorreo.setDocument(new Valida(40, "[a-zA-Z0-9@._]*"));
+        txtDui.setDocument(new Valida(10, "[0-9]*"));
     }
 
     @SuppressWarnings("unchecked")
@@ -58,28 +59,25 @@ public class crearTok extends javax.swing.JPanel {
     private void initComponents() {
 
         PCont = new javax.swing.JPanel();
-        lbDoc = new javax.swing.JLabel();
         btnTok = new Design.ButtonGradient();
-        txtBusq = new Design.TextFieldSV();
         txtCorreo = new Design.TextFieldSV();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         cbCargo = new Design.Combobox();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tbData = new SwingTable.Table();
         txtDui = new Design.TextFieldSV();
         btnBack = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         lbFalso = new javax.swing.JLabel();
         lbDui = new javax.swing.JLabel();
+        panelRound1 = new Design.PanelRound();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbData = new SwingTable.Table();
+        txtBusq = new Design.TextFieldSV();
+        lbDoc = new javax.swing.JLabel();
 
         PCont.setBackground(new java.awt.Color(190, 233, 232));
         PCont.setPreferredSize(new java.awt.Dimension(1320, 810));
-
-        lbDoc.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lbDoc.setForeground(new java.awt.Color(0, 0, 0));
-        lbDoc.setText("Doctor");
 
         btnTok.setForeground(new java.awt.Color(0, 0, 0));
         btnTok.setText("Enviar token");
@@ -87,18 +85,6 @@ public class crearTok extends javax.swing.JPanel {
         btnTok.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTokActionPerformed(evt);
-            }
-        });
-
-        txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
-        txtBusq.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtBusqActionPerformed(evt);
-            }
-        });
-        txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtBusqKeyReleased(evt);
             }
         });
 
@@ -134,25 +120,6 @@ public class crearTok extends javax.swing.JPanel {
             }
         });
 
-        tbData.setBackground(new java.awt.Color(255, 255, 255));
-        tbData.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "idDoctor", "Especialidad", "Nombre"
-            }
-        ));
-        tbData.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbDataMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(tbData);
-
         txtDui.setShadowColor(new java.awt.Color(0, 0, 51));
         txtDui.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,6 +151,53 @@ public class crearTok extends javax.swing.JPanel {
         lbDui.setForeground(new java.awt.Color(0, 0, 0));
         lbDui.setText("Ya esta relacionado con una cuenta");
 
+        panelRound1.setBackground(new java.awt.Color(255, 255, 255));
+        panelRound1.setRoundBottomLeft(50);
+        panelRound1.setRoundBottomRight(50);
+        panelRound1.setRoundTopLeft(50);
+        panelRound1.setRoundTopRight(50);
+        panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tbData.setBackground(new java.awt.Color(255, 255, 255));
+        tbData.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "idDoctor", "Especialidad", "Nombre"
+            }
+        ));
+        tbData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbDataMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tbData);
+
+        panelRound1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 600, 340));
+
+        txtBusq.setBackground(new java.awt.Color(190, 233, 232));
+        txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtBusq.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBusqActionPerformed(evt);
+            }
+        });
+        txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBusqKeyReleased(evt);
+            }
+        });
+        panelRound1.add(txtBusq, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 280, 40));
+
+        lbDoc.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbDoc.setForeground(new java.awt.Color(0, 0, 0));
+        lbDoc.setText("Doctor");
+        panelRound1.add(lbDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 70, -1));
+
         javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
         PCont.setLayout(PContLayout);
         PContLayout.setHorizontalGroup(
@@ -194,14 +208,7 @@ public class crearTok extends javax.swing.JPanel {
                 .addGap(360, 360, 360)
                 .addComponent(jLabel5))
             .addGroup(PContLayout.createSequentialGroup()
-                .addGap(360, 360, 360)
-                .addComponent(lbDui, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(210, 210, 210)
-                .addComponent(lbDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(110, 110, 110)
+                .addGap(100, 100, 100)
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PContLayout.createSequentialGroup()
                         .addGap(120, 120, 120)
@@ -211,6 +218,9 @@ public class crearTok extends javax.swing.JPanel {
                         .addGap(50, 50, 50)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(lbDui, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtDui, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PContLayout.createSequentialGroup()
@@ -218,12 +228,12 @@ public class crearTok extends javax.swing.JPanel {
                         .addComponent(lbFalso, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PContLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(cbCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(140, 140, 140)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(PContLayout.createSequentialGroup()
-                .addGap(550, 550, 550)
-                .addComponent(btnTok, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cbCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(btnTok, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(90, 90, 90)
+                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         PContLayout.setVerticalGroup(
             PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,34 +244,29 @@ public class crearTok extends javax.swing.JPanel {
                     .addGroup(PContLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(jLabel5)))
-                .addGap(50, 50, 50)
-                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbDui, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbDoc))))
+                .addGap(40, 40, 40)
                 .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(60, 60, 60)
                         .addComponent(jLabel2)
                         .addGap(75, 75, 75)
                         .addComponent(jLabel3)
                         .addGap(75, 75, 75)
                         .addComponent(jLabel4))
                     .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(lbDui, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
                         .addComponent(txtDui, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(50, 50, 50)
                         .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
                         .addComponent(lbFalso, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(cbCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PContLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(50, 50, 50)
-                .addComponent(btnTok, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(40, 40, 40)
+                        .addComponent(cbCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(90, 90, 90)
+                        .addComponent(btnTok, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -392,6 +397,7 @@ public class crearTok extends javax.swing.JPanel {
     private void cbCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCargoActionPerformed
         if (dsg.getMap(cbMap, cbCargo.getSelectedItem().toString()) == 5) {//SI ES ASISTENTE
             lbDoc.setVisible(true);
+            panelRound1.setVisible(true);
             tbData.setVisible(true);
             txtBusq.setVisible(true);
             try {
@@ -400,6 +406,7 @@ public class crearTok extends javax.swing.JPanel {
                 Logger.getLogger(crearTok.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
+            panelRound1.setVisible(false);
             lbDoc.setVisible(false);
             tbData.setVisible(false);
             txtBusq.setVisible(false);
@@ -615,7 +622,7 @@ public class crearTok extends javax.swing.JPanel {
                     + "    <div>\n"
                     + "        <form action=\"index.html\" method=\"post\">\n"
                     + "          <p style=\"text-align: center; \">\n"
-                    + "            <img class=\"img\" src=\"https://3.bp.blogspot.com/-zKi3VgfDUs4/XItCT72IdOI/AAAAAAAAAA4/Rb7xzF2gCu8LS7NrDjxnKEbkkyg-3jQQwCPcBGAYYCw/s1600/seguridad-1.gif\" width=\"100px\">\n"
+                    + "            <img class=\"img\" src=\"https://cdn.icon-icons.com/icons2/2093/PNG/512/hospital_health_clinic_urban_buildings_medical_icon_128575.png\" width=\"100px\">\n"
                     + "        </a>\n"
                     + "    </p>\n"
                     + "            <h1> Vetsoft </h1>\n"
@@ -636,7 +643,7 @@ public class crearTok extends javax.swing.JPanel {
                     + "                <label>Ingresa al programa de Vetsoft y digita el token antes mencionado en el apartado de registro.</label>\n"
                     + "\n"
                     + "                <p style=\"text-align: center; \">\n"
-                    + "                        <img class=\"img\" src=\"https://i.gifer.com/EOt.gif\" width=\"300px\">\n"
+                    + "                        <img class=\"img\" src=\"https://3.bp.blogspot.com/-zKi3VgfDUs4/XItCT72IdOI/AAAAAAAAAA4/Rb7xzF2gCu8LS7NrDjxnKEbkkyg-3jQQwCPcBGAYYCw/s1600/seguridad-1.gif\" width=\"300px\">\n"
                     + "                    </a>\n"
                     + "                </p>\n"
                     + "            </fieldset>\n"
@@ -699,6 +706,7 @@ public class crearTok extends javax.swing.JPanel {
     private javax.swing.JLabel lbDoc;
     private javax.swing.JLabel lbDui;
     private javax.swing.JLabel lbFalso;
+    private Design.PanelRound panelRound1;
     private SwingTable.Table tbData;
     private Design.TextFieldSV txtBusq;
     private Design.TextFieldSV txtCorreo;
