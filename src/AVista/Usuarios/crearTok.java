@@ -57,15 +57,8 @@ public class crearTok extends javax.swing.JPanel {
 
         PCont = new javax.swing.JPanel();
         btnTok = new Design.ButtonGradient();
-        txtCorreo = new Design.TextFieldSV();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        cbCargo = new Design.Combobox();
-        txtDui = new Design.TextFieldSV();
         btnBack = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        lbFalso = new javax.swing.JLabel();
-        lbDui = new javax.swing.JLabel();
         panelRound1 = new Design.PanelRound();
         jLabel4 = new javax.swing.JLabel();
         panelR2 = new Design.PanelRound();
@@ -75,6 +68,13 @@ public class crearTok extends javax.swing.JPanel {
         lbDoc1 = new javax.swing.JLabel();
         lbDoc = new javax.swing.JLabel();
         txtBusq = new Design.TextFieldSV();
+        jLabel3 = new javax.swing.JLabel();
+        txtCorreo = new Design.TextFieldSV();
+        lbFalso = new javax.swing.JLabel();
+        txtDui = new Design.TextFieldSV();
+        lbDui = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        cbCargo = new Design.Combobox();
 
         PCont.setBackground(new java.awt.Color(190, 233, 232));
         PCont.setPreferredSize(new java.awt.Dimension(1320, 810));
@@ -92,51 +92,6 @@ public class crearTok extends javax.swing.JPanel {
         });
         PCont.add(btnTok, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 540, 160, 52));
 
-        txtCorreo.setShadowColor(new java.awt.Color(0, 0, 51));
-        txtCorreo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCorreoActionPerformed(evt);
-            }
-        });
-        txtCorreo.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtCorreoKeyReleased(evt);
-            }
-        });
-        PCont.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 280, 40));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("DUI");
-        PCont.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 40, -1));
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Correo electrónico");
-        PCont.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 170, -1));
-
-        cbCargo.setForeground(new java.awt.Color(0, 0, 0));
-        cbCargo.setLabeText("Nivel de Usuario");
-        cbCargo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbCargoActionPerformed(evt);
-            }
-        });
-        PCont.add(cbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 410, 190, 40));
-
-        txtDui.setShadowColor(new java.awt.Color(0, 0, 51));
-        txtDui.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDuiActionPerformed(evt);
-            }
-        });
-        txtDui.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtDuiKeyReleased(evt);
-            }
-        });
-        PCont.add(txtDui, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, 280, 40));
-
         btnBack.setBackground(new java.awt.Color(190, 233, 232));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
         btnBack.setBorder(null);
@@ -151,14 +106,6 @@ public class crearTok extends javax.swing.JPanel {
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("CREAR TOKEN");
         PCont.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 60, -1, -1));
-
-        lbFalso.setForeground(new java.awt.Color(0, 0, 0));
-        lbFalso.setText("Correo electronico falso");
-        PCont.add(lbFalso, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 340, 140, 30));
-
-        lbDui.setForeground(new java.awt.Color(0, 0, 0));
-        lbDui.setText("Ya esta relacionado con una cuenta");
-        PCont.add(lbDui, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, 190, 30));
 
         panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomLeft(50);
@@ -240,7 +187,60 @@ public class crearTok extends javax.swing.JPanel {
 
         panelRound1.add(panelR2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, 680, 500));
 
-        PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 1230, 580));
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Correo electrónico");
+        panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 170, -1));
+
+        txtCorreo.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtCorreo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCorreoActionPerformed(evt);
+            }
+        });
+        txtCorreo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCorreoKeyReleased(evt);
+            }
+        });
+        panelRound1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 280, 40));
+
+        lbFalso.setForeground(new java.awt.Color(0, 0, 0));
+        lbFalso.setText("Correo electronico falso");
+        panelRound1.add(lbFalso, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 140, 30));
+
+        txtDui.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtDui.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDuiActionPerformed(evt);
+            }
+        });
+        txtDui.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtDuiKeyReleased(evt);
+            }
+        });
+        panelRound1.add(txtDui, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 280, 40));
+
+        lbDui.setForeground(new java.awt.Color(0, 0, 0));
+        lbDui.setText("Ya esta relacionado con una cuenta");
+        panelRound1.add(lbDui, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 210, 30));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("DUI");
+        panelRound1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 40, -1));
+
+        cbCargo.setForeground(new java.awt.Color(0, 0, 0));
+        cbCargo.setLabeText("Nivel de Usuario");
+        cbCargo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbCargoActionPerformed(evt);
+            }
+        });
+        panelRound1.add(cbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 190, 40));
+
+        PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 1260, 580));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -324,7 +324,7 @@ public class crearTok extends javax.swing.JPanel {
     }//GEN-LAST:event_txtBusqActionPerformed
 
     private void btnTokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTokActionPerformed
-        if (txtDui.getText().isEmpty()||txtCorreo.getText().isEmpty()) {
+        if (txtDui.getText().isEmpty() || txtCorreo.getText().isEmpty()) {
             CódigoErrorDSI5 obj = new CódigoErrorDSI5();
             obj.eventOK(new ActionListener() {
                 @Override
@@ -387,7 +387,7 @@ public class crearTok extends javax.swing.JPanel {
 
     private void txtDuiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDuiKeyReleased
         ctUser ctUs = new ctUser();
-        ctUs.usuario = txtDui.getText().toString();
+        ctUs.dui = txtDui.getText().toString();
 
         try {
             if (ctUs.duiPre().next()) {
@@ -398,6 +398,7 @@ public class crearTok extends javax.swing.JPanel {
                 lbDui.setVisible(false);
                 btnTok.setEnabled(true);
             }
+
         } catch (SQLException ex) {
             Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -261,7 +261,7 @@ public class mdUser extends JFrame {
         }
     }
     public ResultSet duiPre(String dui) throws SQLException {
-        String url = "select * from preRegistros where DUI=?;";
+        String url = "select * from tbPreRegistros where DUI=?;";
         try {
             ps = con.prepareStatement(url);
             ps.setString(1, dui);
