@@ -23,6 +23,8 @@ public class verifToken extends javax.swing.JFrame {
         setIconImage(icon.getImage());
         setTitle("VetSoft");
         setLocationRelativeTo(null);
+        lbMin.setVisible(false);
+        lbMin2.setVisible(false);
         txtDui.setDocument(new Valida(10, "[0-9]*"));
         txtToken.setDocument(new Valida(10, "[a-zA-Z0-9]*"));
     }
@@ -37,9 +39,9 @@ public class verifToken extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnConfirmar = new Design.ButtonGradient();
         txtDui = new Design.TextFieldSV();
-        txtToken = new Design.PasswordField();
         lbMin = new javax.swing.JLabel();
-        lbMinimo2 = new javax.swing.JLabel();
+        lbMin2 = new javax.swing.JLabel();
+        txtToken = new Design.TextFieldSV();
         Titulo = new javax.swing.JLabel();
         btnVolver = new javax.swing.JLabel();
 
@@ -100,35 +102,24 @@ public class verifToken extends javax.swing.JFrame {
         });
         panelRound2.add(txtDui, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 240, 40));
 
-        txtToken.setBackground(new java.awt.Color(190, 233, 232));
-        txtToken.setShadowColor(new java.awt.Color(0, 0, 51));
-        txtToken.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTokenActionPerformed(evt);
-            }
-        });
-        txtToken.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtTokenKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtTokenKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtTokenKeyTyped(evt);
-            }
-        });
-        panelRound2.add(txtToken, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 240, -1));
-
         lbMin.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbMin.setForeground(new java.awt.Color(0, 0, 0));
         lbMin.setText("10 carácteres mínimos");
         panelRound2.add(lbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 150, -1));
 
-        lbMinimo2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lbMinimo2.setForeground(new java.awt.Color(0, 0, 0));
-        lbMinimo2.setText("10 carácteres mínimos");
-        panelRound2.add(lbMinimo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 150, -1));
+        lbMin2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbMin2.setForeground(new java.awt.Color(0, 0, 0));
+        lbMin2.setText("10 carácteres mínimos");
+        panelRound2.add(lbMin2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 150, -1));
+
+        txtToken.setBackground(new java.awt.Color(190, 233, 232));
+        txtToken.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtToken.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTokenKeyReleased(evt);
+            }
+        });
+        panelRound2.add(txtToken, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 240, 40));
 
         panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 680, 320));
 
@@ -205,14 +196,14 @@ public class verifToken extends javax.swing.JFrame {
     private void txtDuiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDuiKeyReleased
 
         if (txtDui.getText().length() >= 10 && txtToken.getText().length() >= 10) {
-            lbMinimo2.setVisible(false);
+            lbMin.setVisible(false);
             btnConfirmar.setEnabled(true);
         } else {
             if (txtDui.getText().length() >= 10) {
-                lbMinimo2.setVisible(false);
+                lbMin.setVisible(false);
                 btnConfirmar.setEnabled(false);
             } else {
-                lbMinimo2.setVisible(true);
+                lbMin.setVisible(true);
                 btnConfirmar.setEnabled(false);
             }
         }
@@ -223,44 +214,16 @@ public class verifToken extends javax.swing.JFrame {
         //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros, donde si solo escribe dos numeros le saldra un texfield
     }//GEN-LAST:event_txtDuiKeyTyped
 
-    private void txtTokenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTokenActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_txtTokenActionPerformed
-
-    private void txtTokenKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTokenKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTokenKeyPressed
-
-    private void txtTokenKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTokenKeyReleased
-        // TODO add your handling code here:
-        if (txtToken.getText().length() >= 10 && txtDui.getText().length() >= 10) {
-            lbMin.setVisible(false);
-            btnConfirmar.setEnabled(true);
-
-        } else {
-            if (txtToken.getText().length() >= 10) {
-                lbMin.setVisible(false);
-                btnConfirmar.setEnabled(false);
-            } else {
-                lbMin.setVisible(true);
-                btnConfirmar.setEnabled(false);
-            }
-
-        }
-    }//GEN-LAST:event_txtTokenKeyReleased
-
-    private void txtTokenKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTokenKeyTyped
-        // TODO add your handling code here:
-        //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros, donde si solo escribe dos numeros le saldra un texfield
-    }//GEN-LAST:event_txtTokenKeyTyped
-
     private void btnVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseClicked
         // TODO add your handling code here:
         Login newFrame = new Login();
         newFrame.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVolverMouseClicked
+
+    private void txtTokenKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTokenKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTokenKeyReleased
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -301,11 +264,11 @@ public class verifToken extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lbMin;
-    private javax.swing.JLabel lbMinimo2;
+    private javax.swing.JLabel lbMin2;
     private Design.PanelRound panelRound1;
     private Design.PanelRound panelRound2;
     private Design.TextFieldSV txtDui;
-    private Design.PasswordField txtToken;
+    private Design.TextFieldSV txtToken;
     // End of variables declaration//GEN-END:variables
 
 }

@@ -58,7 +58,7 @@ public class Registro extends javax.swing.JFrame {
         initComponents();
         lbDisp.setVisible(false);
         lbFalso.setVisible(false);
-        loadCombo(cbCargo);
+        loadCombo(cbEsp);
 
         GlassPanePopup.install(this);
 
@@ -77,6 +77,12 @@ public class Registro extends javax.swing.JFrame {
         lbMinimo2.setVisible(false);
         
         if (idTipoUs == 2) {//RECEPCIONISTA
+            
+        }
+        if (idTipoUs == 4) {//Doctor
+            
+        }
+        if (idTipoUs == 5) {//Asistente
             
         }
         
@@ -109,15 +115,26 @@ public class Registro extends javax.swing.JFrame {
         txtUsuario = new Design.TextFieldSV();
         txtCorreo = new Design.TextFieldSV();
         txtContra = new Design.PasswordField();
-        cbCargo = new Design.Combobox();
+        cbEsp = new Design.Combobox();
         lbDisp = new javax.swing.JLabel();
         lbMin1 = new javax.swing.JLabel();
         lbMin = new javax.swing.JLabel();
         lbMinimo2 = new javax.swing.JLabel();
+        txtNombre = new Design.TextFieldSV();
+        txtNombre1 = new Design.TextFieldSV();
+        txtNombre2 = new Design.TextFieldSV();
+        cbSexo = new Design.Combobox();
+        jLabel5 = new javax.swing.JLabel();
+        dpNaci = new com.toedter.calendar.JDateChooser();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         Titulo = new javax.swing.JLabel();
         btnVolver = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lbAsign = new javax.swing.JLabel();
+        lbDoc = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -138,22 +155,22 @@ public class Registro extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Usuario");
-        panelRound2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 70, -1));
+        panelRound2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 70, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Correo electrónico");
-        panelRound2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 150, -1));
+        panelRound2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 150, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Contraseña");
-        panelRound2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, -1, -1));
+        jLabel1.setText("Apellidos");
+        panelRound2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 20, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("Teléfono");
-        panelRound2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 70, -1));
+        jLabel7.setText("Especialidad");
+        panelRound2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 110, -1));
 
         btnRegistrar.setForeground(new java.awt.Color(0, 0, 0));
         btnRegistrar.setText("Registrar");
@@ -165,12 +182,12 @@ public class Registro extends javax.swing.JFrame {
                 btnRegistrarActionPerformed(evt);
             }
         });
-        panelRound2.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 310, 120, 50));
+        panelRound2.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 330, 160, 60));
 
         lbFalso.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbFalso.setForeground(new java.awt.Color(0, 0, 0));
         lbFalso.setText("Correo electrónico falso");
-        panelRound2.add(lbFalso, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 150, -1));
+        panelRound2.add(lbFalso, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 150, -1));
 
         txtTeléfono.setBackground(new java.awt.Color(190, 233, 232));
         txtTeléfono.setShadowColor(new java.awt.Color(0, 0, 51));
@@ -190,7 +207,7 @@ public class Registro extends javax.swing.JFrame {
                 txtTeléfonoKeyTyped(evt);
             }
         });
-        panelRound2.add(txtTeléfono, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, 180, -1));
+        panelRound2.add(txtTeléfono, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 200, 180, -1));
 
         txtUsuario.setBackground(new java.awt.Color(190, 233, 232));
         txtUsuario.setShadowColor(new java.awt.Color(0, 0, 51));
@@ -210,7 +227,7 @@ public class Registro extends javax.swing.JFrame {
                 txtUsuarioKeyTyped(evt);
             }
         });
-        panelRound2.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 210, -1));
+        panelRound2.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 210, -1));
 
         txtCorreo.setBackground(new java.awt.Color(190, 233, 232));
         txtCorreo.setShadowColor(new java.awt.Color(0, 0, 51));
@@ -227,7 +244,7 @@ public class Registro extends javax.swing.JFrame {
                 txtCorreoKeyTyped(evt);
             }
         });
-        panelRound2.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 210, -1));
+        panelRound2.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 210, -1));
 
         txtContra.setBackground(new java.awt.Color(190, 233, 232));
         txtContra.setShadowColor(new java.awt.Color(0, 0, 51));
@@ -247,22 +264,22 @@ public class Registro extends javax.swing.JFrame {
                 txtContraKeyTyped(evt);
             }
         });
-        panelRound2.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 180, -1));
+        panelRound2.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 180, -1));
 
-        cbCargo.setBackground(new java.awt.Color(190, 233, 232));
-        cbCargo.setForeground(new java.awt.Color(0, 0, 0));
-        cbCargo.setLabeText("Nivel de Usuario");
-        cbCargo.addActionListener(new java.awt.event.ActionListener() {
+        cbEsp.setBackground(new java.awt.Color(190, 233, 232));
+        cbEsp.setForeground(new java.awt.Color(0, 0, 0));
+        cbEsp.setLabeText("Especialidad");
+        cbEsp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbCargoActionPerformed(evt);
+                cbEspActionPerformed(evt);
             }
         });
-        panelRound2.add(cbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 60, 160, 40));
+        panelRound2.add(cbEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, 200, 40));
 
         lbDisp.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbDisp.setForeground(new java.awt.Color(0, 0, 0));
         lbDisp.setText("Usuario no disponible");
-        panelRound2.add(lbDisp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 140, -1));
+        panelRound2.add(lbDisp, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 140, -1));
 
         lbMin1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbMin1.setForeground(new java.awt.Color(0, 0, 0));
@@ -272,7 +289,7 @@ public class Registro extends javax.swing.JFrame {
                 lbMin1KeyTyped(evt);
             }
         });
-        panelRound2.add(lbMin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 230, 140, -1));
+        panelRound2.add(lbMin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 140, -1));
 
         lbMin.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbMin.setForeground(new java.awt.Color(0, 0, 0));
@@ -282,19 +299,89 @@ public class Registro extends javax.swing.JFrame {
                 lbMinKeyTyped(evt);
             }
         });
-        panelRound2.add(lbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 140, -1));
+        panelRound2.add(lbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 140, -1));
 
         lbMinimo2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbMinimo2.setForeground(new java.awt.Color(0, 0, 0));
         lbMinimo2.setText("Minimo de digitos 4");
-        panelRound2.add(lbMinimo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 150, -1));
+        panelRound2.add(lbMinimo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 150, -1));
 
-        panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 1030, 460));
+        txtNombre.setBackground(new java.awt.Color(190, 233, 232));
+        txtNombre.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNombreKeyReleased(evt);
+            }
+        });
+        panelRound2.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 200, 190, -1));
+
+        txtNombre1.setBackground(new java.awt.Color(190, 233, 232));
+        txtNombre1.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtNombre1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNombre1KeyReleased(evt);
+            }
+        });
+        panelRound2.add(txtNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 50, 250, -1));
+
+        txtNombre2.setBackground(new java.awt.Color(190, 233, 232));
+        txtNombre2.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtNombre2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNombre2KeyReleased(evt);
+            }
+        });
+        panelRound2.add(txtNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 50, 240, -1));
+
+        cbSexo.setBackground(new java.awt.Color(190, 233, 232));
+        cbSexo.setForeground(new java.awt.Color(0, 0, 0));
+        cbSexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Femenino", "Masculino" }));
+        cbSexo.setLabeText("");
+        cbSexo.setLineColor(new java.awt.Color(255, 255, 255));
+        cbSexo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbSexoActionPerformed(evt);
+            }
+        });
+        panelRound2.add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 160, 40));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("Nacimiento");
+        panelRound2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 170, -1, -1));
+        panelRound2.add(dpNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 200, 240, 40));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("Nombres");
+        panelRound2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 20, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel10.setText("Dui");
+        panelRound2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 170, -1, -1));
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel11.setText("Teléfono");
+        panelRound2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 70, -1));
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel12.setText("Sexo");
+        panelRound2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 40, -1));
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel13.setText("Contraseña");
+        panelRound2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, -1, -1));
+
+        panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 1090, 470));
 
         Titulo.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
         Titulo.setForeground(new java.awt.Color(0, 0, 0));
         Titulo.setText("Registro");
-        panelRound1.add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
+        panelRound1.add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 30, -1, -1));
 
         btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
         btnVolver.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -302,23 +389,27 @@ public class Registro extends javax.swing.JFrame {
                 btnVolverMouseClicked(evt);
             }
         });
-        panelRound1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 50, 50));
+        panelRound1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 50, 50));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clinica 64px.png"))); // NOI18N
-        panelRound1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 10, -1, -1));
+        lbAsign.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbAsign.setForeground(new java.awt.Color(0, 0, 0));
+        lbAsign.setText("Doctor asignado");
+        panelRound1.add(lbAsign, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 30, -1, -1));
 
-        jLabel3.setText("VetSoft+");
-        panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, -1, -1));
+        lbDoc.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbDoc.setForeground(new java.awt.Color(0, 0, 0));
+        lbDoc.setText("Nombre");
+        panelRound1.add(lbDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 60, 310, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1081, Short.MAX_VALUE)
+            .addComponent(panelRound1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, 598, Short.MAX_VALUE)
+            .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, 605, Short.MAX_VALUE)
         );
 
         pack();
@@ -338,7 +429,7 @@ public class Registro extends javax.swing.JFrame {
             GlassPanePopup.showPopup(obj);
         } else {
             ctUser ctUs = new ctUser();
-            ctUs.idTipoCuenta = dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
+            ctUs.idTipoCuenta = dsg.getMap(cbMap, cbEsp.getSelectedItem().toString());
 
             ctUs.usuario = txtUsuario.getText();
             try {
@@ -373,11 +464,11 @@ public class Registro extends javax.swing.JFrame {
 
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
-    private void cbCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCargoActionPerformed
+    private void cbEspActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEspActionPerformed
         // TODO add your handling code here:
-        tpUs = dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
+        tpUs = dsg.getMap(cbMap, cbEsp.getSelectedItem().toString());
         System.out.println("ID seleccionado: " + tpUs);
-    }//GEN-LAST:event_cbCargoActionPerformed
+    }//GEN-LAST:event_cbEspActionPerformed
 
     private void txtUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyPressed
         // TODO add your handling code here:
@@ -530,6 +621,22 @@ public class Registro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTeléfonoKeyPressed
 
+    private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreKeyReleased
+
+    private void txtNombre1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombre1KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombre1KeyReleased
+
+    private void txtNombre2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombre2KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombre2KeyReleased
+
+    private void cbSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSexoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbSexoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -569,14 +676,22 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JLabel Titulo;
     private Design.ButtonGradient btnRegistrar;
     private javax.swing.JLabel btnVolver;
-    private Design.Combobox cbCargo;
+    private Design.Combobox cbEsp;
+    private Design.Combobox cbSexo;
+    private com.toedter.calendar.JDateChooser dpNaci;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel lbAsign;
     private javax.swing.JLabel lbDisp;
+    private javax.swing.JLabel lbDoc;
     private javax.swing.JLabel lbFalso;
     private javax.swing.JLabel lbMin;
     private javax.swing.JLabel lbMin1;
@@ -585,6 +700,9 @@ public class Registro extends javax.swing.JFrame {
     private Design.PanelRound panelRound2;
     private Design.PasswordField txtContra;
     private Design.TextFieldSV txtCorreo;
+    private Design.TextFieldSV txtNombre;
+    private Design.TextFieldSV txtNombre1;
+    private Design.TextFieldSV txtNombre2;
     private Design.TextFieldSV txtTeléfono;
     private Design.TextFieldSV txtUsuario;
     // End of variables declaration//GEN-END:variables
