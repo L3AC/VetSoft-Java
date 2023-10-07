@@ -351,7 +351,7 @@ public class crearTok extends javax.swing.JPanel {
     }//GEN-LAST:event_txtBusqActionPerformed
 
     private void btnTokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTokActionPerformed
-        if (txtDui.getText().isEmpty()) {
+        if (txtDui.getText().isEmpty()||txtCorreo.getText().isEmpty()) {
             CódigoErrorDSI5 obj = new CódigoErrorDSI5();
             obj.eventOK(new ActionListener() {
                 @Override
