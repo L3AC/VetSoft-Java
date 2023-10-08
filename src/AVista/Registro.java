@@ -4,6 +4,7 @@
  */
 package AVista;
 
+import AControlador.ctEsp;
 import AControlador.ctTipoUs;
 import AControlador.ctUser;
 import AModelo.Crypt;
@@ -58,7 +59,7 @@ public class Registro extends javax.swing.JFrame {
         initComponents();
         lbDisp.setVisible(false);
         lbFalso.setVisible(false);
-        loadCombo(cbEsp);
+        loadEsp(cbEsp);
 
         GlassPanePopup.install(this);
 
@@ -75,25 +76,28 @@ public class Registro extends javax.swing.JFrame {
         lbMin.setVisible(false);
         lbMin1.setVisible(false);
         lbMinimo2.setVisible(false);
+        lbEsp.setVisible(false);cbEsp.setVisible(false);
+        lbAsign.setVisible(false);lbDoc.setVisible(false);
         
         if (idTipoUs == 2) {//RECEPCIONISTA
             
         }
         if (idTipoUs == 4) {//Doctor
-            
+            lbEsp.setVisible(true);cbEsp.setVisible(true);
         }
         if (idTipoUs == 5) {//Asistente
-            
+            lbAsign.setVisible(true);lbDoc.setVisible(true);
         }
         
     }
 
 //Esto nos ayudara a que el comboBox cargue los tipos de usuarios disponibles dentro del sistema de escritorio que se pueden registrar
-    private void loadCombo(JComboBox cb) throws SQLException {
-        ResultSet rs = ctTP.selectUser();
+    private void loadEsp(JComboBox cb) throws SQLException {
+        ctEsp ct = new ctEsp();
+        ResultSet rs = ct.loadEsp();
         while (rs.next()) {
-            int idTP = rs.getInt("idTipoUsuario");
-            String nombre = rs.getString("nivel");
+            int idTP = rs.getInt("idEspecialidad");
+            String nombre = rs.getString("Especialidad");
             cb.addItem(nombre);
             cbMap.put(idTP, nombre);
         }
@@ -108,7 +112,7 @@ public class Registro extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        lbEsp = new javax.swing.JLabel();
         btnRegistrar = new Design.ButtonGradient();
         lbFalso = new javax.swing.JLabel();
         txtTeléfono = new Design.TextFieldSV();
@@ -167,10 +171,10 @@ public class Registro extends javax.swing.JFrame {
         jLabel1.setText("Apellidos");
         panelRound2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 20, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("Especialidad");
-        panelRound2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 110, -1));
+        lbEsp.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbEsp.setForeground(new java.awt.Color(0, 0, 0));
+        lbEsp.setText("Especialidad");
+        panelRound2.add(lbEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 110, -1));
 
         btnRegistrar.setForeground(new java.awt.Color(0, 0, 0));
         btnRegistrar.setText("Registrar");
@@ -686,12 +690,12 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lbAsign;
     private javax.swing.JLabel lbDisp;
     private javax.swing.JLabel lbDoc;
+    private javax.swing.JLabel lbEsp;
     private javax.swing.JLabel lbFalso;
     private javax.swing.JLabel lbMin;
     private javax.swing.JLabel lbMin1;
