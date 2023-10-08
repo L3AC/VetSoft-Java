@@ -339,21 +339,38 @@ public class crearTok extends javax.swing.JPanel {
             });
             GlassPanePopup.showPopup(obj);
         } else {
-            ctPreRegistro ct = new ctPreRegistro();
+
             String token = GenerC(10);
+            //VERIFICAR SI SE ENVIA
+            if (Em(txtCorreo.getText(), token)) {
+                //MENSAJE
+                CódigoErrorDSI11 obj = new CódigoErrorDSI11();
+                obj.eventOK(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        GlassPanePopup.closePopupLast();
+                    }
+                });
+                GlassPanePopup.showPopup(obj);
+                //REGISTRO
+                ctPreRegistro ct = new ctPreRegistro();
+                ct.idNivelUs = dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
+                ct.dui = txtDui.getText();
+                ct.token = token;
+                if (dsg.getMap(cbMap, cbCargo.getSelectedItem().toString()) == 5) {
+                    ct.idDoc = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
+                } else {
+                    ct.idDoc = 0;
+                }
+                ct.insertT();
 
-            ct.idNivelUs = dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
-            ct.dui = txtDui.getText();
-            ct.token = token;
-            if (dsg.getMap(cbMap, cbCargo.getSelectedItem().toString()) == 5) {
-                ct.idDoc = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
             } else {
-                ct.idDoc = 0;
+                
             }
 
-            if (ct.insertT()) {//SI SE PUEDE REGISTRAR
+            /*if (ct.insertT()) {//SI SE PUEDE REGISTRAR
                 Em(txtCorreo.getText(), token);
-            }
+            }*/
         }
 
     }//GEN-LAST:event_btnTokActionPerformed
@@ -407,14 +424,14 @@ public class crearTok extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         if (txtDui.getText().length() >= 10) {
-                lbDui1.setVisible(false);
-                btnTok.setEnabled(true);
-            } else {
-                lbDui1.setVisible(true);
-                btnTok.setEnabled(false);
-            }
+            lbDui1.setVisible(false);
+            btnTok.setEnabled(true);
+        } else {
+            lbDui1.setVisible(true);
+            btnTok.setEnabled(false);
+        }
     }//GEN-LAST:event_txtDuiKeyReleased
 
 
@@ -438,7 +455,7 @@ public class crearTok extends javax.swing.JPanel {
     private void txtBusq1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusq1KeyReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBusq1KeyReleased
-    public void Em(String txt, String clave) {
+    public boolean Em(String txt, String clave) {
         try {
             Properties props = new Properties();
             props.put("mail.smtp.host", "smtp.gmail.com");
@@ -665,20 +682,16 @@ public class crearTok extends javax.swing.JPanel {
             t.sendMessage(msg, msg.getRecipients(Message.RecipientType.TO));
             t.close();
 
-            CódigoErrorDSI11 obj = new CódigoErrorDSI11();
-            obj.eventOK(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent ae) {
-                    GlassPanePopup.closePopupLast();
-                }
-            });
-            GlassPanePopup.showPopup(obj);
+            return true;
+
         } catch (AddressException e) {
             JOptionPane.showMessageDialog(null, e.toString());
             System.out.println(e.toString());
+            return false;
         } catch (MessagingException e) {
             JOptionPane.showMessageDialog(null, e.toString());
             System.out.println(e.toString());
+            return false;
         }
     }
 

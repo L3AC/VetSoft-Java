@@ -65,7 +65,7 @@ public class Registro extends javax.swing.JFrame {
         GlassPanePopup.install(this);
         initComponents();
         lbDisp.setVisible(false);
-        lbFalso.setVisible(false);
+        lbMinCor.setVisible(false);
         loadEsp(cbEsp);
 
         GlassPanePopup.install(this);
@@ -83,12 +83,11 @@ public class Registro extends javax.swing.JFrame {
         ImageIcon icon = new ImageIcon(iconPath);
         setIconImage(icon.getImage());
         setTitle("VetSoft");
-        lbMin.setVisible(false);
-        lbMin1.setVisible(false);
-        lbMinimo2.setVisible(false);
-        lbEsp.setVisible(false);
-        cbEsp.setVisible(false);
-        lbAsign.setVisible(false);
+        lbMinCon.setVisible(false);lbMinT.setVisible(false);
+        lbMinAp.setVisible(false);lbMinN.setVisible(false);
+        lbMinCor.setVisible(false);
+        lbMinUs.setVisible(false);lbEsp.setVisible(false);
+        cbEsp.setVisible(false);lbAsign.setVisible(false);
         lbDoc.setVisible(false);
 
         if (idTipoUs == 2) {//RECEPCIONISTA
@@ -132,16 +131,16 @@ public class Registro extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         lbEsp = new javax.swing.JLabel();
         btnRegistrar = new Design.ButtonGradient();
-        lbFalso = new javax.swing.JLabel();
+        lbMinCor = new javax.swing.JLabel();
         txtTel = new Design.TextFieldSV();
         txtUsuario = new Design.TextFieldSV();
         txtCorreo = new Design.TextFieldSV();
         txtContra = new Design.PasswordField();
         cbEsp = new Design.Combobox();
         lbDisp = new javax.swing.JLabel();
-        lbMin1 = new javax.swing.JLabel();
-        lbMin = new javax.swing.JLabel();
-        lbMinimo2 = new javax.swing.JLabel();
+        lbMinT = new javax.swing.JLabel();
+        lbMinCon = new javax.swing.JLabel();
+        lbMinUs = new javax.swing.JLabel();
         txtDui = new Design.TextFieldSV();
         txtNombre = new Design.TextFieldSV();
         txtApellidos = new Design.TextFieldSV();
@@ -153,11 +152,10 @@ public class Registro extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        lbMin2 = new javax.swing.JLabel();
-        lbMin3 = new javax.swing.JLabel();
-        lbMin4 = new javax.swing.JLabel();
+        lbMinD = new javax.swing.JLabel();
+        lbMinAp = new javax.swing.JLabel();
+        lbMinN = new javax.swing.JLabel();
         Titulo = new javax.swing.JLabel();
-        btnVolver = new javax.swing.JLabel();
         lbAsign = new javax.swing.JLabel();
         lbDoc = new javax.swing.JLabel();
 
@@ -209,47 +207,25 @@ public class Registro extends javax.swing.JFrame {
         });
         panelRound2.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 340, 160, 50));
 
-        lbFalso.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lbFalso.setForeground(new java.awt.Color(0, 0, 0));
-        lbFalso.setText("Correo electrónico falso");
-        panelRound2.add(lbFalso, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 150, -1));
+        lbMinCor.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbMinCor.setForeground(new java.awt.Color(0, 0, 0));
+        lbMinCor.setText("Correo electrónico falso");
+        panelRound2.add(lbMinCor, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 150, -1));
 
         txtTel.setBackground(new java.awt.Color(190, 233, 232));
         txtTel.setShadowColor(new java.awt.Color(0, 0, 51));
-        txtTel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTelActionPerformed(evt);
-            }
-        });
         txtTel.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtTelKeyPressed(evt);
-            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtTelKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtTelKeyTyped(evt);
             }
         });
         panelRound2.add(txtTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 200, 180, -1));
 
         txtUsuario.setBackground(new java.awt.Color(190, 233, 232));
         txtUsuario.setShadowColor(new java.awt.Color(0, 0, 51));
-        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsuarioActionPerformed(evt);
-            }
-        });
         txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtUsuarioKeyPressed(evt);
-            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtUsuarioKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtUsuarioKeyTyped(evt);
             }
         });
         panelRound2.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 210, -1));
@@ -265,28 +241,14 @@ public class Registro extends javax.swing.JFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtCorreoKeyReleased(evt);
             }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtCorreoKeyTyped(evt);
-            }
         });
         panelRound2.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 210, -1));
 
         txtContra.setBackground(new java.awt.Color(190, 233, 232));
         txtContra.setShadowColor(new java.awt.Color(0, 0, 51));
-        txtContra.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtContraActionPerformed(evt);
-            }
-        });
         txtContra.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtContraKeyPressed(evt);
-            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtContraKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtContraKeyTyped(evt);
             }
         });
         panelRound2.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 180, -1));
@@ -306,30 +268,33 @@ public class Registro extends javax.swing.JFrame {
         lbDisp.setText("Usuario no disponible");
         panelRound2.add(lbDisp, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 140, -1));
 
-        lbMin1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lbMin1.setForeground(new java.awt.Color(0, 0, 0));
-        lbMin1.setText("Minimo de digitos 8");
-        lbMin1.addKeyListener(new java.awt.event.KeyAdapter() {
+        lbMinT.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbMinT.setForeground(new java.awt.Color(0, 0, 0));
+        lbMinT.setText("Minimo de digitos 8");
+        lbMinT.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                lbMin1KeyTyped(evt);
+                lbMinTKeyTyped(evt);
             }
         });
-        panelRound2.add(lbMin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 140, -1));
+        panelRound2.add(lbMinT, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 140, -1));
 
-        lbMin.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lbMin.setForeground(new java.awt.Color(0, 0, 0));
-        lbMin.setText("Minimo de digitos 8");
-        lbMin.addKeyListener(new java.awt.event.KeyAdapter() {
+        lbMinCon.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbMinCon.setForeground(new java.awt.Color(0, 0, 0));
+        lbMinCon.setText("Minimo de digitos 8");
+        lbMinCon.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                lbMinConKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                lbMinKeyTyped(evt);
+                lbMinConKeyTyped(evt);
             }
         });
-        panelRound2.add(lbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 140, -1));
+        panelRound2.add(lbMinCon, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 140, -1));
 
-        lbMinimo2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lbMinimo2.setForeground(new java.awt.Color(0, 0, 0));
-        lbMinimo2.setText("Minimo de digitos 4");
-        panelRound2.add(lbMinimo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 150, -1));
+        lbMinUs.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbMinUs.setForeground(new java.awt.Color(0, 0, 0));
+        lbMinUs.setText("Minimo de digitos 4");
+        panelRound2.add(lbMinUs, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 150, -1));
 
         txtDui.setBackground(new java.awt.Color(190, 233, 232));
         txtDui.setShadowColor(new java.awt.Color(0, 0, 51));
@@ -401,35 +366,35 @@ public class Registro extends javax.swing.JFrame {
         jLabel13.setText("Contraseña");
         panelRound2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, -1, -1));
 
-        lbMin2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lbMin2.setForeground(new java.awt.Color(0, 0, 0));
-        lbMin2.setText("Minimo de digitos 10");
-        lbMin2.addKeyListener(new java.awt.event.KeyAdapter() {
+        lbMinD.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbMinD.setForeground(new java.awt.Color(0, 0, 0));
+        lbMinD.setText("Minimo de digitos 10");
+        lbMinD.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                lbMin2KeyTyped(evt);
+                lbMinDKeyTyped(evt);
             }
         });
-        panelRound2.add(lbMin2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, 140, -1));
+        panelRound2.add(lbMinD, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, 140, -1));
 
-        lbMin3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lbMin3.setForeground(new java.awt.Color(0, 0, 0));
-        lbMin3.setText("Minimo de digitos 5");
-        lbMin3.addKeyListener(new java.awt.event.KeyAdapter() {
+        lbMinAp.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbMinAp.setForeground(new java.awt.Color(0, 0, 0));
+        lbMinAp.setText("Minimo de digitos 5");
+        lbMinAp.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                lbMin3KeyTyped(evt);
+                lbMinApKeyTyped(evt);
             }
         });
-        panelRound2.add(lbMin3, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 90, 140, -1));
+        panelRound2.add(lbMinAp, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 90, 140, -1));
 
-        lbMin4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lbMin4.setForeground(new java.awt.Color(0, 0, 0));
-        lbMin4.setText("Minimo de digitos 5");
-        lbMin4.addKeyListener(new java.awt.event.KeyAdapter() {
+        lbMinN.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbMinN.setForeground(new java.awt.Color(0, 0, 0));
+        lbMinN.setText("Minimo de digitos 5");
+        lbMinN.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                lbMin4KeyTyped(evt);
+                lbMinNKeyTyped(evt);
             }
         });
-        panelRound2.add(lbMin4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, 140, -1));
+        panelRound2.add(lbMinN, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, 140, -1));
 
         panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 1090, 470));
 
@@ -437,14 +402,6 @@ public class Registro extends javax.swing.JFrame {
         Titulo.setForeground(new java.awt.Color(0, 0, 0));
         Titulo.setText("Registro");
         panelRound1.add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 30, -1, -1));
-
-        btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
-        btnVolver.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnVolverMouseClicked(evt);
-            }
-        });
-        panelRound1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 50, 50));
 
         lbAsign.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbAsign.setForeground(new java.awt.Color(0, 0, 0));
@@ -587,43 +544,11 @@ public class Registro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCorreoActionPerformed
 
-    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_txtUsuarioActionPerformed
-
     private void cbEspActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEspActionPerformed
         // TODO add your handling code here:
         tpUs = dsg.getMap(cbMap, cbEsp.getSelectedItem().toString());
         System.out.println("ID seleccionado: " + tpUs);
     }//GEN-LAST:event_cbEspActionPerformed
-
-    private void txtUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsuarioKeyPressed
-
-    private void txtUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyTyped
-        // TODO add your handling code here:
-        //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros, donde si solo escribe dos numeros le saldra un texfield
-
-    }//GEN-LAST:event_txtUsuarioKeyTyped
-
-    private void txtContraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyTyped
-        // TODO add your handling code here:
-        //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros, donde si solo escribe dos numeros le saldra un texfield
-
-    }//GEN-LAST:event_txtContraKeyTyped
-
-    private void txtCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCorreoKeyTyped
-
-    //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros donde si solo escribe dos numeros le saldra un texfield
-    private void txtTelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelKeyTyped
-        // TODO add your handling code here:
-
-
-    }//GEN-LAST:event_txtTelKeyTyped
 
     //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros, donde si solo escribe dos numeros le saldra un texfield
     //Esto nos ayuda a verificar si el correo electronico es verdadero llamando a una libreria anteriormente puesta en el en apartado de librerias donde solamente se manda a llamar para validar
@@ -633,12 +558,12 @@ public class Registro extends javax.swing.JFrame {
         if (EmailValidator.getInstance().isValid(txtCorreo.getText())) {
             //if(verificar_Email(jTextField1.getText())){    
 
-            lbFalso.setVisible(false);
+            lbMinCor.setVisible(false);
             btnRegistrar.setEnabled(true);
 
         } else {
 
-            lbFalso.setVisible(true);
+            lbMinCor.setVisible(true);
             btnRegistrar.setEnabled(false);
 
         }
@@ -664,59 +589,41 @@ public class Registro extends javax.swing.JFrame {
         }
 
         if (txtUsuario.getText().length() >= 4 && txtTel.getText().length() >= 8 && txtContra.getText().length() >= 8 && txtDui.getText().length() >= 10 && txtNombre.getText().length() >= 5 && txtApellidos.getText().length() >= 5 && dpNaci.getDate() == null) {
-            lbMinimo2.setVisible(false);
+            lbMinUs.setVisible(false);
             btnRegistrar.setEnabled(true);
         } else {
             if (txtUsuario.getText().length() >= 4) {
-                lbMinimo2.setVisible(false);
-                btnRegistrar.setEnabled(false);
+                lbMinUs.setVisible(false);
+                btnRegistrar.setEnabled(true);
             } else {
-                lbMinimo2.setVisible(true);
+                lbMinUs.setVisible(true);
                 btnRegistrar.setEnabled(false);
             }
         }
     }//GEN-LAST:event_txtUsuarioKeyReleased
 
-    private void txtTelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelActionPerformed
-
-    }//GEN-LAST:event_txtTelActionPerformed
-
-    private void txtContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraActionPerformed
+    private void lbMinConKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lbMinConKeyTyped
         // TODO add your handling code here:
 
+    }//GEN-LAST:event_lbMinConKeyTyped
 
-    }//GEN-LAST:event_txtContraActionPerformed
-
-    //Este apartado nos ayudara a volver a la pantalla anterior donde se podra ver por medio de una flecha
-    private void btnVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseClicked
+    private void lbMinTKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lbMinTKeyTyped
         // TODO add your handling code here:
-        Login newFrame = new Login();
-        newFrame.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btnVolverMouseClicked
-
-    private void lbMinKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lbMinKeyTyped
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_lbMinKeyTyped
-
-    private void lbMin1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lbMin1KeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lbMin1KeyTyped
+    }//GEN-LAST:event_lbMinTKeyTyped
 
     //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros, donde si solo escribe dos numeros le saldra un texfield
     private void txtContraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyReleased
         // TODO add your handling code here:
         if (txtContra.getText().length() >= 8 && txtUsuario.getText().length() >= 4 && txtTel.getText().length() >= 8 && txtDui.getText().length() >= 10 && txtNombre.getText().length() >= 5 && txtApellidos.getText().length() >= 5 && dpNaci.getDate() == null) {
-            lbMin.setVisible(false);
+            lbMinCon.setVisible(false);
             btnRegistrar.setEnabled(true);
 
         } else {
             if (txtContra.getText().length() >= 8) {
-                lbMin.setVisible(false);
-                btnRegistrar.setEnabled(false);
+                lbMinCon.setVisible(false);
+                btnRegistrar.setEnabled(true);
             } else {
-                lbMin.setVisible(true);
+                lbMinCon.setVisible(true);
                 btnRegistrar.setEnabled(false);
             }
 
@@ -727,39 +634,30 @@ public class Registro extends javax.swing.JFrame {
     private void txtTelKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelKeyReleased
         // TODO add your handling code here:
         if (txtTel.getText().length() >= 8 && txtUsuario.getText().length() >= 4 && txtContra.getText().length() >= 8 && txtDui.getText().length() >= 10 && txtNombre.getText().length() >= 5 && txtApellidos.getText().length() >= 5 && dpNaci.getDate() == null) {
-            lbMin1.setVisible(false);
+            lbMinT.setVisible(false);
             btnRegistrar.setEnabled(true);
         } else {
             if (txtTel.getText().length() >= 8) {
-                lbMin1.setVisible(false);
-                btnRegistrar.setEnabled(false);
+                lbMinT.setVisible(false);
+                btnRegistrar.setEnabled(true);
             } else {
-                lbMin1.setVisible(true);
+                lbMinT.setVisible(true);
                 btnRegistrar.setEnabled(false);
             }
         }
     }//GEN-LAST:event_txtTelKeyReleased
 
-    private void txtContraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyPressed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_txtContraKeyPressed
-
-    private void txtTelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelKeyPressed
-
     private void txtDuiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDuiKeyReleased
         // TODO add your handling code here:
         if (txtDui.getText().length() >= 10 && txtUsuario.getText().length() >= 4 && txtContra.getText().length() >= 8 && txtNombre.getText().length() >= 5 && txtTel.getText().length() >= 8 && txtApellidos.getText().length() >= 5 && dpNaci.getDate() == null) {
-            lbMin1.setVisible(false);
+            lbMinD.setVisible(false);
             btnRegistrar.setEnabled(true);
         } else {
             if (txtDui.getText().length() >= 10) {
-                lbMin1.setVisible(false);
-                btnRegistrar.setEnabled(false);
+                lbMinD.setVisible(false);
+                btnRegistrar.setEnabled(true);
             } else {
-                txtDui.setVisible(true);
+                lbMinD.setVisible(true);
                 btnRegistrar.setEnabled(false);
             }
         }
@@ -768,14 +666,14 @@ public class Registro extends javax.swing.JFrame {
     private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
         // TODO add your handling code here:
         if (txtNombre.getText().length() >= 5 && txtUsuario.getText().length() >= 4 && txtContra.getText().length() >= 8 && txtDui.getText().length() >= 10 && txtTel.getText().length() >= 8 && txtApellidos.getText().length() >= 5 && dpNaci.getDate() == null) {
-            lbMin1.setVisible(false);
+            lbMinN.setVisible(false);
             btnRegistrar.setEnabled(true);
         } else {
             if (txtNombre.getText().length() >= 5) {
-                lbMin1.setVisible(false);
-                btnRegistrar.setEnabled(false);
+                lbMinN.setVisible(false);
+                btnRegistrar.setEnabled(true);
             } else {
-                txtNombre.setVisible(true);
+                lbMinN.setVisible(true);
                 btnRegistrar.setEnabled(false);
             }
         }
@@ -784,14 +682,14 @@ public class Registro extends javax.swing.JFrame {
     private void txtApellidosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidosKeyReleased
         // TODO add your handling code here:
         if (txtApellidos.getText().length() >= 5 && txtUsuario.getText().length() >= 4 && txtContra.getText().length() >= 8 && txtDui.getText().length() >= 10 && txtTel.getText().length() >= 8 && txtNombre.getText().length() >= 5 && dpNaci.getDate() == null) {
-            lbMin1.setVisible(false);
+            lbMinAp.setVisible(false);
             btnRegistrar.setEnabled(true);
         } else {
             if (txtApellidos.getText().length() >= 5) {
-                lbMin1.setVisible(false);
-                btnRegistrar.setEnabled(false);
+                lbMinAp.setVisible(false);
+                btnRegistrar.setEnabled(true);
             } else {
-                txtApellidos.setVisible(true);
+                lbMinAp.setVisible(true);
                 btnRegistrar.setEnabled(false);
             }
         }
@@ -801,17 +699,21 @@ public class Registro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbSexoActionPerformed
 
-    private void lbMin2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lbMin2KeyTyped
+    private void lbMinDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lbMinDKeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_lbMin2KeyTyped
+    }//GEN-LAST:event_lbMinDKeyTyped
 
-    private void lbMin3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lbMin3KeyTyped
+    private void lbMinApKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lbMinApKeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_lbMin3KeyTyped
+    }//GEN-LAST:event_lbMinApKeyTyped
 
-    private void lbMin4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lbMin4KeyTyped
+    private void lbMinNKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lbMinNKeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_lbMin4KeyTyped
+    }//GEN-LAST:event_lbMinNKeyTyped
+
+    private void lbMinConKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lbMinConKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lbMinConKeyReleased
 
     /**
      * @param args the command line arguments
@@ -851,7 +753,6 @@ public class Registro extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Titulo;
     private Design.ButtonGradient btnRegistrar;
-    private javax.swing.JLabel btnVolver;
     private Design.Combobox cbEsp;
     private Design.Combobox cbSexo;
     private com.toedter.calendar.JDateChooser dpNaci;
@@ -868,13 +769,13 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JLabel lbDisp;
     private javax.swing.JLabel lbDoc;
     private javax.swing.JLabel lbEsp;
-    private javax.swing.JLabel lbFalso;
-    private javax.swing.JLabel lbMin;
-    private javax.swing.JLabel lbMin1;
-    private javax.swing.JLabel lbMin2;
-    private javax.swing.JLabel lbMin3;
-    private javax.swing.JLabel lbMin4;
-    private javax.swing.JLabel lbMinimo2;
+    private javax.swing.JLabel lbMinAp;
+    private javax.swing.JLabel lbMinCon;
+    private javax.swing.JLabel lbMinCor;
+    private javax.swing.JLabel lbMinD;
+    private javax.swing.JLabel lbMinN;
+    private javax.swing.JLabel lbMinT;
+    private javax.swing.JLabel lbMinUs;
     private Design.PanelRound panelRound1;
     private Design.PanelRound panelRound2;
     private Design.TextFieldSV txtApellidos;

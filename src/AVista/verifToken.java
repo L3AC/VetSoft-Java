@@ -1,6 +1,7 @@
 package AVista;
 
 import AControlador.ctPreRegistro;
+import Mensajes.CodigodeerrorDLI1;
 import Mensajes.CódigoErrorDSI2;
 import Mensajes.CódigoErrorDSI5;
 import Mensajes.GlassPanePopup;
@@ -80,7 +81,7 @@ public class verifToken extends javax.swing.JFrame {
                 btnConfirmarActionPerformed(evt);
             }
         });
-        panelRound2.add(btnConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 120, 50));
+        panelRound2.add(btnConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 120, 50));
 
         txtDui.setBackground(new java.awt.Color(190, 233, 232));
         txtDui.setShadowColor(new java.awt.Color(0, 0, 51));
@@ -193,6 +194,14 @@ public class verifToken extends javax.swing.JFrame {
                     dispose();
                 } else {
                     //MENSAJE DE QUE LAS CREDENCIALES SON INCORRECTAS
+                    CodigodeerrorDLI1 obj = new CodigodeerrorDLI1();
+                        obj.eventOK(new ActionListener() {
+                            @Override
+                            public void actionPerformed(ActionEvent ae) {
+                                GlassPanePopup.closePopupLast();
+                            }
+                        });
+                        GlassPanePopup.showPopup(obj);
                 }
 
             } catch (SQLException ex) {
