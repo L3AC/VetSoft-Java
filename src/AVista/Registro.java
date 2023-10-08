@@ -25,6 +25,7 @@ import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
@@ -74,7 +75,6 @@ public class Registro extends javax.swing.JFrame {
         txtTel.setDocument(new Valida(8, "[0-9]*"));
         txtContra.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
         txtCorreo.setDocument(new Valida(50, "[a-zA-Z0-9@._]*"));
-        txtTel.setDocument(new Valida(10, "[0-9]*"));
         txtDui.setDocument(new Valida(10, "[0-9-]*"));
         txtApellidos.setDocument(new Valida(50, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         setLocationRelativeTo(null);
@@ -103,6 +103,9 @@ public class Registro extends javax.swing.JFrame {
             lbDoc.setVisible(true);
             selectDoc();
         }
+        Calendar fechaActual = Calendar.getInstance();
+        fechaActual.add(Calendar.YEAR, -18);
+        dpNaci.setMaxSelectableDate(fechaActual.getTime());
 
     }
 

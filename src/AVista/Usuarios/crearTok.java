@@ -44,6 +44,7 @@ public class crearTok extends javax.swing.JPanel {
         this.idTipoUs = idTipoUs;
         initComponents();
         lbDui.setVisible(false);
+        lbDui1.setVisible(false);
         lbFalso.setVisible(false);
         panelR2.setVisible(false);
         loadCombo(cbCargo);
@@ -230,7 +231,7 @@ public class crearTok extends javax.swing.JPanel {
 
         lbDui1.setForeground(new java.awt.Color(0, 0, 0));
         lbDui1.setText("Minimo de digitos 10, incluye el guión (-)");
-        panelRound1.add(lbDui1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 220, 30));
+        panelRound1.add(lbDui1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, 250, 30));
 
         btnTok.setForeground(new java.awt.Color(0, 0, 0));
         btnTok.setText("Enviar token");
@@ -409,7 +410,7 @@ public class crearTok extends javax.swing.JPanel {
         
         if (txtDui.getText().length() >= 10) {
                 lbDui1.setVisible(false);
-                btnTok.setEnabled(false);
+                btnTok.setEnabled(true);
             } else {
                 lbDui1.setVisible(true);
                 btnTok.setEnabled(false);

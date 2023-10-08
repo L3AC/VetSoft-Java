@@ -217,7 +217,7 @@ public class verifToken extends javax.swing.JFrame {
         } else {
             if (txtDui.getText().length() >= 10) {
                 lbMin.setVisible(false);
-                btnConfirmar.setEnabled(false);
+                btnConfirmar.setEnabled(true);
             } else {
                 lbMin.setVisible(true);
                 btnConfirmar.setEnabled(false);
