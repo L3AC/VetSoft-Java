@@ -47,10 +47,10 @@ public class verifToken extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelRound1.setBackground(new java.awt.Color(190, 233, 232));
         panelRound1.setForeground(new java.awt.Color(255, 255, 255));
-        panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelRound2.setBackground(new java.awt.Color(255, 255, 255));
         panelRound2.setForeground(new java.awt.Color(202, 233, 255));
@@ -63,12 +63,12 @@ public class verifToken extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Dui");
-        panelRound2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 40, -1));
+        panelRound2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 40, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Token");
-        panelRound2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, -1, -1));
+        panelRound2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, -1));
 
         btnConfirmar.setForeground(new java.awt.Color(0, 0, 0));
         btnConfirmar.setText("Confirmar");
@@ -80,7 +80,7 @@ public class verifToken extends javax.swing.JFrame {
                 btnConfirmarActionPerformed(evt);
             }
         });
-        panelRound2.add(btnConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 120, 50));
+        panelRound2.add(btnConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 120, 50));
 
         txtDui.setBackground(new java.awt.Color(190, 233, 232));
         txtDui.setShadowColor(new java.awt.Color(0, 0, 51));
@@ -100,17 +100,17 @@ public class verifToken extends javax.swing.JFrame {
                 txtDuiKeyTyped(evt);
             }
         });
-        panelRound2.add(txtDui, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 240, 40));
+        panelRound2.add(txtDui, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 240, 40));
 
         lbMin.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbMin.setForeground(new java.awt.Color(0, 0, 0));
-        lbMin.setText("10 carácteres mínimos");
-        panelRound2.add(lbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 150, -1));
+        lbMin.setText("Minimo de digitos 10, incluye el guión (-)");
+        panelRound2.add(lbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 260, -1));
 
         lbMin2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbMin2.setForeground(new java.awt.Color(0, 0, 0));
-        lbMin2.setText("10 carácteres mínimos");
-        panelRound2.add(lbMin2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 150, -1));
+        lbMin2.setText("Minimo de digitos 10");
+        panelRound2.add(lbMin2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 140, -1));
 
         txtToken.setBackground(new java.awt.Color(190, 233, 232));
         txtToken.setShadowColor(new java.awt.Color(0, 0, 51));
@@ -119,14 +119,11 @@ public class verifToken extends javax.swing.JFrame {
                 txtTokenKeyReleased(evt);
             }
         });
-        panelRound2.add(txtToken, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 240, 40));
-
-        panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 680, 320));
+        panelRound2.add(txtToken, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 240, 40));
 
         Titulo.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
         Titulo.setForeground(new java.awt.Color(0, 0, 0));
         Titulo.setText("Verificación");
-        panelRound1.add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, -1, -1));
 
         btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
         btnVolver.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -134,20 +131,36 @@ public class verifToken extends javax.swing.JFrame {
                 btnVolverMouseClicked(evt);
             }
         });
-        panelRound1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 50, 50));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 748, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
+        panelRound1.setLayout(panelRound1Layout);
+        panelRound1Layout.setHorizontalGroup(
+            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, 515, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelRound1Layout.createSequentialGroup()
+                        .addGap(174, 174, 174)
+                        .addComponent(Titulo)))
+                .addContainerGap())
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+        panelRound1Layout.setVerticalGroup(
+            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelRound1Layout.createSequentialGroup()
+                        .addComponent(Titulo)
+                        .addGap(18, 18, 18)
+                        .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
+
+        getContentPane().add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

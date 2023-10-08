@@ -56,7 +56,6 @@ public class crearTok extends javax.swing.JPanel {
     private void initComponents() {
 
         PCont = new javax.swing.JPanel();
-        btnTok = new Design.ButtonGradient();
         btnBack = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         panelRound1 = new Design.PanelRound();
@@ -75,22 +74,12 @@ public class crearTok extends javax.swing.JPanel {
         lbDui = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         cbCargo = new Design.Combobox();
+        lbDui1 = new javax.swing.JLabel();
+        btnTok = new Design.ButtonGradient();
 
         PCont.setBackground(new java.awt.Color(190, 233, 232));
         PCont.setPreferredSize(new java.awt.Dimension(1320, 810));
         PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnTok.setForeground(new java.awt.Color(0, 0, 0));
-        btnTok.setText("Enviar token");
-        btnTok.setColor1(new java.awt.Color(190, 233, 232));
-        btnTok.setColor2(new java.awt.Color(190, 233, 232));
-        btnTok.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
-        btnTok.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTokActionPerformed(evt);
-            }
-        });
-        PCont.add(btnTok, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 540, 160, 52));
 
         btnBack.setBackground(new java.awt.Color(190, 233, 232));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
@@ -171,7 +160,6 @@ public class crearTok extends javax.swing.JPanel {
         lbDoc.setText("Doctor");
         panelR2.add(lbDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 70, -1));
 
-        txtBusq.setBackground(new java.awt.Color(255, 255, 255));
         txtBusq.setShadowColor(new java.awt.Color(0, 0, 51));
         txtBusq.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,7 +195,7 @@ public class crearTok extends javax.swing.JPanel {
 
         lbFalso.setForeground(new java.awt.Color(0, 0, 0));
         lbFalso.setText("Correo electronico falso");
-        panelRound1.add(lbFalso, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 140, 30));
+        panelRound1.add(lbFalso, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 190, 140, 30));
 
         txtDui.setShadowColor(new java.awt.Color(0, 0, 51));
         txtDui.addActionListener(new java.awt.event.ActionListener() {
@@ -224,7 +212,7 @@ public class crearTok extends javax.swing.JPanel {
 
         lbDui.setForeground(new java.awt.Color(0, 0, 0));
         lbDui.setText("Ya esta relacionado con una cuenta");
-        panelRound1.add(lbDui, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 210, 30));
+        panelRound1.add(lbDui, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, 210, 30));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -239,6 +227,22 @@ public class crearTok extends javax.swing.JPanel {
             }
         });
         panelRound1.add(cbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 190, 40));
+
+        lbDui1.setForeground(new java.awt.Color(0, 0, 0));
+        lbDui1.setText("Minimo de digitos 10, incluye el guión (-)");
+        panelRound1.add(lbDui1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 220, 30));
+
+        btnTok.setForeground(new java.awt.Color(0, 0, 0));
+        btnTok.setText("Enviar token");
+        btnTok.setColor1(new java.awt.Color(190, 233, 232));
+        btnTok.setColor2(new java.awt.Color(190, 233, 232));
+        btnTok.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
+        btnTok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTokActionPerformed(evt);
+            }
+        });
+        panelRound1.add(btnTok, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 350, 150, 40));
 
         PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 1260, 580));
 
@@ -402,6 +406,14 @@ public class crearTok extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        if (txtDui.getText().length() >= 10) {
+                lbDui1.setVisible(false);
+                btnTok.setEnabled(false);
+            } else {
+                lbDui1.setVisible(true);
+                btnTok.setEnabled(false);
+            }
     }//GEN-LAST:event_txtDuiKeyReleased
 
 
@@ -682,6 +694,7 @@ public class crearTok extends javax.swing.JPanel {
     private javax.swing.JLabel lbDoc;
     private javax.swing.JLabel lbDoc1;
     private javax.swing.JLabel lbDui;
+    private javax.swing.JLabel lbDui1;
     private javax.swing.JLabel lbFalso;
     private Design.PanelRound panelR2;
     private Design.PanelRound panelRound1;

@@ -143,10 +143,13 @@ public class Registro extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        Titulo = new javax.swing.JLabel();
-        btnVolver = new javax.swing.JLabel();
         lbAsign = new javax.swing.JLabel();
         lbDoc = new javax.swing.JLabel();
+        lbMin2 = new javax.swing.JLabel();
+        lbMin3 = new javax.swing.JLabel();
+        lbMin4 = new javax.swing.JLabel();
+        Titulo = new javax.swing.JLabel();
+        btnVolver = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -194,7 +197,7 @@ public class Registro extends javax.swing.JFrame {
                 btnRegistrarActionPerformed(evt);
             }
         });
-        panelRound2.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 330, 160, 60));
+        panelRound2.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 380, 150, 40));
 
         lbFalso.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbFalso.setForeground(new java.awt.Color(0, 0, 0));
@@ -311,7 +314,7 @@ public class Registro extends javax.swing.JFrame {
                 lbMinKeyTyped(evt);
             }
         });
-        panelRound2.add(lbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 140, -1));
+        panelRound2.add(lbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 140, -1));
 
         lbMinimo2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbMinimo2.setForeground(new java.awt.Color(0, 0, 0));
@@ -325,7 +328,7 @@ public class Registro extends javax.swing.JFrame {
                 txtDuiKeyReleased(evt);
             }
         });
-        panelRound2.add(txtDui, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 200, 190, -1));
+        panelRound2.add(txtDui, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, 260, -1));
 
         txtNombre.setBackground(new java.awt.Color(190, 233, 232));
         txtNombre.setShadowColor(new java.awt.Color(0, 0, 51));
@@ -388,6 +391,46 @@ public class Registro extends javax.swing.JFrame {
         jLabel13.setText("Contraseña");
         panelRound2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, -1, -1));
 
+        lbAsign.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbAsign.setForeground(new java.awt.Color(0, 0, 0));
+        lbAsign.setText("Doctor asignado");
+        panelRound2.add(lbAsign, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 300, -1, -1));
+
+        lbDoc.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbDoc.setForeground(new java.awt.Color(0, 0, 0));
+        lbDoc.setText("Nombre");
+        panelRound2.add(lbDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 330, 310, -1));
+
+        lbMin2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbMin2.setForeground(new java.awt.Color(0, 0, 0));
+        lbMin2.setText("Minimo de digitos 10");
+        lbMin2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                lbMin2KeyTyped(evt);
+            }
+        });
+        panelRound2.add(lbMin2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, 140, -1));
+
+        lbMin3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbMin3.setForeground(new java.awt.Color(0, 0, 0));
+        lbMin3.setText("Minimo de digitos 5");
+        lbMin3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                lbMin3KeyTyped(evt);
+            }
+        });
+        panelRound2.add(lbMin3, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 90, 140, -1));
+
+        lbMin4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbMin4.setForeground(new java.awt.Color(0, 0, 0));
+        lbMin4.setText("Minimo de digitos 5");
+        lbMin4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                lbMin4KeyTyped(evt);
+            }
+        });
+        panelRound2.add(lbMin4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, 140, -1));
+
         panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 1090, 470));
 
         Titulo.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
@@ -403,21 +446,11 @@ public class Registro extends javax.swing.JFrame {
         });
         panelRound1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 50, 50));
 
-        lbAsign.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lbAsign.setForeground(new java.awt.Color(0, 0, 0));
-        lbAsign.setText("Doctor asignado");
-        panelRound1.add(lbAsign, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 30, -1, -1));
-
-        lbDoc.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lbDoc.setForeground(new java.awt.Color(0, 0, 0));
-        lbDoc.setText("Nombre");
-        panelRound1.add(lbDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 60, 310, -1));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelRound1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1130, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -550,7 +583,7 @@ public class Registro extends javax.swing.JFrame {
             Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        if (txtUsuario.getText().length() >= 4 && txtTel.getText().length() >= 8 && txtContra.getText().length() >= 8) {
+        if (txtUsuario.getText().length() >= 4 && txtTel.getText().length() >= 8 && txtContra.getText().length() >= 8 && txtDui.getText().length() >= 10 && txtNombre.getText().length() >= 5 && txtApellidos.getText().length() >= 5 && dpNaci.getDate()==null) {
             lbMinimo2.setVisible(false);
             btnRegistrar.setEnabled(true);
         } else {
@@ -594,7 +627,7 @@ public class Registro extends javax.swing.JFrame {
     //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros, donde si solo escribe dos numeros le saldra un texfield
     private void txtContraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyReleased
         // TODO add your handling code here:
-        if (txtContra.getText().length() >= 8 && txtTel.getText().length() >= 8 && txtUsuario.getText().length() >= 4) {
+        if (txtContra.getText().length() >= 8 && txtUsuario.getText().length() >= 4 && txtTel.getText().length() >= 8 && txtDui.getText().length() >= 10 && txtNombre.getText().length() >= 5 && txtApellidos.getText().length() >= 5 && dpNaci.getDate()==null) {
             lbMin.setVisible(false);
             btnRegistrar.setEnabled(true);
 
@@ -613,7 +646,7 @@ public class Registro extends javax.swing.JFrame {
     //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros donde si solo escribe dos numeros le saldra un texfield
     private void txtTelKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelKeyReleased
         // TODO add your handling code here:
-        if (txtTel.getText().length() >= 8 && txtContra.getText().length() >= 8 && txtUsuario.getText().length() >= 4) {
+        if (txtTel.getText().length() >= 8 && txtUsuario.getText().length() >= 4 && txtContra.getText().length() >= 8 && txtDui.getText().length() >= 10 && txtNombre.getText().length() >= 5 && txtApellidos.getText().length() >= 5 && dpNaci.getDate()==null) {
             lbMin1.setVisible(false);
             btnRegistrar.setEnabled(true);
         } else {
@@ -638,19 +671,67 @@ public class Registro extends javax.swing.JFrame {
 
     private void txtDuiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDuiKeyReleased
         // TODO add your handling code here:
+        if (txtDui.getText().length() >= 10 && txtUsuario.getText().length() >= 4 && txtContra.getText().length() >= 8 && txtNombre.getText().length() >= 5 && txtTel.getText().length() >= 8 && txtApellidos.getText().length() >= 5 && dpNaci.getDate()==null) {
+            lbMin1.setVisible(false);
+            btnRegistrar.setEnabled(true);
+        } else {
+            if (txtDui.getText().length() >= 10) {
+                lbMin1.setVisible(false);
+                btnRegistrar.setEnabled(false);
+            } else {
+                txtDui.setVisible(true);
+                btnRegistrar.setEnabled(false);
+            }
+        }
     }//GEN-LAST:event_txtDuiKeyReleased
 
     private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
         // TODO add your handling code here:
+        if (txtNombre.getText().length() >= 5 && txtUsuario.getText().length() >= 4 && txtContra.getText().length() >= 8 && txtDui.getText().length() >= 10 && txtTel.getText().length() >= 8 && txtApellidos.getText().length() >= 5 && dpNaci.getDate()==null) {
+            lbMin1.setVisible(false);
+            btnRegistrar.setEnabled(true);
+        } else {
+            if (txtNombre.getText().length() >= 5) {
+                lbMin1.setVisible(false);
+                btnRegistrar.setEnabled(false);
+            } else {
+                txtNombre.setVisible(true);
+                btnRegistrar.setEnabled(false);
+            }
+        }
     }//GEN-LAST:event_txtNombreKeyReleased
 
     private void txtApellidosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidosKeyReleased
         // TODO add your handling code here:
+        if (txtApellidos.getText().length() >= 5 && txtUsuario.getText().length() >= 4 && txtContra.getText().length() >= 8 && txtDui.getText().length() >= 10 && txtTel.getText().length() >= 8 && txtNombre.getText().length() >= 5 && dpNaci.getDate()==null) {
+            lbMin1.setVisible(false);
+            btnRegistrar.setEnabled(true);
+        } else {
+            if (txtApellidos.getText().length() >= 5) {
+                lbMin1.setVisible(false);
+                btnRegistrar.setEnabled(false);
+            } else {
+                txtApellidos.setVisible(true);
+                btnRegistrar.setEnabled(false);
+            }
+        }
     }//GEN-LAST:event_txtApellidosKeyReleased
 
     private void cbSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSexoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbSexoActionPerformed
+
+    private void lbMin2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lbMin2KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lbMin2KeyTyped
+
+    private void lbMin3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lbMin3KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lbMin3KeyTyped
+
+    private void lbMin4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lbMin4KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lbMin4KeyTyped
 
     /**
      * @param args the command line arguments
@@ -710,6 +791,9 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JLabel lbFalso;
     private javax.swing.JLabel lbMin;
     private javax.swing.JLabel lbMin1;
+    private javax.swing.JLabel lbMin2;
+    private javax.swing.JLabel lbMin3;
+    private javax.swing.JLabel lbMin4;
     private javax.swing.JLabel lbMinimo2;
     private Design.PanelRound panelRound1;
     private Design.PanelRound panelRound2;

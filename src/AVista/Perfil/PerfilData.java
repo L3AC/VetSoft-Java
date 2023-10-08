@@ -180,6 +180,11 @@ public class PerfilData extends javax.swing.JPanel {
 
         txtDui.setBackground(new java.awt.Color(190, 233, 232));
         txtDui.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtDui.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDuiActionPerformed(evt);
+            }
+        });
         txtDui.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtDuiKeyReleased(evt);
@@ -261,8 +266,8 @@ public class PerfilData extends javax.swing.JPanel {
         panelRound1.add(lbMin2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 110, 120, 30));
 
         lbMin3.setForeground(new java.awt.Color(0, 0, 0));
-        lbMin3.setText("Minimo de digitos 10");
-        panelRound1.add(lbMin3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 120, 30));
+        lbMin3.setText("Minimo de digitos 10, incluye el guión (-)");
+        panelRound1.add(lbMin3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 220, 30));
 
         lbFalso.setForeground(new java.awt.Color(0, 0, 0));
         lbFalso.setText("Correo Electronico Falso");
@@ -712,6 +717,10 @@ public class PerfilData extends javax.swing.JPanel {
 
         }
     }//GEN-LAST:event_txtCorreoKeyReleased
+
+    private void txtDuiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDuiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDuiActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

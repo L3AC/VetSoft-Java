@@ -114,12 +114,12 @@ public class Login extends javax.swing.JFrame {
         UsuarioL.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         UsuarioL.setForeground(new java.awt.Color(0, 0, 0));
         UsuarioL.setText("Usuario");
-        panelRound2.add(UsuarioL, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
+        panelRound2.add(UsuarioL, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
 
         PassL.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         PassL.setForeground(new java.awt.Color(0, 0, 0));
         PassL.setText("Contraseña");
-        panelRound2.add(PassL, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, -1, -1));
+        panelRound2.add(PassL, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
@@ -169,7 +169,7 @@ public class Login extends javax.swing.JFrame {
                 txtUserKeyTyped(evt);
             }
         });
-        panelRound2.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 370, 50));
+        panelRound2.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 370, 50));
 
         txtPass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtPass.setShadowColor(new java.awt.Color(0, 0, 51));
@@ -189,7 +189,7 @@ public class Login extends javax.swing.JFrame {
                 txtPassKeyTyped(evt);
             }
         });
-        panelRound2.add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 370, 50));
+        panelRound2.add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 370, 50));
 
         btnLook.setBackground(new java.awt.Color(133, 183, 212));
         btnLook.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/eye.png"))); // NOI18N
