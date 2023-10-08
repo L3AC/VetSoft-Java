@@ -43,6 +43,30 @@ public class mdPreRegistro {
             return false; //DIO ERROR
         }
     }
+    public boolean delT(int id) {
+        String query = "delete  tbPreRegistros where idregistro=?;";
+        try {
+
+            ps = con.prepareStatement(query);
+
+            ps.setInt(1, id);
+            ps.executeUpdate();
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println(e.toString());
+            CódigoDeErrorDLI2 obj = new CódigoDeErrorDLI2();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+            return false; //DIO ERROR
+        }
+    }
 
     public ResultSet verifT(String dui, String token) throws SQLException {
         try {

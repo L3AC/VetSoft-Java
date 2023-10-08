@@ -36,7 +36,28 @@ public class mdDoctores {
             return null; //DIO ERROR
         }
     }
-    
+    public ResultSet selectDoc(int idD) {//EDITAR
+        String query = "select CONCAT(nombre,' ',Apellido) "
+                + "as doc from tbDoctores where idDoctor=?;";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setInt(1, idD);
+            rs = ps.executeQuery();
+            return rs;
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de la excepción SQLException
+            System.out.println(e.toString());
+           CódigoDeErrorDLI2 obj = new CódigoDeErrorDLI2();
+            obj.eventOK(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    GlassPanePopup.closePopupLast();
+                }
+            });
+            GlassPanePopup.showPopup(obj);
+            return null; //DIO ERROR
+        }
+    }
     //Esto nos ayudara a cargar toda la información del doctor dentro del sistema
     public ResultSet cargarDoc(String nombre) {//TABLA
         String query = "select idDoctor,especialidad,CONCAT(d.nombre,' ',d.apellido) as 'Nombre' from  " +

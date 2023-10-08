@@ -105,7 +105,7 @@ public class verifToken extends javax.swing.JFrame {
         lbMin.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbMin.setForeground(new java.awt.Color(0, 0, 0));
         lbMin.setText("Minimo de digitos 10, incluye el guión (-)");
-        panelRound2.add(lbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 260, -1));
+        panelRound2.add(lbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 260, -1));
 
         lbMin2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbMin2.setForeground(new java.awt.Color(0, 0, 0));
@@ -183,10 +183,13 @@ public class verifToken extends javax.swing.JFrame {
                 ct.token = txtToken.getText();
                 ResultSet rs = ct.verifT();
                 if (rs.next()) {
-
                     Registro newFrame = new Registro(rs.getInt("idNivelUs"),
                             rs.getInt("idDoc"));
                     newFrame.setVisible(true);
+                    //ELIMINAR TOKEN
+                    ctPreRegistro ct2=new ctPreRegistro();
+                    ct2.idPreR=rs.getInt("idregistro");
+                    ct2.delT();
                     dispose();
                 } else {
                     //MENSAJE DE QUE LAS CREDENCIALES SON INCORRECTAS

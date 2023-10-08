@@ -4,6 +4,7 @@
  */
 package AVista;
 
+import AControlador.ctAsistente;
 import AControlador.ctDoctores;
 import AControlador.ctEsp;
 import AControlador.ctRecep;
@@ -100,6 +101,7 @@ public class Registro extends javax.swing.JFrame {
         if (idTipoUs == 5) {//Asistente
             lbAsign.setVisible(true);
             lbDoc.setVisible(true);
+            selectDoc();
         }
 
     }
@@ -489,19 +491,18 @@ public class Registro extends javax.swing.JFrame {
                 //AGARRAR IDUSUARIO
                 selectUs();
                 //CREAR CUENTA
-                
-                if(nivelC==2){
+                if (nivelC == 2) {//RECEPCIONISTA
                     ctRecep ct = new ctRecep();
                     ct.idUsuario = idUs;
                     ct.nombre = txtNombre.getText();
                     ct.apellido = txtApellidos.getText();
                     ct.dui = txtDui.getText();
                     ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
-                    System.out.println(dt.format(dpNaci.getCalendar().getTime()));
                     ct.sexo = cbSexo.getSelectedItem().toString();
                     ct.insertRe();
+                    showFrame();
                 }
-                if(nivelC==4){
+                if (nivelC == 4) {//DOCTOR
                     ctDoctores ct = new ctDoctores();
                     ct.idUsuario = idUs;
                     ct.idEsp = dsg.getMap(cbMap, cbEsp.getSelectedItem().toString());
@@ -511,22 +512,21 @@ public class Registro extends javax.swing.JFrame {
                     ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
                     ct.sexo = cbSexo.getSelectedItem().toString();
                     ct.insertDoc();
+                    showFrame();
                 }
-                if(nivelC==5){
-                    
+                if (nivelC == 5) {//ASISTENTE
+                    ctAsistente ct = new ctAsistente();
+                    ct.idDoctor = idDoc;
+                    ct.idUsuario = idUs;
+                    ct.nombre = txtNombre.getText();
+                    ct.apellido = txtApellidos.getText();
+                    ct.dui = txtDui.getText();
+                    ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
+                    ct.sexo = cbSexo.getSelectedItem().toString();
+                    ct.insertAsis();
+                    showFrame();
                 }
 
-                Login newFrame = new Login();
-                newFrame.setVisible(true);
-                dispose();
-                CódigoErrorDSI2 obj = new CódigoErrorDSI2();
-                obj.eventOK(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent ae) {
-                        GlassPanePopup.closePopupLast();
-                    }
-                });
-                GlassPanePopup.showPopup(obj);
             } catch (SQLException ex) {
                 Logger.getLogger(Registro.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -553,9 +553,32 @@ public class Registro extends javax.swing.JFrame {
         ctu.usuario = txtUsuario.getText();
         ResultSet rs = ctu.verifUs();
         if (rs.next()) {
-            nivelC=rs.getInt("idTipoUsuario");
+            nivelC = rs.getInt("idTipoUsuario");
             idUs = rs.getInt("idUsuario");
         }
+    }
+
+    final void selectDoc() throws SQLException {
+        ctDoctores ct = new ctDoctores();
+        ct.idDoctor = idDoc;
+        ResultSet rs = ct.selectDoc();
+        if (rs.next()) {
+            lbDoc.setText(rs.getString("doc"));
+        }
+    }
+
+    final void showFrame() {
+        Login newFrame = new Login();
+        newFrame.setVisible(true);
+        dispose();
+        CódigoErrorDSI2 obj = new CódigoErrorDSI2();
+        obj.eventOK(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                GlassPanePopup.closePopupLast();
+            }
+        });
+        GlassPanePopup.showPopup(obj);
     }
     private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
         // TODO add your handling code here:

@@ -5,10 +5,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ctDoctores {
+
     public int idDoctor;
     public int idUsuario;
     public int idEsp;
-    public String nombre ;
+    public String nombre;
     public String apellido;
     public String dui;
     public String nacimiento;
@@ -77,26 +78,34 @@ public class ctDoctores {
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
-    mdDoctores md =new mdDoctores();
-    
+    mdDoctores md = new mdDoctores();
+
     public ResultSet cargarDoc() throws SQLException {
         return md.cargarDoc(nombre);
     }
+
     public ResultSet loadData() throws SQLException {
         return md.loadData(idDoctor);
     }
-    public ResultSet comboDoc(){
+
+    public ResultSet selectDoc() throws SQLException {
+        return md.selectDoc(idDoctor);
+    }
+
+    public ResultSet comboDoc() {
         return md.comboDoc(idEsp);
     }
-    public boolean insertDoc(){
-        return md.insertDoc(idUsuario, idEsp, nombre, apellido, dui,nacimiento, sexo);
+
+    public boolean insertDoc() {
+        return md.insertDoc(idUsuario, idEsp, nombre, apellido, dui, nacimiento, sexo);
     }
-    public boolean updateDoc(){
-        return md.updateDoc(idDoctor, idEsp, nombre, apellido, dui,nacimiento, sexo);
+
+    public boolean updateDoc() {
+        return md.updateDoc(idDoctor, idEsp, nombre, apellido, dui, nacimiento, sexo);
     }
-    public boolean deleteDoc(){
+
+    public boolean deleteDoc() {
         return md.deleteDoc(idDoctor);
     }
-    
-}
 
+}
