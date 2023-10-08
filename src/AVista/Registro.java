@@ -49,7 +49,7 @@ public class Registro extends javax.swing.JFrame {
     Map<Integer, String> cbMap = new HashMap<>();
 
     public Registro() {
-
+        initComponents();
     }
 
     public Registro(int idTipoUs, int idDoc) throws SQLException {
