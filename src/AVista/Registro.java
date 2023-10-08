@@ -80,19 +80,23 @@ public class Registro extends javax.swing.JFrame {
         lbMin.setVisible(false);
         lbMin1.setVisible(false);
         lbMinimo2.setVisible(false);
-        lbEsp.setVisible(false);cbEsp.setVisible(false);
-        lbAsign.setVisible(false);lbDoc.setVisible(false);
-        
+        lbEsp.setVisible(false);
+        cbEsp.setVisible(false);
+        lbAsign.setVisible(false);
+        lbDoc.setVisible(false);
+
         if (idTipoUs == 2) {//RECEPCIONISTA
-            
+
         }
         if (idTipoUs == 4) {//Doctor
-            lbEsp.setVisible(true);cbEsp.setVisible(true);
+            lbEsp.setVisible(true);
+            cbEsp.setVisible(true);
         }
         if (idTipoUs == 5) {//Asistente
-            lbAsign.setVisible(true);lbDoc.setVisible(true);
+            lbAsign.setVisible(true);
+            lbDoc.setVisible(true);
         }
-        
+
     }
 
 //Esto nos ayudara a que el comboBox cargue los tipos de usuarios disponibles dentro del sistema de escritorio que se pueden registrar
@@ -426,7 +430,10 @@ public class Registro extends javax.swing.JFrame {
     //Cuando se le de al botón registrar se verificaran que todo lo anteriormente mencionado se este validado por ejemplo que los campos no esten vacios entreo otros mas
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
 
-        if (txtUsuario.getText().isEmpty() || txtContra.getText().isEmpty() || txtTel.getText().isEmpty() || txtCorreo.getText().isEmpty()) {
+        if (txtUsuario.getText().isEmpty() || txtContra.getText().isEmpty()
+                || txtTel.getText().isEmpty() || txtCorreo.getText().isEmpty()
+                || txtNombre.getText().isEmpty() || txtApellidos.getText().isEmpty()
+                || txtDui.getText().isEmpty()||dpNaci.getDate()==null) {
             CódigoErrorDSI5 obj = new CódigoErrorDSI5();
             obj.eventOK(new ActionListener() {
                 @Override
