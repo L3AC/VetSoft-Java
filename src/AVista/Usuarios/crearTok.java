@@ -365,12 +365,9 @@ public class crearTok extends javax.swing.JPanel {
                 ct.insertT();
 
             } else {
-                
+                //MENSAJE DE QUE NO SE PUDO ENVIAR CORREO
             }
 
-            /*if (ct.insertT()) {//SI SE PUEDE REGISTRAR
-                Em(txtCorreo.getText(), token);
-            }*/
         }
 
     }//GEN-LAST:event_btnTokActionPerformed
