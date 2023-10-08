@@ -4,7 +4,9 @@
  */
 package AVista;
 
+import AControlador.ctDoctores;
 import AControlador.ctEsp;
+import AControlador.ctRecep;
 import AControlador.ctTipoUs;
 import AControlador.ctUser;
 import AModelo.Crypt;
@@ -21,6 +23,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
@@ -42,6 +45,8 @@ public class Registro extends javax.swing.JFrame {
 
     private int idTipoUs;
     private int idDoc;
+    private int idUs;
+    private int nivelC;
     private int tpUs;
     Crypt cryp = new Crypt();
     ctTipoUs ctTP = new ctTipoUs();
@@ -143,13 +148,13 @@ public class Registro extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        lbAsign = new javax.swing.JLabel();
-        lbDoc = new javax.swing.JLabel();
         lbMin2 = new javax.swing.JLabel();
         lbMin3 = new javax.swing.JLabel();
         lbMin4 = new javax.swing.JLabel();
         Titulo = new javax.swing.JLabel();
         btnVolver = new javax.swing.JLabel();
+        lbAsign = new javax.swing.JLabel();
+        lbDoc = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -197,7 +202,7 @@ public class Registro extends javax.swing.JFrame {
                 btnRegistrarActionPerformed(evt);
             }
         });
-        panelRound2.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 380, 150, 40));
+        panelRound2.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 340, 160, 50));
 
         lbFalso.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbFalso.setForeground(new java.awt.Color(0, 0, 0));
@@ -391,16 +396,6 @@ public class Registro extends javax.swing.JFrame {
         jLabel13.setText("Contraseña");
         panelRound2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, -1, -1));
 
-        lbAsign.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lbAsign.setForeground(new java.awt.Color(0, 0, 0));
-        lbAsign.setText("Doctor asignado");
-        panelRound2.add(lbAsign, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 300, -1, -1));
-
-        lbDoc.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lbDoc.setForeground(new java.awt.Color(0, 0, 0));
-        lbDoc.setText("Nombre");
-        panelRound2.add(lbDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 330, 310, -1));
-
         lbMin2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbMin2.setForeground(new java.awt.Color(0, 0, 0));
         lbMin2.setText("Minimo de digitos 10");
@@ -446,6 +441,16 @@ public class Registro extends javax.swing.JFrame {
         });
         panelRound1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 50, 50));
 
+        lbAsign.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbAsign.setForeground(new java.awt.Color(0, 0, 0));
+        lbAsign.setText("Doctor asignado");
+        panelRound1.add(lbAsign, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 20, -1, -1));
+
+        lbDoc.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbDoc.setForeground(new java.awt.Color(0, 0, 0));
+        lbDoc.setText("Nombre");
+        panelRound1.add(lbDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 50, 310, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -466,7 +471,7 @@ public class Registro extends javax.swing.JFrame {
         if (txtUsuario.getText().isEmpty() || txtContra.getText().isEmpty()
                 || txtTel.getText().isEmpty() || txtCorreo.getText().isEmpty()
                 || txtNombre.getText().isEmpty() || txtApellidos.getText().isEmpty()
-                || txtDui.getText().isEmpty()||dpNaci.getDate()==null) {
+                || txtDui.getText().isEmpty() || dpNaci.getDate() == null) {
             CódigoErrorDSI5 obj = new CódigoErrorDSI5();
             obj.eventOK(new ActionListener() {
                 @Override
@@ -476,33 +481,82 @@ public class Registro extends javax.swing.JFrame {
             });
             GlassPanePopup.showPopup(obj);
         } else {
-            ctUser ctUs = new ctUser();
-            ctUs.idTipoCuenta = dsg.getMap(cbMap, cbEsp.getSelectedItem().toString());
-
-            ctUs.usuario = txtUsuario.getText();
             try {
-                ctUs.contra = cryp.encrypt(txtContra.getText(), "key");
+                SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+                //CREAR USUARIO
+                createUs();
 
-            } catch (Exception ex) {
-                Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            ctUs.correo = txtCorreo.getText();
-            ctUs.telefono = txtTel.getText();
-            ctUs.insertUs();
-            Login newFrame = new Login();
-            newFrame.setVisible(true);
-            dispose();
-            CódigoErrorDSI2 obj = new CódigoErrorDSI2();
-            obj.eventOK(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent ae) {
-                    GlassPanePopup.closePopupLast();
+                //AGARRAR IDUSUARIO
+                selectUs();
+                //CREAR CUENTA
+                
+                if(nivelC==2){
+                    ctRecep ct = new ctRecep();
+                    ct.idUsuario = idUs;
+                    ct.nombre = txtNombre.getText();
+                    ct.apellido = txtApellidos.getText();
+                    ct.dui = txtDui.getText();
+                    ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
+                    System.out.println(dt.format(dpNaci.getCalendar().getTime()));
+                    ct.sexo = cbSexo.getSelectedItem().toString();
+                    ct.insertRe();
                 }
-            });
-            GlassPanePopup.showPopup(obj);
+                if(nivelC==4){
+                    ctDoctores ct = new ctDoctores();
+                    ct.idUsuario = idUs;
+                    ct.idEsp = dsg.getMap(cbMap, cbEsp.getSelectedItem().toString());
+                    ct.nombre = txtNombre.getText();
+                    ct.apellido = txtApellidos.getText();
+                    ct.dui = txtDui.getText();
+                    ct.nacimiento = dt.format(dpNaci.getCalendar().getTime());
+                    ct.sexo = cbSexo.getSelectedItem().toString();
+                    ct.insertDoc();
+                }
+                if(nivelC==5){
+                    
+                }
+
+                Login newFrame = new Login();
+                newFrame.setVisible(true);
+                dispose();
+                CódigoErrorDSI2 obj = new CódigoErrorDSI2();
+                obj.eventOK(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        GlassPanePopup.closePopupLast();
+                    }
+                });
+                GlassPanePopup.showPopup(obj);
+            } catch (SQLException ex) {
+                Logger.getLogger(Registro.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
+    final void createUs() {
+        ctUser ctUs = new ctUser();
+        ctUs.idTipoCuenta = idTipoUs;
+        ctUs.usuario = txtUsuario.getText();
+        ctUs.correo = txtCorreo.getText();
+        ctUs.telefono = txtTel.getText();
+        try {
+            ctUs.contra = cryp.encrypt(txtContra.getText(), "key");
+
+        } catch (Exception ex) {
+            Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ctUs.insertUs();
+    }
+
+    final void selectUs() throws SQLException {
+        ctUser ctu = new ctUser();
+        ctu.usuario = txtUsuario.getText();
+        ResultSet rs = ctu.verifUs();
+        if (rs.next()) {
+            nivelC=rs.getInt("idTipoUsuario");
+            idUs = rs.getInt("idUsuario");
+        }
+    }
     private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCorreoActionPerformed
@@ -583,7 +637,7 @@ public class Registro extends javax.swing.JFrame {
             Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        if (txtUsuario.getText().length() >= 4 && txtTel.getText().length() >= 8 && txtContra.getText().length() >= 8 && txtDui.getText().length() >= 10 && txtNombre.getText().length() >= 5 && txtApellidos.getText().length() >= 5 && dpNaci.getDate()==null) {
+        if (txtUsuario.getText().length() >= 4 && txtTel.getText().length() >= 8 && txtContra.getText().length() >= 8 && txtDui.getText().length() >= 10 && txtNombre.getText().length() >= 5 && txtApellidos.getText().length() >= 5 && dpNaci.getDate() == null) {
             lbMinimo2.setVisible(false);
             btnRegistrar.setEnabled(true);
         } else {
@@ -627,7 +681,7 @@ public class Registro extends javax.swing.JFrame {
     //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros, donde si solo escribe dos numeros le saldra un texfield
     private void txtContraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyReleased
         // TODO add your handling code here:
-        if (txtContra.getText().length() >= 8 && txtUsuario.getText().length() >= 4 && txtTel.getText().length() >= 8 && txtDui.getText().length() >= 10 && txtNombre.getText().length() >= 5 && txtApellidos.getText().length() >= 5 && dpNaci.getDate()==null) {
+        if (txtContra.getText().length() >= 8 && txtUsuario.getText().length() >= 4 && txtTel.getText().length() >= 8 && txtDui.getText().length() >= 10 && txtNombre.getText().length() >= 5 && txtApellidos.getText().length() >= 5 && dpNaci.getDate() == null) {
             lbMin.setVisible(false);
             btnRegistrar.setEnabled(true);
 
@@ -646,7 +700,7 @@ public class Registro extends javax.swing.JFrame {
     //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros donde si solo escribe dos numeros le saldra un texfield
     private void txtTelKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelKeyReleased
         // TODO add your handling code here:
-        if (txtTel.getText().length() >= 8 && txtUsuario.getText().length() >= 4 && txtContra.getText().length() >= 8 && txtDui.getText().length() >= 10 && txtNombre.getText().length() >= 5 && txtApellidos.getText().length() >= 5 && dpNaci.getDate()==null) {
+        if (txtTel.getText().length() >= 8 && txtUsuario.getText().length() >= 4 && txtContra.getText().length() >= 8 && txtDui.getText().length() >= 10 && txtNombre.getText().length() >= 5 && txtApellidos.getText().length() >= 5 && dpNaci.getDate() == null) {
             lbMin1.setVisible(false);
             btnRegistrar.setEnabled(true);
         } else {
@@ -671,7 +725,7 @@ public class Registro extends javax.swing.JFrame {
 
     private void txtDuiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDuiKeyReleased
         // TODO add your handling code here:
-        if (txtDui.getText().length() >= 10 && txtUsuario.getText().length() >= 4 && txtContra.getText().length() >= 8 && txtNombre.getText().length() >= 5 && txtTel.getText().length() >= 8 && txtApellidos.getText().length() >= 5 && dpNaci.getDate()==null) {
+        if (txtDui.getText().length() >= 10 && txtUsuario.getText().length() >= 4 && txtContra.getText().length() >= 8 && txtNombre.getText().length() >= 5 && txtTel.getText().length() >= 8 && txtApellidos.getText().length() >= 5 && dpNaci.getDate() == null) {
             lbMin1.setVisible(false);
             btnRegistrar.setEnabled(true);
         } else {
@@ -687,7 +741,7 @@ public class Registro extends javax.swing.JFrame {
 
     private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
         // TODO add your handling code here:
-        if (txtNombre.getText().length() >= 5 && txtUsuario.getText().length() >= 4 && txtContra.getText().length() >= 8 && txtDui.getText().length() >= 10 && txtTel.getText().length() >= 8 && txtApellidos.getText().length() >= 5 && dpNaci.getDate()==null) {
+        if (txtNombre.getText().length() >= 5 && txtUsuario.getText().length() >= 4 && txtContra.getText().length() >= 8 && txtDui.getText().length() >= 10 && txtTel.getText().length() >= 8 && txtApellidos.getText().length() >= 5 && dpNaci.getDate() == null) {
             lbMin1.setVisible(false);
             btnRegistrar.setEnabled(true);
         } else {
@@ -703,7 +757,7 @@ public class Registro extends javax.swing.JFrame {
 
     private void txtApellidosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidosKeyReleased
         // TODO add your handling code here:
-        if (txtApellidos.getText().length() >= 5 && txtUsuario.getText().length() >= 4 && txtContra.getText().length() >= 8 && txtDui.getText().length() >= 10 && txtTel.getText().length() >= 8 && txtNombre.getText().length() >= 5 && dpNaci.getDate()==null) {
+        if (txtApellidos.getText().length() >= 5 && txtUsuario.getText().length() >= 4 && txtContra.getText().length() >= 8 && txtDui.getText().length() >= 10 && txtTel.getText().length() >= 8 && txtNombre.getText().length() >= 5 && dpNaci.getDate() == null) {
             lbMin1.setVisible(false);
             btnRegistrar.setEnabled(true);
         } else {
