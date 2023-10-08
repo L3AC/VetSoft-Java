@@ -48,7 +48,7 @@ public class crearTok extends javax.swing.JPanel {
         panelR2.setVisible(false);
         loadCombo(cbCargo);
         txtCorreo.setDocument(new Valida(40, "[a-zA-Z0-9@._]*"));
-        txtDui.setDocument(new Valida(10, "[0-9]*"));
+        txtDui.setDocument(new Valida(10, "[0-9-]*"));
     }
 
     @SuppressWarnings("unchecked")

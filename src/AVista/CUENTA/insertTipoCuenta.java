@@ -47,7 +47,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         ((JTextField) dpNaci.getDateEditor().getUiComponent()).setEditable(false);
         /*Este apartado de validar los Jtexfield*/
         txtNombre.setDocument(new Valida(50, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
-        txtDui.setDocument(new Valida(10, "[0-9]*"));
+        txtDui.setDocument(new Valida(9, "[0-9]*"));
         txtApellidos.setDocument(new Valida(50, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         txtDir.setDocument(new Valida(300, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ,.]*"));
         if (idTipoUs == 1) {

@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+
 package AVista.Usuarios;
 
 import AControlador.ctEsp;
@@ -31,10 +28,6 @@ import java.util.List;
 import org.apache.commons.validator.EmailValidator;
 import AVista.Usuarios.CRUDusuarios;
 
-/**
- *
- * @author LEAC2
- */
 public class insertUs extends javax.swing.JPanel {
 
     private int idTipoUs;
@@ -61,9 +54,9 @@ public class insertUs extends javax.swing.JPanel {
         txtContra.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 15));
         lbCargo.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 17));
 
-        txtUsuario.setDocument(new Valida(30, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
+        txtUsuario.setDocument(new Valida(20, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         txtCorreo.setDocument(new Valida(50, "[a-zA-Z0-9@._]*"));
-        txtContra.setDocument(new Valida(100, "[a-zA-Z0-9]*"));
+        txtContra.setDocument(new Valida(20, "[a-zA-Z0-9]*"));
         txtTel.setDocument(new Valida(10, "[0-9]*"));
         loadCombo(cbCargo);
         lbDisp.setVisible(false);

@@ -25,7 +25,7 @@ public class verifToken extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         lbMin.setVisible(false);
         lbMin2.setVisible(false);
-        txtDui.setDocument(new Valida(10, "[0-9]*"));
+        txtDui.setDocument(new Valida(10, "[0-9-]*"));
         txtToken.setDocument(new Valida(10, "[a-zA-Z0-9]*"));
     }
 

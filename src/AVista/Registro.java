@@ -65,8 +65,12 @@ public class Registro extends javax.swing.JFrame {
 
         /*Este apartado de validar los Jtexfield*/
         txtUsuario.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
-        txtTeléfono.setDocument(new Valida(8, "[0-9]*"));
+        txtTel.setDocument(new Valida(8, "[0-9]*"));
         txtContra.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
+        txtCorreo.setDocument(new Valida(50, "[a-zA-Z0-9@._]*"));
+        txtTel.setDocument(new Valida(10, "[0-9]*"));
+        txtDui.setDocument(new Valida(10, "[0-9-]*"));
+        txtApellidos.setDocument(new Valida(50, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         setLocationRelativeTo(null);
 
         String iconPath = "src/Imagenes/logoC.png";
@@ -115,7 +119,7 @@ public class Registro extends javax.swing.JFrame {
         lbEsp = new javax.swing.JLabel();
         btnRegistrar = new Design.ButtonGradient();
         lbFalso = new javax.swing.JLabel();
-        txtTeléfono = new Design.TextFieldSV();
+        txtTel = new Design.TextFieldSV();
         txtUsuario = new Design.TextFieldSV();
         txtCorreo = new Design.TextFieldSV();
         txtContra = new Design.PasswordField();
@@ -124,9 +128,9 @@ public class Registro extends javax.swing.JFrame {
         lbMin1 = new javax.swing.JLabel();
         lbMin = new javax.swing.JLabel();
         lbMinimo2 = new javax.swing.JLabel();
+        txtDui = new Design.TextFieldSV();
         txtNombre = new Design.TextFieldSV();
-        txtNombre1 = new Design.TextFieldSV();
-        txtNombre2 = new Design.TextFieldSV();
+        txtApellidos = new Design.TextFieldSV();
         cbSexo = new Design.Combobox();
         jLabel5 = new javax.swing.JLabel();
         dpNaci = new com.toedter.calendar.JDateChooser();
@@ -193,25 +197,25 @@ public class Registro extends javax.swing.JFrame {
         lbFalso.setText("Correo electrónico falso");
         panelRound2.add(lbFalso, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 150, -1));
 
-        txtTeléfono.setBackground(new java.awt.Color(190, 233, 232));
-        txtTeléfono.setShadowColor(new java.awt.Color(0, 0, 51));
-        txtTeléfono.addActionListener(new java.awt.event.ActionListener() {
+        txtTel.setBackground(new java.awt.Color(190, 233, 232));
+        txtTel.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtTel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTeléfonoActionPerformed(evt);
+                txtTelActionPerformed(evt);
             }
         });
-        txtTeléfono.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtTel.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtTeléfonoKeyPressed(evt);
+                txtTelKeyPressed(evt);
             }
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtTeléfonoKeyReleased(evt);
+                txtTelKeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtTeléfonoKeyTyped(evt);
+                txtTelKeyTyped(evt);
             }
         });
-        panelRound2.add(txtTeléfono, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 200, 180, -1));
+        panelRound2.add(txtTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 200, 180, -1));
 
         txtUsuario.setBackground(new java.awt.Color(190, 233, 232));
         txtUsuario.setShadowColor(new java.awt.Color(0, 0, 51));
@@ -310,6 +314,15 @@ public class Registro extends javax.swing.JFrame {
         lbMinimo2.setText("Minimo de digitos 4");
         panelRound2.add(lbMinimo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 150, -1));
 
+        txtDui.setBackground(new java.awt.Color(190, 233, 232));
+        txtDui.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtDui.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtDuiKeyReleased(evt);
+            }
+        });
+        panelRound2.add(txtDui, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 200, 190, -1));
+
         txtNombre.setBackground(new java.awt.Color(190, 233, 232));
         txtNombre.setShadowColor(new java.awt.Color(0, 0, 51));
         txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -317,25 +330,16 @@ public class Registro extends javax.swing.JFrame {
                 txtNombreKeyReleased(evt);
             }
         });
-        panelRound2.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 200, 190, -1));
+        panelRound2.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 50, 250, -1));
 
-        txtNombre1.setBackground(new java.awt.Color(190, 233, 232));
-        txtNombre1.setShadowColor(new java.awt.Color(0, 0, 51));
-        txtNombre1.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtApellidos.setBackground(new java.awt.Color(190, 233, 232));
+        txtApellidos.setShadowColor(new java.awt.Color(0, 0, 51));
+        txtApellidos.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtNombre1KeyReleased(evt);
+                txtApellidosKeyReleased(evt);
             }
         });
-        panelRound2.add(txtNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 50, 250, -1));
-
-        txtNombre2.setBackground(new java.awt.Color(190, 233, 232));
-        txtNombre2.setShadowColor(new java.awt.Color(0, 0, 51));
-        txtNombre2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtNombre2KeyReleased(evt);
-            }
-        });
-        panelRound2.add(txtNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 50, 240, -1));
+        panelRound2.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 50, 240, -1));
 
         cbSexo.setBackground(new java.awt.Color(190, 233, 232));
         cbSexo.setForeground(new java.awt.Color(0, 0, 0));
@@ -385,7 +389,7 @@ public class Registro extends javax.swing.JFrame {
         Titulo.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
         Titulo.setForeground(new java.awt.Color(0, 0, 0));
         Titulo.setText("Registro");
-        panelRound1.add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 30, -1, -1));
+        panelRound1.add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 30, -1, -1));
 
         btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
         btnVolver.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -422,7 +426,7 @@ public class Registro extends javax.swing.JFrame {
     //Cuando se le de al botón registrar se verificaran que todo lo anteriormente mencionado se este validado por ejemplo que los campos no esten vacios entreo otros mas
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
 
-        if (txtUsuario.getText().isEmpty() || txtContra.getText().isEmpty() || txtTeléfono.getText().isEmpty() || txtCorreo.getText().isEmpty()) {
+        if (txtUsuario.getText().isEmpty() || txtContra.getText().isEmpty() || txtTel.getText().isEmpty() || txtCorreo.getText().isEmpty()) {
             CódigoErrorDSI5 obj = new CódigoErrorDSI5();
             obj.eventOK(new ActionListener() {
                 @Override
@@ -443,7 +447,7 @@ public class Registro extends javax.swing.JFrame {
                 Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
             }
             ctUs.correo = txtCorreo.getText();
-            ctUs.telefono = txtTeléfono.getText();
+            ctUs.telefono = txtTel.getText();
             ctUs.insertUs();
             Login newFrame = new Login();
             newFrame.setVisible(true);
@@ -495,11 +499,11 @@ public class Registro extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCorreoKeyTyped
 
     //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros donde si solo escribe dos numeros le saldra un texfield
-    private void txtTeléfonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTeléfonoKeyTyped
+    private void txtTelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelKeyTyped
         // TODO add your handling code here:
 
 
-    }//GEN-LAST:event_txtTeléfonoKeyTyped
+    }//GEN-LAST:event_txtTelKeyTyped
 
     //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros, donde si solo escribe dos numeros le saldra un texfield
     //Esto nos ayuda a verificar si el correo electronico es verdadero llamando a una libreria anteriormente puesta en el en apartado de librerias donde solamente se manda a llamar para validar
@@ -539,7 +543,7 @@ public class Registro extends javax.swing.JFrame {
             Logger.getLogger(insertUs.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        if (txtUsuario.getText().length() >= 4 && txtTeléfono.getText().length() >= 8 && txtContra.getText().length() >= 8) {
+        if (txtUsuario.getText().length() >= 4 && txtTel.getText().length() >= 8 && txtContra.getText().length() >= 8) {
             lbMinimo2.setVisible(false);
             btnRegistrar.setEnabled(true);
         } else {
@@ -553,9 +557,9 @@ public class Registro extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtUsuarioKeyReleased
 
-    private void txtTeléfonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTeléfonoActionPerformed
+    private void txtTelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelActionPerformed
 
-    }//GEN-LAST:event_txtTeléfonoActionPerformed
+    }//GEN-LAST:event_txtTelActionPerformed
 
     private void txtContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraActionPerformed
         // TODO add your handling code here:
@@ -583,7 +587,7 @@ public class Registro extends javax.swing.JFrame {
     //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros, donde si solo escribe dos numeros le saldra un texfield
     private void txtContraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyReleased
         // TODO add your handling code here:
-        if (txtContra.getText().length() >= 8 && txtTeléfono.getText().length() >= 8 && txtUsuario.getText().length() >= 4) {
+        if (txtContra.getText().length() >= 8 && txtTel.getText().length() >= 8 && txtUsuario.getText().length() >= 4) {
             lbMin.setVisible(false);
             btnRegistrar.setEnabled(true);
 
@@ -600,13 +604,13 @@ public class Registro extends javax.swing.JFrame {
     }//GEN-LAST:event_txtContraKeyReleased
 
     //Esto nos ayuda a poner un minimo de digitos a los texfield para no escribir por ejemplo solo 2 numeros donde si solo escribe dos numeros le saldra un texfield
-    private void txtTeléfonoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTeléfonoKeyReleased
+    private void txtTelKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelKeyReleased
         // TODO add your handling code here:
-        if (txtTeléfono.getText().length() >= 8 && txtContra.getText().length() >= 8 && txtUsuario.getText().length() >= 4) {
+        if (txtTel.getText().length() >= 8 && txtContra.getText().length() >= 8 && txtUsuario.getText().length() >= 4) {
             lbMin1.setVisible(false);
             btnRegistrar.setEnabled(true);
         } else {
-            if (txtTeléfono.getText().length() >= 8) {
+            if (txtTel.getText().length() >= 8) {
                 lbMin1.setVisible(false);
                 btnRegistrar.setEnabled(false);
             } else {
@@ -614,28 +618,28 @@ public class Registro extends javax.swing.JFrame {
                 btnRegistrar.setEnabled(false);
             }
         }
-    }//GEN-LAST:event_txtTeléfonoKeyReleased
+    }//GEN-LAST:event_txtTelKeyReleased
 
     private void txtContraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyPressed
         // TODO add your handling code here:
 
     }//GEN-LAST:event_txtContraKeyPressed
 
-    private void txtTeléfonoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTeléfonoKeyPressed
+    private void txtTelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTeléfonoKeyPressed
+    }//GEN-LAST:event_txtTelKeyPressed
+
+    private void txtDuiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDuiKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDuiKeyReleased
 
     private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreKeyReleased
 
-    private void txtNombre1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombre1KeyReleased
+    private void txtApellidosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidosKeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombre1KeyReleased
-
-    private void txtNombre2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombre2KeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombre2KeyReleased
+    }//GEN-LAST:event_txtApellidosKeyReleased
 
     private void cbSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSexoActionPerformed
         // TODO add your handling code here:
@@ -702,12 +706,12 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JLabel lbMinimo2;
     private Design.PanelRound panelRound1;
     private Design.PanelRound panelRound2;
+    private Design.TextFieldSV txtApellidos;
     private Design.PasswordField txtContra;
     private Design.TextFieldSV txtCorreo;
+    private Design.TextFieldSV txtDui;
     private Design.TextFieldSV txtNombre;
-    private Design.TextFieldSV txtNombre1;
-    private Design.TextFieldSV txtNombre2;
-    private Design.TextFieldSV txtTeléfono;
+    private Design.TextFieldSV txtTel;
     private Design.TextFieldSV txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

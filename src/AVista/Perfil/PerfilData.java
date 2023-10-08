@@ -44,7 +44,7 @@ public class PerfilData extends javax.swing.JPanel {
         initComponents();
         txtUser.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
         txtTel.setDocument(new Valida(10, "[0-9]*"));
-        txtDui.setDocument(new Valida(10, "[0-9]*"));
+        txtDui.setDocument(new Valida(10, "[0-9-]*"));
         txtNombre.setDocument(new Valida(50, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         txtApellidos.setDocument(new Valida(50, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         lbUs.setVisible(false);
