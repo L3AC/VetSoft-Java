@@ -46,6 +46,7 @@ public class CRUDDoctores extends javax.swing.JPanel {
         }
 
         txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9]*"));
+        btnAdd.setVisible(false);
 
     }
 

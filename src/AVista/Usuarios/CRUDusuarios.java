@@ -56,10 +56,10 @@ public class CRUDusuarios extends javax.swing.JPanel {
 
         btnAddCuenta.setVisible(false);
         btnInsert.setVisible(false);
-        if (tbData.getRowCount() > 0) {
+        /*if (tbData.getRowCount() > 0) {
             verifPerfil();
-        }
-        if(idTipoUs!=1){
+        }*/
+        if(idTipoUs!=1&&idTipoUs!=2){//SI ES ADMIN O RECEPCIONISTA
             btnTok.setVisible(false);
         }
         txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
@@ -279,9 +279,9 @@ public class CRUDusuarios extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
-        if (tbData.getRowCount() > 0) {
+        /*if (tbData.getRowCount() > 0) {
             verifPerfil();
-        }
+        }*/
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void btnAddCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCuentaActionPerformed

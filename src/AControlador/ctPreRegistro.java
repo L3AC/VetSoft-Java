@@ -57,11 +57,16 @@ public class ctPreRegistro {
     public boolean insertT() {
         return md.insertT(idNivelUs, token, dui, idDoc);
     }
-        public boolean delT() {
+
+    public boolean delT() {
         return md.delT(idPreR);
     }
 
+    public boolean delAllT() {
+        return md.delAllT();
+    }
+
     public ResultSet verifT() throws SQLException {
-        return md.verifT(dui,token);
+        return md.verifT(dui, token);
     }
 }

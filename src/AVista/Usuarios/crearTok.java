@@ -4,6 +4,7 @@ import AControlador.ctDoctores;
 import AControlador.ctPreRegistro;
 import AControlador.ctTipoUs;
 import AControlador.ctUser;
+import AVista.Doctores.CRUDDoctores;
 import Design.Desg;
 import Mensajes.CodigoErrorDRC2;
 import Mensajes.Correo;
@@ -32,6 +33,7 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 import org.apache.commons.validator.EmailValidator;
 
@@ -52,6 +54,11 @@ public class crearTok extends javax.swing.JPanel {
         loadCombo(cbCargo);
         txtCorreo.setDocument(new Valida(40, "[a-zA-Z0-9@._]*"));
         txtDui.setDocument(new Valida(10, "[0-9-]*"));
+        if (idTipoUs == 2) {//ENTRA COMO RECEPCIONISTA
+            btnDelT.setVisible(false);
+            cbCargo.setVisible(false);
+            lbCargo.setVisible(false);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -62,7 +69,7 @@ public class crearTok extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         panelRound1 = new Design.PanelRound();
-        jLabel4 = new javax.swing.JLabel();
+        lbCargo = new javax.swing.JLabel();
         panelR2 = new Design.PanelRound();
         jScrollPane2 = new javax.swing.JScrollPane();
         tbData = new SwingTable.Table();
@@ -79,10 +86,10 @@ public class crearTok extends javax.swing.JPanel {
         cbCargo = new Design.Combobox();
         lbDui1 = new javax.swing.JLabel();
         btnTok = new Design.ButtonGradient();
+        btnDelT = new Design.ButtonGradient();
 
         PCont.setBackground(new java.awt.Color(190, 233, 232));
         PCont.setPreferredSize(new java.awt.Dimension(1320, 810));
-        PCont.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnBack.setBackground(new java.awt.Color(190, 233, 232));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Flechita.png"))); // NOI18N
@@ -92,12 +99,10 @@ public class crearTok extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        PCont.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 80, 60));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("CREAR TOKEN");
-        PCont.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 60, -1, -1));
 
         panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomLeft(50);
@@ -106,10 +111,10 @@ public class crearTok extends javax.swing.JPanel {
         panelRound1.setRoundTopRight(50);
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Nivel usuario");
-        panelRound1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 120, -1));
+        lbCargo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbCargo.setForeground(new java.awt.Color(0, 0, 0));
+        lbCargo.setText("Nivel usuario");
+        panelRound1.add(lbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 120, -1));
 
         panelR2.setBackground(new java.awt.Color(255, 255, 255));
         panelR2.setRoundBottomLeft(50);
@@ -245,9 +250,47 @@ public class crearTok extends javax.swing.JPanel {
                 btnTokActionPerformed(evt);
             }
         });
-        panelRound1.add(btnTok, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 350, 150, 40));
+        panelRound1.add(btnTok, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, 150, 50));
 
-        PCont.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 1260, 580));
+        btnDelT.setForeground(new java.awt.Color(255, 255, 255));
+        btnDelT.setText("Eliminar tokens");
+        btnDelT.setColor1(new java.awt.Color(255, 102, 102));
+        btnDelT.setColor2(new java.awt.Color(255, 102, 102));
+        btnDelT.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
+        btnDelT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDelTActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PContLayout = new javax.swing.GroupLayout(PCont);
+        PCont.setLayout(PContLayout);
+        PContLayout.setHorizontalGroup(
+            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(360, 360, 360)
+                .addComponent(jLabel5)
+                .addGap(380, 380, 380)
+                .addComponent(btnDelT, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 1260, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        PContLayout.setVerticalGroup(
+            PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PContLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(PContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PContLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel5))
+                    .addComponent(btnDelT, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
+                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -344,6 +387,7 @@ public class crearTok extends javax.swing.JPanel {
 
             String token = GenerC(10);
             //VERIFICAR SI SE ENVIA
+
             if (Em(txtCorreo.getText(), token)) {
                 //MENSAJE
                 CódigoErrorDSI11 obj = new CódigoErrorDSI11();
@@ -356,15 +400,27 @@ public class crearTok extends javax.swing.JPanel {
                 GlassPanePopup.showPopup(obj);
                 //REGISTRO
                 ctPreRegistro ct = new ctPreRegistro();
-                ct.idNivelUs = dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
+
                 ct.dui = txtDui.getText();
                 ct.token = token;
+                if (idTipoUs == 2) {//SI ENTRA COMO RECEPCIONISTA SOLO VA A PODER CREAR CLIENTES
+                    ct.idNivelUs = 3;
+                } else {
+                    ct.idNivelUs = dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
+                }
                 if (dsg.getMap(cbMap, cbCargo.getSelectedItem().toString()) == 5) {
                     ct.idDoc = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
                 } else {
                     ct.idDoc = 0;
                 }
                 ct.insertT();
+
+                try {
+                    CRUDusuarios subp = new CRUDusuarios(idTipoUs);
+                    dsg.ShowPanel(subp, PCont, 1320, 810);
+                } catch (SQLException ex) {
+                    Logger.getLogger(crearTok.class.getName()).log(Level.SEVERE, null, ex);
+                }
 
             } else {
                 //MENSAJE DE QUE NO SE PUDO ENVIAR CORREO
@@ -461,6 +517,26 @@ public class crearTok extends javax.swing.JPanel {
     private void txtBusq1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusq1KeyReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBusq1KeyReleased
+
+    private void btnDelTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelTActionPerformed
+        UIManager.put("OptionPane.messageDialogTitle", "Confirmación");
+        int opcion = JOptionPane.showOptionDialog(
+                null,
+                "¿Desea eliminar todos los tokens?",
+                "Advertencia",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.WARNING_MESSAGE,
+                null,
+                new Object[]{"Sí", "No"},
+                "No");
+
+        if (opcion == JOptionPane.YES_OPTION) {
+            ctPreRegistro ct = new ctPreRegistro();
+            ct.delAllT();
+        } else if (opcion == JOptionPane.NO_OPTION) {
+
+        }
+    }//GEN-LAST:event_btnDelTActionPerformed
     public boolean Em(String txt, String clave) {
         try {
             Properties props = new Properties();
@@ -691,11 +767,11 @@ public class crearTok extends javax.swing.JPanel {
             return true;
 
         } catch (AddressException e) {
-            JOptionPane.showMessageDialog(null, e.toString());
+
             System.out.println(e.toString());
             return false;
         } catch (MessagingException e) {
-            JOptionPane.showMessageDialog(null, e.toString());
+
             System.out.println(e.toString());
             return false;
         }
@@ -704,13 +780,14 @@ public class crearTok extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PCont;
     private javax.swing.JButton btnBack;
+    private Design.ButtonGradient btnDelT;
     private Design.ButtonGradient btnTok;
     private Design.Combobox cbCargo;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lbCargo;
     private javax.swing.JLabel lbDoc;
     private javax.swing.JLabel lbDoc1;
     private javax.swing.JLabel lbDui;
