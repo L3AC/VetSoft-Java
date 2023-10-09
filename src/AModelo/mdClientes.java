@@ -3,6 +3,7 @@ package AModelo;
 import Mensajes.CódigoDeErrorDLI2;
 import Mensajes.CódigoErrorDAM1;
 import Mensajes.CódigoErrorDSI1;
+import Mensajes.CódigoErrorDSI2;
 import Mensajes.CódigoErrorDSI3;
 import Mensajes.GlassPanePopup;
 import java.awt.event.ActionEvent;
@@ -132,7 +133,7 @@ ps.setString(2, "%" + apellido + "%"); // Configurar el segundo parámetro
             ps.setString(6, sexo);
             ps.setString(7, direccion);
             ps.executeUpdate();
-            CódigoErrorDAM1 obj = new CódigoErrorDAM1();
+             CódigoErrorDSI2 obj = new CódigoErrorDSI2();
             obj.eventOK(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {

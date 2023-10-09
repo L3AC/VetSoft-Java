@@ -57,18 +57,18 @@ public class insertUs extends javax.swing.JPanel {
         txtCorreo.setDocument(new Valida(50, "[a-zA-Z0-9@._]*"));
         txtContra.setDocument(new Valida(20, "[a-zA-Z0-9]*"));
         txtTel.setDocument(new Valida(10, "[0-9]*"));
-        loadCombo(cbCargo);
+        //loadCombo(cbCargo);
         lbDisp.setVisible(false);
-        cbCargo.setSelectedIndex(0);
+        //cbCargo.setSelectedIndex(0);
         lbMin.setVisible(false);
         lbMin1.setVisible(false);
         lbMin2.setVisible(false);
         lbFalso.setVisible(false);
-        if (idTipoUs == 2) {
-            lbCargo.setVisible(false);
-            cbCargo.setVisible(false);
 
-        }
+        //if (idTipoUs == 2) {
+        lbCargo.setVisible(false);
+        cbCargo.setVisible(false);
+        //}
 
     }
 
@@ -337,12 +337,7 @@ public class insertUs extends javax.swing.JPanel {
             lista.add(txtTel);
 
             ctUser ctUs = new ctUser();
-            if (idTipoUs == 1) {
-                ctUs.idTipoCuenta = dsg.getMap(cbMap, cbCargo.getSelectedItem().toString());
-            }
-            if (idTipoUs == 2) {
-                ctUs.idTipoCuenta = 3;
-            }
+            ctUs.idTipoCuenta = 3;
             ctUs.usuario = txtUsuario.getText();
             try {
                 ctUs.contra = cryp.encrypt(txtContra.getText(), "key");

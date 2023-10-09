@@ -55,13 +55,16 @@ public class CRUDusuarios extends javax.swing.JPanel {
         btnAddCuenta.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 14));
 
         btnAddCuenta.setVisible(false);
-        btnInsert.setVisible(false);
-        /*if (tbData.getRowCount() > 0) {
+        //btnInsert.setVisible(false);
+
+        if (tbData.getRowCount() > 0) {
             verifPerfil();
-        }*/
-        if(idTipoUs!=1&&idTipoUs!=2){//SI ES ADMIN O RECEPCIONISTA
+        }
+
+        if (idTipoUs != 1 && idTipoUs != 2) {//SI ES ADMIN O RECEPCIONISTA
             btnTok.setVisible(false);
         }
+
         txtBusq.setDocument(new Valida(100, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
     }
 
@@ -138,7 +141,7 @@ public class CRUDusuarios extends javax.swing.JPanel {
         });
 
         btnAddCuenta.setForeground(new java.awt.Color(0, 0, 0));
-        btnAddCuenta.setText("Crear Cuenta");
+        btnAddCuenta.setText("Crear Cliente");
         btnAddCuenta.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnAddCuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,7 +150,7 @@ public class CRUDusuarios extends javax.swing.JPanel {
         });
 
         btnInsert.setForeground(new java.awt.Color(0, 0, 0));
-        btnInsert.setText("Crear Usuario");
+        btnInsert.setText("Usuario Cliente");
         btnInsert.setFont(new java.awt.Font("Comfortaa Regular", 0, 14)); // NOI18N
         btnInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -279,9 +282,9 @@ public class CRUDusuarios extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tbDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDataMouseClicked
-        /*if (tbData.getRowCount() > 0) {
+        if (tbData.getRowCount() > 0) {
             verifPerfil();
-        }*/
+        }
     }//GEN-LAST:event_tbDataMouseClicked
 
     private void btnAddCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCuentaActionPerformed
@@ -412,7 +415,7 @@ public class CRUDusuarios extends javax.swing.JPanel {
         idUsRow = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 0).toString());
         nivelRow = Integer.parseInt(tbData.getValueAt(tbData.getSelectedRow(), 1).toString());
 
-        if (nivelRow == 2 || nivelRow == 3 || nivelRow == 4) {
+        if (nivelRow == 3) {
             btnAddCuenta.setVisible(true);
             ct.idUs = idUsRow;
             ct.idTipoCuenta = nivelRow;

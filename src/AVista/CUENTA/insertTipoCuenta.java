@@ -50,12 +50,12 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         txtDui.setDocument(new Valida(9, "[0-9]*"));
         txtApellidos.setDocument(new Valida(50, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         txtDir.setDocument(new Valida(300, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ,.]*"));
-        if (idTipoUs == 1) {
-            if (nivelRow != 4) {
+        /*if (idTipoUs == 1) {
+           if (nivelRow != 4) {
                 lbEsp.setVisible(false);
                 cbEsp.setVisible(false);
 
-            } else {
+          } else {
                 loadCombo(cbEsp);
                 cbEsp.setSelectedIndex(0);
             }
@@ -71,8 +71,9 @@ public class insertTipoCuenta extends javax.swing.JPanel {
         if (idTipoUs == 2) {
             lbEsp.setVisible(false);
             cbEsp.setVisible(false);
-        }
-
+        }*/
+        lbEsp.setVisible(false);
+        cbEsp.setVisible(false);
         Calendar fechaActual = Calendar.getInstance();
         fechaActual.add(Calendar.YEAR, -18);
         dpNaci.setMaxSelectableDate(fechaActual.getTime());
@@ -386,7 +387,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
 
         if (nivelRow == 3) {//ES CLIENTE
             if (txtNombre.getText().isEmpty() || txtApellidos.getText().isEmpty()
-                    || txtDui.getText().isEmpty() || txtDir.getText().isEmpty()||dpNaci.getDate()==null) {
+                    || txtDui.getText().isEmpty() || txtDir.getText().isEmpty() || dpNaci.getDate() == null) {
                 CódigoErrorDSI5 obj = new CódigoErrorDSI5();
                 obj.eventOK(new ActionListener() {
                     @Override
@@ -414,10 +415,10 @@ public class insertTipoCuenta extends javax.swing.JPanel {
                     }
                 }
             }
-        } else {
+        } /*else {
             //ES DOCTOR O RECEPCIONISTA
             if (txtNombre.getText().isEmpty() || txtApellidos.getText().isEmpty()
-                    || txtDui.getText().isEmpty()||dpNaci.getDate()==null) {
+                    || txtDui.getText().isEmpty() || dpNaci.getDate() == null) {
 
                 CódigoErrorDSI5 obj = new CódigoErrorDSI5();
                 obj.eventOK(new ActionListener() {
@@ -465,7 +466,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
                     }
                 }
             }
-        }
+        }*/
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
@@ -489,7 +490,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
 
     private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
         // TODO add your handling code here:
-        if (txtNombre.getText().length() >= 5 && txtApellidos.getText().length() >= 5 && txtDui.getText().length() >= 10 && txtDir.getText().length() >= 10 && dpNaci.getDate()==null) {
+        if (txtNombre.getText().length() >= 5 && txtApellidos.getText().length() >= 5 && txtDui.getText().length() >= 10 && txtDir.getText().length() >= 10 && dpNaci.getDate() == null) {
             lbMin.setVisible(false);
             btnConfirm.setEnabled(true);
         } else {
@@ -505,7 +506,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
 
     private void txtApellidosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidosKeyReleased
         // TODO add your handling code here:
-        if (txtApellidos.getText().length() >= 5 && txtNombre.getText().length() >= 5 && txtDui.getText().length() >= 10 && txtDir.getText().length() >= 10 && dpNaci.getDate()==null) {
+        if (txtApellidos.getText().length() >= 5 && txtNombre.getText().length() >= 5 && txtDui.getText().length() >= 10 && txtDir.getText().length() >= 10 && dpNaci.getDate() == null) {
             lbMin1.setVisible(false);
             btnConfirm.setEnabled(true);
         } else {
@@ -521,7 +522,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
 
     private void txtDuiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDuiKeyReleased
         // TODO add your handling code here:
-        if (txtDui.getText().length() >= 10 && txtNombre.getText().length() >= 5 && txtApellidos.getText().length() >= 5 && txtDir.getText().length() >= 10 && dpNaci.getDate()==null) {
+        if (txtDui.getText().length() >= 10 && txtNombre.getText().length() >= 5 && txtApellidos.getText().length() >= 5 && txtDir.getText().length() >= 10 && dpNaci.getDate() == null) {
             lbMin2.setVisible(false);
             btnConfirm.setEnabled(true);
         } else {
@@ -537,7 +538,7 @@ public class insertTipoCuenta extends javax.swing.JPanel {
 
     private void txtDirKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDirKeyReleased
         // TODO add your handling code here:
-        if (txtDir.getText().length() >= 10 && txtNombre.getText().length() >= 5 && txtApellidos.getText().length() >= 5 && txtDui.getText().length() >= 10 && dpNaci.getDate()==null) {
+        if (txtDir.getText().length() >= 10 && txtNombre.getText().length() >= 5 && txtApellidos.getText().length() >= 5 && txtDui.getText().length() >= 10 && dpNaci.getDate() == null) {
             lbMin3.setVisible(false);
             btnConfirm.setEnabled(true);
         } else {
