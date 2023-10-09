@@ -47,6 +47,9 @@ public class CódigoDSI10 extends javax.swing.JPanel {
         txt = new javax.swing.JLabel();
         cmdOk = new Mensajes.Boton();
 
+        setBackground(new Color(255,255,255,0));
+        setForeground(new Color(255,255,255,0));
+
         jPanel3.setBackground(new Color(255,255,255,0));
         jPanel3.setForeground(new Color(255,255,255,0));
 
