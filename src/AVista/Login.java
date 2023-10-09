@@ -24,6 +24,7 @@ import Mensajes.CodigoErrorDRC2;
 import Mensajes.CodigoErrorLI4;
 import Mensajes.CodigodeerrorDLI1;
 import Mensajes.GlassPanePopup;
+import Mensajes.MensajeToken;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -286,6 +287,14 @@ public class Login extends javax.swing.JFrame {
         verifToken newFrame = new verifToken();
         newFrame.setVisible(true);
         this.dispose();
+        MensajeToken obj = new MensajeToken();
+                    obj.eventOK(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent ae) {
+                            GlassPanePopup.closePopupLast();
+                        }
+                    });
+                    GlassPanePopup.showPopup(obj);
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void txtUserKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyPressed

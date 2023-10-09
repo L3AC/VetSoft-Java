@@ -5,6 +5,7 @@ import AControlador.ctPreRegistro;
 import AControlador.ctTipoUs;
 import AControlador.ctUser;
 import Design.Desg;
+import Mensajes.CodigoErrorDRC2;
 import Mensajes.CódigoErrorDSI11;
 import Mensajes.CódigoErrorDSI5;
 import Mensajes.GlassPanePopup;
@@ -366,8 +367,15 @@ public class crearTok extends javax.swing.JPanel {
 
             } else {
                 //MENSAJE DE QUE NO SE PUDO ENVIAR CORREO
+                CodigoErrorDRC2 obj = new CodigoErrorDRC2();
+                obj.eventOK(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        GlassPanePopup.closePopupLast();
+                    }
+                });
+                GlassPanePopup.showPopup(obj);
             }
-
         }
 
     }//GEN-LAST:event_btnTokActionPerformed

@@ -205,7 +205,7 @@ public class Registro extends javax.swing.JFrame {
                 btnRegistrarActionPerformed(evt);
             }
         });
-        panelRound2.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 340, 160, 50));
+        panelRound2.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 400, 170, 40));
 
         lbMinCor.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbMinCor.setForeground(new java.awt.Color(0, 0, 0));
