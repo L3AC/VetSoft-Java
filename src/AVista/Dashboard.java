@@ -299,7 +299,7 @@ public class Dashboard extends javax.swing.JFrame {
 
                     }
                     //GESTION PRINCIPAL
-                    if (index == 1 && indexSubMenu == 1) {//CLIENTES
+                    if (index == 1 && indexSubMenu == 1) {//CLIENTES 
                         CRUDCliente subp = new CRUDCliente(idTipoU);
                         dsg.ShowPanel(subp, PCont, 1320, 810);
 
