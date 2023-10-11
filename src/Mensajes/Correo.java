@@ -86,7 +86,7 @@ public class Correo extends javax.swing.JPanel {
 
         txt.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         txt.setForeground(new java.awt.Color(133, 133, 133));
-        txt.setText("“Correo electrónico no encontrado, no se logro enviar el token\"");
+        txt.setText("“Correo electrónico no encontrado, no se logró enviar el token\"");
         panelRound3.add(txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 520, -1));
 
         cmdOk.setBackground(new java.awt.Color(95, 171, 211));
