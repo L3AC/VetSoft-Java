@@ -9,7 +9,7 @@ import com.twilio.type.PhoneNumber;
 
 public class sendSMS {
     public static final String ACCOUNT_SID = "ACfb0b56fe70356e0a7d5445a49cbb233b";
-    public static final String AUTH_TOKEN = "77bb0b84e1bb359f04054d7ad2238c23";
+    public static final String AUTH_TOKEN = "03126a767990a900e5b9b9383b0919fa";
     public static final String TWILIO_PHONE_NUMBER = "+16067140725";
 
     public void send(String tel,String code) {
