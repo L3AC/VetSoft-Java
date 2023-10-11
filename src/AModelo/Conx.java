@@ -17,7 +17,7 @@ import java.sql.SQLException;
 public class Conx {
     public static Connection Conectar(){
         String cadena = "jdbc:sqlserver://localhost:1433;"
-            + "databaseName=VetSoft;"
+            + "databaseName=VetSoft2;"
             + "user=userSQL;"
             + "password=pasf2;"
             + "encrypt=false;"

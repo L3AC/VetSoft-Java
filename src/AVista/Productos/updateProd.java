@@ -76,7 +76,6 @@ public class updateProd extends javax.swing.JPanel {
         }
     }
 
-
     final void loadData() {
         try {
             ctProd ct = new ctProd();
@@ -364,6 +363,12 @@ public class updateProd extends javax.swing.JPanel {
                 ct.precio = Float.parseFloat(txtPrecio.getText());
                 ct.image = bytesImagen;
                 ct.upProd();
+                try {
+                    CRUDProd subp = new CRUDProd(idTipoUs);
+                    dsg.ShowPanel(subp, PCont, 1320, 810);
+                } catch (SQLException ex) {
+                    Logger.getLogger(updateProd.class.getName()).log(Level.SEVERE, null, ex);
+                }
             } else {
                 CódigoErrorDSI5 obj = new CódigoErrorDSI5();
                 obj.eventOK(new ActionListener() {
@@ -394,10 +399,9 @@ public class updateProd extends javax.swing.JPanel {
 
     private void lbImgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbImgMouseClicked
 
-        if (bytesImagen==null) {
-            
-        }
-        else{
+        if (bytesImagen == null) {
+
+        } else {
             Foto subp = new Foto(idTipoUs, idProd, bytesImagen, 1);
             dsg.ShowPanel(subp, PCont, 1320, 810);
         }

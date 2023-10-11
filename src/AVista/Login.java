@@ -61,8 +61,8 @@ public class Login extends javax.swing.JFrame {
         PassL.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 22));
 
         /*Este apartado validamos los Jtexfield que no se escriban números o letras con un maximo de digitos*/
-        txtUser.setDocument(new Valida(30, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
-        txtPass.setDocument(new Valida(30, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
+        txtUser.setDocument(new Valida(30, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´]*"));
+        txtPass.setDocument(new Valida(30, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´]*"));
 
         setLocationRelativeTo(null);
         String iconPath = "src/Imagenes/logoC.png";
@@ -331,13 +331,16 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtOlvidasteContraMouseClicked
 
     private void txtUserKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyReleased
-        //vali.minL(txtUser, btnIngresar, 5);
-
 
     }//GEN-LAST:event_txtUserKeyReleased
 
     private void txtPassKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassKeyReleased
-        //vali.minL(txtPass, btnIngresar, 5);
+        /*try {
+            //vali.minL(txtPass, btnIngresar, 5);
+            System.err.print(cryp.encrypt(txtPass.getText(), "key")+" ");
+        } catch (Exception ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
     }//GEN-LAST:event_txtPassKeyReleased
 
     private void btnLookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLookActionPerformed

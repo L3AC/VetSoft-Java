@@ -319,6 +319,12 @@ public class insertProd extends javax.swing.JPanel {
                 ct.precio = Float.parseFloat(txtPrecio.getText());
                 ct.image = bytesImagen;
                 ct.insProd();
+                try {
+                    CRUDProd subp = new CRUDProd(idTipoUs);
+                    dsg.ShowPanel(subp, PCont, 1320, 810);
+                } catch (SQLException ex) {
+                    Logger.getLogger(updateProd.class.getName()).log(Level.SEVERE, null, ex);
+                }
             } else {
                 CódigoErrorDSI5 obj = new CódigoErrorDSI5();
                 obj.eventOK(new ActionListener() {

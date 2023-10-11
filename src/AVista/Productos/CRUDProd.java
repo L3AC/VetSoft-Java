@@ -301,23 +301,13 @@ public class CRUDProd extends javax.swing.JPanel {
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        if (tbData.getRowCount() > 0) {
+
             try {
                 insertProd subp = new insertProd(idTipoUs);
                 dsg.ShowPanel(subp, PCont, 1320, 810);
             } catch (SQLException ex) {
                 Logger.getLogger(CRUDProd.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else {
-            CódigoError obj = new CódigoError();
-            obj.eventOK(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent ae) {
-                    GlassPanePopup.closePopupLast();
-                }
-            });
-            GlassPanePopup.showPopup(obj);
-        }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
 
