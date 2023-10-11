@@ -75,14 +75,6 @@ public class mdPreguntas {
             ps.setString(2, resp);
             ps.setInt(3, idUs);
             ps.executeUpdate();
-            Campos obj = new Campos();
-            obj.eventOK(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent ae) {
-                    GlassPanePopup.closePopupLast();
-                }
-            });
-            GlassPanePopup.showPopup(obj);
             return true;
 
         } catch (SQLException e) {
