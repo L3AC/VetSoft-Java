@@ -53,7 +53,7 @@ public class enviarSMS extends javax.swing.JFrame {
         lbMin.setVisible(false);
 
         /*Este apartado validamos los Jtexfield que no se escriban números o letras con un maximo de digitos*/
-        txtUser.setDocument(new Valida(30, "[a-zA-Z]*"));
+        txtUser.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
         txtCod.setDocument(new Valida(20, "[a-zA-Z0-9]*"));
         txtNueva.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
         txtNueva2.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
