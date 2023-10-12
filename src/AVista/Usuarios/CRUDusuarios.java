@@ -61,7 +61,7 @@ public class CRUDusuarios extends javax.swing.JPanel {
             verifPerfil();
         }
 
-        if (idTipoUs != 1 && idTipoUs != 2) {//SI ES ADMIN O RECEPCIONISTA
+        if (idTipoUs != 1 /*&& idTipoUs != 2*/) {//SI ES ADMIN O RECEPCIONISTA
             btnTok.setVisible(false);
         }
 

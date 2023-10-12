@@ -287,20 +287,11 @@ public class CRUDExam extends javax.swing.JPanel {
     }//GEN-LAST:event_btnElimActionPerformed
 //Esto nos ayudara a llevarnos al crud de agregar un nuevo examen 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        if (tbData.getRowCount() > 0) {
+        
             insertExam subp = new insertExam(idAnim, idTipoUs);
             dsg.ShowPanel(subp, PCont, 1320, 810);
 
-        } else {
-            CódigoError obj = new CódigoError();
-            obj.eventOK(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent ae) {
-                    GlassPanePopup.closePopupLast();
-                }
-            });
-            GlassPanePopup.showPopup(obj);
-        }
+        
 
     }//GEN-LAST:event_btnAgregarActionPerformed
 
