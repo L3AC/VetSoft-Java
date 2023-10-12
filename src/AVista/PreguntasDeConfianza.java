@@ -52,10 +52,10 @@ public class PreguntasDeConfianza extends javax.swing.JFrame {
         btnEnviar.setEnabled(false);
         
         /*Este apartado validamos los Jtexfield que no se escriban números o letras con un maximo de digitos*/
-        txtUser.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
-        txtPregunta1.setDocument(new Valida(30, "[a-zA-Z0-9 ]*"));
-        txtPregunta2.setDocument(new Valida(30, "[a-zA-Z0-9 ]*"));
-        txtPregunta3.setDocument(new Valida(30, "[a-zA-Z0-9 ]*"));
+        txtUser.setDocument(new Valida(30, "[a-zA-Z0-9ZáéíóúÁÉÍÓÚñÑüÜ]*"));
+        txtPregunta1.setDocument(new Valida(30, "[a-zA-Z0-9ZáéíóúÁÉÍÓÚñÑüÜ]*"));
+        txtPregunta2.setDocument(new Valida(30, "[a-zA-Z0-9ZáéíóúÁÉÍÓÚñÑüÜ]*"));
+        txtPregunta3.setDocument(new Valida(30, "[a-zA-Z0-9ZáéíóúÁÉÍÓÚñÑüÜ]*"));
         
         
         setLocationRelativeTo(null);

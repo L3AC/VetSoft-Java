@@ -68,7 +68,7 @@ public class Login extends javax.swing.JFrame {
         String iconPath = "src/Imagenes/logoC.png";
         ImageIcon icon = new ImageIcon(iconPath);
         setIconImage(icon.getImage());
-        dsg.setImageBtn(btnLook, "C:\\VetSoft-Java\\VetSoft-Java\\src\\Imagenes\\eye.png", 40, 40);
+        dsg.setImageBtn(btnLook, "src\\\\Imagenes\\\\eye.png", 40, 40);
         txtPass.setEchoChar('●');
 
     }

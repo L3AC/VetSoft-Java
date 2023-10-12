@@ -71,9 +71,9 @@ public class Registro extends javax.swing.JFrame {
         GlassPanePopup.install(this);
 
         /*Este apartado de validar los Jtexfield*/
-        txtUsuario.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
+        txtUsuario.setDocument(new Valida(30, "[a-zA-Z0-9ZáéíóúÁÉÍÓÚñÑüÜ]*"));
         txtTel.setDocument(new Valida(8, "[0-9]*"));
-        txtContra.setDocument(new Valida(30, "[a-zA-Z0-9]*"));
+        txtContra.setDocument(new Valida(30, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ]*"));
         txtCorreo.setDocument(new Valida(50, "[a-zA-Z0-9@._]*"));
         txtDui.setDocument(new Valida(10, "[0-9-]*"));
         txtApellidos.setDocument(new Valida(50, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
