@@ -74,7 +74,7 @@ public class Registro extends javax.swing.JFrame {
         txtUsuario.setDocument(new Valida(30, "[a-zA-Z0-9ZáéíóúÁÉÍÓÚñÑüÜ]*"));
         txtTel.setDocument(new Valida(8, "[0-9]*"));
         txtContra.setDocument(new Valida(30, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ]*"));
-        txtCorreo.setDocument(new Valida(50, "[a-zA-Z0-9@._]*"));
+        txtCorreo.setDocument(new Valida(50, "[a-zA-Z0-9@._ZáéíóúÁÉÍÓÚñÑüÜ]*"));
         txtDui.setDocument(new Valida(10, "[0-9-]*"));
         txtApellidos.setDocument(new Valida(50, "[a-zA-Z-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
         setLocationRelativeTo(null);
