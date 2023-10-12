@@ -53,9 +53,9 @@ public class insertUs extends javax.swing.JPanel {
         txtContra.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 15));
         lbCargo.setFont(tipoFuente.fuente(tipoFuente.COM, 0, 17));
 
-        txtUsuario.setDocument(new Valida(20, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´ ]*"));
+        txtUsuario.setDocument(new Valida(20, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´]*"));
         txtCorreo.setDocument(new Valida(50, "[a-zA-Z0-9@._]*"));
-        txtContra.setDocument(new Valida(20, "[a-zA-Z0-9]*"));
+        txtContra.setDocument(new Valida(20, "[a-zA-Z0-9-ZáéíóúÁÉÍÓÚñÑüÜ´]*"));
         txtTel.setDocument(new Valida(10, "[0-9]*"));
         //loadCombo(cbCargo);
         lbDisp.setVisible(false);
