@@ -164,10 +164,10 @@ public class Dashboard extends javax.swing.JFrame {
                         CRUDnivels subp = new CRUDnivels();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
                     }
-                    if (index == 4 && indexSubMenu == 8) {
+                    /*if (index == 4 && indexSubMenu == 8) {
                         CRUDPregN subp = new CRUDPregN();
                         dsg.ShowPanel(subp, PCont, 1320, 810);
-                    }
+                    }*/
                     //CUENTA
                     if (index == 5 && indexSubMenu == 1) {
                         PerfilData subp = new PerfilData(idTipoU, idCuenta, idUs);

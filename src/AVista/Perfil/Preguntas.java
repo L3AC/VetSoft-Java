@@ -137,7 +137,7 @@ public class Preguntas extends javax.swing.JPanel {
 
         lbPreg3.setFont(new java.awt.Font("Cascadia Code", 0, 18)); // NOI18N
         lbPreg3.setForeground(new java.awt.Color(0, 0, 0));
-        lbPreg3.setText("¿Cuál es tu película favorita?");
+        lbPreg3.setText("¿Cuál es tu comida favorita?");
         panelRound1.add(lbPreg3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, -1, -1));
 
         txtResp3.setBackground(new java.awt.Color(190, 233, 232));
